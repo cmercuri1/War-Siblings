@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import common_classes.Ability;
 import common_classes.Attribute;
 
+/** Weapon Class */
 public class Weapon extends AbilityItem {
 	protected Attribute minDam;
 	protected Attribute maxDam;
@@ -62,7 +63,7 @@ public class Weapon extends AbilityItem {
 		}
 		System.out.println("");
 	}
-	
+
 	public boolean isTwoHanded() {
 		return (this.numHands == 2);
 	}

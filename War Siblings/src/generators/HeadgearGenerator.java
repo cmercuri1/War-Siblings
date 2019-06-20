@@ -9,6 +9,7 @@ import org.json.simple.parser.JSONParser;
 
 import items.Headgear;
 
+/** A class for generating all the Headgears */
 public class HeadgearGenerator {
 	public ArrayList<Headgear> helmList;
 
@@ -23,7 +24,7 @@ public class HeadgearGenerator {
 		JSONArray list;
 
 		try {
-			JSONObject jsonObject = (JSONObject) parser.parse(new FileReader("Weapon&ArmorData.json"));
+			JSONObject jsonObject = (JSONObject) parser.parse(new FileReader("RegularGearData.json"));
 			jsonObject = (JSONObject) jsonObject.get("Armor");
 			list = (JSONArray) jsonObject.get("Headgear");
 
@@ -38,7 +39,8 @@ public class HeadgearGenerator {
 
 	private void addHelm(JSONObject o) {
 		this.helmList.add(new Headgear((String) o.get("Name"), (Long) o.get("Value"), (String) o.get("Description"),
-				(Long) o.get("Durability"), (Long) o.get("Maximum Fatigue"), (String) o.get("Armor Type"), (Long) o.get("Vision")));
+				(Long) o.get("Durability"), (Long) o.get("Maximum Fatigue"), (String) o.get("Armor Type"),
+				(Long) o.get("Vision")));
 	}
 
 	public Headgear getHeadArmor(String name) {

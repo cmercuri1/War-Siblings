@@ -25,7 +25,7 @@ public class WeaponGenerator {
 		JSONArray list;
 
 		try {
-			JSONObject jsonObject = (JSONObject) parser.parse(new FileReader("Weapon&ArmorData.json"));
+			JSONObject jsonObject = (JSONObject) parser.parse(new FileReader("RegularGearData.json"));
 			jsonObject = (JSONObject) jsonObject.get("Weapon");
 			list = (JSONArray) jsonObject.get("Weapons List");
 
@@ -50,7 +50,7 @@ public class WeaponGenerator {
 		temp = (JSONArray) o.get("Ability List");
 		ArrayList<Ability> temp3 = new ArrayList<Ability>();
 		for (Object ob : temp) {
-			temp3.add(new Ability((String) ob));
+			temp3.add(new Ability((String) ob, null));
 		}
 
 		this.weaponList.add(new Weapon((String) o.get("Name"), (Long) o.get("Value"), (String) o.get("Description"),

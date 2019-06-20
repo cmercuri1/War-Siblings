@@ -80,9 +80,10 @@
 		]
 	},
 	"Shield": {
+		
 	},
 	"Weapon": {
-		"1H Melee": [
+		"WeaponList": [
 			{
 				"Name": "Obsidian Dagger",
 				"Value": 5000,
@@ -94,10 +95,12 @@
 				"Maximum Fatigue": 0,
 				"Description": "A hermit witch gave you this stone dagger after tempering it with your blood. Reflections in its glass seem to move on their own, but this is clearly a trick of the eye. Very curiously, however, blood never seems to dry if it rests upon the obsidian.",
 				"Range": 1,
+				"Ammunition": 0,
 				"Bonus Skill Fatigue": 0,
 				"Bonus Hit Chance": 0,
 				"Bonus Headshot": 0,
 				"Shield Damage": 0,
+				"Number of Hands required": 1,
 				"Weapon Type": [
 					"Dagger"
 				],
@@ -117,10 +120,12 @@
 				"Maximum Fatigue": -8,
 				"Description": "The crepuscular sword bends purples and oranges until it seemingly carries twilight itself in its fuller. Held to the touch, one cannot tell if they are being burned or chilled. Magic or well-crafted, whatever the weapon is it vibrates as though it were fighting off power immense and and you need only swing it to find the steel's true charge.",
 				"Range": 1,
+				"Ammunition": 0,
 				"Bonus Skill Fatigue": 0,
 				"Bonus Hit Chance": 0,
 				"Bonus Headshot": 0,
 				"Shield Damage": 0,
+				"Number of Hands required": 1,
 				"Weapon Type": [
 					"Sword"
 				],
@@ -129,12 +134,6 @@
 					"Riposte"
 				]
 			}
-		],
-		"2H Melee": [
-		],
-		"Throwing": [
-		],
-		"Ranged": [
 		]
 	}
 }

@@ -9,6 +9,7 @@ import org.json.simple.parser.JSONParser;
 
 import items.Armor;
 
+/** A class for generating all the Body Armors */
 public class BodyArmorGenerator {
 	public ArrayList<Armor> armorList;
 
@@ -23,7 +24,7 @@ public class BodyArmorGenerator {
 		JSONArray list;
 
 		try {
-			JSONObject jsonObject = (JSONObject) parser.parse(new FileReader("Weapon&ArmorData.json"));
+			JSONObject jsonObject = (JSONObject) parser.parse(new FileReader("RegularGearData.json"));
 			jsonObject = (JSONObject) jsonObject.get("Armor");
 			list = (JSONArray) jsonObject.get("Body Armor");
 

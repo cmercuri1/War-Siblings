@@ -37,7 +37,7 @@ public class Character {
 		this.abm = new AbilityManager();
 		this.mm = new MoraleManager();
 
-		this.abm.addAbility(new Ability(bg.ability));
+		this.abm.addAbility(new Ability(bg.ability, null));
 	}
 
 	public AttributeManager getAm() {

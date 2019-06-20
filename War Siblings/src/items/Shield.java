@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import common_classes.Ability;
 import common_classes.Attribute;
 
+/** Shield Class */
 public class Shield extends AbilityItem {
 	protected Attribute meleeDef;
 	protected Attribute rangedDef;
@@ -15,7 +16,7 @@ public class Shield extends AbilityItem {
 		this.meleeDef = new Attribute(mDef);
 		this.rangedDef = new Attribute(rDef);
 	}
-	
+
 	public void display() {
 		System.out.println(this.name);
 		System.out.println(this.durability.getAlteredCurrentValue() + "/" + this.durability.getAlteredValue());

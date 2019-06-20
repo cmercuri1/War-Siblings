@@ -5,10 +5,17 @@ import java.util.ArrayList;
 public class Ability {
 	protected String name;
 	protected String desc;
-	protected ArrayList<Effect> effects;
+	protected ArrayList<Modifier> effects;
 
-	public Ability(String name) {
+	/** Constructor for when you have all the effects */
+	public Ability(String name, ArrayList<Modifier> effects) {
 		this.name = name;
+		this.effects = effects;
+		this.desc = this.retrieveDesc();
+	}
+
+	private String retrieveDesc() {
+		return null;
 	}
 
 	public String getName() {
