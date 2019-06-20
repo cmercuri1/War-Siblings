@@ -1,0 +1,2341 @@
+{
+	"Background Changes": [
+		{
+			"Name": "Adventurous Noble",
+			"Hitpoints": [
+				0,
+				0
+			],
+			"Fatigue": [
+				0,
+				5
+			],
+			"Resolve": [
+				15,
+				20
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				10,
+				10
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				5,
+				8
+			],
+			"Ranged Defense": [
+				-10,
+				-5
+			],
+			"Starting Level": [
+				0,
+				2
+			],
+			"Base Wage": 25,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Apprentice",
+			"Hitpoints": [
+				0,
+				0
+			],
+			"Fatigue": [
+				0,
+				0
+			],
+			"Resolve": [
+				0,
+				0
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				0,
+				0
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Base Wage": 8,
+			"Background Ability": "+10% XP"
+		},
+		{
+			"Name": "Assassin",
+			"Hitpoints": [
+				-5,
+				-5
+			],
+			"Fatigue": [
+				-5,
+				-5
+			],
+			"Resolve": [
+				10,
+				10
+			],
+			"Initiative": [
+				20,
+				15
+			],
+			"Melee Skill": [
+				12,
+				10
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				5,
+				8
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				3,
+				3
+			],
+			"Base Wage": 20,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Barbarian",
+			"Hitpoints": [
+				10,
+				5
+			],
+			"Fatigue": [
+				10,
+				5
+			],
+			"Resolve": [
+				10,
+				5
+			],
+			"Initiative": [
+				5,
+				10
+			],
+			"Melee Skill": [
+				10,
+				5
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				1,
+				3
+			],
+			"Base Wage": 20,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Bastard",
+			"Hitpoints": [
+				0,
+				0
+			],
+			"Fatigue": [
+				0,
+				0
+			],
+			"Resolve": [
+				-5,
+				-5
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				5,
+				10
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				-5,
+				5
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				2
+			],
+			"Base Wage": 14,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Beast Slayer",
+			"Hitpoints": [
+				0,
+				3
+			],
+			"Fatigue": [
+				5,
+				7
+			],
+			"Resolve": [
+				13,
+				10
+			],
+			"Initiative": [
+				7,
+				5
+			],
+			"Melee Skill": [
+				5,
+				5
+			],
+			"Ranged Skill": [
+				11,
+				7
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				2
+			],
+			"Base Wage": 15,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Beggar",
+			"Hitpoints": [
+				-10,
+				-10
+			],
+			"Fatigue": [
+				-10,
+				-10
+			],
+			"Resolve": [
+				-10,
+				-5
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				0,
+				0
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Base Wage": 3,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Bowyer",
+			"Hitpoints": [
+				0,
+				0
+			],
+			"Fatigue": [
+				-5,
+				0
+			],
+			"Resolve": [
+				-5,
+				0
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				0,
+				0
+			],
+			"Ranged Skill": [
+				10,
+				10
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Base Wage": 8,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Brawler",
+			"Hitpoints": [
+				5,
+				10
+			],
+			"Fatigue": [
+				10,
+				5
+			],
+			"Resolve": [
+				7,
+				5
+			],
+			"Initiative": [
+				5,
+				0
+			],
+			"Melee Skill": [
+				5,
+				0
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Base Wage": 13,
+			"Background Ability": "+100% Unarmed Damage"
+		},
+		{
+			"Name": "Butcher",
+			"Hitpoints": [
+				0,
+				4
+			],
+			"Fatigue": [
+				0,
+				4
+			],
+			"Resolve": [
+				7,
+				5
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				3,
+				2
+			],
+			"Ranged Skill": [
+				-3,
+				0
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Base Wage": 7,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Caravan Hand",
+			"Hitpoints": [
+				3,
+				5
+			],
+			"Fatigue": [
+				5,
+				7
+			],
+			"Resolve": [
+				3,
+				3
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				4,
+				0
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Base Wage": 8,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Cripple",
+			"Hitpoints": [
+				-20,
+				-10
+			],
+			"Fatigue": [
+				-10,
+				0
+			],
+			"Resolve": [
+				0,
+				0
+			],
+			"Initiative": [
+				-25,
+				-10
+			],
+			"Melee Skill": [
+				-5,
+				-5
+			],
+			"Ranged Skill": [
+				-5,
+				0
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Base Wage": 3,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Crusader",
+			"Hitpoints": [
+				10,
+				10
+			],
+			"Fatigue": [
+				10,
+				10
+			],
+			"Resolve": [
+				15,
+				20
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				10,
+				10
+			],
+			"Ranged Skill": [
+				-10,
+				-5
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				-5,
+				0
+			],
+			"Starting Level": [
+				4,
+				5
+			],
+			"Base Wage": 25,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Cultist",
+			"Hitpoints": [
+				-5,
+				5
+			],
+			"Fatigue": [
+				3,
+				3
+			],
+			"Resolve": [
+				15,
+				10
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				0,
+				0
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Base Wage": 6,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Daytaler",
+			"Hitpoints": [
+				0,
+				0
+			],
+			"Fatigue": [
+				0,
+				3
+			],
+			"Resolve": [
+				0,
+				0
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				0,
+				0
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Base Wage": 3,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Deserter",
+			"Hitpoints": [
+				0,
+				0
+			],
+			"Fatigue": [
+				0,
+				0
+			],
+			"Resolve": [
+				-15,
+				-10
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				5,
+				5
+			],
+			"Ranged Skill": [
+				5,
+				0
+			],
+			"Melee Defense": [
+				3,
+				5
+			],
+			"Ranged Defense": [
+				3,
+				5
+			],
+			"Starting Level": [
+				0,
+				1
+			],
+			"Base Wage": 11,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Disowned Noble",
+			"Hitpoints": [
+				0,
+				0
+			],
+			"Fatigue": [
+				-10,
+				-5
+			],
+			"Resolve": [
+				-5,
+				-2
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				8,
+				10
+			],
+			"Ranged Skill": [
+				3,
+				6
+			],
+			"Melee Defense": [
+				0,
+				3
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				2
+			],
+			"Base Wage": 18,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Eunich",
+			"Hitpoints": [
+				0,
+				0
+			],
+			"Fatigue": [
+				0,
+				0
+			],
+			"Resolve": [
+				-5,
+				-5
+			],
+			"Initiative": [
+				-5,
+				-5
+			],
+			"Melee Skill": [
+				0,
+				0
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Base Wage": 6,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Farmhand",
+			"Hitpoints": [
+				12,
+				10
+			],
+			"Fatigue": [
+				10,
+				20
+			],
+			"Resolve": [
+				-2,
+				-3
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				0,
+				0
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Base Wage": 10,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Fisherman",
+			"Hitpoints": [
+				5,
+				0
+			],
+			"Fatigue": [
+				5,
+				5
+			],
+			"Resolve": [
+				5,
+				0
+			],
+			"Initiative": [
+				0,
+				5
+			],
+			"Melee Skill": [
+				0,
+				0
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Base Wage": 7,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Flagellant",
+			"Hitpoints": [
+				-10,
+				-5
+			],
+			"Fatigue": [
+				5,
+				10
+			],
+			"Resolve": [
+				12,
+				12
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				0,
+				0
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Base Wage": 6,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Gambler",
+			"Hitpoints": [
+				-2,
+				-2
+			],
+			"Fatigue": [
+				-6,
+				-5
+			],
+			"Resolve": [
+				12,
+				12
+			],
+			"Initiative": [
+				12,
+				10
+			],
+			"Melee Skill": [
+				0,
+				0
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				0,
+				2
+			],
+			"Ranged Defense": [
+				2,
+				8
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Base Wage": 6,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Gravedigger",
+			"Hitpoints": [
+				0,
+				4
+			],
+			"Fatigue": [
+				5,
+				7
+			],
+			"Resolve": [
+				7,
+				5
+			],
+			"Initiative": [
+				-5,
+				0
+			],
+			"Melee Skill": [
+				0,
+				0
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Base Wage": 5,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Graverobber",
+			"Hitpoints": [
+				0,
+				0
+			],
+			"Fatigue": [
+				5,
+				5
+			],
+			"Resolve": [
+				0,
+				0
+			],
+			"Initiative": [
+				0,
+				4
+			],
+			"Melee Skill": [
+				3,
+				0
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				0,
+				1
+			],
+			"Ranged Defense": [
+				0,
+				1
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Base Wage": 6,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Hedge Knight",
+			"Hitpoints": [
+				12,
+				13
+			],
+			"Fatigue": [
+				15,
+				10
+			],
+			"Resolve": [
+				9,
+				4
+			],
+			"Initiative": [
+				-4,
+				-7
+			],
+			"Melee Skill": [
+				11,
+				10
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				6,
+				5
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				2,
+				4
+			],
+			"Base Wage": 35,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Historian",
+			"Hitpoints": [
+				-2,
+				-5
+			],
+			"Fatigue": [
+				-5,
+				-5
+			],
+			"Resolve": [
+				0,
+				0
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				-5,
+				-5
+			],
+			"Ranged Skill": [
+				-3,
+				-2
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Base Wage": 8,
+			"Background Ability": "+15% XP"
+		},
+		{
+			"Name": "Houndmaster",
+			"Hitpoints": [
+				5,
+				0
+			],
+			"Fatigue": [
+				5,
+				0
+			],
+			"Resolve": [
+				5,
+				5
+			],
+			"Initiative": [
+				5,
+				0
+			],
+			"Melee Skill": [
+				3,
+				5
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Base Wage": 7,
+			"Background Ability": "Confident Wardogs"
+		},
+		{
+			"Name": "Hunter",
+			"Hitpoints": [
+				0,
+				0
+			],
+			"Fatigue": [
+				7,
+				5
+			],
+			"Resolve": [
+				0,
+				5
+			],
+			"Initiative": [
+				0,
+				5
+			],
+			"Melee Skill": [
+				0,
+				0
+			],
+			"Ranged Skill": [
+				20,
+				17
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				3
+			],
+			"Starting Level": [
+				0,
+				1
+			],
+			"Base Wage": 20,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Juggler",
+			"Hitpoints": [
+				-5,
+				-5
+			],
+			"Fatigue": [
+				0,
+				0
+			],
+			"Resolve": [
+				0,
+				0
+			],
+			"Initiative": [
+				12,
+				10
+			],
+			"Melee Skill": [
+				0,
+				0
+			],
+			"Ranged Skill": [
+				3,
+				2
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Base Wage": 7,
+			"Background Ability": "+5% Headshot"
+		},
+		{
+			"Name": "Killer On The Run",
+			"Hitpoints": [
+				0,
+				0
+			],
+			"Fatigue": [
+				0,
+				0
+			],
+			"Resolve": [
+				-5,
+				-5
+			],
+			"Initiative": [
+				0,
+				5
+			],
+			"Melee Skill": [
+				4,
+				0
+			],
+			"Ranged Skill": [
+				2,
+				3
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Base Wage": 6,
+			"Background Ability": "+10% Headshot"
+		},
+		{
+			"Name": "King's Guard",
+			"Hitpoints": [
+				-5,
+				5
+			],
+			"Fatigue": [
+				0,
+				10
+			],
+			"Resolve": [
+				15,
+				15
+			],
+			"Initiative": [
+				-15,
+				0
+			],
+			"Melee Skill": [
+				5,
+				5
+			],
+			"Ranged Skill": [
+				-5,
+				0
+			],
+			"Melee Defense": [
+				5,
+				5
+			],
+			"Ranged Defense": [
+				5,
+				5
+			],
+			"Starting Level": [
+				2,
+				2
+			],
+			"Base Wage": 30,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Lumberjack",
+			"Hitpoints": [
+				10,
+				10
+			],
+			"Fatigue": [
+				10,
+				15
+			],
+			"Resolve": [
+				0,
+				5
+			],
+			"Initiative": [
+				-5,
+				0
+			],
+			"Melee Skill": [
+				5,
+				0
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Base Wage": 13,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Mason",
+			"Hitpoints": [
+				0,
+				0
+			],
+			"Fatigue": [
+				5,
+				5
+			],
+			"Resolve": [
+				0,
+				0
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				0,
+				0
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Base Wage": 0,
+			"Background Ability": "+5% XP"
+		},
+		{
+			"Name": "Messenger",
+			"Hitpoints": [
+				0,
+				0
+			],
+			"Fatigue": [
+				15,
+				10
+			],
+			"Resolve": [
+				5,
+				0
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				0,
+				0
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				0,
+				2
+			],
+			"Ranged Defense": [
+				3,
+				3
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Base Wage": 6,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Militia",
+			"Hitpoints": [
+				0,
+				0
+			],
+			"Fatigue": [
+				3,
+				5
+			],
+			"Resolve": [
+				3,
+				5
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				5,
+				5
+			],
+			"Ranged Skill": [
+				6,
+				5
+			],
+			"Melee Defense": [
+				2,
+				2
+			],
+			"Ranged Defense": [
+				2,
+				2
+			],
+			"Starting Level": [
+				0,
+				1
+			],
+			"Base Wage": 9,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Miller",
+			"Hitpoints": [
+				3,
+				0
+			],
+			"Fatigue": [
+				8,
+				5
+			],
+			"Resolve": [
+				0,
+				0
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				0,
+				0
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Base Wage": 7,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Miner",
+			"Hitpoints": [
+				10,
+				10
+			],
+			"Fatigue": [
+				-10,
+				-10
+			],
+			"Resolve": [
+				5,
+				8
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				5,
+				0
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Base Wage": 6,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Minstel",
+			"Hitpoints": [
+				-5,
+				-3
+			],
+			"Fatigue": [
+				-10,
+				-10
+			],
+			"Resolve": [
+				5,
+				10
+			],
+			"Initiative": [
+				0,
+				5
+			],
+			"Melee Skill": [
+				0,
+				0
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Base Wage": 6,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Monk",
+			"Hitpoints": [
+				0,
+				0
+			],
+			"Fatigue": [
+				-10,
+				0
+			],
+			"Resolve": [
+				11,
+				11
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				-5,
+				-5
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Base Wage": 5,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Orc Slayer",
+			"Hitpoints": [
+				10,
+				10
+			],
+			"Fatigue": [
+				10,
+				10
+			],
+			"Resolve": [
+				15,
+				20
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				10,
+				10
+			],
+			"Ranged Skill": [
+				-10,
+				5
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				-5,
+				0
+			],
+			"Starting Level": [
+				4,
+				5
+			],
+			"Base Wage": 25,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Peddler",
+			"Hitpoints": [
+				0,
+				0
+			],
+			"Fatigue": [
+				0,
+				0
+			],
+			"Resolve": [
+				0,
+				0
+			],
+			"Initiative": [
+				0,
+				7
+			],
+			"Melee Skill": [
+				-10,
+				9
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				2,
+				7
+			],
+			"Ranged Defense": [
+				2,
+				7
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Base Wage": 6,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Pimp",
+			"Hitpoints": [
+				0,
+				0
+			],
+			"Fatigue": [
+				0,
+				0
+			],
+			"Resolve": [
+				5,
+				5
+			],
+			"Initiative": [
+				0,
+				7
+			],
+			"Melee Skill": [
+				-5,
+				-5
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				2,
+				7
+			],
+			"Ranged Defense": [
+				2,
+				7
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Base Wage": 7,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Poacher",
+			"Hitpoints": [
+				0,
+				0
+			],
+			"Fatigue": [
+				3,
+				0
+			],
+			"Resolve": [
+				-5,
+				5
+			],
+			"Initiative": [
+				0,
+				4
+			],
+			"Melee Skill": [
+				2,
+				0
+			],
+			"Ranged Skill": [
+				15,
+				7
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Base Wage": 8,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Raider",
+			"Hitpoints": [
+				0,
+				0
+			],
+			"Fatigue": [
+				2,
+				0
+			],
+			"Resolve": [
+				0,
+				-3
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				12,
+				10
+			],
+			"Ranged Skill": [
+				5,
+				0
+			],
+			"Melee Defense": [
+				6,
+				5
+			],
+			"Ranged Defense": [
+				6,
+				5
+			],
+			"Starting Level": [
+				1,
+				4
+			],
+			"Base Wage": 28,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Ratcatcher",
+			"Hitpoints": [
+				-5,
+				-5
+			],
+			"Fatigue": [
+				0,
+				0
+			],
+			"Resolve": [
+				0,
+				0
+			],
+			"Initiative": [
+				18,
+				15
+			],
+			"Melee Skill": [
+				0,
+				0
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Base Wage": 4,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Refugee",
+			"Hitpoints": [
+				-8,
+				-5
+			],
+			"Fatigue": [
+				7,
+				5
+			],
+			"Resolve": [
+				-5,
+				-5
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				0,
+				0
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				1,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Base Wage": 4,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Retired Soldier",
+			"Hitpoints": [
+				-10,
+				-15
+			],
+			"Fatigue": [
+				0,
+				0
+			],
+			"Resolve": [
+				13,
+				10
+			],
+			"Initiative": [
+				-5,
+				-10
+			],
+			"Melee Skill": [
+				13,
+				10
+			],
+			"Ranged Skill": [
+				5,
+				0
+			],
+			"Melee Defense": [
+				5,
+				8
+			],
+			"Ranged Defense": [
+				5,
+				8
+			],
+			"Starting Level": [
+				1,
+				2
+			],
+			"Base Wage": 15,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Sellsword",
+			"Hitpoints": [
+				0,
+				0
+			],
+			"Fatigue": [
+				0,
+				0
+			],
+			"Resolve": [
+				5,
+				5
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				13,
+				10
+			],
+			"Ranged Skill": [
+				12,
+				10
+			],
+			"Melee Defense": [
+				5,
+				8
+			],
+			"Ranged Defense": [
+				5,
+				8
+			],
+			"Starting Level": [
+				1,
+				3
+			],
+			"Base Wage": 35,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Servant",
+			"Hitpoints": [
+				-5,
+				-5
+			],
+			"Fatigue": [
+				-5,
+				-5
+			],
+			"Resolve": [
+				-5,
+				-5
+			],
+			"Initiative": [
+				5,
+				0
+			],
+			"Melee Skill": [
+				0,
+				0
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				2,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Base Wage": 4,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Sheperd",
+			"Hitpoints": [
+				0,
+				0
+			],
+			"Fatigue": [
+				0,
+				5
+			],
+			"Resolve": [
+				5,
+				0
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				0,
+				0
+			],
+			"Ranged Skill": [
+				5,
+				5
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Base Wage": 6,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Squire",
+			"Hitpoints": [
+				0,
+				0
+			],
+			"Fatigue": [
+				7,
+				5
+			],
+			"Resolve": [
+				12,
+				12
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				7,
+				5
+			],
+			"Ranged Skill": [
+				7,
+				8
+			],
+			"Melee Defense": [
+				1,
+				3
+			],
+			"Ranged Defense": [
+				1,
+				3
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Base Wage": 20,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Swordmaster",
+			"Hitpoints": [
+				-12,
+				-12
+			],
+			"Fatigue": [
+				-15,
+				-10
+			],
+			"Resolve": [
+				12,
+				10
+			],
+			"Initiative": [
+				-10,
+				-10
+			],
+			"Melee Skill": [
+				25,
+				20
+			],
+			"Ranged Skill": [
+				-5,
+				-5
+			],
+			"Melee Defense": [
+				10,
+				15
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				2,
+				5
+			],
+			"Base Wage": 35,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Tailor",
+			"Hitpoints": [
+				-3,
+				0
+			],
+			"Fatigue": [
+				-5,
+				-5
+			],
+			"Resolve": [
+				0,
+				0
+			],
+			"Initiative": [
+				0,
+				5
+			],
+			"Melee Skill": [
+				0,
+				0
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Base Wage": 5,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Thief",
+			"Hitpoints": [
+				0,
+				0
+			],
+			"Fatigue": [
+				0,
+				0
+			],
+			"Resolve": [
+				5,
+				0
+			],
+			"Initiative": [
+				12,
+				10
+			],
+			"Melee Skill": [
+				5,
+				8
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				5,
+				8
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Base Wage": 10,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Vagabond",
+			"Hitpoints": [
+				-3,
+				0
+			],
+			"Fatigue": [
+				10,
+				15
+			],
+			"Resolve": [
+				-5,
+				-7
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				0,
+				0
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Base Wage": 6,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Wildman",
+			"Hitpoints": [
+				12,
+				10
+			],
+			"Fatigue": [
+				18,
+				23
+			],
+			"Resolve": [
+				12,
+				10
+			],
+			"Initiative": [
+				-5,
+				-5
+			],
+			"Melee Skill": [
+				6,
+				0
+			],
+			"Ranged Skill": [
+				-5,
+				0
+			],
+			"Melee Defense": [
+				-5,
+				0
+			],
+			"Ranged Defense": [
+				-5,
+				-5
+			],
+			"Starting Level": [
+				0,
+				1
+			],
+			"Base Wage": 12,
+			"Background Ability": "-15% XP"
+		},
+		{
+			"Name": "Witchhunter",
+			"Hitpoints": [
+				0,
+				0
+			],
+			"Fatigue": [
+				0,
+				0
+			],
+			"Resolve": [
+				12,
+				10
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				0,
+				0
+			],
+			"Ranged Skill": [
+				5,
+				8
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				2
+			],
+			"Base Wage": 13,
+			"Background Ability": "+20 Resolve vs Fear, Panic or Mind-Control"
+		}
+	]
+}
