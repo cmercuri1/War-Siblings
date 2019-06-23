@@ -31,12 +31,8 @@ public class Character {
 
 		this.am = new AttributeManager(bg);
 		this.im = new InventoryManager();
-		this.abm = new AbilityManager(this.backgroundName);
+		this.abm = new AbilityManager(bg);
 		this.mm = new MoraleManager();
-
-		if(bg.getBgAbility() != null) {
-			this.abm.addAbility(bg.getBgAbility());
-		}
 	}
 
 	public AttributeManager getAm() {

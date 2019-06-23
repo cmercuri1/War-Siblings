@@ -39,8 +39,8 @@ public class TraitManager extends BaseGlobalManager {
 			JSONObject temp2 = (JSONObject) ob;
 			try {
 				temp3.add(new Effect((String) temp2.get("Effect Name"), (Long) temp2.get("Value")));
-			} catch (ClassCastException ce) {
-				temp3.add(new Effect((String) temp2.get("Effect Name"), 0));
+			} catch (NullPointerException nul) {
+				temp3.add(new Effect((String) temp2.get("Effect Name")));
 			}
 		}
 

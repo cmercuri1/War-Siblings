@@ -10,6 +10,8 @@ public class GlobalManager {
 	public static WeaponManager weapons;
 	public static TraitManager traits;
 	public static Random rng;
+	
+	public static final double UNUSED = 999;
 
 	static {
 		characters = new BackgroundManager();

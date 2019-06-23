@@ -12,7 +12,7 @@ public class Tester {
 	public void run() {
 		Scanner in = new Scanner(System.in);
 		String s;
-		
+
 		/*
 		 * System.out.println("Enter Weapon name:"); s = in.nextLine();
 		 * GeneratorManager.weapons.display(s);
@@ -26,16 +26,16 @@ public class Tester {
 		 * System.out.println("Enter Body Armor name:"); s = in.nextLine();
 		 * GeneratorManager.bodyArmors.display(s);
 		 */
-		
-		System.out.println("Enter Background name:");
-		s = in.nextLine();
-		Character char1 = new Character(s);
-		char1.display();
-		
+
+		/*
+		 * System.out.println("Enter Background name:"); s = in.nextLine(); Character
+		 * char1 = new Character(s); char1.display();
+		 */
+
 		System.out.println("Random Background:");
-		char1 = new Character();
+		Character char1 = new Character();
 		char1.display();
-		
+
 		in.close();
 	}
 }

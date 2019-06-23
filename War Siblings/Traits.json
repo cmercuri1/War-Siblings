@@ -1030,7 +1030,7 @@
 				},
 				{
 					"Effect Name": "MeleeDamage",
-					"Value": 5
+					"Value": -15
 				}
 			]
 		},
