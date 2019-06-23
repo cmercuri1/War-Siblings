@@ -9,4 +9,7 @@ public class Effect {
 		this.value = val;
 	}
 
+	public void display() {
+		System.out.println(this.effectName + ": " + this.value);
+	}
 }

@@ -72,4 +72,8 @@ public class BackgroundGenerator extends BaseWarriorGenerator {
 	public Ability getBgAbility() {
 		return this.bgAbility;
 	}
+
+	public void display() {
+		System.out.println(this.background);
+	}
 }

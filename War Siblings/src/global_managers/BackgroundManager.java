@@ -1,7 +1,6 @@
 package global_managers;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 import org.json.simple.JSONObject;
 
@@ -20,9 +19,7 @@ public class BackgroundManager extends BaseGlobalManager {
 	}
 
 	public BackgroundGenerator getRandomBackground() {
-		Random rand = new Random();
-
-		return this.bgList.get(rand.nextInt(this.bgList.size()));
+		return this.bgList.get(GlobalManager.rng.nextInt(this.bgList.size()));
 	}
 
 	public BackgroundGenerator getBackground(String name) {
@@ -32,6 +29,10 @@ public class BackgroundManager extends BaseGlobalManager {
 			}
 		}
 		return null;
+	}
+
+	public void display(String name) {
+		this.getBackground(name).display();
 	}
 
 	@Override

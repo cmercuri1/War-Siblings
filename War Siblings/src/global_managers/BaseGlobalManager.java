@@ -15,7 +15,6 @@ public abstract class BaseGlobalManager {
 
 	private void fillList(String fileName, String objectName, String arrayName) {
 		JSONParser parser = new JSONParser();
-
 		JSONArray list;
 
 		try {
@@ -36,8 +35,7 @@ public abstract class BaseGlobalManager {
 		}
 	}
 
-	protected void addItem(JSONObject o) {
-	}
+	protected abstract void addItem(JSONObject o);
 
 	protected abstract void instantiate();
 }

@@ -1,7 +1,7 @@
 package character;
 
 import global_generators.BackgroundGenerator;
-import global_managers.GeneratorManager;
+import global_managers.GlobalManager;
 
 /**
  * Class that uses generators to generate a player usable character as well as
@@ -18,12 +18,12 @@ public class Character {
 
 	/** New Character with specific background */
 	public Character(String background) {
-		this.generalSetUp(GeneratorManager.characters.getBackground(background));
+		this.generalSetUp(GlobalManager.characters.getBackground(background));
 	}
 
 	/** New Character with random background */
 	public Character() {
-		this.generalSetUp(GeneratorManager.characters.getRandomBackground());
+		this.generalSetUp(GlobalManager.characters.getRandomBackground());
 	}
 
 	private void generalSetUp(BackgroundGenerator bg) {
@@ -31,7 +31,7 @@ public class Character {
 
 		this.am = new AttributeManager(bg);
 		this.im = new InventoryManager();
-		this.abm = new AbilityManager();
+		this.abm = new AbilityManager(this.backgroundName);
 		this.mm = new MoraleManager();
 
 		if(bg.getBgAbility() != null) {
@@ -62,5 +62,6 @@ public class Character {
 		this.am.display();
 		this.im.display();
 		this.abm.display();
+		System.out.println();
 	}
 }

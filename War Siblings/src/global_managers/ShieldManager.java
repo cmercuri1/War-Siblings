@@ -20,7 +20,7 @@ public class ShieldManager extends BaseGlobalManager {
 		JSONArray temp = (JSONArray) o.get("Ability List");
 		ArrayList<Ability> temp2 = new ArrayList<Ability>();
 		for (Object ob : temp) {
-			temp2.add(new Ability((String) ob, null));
+			temp2.add(new Ability((String) ob));
 		}
 		this.shieldList.add(new Shield((String) o.get("Name"), (Long) o.get("Value"), (String) o.get("Description"),
 				(Long) o.get("Durability"), (Long) o.get("Maximum Fatigue"), (Long) o.get("Melee Defense"),

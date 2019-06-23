@@ -91,4 +91,8 @@ public class Attribute {
 	public double getAlteredValue() {
 		return this.alteredMaxValue;
 	}
+	
+	public String toString() {
+		return ((Integer) ((Double) this.alteredMaxValue).intValue()).toString();
+	}
 }
