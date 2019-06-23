@@ -38,6 +38,7 @@
 		],
 		"Base Wage": 0,
 		"Action Points": 9,
+		"Food Eaten per Day": 2,
 		"Change to Hit Head": 25,
 		"Fatigue Regain": 15,
 		"Vision": 7,

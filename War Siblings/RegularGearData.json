@@ -8,9 +8,7 @@
 				"Maximum Fatigue": 0,
 				"Vision": 0,
 				"Description": "A piece of cloth covering the lower face to protect from breathing in dust or prevent identification.",
-				"Armor Type": [
-					"Cloth"
-				]
+				"Armor Type": "Cloth"
 			},
 			{
 				"Name": "Cultist Hood",
@@ -19,9 +17,7 @@
 				"Maximum Fatigue": 0,
 				"Vision": -1,
 				"Description": "A rough spun cloth bag with two holes in it.",
-				"Armor Type": [
-					"Cloth"
-				]
+				"Armor Type": "Cloth"
 			},
 			{
 				"Name": "Headscarf",
@@ -30,9 +26,7 @@
 				"Maximum Fatigue": 0,
 				"Vision": 0,
 				"Description": "A thick piece of cloth wrapped around the head.",
-				"Armor Type": [
-					"Cloth"
-				]
+				"Armor Type": "Cloth"
 			},
 			{
 				"Name": "Leather Headband",
@@ -41,9 +35,7 @@
 				"Maximum Fatigue": 0,
 				"Vision": 0,
 				"Description": "A dried and folded leather headband designed to protect the forehead.",
-				"Armor Type": [
-					"Cloth"
-				]
+				"Armor Type": "Cloth"
 			},
 			{
 				"Name": "Hood",
@@ -52,9 +44,7 @@
 				"Maximum Fatigue": 0,
 				"Vision": 0,
 				"Description": "A simple hood to protect against weather and scratches.",
-				"Armor Type": [
-					"Cloth"
-				]
+				"Armor Type": "Cloth"
 			},
 			{
 				"Name": "Straw Hat",
@@ -63,9 +53,7 @@
 				"Maximum Fatigue": 0,
 				"Vision": 0,
 				"Description": "A crude hat to protect against the sun.",
-				"Armor Type": [
-					"Cloth"
-				]
+				"Armor Type": "Cloth"
 			},
 			{
 				"Name": "Open Leather Cap",
@@ -74,9 +62,7 @@
 				"Maximum Fatigue": -2,
 				"Vision": 0,
 				"Description": "A sturdy leather cap that is not covering the ears and neck.",
-				"Armor Type": [
-					"Cloth"
-				]
+				"Armor Type": "Cloth"
 			},
 			{
 				"Name": "Jester's Hat",
@@ -85,9 +71,7 @@
 				"Maximum Fatigue": 0,
 				"Vision": 0,
 				"Description": "Sometimes worn by Jugglers",
-				"Armor Type": [
-					"Cloth"
-				]
+				"Armor Type": "Cloth"
 			},
 			{
 				"Name": "Hunter's Hat",
@@ -96,9 +80,7 @@
 				"Maximum Fatigue": 0,
 				"Vision": 0,
 				"Description": "Sometimes found at Marketplace",
-				"Armor Type": [
-					"Cloth"
-				]
+				"Armor Type": "Cloth"
 			},
 			{
 				"Name": "Aketon Cap",
@@ -107,9 +89,7 @@
 				"Maximum Fatigue": -1,
 				"Vision": 0,
 				"Description": "A padded cloth cap.",
-				"Armor Type": [
-					"Cloth"
-				]
+				"Armor Type": "Cloth"
 			},
 			{
 				"Name": "Feathered Hat",
@@ -118,9 +98,7 @@
 				"Maximum Fatigue": 0,
 				"Vision": 0,
 				"Description": "A fancy feathered hat usually worn by minstrels or nobles.",
-				"Armor Type": [
-					"Cloth"
-				]
+				"Armor Type": "Cloth"
 			},
 			{
 				"Name": "Full Leather Cap",
@@ -129,9 +107,7 @@
 				"Maximum Fatigue": -3,
 				"Vision": 0,
 				"Description": "A closed leather cap that protects the head and neck. Padded for extra protection.",
-				"Armor Type": [
-					"Cloth"
-				]
+				"Armor Type": "Cloth"
 			},
 			{
 				"Name": "Witchhunter's Hat",
@@ -140,9 +116,7 @@
 				"Maximum Fatigue": 0,
 				"Vision": 0,
 				"Description": "A tough leather hat providing decent protection against scratches.",
-				"Armor Type": [
-					"Cloth"
-				]
+				"Armor Type": "Cloth"
 			},
 			{
 				"Name": "Dark Cowl",
@@ -151,9 +125,7 @@
 				"Maximum Fatigue": 0,
 				"Vision": 0,
 				"Description": "A sturdy hat and cowl made out of leather and cloth.",
-				"Armor Type": [
-					"Cloth"
-				]
+				"Armor Type": "Cloth"
 			},
 			{
 				"Name": "Bear Headpiece",
@@ -162,9 +134,7 @@
 				"Maximum Fatigue": -3,
 				"Vision": 0,
 				"Description": "The dried and prepped head of a large bear. Offers some protection, but is mostly donned for the looks.",
-				"Armor Type": [
-					"Cloth"
-				]
+				"Armor Type": "Cloth"
 			},
 			{
 				"Name": "Full Aketon Cap",
@@ -173,9 +143,7 @@
 				"Maximum Fatigue": -2,
 				"Vision": 0,
 				"Description": "A large padded cloth cap also covering the neck.",
-				"Armor Type": [
-					"Cloth"
-				]
+				"Armor Type": "Cloth"
 			},
 			{
 				"Name": "Cultist Leather Hood",
@@ -184,9 +152,7 @@
 				"Maximum Fatigue": -3,
 				"Vision": -1,
 				"Description": "A thick leather hood that covers the head and neck but limits vision.",
-				"Armor Type": [
-					"Cloth"
-				]
+				"Armor Type": "Cloth"
 			},
 			{
 				"Name": "Rusty Mail Coif",
@@ -195,9 +161,7 @@
 				"Maximum Fatigue": -4,
 				"Vision": 0,
 				"Description": "A rusty mail coif that still offers good protection - it leaves horrible stains though.",
-				"Armor Type": [
-					"Chain"
-				]
+				"Armor Type": "Chain"
 			},
 			{
 				"Name": "Duelist's Hat",
@@ -206,9 +170,7 @@
 				"Maximum Fatigue": -3,
 				"Vision": 0,
 				"Description": "A thick leather hat with ornaments and feathers.",
-				"Armor Type": [
-					"Cloth"
-				]
+				"Armor Type": "Cloth"
 			},
 			{
 				"Name": "Mail Coif",
@@ -217,9 +179,7 @@
 				"Maximum Fatigue": -4,
 				"Vision": 0,
 				"Description": "A mail coif that also protects the neck.",
-				"Armor Type": [
-					"Chain"
-				]
+				"Armor Type": "Chain"
 			},
 			{
 				"Name": "Closed Mail Coif",
@@ -228,9 +188,7 @@
 				"Maximum Fatigue": -4,
 				"Vision": 0,
 				"Description": "A mail coif with added protection for the face.",
-				"Armor Type": [
-					"Chain"
-				]
+				"Armor Type": "Chain"
 			},
 			{
 				"Name": "Ancient Household Helmet",
@@ -239,20 +197,16 @@
 				"Maximum Fatigue": -8,
 				"Vision": -1,
 				"Description": "An ancient light helmet that time has taken a toll on over many years",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Reinforced Mail Coif",
 				"Value": 300,
 				"Durability": 100,
 				"Maximum Fatigue": -5,
-				"Vision": "-1",
+				"Vision": -1,
 				"Description": "A mail coif with additional metal noseguard.",
-				"Armor Type": [
-					"Chain"
-				]
+				"Armor Type": "Chain"
 			},
 			{
 				"Name": "Leather Helmet",
@@ -261,9 +215,7 @@
 				"Maximum Fatigue": -6,
 				"Vision": -1,
 				"Description": "A thick leather helmet fashioned from cured hides. The animals these once belonged to were certainly dangerous game.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Nasal Helmet",
@@ -272,9 +224,7 @@
 				"Maximum Fatigue": -5,
 				"Vision": -1,
 				"Description": "A metal helmet with added noseguard.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Padded Dented Nasal Helmet",
@@ -283,9 +233,7 @@
 				"Maximum Fatigue": -7,
 				"Vision": -1,
 				"Description": "A dented metal nasal helmet that has seen some fighting.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Beastmaster's Headpiece",
@@ -294,9 +242,7 @@
 				"Maximum Fatigue": -8,
 				"Vision": -1,
 				"Description": "A headpiece with long horns, fashioned in tradition of barbarian beastmasters for generations.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Kettle Hat",
@@ -305,9 +251,7 @@
 				"Maximum Fatigue": -6,
 				"Vision": -1,
 				"Description": "A full-metal helmet with a broad rim.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Flat Top Helmet",
@@ -316,9 +260,7 @@
 				"Maximum Fatigue": -7,
 				"Vision": -1,
 				"Description": "A flat full-metall helmet with noseguard",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Nordic Helmet",
@@ -327,9 +269,7 @@
 				"Maximum Fatigue": -7,
 				"Vision": -1,
 				"Description": "A nordic helmet guarding face and neck with additional metal plates.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Padded Nasal Helmet",
@@ -338,9 +278,7 @@
 				"Maximum Fatigue": -7,
 				"Vision": -1,
 				"Description": "A metal helmet with added noseguard and a padded coif underneath.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Crude Metal Helmet",
@@ -349,9 +287,7 @@
 				"Maximum Fatigue": -11,
 				"Vision": -1,
 				"Description": "Although crudely made and rusty, this metal helmet is a durable and sturdy piece of armor.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Nasal Helmet with Rusty Mail",
@@ -360,9 +296,7 @@
 				"Maximum Fatigue": -9,
 				"Vision": -2,
 				"Description": "A worn and used helmet with a rusty mail coif.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Ancient Legionary Helmet",
@@ -371,9 +305,7 @@
 				"Maximum Fatigue": -10,
 				"Vision": -2,
 				"Description": "A well-crafted but partly decayed helmet of ancient design.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Padded Kettle Hat",
@@ -382,9 +314,7 @@
 				"Maximum Fatigue": -8,
 				"Vision": -1,
 				"Description": "A full-metal helmet with a broad rim and a padded coif underneath",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Crude Faceguard Helmet",
@@ -393,9 +323,7 @@
 				"Maximum Fatigue": -15,
 				"Vision": -2,
 				"Description": "A crude and rusty barbarian helmet. What it lacks in finesse it makes up for in thickness.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Padded Flat Top Helmet",
@@ -404,9 +332,7 @@
 				"Maximum Fatigue": -9,
 				"Vision": -1,
 				"Description": "A flat full-metal helmet with noseguard and a padded coif underneath.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Closed Scrap Metal Helmet",
@@ -415,9 +341,7 @@
 				"Maximum Fatigue": -18,
 				"Vision": -2,
 				"Description": "This heavy metal helmet also protects the wearer's face, albeit at the cost of visibility.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Zweihander's Helmet",
@@ -426,9 +350,7 @@
 				"Maximum Fatigue": -7,
 				"Vision": -1,
 				"Description": "A sturdy metal helmet with added padding, covered with a large feathered hat.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Ancient Honor Guard Helmet",
@@ -437,9 +359,7 @@
 				"Maximum Fatigue": -13,
 				"Vision": -3,
 				"Description": "An ancient heavy helmet with intricate decoration.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Closed Flat Top Helmet",
@@ -448,9 +368,7 @@
 				"Maximum Fatigue": -10,
 				"Vision": -3,
 				"Description": "A closed helmet with complete faceguard. Hard to breathe in and limiting the field of view.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Sallet Helmet",
@@ -459,9 +377,7 @@
 				"Maximum Fatigue": -5,
 				"Vision": 0,
 				"Description": "A metal sallet helmet with an extended neckguard, a design uncommon in these lands. It is well crafted to offer maximum protection with minimum weight and without impairing vision.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Closed and Padded Flat Top",
@@ -470,9 +386,7 @@
 				"Maximum Fatigue": -11,
 				"Vision": -3,
 				"Description": "A closed helmet with a complete faceguard and a padded coif underneath. Hard to breathe in and limiting the field of view.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Nasal Helmet with Mail",
@@ -481,9 +395,7 @@
 				"Maximum Fatigue": -12,
 				"Vision": -2,
 				"Description": "A metal helmet with added noseguard and a mail coif underneath.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Steppe Helmet with Mail",
@@ -492,9 +404,7 @@
 				"Maximum Fatigue": -12,
 				"Vision": -2,
 				"Description": "A nasal helmet with an attached mail neck guard fashioned in the way of the steppe folks.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Covered Decayed Closed Flat Top With Mail",
@@ -503,9 +413,7 @@
 				"Maximum Fatigue": -19,
 				"Vision": -3,
 				"Description": "A worn and torn closed helmet with complete faceguard and a mail coif covering the neck, underneath a rotten cloth sack. It has obviously been lying outdoors for a while.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Decayed Closed Flat Top With Mail",
@@ -514,9 +422,7 @@
 				"Maximum Fatigue": -19,
 				"Vision": -3,
 				"Description": "A worn and torn closed helmet with comlete faceguard and a mail coif covering the neck. It has obviously been lying outdoors for a while.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Heavy Horned Plate Helmet",
@@ -525,9 +431,7 @@
 				"Maximum Fatigue": -23,
 				"Vision": -3,
 				"Description": "This heavy helmet has ornamental horns attached. This is a sign of high standing and reputation within barbarian warbands.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Bascinet with Mail",
@@ -536,9 +440,7 @@
 				"Maximum Fatigue": -13,
 				"Vision": -2,
 				"Description": "A metal bascinet worn atop a thick mail coif.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Kettle Hat with Mail",
@@ -547,9 +449,7 @@
 				"Maximum Fatigue": -14,
 				"Vision": -2,
 				"Description": "A full-metall helmet with a broad rim and a mail coif underneath.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Decayed Full Helm",
@@ -558,9 +458,7 @@
 				"Maximum Fatigue": -20,
 				"Vision": -3,
 				"Description": "This full helm suffers from rusty metal parts and brittle leather inlays but still offers good protection if you ignore its stench.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Flat Top with Mail",
@@ -569,9 +467,7 @@
 				"Maximum Fatigue": -15,
 				"Vision": -2,
 				"Description": "A flat full-metall helmet with noseguard and a mail coif underneath.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Nasal Helmet with Closed Mail",
@@ -580,9 +476,7 @@
 				"Maximum Fatigue": -16,
 				"Vision": -2,
 				"Description": "A metal helmet with a noseguard and a closed mail coif underneath.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Decayed Great Helm",
@@ -591,9 +485,7 @@
 				"Maximum Fatigue": -22,
 				"Vision": -3,
 				"Description": "A great helmet with torn off and rotten decorations. It must have once belonged to a renowned knight.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Kettle Hat with Closed Mail",
@@ -602,9 +494,7 @@
 				"Maximum Fatigue": -17,
 				"Vision": -2,
 				"Description": "A full-metal helmet with a broad rim and a mail coif covering the neck and face.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Barbute Helmet",
@@ -613,9 +503,7 @@
 				"Maximum Fatigue": -9,
 				"Vision": -2,
 				"Description": "A sturdy yet light barbute helmet, a design uncommon in these lands, made from especially light and durable steel.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Flat Top with Closed Mail",
@@ -624,9 +512,7 @@
 				"Maximum Fatigue": -18,
 				"Vision": -2,
 				"Description": "A flat full-metal helmet with a mail coif covering the neck and face.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Nordic Helmet with Closed Mail",
@@ -635,9 +521,7 @@
 				"Maximum Fatigue": -18,
 				"Vision": -2,
 				"Description": "A metal nordic helmet with an attached closed mail neck guard.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Conic Helmet with Closed Mail",
@@ -646,9 +530,7 @@
 				"Maximum Fatigue": -18,
 				"Vision": -2,
 				"Description": "A heavy conic helmet with a full closed mail skirt for additional protection.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Closed Flat Top with Mail",
@@ -657,9 +539,7 @@
 				"Maximum Fatigue": -19,
 				"Vision": -3,
 				"Description": "A closed helmet with complete faceguard and mail coif covering the neck. Great in the way of protection but hard to breathe in and limiting the field of view.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Conic Helmet with Faceguard",
@@ -668,9 +548,7 @@
 				"Maximum Fatigue": -19,
 				"Vision": -3,
 				"Description": "This conic helmet with mail has an attached metal faceguard. It is heavy and hard to see through, but offers excellent protection.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Full Helm",
@@ -679,9 +557,7 @@
 				"Maximum Fatigue": -20,
 				"Vision": -3,
 				"Description": "A closed metal helm with breathing holes. Great in the way of protection but hard to breathe in and limiting the field of view.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Decorated Full Helm",
@@ -690,9 +566,7 @@
 				"Maximum Fatigue": -20,
 				"Vision": -3,
 				"Description": "A closed metal helm with breathing holes and intricate decoration on top. Great in the way of protection, a piece of art to behold, but hard to breathe in and (limits) the field of view.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			}
 		],
 		"Body Armor": [
@@ -702,9 +576,7 @@
 				"Durability": 5,
 				"Maximum Fatigue": 0,
 				"Description": "Barely better than running naked.",
-				"Armor Type": [
-					"Cloth"
-				]
+				"Armor Type": "Cloth"
 			},
 			{
 				"Name": "Sackcloth",
@@ -712,9 +584,7 @@
 				"Durability": 10,
 				"Maximum Fatigue": 0,
 				"Description": "Better than running naked.",
-				"Armor Type": [
-					"Cloth"
-				]
+				"Armor Type": "Cloth"
 			},
 			{
 				"Name": "Leather Wraps",
@@ -722,9 +592,7 @@
 				"Durability": 20,
 				"Maximum Fatigue": 0,
 				"Description": "Various patches of rough leather sewn together.",
-				"Armor Type": [
-					"Cloth"
-				]
+				"Armor Type": "Cloth"
 			},
 			{
 				"Name": "Linen Tunic",
@@ -732,9 +600,7 @@
 				"Durability": 20,
 				"Maximum Fatigue": 0,
 				"Description": "A simple cloth tunic. Fashionable but offering little in protection.",
-				"Armor Type": [
-					"Cloth"
-				]
+				"Armor Type": "Cloth"
 			},
 			{
 				"Name": "Monk's Robe",
@@ -742,9 +608,7 @@
 				"Durability": 20,
 				"Maximum Fatigue": 0,
 				"Description": "A rugged, large robe made of simple cloth usually worn by monks and similar individuals who don`t care fashion.",
-				"Armor Type": [
-					"Cloth"
-				]
+				"Armor Type": "Cloth"
 			},
 			{
 				"Name": "Wizard's Robe",
@@ -752,9 +616,7 @@
 				"Durability": 20,
 				"Maximum Fatigue": 0,
 				"Description": "A cloth robe covered in all kinds of mystical ornaments and symbols.",
-				"Armor Type": [
-					"Cloth"
-				]
+				"Armor Type": "Cloth"
 			},
 			{
 				"Name": "Noble Tunic",
@@ -762,9 +624,7 @@
 				"Durability": 20,
 				"Maximum Fatigue": 0,
 				"Description": "A fine linen tunic of exquisite material, embroided with pleasing patterns. Fashionable but offering little in protection.",
-				"Armor Type": [
-					"Cloth"
-				]
+				"Armor Type": "Cloth"
 			},
 			{
 				"Name": "Butcher's Apron",
@@ -772,9 +632,7 @@
 				"Durability": 25,
 				"Maximum Fatigue": 0,
 				"Description": "A rugged apron worn by butchers to protect against accidental cuts.",
-				"Armor Type": [
-					"Cloth"
-				]
+				"Armor Type": "Cloth"
 			},
 			{
 				"Name": "Apron",
@@ -782,9 +640,7 @@
 				"Durability": 25,
 				"Maximum Fatigue": 0,
 				"Description": "A leather apron usually worn by apprentices and craftsmen.",
-				"Armor Type": [
-					"Cloth"
-				]
+				"Armor Type": "Cloth"
 			},
 			{
 				"Name": "Thick Furs",
@@ -792,9 +648,7 @@
 				"Durability": 30,
 				"Maximum Fatigue": -1,
 				"Description": "Thick furs that are crudely dried and tied together to protect from both the cold and any incoming blows.",
-				"Armor Type": [
-					"Cloth"
-				]
+				"Armor Type": "Cloth"
 			},
 			{
 				"Name": "Leather Tunic",
@@ -802,9 +656,7 @@
 				"Durability": 30,
 				"Maximum Fatigue": 0,
 				"Description": "A leather vest on top of a cloth tunic for improved protection.",
-				"Armor Type": [
-					"Cloth"
-				]
+				"Armor Type": "Cloth"
 			},
 			{
 				"Name": "Thick Tunic",
@@ -812,9 +664,7 @@
 				"Durability": 35,
 				"Maximum Fatigue": -2,
 				"Description": "A thick cloth tunic consisting of multiple layers to protect against weather and scratches.",
-				"Armor Type": [
-					"Cloth"
-				]
+				"Armor Type": "Cloth"
 			},
 			{
 				"Name": "Animal Hide Armor",
@@ -822,9 +672,7 @@
 				"Durability": 45,
 				"Maximum Fatigue": -3,
 				"Description": "Heavy hides patched together to create a decent makeshift armor.",
-				"Armor Type": [
-					"Cloth"
-				]
+				"Armor Type": "Cloth"
 			},
 			{
 				"Name": "Padded Surcoat",
@@ -832,9 +680,7 @@
 				"Durability": 50,
 				"Maximum Fatigue": -4,
 				"Description": "A cloth mantle padded with woolen filling.",
-				"Armor Type": [
-					"Cloth"
-				]
+				"Armor Type": "Cloth"
 			},
 			{
 				"Name": "Rugged Surcoat",
@@ -842,9 +688,7 @@
 				"Durability": 55,
 				"Maximum Fatigue": -6,
 				"Description": "A padded leather mantle stuffed for added protection. Usually worn under armor.",
-				"Armor Type": [
-					"Cloth"
-				]
+				"Armor Type": "Cloth"
 			},
 			{
 				"Name": "Dark Rugged Surcoat",
@@ -852,9 +696,7 @@
 				"Durability": 60,
 				"Maximum Fatigue": -4,
 				"Description": "A dark padded leather mantle, stuffed for added protection, with a pelt coat.",
-				"Armor Type": [
-					"Cloth"
-				]
+				"Armor Type": "Cloth"
 			},
 			{
 				"Name": "Reinforced Animal Hide Armor",
@@ -862,9 +704,7 @@
 				"Durability": 65,
 				"Maximum Fatigue": -7,
 				"Description": "A reinforced animal hide armor fashioned from thick leather pieces with added mail and metal scales.",
-				"Armor Type": [
-					"Cloth"
-				]
+				"Armor Type": "Cloth"
 			},
 			{
 				"Name": "Gambeson",
@@ -872,9 +712,7 @@
 				"Durability": 65,
 				"Maximum Fatigue": -6,
 				"Description": "A sturdy and heavy padded tunic that offers decent protection.",
-				"Armor Type": [
-					"Cloth"
-				]
+				"Armor Type": "Cloth"
 			},
 			{
 				"Name": "Blotched Gambeson",
@@ -882,9 +720,7 @@
 				"Durability": 70,
 				"Maximum Fatigue": -7,
 				"Description": "A padded gambeson that has been repaired and patched a lot of times.",
-				"Armor Type": [
-					"Cloth"
-				]
+				"Armor Type": "Cloth"
 			},
 			{
 				"Name": "Scrap Metal Armor",
@@ -892,9 +728,7 @@
 				"Durability": 75,
 				"Maximum Fatigue": -8,
 				"Description": "This armor is pieced together from scavenged metal parts that are fixed to a crude leather tunic.",
-				"Armor Type": [
-					"Chain"
-				]
+				"Armor Type": "Chain"
 			},
 			{
 				"Name": "Padded Leather",
@@ -902,9 +736,7 @@
 				"Durability": 80,
 				"Maximum Fatigue": -8,
 				"Description": "A padded tunic reinforced with leather fittings for added protection.",
-				"Armor Type": [
-					"Cloth"
-				]
+				"Armor Type": "Cloth"
 			},
 			{
 				"Name": "Cultist Leather Robe",
@@ -912,9 +744,7 @@
 				"Durability": 88,
 				"Maximum Fatigue": -9,
 				"Description": "A thick leather armor covered with additional leather patches and occult insignia.",
-				"Armor Type": [
-					"Cloth"
-				]
+				"Armor Type": "Cloth"
 			},
 			{
 				"Name": "Patched Mail Shirt",
@@ -922,9 +752,7 @@
 				"Durability": 90,
 				"Maximum Fatigue": -10,
 				"Description": "This light mail shirt has seen better times but still grants decent protection.",
-				"Armor Type": [
-					"Chain"
-				]
+				"Armor Type": "Chain"
 			},
 			{
 				"Name": "Hide and Bone Armor",
@@ -932,9 +760,7 @@
 				"Durability": 95,
 				"Maximum Fatigue": -10,
 				"Description": "Hide and bone are common materials in the northern regions. This armor is using both for decent protection.",
-				"Armor Type": [
-					"Chain"
-				]
+				"Armor Type": "Chain"
 			},
 			{
 				"Name": "Leather Lamellar Armor",
@@ -942,9 +768,7 @@
 				"Durability": 95,
 				"Maximum Fatigue": -10,
 				"Description": "Numerous overlapping leather plates provide decent protection for most of the upper body.",
-				"Armor Type": [
-					"Chain"
-				]
+				"Armor Type": "Chain"
 			},
 			{
 				"Name": "Ancient Mail",
@@ -952,9 +776,7 @@
 				"Durability": 100,
 				"Maximum Fatigue": -14,
 				"Description": "An old and crusted heavy mail of ancient design. Some parts are missing, but it still offers decent protection.",
-				"Armor Type": [
-					"Chain"
-				]
+				"Armor Type": "Chain"
 			},
 			{
 				"Name": "Worn Mail Shirt",
@@ -962,9 +784,7 @@
 				"Durability": 110,
 				"Maximum Fatigue": -12,
 				"Description": "A reinforced mail shirt that lost some parts over the years. On the plus side, this makes it lighter to wear.",
-				"Armor Type": [
-					"Chain"
-				]
+				"Armor Type": "Chain"
 			},
 			{
 				"Name": "Basic Mail Shirt",
@@ -972,9 +792,7 @@
 				"Durability": 115,
 				"Maximum Fatigue": -12,
 				"Description": "A basic and simple mail shirt. Offers decent and affordable protection against slashing and piercing attacks.",
-				"Armor Type": [
-					"Chain"
-				]
+				"Armor Type": "Chain"
 			},
 			{
 				"Name": "Ancient Double Layer Mail",
@@ -982,9 +800,7 @@
 				"Durability": 120,
 				"Maximum Fatigue": -16,
 				"Description": "A heavy and rotten double-layered mail of ancient design. Not comfortable to wear but still usable.",
-				"Armor Type": [
-					"Chain"
-				]
+				"Armor Type": "Chain"
 			},
 			{
 				"Name": "Ancient Scale Harness",
@@ -992,9 +808,7 @@
 				"Durability": 125,
 				"Maximum Fatigue": -20,
 				"Description": "A sturdy, but heavy and partly decayed ancient scale harness.",
-				"Armor Type": [
-					"Chain"
-				]
+				"Armor Type": "Chain"
 			},
 			{
 				"Name": "Mail Shirt",
@@ -1002,9 +816,7 @@
 				"Durability": 130,
 				"Maximum Fatigue": -14,
 				"Description": "A mail shirt with shoulder guards providing excellent protection against most weapons",
-				"Armor Type": [
-					"Chain"
-				]
+				"Armor Type": "Chain"
 			},
 			{
 				"Name": "Ancient Breastplate",
@@ -1012,9 +824,7 @@
 				"Durability": 135,
 				"Maximum Fatigue": -22,
 				"Description": "A tarnished thick breastplate of ancient origin.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Rugged Scale Armor",
@@ -1022,9 +832,7 @@
 				"Durability": 140,
 				"Maximum Fatigue": -18,
 				"Description": "A heavy body armor made from thick iron scales.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Leather Scale Armor",
@@ -1032,9 +840,7 @@
 				"Durability": 140,
 				"Maximum Fatigue": -16,
 				"Description": "A mail shirt worn under a thick leather scale armor for added protection.",
-				"Armor Type": [
-					"Chain"
-				]
+				"Armor Type": "Chain"
 			},
 			{
 				"Name": "Mail Hauberk",
@@ -1042,9 +848,7 @@
 				"Durability": 150,
 				"Maximum Fatigue": -18,
 				"Description": "A long and heavy chainmail that offers maximum protection but is very fatiguing to wear.",
-				"Armor Type": [
-					"Chain"
-				]
+				"Armor Type": "Chain"
 			},
 			{
 				"Name": "Noble Mail",
@@ -1052,9 +856,7 @@
 				"Durability": 160,
 				"Maximum Fatigue": -15,
 				"Description": "A truly masterfully crafted set of mail armor. Very light and flexible to reduce encumberance while still offering good protection.",
-				"Armor Type": [
-					"Chain"
-				]
+				"Armor Type": "Chain"
 			},
 			{
 				"Name": "Heavy Iron Armor",
@@ -1062,9 +864,7 @@
 				"Durability": 170,
 				"Maximum Fatigue": -24,
 				"Description": "This armor is made from heavy metal plates, scales and pieces of chainmal. The true armor of a northern warrior.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Light Scale Armor",
@@ -1072,9 +872,7 @@
 				"Durability": 170,
 				"Maximum Fatigue": -21,
 				"Description": "A sturdy yet flexible armor composed of small, overlapping metal scales.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Decayed Reinforced Mail Hauberk",
@@ -1082,9 +880,7 @@
 				"Durability": 170,
 				"Maximum Fatigue": -26,
 				"Description": "A long mail shirt in bad condition. Some rings are missing and it is covered in dirt and has an odd smell about it.",
-				"Armor Type": [
-					"Chain"
-				]
+				"Armor Type": "Chain"
 			},
 			{
 				"Name": "Ancient Plated Mail Hauberk",
@@ -1092,9 +888,7 @@
 				"Durability": 180,
 				"Maximum Fatigue": -22,
 				"Description": "An ancient mail armor with plated arm guards. Very heavy and severely limiting the mobility of the wearer.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Footman's Armor",
@@ -1102,9 +896,7 @@
 				"Durability": 190,
 				"Maximum Fatigue": -22,
 				"Description": "A transitional armor consisting of a long mail shirt and a rivetted leather gambeson.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Ancient Scale Coat",
@@ -1112,9 +904,7 @@
 				"Durability": 190,
 				"Maximum Fatigue": -25,
 				"Description": "A heavy and tarnished scale coat of ancient design that belongs in a collection, not on the battlefield.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Ancient Plate Harness",
@@ -1122,9 +912,7 @@
 				"Durability": 200,
 				"Maximum Fatigue": -28,
 				"Description": "Made of thick metal plates and mail, this heavy ancient armor still offers great protection after countless years. It's crusted and rotten in parts, however, severely limiting the mobility of the wearer.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Reinforced Mail Hauberk",
@@ -1132,9 +920,7 @@
 				"Durability": 210,
 				"Maximum Fatigue": -26,
 				"Description": "A mail hauberk reinforced with shoulder pauldrons and a rivetted leather armor for added protection.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Ancient Plated Scale Hauberk",
@@ -1142,9 +928,7 @@
 				"Durability": 210,
 				"Maximum Fatigue": -30,
 				"Description": "A heavy coat of scales, partly reinforced with a layer of plated metal on top. It's a massive armor of ancient origin that didn't age well.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Thick Plated Barbarian Armor",
@@ -1152,9 +936,7 @@
 				"Durability": 230,
 				"Maximum Fatigue": -35,
 				"Description": "A heavy armor that is made from mostly metal. Only one chosen by the ancestors will own a set like this.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Lamellar Harness",
@@ -1162,9 +944,7 @@
 				"Durability": 230,
 				"Maximum Fatigue": -30,
 				"Description": "A body armor made of thick overlapping metal plates that cover most of the upper body.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Decayed Coat of Scales",
@@ -1172,9 +952,7 @@
 				"Durability": 240,
 				"Maximum Fatigue": -38,
 				"Description": "This coat of scales is worn and parts have come loose or are missing. It still offers very good protection if you don't mind the smell.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Scale Armor",
@@ -1182,9 +960,7 @@
 				"Durability": 240,
 				"Maximum Fatigue": -28,
 				"Description": "A body vest with overlapping scales worn over a small mail shirt.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Heraldic Hauberk",
@@ -1192,9 +968,7 @@
 				"Durability": 250,
 				"Maximum Fatigue": -26,
 				"Description": "A mail hauberk reinforced with shoulder pauldrons, additional metal plating and a riveted leather armor, covered with a tabbard in a noble houses' colors.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Decayed Coat of Plates",
@@ -1202,9 +976,7 @@
 				"Durability": 260,
 				"Maximum Fatigue": -42,
 				"Description": "A somewhat decayed coat of plates with rusted metal and brittle leather parts. Has probably been laying in the open for a while.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Sellsword's Armor",
@@ -1212,9 +984,7 @@
 				"Durability": 260,
 				"Maximum Fatigue": -32,
 				"Description": "A long and leather coat reinforced with metal plates over a sturdy mail hauberk.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Heavy Lamellar Armor",
@@ -1222,9 +992,7 @@
 				"Durability": 285,
 				"Maximum Fatigue": -40,
 				"Description": "A heavy lamellar armor that covers most parts of the body with thick, overlapping metal plates for maximum protection.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Coat of Scales",
@@ -1232,9 +1000,7 @@
 				"Durability": 300,
 				"Maximum Fatigue": -38,
 				"Description": "A heavy armor made of thick, overlapping metal scales covering most of the body.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			},
 			{
 				"Name": "Coat of Plates",
@@ -1242,9 +1008,7 @@
 				"Durability": 320,
 				"Maximum Fatigue": -42,
 				"Description": "One layer of padding, one layer of strong mail, and heavy metal plates riveted ontop. A very heavy armor that offers great protection.",
-				"Armor Type": [
-					"Metal"
-				]
+				"Armor Type": "Metal"
 			}
 		]
 	},
@@ -1254,7 +1018,7 @@
 				"Name": "Buckler",
 				"Value": 45,
 				"Durability": 16,
-				"Max. Fatigue": -4,
+				"Maximum Fatigue": -4,
 				"Melee Defense": 10,
 				"Ranged Defense": 5,
 				"Description": "A small but sturdy shield gripped in the fist. Offers poor protection against ranged attacks but can be useful in deflecting blows in melee.",
@@ -1266,7 +1030,7 @@
 				"Name": "Wooden Skirmisher Shield",
 				"Value": 45,
 				"Durability": 12,
-				"Max. Fatigue": -4,
+				"Maximum Fatigue": -4,
 				"Melee Defense": 10,
 				"Ranged Defense": 10,
 				"Description": "A wooden shield made by goblins. Light but also small, offering little protection against attacks for a human using it.",
@@ -1279,7 +1043,7 @@
 				"Name": "Feral Shield",
 				"Value": 50,
 				"Durability": 16,
-				"Max. Fatigue": -12,
+				"Maximum Fatigue": -12,
 				"Melee Defense": 15,
 				"Ranged Defense": 20,
 				"Description": "A light wooden shield covered in leather. Offers good protection against ranged attacks due to its size, but is quite fragile.",
@@ -1292,7 +1056,7 @@
 				"Name": "Old Wooden Shield",
 				"Value": 60,
 				"Durability": 16,
-				"Max. Fatigue": -10,
+				"Maximum Fatigue": -10,
 				"Melee Defense": 15,
 				"Ranged Defense": 15,
 				"Description": "An old round wooden shield.",
@@ -1305,7 +1069,7 @@
 				"Name": "Reinforced Skirmisher Shield",
 				"Value": 65,
 				"Durability": 16,
-				"Max. Fatigue": -8,
+				"Maximum Fatigue": -8,
 				"Melee Defense": 10,
 				"Ranged Defense": 10,
 				"Description": "A reinforced wooden shield made by goblins. Light but also small, offering little protection against attacks for a human using it.",
@@ -1318,7 +1082,7 @@
 				"Name": "Ancient Auxiliary Shield",
 				"Value": 80,
 				"Durability": 16,
-				"Max. Fatigue": -10,
+				"Maximum Fatigue": -10,
 				"Melee Defense": 15,
 				"Ranged Defense": 15,
 				"Description": "A wooden light shield in oval shape. The wood seems brittle and old, making it less durable.",
@@ -1331,7 +1095,7 @@
 				"Name": "Wooden Shield",
 				"Value": 90,
 				"Durability": 24,
-				"Max. Fatigue": -10,
+				"Maximum Fatigue": -10,
 				"Melee Defense": 15,
 				"Ranged Defense": 15,
 				"Description": "A round wooden shield.",
@@ -1344,7 +1108,7 @@
 				"Name": "Ancient Coffin Shield",
 				"Value": 100,
 				"Durability": 20,
-				"Max. Fatigue": -12,
+				"Maximum Fatigue": -12,
 				"Melee Defense": 15,
 				"Ranged Defense": 20,
 				"Description": "An octagonal shield made of wood and reinforced with bronze. Time has taken its toll and the wood has become brittle.",
@@ -1357,7 +1121,7 @@
 				"Name": "Decayed Heater Shield",
 				"Value": 150,
 				"Durability": 24,
-				"Max. Fatigue": -14,
+				"Maximum Fatigue": -14,
 				"Melee Defense": 20,
 				"Ranged Defense": 15,
 				"Description": "A rotten triangular wooden shield covered with leather, canvas and moss.",
@@ -1370,7 +1134,7 @@
 				"Name": "Worn Kite Shield",
 				"Value": 150,
 				"Durability": 40,
-				"Max. Fatigue": -16,
+				"Maximum Fatigue": -16,
 				"Melee Defense": 15,
 				"Ranged Defense": 25,
 				"Description": "An elongated wooden shield that offers good protection also to the lower body. Somewhat bulky to handle in close combat engagements.",
@@ -1383,7 +1147,7 @@
 				"Name": "Kite Shield",
 				"Value": 200,
 				"Durability": 48,
-				"Max. Fatigue": -16,
+				"Maximum Fatigue": -16,
 				"Melee Defense": 15,
 				"Ranged Defense": 25,
 				"Description": "An elongated wooden shield covered in leather that offers good protection also to the lower body. Somewhat bulky to handle in close combat engagements.",
@@ -1396,7 +1160,7 @@
 				"Name": "Ancient Tower Shield",
 				"Value": 200,
 				"Durability": 24,
-				"Max. Fatigue": -20,
+				"Maximum Fatigue": -20,
 				"Melee Defense": 20,
 				"Ranged Defense": 20,
 				"Description": "A tall and heavy tower shield that offers good protection, but is very bulky to handle. It appears to be old and worn down.",
@@ -1409,7 +1173,7 @@
 				"Name": "Heater Shield",
 				"Value": 250,
 				"Durability": 32,
-				"Max. Fatigue": -14,
+				"Maximum Fatigue": -14,
 				"Melee Defense": 20,
 				"Ranged Defense": 15,
 				"Description": "A triangular wooden shield covered with leather and canvas.",
@@ -1422,7 +1186,7 @@
 				"Name": "Heavy Metal Shield",
 				"Value": 250,
 				"Durability": 72,
-				"Max. Fatigue": -22,
+				"Maximum Fatigue": -22,
 				"Melee Defense": 15,
 				"Ranged Defense": 15,
 				"Description": "A massive metal shield that is almost impossible to destroy but very heavy and fatiguing to wear for any human.",

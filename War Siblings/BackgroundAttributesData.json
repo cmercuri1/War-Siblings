@@ -80,7 +80,12 @@
 				0
 			],
 			"Base Wage": 8,
-			"Background Ability": "+10% XP"
+			"Background Ability": [
+				{
+					"Effect Name": "XPGain",
+					"Value": 10
+				}
+			]
 		},
 		{
 			"Name": "Assassin",
@@ -367,7 +372,12 @@
 				0
 			],
 			"Base Wage": 13,
-			"Background Ability": "+100% Unarmed Damage"
+			"Background Ability": [
+				{
+					"Effect Name": "UnarmedDamage",
+					"Value": 100
+				}
+			]
 		},
 		{
 			"Name": "Butcher",
@@ -1064,7 +1074,12 @@
 				0
 			],
 			"Base Wage": 8,
-			"Background Ability": "+15% XP"
+			"Background Ability": [
+				{
+					"Effect Name": "XPGain",
+					"Value": 15
+				}
+			]
 		},
 		{
 			"Name": "Houndmaster",
@@ -1105,7 +1120,12 @@
 				0
 			],
 			"Base Wage": 7,
-			"Background Ability": "Confident Wardogs"
+			"Background Ability": [
+				{
+					"Effect Name": "WardogStartingMorale",
+					"Value": 5
+				}
+			]
 		},
 		{
 			"Name": "Hunter",
@@ -1187,7 +1207,12 @@
 				0
 			],
 			"Base Wage": 7,
-			"Background Ability": "+5% Headshot"
+			"Background Ability": [
+				{
+					"Effect Name": "HeadshotChance",
+					"Value": 5
+				}
+			]
 		},
 		{
 			"Name": "Killer On The Run",
@@ -1228,7 +1253,12 @@
 				0
 			],
 			"Base Wage": 6,
-			"Background Ability": "+10% Headshot"
+			"Background Ability": [
+				{
+					"Effect Name": "HeadshotChance",
+					"Value": 10
+				}
+			]
 		},
 		{
 			"Name": "King's Guard",
@@ -1351,7 +1381,12 @@
 				0
 			],
 			"Base Wage": 0,
-			"Background Ability": "+5% XP"
+			"Background Ability": [
+				{
+					"Effect Name": "XPGain",
+					"Value": 5
+				}
+			]
 		},
 		{
 			"Name": "Messenger",
@@ -2294,7 +2329,12 @@
 				1
 			],
 			"Base Wage": 12,
-			"Background Ability": "-15% XP"
+			"Background Ability": [
+				{
+					"Effect Name": "XPGain",
+					"Value": -15
+				}
+			]
 		},
 		{
 			"Name": "Witchhunter",
@@ -2335,7 +2375,12 @@
 				2
 			],
 			"Base Wage": 13,
-			"Background Ability": "+20 Resolve vs Fear, Panic or Mind-Control"
+			"Background Ability": [
+				{
+					"Effect Name": "SpecialMoraleChecks",
+					"Value": 20
+				}
+			]
 		}
 	]
 }

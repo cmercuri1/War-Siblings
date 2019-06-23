@@ -80,7 +80,7 @@ public class Attribute {
 
 		for (Modifier m : modifiers) {
 			if (m.getIsMulti()) {
-				multi *= m.getValue();
+				multi *= (1 + m.getValue() / 100);
 			} else {
 				add += m.getValue();
 			}
@@ -90,5 +90,9 @@ public class Attribute {
 
 	public double getAlteredValue() {
 		return this.alteredMaxValue;
+	}
+
+	public String toString() {
+		return ((Integer) ((Double) this.alteredMaxValue).intValue()).toString();
 	}
 }

@@ -51,5 +51,13 @@ public class BarAttribute extends StarAttribute {
 	public double getAlteredCurrentValue() {
 		return this.alteredCurrentValue;
 	}
+	
+	public String toString() {
+		String temp = ((Double) this.alteredCurrentValue).intValue() + "/" + ((Double) this.alteredMaxValue).intValue();
+		if (this.numStars > 0) {
+			temp += " and has " + this.numStars + " stars";
+		}
+		return temp;
+	}
 
 }

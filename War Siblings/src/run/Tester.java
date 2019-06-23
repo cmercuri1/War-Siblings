@@ -1,30 +1,41 @@
 package run;
 
 import java.util.Scanner;
-
+import global_managers.GlobalManager;
 import character.Character;
-import generators.WeaponGenerator;
 
 public class Tester {
 
 	public Tester() {
-
 	}
 
 	public void run() {
 		Scanner in = new Scanner(System.in);
-
-		Character char1 = new Character();
-		WeaponGenerator wm = new WeaponGenerator();
-		char1.display();
-
 		String s;
 
-		System.out.println("");
-		System.out.println("Enter weapon name:");
-		s = in.nextLine();
+		/*
+		 * System.out.println("Enter Weapon name:"); s = in.nextLine();
+		 * GeneratorManager.weapons.display(s);
+		 * 
+		 * System.out.println("Enter Shield name:"); s = in.nextLine();
+		 * GeneratorManager.shields.display(s);
+		 * 
+		 * System.out.println("Enter Helm name:"); s = in.nextLine();
+		 * GeneratorManager.headgears.display(s);
+		 * 
+		 * System.out.println("Enter Body Armor name:"); s = in.nextLine();
+		 * GeneratorManager.bodyArmors.display(s);
+		 */
 
-		wm.getWeapon(s).display();
+		/*
+		 * System.out.println("Enter Background name:"); s = in.nextLine(); Character
+		 * char1 = new Character(s); char1.display();
+		 */
+
+		System.out.println("Random Background:");
+		Character char1 = new Character();
+		char1.display();
+
 		in.close();
 	}
 }

@@ -1,6 +1,6 @@
 package common_classes;
 
-import java.util.Random;
+import global_managers.GlobalManager;
 
 /**
  * A special class that has the minimum and maximum values for certain
@@ -41,7 +41,6 @@ public class DualValue {
 	// Generates a random value between the minimum and maximum values
 	// (inclusive)
 	public int getRand() {
-		Random rand = new Random();
-		return (this.min + rand.nextInt(this.max + 1 - this.min));
+		return GlobalManager.rollBetween(this.min, this.max);
 	}
 }

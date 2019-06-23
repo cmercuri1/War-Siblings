@@ -2,6 +2,10 @@ package items;
 
 import common_classes.Attribute;
 
+/**
+ * Equip Item class that allows for an item to be equipped and thus may reduce
+ * max fatigue
+ */
 public class EquipItem extends Item {
 	protected DurAttribute durability;
 	protected Attribute fatigueRed;

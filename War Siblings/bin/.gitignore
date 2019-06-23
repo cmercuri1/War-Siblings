@@ -1,2 +1,7 @@
 /items/
 /run/
+/generators/
+/common_classes/
+/character/
+/global_managers/
+/global_generators/

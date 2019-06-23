@@ -1,12 +1,12 @@
-package character;
+package global_generators;
 
 import java.io.FileReader;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+
 import common_classes.DualValue;
-import generators.BaseCreatureGenerator;
 
 /**
  * A class that generates the base attributes and statistics of a player
@@ -16,6 +16,7 @@ public class BaseWarriorGenerator extends BaseCreatureGenerator {
 	// Uses dualValues to allow for both minimum and maximum for these values
 	protected DualValue lev;
 
+	protected int dailyFood;
 	protected int baseWage;
 	protected int xpRate;
 
@@ -35,12 +36,29 @@ public class BaseWarriorGenerator extends BaseCreatureGenerator {
 			JSONArray temp = (JSONArray) baseStats.get("Starting Level");
 			this.lev = new DualValue(((Long) temp.get(0)).intValue(), ((Long) temp.get(1)).intValue());
 
+			this.dailyFood = ((Long) baseStats.get("Food Eaten per Day")).intValue();
 			this.baseWage = ((Long) baseStats.get("Base Wage")).intValue();
 			this.xpRate = ((Long) baseStats.get("Experience Rate")).intValue();
 
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
+	}
+
+	public DualValue getLev() {
+		return this.lev;
+	}
+
+	public int getDailyFood() {
+		return this.dailyFood;
+	}
+
+	public int getBaseWage() {
+		return this.baseWage;
+	}
+
+	public int getXpRate() {
+		return this.xpRate;
 	}
 
 }

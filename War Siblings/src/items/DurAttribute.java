@@ -3,6 +3,7 @@ package items;
 import common_classes.Attribute;
 import common_classes.Modifier;
 
+/** Special Attribute handling item durability */
 public class DurAttribute extends Attribute {
 	private final double MINIMUM = 0.0;
 

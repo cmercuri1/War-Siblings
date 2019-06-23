@@ -1,44 +1,22 @@
-package generators;
+package global_managers;
 
-import java.io.FileReader;
 import java.util.ArrayList;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 
 import common_classes.Ability;
 import items.Weapon;
 
-/** A class for generating all the weapons */
-public class WeaponGenerator {
-	public ArrayList<Weapon> weaponList;
+/** A class for Globally Storing and Managing all the Weapons */
+public class WeaponManager extends BaseGlobalManager {
+	private ArrayList<Weapon> weaponList;
 
-	public WeaponGenerator() {
-		this.weaponList = new ArrayList<Weapon>();
-		this.fillList();
+	public WeaponManager() {
+		super("RegularGearData.json", "Weapon", "Weapons List");
 	}
 
-	private void fillList() {
-		JSONParser parser = new JSONParser();
-
-		JSONArray list;
-
-		try {
-			JSONObject jsonObject = (JSONObject) parser.parse(new FileReader("Weapon&ArmorData.json"));
-			jsonObject = (JSONObject) jsonObject.get("Weapon");
-			list = (JSONArray) jsonObject.get("Weapons List");
-
-			for (Object o : list) {
-				JSONObject tem = (JSONObject) o;
-				this.addWeapon(tem);
-			}
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		}
-	}
-
-	private void addWeapon(JSONObject o) {
+	protected void addItem(JSONObject o) {
 		JSONArray temp = (JSONArray) o.get("Weapon Type");
 		String temp2 = "";
 		for (Object ob : temp) {
@@ -68,6 +46,17 @@ public class WeaponGenerator {
 			}
 		}
 		return null;
+	}
+
+	public void display(String name) {
+		this.getWeapon(name).display();
+	}
+
+	@Override
+	protected void instantiate() {
+		if (this.weaponList == null) {
+			this.weaponList = new ArrayList<Weapon>();
+		}
 	}
 
 }

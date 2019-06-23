@@ -1,9 +1,8 @@
 package character;
 
-import java.util.Random;
-
 import common_classes.Attribute;
 import common_classes.DualValue;
+import global_managers.GlobalManager;
 
 /**
  * A class that adds the potential for and tracks the number of stars a
@@ -27,14 +26,11 @@ public class StarAttribute extends Attribute {
 	}
 
 	/**
-	 * Method that randomly determines the number of stars an Attribute may have
-	 * as determined by the above thresholds
+	 * Method that randomly determines the number of stars an Attribute may have as
+	 * determined by the above thresholds
 	 */
 	public void setNumStars() {
-		Random rand = new Random();
-
-		// d100 roll (1-100)
-		int roll = 1 + rand.nextInt(100);
+		int roll = GlobalManager.d100Roll();
 
 		if (roll > THRESHOLD3) {
 			this.numStars = 3;
@@ -51,8 +47,8 @@ public class StarAttribute extends Attribute {
 	}
 
 	/**
-	 * Randomly determines a value that this Attribute can be increased by at
-	 * level up
+	 * Randomly determines a value that this Attribute can be increased by at level
+	 * up
 	 */
 	public double getLevelup() {
 		return (double) this.levelUp.getRand();
@@ -60,5 +56,13 @@ public class StarAttribute extends Attribute {
 
 	public int getNumStars() {
 		return this.numStars;
+	}
+
+	public String toString() {
+		String temp = "" + ((Double) this.alteredMaxValue).intValue();
+		if (this.numStars > 0) {
+			temp += " and has " + this.numStars + " stars";
+		}
+		return temp;
 	}
 }
