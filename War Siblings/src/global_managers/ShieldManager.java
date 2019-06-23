@@ -10,7 +10,7 @@ import items.Shield;
 
 /** A class for Globally Storing and Managing all the Shields */
 public class ShieldManager extends BaseGlobalManager {
-	public ArrayList<Shield> shieldList = new ArrayList<Shield>();
+	private ArrayList<Shield> shieldList;
 
 	public ShieldManager() {
 		super("RegularGearData.json", "Shield", "Shields List");
@@ -38,6 +38,13 @@ public class ShieldManager extends BaseGlobalManager {
 
 	public void display(String name) {
 		this.getShield(name).display();
+	}
+
+	@Override
+	protected void instantiate() {
+		if (this.shieldList == null) {
+			this.shieldList = new ArrayList<Shield>();
+		}
 	}
 
 }

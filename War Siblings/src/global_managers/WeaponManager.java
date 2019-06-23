@@ -10,7 +10,7 @@ import items.Weapon;
 
 /** A class for Globally Storing and Managing all the Weapons */
 public class WeaponManager extends BaseGlobalManager {
-	public ArrayList<Weapon> weaponList = new ArrayList<Weapon>();
+	private ArrayList<Weapon> weaponList;
 
 	public WeaponManager() {
 		super("RegularGearData.json", "Weapon", "Weapons List");
@@ -47,9 +47,16 @@ public class WeaponManager extends BaseGlobalManager {
 		}
 		return null;
 	}
-	
+
 	public void display(String name) {
 		this.getWeapon(name).display();
+	}
+
+	@Override
+	protected void instantiate() {
+		if (this.weaponList == null) {
+			this.weaponList = new ArrayList<Weapon>();
+		}
 	}
 
 }

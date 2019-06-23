@@ -8,7 +8,7 @@ import items.Armor;
 
 /** A class for Globally Storing and Managing all the Body Armors */
 public class BodyArmorManager extends BaseGlobalManager {
-	public ArrayList<Armor> armorList = new ArrayList<Armor>();
+	private ArrayList<Armor> armorList;
 
 	public BodyArmorManager() {
 		super("RegularGearData.json", "Armor", "Body Armor");
@@ -27,9 +27,16 @@ public class BodyArmorManager extends BaseGlobalManager {
 		}
 		return null;
 	}
-	
+
 	public void display(String name) {
 		this.getBodyArmor(name).display();
+	}
+
+	@Override
+	protected void instantiate() {
+		if (this.armorList == null) {
+			this.armorList = new ArrayList<Armor>();
+		}
 	}
 
 }

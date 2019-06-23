@@ -9,6 +9,7 @@ import org.json.simple.parser.JSONParser;
 public abstract class BaseGlobalManager {
 
 	public BaseGlobalManager(String fileName, String objectName, String arrayName) {
+		this.instantiate();
 		this.fillList(fileName, objectName, arrayName);
 	}
 
@@ -19,7 +20,7 @@ public abstract class BaseGlobalManager {
 
 		try {
 			JSONObject jsonObject = (JSONObject) parser.parse(new FileReader(fileName));
-			if (objectName.equals(null)) {
+			if (objectName == null) {
 				list = (JSONArray) jsonObject.get(arrayName);
 			} else {
 				jsonObject = (JSONObject) jsonObject.get(objectName);
@@ -37,4 +38,6 @@ public abstract class BaseGlobalManager {
 
 	protected void addItem(JSONObject o) {
 	}
+
+	protected abstract void instantiate();
 }

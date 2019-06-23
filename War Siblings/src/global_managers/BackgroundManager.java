@@ -9,7 +9,7 @@ import global_generators.BackgroundGenerator;
 
 /** A class for Globally Storing and Managing all the Backgrounds */
 public class BackgroundManager extends BaseGlobalManager {
-	public ArrayList<BackgroundGenerator> bgList = new ArrayList<BackgroundGenerator>();
+	private ArrayList<BackgroundGenerator> bgList;
 
 	public BackgroundManager() {
 		super("BackgroundAttributesData.json", null, "Background Changes");
@@ -32,5 +32,12 @@ public class BackgroundManager extends BaseGlobalManager {
 			}
 		}
 		return null;
+	}
+
+	@Override
+	protected void instantiate() {
+		if (this.bgList == null) {
+			this.bgList = new ArrayList<BackgroundGenerator>();
+		}
 	}
 }

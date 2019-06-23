@@ -8,7 +8,7 @@ import items.Headgear;
 
 /** A class for Globally Storing and Managing all the Headgears */
 public class HeadgearManager extends BaseGlobalManager {
-	public ArrayList<Headgear> helmList = new ArrayList<Headgear>();
+	private ArrayList<Headgear> helmList;
 
 	public HeadgearManager() {
 		super("RegularGearData.json", "Armor", "Headgear");
@@ -28,8 +28,15 @@ public class HeadgearManager extends BaseGlobalManager {
 		}
 		return null;
 	}
-	
+
 	public void display(String name) {
 		this.getHeadArmor(name).display();
+	}
+
+	@Override
+	protected void instantiate() {
+		if (this.helmList == null) {
+			this.helmList = new ArrayList<Headgear>();
+		}
 	}
 }
