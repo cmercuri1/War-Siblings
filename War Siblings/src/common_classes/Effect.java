@@ -17,6 +17,6 @@ public class Effect {
 	}
 
 	public void display() {
-		System.out.println(this.effectName + ": " + this.value);
+		System.out.println("-" + this.effectName + ": " + this.value);
 	}
 }

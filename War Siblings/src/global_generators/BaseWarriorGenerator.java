@@ -16,6 +16,7 @@ public class BaseWarriorGenerator extends BaseCreatureGenerator {
 	// Uses dualValues to allow for both minimum and maximum for these values
 	protected DualValue lev;
 
+	protected int dailyFood;
 	protected int baseWage;
 	protected int xpRate;
 
@@ -35,6 +36,7 @@ public class BaseWarriorGenerator extends BaseCreatureGenerator {
 			JSONArray temp = (JSONArray) baseStats.get("Starting Level");
 			this.lev = new DualValue(((Long) temp.get(0)).intValue(), ((Long) temp.get(1)).intValue());
 
+			this.dailyFood = ((Long) baseStats.get("Food Eaten per Day")).intValue();
 			this.baseWage = ((Long) baseStats.get("Base Wage")).intValue();
 			this.xpRate = ((Long) baseStats.get("Experience Rate")).intValue();
 
@@ -45,6 +47,10 @@ public class BaseWarriorGenerator extends BaseCreatureGenerator {
 
 	public DualValue getLev() {
 		return this.lev;
+	}
+
+	public int getDailyFood() {
+		return this.dailyFood;
 	}
 
 	public int getBaseWage() {

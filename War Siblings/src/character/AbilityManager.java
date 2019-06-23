@@ -8,7 +8,6 @@ import common_classes.Trait;
 import global_generators.BackgroundGenerator;
 
 import global_managers.GlobalManager;
-import global_managers.TraitManager;
 
 /**
  * A manager class that handles all the abilities a character may have, either
@@ -33,16 +32,12 @@ public class AbilityManager {
 	private void traitDetermining(String background) {
 		ArrayList<Trait> temp = GlobalManager.traits.getTraitList();
 
-		// Temp list culling of unattainable traits
-		for (Trait t : temp) {
-			if (t.getInvalBg().contains(background) || !(t.getSpecBg().contains(background))) {
-				temp.remove(t);
-				break;
-			}
-		}
+		temp.removeIf(t -> (t.getInvalBg().contains(background)
+				|| (!t.getSpecBg().isEmpty() && !t.getSpecBg().contains(background))));
 
 		// Roll for up to two different traits, with 50% chance each time? If a trait is
-		// gained, then we remove any mutually exclusive traits. e.g. if "Huge" is gained,
+		// gained, then we remove any mutually exclusive traits. e.g. if "Huge" is
+		// gained,
 		// "Tiny" should not be able to be rolled
 		for (int i = 0; i < 2; i++) {
 			if (GlobalManager.d100Roll() < 51) {

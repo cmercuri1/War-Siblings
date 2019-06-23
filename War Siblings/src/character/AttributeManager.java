@@ -22,6 +22,7 @@ public class AttributeManager {
 	private StarAttribute rangedDefenseManager;
 
 	private Attribute wageManager;
+	private Attribute foodManager;
 	private Attribute xpRateManager;
 	private Attribute levelManager;
 	private Attribute actionPointsManager;
@@ -50,6 +51,7 @@ public class AttributeManager {
 		this.rangedDefenseManager = new StarAttribute((double) bg.getrDef().getRand(), 1);
 
 		this.wageManager = new Attribute((double) bg.getBaseWage());
+		this.foodManager = new Attribute((double) bg.getDailyFood());
 		this.xpRateManager = new Attribute((double) bg.getXpRate());
 		this.levelManager = new Attribute((double) bg.getLev().getRand());
 		this.actionPointsManager = new Attribute((double) bg.getActionPoints());
@@ -130,6 +132,7 @@ public class AttributeManager {
 		System.out.println("Ranged Defense: " + this.rangedDefenseManager.toString());
 		System.out.println();
 		System.out.println("Wage of " + this.wageManager.toString() + " crowns per day");
+		System.out.println("Consumes " + this.foodManager.toString() + " food per day");
 		System.out.println(this.actionPointsManager.toString() + " Action points per turn");
 		System.out.println(this.headShotManager.toString() + "% Chance to hit head");
 		System.out.println(this.fatigueRegManager.toString() + " Points of Fatigue Regained each Turn");
