@@ -5,6 +5,7 @@ import java.util.Random;
 
 import common_classes.Attribute;
 import common_classes.Modifier;
+import global_generators.BackgroundGenerator;
 
 /**
  * A class that manages all the attributes and makes sure the operate correctly
@@ -47,9 +48,9 @@ public class AttributeManager {
 		this.meleeDefenseManager = new StarAttribute((double) bg.getmDef().getRand(), 1);
 		this.rangedDefenseManager = new StarAttribute((double) bg.getrDef().getRand(), 1);
 
-		this.wageManager = new Attribute((double) bg.baseWage);
-		this.xpRateManager = new Attribute((double) bg.xpRate);
-		this.levelManager = new Attribute((double) bg.lev.getRand());
+		this.wageManager = new Attribute((double) bg.getBaseWage());
+		this.xpRateManager = new Attribute((double) bg.getXpRate());
+		this.levelManager = new Attribute((double) bg.getLev().getRand());
 		this.actionPointsManager = new Attribute((double) bg.getActionPoints());
 		this.headShotManager = new Attribute((double) bg.getHeadShot());
 		this.fatigueRegManager = new Attribute((double) bg.getFatRegain());

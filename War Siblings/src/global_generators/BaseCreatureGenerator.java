@@ -1,4 +1,4 @@
-package generators;
+package global_generators;
 
 import java.io.FileReader;
 

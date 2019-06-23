@@ -1,4 +1,4 @@
-package character;
+package global_generators;
 
 import java.io.FileReader;
 
@@ -6,7 +6,6 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import common_classes.DualValue;
-import generators.BaseCreatureGenerator;
 
 /**
  * A class that generates the base attributes and statistics of a player
@@ -41,6 +40,18 @@ public class BaseWarriorGenerator extends BaseCreatureGenerator {
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
+	}
+
+	public DualValue getLev() {
+		return this.lev;
+	}
+
+	public int getBaseWage() {
+		return this.baseWage;
+	}
+
+	public int getXpRate() {
+		return this.xpRate;
 	}
 
 }

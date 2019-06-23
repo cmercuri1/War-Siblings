@@ -1,11 +1,12 @@
-package character;
+package global_generators;
 
-import java.io.FileReader;
-import java.util.Random;
+import java.util.ArrayList;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
+
+import common_classes.Ability;
+import common_classes.Effect;
 
 /**
  * A class that takes the Base Stats and attributes and changes them based on a
@@ -13,61 +14,21 @@ import org.json.simple.parser.JSONParser;
  */
 public class BackgroundGenerator extends BaseWarriorGenerator {
 	protected String background;
-	protected String ability;
+	protected Ability bgAbility;
 
-	/** Constructor for picking a specific background */
-	public BackgroundGenerator(String bgName) {
+	/** Constructor applying background traits */
+	public BackgroundGenerator(JSONObject o) {
 		super();
 
-		JSONArray bg;
-
-		bg = this.open();
-		if (bg != null) {
-			for (Object o : bg) {
-				JSONObject tem = (JSONObject) o;
-				if (bgName.equals(((String) tem.get("Name")))) {
-					this.updateAttributes(tem);
-				}
-			}
-		}
-	}
-
-	/** Constructor for picking a random background */
-	public BackgroundGenerator() {
-		super();
-
-		JSONArray bg;
-
-		bg = this.open();
-		if (bg != null) {
-			JSONObject o;
-			Random rand = new Random();
-			o = (JSONObject) bg.get(rand.nextInt(bg.size()));
-			this.updateAttributes(o);
-		}
-	}
-
-	private JSONArray open() {
-		JSONParser parser = new JSONParser();
-
-		try {
-			JSONObject jsonObject = (JSONObject) parser.parse(new FileReader("BackgroundAttributesData.json"));
-
-			JSONArray backgrounds = (JSONArray) jsonObject.get("Background Changes");
-
-			return backgrounds;
-
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		}
-		return null;
+		this.updateAttributes(o);
 	}
 
 	/**
-	 * UpdateAttributes method that updates the base warrior stats with any
-	 * changes due to background
+	 * UpdateAttributes method that updates the base warrior stats with any changes
+	 * due to background
 	 */
 	private void updateAttributes(JSONObject o) {
+		ArrayList<Effect> mod = new ArrayList<Effect>();
 		this.background = ((String) o.get("Name"));
 
 		JSONArray temp = (JSONArray) o.get("Hitpoints");
@@ -90,7 +51,25 @@ public class BackgroundGenerator extends BaseWarriorGenerator {
 		this.lev.update(((Long) temp.get(0)).intValue(), ((Long) temp.get(1)).intValue());
 
 		this.baseWage = baseWage + (((Long) o.get("Base Wage")).intValue());
-		this.ability = (String) o.get("Background Ability");
+		try {
+			temp = (JSONArray) o.get("Background Ability");
+			for (Object ob : temp) {
+				JSONObject ob2 = (JSONObject) ob;
+				Effect newMod = new Effect((String) ob2.get("Effect Name"), (Long) ob2.get("Value"));
+				mod.add(newMod);
+			}
+			this.bgAbility = new Ability("Background Ability", mod);
+		} catch (ClassCastException ce) {
+			this.bgAbility = null;
+		}
 
+	}
+
+	public String getBackground() {
+		return this.background;
+	}
+
+	public Ability getBgAbility() {
+		return this.bgAbility;
 	}
 }
