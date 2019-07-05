@@ -1,0 +1,298 @@
+{
+	"Effects": [
+		{
+			"Effect Name": "Bleed_Time",
+			"Relevant Manager": "Battle",
+			"Sub Manager": "bleed",
+			"FinalAdd": false
+		},
+		{
+			"Effect Name": "Cost_Percent",
+			"Relevant Manager": "Attribute",
+			"Sub Manager": "wage",
+			"FinalAdd": false
+		},
+		{
+			"Effect Name": "Damage_Headshot_Percent",
+			"Relevant Manager": "Battle",
+			"Sub Manager": "damage",
+			"FinalAdd": false
+		},
+		{
+			"Effect Name": "Damage_Melee_Percent",
+			"Relevant Manager": "Battle",
+			"Sub Manager": "damage",
+			"FinalAdd": false
+		},
+		{
+			"Effect Name": "Damage_Unarmed_Percent",
+			"Relevant Manager": "Battle",
+			"Sub Manager": "damage",
+			"FinalAdd": false
+		},
+		{
+			"Effect Name": "Disloyalty",
+			"Relevant Manager": "Special",
+			"Sub Manager": "loyal",
+			"FinalAdd": false
+		},
+		{
+			"Effect Name": "Fatality_Chance_Percent",
+			"Relevant Manager": "Battle",
+			"Sub Manager": "fatality",
+			"FinalAdd": false
+		},
+		{
+			"Effect Name": "Fatigue",
+			"Relevant Manager": "Attribute",
+			"Sub Manager": "fatigue",
+			"FinalAdd": false
+		},
+		{
+			"Effect Name": "Fatigue_OnMovement",
+			"Relevant Manager": "Battle",
+			"Sub Manager": "fatigue",
+			"FinalAdd": false
+		},
+		{
+			"Effect Name": "Fatigue_Recovery",
+			"Relevant Manager": "Attribute",
+			"Sub Manager": "fatigueReg",
+			"FinalAdd": false
+		},
+		{
+			"Effect Name": "FoodConsumption",
+			"Relevant Manager": "Attribute",
+			"Sub Manager": "food",
+			"FinalAdd": false
+		},
+		{
+			"Effect Name": "FriendlyFireChance_Percent",
+			"Relevant Manager": "Battle",
+			"Sub Manager": "attack",
+			"FinalAdd": false
+		},
+		{
+			"Effect Name": "HeadshotChance",
+			"Relevant Manager": "Attribute",
+			"Sub Manager": "headshot",
+			"FinalAdd": false
+		},
+		{
+			"Effect Name": "Hitpoints",
+			"Relevant Manager": "Attribute",
+			"Sub Manager": "hitpoint",
+			"FinalAdd": false
+		},
+		{
+			"Effect Name": "Initiative",
+			"Relevant Manager": "Attribute",
+			"Sub Manager": "initiative",
+			"FinalAdd": false
+		},
+		{
+			"Effect Name": "Initiative_Impatient",
+			"Relevant Manager": "Attribute",
+			"Sub Manager": "initiative",
+			"FinalAdd": false
+		},
+		{
+			"Effect Name": "Injury_Chance_Percent",
+			"Relevant Manager": "Battle",
+			"Sub Manager": "injury",
+			"FinalAdd": false
+		},
+		{
+			"Effect Name": "Injury_Ignore",
+			"Relevant Manager": "Battle",
+			"Sub Manager": "injury",
+			"FinalAdd": false
+		},
+		{
+			"Effect Name": "Loyal",
+			"Relevant Manager": "Special",
+			"Sub Manager": "loyal",
+			"FinalAdd": false
+		},
+		{
+			"Effect Name": "MeleeSkill",
+			"Relevant Manager": "Attribute",
+			"Sub Manager": "meleeSkill",
+			"FinalAdd": false
+		},
+		{
+			"Effect Name": "MeleeDef",
+			"Relevant Manager": "Attribute",
+			"Sub Manager": "meleeDefense",
+			"FinalAdd": false
+		},
+		{
+			"Effect Name": "MeleeDef_Percent",
+			"Relevant Manager": "Attribute",
+			"Sub Manager": "meleeDefense",
+			"FinalAdd": false
+		},
+		{
+			"Effect Name": "MeleeDef_Retreat",
+			"Relevant Manager": "Attribute",
+			"Sub Manager": "meleeDefense",
+			"FinalAdd": false
+		},
+		{
+			"Effect Name": "MeleeSkill_Percent",
+			"Relevant Manager": "Attribute",
+			"Sub Manager": "meleeSkill",
+			"FinalAdd": false
+		},
+		{
+			"Effect Name": "Morale_AllyDeath",
+			"Relevant Manager": "Morale",
+			"Sub Manager": "morale",
+			"FinalAdd": false
+		},
+		{
+			"Effect Name": "Morale_Deathwish",
+			"Relevant Manager": "Morale",
+			"Sub Manager": "morale",
+			"FinalAdd": false
+		},
+		{
+			"Effect Name": "Morale_Determined",
+			"Relevant Manager": "Morale",
+			"Sub Manager": "morale",
+			"FinalAdd": false
+		},
+		{
+			"Effect Name": "Morale_Insecure",
+			"Relevant Manager": "Morale",
+			"Sub Manager": "morale",
+			"FinalAdd": false
+		},
+		{
+			"Effect Name": "Morale_Irrational",
+			"Relevant Manager": "Morale",
+			"Sub Manager": "morale",
+			"FinalAdd": false
+		},
+		{
+			"Effect Name": "Morale_Optimist",
+			"Relevant Manager": "Morale",
+			"Sub Manager": "morale",
+			"FinalAdd": false
+		},
+		{
+			"Effect Name": "Morale_Pessimist",
+			"Relevant Manager": "Morale",
+			"Sub Manager": "morale",
+			"FinalAdd": false
+		},
+		{
+			"Effect Name": "Morale_Special",
+			"Relevant Manager": "Morale",
+			"Sub Manager": "morale",
+			"FinalAdd": false
+		},
+		{
+			"Effect Name": "Morale_Starting",
+			"Relevant Manager": "Morale",
+			"Sub Manager": "morale",
+			"FinalAdd": false
+		},
+		{
+			"Effect Name": "Poison_Time",
+			"Relevant Manager": "Battle",
+			"Sub Manager": "poison",
+			"FinalAdd": false
+		},
+		{
+			"Effect Name": "RangedDef",
+			"Relevant Manager": "Attribute",
+			"Sub Manager": "rangedDefense",
+			"FinalAdd": false
+		},
+		{
+			"Effect Name": "RangedDef_Percent",
+			"Relevant Manager": "Attribute",
+			"Sub Manager": "rangedDefense",
+			"FinalAdd": false
+		},
+		{
+			"Effect Name": "RangedSkill",
+			"Relevant Manager": "Attribute",
+			"Sub Manager": "rangedSkill",
+			"FinalAdd": false
+		},
+		{
+			"Effect Name": "RangedSkill_Percent",
+			"Relevant Manager": "Attribute",
+			"Sub Manager": "rangedSkill",
+			"FinalAdd": false
+		},
+		{
+			"Effect Name": "RerollChance",
+			"Relevant Manager": "Battle",
+			"Sub Manager": "victim",
+			"FinalAdd": false
+		},
+		{
+			"Effect Name": "Resolve",
+			"Relevant Manager": "Attribute",
+			"Sub Manager": "resolve",
+			"FinalAdd": false
+		},
+		{
+			"Effect Name": "Resolve_Beasts",
+			"Relevant Manager": "Battle",
+			"Sub Manager": "resolve",
+			"FinalAdd": false
+		},
+		{
+			"Effect Name": "Resolve_Greenskins",
+			"Relevant Manager": "Battle",
+			"Sub Manager": "resolve",
+			"FinalAdd": false
+		},
+		{
+			"Effect Name": "Resolve_Percent",
+			"Relevant Manager": "Attribute",
+			"Sub Manager": "resolve",
+			"FinalAdd": false
+		},
+		{
+			"Effect Name": "Resolve_Undead",
+			"Relevant Manager": "Battle",
+			"Sub Manager": "resolve",
+			"FinalAdd": false
+		},
+		{
+			"Effect Name": "SurvivalChance",
+			"Relevant Manager": "Battle",
+			"Sub Manager": "death",
+			"FinalAdd": false
+		},
+		{
+			"Effect Name": "Vision",
+			"Relevant Manager": "Attribute",
+			"Sub Manager": "vision",
+			"FinalAdd": false
+		},
+		{
+			"Effect Name": "Vision_Night",
+			"Relevant Manager": "Battle",
+			"Sub Manager": "vision",
+			"FinalAdd": false
+		},
+		{
+			"Effect Name": "WardogStartingMorale",
+			"Relevant Manager": "Battle",
+			"Sub Manager": "pet",
+			"FinalAdd": false
+		},
+		{
+			"Effect Name": "XPGain_Percent",
+			"Relevant Manager": "Attribute",
+			"Sub Manager": "xpRate",
+			"FinalAdd": false
+		}
+	]
+}

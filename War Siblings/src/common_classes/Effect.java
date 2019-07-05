@@ -2,21 +2,65 @@ package common_classes;
 
 import global_managers.GlobalManager;
 
-public class Effect {
-	protected String effectName;
-	protected double value;
+public class Effect extends Modifier {
+	protected String affectedManager;
+	protected String affectedSubManager;
 
 	public Effect(String eName, double val) {
-		this.effectName = eName;
-		this.value = val;
+		super(eName, val, setIsMulti(eName));
+		this.findExtra();
 	}
 
 	public Effect(String eName) {
-		this.effectName = eName;
-		this.value = GlobalManager.UNUSED;
+		super(eName, GlobalManager.UNUSED, setIsMulti(eName));
+		this.findExtra();
+	}
+
+	/** Only used for GlobalMananger */
+	public Effect(String eName, String aM, String aSM, boolean isFinal) {
+		super(eName, GlobalManager.UNUSED, setIsMulti(eName), isFinal);
+		this.affectedManager = aM;
+		this.affectedSubManager = aSM;
+	}
+
+	private static boolean setIsMulti(String eName) {
+		if (eName.contains("_Percent")) {
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * Finds the general effect and configures this instances managers to match so
+	 * that it knows who to tell to adjust
+	 */
+	public void findExtra() {
+		Effect temp;
+		try {
+			temp = GlobalManager.effects.search(this.name);
+
+			this.affectedManager = temp.affectedManager;
+			this.affectedSubManager = temp.affectedSubManager;
+			this.finalAdd = temp.finalAdd;
+		} catch (NullPointerException nu) {
+			nu.printStackTrace();
+		}
+	}
+
+	/** Returns the Modifier form of this effect */
+	public Modifier getModifier() {
+		return new Modifier(this.name, this.value, this.isMulti, this.finalAdd);
+	}
+
+	public String getAffectedManager() {
+		return this.affectedManager;
+	}
+
+	public String getAffectedSubManager() {
+		return this.affectedSubManager;
 	}
 
 	public void display() {
-		System.out.println("-" + this.effectName + ": " + this.value);
+		System.out.println("-" + this.name + ": " + this.value + ", " + this.isMulti + ", " + this.affectedSubManager);
 	}
 }

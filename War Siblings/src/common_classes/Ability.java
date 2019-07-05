@@ -13,7 +13,7 @@ public class Ability {
 		this.effects = effects;
 		this.desc = this.retrieveDesc();
 	}
-	
+
 	/** Constructor for when you have all the effects */
 	public Ability(String name) {
 		this.name = name;
@@ -34,18 +34,18 @@ public class Ability {
 	public String getName() {
 		return this.name;
 	}
-	
+
 	public String getDesc() {
 		return this.desc;
 	}
-	
+
 	public ArrayList<Effect> getEffects() {
 		return this.effects;
 	}
 
 	public void display() {
 		System.out.print(this.name + ": " + this.desc + "\n");
-		for (Effect e: this.effects) {
+		for (Effect e : this.effects) {
 			e.display();
 		}
 	}

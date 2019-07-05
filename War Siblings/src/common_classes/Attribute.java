@@ -44,6 +44,12 @@ public class Attribute {
 		}
 	}
 
+	public void removeModifier(Modifier mod) {
+		if (this.modifiers.remove(mod)) {
+			this.updateAltered();
+		}
+	}
+
 	/** Method to remove all modifiers */
 	public void removeAllModifiers() {
 		this.modifiers.removeAll(modifiers);
@@ -77,15 +83,20 @@ public class Attribute {
 	protected void updateAltered() {
 		double multi = 1;
 		double add = 0;
+		double finalAdd = 0;
 
 		for (Modifier m : modifiers) {
 			if (m.getIsMulti()) {
 				multi *= (1 + m.getValue() / 100);
 			} else {
-				add += m.getValue();
+				if (m.getFinalAdd()) {
+					finalAdd += m.getValue();
+				} else {
+					add += m.getValue();
+				}
 			}
 		}
-		this.alteredMaxValue = multi * this.originalMaxValue + add;
+		this.alteredMaxValue = multi * (this.originalMaxValue + add) + finalAdd;
 	}
 
 	public double getAlteredValue() {
@@ -93,6 +104,15 @@ public class Attribute {
 	}
 
 	public String toString() {
-		return ((Integer) ((Double) this.alteredMaxValue).intValue()).toString();
+		return ((Integer) ((Double) this.alteredMaxValue).intValue()).toString() + this.stringModifiers();
+	}
+	
+	protected String stringModifiers() {
+		String temp = "(";
+		for (Modifier m: this.modifiers) {
+			temp += m.toString();
+		}
+		temp += ")";
+		return temp;
 	}
 }

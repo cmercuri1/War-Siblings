@@ -31,8 +31,6 @@ public class TraitManager extends BaseGlobalManager {
 		JSONArray temp;
 		ArrayList<Effect> temp3 = new ArrayList<Effect>();
 		ArrayList<String> temp4 = new ArrayList<String>();
-		ArrayList<String> temp5 = new ArrayList<String>();
-		ArrayList<String> temp6 = new ArrayList<String>();
 
 		temp = (JSONArray) o.get("Effects");
 		for (Object ob : temp) {
@@ -43,23 +41,16 @@ public class TraitManager extends BaseGlobalManager {
 				temp3.add(new Effect((String) temp2.get("Effect Name")));
 			}
 		}
-
-		temp = (JSONArray) o.get("Specific Backgrounds");
-		for (Object ob : temp) {
-			temp4.add((String) ob);
+		try {
+			temp = (JSONArray) o.get("Mutually Exclusive");
+			for (Object ob : temp) {
+				temp4.add((String) ob);
+			}
+		} catch (NullPointerException n) {
+			
 		}
 
-		temp = (JSONArray) o.get("Invalid Backgrounds");
-		for (Object ob : temp) {
-			temp5.add((String) ob);
-		}
-
-		temp = (JSONArray) o.get("Mutually Exclusive");
-		for (Object ob : temp) {
-			temp6.add((String) ob);
-		}
-
-		this.traitList.add(new Trait((String) o.get("Name"), temp3, temp4, temp5, temp6));
+		this.traitList.add(new Trait((String) o.get("Name"), temp3, temp4));
 	}
 
 }

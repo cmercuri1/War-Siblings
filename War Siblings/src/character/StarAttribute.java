@@ -63,6 +63,6 @@ public class StarAttribute extends Attribute {
 		if (this.numStars > 0) {
 			temp += " and has " + this.numStars + " stars";
 		}
-		return temp;
+		return temp+this.stringModifiers();
 	}
 }

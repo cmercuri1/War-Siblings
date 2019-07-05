@@ -5,6 +5,7 @@ import java.util.Random;
 public class GlobalManager {
 	public static BackgroundManager characters;
 	public static BodyArmorManager bodyArmors;
+	public static EffectManager effects;
 	public static HeadgearManager headgears;
 	public static ShieldManager shields;
 	public static WeaponManager weapons;
@@ -14,6 +15,7 @@ public class GlobalManager {
 	public static final double UNUSED = 999;
 
 	static {
+		effects = new EffectManager();
 		characters = new BackgroundManager();
 		bodyArmors = new BodyArmorManager();
 		headgears = new HeadgearManager();

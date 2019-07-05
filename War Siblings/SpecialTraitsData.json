@@ -1,0 +1,221 @@
+{
+	"Traits": [
+		{
+			"Name": "Acolyte of Davkul",
+			"Specific Backgrounds": [
+				"CultistSpec"
+			],
+			"Effects": [
+				{
+					"Effect Name": "Resolve",
+					"Value": 10
+				},
+				{
+					"Effect Name": "Fatigue_Recovery",
+					"Value": 2
+				},
+				{
+					"Effect Name": "Morale_AllyDeath"
+				},
+				{
+					"Effect Name": "Morale_Deathwish"
+				}
+			]
+		},
+		{
+			"Name": "Addict",
+			"Specific Backgrounds": [
+				"Special"
+			],
+			"Effects": [
+				{
+					"Effect Name": "Resolve_Percent",
+					"Value": -10
+				},
+				{
+					"Effect Name": "MeleeSkill_Percent",
+					"Value": -10
+				},
+				{
+					"Effect Name": "RangedSkill_Percent",
+					"Value": -10
+				},
+				{
+					"Effect Name": "MeleeDef_Percent",
+					"Value": -10
+				},
+				{
+					"Effect Name": "RangedDef_Percent",
+					"Value": -10
+				}
+			]
+		},
+		{
+			"Name": "Chosen of Davkul",
+			"Specific Backgrounds": [
+				"CultistSpec"
+			],
+			"Effects": [
+				{
+					"Effect Name": "Hitpoints",
+					"Value": 20
+				},
+				{
+					"Effect Name": "Resolve",
+					"Value": 10
+				},
+				{
+					"Effect Name": "MeleeDef",
+					"Value": 5
+				},
+				{
+					"Effect Name": "RangedDef",
+					"Value": 5
+				},
+				{
+					"Effect Name": "Fatigue_Recovery",
+					"Value": 2
+				},
+				{
+					"Effect Name": "Morale_AllyDeath"
+				},
+				{
+					"Effect Name": "Morale_Deathwish"
+				},
+				{
+					"Effect Name": "Injury_Ignore"
+				}
+			]
+		},
+		{
+			"Name": "Disciple of Davkul",
+			"Specific Backgrounds": [
+				"CultistSpec"
+			],
+			"Effects": [
+				{
+					"Effect Name": "Hitpoints",
+					"Value": 20
+				},
+				{
+					"Effect Name": "Resolve",
+					"Value": 10
+				},
+				{
+					"Effect Name": "Fatigue_Recovery",
+					"Value": 2
+				},
+				{
+					"Effect Name": "Morale_AllyDeath"
+				},
+				{
+					"Effect Name": "Morale_Deathwish"
+				}
+			]
+		},
+		{
+			"Name": "Fanatic of Davkul",
+			"Specific Backgrounds": [
+				"CultistSpec"
+			],
+			"Effects": [
+				{
+					"Effect Name": "Resolve",
+					"Value": 5
+				},
+				{
+					"Effect Name": "Morale_AllyDeath"
+				}
+			]
+		},
+		{
+			"Name": "Old",
+			"Specific Backgrounds": [
+				"SwordmasterSpec"
+			],
+			"Effects": [
+				{
+					"Effect Name": "Resolve",
+					"Value": 10
+				},
+				{
+					"Effect Name": "Hitpoints",
+					"Value": -10
+				},
+				{
+					"Effect Name": "Fatigue",
+					"Value": -10
+				},
+				{
+					"Effect Name": "Initiative",
+					"Value": -10
+				},
+				{
+					"Effect Name": "Vision",
+					"Value": -1
+				}
+			]
+		},
+		{
+			"Name": "Player Character",
+			"Specific Backgrounds": [
+				"LoneWolfSpec"
+			],
+			"Effects": [
+				{
+					"Effect Name": "Resolve",
+					"Value": 10
+				}
+			]
+		},
+		{
+			"Name": "Prophet of Davkul",
+			"Specific Backgrounds": [
+				"CultistSpec"
+			],
+			"Effects": [
+				{
+					"Effect Name": "Hitpoints",
+					"Value": 20
+				},
+				{
+					"Effect Name": "Resolve",
+					"Value": 10
+				},
+				{
+					"Effect Name": "MeleeDef",
+					"Value": 5
+				},
+				{
+					"Effect Name": "RangedDef",
+					"Value": 5
+				},
+				{
+					"Effect Name": "Fatigue_Recovery",
+					"Value": 2
+				},
+				{
+					"Effect Name": "Morale_AllyDeath"
+				},
+				{
+					"Effect Name": "Morale_Deathwish"
+				},
+				{
+					"Effect Name": "Injury_Ignore"
+				}
+			]
+		},
+		{
+			"Name": "Zealot of Davkul",
+			"Specific Backgrounds": [
+				"CultistSpec"
+			],
+			"Effects": [
+				{
+					"Effect Name": "Resolve",
+					"Value": 10
+				}
+			]
+		}
+	]
+}

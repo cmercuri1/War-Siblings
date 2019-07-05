@@ -23,16 +23,22 @@ public class BarAttribute extends StarAttribute {
 	protected void updateAltered() {
 		double multi = 1;
 		double add = 0;
+		double finalAdd = 0;
 
 		for (Modifier m : modifiers) {
 			if (m.getIsMulti()) {
-				multi *= m.getValue();
+				multi *= (1 + m.getValue() / 100);
 			} else {
-				add += m.getValue();
+				if (m.getFinalAdd()) {
+					finalAdd += m.getValue();
+				} else {
+					add += m.getValue();
+				}
 			}
 		}
-		this.alteredMaxValue = multi * this.originalMaxValue + add;
-		this.alteredCurrentValue = multi * this.originalCurrentValue + add;
+		// TODO FIX THIS SHIT
+		this.alteredMaxValue = multi * (this.originalMaxValue + add) + finalAdd;
+		this.alteredCurrentValue = multi * (this.originalCurrentValue) + finalAdd;
 		this.currentChecker();
 	}
 
@@ -57,7 +63,7 @@ public class BarAttribute extends StarAttribute {
 		if (this.numStars > 0) {
 			temp += " and has " + this.numStars + " stars";
 		}
-		return temp;
+		return temp + this.stringModifiers();
 	}
 
 }

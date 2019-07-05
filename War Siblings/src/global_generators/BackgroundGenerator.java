@@ -15,11 +15,15 @@ import common_classes.Effect;
 public class BackgroundGenerator extends BaseWarriorGenerator {
 	protected String background;
 	protected Ability bgAbility;
+	
+	protected ArrayList<String> excludedTalents;
+	protected ArrayList<String> excludedTraits;
 
 	/** Constructor applying background traits */
 	public BackgroundGenerator(JSONObject o) {
 		super();
-
+		this.excludedTalents = new ArrayList<String>();
+		this.excludedTraits = new ArrayList<String>();
 		this.updateAttributes(o);
 	}
 
@@ -62,7 +66,24 @@ public class BackgroundGenerator extends BaseWarriorGenerator {
 		} catch (ClassCastException ce) {
 			this.bgAbility = null;
 		}
-
+		
+		try {
+			temp = (JSONArray) o.get("Excluded Talents");
+			for (Object ob : temp) {
+				this.excludedTalents.add((String) ob);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			temp = (JSONArray) o.get("Excluded Traits");
+			for (Object ob : temp) {
+				this.excludedTraits.add((String) ob);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	public String getBackground() {
@@ -71,6 +92,14 @@ public class BackgroundGenerator extends BaseWarriorGenerator {
 
 	public Ability getBgAbility() {
 		return this.bgAbility;
+	}
+
+	public ArrayList<String> getExcludedTalents() {
+		return this.excludedTalents;
+	}
+
+	public ArrayList<String> getExcludedTraits() {
+		return this.excludedTraits;
 	}
 
 	public void display() {

@@ -1,127 +1,58 @@
 {
 	"Traits": [
 		{
-			"Name": "Acolyte of Davkul",
-			"Specific Backgrounds": [
-				"CultistSpec"
-			],
-			"Invalid Backgrounds": [],
-			"Mutually Exclusive": [],
-			"Effects": [
-				{
-					"Effect Name": "Resolve",
-					"Value": 10
-				},
-				{
-					"Effect Name": "FatigueRecovery",
-					"Value": 2
-				},
-				{
-					"Effect Name": "AllyDeathMorale"
-				},
-				{
-					"Effect Name": "DeathwishMorale"
-				}
-			]
-		},
-		{
-			"Name": "Addict",
-			"Specific Backgrounds": [
-				"Special"
-			],
-			"Invalid Backgrounds": [],
-			"Mutually Exclusive": [],
-			"Effects": [
-				{
-					"Effect Name": "ResolvePercent",
-					"Value": -10
-				},
-				{
-					"Effect Name": "MeleeSkillPercent",
-					"Value": -10
-				},
-				{
-					"Effect Name": "RangedSkillPercent",
-					"Value": -10
-				},
-				{
-					"Effect Name": "MeleeDefPercent",
-					"Value": -10
-				},
-				{
-					"Effect Name": "RangedDefPercent",
-					"Value": -10
-				}
-			]
-		},
-		{
 			"Name": "Ailing",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
-			"Mutually Exclusive": [],
 			"Effects": [
 				{
-					"Effect Name": "PoisonTime",
+					"Effect Name": "Poison_Time",
 					"Value": 1
 				}
 			]
 		},
 		{
 			"Name": "Asthmatic",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
 			"Mutually Exclusive": [
 				"Iron Lungs"
 			],
 			"Effects": [
 				{
-					"Effect Name": "FatigueRecovery",
+					"Effect Name": "Fatigue_Recovery",
 					"Value": -3
 				}
 			]
 		},
 		{
 			"Name": "Athletic",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
 			"Mutually Exclusive": [
 				"Club Footed"
 			],
 			"Effects": [
 				{
-					"Effect Name": "FatigueOnMovement",
+					"Effect Name": "Fatigue_OnMovement",
 					"Value": -2
 				}
 			]
 		},
 		{
 			"Name": "Bleeder",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
-			"Mutually Exclusive": [],
 			"Effects": [
 				{
-					"Effect Name": "BleedTime",
+					"Effect Name": "Bleed_Time",
 					"Value": 1
 				}
 			]
 		},
 		{
 			"Name": "Bloodthirsty",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
-			"Mutually Exclusive": [],
 			"Effects": [
 				{
-					"Effect Name": "FatalityChance",
+					"Effect Name": "Fatality_Chance_Percent",
 					"Value": 100
 				}
 			]
 		},
 		{
 			"Name": "Brave",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
 			"Mutually Exclusive": [
 				"Craven",
 				"Fainthearted",
@@ -136,26 +67,21 @@
 		},
 		{
 			"Name": "Bright",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
 			"Mutually Exclusive": [
 				"Dumb"
 			],
 			"Effects": [
 				{
-					"Effect Name": "XPGain",
+					"Effect Name": "XPGain_Percent",
 					"Value": 10
 				}
 			]
 		},
 		{
 			"Name": "Brute",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
-			"Mutually Exclusive": [],
 			"Effects": [
 				{
-					"Effect Name": "HeadshotDamage",
+					"Effect Name": "Damage_Headshot_Percent",
 					"Value": 15
 				},
 				{
@@ -165,62 +91,19 @@
 			]
 		},
 		{
-			"Name": "Chosen of Davkul",
-			"Specific Backgrounds": [
-				"CultistSpec"
-			],
-			"Invalid Backgrounds": [],
-			"Mutually Exclusive": [],
-			"Effects": [
-				{
-					"Effect Name": "Hitpoints",
-					"Value": 20
-				},
-				{
-					"Effect Name": "Resolve",
-					"Value": 10
-				},
-				{
-					"Effect Name": "MeleeDef",
-					"Value": 5
-				},
-				{
-					"Effect Name": "RangedDef",
-					"Value": 5
-				},
-				{
-					"Effect Name": "FatigueRecovery",
-					"Value": 2
-				},
-				{
-					"Effect Name": "AllyDeathMorale"
-				},
-				{
-					"Effect Name": "DeathwishMorale"
-				},
-				{
-					"Effect Name": "InjuryIgnore"
-				}
-			]
-		},
-		{
 			"Name": "Clubfooted",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
 			"Mutually Exclusive": [
 				"Athletic"
 			],
 			"Effects": [
 				{
-					"Effect Name": "FatigueOnMovement",
+					"Effect Name": "Fatigue_OnMovement",
 					"Value": 2
 				}
 			]
 		},
 		{
 			"Name": "Clumsy",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
 			"Mutually Exclusive": [
 				"Dexterous"
 			],
@@ -233,9 +116,6 @@
 		},
 		{
 			"Name": "Cocky",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
-			"Mutually Exclusive": [],
 			"Effects": [
 				{
 					"Effect Name": "Resolve",
@@ -253,8 +133,6 @@
 		},
 		{
 			"Name": "Craven",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
 			"Mutually Exclusive": [
 				"Brave",
 				"Fainthearted",
@@ -269,48 +147,39 @@
 		},
 		{
 			"Name": "Dastard",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
 			"Mutually Exclusive": [
 				"Determined"
 			],
 			"Effects": [
 				{
-					"Effect Name": "StartingMorale",
+					"Effect Name": "Morale_Starting",
 					"Value": 3
 				}
 			]
 		},
 		{
 			"Name": "Deathwish",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
-			"Mutually Exclusive": [],
 			"Effects": [
 				{
-					"Effect Name": "DeathwishMorale"
+					"Effect Name": "Morale_Deathwish"
 				}
 			]
 		},
 		{
 			"Name": "Determined",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
 			"Mutually Exclusive": [
 				"Dastard",
 				"Insecure"
 			],
 			"Effects": [
 				{
-					"Effect Name": "DeterminedMorale",
+					"Effect Name": "Morale_Determined",
 					"Value": 5
 				}
 			]
 		},
 		{
 			"Name": "Dextrous",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
 			"Mutually Exclusive": [
 				"Clumsy"
 			],
@@ -322,37 +191,7 @@
 			]
 		},
 		{
-			"Name": "Disciple of Davkul",
-			"Specific Backgrounds": [
-				"CultistSpec"
-			],
-			"Invalid Backgrounds": [],
-			"Mutually Exclusive": [],
-			"Effects": [
-				{
-					"Effect Name": "Hitpoints",
-					"Value": 20
-				},
-				{
-					"Effect Name": "Resolve",
-					"Value": 10
-				},
-				{
-					"Effect Name": "FatigueRecovery",
-					"Value": 2
-				},
-				{
-					"Effect Name": "AllyDeathMorale"
-				},
-				{
-					"Effect Name": "DeathwishMorale"
-				}
-			]
-		},
-		{
 			"Name": "Disloyal",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
 			"Mutually Exclusive": [
 				"Loyal"
 			],
@@ -364,12 +203,9 @@
 		},
 		{
 			"Name": "Drunkard",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
-			"Mutually Exclusive": [],
 			"Effects": [
 				{
-					"Effect Name": "MeleeDamage",
+					"Effect Name": "Damage_Melee_Percent",
 					"Value": 10
 				},
 				{
@@ -388,22 +224,18 @@
 		},
 		{
 			"Name": "Dumb",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
 			"Mutually Exclusive": [
 				"Bright"
 			],
 			"Effects": [
 				{
-					"Effect Name": "XPGain",
+					"Effect Name": "XPGain_Percent",
 					"Value": -15
 				}
 			]
 		},
 		{
 			"Name": "Eagle Eyes",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
 			"Mutually Exclusive": [
 				"Short Sighted"
 			],
@@ -416,8 +248,6 @@
 		},
 		{
 			"Name": "Fainthearted",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
 			"Mutually Exclusive": [
 				"Brave",
 				"Craven",
@@ -431,26 +261,7 @@
 			]
 		},
 		{
-			"Name": "Fanatic of Davkul",
-			"Specific Backgrounds": [
-				"CultistSpec"
-			],
-			"Invalid Backgrounds": [],
-			"Mutually Exclusive": [],
-			"Effects": [
-				{
-					"Effect Name": "Resolve",
-					"Value": -5
-				},
-				{
-					"Effect Name": "AllyDeathMorale"
-				}
-			]
-		},
-		{
 			"Name": "Fat",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
 			"Mutually Exclusive": [
 				"Athletic"
 			],
@@ -467,50 +278,42 @@
 		},
 		{
 			"Name": "Fear of Beasts",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
 			"Mutually Exclusive": [
 				"Hate for Beasts"
 			],
 			"Effects": [
 				{
-					"Effect Name": "ResolveBeasts",
+					"Effect Name": "Resolve_Beasts",
 					"Value": -10
 				}
 			]
 		},
 		{
 			"Name": "Fear of Greenskins",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
 			"Mutually Exclusive": [
 				"Hate for Greenskins"
 			],
 			"Effects": [
 				{
-					"Effect Name": "ResolveGreenskins",
+					"Effect Name": "Resolve_Greenskins",
 					"Value": -10
 				}
 			]
 		},
 		{
 			"Name": "Fear of Undead",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
 			"Mutually Exclusive": [
 				"Hate for Undead"
 			],
 			"Effects": [
 				{
-					"Effect Name": "ResolveUndead",
+					"Effect Name": "Resolve_Undead",
 					"Value": -10
 				}
 			]
 		},
 		{
 			"Name": "Fearless",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
 			"Mutually Exclusive": [
 				"Brave",
 				"Craven",
@@ -525,8 +328,6 @@
 		},
 		{
 			"Name": "Fragile",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
 			"Mutually Exclusive": [
 				"Tough"
 			],
@@ -539,8 +340,6 @@
 		},
 		{
 			"Name": "Gluttonous",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
 			"Mutually Exclusive": [
 				"Spartan"
 			],
@@ -553,62 +352,51 @@
 		},
 		{
 			"Name": "Greedy",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
-			"Mutually Exclusive": [],
 			"Effects": [
 				{
-					"Effect Name": "Cost",
+					"Effect Name": "Cost_Percent",
 					"Value": 15
 				}
 			]
 		},
 		{
 			"Name": "Hate for Beasts",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
 			"Mutually Exclusive": [
 				"Fear of Beasts"
 			],
 			"Effects": [
 				{
-					"Effect Name": "ResolveBeasts",
+					"Effect Name": "Resolve_Beasts",
 					"Value": 10
 				}
 			]
 		},
 		{
 			"Name": "Hate for Greenskins",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
 			"Mutually Exclusive": [
 				"Fear of Greenskins"
 			],
 			"Effects": [
 				{
-					"Effect Name": "ResolveGreenskins",
+					"Effect Name": "Resolve_Greenskins",
 					"Value": 10
 				}
 			]
 		},
 		{
 			"Name": "Hate for Undead",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
 			"Mutually Exclusive": [
 				"Fear of Undead"
 			],
 			"Effects": [
 				{
-					"Effect Name": "ResolveUndead",
+					"Effect Name": "Resolve_Undead",
 					"Value": 10
 				}
 			]
 		},
 		{
 			"Name": "Hesistant",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
 			"Mutually Exclusive": [
 				"Quick",
 				"Impatient"
@@ -622,14 +410,12 @@
 		},
 		{
 			"Name": "Huge",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
 			"Mutually Exclusive": [
 				"Tiny"
 			],
 			"Effects": [
 				{
-					"Effect Name": "MeleeDamage",
+					"Effect Name": "Damage_Melee_Percent",
 					"Value": 10
 				},
 				{
@@ -644,76 +430,63 @@
 		},
 		{
 			"Name": "Impatient",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
 			"Mutually Exclusive": [
 				"Hesistant"
 			],
 			"Effects": [
 				{
-					"Effect Name": "ImpatientInitiative",
+					"Effect Name": "Initiative_Impatient",
 					"Value": 1000
 				}
 			]
 		},
 		{
 			"Name": "Insecure",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
 			"Mutually Exclusive": [
 				"Determined"
 			],
 			"Effects": [
 				{
-					"Effect Name": "InsecureMorale"
+					"Effect Name": "Morale_Insecure"
 				}
 			]
 		},
 		{
 			"Name": "Iron Lungs",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
 			"Mutually Exclusive": [
 				"Asthmatic"
 			],
 			"Effects": [
 				{
-					"Effect Name": "FatigueRecovery",
+					"Effect Name": "Fatigue_Recovery",
 					"Value": 4
 				}
 			]
 		},
 		{
 			"Name": "Iron Jaw",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
-			"Mutually Exclusive": [],
 			"Effects": [
 				{
-					"Effect Name": "InjuryChance",
+					"Effect Name": "Injury_Chance_Percent",
 					"Value": -25
 				}
 			]
 		},
 		{
 			"Name": "Irrational",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
 			"Mutually Exclusive": [
 				"Optimist",
 				"Pessimist"
 			],
 			"Effects": [
 				{
-					"Effect Name": "IrationalMorale",
+					"Effect Name": "Morale_Irrational",
 					"Value": 10
 				}
 			]
 		},
 		{
 			"Name": "Loyal",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
 			"Mutually Exclusive": [
 				"Disloyal"
 			],
@@ -725,9 +498,6 @@
 		},
 		{
 			"Name": "Lucky",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
-			"Mutually Exclusive": [],
 			"Effects": [
 				{
 					"Effect Name": "RerollChance",
@@ -737,82 +507,43 @@
 		},
 		{
 			"Name": "Night Blind",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
 			"Mutually Exclusive": [
 				"Night Owl"
 			],
 			"Effects": [
 				{
-					"Effect Name": "VisionNight",
+					"Effect Name": "Vision_Night",
 					"Value": -1
 				}
 			]
 		},
 		{
 			"Name": "Night Owl",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
 			"Mutually Exclusive": [
 				"Night Blind"
 			],
 			"Effects": [
 				{
-					"Effect Name": "VisionNight",
+					"Effect Name": "Vision_Night",
 					"Value": 1
 				}
 			]
 		},
 		{
-			"Name": "Old",
-			"Specific Backgrounds": [
-				"SwordmasterSpec"
-			],
-			"Invalid Backgrounds": [],
-			"Mutually Exclusive": [],
-			"Effects": [
-				{
-					"Effect Name": "Resolve",
-					"Value": 10
-				},
-				{
-					"Effect Name": "Hitpoints",
-					"Value": -10
-				},
-				{
-					"Effect Name": "Fatigue",
-					"Value": -10
-				},
-				{
-					"Effect Name": "Initiative",
-					"Value": -10
-				},
-				{
-					"Effect Name": "Vision",
-					"Value": -1
-				}
-			]
-		},
-		{
 			"Name": "Optimist",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
 			"Mutually Exclusive": [
 				"Pessimist",
 				"Irrational"
 			],
 			"Effects": [
 				{
-					"Effect Name": "OptimistMorale",
+					"Effect Name": "Morale_Optimist",
 					"Value": 5
 				}
 			]
 		},
 		{
 			"Name": "Paranoid",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
-			"Mutually Exclusive": [],
 			"Effects": [
 				{
 					"Effect Name": "MeleeDef",
@@ -830,90 +561,31 @@
 		},
 		{
 			"Name": "Pessimist",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
 			"Mutually Exclusive": [
 				"Optimist",
 				"Irrational"
 			],
 			"Effects": [
 				{
-					"Effect Name": "PessimistMorale",
+					"Effect Name": "Morale_Pessimist",
 					"Value": -5
 				}
 			]
 		},
 		{
-			"Name": "Player Character",
-			"Specific Backgrounds": [
-				"LoneWolfSpec"
-			],
-			"Invalid Backgrounds": [],
-			"Mutually Exclusive": [],
-			"Effects": [
-				{
-					"Effect Name": "Resolve",
-					"Value": 10
-				}
-			]
-		},
-		{
-			"Name": "Prophet of Davkul",
-			"Specific Backgrounds": [
-				"CultistSpec"
-			],
-			"Invalid Backgrounds": [],
-			"Mutually Exclusive": [],
-			"Effects": [
-				{
-					"Effect Name": "Hitpoints",
-					"Value": 20
-				},
-				{
-					"Effect Name": "Resolve",
-					"Value": 10
-				},
-				{
-					"Effect Name": "MeleeDef",
-					"Value": 5
-				},
-				{
-					"Effect Name": "RangedDef",
-					"Value": 5
-				},
-				{
-					"Effect Name": "FatigueRecovery",
-					"Value": 2
-				},
-				{
-					"Effect Name": "AllyDeathMorale"
-				},
-				{
-					"Effect Name": "DeathwishMorale"
-				},
-				{
-					"Effect Name": "InjuryIgnore"
-				}
-			]
-		},
-		{
 			"Name": "Quick",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
 			"Mutually Exclusive": [
 				"Hesistant"
 			],
 			"Effects": [
 				{
-					"Effect Name": "Resolve",
+					"Effect Name": "Initiative",
 					"Value": 10
 				}
 			]
 		},
 		{
 			"Name": "Short Sighted",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
 			"Mutually Exclusive": [
 				"Eagle Eyes"
 			],
@@ -926,8 +598,6 @@
 		},
 		{
 			"Name": "Spartan",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
 			"Mutually Exclusive": [
 				"Gluttonous"
 			],
@@ -940,9 +610,6 @@
 		},
 		{
 			"Name": "Strong",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
-			"Mutually Exclusive": [],
 			"Effects": [
 				{
 					"Effect Name": "Fatigue",
@@ -952,20 +619,15 @@
 		},
 		{
 			"Name": "Superstitious",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
-			"Mutually Exclusive": [],
 			"Effects": [
 				{
-					"Effect Name": "SpecialMoraleChecks",
+					"Effect Name": "Morale_Special",
 					"Value": -10
 				}
 			]
 		},
 		{
 			"Name": "Sure Footing",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
 			"Mutually Exclusive": [
 				""
 			],
@@ -978,9 +640,6 @@
 		},
 		{
 			"Name": "Survivor",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
-			"Mutually Exclusive": [],
 			"Effects": [
 				{
 					"Effect Name": "SurvivalChance",
@@ -990,9 +649,6 @@
 		},
 		{
 			"Name": "Swift",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
-			"Mutually Exclusive": [],
 			"Effects": [
 				{
 					"Effect Name": "RangedDef",
@@ -1002,20 +658,15 @@
 		},
 		{
 			"Name": "Team Player",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
-			"Mutually Exclusive": [],
 			"Effects": [
 				{
-					"Effect Name": "FriendlyFireChance",
+					"Effect Name": "FriendlyFireChance_Percent",
 					"Value": -50
 				}
 			]
 		},
 		{
 			"Name": "Tiny",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
 			"Mutually Exclusive": [
 				"Huge"
 			],
@@ -1029,15 +680,13 @@
 					"Value": 5
 				},
 				{
-					"Effect Name": "MeleeDamage",
+					"Effect Name": "Damage_Melee_Percent",
 					"Value": -15
 				}
 			]
 		},
 		{
 			"Name": "Tough",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
 			"Mutually Exclusive": [
 				"Fragile"
 			],
@@ -1050,27 +699,10 @@
 		},
 		{
 			"Name": "Weasel",
-			"Specific Backgrounds": [],
-			"Invalid Backgrounds": [],
-			"Mutually Exclusive": [],
 			"Effects": [
 				{
-					"Effect Name": "RetreatMeleeDef",
+					"Effect Name": "MeleeDef_Retreat",
 					"Value": 25
-				}
-			]
-		},
-		{
-			"Name": "Zealot of Davkul",
-			"Specific Backgrounds": [
-				"CultistSpec"
-			],
-			"Invalid Backgrounds": [],
-			"Mutually Exclusive": [],
-			"Effects": [
-				{
-					"Effect Name": "Resolve",
-					"Value": 10
 				}
 			]
 		}

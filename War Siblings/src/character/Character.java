@@ -31,7 +31,7 @@ public class Character {
 
 		this.am = new AttributeManager(bg);
 		this.im = new InventoryManager();
-		this.abm = new AbilityManager(bg);
+		this.abm = new AbilityManager(bg, this.am.getAbilityListener());
 		this.mm = new MoraleManager();
 	}
 

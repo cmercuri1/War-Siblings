@@ -26,13 +26,16 @@ public class AttributeManager {
 	private Attribute xpRateManager;
 	private Attribute levelManager;
 	private Attribute actionPointsManager;
-	private Attribute headShotManager;
+	private Attribute headshotManager;
 	private Attribute fatigueRegManager;
 	private Attribute visionManager;
 
+	private Listener abilityListener;
+
 	public AttributeManager(BackgroundGenerator bg) {
 		this.assignAttributes(bg);
-		this.assignStars();
+		this.assignStars(bg.getExcludedTalents());
+		this.abilityListener = new Listener(this);
 	}
 
 	/**
@@ -55,13 +58,13 @@ public class AttributeManager {
 		this.xpRateManager = new Attribute((double) bg.getXpRate());
 		this.levelManager = new Attribute((double) bg.getLev().getRand());
 		this.actionPointsManager = new Attribute((double) bg.getActionPoints());
-		this.headShotManager = new Attribute((double) bg.getHeadShot());
+		this.headshotManager = new Attribute((double) bg.getHeadShot());
 		this.fatigueRegManager = new Attribute((double) bg.getFatRegain());
 		this.visionManager = new Attribute((double) bg.getVision());
 	}
 
 	/** Randomly assigns stars/talents towards up to 3 attributes */
-	private void assignStars() {
+	private void assignStars(ArrayList<String> excludedTalents) {
 		ArrayList<StarAttribute> managers = new ArrayList<StarAttribute>();
 
 		managers.add(hitpointManager);
@@ -73,6 +76,10 @@ public class AttributeManager {
 		managers.add(meleeDefenseManager);
 		managers.add(rangedDefenseManager);
 
+		for (String s : excludedTalents) {
+			managers.remove((Object) s.concat("Manager"));
+		}
+
 		for (int i = 0; i < 3; i++) {
 			int j = GlobalManager.rng.nextInt(managers.size());
 			managers.get(j).setNumStars();
@@ -80,10 +87,46 @@ public class AttributeManager {
 		}
 	}
 
+	public Listener getAbilityListener() {
+		return this.abilityListener;
+	}
+
 	/** Designed to get the relevant attribute */
 	public Attribute getAttribute(String attributeName) {
-		Object o = attributeName + "manager";
-		return (Attribute) o;
+		if (attributeName.equals("hitpoint")) {
+			return this.hitpointManager;
+		} else if (attributeName.equals("fatigue")) {
+			return this.fatigueManager;
+		} else if (attributeName.equals("resolve")) {
+			return this.resolveManager;
+		} else if (attributeName.equals("initiative")) {
+			return this.initiativeManager;
+		} else if (attributeName.equals("meleeSkill")) {
+			return this.meleeSkillManager;
+		} else if (attributeName.equals("rangedSkill")) {
+			return this.rangedSkillManager;
+		} else if (attributeName.equals("meleeDefense")) {
+			return this.meleeDefenseManager;
+		} else if (attributeName.equals("rangedDefense")) {
+			return this.rangedDefenseManager;
+		} else if (attributeName.equals("wage")) {
+			return this.wageManager;
+		} else if (attributeName.equals("food")) {
+			return this.foodManager;
+		} else if (attributeName.equals("xpRate")) {
+			return this.xpRateManager;
+		} else if (attributeName.equals("level")) {
+			return this.levelManager;
+		} else if (attributeName.equals("actionPoints")) {
+			return this.actionPointsManager;
+		} else if (attributeName.equals("headshot")) {
+			return this.headshotManager;
+		} else if (attributeName.equals("fatigueReg")) {
+			return this.fatigueRegManager;
+		} else if (attributeName.equals("vision")) {
+			return this.visionManager;
+		}
+		return null;
 	}
 
 	/** Gets the level up value from the relevant attributes */
@@ -113,12 +156,12 @@ public class AttributeManager {
 	}
 
 	private void applyLevelUp(LevelUp levelUp) {
-		this.getAttribute(levelUp.getName()).newModifier(new Modifier("Level Up", levelUp.getValue(), false));
+		this.getAttribute(levelUp.getName()).newModifier(new Modifier("Level Up", levelUp.getValue(), false, false));
 	}
 
 	/** Displays stuff, mainly for testing */
 	public void display() {
-		System.out.println("Level is " + this.levelManager.getAlteredValue());
+		System.out.println("Level is " + this.levelManager.toString());
 
 		System.out.println("This character has:");
 
@@ -131,13 +174,13 @@ public class AttributeManager {
 		System.out.println("Melee Defense: " + this.meleeDefenseManager.toString());
 		System.out.println("Ranged Defense: " + this.rangedDefenseManager.toString());
 		System.out.println();
-		System.out.println("Wage of " + this.wageManager.toString() + " crowns per day");
-		System.out.println("Consumes " + this.foodManager.toString() + " food per day");
-		System.out.println(this.actionPointsManager.toString() + " Action points per turn");
-		System.out.println(this.headShotManager.toString() + "% Chance to hit head");
-		System.out.println(this.fatigueRegManager.toString() + " Points of Fatigue Regained each Turn");
-		System.out.println("Can see " + this.visionManager.toString() + " Tiles of Vision");
-		System.out.println("Experience Rate is " + this.xpRateManager.toString() + "%");
+		System.out.println("Wage of " + this.wageManager.toString());
+		System.out.println("Consumes " + this.foodManager.toString());
+		System.out.println("Action points per turn: " + this.actionPointsManager.toString());
+		System.out.println("% Chance to hit head: " + this.headshotManager.toString());
+		System.out.println("Points of Fatigue Regained each Turn: " + this.fatigueRegManager.toString());
+		System.out.println("Tiles of Vision: " + this.visionManager.toString());
+		System.out.println("Experience Rate is " + this.xpRateManager.toString());
 
 		System.out.println();
 	}
