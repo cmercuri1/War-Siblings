@@ -2,6 +2,8 @@ package common_classes;
 
 import java.util.ArrayList;
 
+import event_classes.EventObject;
+
 public abstract class Observeree {
 	protected ArrayList<Observer> observers;
 

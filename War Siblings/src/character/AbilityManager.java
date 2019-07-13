@@ -3,12 +3,11 @@ package character;
 import java.util.ArrayList;
 
 import common_classes.Ability;
-import common_classes.EventAbility;
-import common_classes.EventAbilityType;
 import common_classes.Observer;
 import common_classes.Observeree;
 import common_classes.Trait;
-
+import event_classes.EventAbility;
+import event_classes.EventAbilityType;
 import global_generators.BackgroundGenerator;
 
 import global_managers.GlobalManager;
@@ -66,6 +65,11 @@ public class AbilityManager extends Observeree {
 	public void addAbility(Ability ability) {
 		this.characterAbilities.add(ability);
 		this.notifyObservers(new EventAbility(EventAbilityType.ADD, ability));
+	}
+	
+	public void removeAbility(Ability ability) {
+		this.characterAbilities.remove(ability);
+		this.notifyObservers(new EventAbility(EventAbilityType.REMOVE, ability));
 	}
 
 	public void removeAbility(String abilityName) {

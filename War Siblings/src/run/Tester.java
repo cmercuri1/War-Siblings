@@ -2,6 +2,7 @@ package run;
 
 import java.util.Scanner;
 import character.Character;
+import common_classes.MoraleState;
 
 public class Tester {
 
@@ -21,7 +22,6 @@ public class Tester {
 		 */
 
 		char1.display();
-
 		in.close();
 	}
 }

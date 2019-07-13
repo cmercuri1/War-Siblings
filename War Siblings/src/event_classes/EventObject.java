@@ -1,4 +1,4 @@
-package common_classes;
+package event_classes;
 
 public abstract class EventObject {
 	protected String task;

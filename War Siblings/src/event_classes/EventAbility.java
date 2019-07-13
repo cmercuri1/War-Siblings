@@ -1,4 +1,6 @@
-package common_classes;
+package event_classes;
+
+import common_classes.Ability;
 
 public class EventAbility extends EventObject {
 	protected EventAbilityType task;

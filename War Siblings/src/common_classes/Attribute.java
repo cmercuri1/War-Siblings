@@ -45,8 +45,13 @@ public class Attribute {
 	}
 
 	public void removeModifier(Modifier mod) {
-		if (this.modifiers.remove(mod)) {
-			this.updateAltered();
+		for (Modifier m : this.modifiers) {
+			if (m.getName().equals(mod.getName()) && (m.getValue() == mod.getValue())
+					&& (m.getIsMulti() == mod.getIsMulti())) {
+				this.modifiers.remove(m);
+				this.updateAltered();
+				return;
+			}
 		}
 	}
 
@@ -106,10 +111,10 @@ public class Attribute {
 	public String toString() {
 		return ((Integer) ((Double) this.alteredMaxValue).intValue()).toString() + this.stringModifiers();
 	}
-	
+
 	protected String stringModifiers() {
 		String temp = "(";
-		for (Modifier m: this.modifiers) {
+		for (Modifier m : this.modifiers) {
 			temp += m.toString();
 		}
 		temp += ")";

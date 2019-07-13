@@ -2,10 +2,11 @@ package character;
 
 import common_classes.Ability;
 import common_classes.Effect;
-import common_classes.EventAbility;
-import common_classes.EventAbilityType;
-import common_classes.EventObject;
 import common_classes.Observer;
+import event_classes.EventAbility;
+import event_classes.EventAbilityType;
+import event_classes.EventMorale;
+import event_classes.EventObject;
 import global_generators.BackgroundGenerator;
 import global_managers.GlobalManager;
 
@@ -37,31 +38,39 @@ public class Character implements Observer {
 	private void generalSetUp(BackgroundGenerator bg) {
 		this.backgroundName = bg.getBackground();
 
-		this.am = new AttributeManager(bg, this);
 		this.im = new InventoryManager(this);
-		this.mm = new MoraleManager(this);
+		this.am = new AttributeManager(bg, this);
 		this.abm = new AbilityManager(bg, this);
+		this.mm = new MoraleManager(this);
 	}
 
 	public void onEventHappening(EventObject information) {
-
+		if (information instanceof EventMorale) {
+			this.onEventMoraleHappening((EventMorale) information);
+		} else if (information instanceof EventAbility) {
+			this.onEventAbilityHappening((EventAbility) information);
+		}
 	}
-	
-	public void onEventHappening() {
-		
+
+	public void onEventMoraleHappening(EventMorale morale) {
+		try {
+			this.abm.removeAbility(GlobalManager.morale.getMoraleAbility(morale.getInformation()[0]));
+		} catch (NullPointerException nu) {
+		}
+		this.abm.addAbility(GlobalManager.morale.getMoraleAbility(morale.getInformation()[1]));
 	}
 
-	public void onEventHappening(EventAbility ability) {
-		if (ability.getTask().equals(EventAbilityType.ADD)) {
-			Ability temp = (Ability) ability.getInformation();
+	public void onEventAbilityHappening(EventAbility event) {
+		if (event.getTask().equals(EventAbilityType.ADD)) {
+			Ability temp = (Ability) event.getInformation();
 
 			for (Effect t : temp.getEffects()) {
 				if (t.getAffectedManager().equals("Attribute")) {
 					this.am.addModifier(t);
 				}
 			}
-		} else if (ability.getTask().equals(EventAbilityType.REMOVE)) {
-			Ability temp = (Ability) ability.getInformation();
+		} else if (event.getTask().equals(EventAbilityType.REMOVE)) {
+			Ability temp = (Ability) event.getInformation();
 
 			for (Effect t : temp.getEffects()) {
 				if (t.getAffectedManager().equals("Attribute")) {
@@ -106,6 +115,7 @@ public class Character implements Observer {
 		this.am.display();
 		this.im.display();
 		this.abm.display();
+		this.mm.display();
 		System.out.println();
 	}
 }
