@@ -122,11 +122,11 @@
 					"Value": 5
 				},
 				{
-					"Effect Name": "MeleeDef",
+					"Effect Name": "MeleeDefense",
 					"Value": -5
 				},
 				{
-					"Effect Name": "RangedDef",
+					"Effect Name": "RangedDefense",
 					"Value": -5
 				}
 			]
@@ -419,11 +419,11 @@
 					"Value": 10
 				},
 				{
-					"Effect Name": "MeleeDef",
+					"Effect Name": "MeleeDefense",
 					"Value": -5
 				},
 				{
-					"Effect Name": "RangedDef",
+					"Effect Name": "RangedDefense",
 					"Value": -5
 				}
 			]
@@ -546,11 +546,11 @@
 			"Name": "Paranoid",
 			"Effects": [
 				{
-					"Effect Name": "MeleeDef",
+					"Effect Name": "MeleeDefense",
 					"Value": 5
 				},
 				{
-					"Effect Name": "RangedDef",
+					"Effect Name": "RangedDefense",
 					"Value": 5
 				},
 				{
@@ -633,7 +633,7 @@
 			],
 			"Effects": [
 				{
-					"Effect Name": "MeleeDef",
+					"Effect Name": "MeleeDefense",
 					"Value": 5
 				}
 			]
@@ -651,7 +651,7 @@
 			"Name": "Swift",
 			"Effects": [
 				{
-					"Effect Name": "RangedDef",
+					"Effect Name": "RangedDefense",
 					"Value": 5
 				}
 			]
@@ -672,11 +672,11 @@
 			],
 			"Effects": [
 				{
-					"Effect Name": "MeleeDef",
+					"Effect Name": "MeleeDefense",
 					"Value": 5
 				},
 				{
-					"Effect Name": "RangedDef",
+					"Effect Name": "RangedDefense",
 					"Value": 5
 				},
 				{
@@ -701,7 +701,7 @@
 			"Name": "Weasel",
 			"Effects": [
 				{
-					"Effect Name": "MeleeDef_Retreat",
+					"Effect Name": "MeleeDefense_Retreat",
 					"Value": 25
 				}
 			]

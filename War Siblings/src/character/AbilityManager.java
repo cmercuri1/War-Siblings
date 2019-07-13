@@ -3,7 +3,10 @@ package character;
 import java.util.ArrayList;
 
 import common_classes.Ability;
-import common_classes.Effect;
+import common_classes.EventAbility;
+import common_classes.EventAbilityType;
+import common_classes.Observer;
+import common_classes.Observeree;
 import common_classes.Trait;
 
 import global_generators.BackgroundGenerator;
@@ -14,14 +17,13 @@ import global_managers.GlobalManager;
  * A manager class that handles all the abilities a character may have, either
  * from items, traits or from level abilities
  */
-public class AbilityManager {
+public class AbilityManager extends Observeree {
 	private ArrayList<Ability> characterAbilities;
 
-	private Listener listener;
-
-	public AbilityManager(BackgroundGenerator background, Listener target) {
+	public AbilityManager(BackgroundGenerator background, Observer o) {
 		this.characterAbilities = new ArrayList<Ability>();
-		this.listener = target;
+		this.setUpObservers();
+		this.registerObserver(o);
 		if (background.getBgAbility() != null) {
 			this.addAbility(background.getBgAbility());
 		}
@@ -63,23 +65,15 @@ public class AbilityManager {
 
 	public void addAbility(Ability ability) {
 		this.characterAbilities.add(ability);
-
-		for (Effect e : ability.getEffects()) {
-			if (e.getAffectedManager().equals("Attribute")) {
-				this.listener.applyAbilityAttibute(e.getAffectedSubManager(), e.getModifier());
-			}
-		}
+		this.notifyObservers(new EventAbility(EventAbilityType.ADD, ability));
 	}
 
 	public void removeAbility(String abilityName) {
 		for (Ability a : this.characterAbilities) {
 			if (a.getName().equals(abilityName)) {
-				for (Effect e : a.getEffects()) {
-					if (e.getAffectedManager().equals("Attribute")) {
-						this.listener.applyAbilityAttibute(e.getAffectedSubManager(), e.getModifier());
-					}
-				}
 				this.characterAbilities.remove(a);
+
+				this.notifyObservers(new EventAbility(EventAbilityType.REMOVE, a));
 				return;
 			}
 		}

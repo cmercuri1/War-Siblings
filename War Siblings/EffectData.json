@@ -121,19 +121,19 @@
 			"FinalAdd": false
 		},
 		{
-			"Effect Name": "MeleeDef",
+			"Effect Name": "MeleeDefense",
 			"Relevant Manager": "Attribute",
 			"Sub Manager": "meleeDefense",
 			"FinalAdd": false
 		},
 		{
-			"Effect Name": "MeleeDef_Percent",
+			"Effect Name": "MeleeDefense_Percent",
 			"Relevant Manager": "Attribute",
 			"Sub Manager": "meleeDefense",
 			"FinalAdd": false
 		},
 		{
-			"Effect Name": "MeleeDef_Retreat",
+			"Effect Name": "MeleeDefense_Retreat",
 			"Relevant Manager": "Attribute",
 			"Sub Manager": "meleeDefense",
 			"FinalAdd": false
@@ -205,13 +205,13 @@
 			"FinalAdd": false
 		},
 		{
-			"Effect Name": "RangedDef",
+			"Effect Name": "RangedDefense",
 			"Relevant Manager": "Attribute",
 			"Sub Manager": "rangedDefense",
 			"FinalAdd": false
 		},
 		{
-			"Effect Name": "RangedDef_Percent",
+			"Effect Name": "RangedDefense_Percent",
 			"Relevant Manager": "Attribute",
 			"Sub Manager": "rangedDefense",
 			"FinalAdd": false

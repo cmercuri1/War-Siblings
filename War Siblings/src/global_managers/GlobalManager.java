@@ -10,18 +10,24 @@ public class GlobalManager {
 	public static ShieldManager shields;
 	public static WeaponManager weapons;
 	public static TraitManager traits;
+	public static ExperienceManager xp;
+	public static MoraleAbilityManager morale;
+	
 	public static Random rng;
 	
 	public static final double UNUSED = 999;
 
 	static {
 		effects = new EffectManager();
+		xp = new ExperienceManager();
 		characters = new BackgroundManager();
 		bodyArmors = new BodyArmorManager();
 		headgears = new HeadgearManager();
 		shields = new ShieldManager();
 		weapons = new WeaponManager();
 		traits = new TraitManager();
+		morale = new MoraleAbilityManager();
+		
 		rng = new Random();
 	}
 

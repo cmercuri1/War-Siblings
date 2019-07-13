@@ -12,7 +12,7 @@ public class TraitManager extends BaseGlobalManager {
 	private ArrayList<Trait> traitList;
 
 	public TraitManager() {
-		super("Traits.json", null, "Traits");
+		super("TraitsData.json", null, "Traits");
 	}
 
 	public ArrayList<Trait> getTraitList() {

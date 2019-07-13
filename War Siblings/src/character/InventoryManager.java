@@ -2,6 +2,8 @@ package character;
 
 import java.util.ArrayList;
 
+import common_classes.Observer;
+import common_classes.Observeree;
 import items.AbilityItem;
 import items.Armor;
 import items.Headgear;
@@ -11,14 +13,16 @@ import items.Weapon;
  * Manager specifically for keeping track of and managing the inventory/equiped
  * items of a character
  */
-public class InventoryManager {
+public class InventoryManager extends Observeree {
 	private Armor body;
 	private Headgear head;
 	private AbilityItem right;
 	private AbilityItem left;
 	private ArrayList<AbilityItem> bag;
 
-	public InventoryManager() {
+	public InventoryManager(Observer o) {
+		this.setUpObservers();
+		this.registerObserver(o);
 		this.body = null;
 		this.head = null;
 		this.right = null;

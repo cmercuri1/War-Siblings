@@ -7,27 +7,27 @@ public class Effect extends Modifier {
 	protected String affectedSubManager;
 
 	public Effect(String eName, double val) {
-		super(eName, val, setIsMulti(eName));
+		super(eName, val, false);
+		this.setIsMulti(eName);
 		this.findExtra();
 	}
 
 	public Effect(String eName) {
-		super(eName, GlobalManager.UNUSED, setIsMulti(eName));
+		super(eName, GlobalManager.UNUSED, false);
+		this.setIsMulti(eName);
 		this.findExtra();
 	}
 
 	/** Only used for GlobalMananger */
 	public Effect(String eName, String aM, String aSM, boolean isFinal) {
-		super(eName, GlobalManager.UNUSED, setIsMulti(eName), isFinal);
+		super(eName, GlobalManager.UNUSED, false, isFinal);
+		this.setIsMulti(eName);
 		this.affectedManager = aM;
 		this.affectedSubManager = aSM;
 	}
 
-	private static boolean setIsMulti(String eName) {
-		if (eName.contains("_Percent")) {
-			return true;
-		}
-		return false;
+	private void setIsMulti(String eName) {
+		this.isMulti = eName.contains("Percent");
 	}
 
 	/**

@@ -3,15 +3,17 @@ package character;
 import java.util.ArrayList;
 
 import common_classes.Attribute;
+import common_classes.Effect;
 import common_classes.Modifier;
-
+import common_classes.Observer;
+import common_classes.Observeree;
 import global_generators.BackgroundGenerator;
 import global_managers.GlobalManager;
 
 /**
  * A class that manages all the attributes and makes sure the operate correctly
  */
-public class AttributeManager {
+public class AttributeManager extends Observeree {
 	private HitpointAttribute hitpointManager;
 	private FatigueAttribute fatigueManager;
 	private StarAttribute resolveManager;
@@ -21,21 +23,20 @@ public class AttributeManager {
 	private StarAttribute meleeDefenseManager;
 	private StarAttribute rangedDefenseManager;
 
-	private Attribute wageManager;
+	private WageAttribute wageManager;
 	private Attribute foodManager;
 	private Attribute xpRateManager;
-	private Attribute levelManager;
+	private LevelAttribute levelManager;
 	private Attribute actionPointsManager;
 	private Attribute headshotManager;
 	private Attribute fatigueRegManager;
 	private Attribute visionManager;
 
-	private Listener abilityListener;
-
-	public AttributeManager(BackgroundGenerator bg) {
+	public AttributeManager(BackgroundGenerator bg, Observer o) {
 		this.assignAttributes(bg);
 		this.assignStars(bg.getExcludedTalents());
-		this.abilityListener = new Listener(this);
+		this.setUpObservers();
+		this.registerObserver(o);
 	}
 
 	/**
@@ -43,7 +44,6 @@ public class AttributeManager {
 	 * background
 	 */
 	private void assignAttributes(BackgroundGenerator bg) {
-
 		this.hitpointManager = new HitpointAttribute((double) bg.getHp().getRand(), 2);
 		this.fatigueManager = new FatigueAttribute((double) bg.getFat().getRand(), 2);
 		this.resolveManager = new StarAttribute((double) bg.getRes().getRand(), 2);
@@ -53,10 +53,10 @@ public class AttributeManager {
 		this.meleeDefenseManager = new StarAttribute((double) bg.getmDef().getRand(), 1);
 		this.rangedDefenseManager = new StarAttribute((double) bg.getrDef().getRand(), 1);
 
-		this.wageManager = new Attribute((double) bg.getBaseWage());
+		this.wageManager = new WageAttribute((double) bg.getBaseWage());
 		this.foodManager = new Attribute((double) bg.getDailyFood());
 		this.xpRateManager = new Attribute((double) bg.getXpRate());
-		this.levelManager = new Attribute((double) bg.getLev().getRand());
+		this.levelManager = new LevelAttribute((double) bg.getLev().getRand());
 		this.actionPointsManager = new Attribute((double) bg.getActionPoints());
 		this.headshotManager = new Attribute((double) bg.getHeadShot());
 		this.fatigueRegManager = new Attribute((double) bg.getFatRegain());
@@ -66,18 +66,29 @@ public class AttributeManager {
 	/** Randomly assigns stars/talents towards up to 3 attributes */
 	private void assignStars(ArrayList<String> excludedTalents) {
 		ArrayList<StarAttribute> managers = new ArrayList<StarAttribute>();
-
-		managers.add(hitpointManager);
-		managers.add(fatigueManager);
-		managers.add(resolveManager);
-		managers.add(initiativeManager);
-		managers.add(meleeSkillManager);
-		managers.add(rangedSkillManager);
-		managers.add(meleeDefenseManager);
-		managers.add(rangedDefenseManager);
-
-		for (String s : excludedTalents) {
-			managers.remove((Object) s.concat("Manager"));
+		if (!excludedTalents.contains("hitpoints")) {
+			managers.add(this.hitpointManager);
+		}
+		if (!excludedTalents.contains("fatigue")) {
+			managers.add(this.fatigueManager);
+		}
+		if (!excludedTalents.contains("resolve")) {
+			managers.add(this.resolveManager);
+		}
+		if (!excludedTalents.contains("initiative")) {
+			managers.add(this.initiativeManager);
+		}
+		if (!excludedTalents.contains("meleeSkill")) {
+			managers.add(this.meleeSkillManager);
+		}
+		if (!excludedTalents.contains("rangedSkill")) {
+			managers.add(this.rangedSkillManager);
+		}
+		if (!excludedTalents.contains("meleeDefense")) {
+			managers.add(this.meleeDefenseManager);
+		}
+		if (!excludedTalents.contains("rangedDefense")) {
+			managers.add(this.rangedDefenseManager);
 		}
 
 		for (int i = 0; i < 3; i++) {
@@ -86,9 +97,13 @@ public class AttributeManager {
 			managers.remove(j);
 		}
 	}
+	
+	public void addModifier(Effect t) {
+		this.getAttribute(t.getAffectedSubManager()).newModifier(t.getModifier());
+	}
 
-	public Listener getAbilityListener() {
-		return this.abilityListener;
+	public void removeModifier(Effect t) {
+		this.getAttribute(t.getAffectedSubManager()).removeModifier(t.getModifier());
 	}
 
 	/** Designed to get the relevant attribute */
@@ -152,7 +167,6 @@ public class AttributeManager {
 		for (int i = 0; i == levelUpArray.size();) {
 			this.applyLevelUp(levelUpArray.remove(i));
 		}
-
 	}
 
 	private void applyLevelUp(LevelUp levelUp) {

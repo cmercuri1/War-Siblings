@@ -36,9 +36,13 @@ public class BarAttribute extends StarAttribute {
 				}
 			}
 		}
-		// TODO FIX THIS SHIT
 		this.alteredMaxValue = multi * (this.originalMaxValue + add) + finalAdd;
-		this.alteredCurrentValue = multi * (this.originalCurrentValue) + finalAdd;
+		this.alteredCurrentValue = multi * (this.originalCurrentValue);
+		this.currentChecker();
+	}
+	
+	public void alterCurrent(double value) {
+		this.alteredCurrentValue += value;
 		this.currentChecker();
 	}
 
