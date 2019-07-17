@@ -2,7 +2,6 @@ package run;
 
 import java.util.Scanner;
 import character.Character;
-import common_classes.MoraleState;
 
 public class Tester {
 
@@ -16,11 +15,15 @@ public class Tester {
 		System.out.println("Random Background:");
 		char1 = new Character();
 
-		/*
-		 * System.out.println("Enter Background:"); char1 = new
-		 * Character(in.nextLine());
-		 */
-
+		char1.display();
+		
+		char1.getMm().makePositiveCheck();
+		char1.display();
+		
+		char1.getMm().makeNegativeCheck();
+		char1.display();
+		
+		char1.getMm().makeSpecialCheck();
 		char1.display();
 		in.close();
 	}

@@ -5,6 +5,7 @@ import common_classes.Effect;
 import common_classes.Observer;
 import event_classes.EventAbility;
 import event_classes.EventAbilityType;
+import event_classes.EventAttributeGet;
 import event_classes.EventMorale;
 import event_classes.EventObject;
 import global_generators.BackgroundGenerator;
@@ -40,8 +41,10 @@ public class Character implements Observer {
 
 		this.im = new InventoryManager(this);
 		this.am = new AttributeManager(bg, this);
-		this.abm = new AbilityManager(bg, this);
 		this.mm = new MoraleManager(this);
+		this.abm = new AbilityManager(bg, this);
+		
+		this.mm.setUp();
 	}
 
 	public void onEventHappening(EventObject information) {
@@ -49,10 +52,12 @@ public class Character implements Observer {
 			this.onEventMoraleHappening((EventMorale) information);
 		} else if (information instanceof EventAbility) {
 			this.onEventAbilityHappening((EventAbility) information);
+		} else if (information instanceof EventAttributeGet) {
+			this.onEventAttributeGetHappening((EventAttributeGet) information);
 		}
 	}
 
-	public void onEventMoraleHappening(EventMorale morale) {
+	private void onEventMoraleHappening(EventMorale morale) {
 		try {
 			this.abm.removeAbility(GlobalManager.morale.getMoraleAbility(morale.getInformation()[0]));
 		} catch (NullPointerException nu) {
@@ -60,13 +65,15 @@ public class Character implements Observer {
 		this.abm.addAbility(GlobalManager.morale.getMoraleAbility(morale.getInformation()[1]));
 	}
 
-	public void onEventAbilityHappening(EventAbility event) {
+	private void onEventAbilityHappening(EventAbility event) {
 		if (event.getTask().equals(EventAbilityType.ADD)) {
 			Ability temp = (Ability) event.getInformation();
 
 			for (Effect t : temp.getEffects()) {
 				if (t.getAffectedManager().equals("Attribute")) {
 					this.am.addModifier(t);
+				} else if (t.getAffectedManager().equals("Morale")) {
+					this.mm.setEffect(t);
 				}
 			}
 		} else if (event.getTask().equals(EventAbilityType.REMOVE)) {
@@ -77,6 +84,12 @@ public class Character implements Observer {
 					this.am.removeModifier(t);
 				}
 			}
+		}
+	}
+
+	private void onEventAttributeGetHappening(EventAttributeGet information) {
+		if (information.getRequester() instanceof MoraleManager) {
+			this.mm.setResolve(this.am.getAttribute(information.getAttributeName()).getAlteredValue());
 		}
 	}
 

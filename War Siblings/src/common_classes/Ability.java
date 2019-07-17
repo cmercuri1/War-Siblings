@@ -11,23 +11,16 @@ public class Ability {
 	public Ability(String name, ArrayList<Effect> effects) {
 		this.name = name;
 		this.effects = effects;
-		this.desc = this.retrieveDesc();
 	}
 
 	/** Constructor for when you have all the effects */
 	public Ability(String name) {
 		this.name = name;
 		this.effects = this.retrieveEffects();
-		this.desc = this.retrieveDesc();
 	}
 
 	private ArrayList<Effect> retrieveEffects() {
 		// TODO Add JSON data for general weapon effects?
-		return null;
-	}
-
-	private String retrieveDesc() {
-		// TODO Add JSON data for general data... or else add to current JSON and ignore
 		return null;
 	}
 

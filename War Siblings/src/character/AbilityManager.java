@@ -34,11 +34,7 @@ public class AbilityManager extends Observeree {
 	 * traits are applied
 	 */
 	private void traitDetermining(ArrayList<String> excludedTraits) {
-		ArrayList<Trait> temp = GlobalManager.traits.getTraitList();
-
-		for (String s : excludedTraits) {
-			temp.removeIf(t -> (t.getName().contains(s)));
-		}
+		ArrayList<Trait> temp = GlobalManager.traits.getSpecificTraitList(excludedTraits);
 
 		// Roll for up to two different traits, with 50% chance each time? If a trait is
 		// gained, then we remove any mutually exclusive traits. e.g. if "Huge" is

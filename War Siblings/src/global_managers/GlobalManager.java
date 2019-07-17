@@ -12,6 +12,8 @@ public class GlobalManager {
 	public static TraitManager traits;
 	public static ExperienceManager xp;
 	public static MoraleAbilityManager morale;
+	public static TemporyInjuryManager tempInjury;
+	public static PerminentInjuryManager permInjury;
 	
 	public static Random rng;
 	
@@ -27,6 +29,8 @@ public class GlobalManager {
 		weapons = new WeaponManager();
 		traits = new TraitManager();
 		morale = new MoraleAbilityManager();
+		tempInjury = new TemporyInjuryManager();
+		permInjury = new PerminentInjuryManager();
 		
 		rng = new Random();
 	}

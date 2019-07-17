@@ -14,6 +14,7 @@ public class Modifier {
 	public Modifier(String name, double val, boolean isMulti) {
 		this.name = name;
 		this.value = val;
+		this.isMulti = isMulti;
 	}
 	
 	public Modifier(String name, double val, boolean isMulti, boolean finalAdd) {

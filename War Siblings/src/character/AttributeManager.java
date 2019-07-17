@@ -33,10 +33,16 @@ public class AttributeManager extends Observeree {
 	private Attribute visionManager;
 
 	public AttributeManager(BackgroundGenerator bg, Observer o) {
-		this.assignAttributes(bg);
-		this.assignStars(bg.getExcludedTalents());
 		this.setUpObservers();
 		this.registerObserver(o);
+		this.assignAttributes(bg);
+		this.assignStars(bg.getExcludedTalents());
+		
+		if (this.levelManager.getAlteredValue() > 1) {
+			for (int i = 1; i < this.levelManager.getAlteredValue(); i++) {
+				this.wageManager.levelWage(i+1);
+			}
+		}
 	}
 
 	/**

@@ -18,6 +18,16 @@ public class TraitManager extends BaseGlobalManager {
 	public ArrayList<Trait> getTraitList() {
 		return this.traitList;
 	}
+	
+	public ArrayList<Trait> getSpecificTraitList(ArrayList<String> excludedTraits) {
+		ArrayList<Trait> temp = this.traitList;
+		
+		for (String s : excludedTraits) {
+			temp.removeIf(t -> (t.getName().contains(s)));
+		}
+		
+		return temp;
+	}
 
 	@Override
 	protected void instantiate() {
