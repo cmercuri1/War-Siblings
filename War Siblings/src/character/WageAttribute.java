@@ -12,7 +12,7 @@ public class WageAttribute extends Attribute {
 		
 		int temp = GlobalManager.rollBetween(0, 10);
 		if (temp != 5) {
-			this.newModifier(new Modifier("Random Wage mod", (temp - 5), true));
+			this.addModifier(new Modifier("Random Wage mod", (temp - 5), true, false, true));
 		}
 	}
 	
@@ -25,11 +25,11 @@ public class WageAttribute extends Attribute {
 	}
 	
 	private void levelUp(int level) {
-		this.newModifier(new Modifier("wage"+level, this.originalMaxValue*0.1, false, false));
+		this.addModifier(new Modifier("wage"+level, this.originalMaxValue*0.1, false, false, true));
 	}
 	
 	private void highLevelUp(int level) {
-		this.newModifier(new Modifier("wage"+level, 3, true, false));
+		this.addModifier(new Modifier("wage"+level, 3, true, false, true));
 	}
 
 }

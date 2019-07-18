@@ -1,6 +1,9 @@
-/items/
-/run/
 /character/
 /common_classes/
-/global_managers/
 /event_classes/
+/global_generators/
+/global_managers/
+/items/
+/run/
+/classes/
+/unused/

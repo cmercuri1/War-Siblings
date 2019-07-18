@@ -1,6 +1,8 @@
-package event_classes;
+package unused;
 
-public class EventAttributeGet extends EventObject {
+import event_classes.EventObject;
+
+public class EventAttributeGet {
 	protected Object requester;
 	protected String attributeName;
 

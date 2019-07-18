@@ -7,20 +7,20 @@ public class Effect extends Modifier {
 	protected String affectedSubManager;
 
 	public Effect(String eName, double val) {
-		super(eName, val, false);
+		super(eName, val, false, false, false);
 		this.setIsMulti(eName);
 		this.findExtra();
 	}
 
 	public Effect(String eName) {
-		super(eName, GlobalManager.UNUSED, false);
+		super(eName, GlobalManager.UNUSED, false, false, false);
 		this.setIsMulti(eName);
 		this.findExtra();
 	}
 
 	/** Only used for GlobalMananger */
 	public Effect(String eName, String aM, String aSM, boolean isFinal) {
-		super(eName, GlobalManager.UNUSED, false, isFinal);
+		super(eName, GlobalManager.UNUSED, false, isFinal, false);
 		this.setIsMulti(eName);
 		this.affectedManager = aM;
 		this.affectedSubManager = aSM;
@@ -49,7 +49,7 @@ public class Effect extends Modifier {
 
 	/** Returns the Modifier form of this effect */
 	public Modifier getModifier() {
-		return new Modifier(this.name, this.value, this.isMulti, this.finalAdd);
+		return new Modifier(this.name, this.value, this.isMulti, this.finalAdd, this.isUnique);
 	}
 
 	public String getAffectedManager() {

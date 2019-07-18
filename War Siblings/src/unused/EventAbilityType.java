@@ -1,4 +1,4 @@
-package event_classes;
+package unused;
 
 public enum EventAbilityType {
 	ADD, REMOVE

@@ -27,7 +27,7 @@ public class LevelAttribute extends Attribute {
 	}
 
 	private void levelUp() {
-		this.newModifier(new Modifier("Level" + this.alteredMaxValue + 1, 1, false, false));
+		this.addModifier(new Modifier("Level" + this.alteredMaxValue + 1, 1, false, false, true));
 		this.nextLevel = GlobalManager.xp.getNextLevel((int) this.alteredMaxValue);
 	}
 

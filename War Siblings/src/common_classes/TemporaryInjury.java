@@ -22,8 +22,8 @@ public class TemporaryInjury extends Ability {
 	}
 	
 	public void healInjury() {
-		this.minDays.newModifier(new Modifier("Healing", -1.0, false, true));
-		this.maxDays.newModifier(new Modifier("Healing", -1.0, false, true));
+		this.minDays.addModifier(new Modifier("Healing", -1.0, false, true, false));
+		this.maxDays.addModifier(new Modifier("Healing", -1.0, false, true, false));
 		
 		this.checkForHealed();
 	}
@@ -39,7 +39,7 @@ public class TemporaryInjury extends Ability {
 				//TODO Notify that wound is healed
 				return;
 			} else {
-				this.minDays.newModifier(new Modifier("Still Injured", 1.0, false, true));
+				this.minDays.addModifier(new Modifier("Still Injured", 1.0, false, true, false));
 			}
 		}
 	}

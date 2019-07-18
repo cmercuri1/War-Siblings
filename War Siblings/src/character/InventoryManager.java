@@ -2,8 +2,9 @@ package character;
 
 import java.util.ArrayList;
 
-import common_classes.Observer;
-import common_classes.Observeree;
+import event_classes.EventObject;
+import event_classes.GenericObservee;
+import event_classes.Observer;
 import items.AbilityItem;
 import items.Armor;
 import items.Headgear;
@@ -13,7 +14,7 @@ import items.Weapon;
  * Manager specifically for keeping track of and managing the inventory/equiped
  * items of a character
  */
-public class InventoryManager extends Observeree {
+public class InventoryManager extends GenericObservee implements Observer {
 	private Armor body;
 	private Headgear head;
 	private AbilityItem right;
@@ -140,4 +141,11 @@ public class InventoryManager extends Observeree {
 			}
 		}
 	}
+	
+	@Override
+	public void onEventHappening(EventObject information) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

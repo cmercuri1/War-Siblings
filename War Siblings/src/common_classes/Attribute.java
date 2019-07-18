@@ -25,9 +25,15 @@ public class Attribute {
 		this.alteredMaxValue = this.originalMaxValue;
 	}
 
-	public void newModifier(Modifier m) {
-		this.modifiers.add(m);
-		this.updateAltered();
+	public void addModifier(Modifier m) {
+		if (!m.getIsUnique()) {
+			this.modifiers.add(m);
+			this.updateAltered();
+		} else {
+			this.removeModifier(m);
+			this.modifiers.add(m);
+			this.updateAltered();
+		}
 	}
 
 	/**
@@ -46,8 +52,7 @@ public class Attribute {
 
 	public void removeModifier(Modifier mod) {
 		for (Modifier m : this.modifiers) {
-			if (m.getName().equals(mod.getName()) && (m.getValue() == mod.getValue())
-					&& (m.getIsMulti() == mod.getIsMulti())) {
+			if (m.equals(mod)) {
 				this.modifiers.remove(m);
 				this.updateAltered();
 				return;

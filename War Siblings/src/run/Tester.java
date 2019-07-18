@@ -17,14 +17,6 @@ public class Tester {
 
 		char1.display();
 		
-		char1.getMm().makePositiveCheck();
-		char1.display();
-		
-		char1.getMm().makeNegativeCheck();
-		char1.display();
-		
-		char1.getMm().makeSpecialCheck();
-		char1.display();
 		in.close();
 	}
 }

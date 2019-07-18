@@ -2,17 +2,19 @@ package character;
 
 import common_classes.Effect;
 import common_classes.MoraleState;
-import common_classes.Observer;
-import common_classes.Observeree;
-import event_classes.EventAttributeGet;
-import event_classes.EventMorale;
+
+import event_classes.EventObject;
+import event_classes.EventType;
+import event_classes.GenericObservee;
+import event_classes.Observer;
+import event_classes.Target;
 import global_managers.GlobalManager;
 
 /**
  * A class for managing the morale state of a character, along with any changes
  * that has on the rest of the character
  */
-public class MoraleManager extends Observeree {
+public class MoraleManager extends GenericObservee implements Observer {
 	private MoraleState currentMorale;
 
 	private double optimistModifier;
@@ -93,7 +95,7 @@ public class MoraleManager extends Observeree {
 	}
 
 	private void getResolve() {
-		this.notifyObservers(new EventAttributeGet(this, "resolve"));
+		this.notifyObservers(new EventObject(Target.ATTRIBUTE, EventType.GET, "resolve", this));
 	}
 
 	public void setResolve(double resolve) {
@@ -114,13 +116,51 @@ public class MoraleManager extends Observeree {
 		}
 	}
 
+	public void removeEffect(Effect e) {
+		if (e.getName().equals("Morale_Optimist")) {
+			this.optimistModifier = 0;
+		} else if (e.getName().equals("Morale_Pessimist")) {
+			this.pessimistModifier = 0;
+		} else if (e.getName().equals("Morale_Special")) {
+			this.specialModifier = 0;
+		} else if (e.getName().equals("Morale_Irrational")) {
+			this.isIrrational = false;
+		} else if (e.getName().equals("Morale_Insecure")) {
+			this.isInsecure = false;
+		}
+	}
+
 	private void changeState(MoraleState state) {
 		MoraleState[] temp = { this.currentMorale, state };
-		this.notifyObservers(new EventMorale("Changed Morale", temp));
+		this.notifyObservers(new EventObject(Target.UNDEFINED, EventType.UNDEFINED, temp, null));
+
+		try {
+			this.notifyObservers(new EventObject(Target.ABILITY, EventType.REMOVE,
+					GlobalManager.morale.getMoraleAbility(this.currentMorale), null));
+		} catch (NullPointerException nu) {
+		}
+		this.notifyObservers(
+				new EventObject(Target.ABILITY, EventType.ADD, GlobalManager.morale.getMoraleAbility(state), null));
 		this.currentMorale = state;
 	}
 
 	public void display() {
 		System.out.println("This character is currently: " + this.currentMorale);
 	}
+
+	@Override
+	public void onEventHappening(EventObject information) {
+		switch (information.getTask().value) {
+		case 1:
+			this.setEffect((Effect) information.getInformation());
+			break;
+		case 2:
+			this.removeEffect((Effect) information.getInformation());
+			break;
+		case 4:
+			this.setResolve((double) information.getInformation());
+			break;
+		}
+	}
+
 }

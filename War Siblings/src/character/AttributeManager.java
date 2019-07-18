@@ -5,23 +5,26 @@ import java.util.ArrayList;
 import common_classes.Attribute;
 import common_classes.Effect;
 import common_classes.Modifier;
-import common_classes.Observer;
-import common_classes.Observeree;
+import event_classes.EventObject;
+import event_classes.EventType;
+import event_classes.GenericObservee;
+import event_classes.Observer;
+import event_classes.Target;
 import global_generators.BackgroundGenerator;
 import global_managers.GlobalManager;
 
 /**
  * A class that manages all the attributes and makes sure the operate correctly
  */
-public class AttributeManager extends Observeree {
+public class AttributeManager extends GenericObservee implements Observer {
 	private HitpointAttribute hitpointManager;
 	private FatigueAttribute fatigueManager;
 	private StarAttribute resolveManager;
 	private StarAttribute initiativeManager;
 	private StarAttribute meleeSkillManager;
 	private StarAttribute rangedSkillManager;
-	private StarAttribute meleeDefenseManager;
-	private StarAttribute rangedDefenseManager;
+	private DefenseAttribute meleeDefenseManager;
+	private DefenseAttribute rangedDefenseManager;
 
 	private WageAttribute wageManager;
 	private Attribute foodManager;
@@ -56,8 +59,8 @@ public class AttributeManager extends Observeree {
 		this.initiativeManager = new StarAttribute((double) bg.getIni().getRand(), 3);
 		this.meleeSkillManager = new StarAttribute((double) bg.getmSk().getRand(), 1);
 		this.rangedSkillManager = new StarAttribute((double) bg.getrSk().getRand(), 2);
-		this.meleeDefenseManager = new StarAttribute((double) bg.getmDef().getRand(), 1);
-		this.rangedDefenseManager = new StarAttribute((double) bg.getrDef().getRand(), 1);
+		this.meleeDefenseManager = new DefenseAttribute((double) bg.getmDef().getRand(), 1);
+		this.rangedDefenseManager = new DefenseAttribute((double) bg.getrDef().getRand(), 1);
 
 		this.wageManager = new WageAttribute((double) bg.getBaseWage());
 		this.foodManager = new Attribute((double) bg.getDailyFood());
@@ -105,7 +108,7 @@ public class AttributeManager extends Observeree {
 	}
 	
 	public void addModifier(Effect t) {
-		this.getAttribute(t.getAffectedSubManager()).newModifier(t.getModifier());
+		this.getAttribute(t.getAffectedSubManager()).addModifier(t.getModifier());
 	}
 
 	public void removeModifier(Effect t) {
@@ -176,7 +179,7 @@ public class AttributeManager extends Observeree {
 	}
 
 	private void applyLevelUp(LevelUp levelUp) {
-		this.getAttribute(levelUp.getName()).newModifier(new Modifier("Level Up", levelUp.getValue(), false, false));
+		this.getAttribute(levelUp.getName()).addModifier(new Modifier("Level Up", levelUp.getValue(), false, false, false));
 	}
 
 	/** Displays stuff, mainly for testing */
@@ -203,5 +206,20 @@ public class AttributeManager extends Observeree {
 		System.out.println("Experience Rate is " + this.xpRateManager.toString());
 
 		System.out.println();
+	}
+
+	@Override
+	public void onEventHappening(EventObject information) {
+		switch (information.getTask().value) {
+		case 1:
+			this.addModifier((Effect) information.getInformation());
+			break;
+		case 2:
+			this.removeModifier((Effect) information.getInformation());
+			break;
+		case 3:
+			this.notifyObservers(new EventObject(Target.UNDEFINED, EventType.GOT, this.getAttribute((String) information.getInformation()).getAlteredValue(), information.getRequester()));
+			break;
+		}
 	}
 }

@@ -1,6 +1,4 @@
-package common_classes;
-
-import event_classes.EventObject;
+package event_classes;
 
 public interface Observer {
 	void onEventHappening(EventObject information);

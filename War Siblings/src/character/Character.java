@@ -1,13 +1,8 @@
 package character;
 
-import common_classes.Ability;
-import common_classes.Effect;
-import common_classes.Observer;
-import event_classes.EventAbility;
-import event_classes.EventAbilityType;
-import event_classes.EventAttributeGet;
-import event_classes.EventMorale;
 import event_classes.EventObject;
+import event_classes.GenericObservee;
+import event_classes.Observer;
 import global_generators.BackgroundGenerator;
 import global_managers.GlobalManager;
 
@@ -15,7 +10,7 @@ import global_managers.GlobalManager;
  * Class that uses generators to generate a player usable character as well as
  * observes and maintains all the managers that help run the character
  */
-public class Character implements Observer {
+public class Character extends GenericObservee implements Observer {
 	private String charName;
 	private String charTitle;
 	private String backgroundName;
@@ -25,6 +20,7 @@ public class Character implements Observer {
 	private InventoryManager im;
 	private AbilityManager abm;
 	private MoraleManager mm;
+	private BattleManager bm;
 
 	/** New Character with specific background */
 	public Character(String background) {
@@ -38,59 +34,51 @@ public class Character implements Observer {
 
 	private void generalSetUp(BackgroundGenerator bg) {
 		this.backgroundName = bg.getBackground();
+		this.setUpObservers();
 
 		this.im = new InventoryManager(this);
+		this.observerObjects.add(this.im);
+		
 		this.am = new AttributeManager(bg, this);
+		this.observerObjects.add(am);
+		
 		this.mm = new MoraleManager(this);
+		this.observerObjects.add(mm);
+		
 		this.abm = new AbilityManager(bg, this);
+		this.observerObjects.add(abm);
+		
+		this.bm = new BattleManager(this);
+		this.observerObjects.add(bm);
 		
 		this.mm.setUp();
 	}
 
+	@Override
 	public void onEventHappening(EventObject information) {
-		if (information instanceof EventMorale) {
-			this.onEventMoraleHappening((EventMorale) information);
-		} else if (information instanceof EventAbility) {
-			this.onEventAbilityHappening((EventAbility) information);
-		} else if (information instanceof EventAttributeGet) {
-			this.onEventAttributeGetHappening((EventAttributeGet) information);
-		}
-	}
-
-	private void onEventMoraleHappening(EventMorale morale) {
-		try {
-			this.abm.removeAbility(GlobalManager.morale.getMoraleAbility(morale.getInformation()[0]));
-		} catch (NullPointerException nu) {
-		}
-		this.abm.addAbility(GlobalManager.morale.getMoraleAbility(morale.getInformation()[1]));
-	}
-
-	private void onEventAbilityHappening(EventAbility event) {
-		if (event.getTask().equals(EventAbilityType.ADD)) {
-			Ability temp = (Ability) event.getInformation();
-
-			for (Effect t : temp.getEffects()) {
-				if (t.getAffectedManager().equals("Attribute")) {
-					this.am.addModifier(t);
-				} else if (t.getAffectedManager().equals("Morale")) {
-					this.mm.setEffect(t);
-				}
+		switch (information.getTarget().value) {
+		case 1: 
+			this.notifyObserver(abm, information);
+			break;
+		case 2:
+			this.notifyObserver(am, information);
+			break;
+		case 3:
+			this.notifyObserver(mm, information);
+			break;
+		case 4:
+			this.notifyObserver(bm, information);
+			break;
+		case 5:
+			this.notifyObserver(im, information);
+			break;
+		case 6:
+			switch (information.getTask().value) {
+			case 4:
+				this.notifyObserver(information.getRequester(), information);
 			}
-		} else if (event.getTask().equals(EventAbilityType.REMOVE)) {
-			Ability temp = (Ability) event.getInformation();
-
-			for (Effect t : temp.getEffects()) {
-				if (t.getAffectedManager().equals("Attribute")) {
-					this.am.removeModifier(t);
-				}
-			}
-		}
-	}
-
-	private void onEventAttributeGetHappening(EventAttributeGet information) {
-		if (information.getRequester() instanceof MoraleManager) {
-			this.mm.setResolve(this.am.getAttribute(information.getAttributeName()).getAlteredValue());
-		}
+			break;
+		}	
 	}
 
 	public String getCharName() {
@@ -119,6 +107,10 @@ public class Character implements Observer {
 
 	public MoraleManager getMm() {
 		return this.mm;
+	}
+	
+	public BattleManager getBm() {
+		return this.bm;
 	}
 
 	public void display() {

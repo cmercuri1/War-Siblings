@@ -3,11 +3,13 @@ package character;
 import java.util.ArrayList;
 
 import common_classes.Ability;
-import common_classes.Observer;
-import common_classes.Observeree;
+import common_classes.Effect;
 import common_classes.Trait;
-import event_classes.EventAbility;
-import event_classes.EventAbilityType;
+import event_classes.EventObject;
+import event_classes.EventType;
+import event_classes.GenericObservee;
+import event_classes.Observer;
+import event_classes.Target;
 import global_generators.BackgroundGenerator;
 
 import global_managers.GlobalManager;
@@ -16,7 +18,7 @@ import global_managers.GlobalManager;
  * A manager class that handles all the abilities a character may have, either
  * from items, traits or from level abilities
  */
-public class AbilityManager extends Observeree {
+public class AbilityManager extends GenericObservee implements Observer {
 	private ArrayList<Ability> characterAbilities;
 
 	public AbilityManager(BackgroundGenerator background, Observer o) {
@@ -60,20 +62,32 @@ public class AbilityManager extends Observeree {
 
 	public void addAbility(Ability ability) {
 		this.characterAbilities.add(ability);
-		this.notifyObservers(new EventAbility(EventAbilityType.ADD, ability));
+
+		for (Effect t : ability.getEffects()) {
+			if (t.getAffectedManager().equals("Attribute")) {
+				this.notifyObservers(new EventObject(Target.ATTRIBUTE, EventType.ADD, t, null));
+			} else if (t.getAffectedManager().equals("Morale")) {
+				this.notifyObservers(new EventObject(Target.MORALE, EventType.ADD, t, null));
+			}
+		}
 	}
 	
 	public void removeAbility(Ability ability) {
 		this.characterAbilities.remove(ability);
-		this.notifyObservers(new EventAbility(EventAbilityType.REMOVE, ability));
+		
+		for (Effect t : ability.getEffects()) {
+			if (t.getAffectedManager().equals("Attribute")) {
+				this.notifyObservers(new EventObject(Target.ATTRIBUTE, EventType.REMOVE, t, null));
+			} else if (t.getAffectedManager().equals("Morale")) {
+				this.notifyObservers(new EventObject(Target.MORALE, EventType.REMOVE, t, null));
+			}
+		}
 	}
 
 	public void removeAbility(String abilityName) {
 		for (Ability a : this.characterAbilities) {
 			if (a.getName().equals(abilityName)) {
-				this.characterAbilities.remove(a);
-
-				this.notifyObservers(new EventAbility(EventAbilityType.REMOVE, a));
+				this.removeAbility(a);
 				return;
 			}
 		}
@@ -84,7 +98,17 @@ public class AbilityManager extends Observeree {
 		for (Ability a : this.characterAbilities) {
 			a.display();
 		}
-
 	}
 
+	@Override
+	public void onEventHappening(EventObject information) {
+		switch (information.getTask().value) {
+		case 1:
+			this.addAbility((Ability) information.getInformation());
+			break;
+		case 2:
+			this.removeAbility((Ability) information.getInformation());
+			break;
+		} 
+	}
 }
