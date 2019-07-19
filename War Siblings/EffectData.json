@@ -236,7 +236,7 @@
 		},
 		{
 			"Effect Name": "Morale_Starting",
-			"Relevant Manager": "Battle",
+			"Relevant Manager": "Morale",
 			"Sub Manager": "morale",
 			"FinalAdd": false
 		},

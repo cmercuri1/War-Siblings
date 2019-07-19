@@ -25,6 +25,10 @@ public class Effect extends Modifier {
 		this.affectedManager = aM;
 		this.affectedSubManager = aSM;
 	}
+	
+	public Effect(String eName, double value, boolean isMulti, boolean isFinal, boolean isUnique) {
+		super(eName, value, isMulti, isFinal, isUnique);
+	}
 
 	private void setIsMulti(String eName) {
 		this.isMulti = eName.contains("Percent");
@@ -61,6 +65,6 @@ public class Effect extends Modifier {
 	}
 
 	public void display() {
-		System.out.println("-" + this.name + ": " + this.value + ", " + this.isMulti + ", " + this.affectedSubManager);
+		System.out.println("	-" + this.name + ": " + this.value + ", " + this.isMulti + ", " + this.affectedSubManager);
 	}
 }

@@ -15,31 +15,65 @@ import global_managers.GlobalManager;
  * that has on the rest of the character
  */
 public class MoraleManager extends GenericObservee implements Observer {
+	private static double DEFAULTMORALE = 6;
+
 	private MoraleState currentMorale;
 
+	private MoodAttribute mood;
+
+	private double startingMorale;
 	private double optimistModifier;
 	private double pessimistModifier;
 	private double specialModifier;
-
 	private double currentResolve;
 
 	private boolean isIrrational;
 	private boolean isInsecure;
+	private boolean isDetermined;
 
 	public MoraleManager(Observer o) {
 		this.setUpObservers();
 		this.registerObserver(o);
 
+		this.mood = new MoodAttribute(50);
+
+		this.startingMorale = DEFAULTMORALE;
 		this.optimistModifier = 0;
 		this.pessimistModifier = 0;
 		this.specialModifier = 0;
+
 		this.isIrrational = false;
 		this.isInsecure = false;
+		this.isDetermined = false;
 	}
 
 	/** Needs to be called after abilities are set up */
-	public void setUp() {
-		this.changeState(MoraleState.STEADY);
+	public void setMorale() {
+		double temp;
+		double chanceRoll;
+
+		if ((this.mood.getCurrentMood().getBestMoraleState() == MoraleState.CONFIDENT.getValue())
+				&& (this.isDetermined)) {
+			chanceRoll = 100;
+		} else {
+			chanceRoll = this.mood.getCurrentMood().getBestMoralechance();
+		}
+
+		if (GlobalManager.d100Roll() > chanceRoll) {
+			temp = this.mood.getCurrentMood().getBestMoraleState() - 1;
+		} else {
+			temp = this.mood.getCurrentMood().getBestMoraleState();
+		}
+
+		if (temp > this.startingMorale) {
+			this.changeState(MoraleState.valueOfMoraleValue((int) this.startingMorale));
+		} else {
+			this.changeState(MoraleState.valueOfMoraleValue((int) temp));
+		}
+	}
+
+	public void removeMorale() {
+		this.changeState(null);
 	}
 
 	public MoraleState getCurrentState() {
@@ -49,9 +83,8 @@ public class MoraleManager extends GenericObservee implements Observer {
 	public void makePositiveCheck() {
 		if (this.makeCheck(this.optimistModifier)) {
 			if (this.currentMorale.getValue() < MoraleState.CONFIDENT.getValue()) {
-				this.changeState(MoraleState.valueOfMoraleValue(currentMorale.getValue() + 1));
-				if (this.isInsecure && this.currentMorale.equals(MoraleState.CONFIDENT)) {
-					this.changeState(MoraleState.valueOfMoraleValue(currentMorale.getValue() - 1));
+				if (!(this.currentMorale.equals(MoraleState.STEADY) && this.isInsecure)) {
+					this.changeState(MoraleState.valueOfMoraleValue(currentMorale.getValue() + 1));
 				}
 			}
 		}
@@ -102,6 +135,10 @@ public class MoraleManager extends GenericObservee implements Observer {
 		this.currentResolve = resolve;
 	}
 
+	public void changeMood(Effect e) {
+		this.mood.addModifier(e.getModifier());
+	}
+
 	public void setEffect(Effect e) {
 		if (e.getName().equals("Morale_Optimist")) {
 			this.optimistModifier = e.getValue();
@@ -113,6 +150,10 @@ public class MoraleManager extends GenericObservee implements Observer {
 			this.isIrrational = true;
 		} else if (e.getName().equals("Morale_Insecure")) {
 			this.isInsecure = true;
+		} else if (e.getName().equals("Morale_Determined")) {
+			this.isDetermined = true;
+		} else if (e.getName().equals("Morale_Starting")) {
+			this.startingMorale = e.getValue();
 		}
 	}
 
@@ -127,6 +168,10 @@ public class MoraleManager extends GenericObservee implements Observer {
 			this.isIrrational = false;
 		} else if (e.getName().equals("Morale_Insecure")) {
 			this.isInsecure = false;
+		} else if (e.getName().equals("Morale_Determined")) {
+			this.isDetermined = false;
+		} else if (e.getName().equals("Morale_Starting")) {
+			this.startingMorale = DEFAULTMORALE;
 		}
 	}
 
@@ -138,13 +183,20 @@ public class MoraleManager extends GenericObservee implements Observer {
 			this.notifyObservers(new EventObject(Target.ABILITY, EventType.REMOVE,
 					GlobalManager.morale.getMoraleAbility(this.currentMorale), null));
 		} catch (NullPointerException nu) {
+		
 		}
-		this.notifyObservers(
-				new EventObject(Target.ABILITY, EventType.ADD, GlobalManager.morale.getMoraleAbility(state), null));
+		try {
+			this.notifyObservers(
+					new EventObject(Target.ABILITY, EventType.ADD, GlobalManager.morale.getMoraleAbility(state), null));
+		} catch (NullPointerException nu) {
+
+		}
+
 		this.currentMorale = state;
 	}
 
 	public void display() {
+		System.out.println("This character's mood is currently " + this.mood.getCurrentMood().toString());
 		System.out.println("This character is currently: " + this.currentMorale);
 	}
 
@@ -159,6 +211,12 @@ public class MoraleManager extends GenericObservee implements Observer {
 			break;
 		case 4:
 			this.setResolve((double) information.getInformation());
+			break;
+		case 8:
+			this.setMorale();
+			break;
+		case 9:
+			this.removeMorale();
 			break;
 		}
 	}

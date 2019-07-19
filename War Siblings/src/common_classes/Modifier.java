@@ -27,6 +27,10 @@ public class Modifier {
 	public double getValue() {
 		return this.value;
 	}
+	
+	public void alterValue(double value) {
+		this.value += value;
+	}
 
 	public boolean getIsMulti() {
 		return this.isMulti;

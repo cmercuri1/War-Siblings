@@ -45,13 +45,13 @@ public class Character extends GenericObservee implements Observer {
 		this.mm = new MoraleManager(this);
 		this.observerObjects.add(mm);
 		
-		this.abm = new AbilityManager(bg, this);
+		this.abm = new AbilityManager(this);
 		this.observerObjects.add(abm);
 		
 		this.bm = new BattleManager(this);
 		this.observerObjects.add(bm);
 		
-		this.mm.setUp();
+		this.abm.setUpAbilities(bg);
 	}
 
 	@Override
@@ -76,6 +76,10 @@ public class Character extends GenericObservee implements Observer {
 			switch (information.getTask().value) {
 			case 4:
 				this.notifyObserver(information.getRequester(), information);
+				break;
+			case 6:
+				this.notifyObserver(information.getRequester(), information);
+				break;
 			}
 			break;
 		}	

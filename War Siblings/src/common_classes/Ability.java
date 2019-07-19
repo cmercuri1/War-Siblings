@@ -37,7 +37,7 @@ public class Ability {
 	}
 
 	public void display() {
-		System.out.print(this.name + ": " + this.desc + "\n");
+		System.out.print("	" + this.name + ": " + this.desc + "\n");
 		for (Effect e : this.effects) {
 			e.display();
 		}

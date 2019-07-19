@@ -220,6 +220,9 @@ public class AttributeManager extends GenericObservee implements Observer {
 		case 3:
 			this.notifyObservers(new EventObject(Target.UNDEFINED, EventType.GOT, this.getAttribute((String) information.getInformation()).getAlteredValue(), information.getRequester()));
 			break;
+		case 5:
+			this.notifyObservers(new EventObject(Target.UNDEFINED, EventType.GOT_SPECIAL, this.getAttribute((String) information.getInformation()).getAlteredValue(), information.getRequester()));
+			break;
 		}
 	}
 }

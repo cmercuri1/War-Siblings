@@ -14,6 +14,7 @@ public class GlobalManager {
 	public static MoraleAbilityManager morale;
 	public static TemporyInjuryManager tempInjury;
 	public static PerminentInjuryManager permInjury;
+	public static MoodManager moods;
 	
 	public static Random rng;
 	
@@ -31,6 +32,7 @@ public class GlobalManager {
 		morale = new MoraleAbilityManager();
 		tempInjury = new TemporyInjuryManager();
 		permInjury = new PerminentInjuryManager();
+		moods = new MoodManager();
 		
 		rng = new Random();
 	}

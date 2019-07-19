@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import common_classes.Ability;
 import common_classes.Effect;
+import common_classes.PerminentInjury;
+import common_classes.TemporaryInjury;
 import common_classes.Trait;
 import event_classes.EventObject;
 import event_classes.EventType;
@@ -20,11 +22,19 @@ import global_managers.GlobalManager;
  */
 public class AbilityManager extends GenericObservee implements Observer {
 	private ArrayList<Ability> characterAbilities;
+	private ArrayList<PerminentInjury> permaInjuries;
+	private ArrayList<TemporaryInjury> tempInjuries;
 
-	public AbilityManager(BackgroundGenerator background, Observer o) {
+	public AbilityManager(Observer o) {
 		this.characterAbilities = new ArrayList<Ability>();
+		this.permaInjuries = new ArrayList<PerminentInjury>();
+		this.tempInjuries = new ArrayList<TemporaryInjury>();
+
 		this.setUpObservers();
 		this.registerObserver(o);
+	}
+
+	public void setUpAbilities(BackgroundGenerator background) {
 		if (background.getBgAbility() != null) {
 			this.addAbility(background.getBgAbility());
 		}
@@ -60,28 +70,43 @@ public class AbilityManager extends GenericObservee implements Observer {
 		return this.characterAbilities;
 	}
 
+	public void sufferTemporaryInjury(TemporaryInjury injury) {
+		this.tempInjuries.add(injury);
+
+		this.notifyOtherManagers(EventType.ADD, injury);
+	}
+	
+	public void healTemporaryInjuries() {
+		for (TemporaryInjury temp : this.tempInjuries) {
+			temp.checkForHealed();
+			if (temp.isHealed()) {
+				this.notifyOtherManagers(EventType.REMOVE, temp);
+			}
+		}
+		this.tempInjuries.removeIf(i -> i.isHealed());
+	}
+
+	public void sufferPerminentInjury(PerminentInjury injury) {
+		this.permaInjuries.add(injury);
+
+		this.notifyOtherManagers(EventType.ADD, injury);
+	}
+	
+	public void healPerminentInjuries() {
+		this.permaInjuries.forEach(i -> this.notifyOtherManagers(EventType.REMOVE, i));
+		this.permaInjuries.clear();
+	}
+
 	public void addAbility(Ability ability) {
 		this.characterAbilities.add(ability);
 
-		for (Effect t : ability.getEffects()) {
-			if (t.getAffectedManager().equals("Attribute")) {
-				this.notifyObservers(new EventObject(Target.ATTRIBUTE, EventType.ADD, t, null));
-			} else if (t.getAffectedManager().equals("Morale")) {
-				this.notifyObservers(new EventObject(Target.MORALE, EventType.ADD, t, null));
-			}
-		}
+		this.notifyOtherManagers(EventType.ADD, ability);
 	}
-	
+
 	public void removeAbility(Ability ability) {
 		this.characterAbilities.remove(ability);
-		
-		for (Effect t : ability.getEffects()) {
-			if (t.getAffectedManager().equals("Attribute")) {
-				this.notifyObservers(new EventObject(Target.ATTRIBUTE, EventType.REMOVE, t, null));
-			} else if (t.getAffectedManager().equals("Morale")) {
-				this.notifyObservers(new EventObject(Target.MORALE, EventType.REMOVE, t, null));
-			}
-		}
+
+		this.notifyOtherManagers(EventType.REMOVE, ability);
 	}
 
 	public void removeAbility(String abilityName) {
@@ -93,22 +118,42 @@ public class AbilityManager extends GenericObservee implements Observer {
 		}
 	}
 
+	private void notifyOtherManagers(EventType type, Ability ability) {
+		for (Effect t : ability.getEffects()) {
+			if (t.getAffectedManager().equals("Attribute")) {
+				this.notifyObservers(new EventObject(Target.ATTRIBUTE, type, t, null));
+			} else if (t.getAffectedManager().equals("Morale")) {
+				this.notifyObservers(new EventObject(Target.MORALE, type, t, null));
+			} else if (t.getAffectedManager().equals("Battle")) {
+				this.notifyObservers(new EventObject(Target.BATTLE, type, t, null));
+			}
+		}
+	}
+
 	public void display() {
 		System.out.println("Character Abilities:");
-		for (Ability a : this.characterAbilities) {
-			a.display();
-		}
+		this.characterAbilities.forEach(a -> a.display());
+		System.out.println("Temporary Injuries:");
+		this.tempInjuries.forEach(a -> a.display());
+		System.out.println("Perminent Injuries:");
+		this.permaInjuries.forEach(a -> a.display());
 	}
 
 	@Override
 	public void onEventHappening(EventObject information) {
 		switch (information.getTask().value) {
 		case 1:
-			this.addAbility((Ability) information.getInformation());
+			if (information.getInformation() instanceof TemporaryInjury) {
+				this.sufferTemporaryInjury((TemporaryInjury) information.getInformation());
+			} else if (information.getInformation() instanceof PerminentInjury) {
+				this.sufferPerminentInjury((PerminentInjury) information.getInformation());
+			} else {
+				this.addAbility((Ability) information.getInformation());
+			}
 			break;
 		case 2:
 			this.removeAbility((Ability) information.getInformation());
 			break;
-		} 
+		}
 	}
 }
