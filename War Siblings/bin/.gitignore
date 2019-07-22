@@ -1,7 +1,10 @@
+/character/
+/common_classes/
+/event_classes/
+/global_generators/
+/global_managers/
 /items/
 /run/
-/generators/
-/common_classes/
-/character/
-/global_managers/
-/global_generators/
+/classes/
+/unused/
+/storage_classes/

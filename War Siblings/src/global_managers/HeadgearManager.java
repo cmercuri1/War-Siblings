@@ -1,3 +1,7 @@
+/** War Siblings
+ * HeadgearManager Class
+ * Author: Christopher Mercuri cmercuri1@student.unimelb.edu.au
+ */
 package global_managers;
 
 import java.util.ArrayList;
@@ -20,6 +24,20 @@ public class HeadgearManager extends BaseGlobalManager {
 				(Long) o.get("Vision")));
 	}
 
+	@Override
+	protected void instantiate() {
+		if (this.helmList == null) {
+			this.helmList = new ArrayList<Headgear>();
+		}
+	}
+
+	/* Getters */
+
+	public ArrayList<Headgear> getHelmList() {
+		return this.helmList;
+	}
+
+	/** getHeadArmor: gets a particular Headgear by name; */
 	public Headgear getHeadArmor(String name) {
 		for (Headgear h : helmList) {
 			if (h.getName().equals(name)) {
@@ -29,14 +47,8 @@ public class HeadgearManager extends BaseGlobalManager {
 		return null;
 	}
 
+	/** display: displays the statistics of a particular piece of headgear */
 	public void display(String name) {
 		this.getHeadArmor(name).display();
-	}
-
-	@Override
-	protected void instantiate() {
-		if (this.helmList == null) {
-			this.helmList = new ArrayList<Headgear>();
-		}
 	}
 }

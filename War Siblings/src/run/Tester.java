@@ -1,39 +1,30 @@
+/** War Siblings
+ * Tester Class
+ * Author: Christopher Mercuri cmercuri1@student.unimelb.edu.au
+ */
+
 package run;
 
 import java.util.Scanner;
-import global_managers.GlobalManager;
 import character.Character;
 
+/** A Class for testing elements of the War Siblings project */
 public class Tester {
 
+	/**
+	 * Constructor: Currently does nothing else
+	 */
 	public Tester() {
 	}
 
+	/** run(): Starts everything running when called, is altered during each test */
 	public void run() {
 		Scanner in = new Scanner(System.in);
-		String s;
+		Character char1;
 
-		/*
-		 * System.out.println("Enter Weapon name:"); s = in.nextLine();
-		 * GeneratorManager.weapons.display(s);
-		 * 
-		 * System.out.println("Enter Shield name:"); s = in.nextLine();
-		 * GeneratorManager.shields.display(s);
-		 * 
-		 * System.out.println("Enter Helm name:"); s = in.nextLine();
-		 * GeneratorManager.headgears.display(s);
-		 * 
-		 * System.out.println("Enter Body Armor name:"); s = in.nextLine();
-		 * GeneratorManager.bodyArmors.display(s);
-		 */
+		System.out.println("Enter a Background:");
+		char1 = new Character(in.nextLine());
 
-		/*
-		 * System.out.println("Enter Background name:"); s = in.nextLine(); Character
-		 * char1 = new Character(s); char1.display();
-		 */
-
-		System.out.println("Random Background:");
-		Character char1 = new Character();
 		char1.display();
 
 		in.close();

@@ -38,6 +38,22 @@
 				0,
 				2
 			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Asthmatic",
+				"Clubfooted",
+				"Craven",
+				"Dastard",
+				"Drunkard",
+				"Fainthearted",
+				"Fear of Beasts",
+				"Fragile",
+				"Hesitant",
+				"Insecure",
+				"Irrational",
+				"Spartan",
+				"Weasel"
+			],
 			"Base Wage": 25,
 			"Background Ability": ""
 		},
@@ -79,10 +95,21 @@
 				0,
 				0
 			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Asthmatic",
+				"Athletic",
+				"Bloodthirsty",
+				"Brute",
+				"Clumsy",
+				"Dumb",
+				"Fear of Undead",
+				"Hate for Undead"
+			],
 			"Base Wage": 8,
 			"Background Ability": [
 				{
-					"Effect Name": "XPGain",
+					"Effect Name": "XPGain_Percent",
 					"Value": 10
 				}
 			]
@@ -125,6 +152,32 @@
 				3,
 				3
 			],
+			"Excluded Talents": [
+				"fatigue",
+				"hitpoints",
+				"rangedDefense",
+				"resolve"
+			],
+			"Excluded Traits": [
+				"Bloodthirsty",
+				"Brute",
+				"Brute",
+				"Clubfooted",
+				"Clubfooted",
+				"Clumsy",
+				"Dumb",
+				"Fat",
+				"Hesitant",
+				"Huge",
+				"Insecure",
+				"Loyal",
+				"Night Blind",
+				"Short Sighted",
+				"Strong",
+				"Strong",
+				"Team Player",
+				"Weasel"
+			],
 			"Base Wage": 20,
 			"Background Ability": ""
 		},
@@ -165,6 +218,23 @@
 			"Starting Level": [
 				1,
 				3
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Ailing",
+				"Asthmatic",
+				"Bleeder",
+				"Clubfooted",
+				"Craven",
+				"Dastard",
+				"Fragile",
+				"Hate for Undead",
+				"Hesitant",
+				"Insecure",
+				"Loyal",
+				"Night Blind",
+				"Tiny",
+				"Weasel"
 			],
 			"Base Wage": 20,
 			"Background Ability": ""
@@ -207,6 +277,18 @@
 				0,
 				2
 			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Ailing",
+				"Asthmatic",
+				"Bleeder",
+				"Clumsy",
+				"Dastard",
+				"Fat",
+				"Hesitant",
+				"Team Player",
+				"Tiny"
+			],
 			"Base Wage": 14,
 			"Background Ability": ""
 		},
@@ -247,6 +329,25 @@
 			"Starting Level": [
 				0,
 				2
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Ailing",
+				"Asthmatic",
+				"Bleeder",
+				"Brute",
+				"Clubfooted",
+				"Clumsy",
+				"Craven",
+				"Dastard",
+				"Dumb",
+				"Fat",
+				"Fear of Beasts",
+				"Fragile",
+				"Gluttonous",
+				"Night Blind",
+				"Short Sighted",
+				"Weasel"
 			],
 			"Base Wage": 15,
 			"Background Ability": ""
@@ -289,6 +390,24 @@
 				0,
 				0
 			],
+			"Excluded Talents": [
+				"hitpoints",
+				"resolve"
+			],
+			"Excluded Traits": [
+				"Athletic",
+				"Brave",
+				"Bright",
+				"Cocky",
+				"Deathwish",
+				"Determined",
+				"Fat",
+				"Fearless",
+				"Greedy",
+				"Iron Jaw",
+				"Strong",
+				"Tough"
+			],
 			"Base Wage": 3,
 			"Background Ability": ""
 		},
@@ -329,6 +448,26 @@
 			"Starting Level": [
 				0,
 				0
+			],
+			"Excluded Talents": [
+				"meleeSkill"
+			],
+			"Excluded Traits": [
+				"Athletic",
+				"Bloodthirsty",
+				"Brave",
+				"Brute",
+				"Clumsy",
+				"Cocky",
+				"Dumb",
+				"Fear of Undead",
+				"Fearless",
+				"Hate for Undead",
+				"Iron Jaw",
+				"Iron Lungs",
+				"Short Sighted",
+				"Strong",
+				"Tough"
 			],
 			"Base Wage": 8,
 			"Background Ability": ""
@@ -371,10 +510,32 @@
 				0,
 				0
 			],
+			"Excluded Talents": [
+				"rangedSkill"
+			],
+			"Excluded Traits": [
+				"Ailing",
+				"Asthmatic",
+				"Bleeder",
+				"Bright",
+				"Clubfooted",
+				"Clumsy",
+				"Craven",
+				"Dastard",
+				"Fainthearted",
+				"Fat",
+				"Fear of Undead",
+				"Fragile",
+				"Hate for Undead",
+				"Insecure",
+				"Irrational",
+				"Tiny",
+				"Weasel"
+			],
 			"Base Wage": 13,
 			"Background Ability": [
 				{
-					"Effect Name": "UnarmedDamage",
+					"Effect Name": "Damage_Unarmed_Percent",
 					"Value": 100
 				}
 			]
@@ -417,6 +578,23 @@
 				0,
 				0
 			],
+			"Excluded Talents": [
+				"rangedSkill"
+			],
+			"Excluded Traits": [
+				"Bleeder",
+				"Bright",
+				"Clumsy",
+				"Fainthearted",
+				"Fear of Undead",
+				"Hate for Undead",
+				"Iron Lungs",
+				"Optimist",
+				"Spartan",
+				"Swift",
+				"Tiny",
+				"Weasel"
+			],
 			"Base Wage": 7,
 			"Background Ability": ""
 		},
@@ -457,6 +635,15 @@
 			"Starting Level": [
 				0,
 				0
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Asthmatic",
+				"Bright",
+				"Clubfooted",
+				"Fat",
+				"Gluttonous",
+				"Tiny"
 			],
 			"Base Wage": 8,
 			"Background Ability": ""
@@ -499,48 +686,27 @@
 				0,
 				0
 			],
+			"Excluded Talents": [
+				"hitpoints",
+				"initiative"
+			],
+			"Excluded Traits": [
+				"Athletic",
+				"Cocky",
+				"Dexterous",
+				"Fat",
+				"Greedy",
+				"Huge",
+				"Impatient",
+				"Iron Jaw",
+				"Lucky",
+				"Quick",
+				"Strong",
+				"Swift",
+				"Tough",
+				"Weasel"
+			],
 			"Base Wage": 3,
-			"Background Ability": ""
-		},
-		{
-			"Name": "Crusader",
-			"Hitpoints": [
-				10,
-				10
-			],
-			"Fatigue": [
-				10,
-				10
-			],
-			"Resolve": [
-				15,
-				20
-			],
-			"Initiative": [
-				0,
-				0
-			],
-			"Melee Skill": [
-				10,
-				10
-			],
-			"Ranged Skill": [
-				-10,
-				-5
-			],
-			"Melee Defense": [
-				0,
-				0
-			],
-			"Ranged Defense": [
-				-5,
-				0
-			],
-			"Starting Level": [
-				4,
-				5
-			],
-			"Base Wage": 25,
 			"Background Ability": ""
 		},
 		{
@@ -580,6 +746,29 @@
 			"Starting Level": [
 				0,
 				0
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Athletic",
+				"Bright",
+				"Bright",
+				"Craven",
+				"Dastard",
+				"Disloyal",
+				"Drunkard",
+				"Fainthearted",
+				"Fat",
+				"Fear of Undead",
+				"Gluttonous",
+				"Greedy",
+				"Hate for Beasts",
+				"Hate for Greenskins",
+				"Hate for Undead",
+				"Hesitant",
+				"Insecure",
+				"Lucky",
+				"Night Blind",
+				"Team Player"
 			],
 			"Base Wage": 6,
 			"Background Ability": ""
@@ -622,6 +811,13 @@
 				0,
 				0
 			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Fear of Undead",
+				"Hate for Beasts",
+				"Hate for Greenskins",
+				"Hate for Undead"
+			],
 			"Base Wage": 3,
 			"Background Ability": ""
 		},
@@ -662,6 +858,24 @@
 			"Starting Level": [
 				0,
 				1
+			],
+			"Excluded Talents": [
+				"resolve"
+			],
+			"Excluded Traits": [
+				"Bloodthirsty",
+				"Brave",
+				"Clubfooted",
+				"Cocky",
+				"Deathwish",
+				"Determined",
+				"Fearless",
+				"Fragile",
+				"Impatient",
+				"Loyal",
+				"Optimist",
+				"Sure Footing",
+				"Team Player"
 			],
 			"Base Wage": 11,
 			"Background Ability": ""
@@ -704,6 +918,14 @@
 				0,
 				2
 			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Clubfooted",
+				"Clumsy",
+				"Fragile",
+				"Spartan",
+				"Team Player"
+			],
 			"Base Wage": 18,
 			"Background Ability": ""
 		},
@@ -744,6 +966,17 @@
 			"Starting Level": [
 				0,
 				0
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Athletic",
+				"Bloodthirsty",
+				"Brute",
+				"Cocky",
+				"Deathwish",
+				"Impatient",
+				"Lucky",
+				"Weasel"
 			],
 			"Base Wage": 6,
 			"Background Ability": ""
@@ -786,6 +1019,14 @@
 				0,
 				0
 			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Asthmatic",
+				"Clubfooted",
+				"Fear of Undead",
+				"Hate for Undead",
+				"Weasel"
+			],
 			"Base Wage": 10,
 			"Background Ability": ""
 		},
@@ -826,6 +1067,16 @@
 			"Starting Level": [
 				0,
 				0
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Fat",
+				"Fear of Undead",
+				"Hate for Undead",
+				"Night Blind",
+				"Paranoid",
+				"Tiny",
+				"Weasel"
 			],
 			"Base Wage": 7,
 			"Background Ability": ""
@@ -868,6 +1119,22 @@
 				0,
 				0
 			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Bright",
+				"Clubfooted",
+				"Cocky",
+				"Craven",
+				"Disloyal",
+				"Fainthearted",
+				"Fat",
+				"Gluttonous",
+				"Greedy",
+				"Insecure",
+				"Strong",
+				"Tough",
+				"Weasel"
+			],
 			"Base Wage": 6,
 			"Background Ability": ""
 		},
@@ -908,6 +1175,29 @@
 			"Starting Level": [
 				0,
 				0
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Athletic",
+				"Bloodthirsty",
+				"Brute",
+				"Clumsy",
+				"Craven",
+				"Dastard",
+				"Deathwish",
+				"Dumb",
+				"Fear of Undead",
+				"Hate for Beasts",
+				"Hate for Undead",
+				"Hesitant",
+				"Huge",
+				"Insecure",
+				"Loyal",
+				"Paranoid",
+				"Short Sighted",
+				"Spartan",
+				"Strong",
+				"Tough"
 			],
 			"Base Wage": 6,
 			"Background Ability": ""
@@ -950,6 +1240,21 @@
 				0,
 				0
 			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Cocky",
+				"Craven",
+				"Dexterous",
+				"Fainthearted",
+				"Fear of Undead",
+				"Iron Lungs",
+				"Night Blind",
+				"Optimist",
+				"Quick",
+				"Swift",
+				"Team Player",
+				"Weasel"
+			],
 			"Base Wage": 5,
 			"Background Ability": ""
 		},
@@ -991,6 +1296,21 @@
 				0,
 				0
 			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Cocky",
+				"Craven",
+				"Deathwish",
+				"Determined",
+				"Fainthearted",
+				"Fear of Beasts",
+				"Fear of Undead",
+				"Loyal",
+				"Night Blind",
+				"Optimist",
+				"Superstitious",
+				"Weasel"
+			],
 			"Base Wage": 6,
 			"Background Ability": ""
 		},
@@ -1009,7 +1329,7 @@
 				4
 			],
 			"Initiative": [
-				-4,
+				-14,
 				-7
 			],
 			"Melee Skill": [
@@ -1031,6 +1351,32 @@
 			"Starting Level": [
 				2,
 				4
+			],
+			"Excluded Talents": [
+				"initiative",
+				"rangedSkill"
+			],
+			"Excluded Traits": [
+				"Ailing",
+				"Asthmatic",
+				"Bleeder",
+				"Clubfooted",
+				"Clumsy",
+				"Craven",
+				"Dastard",
+				"Fainthearted",
+				"Fear of Beasts",
+				"Fear of Greenskins",
+				"Fear of Undead",
+				"Fragile",
+				"Hesitant",
+				"Insecure",
+				"Irrational",
+				"Loyal",
+				"Swift",
+				"Team Player",
+				"Tiny",
+				"Weasel"
 			],
 			"Base Wage": 35,
 			"Background Ability": ""
@@ -1073,10 +1419,34 @@
 				0,
 				0
 			],
+			"Excluded Talents": [
+				"endurance",
+				"hitpoints"
+			],
+			"Excluded Traits": [
+				"Athletic",
+				"Bloodthirsty",
+				"Brute",
+				"Cocky",
+				"Dexterous",
+				"Dumb",
+				"Hate for Beasts",
+				"Huge",
+				"Impatient",
+				"Iron Jaw",
+				"Iron Lungs",
+				"Irrational",
+				"Paranoid",
+				"Spartan",
+				"Strong",
+				"Superstitious",
+				"Sure Footing",
+				"Tough"
+			],
 			"Base Wage": 8,
 			"Background Ability": [
 				{
-					"Effect Name": "XPGain",
+					"Effect Name": "XPGain_Percent",
 					"Value": 15
 				}
 			]
@@ -1118,6 +1488,18 @@
 			"Starting Level": [
 				0,
 				0
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Asthmatic",
+				"Bleeder",
+				"Bright",
+				"Fainthearted",
+				"Fear of Beasts",
+				"Hate for Beasts",
+				"Hate for Undead",
+				"Tiny",
+				"Weasel"
 			],
 			"Base Wage": 7,
 			"Background Ability": [
@@ -1165,6 +1547,24 @@
 				0,
 				1
 			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Asthmatic",
+				"Brute",
+				"Clubfooted",
+				"Clumsy",
+				"Craven",
+				"Dastard",
+				"Drunkard",
+				"Fat",
+				"Fear of Beasts",
+				"Fear of Undead",
+				"Gluttonous",
+				"Hate for Beasts",
+				"Night Blind",
+				"Short Sighted",
+				"Weasel"
+			],
 			"Base Wage": 20,
 			"Background Ability": ""
 		},
@@ -1205,6 +1605,23 @@
 			"Starting Level": [
 				0,
 				0
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Asthmatic",
+				"Bloodthirsty",
+				"Brute",
+				"Clubfooted",
+				"Clumsy",
+				"Deathwish",
+				"Dumb",
+				"Fear of Undead",
+				"Hate for Undead",
+				"Hesitant",
+				"Insecure",
+				"Short Sighted",
+				"Strong",
+				"Tough"
 			],
 			"Base Wage": 7,
 			"Background Ability": [
@@ -1252,6 +1669,25 @@
 				0,
 				0
 			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Brave",
+				"Bright",
+				"Clubfooted",
+				"Clumsy",
+				"Cocky",
+				"Craven",
+				"Deathwish",
+				"Determined",
+				"Fainthearted",
+				"Fearless",
+				"Hate for Undead",
+				"Hesitant",
+				"Loyal",
+				"Lucky",
+				"Optimist",
+				"Team Player"
+			],
 			"Base Wage": 6,
 			"Background Ability": [
 				{
@@ -1259,47 +1695,6 @@
 					"Value": 10
 				}
 			]
-		},
-		{
-			"Name": "King's Guard",
-			"Hitpoints": [
-				-5,
-				5
-			],
-			"Fatigue": [
-				0,
-				10
-			],
-			"Resolve": [
-				15,
-				15
-			],
-			"Initiative": [
-				-15,
-				0
-			],
-			"Melee Skill": [
-				5,
-				5
-			],
-			"Ranged Skill": [
-				-5,
-				0
-			],
-			"Melee Defense": [
-				5,
-				5
-			],
-			"Ranged Defense": [
-				5,
-				5
-			],
-			"Starting Level": [
-				2,
-				2
-			],
-			"Base Wage": 30,
-			"Background Ability": ""
 		},
 		{
 			"Name": "Lumberjack",
@@ -1338,6 +1733,23 @@
 			"Starting Level": [
 				0,
 				0
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Ailing",
+				"Asthmatic",
+				"Bleeder",
+				"Bright",
+				"Clubfooted",
+				"Clumsy",
+				"Craven",
+				"Fainthearted",
+				"Fat",
+				"Fragile",
+				"Hate for Undead",
+				"Night Blind",
+				"Tiny",
+				"Weasel"
 			],
 			"Base Wage": 13,
 			"Background Ability": ""
@@ -1380,10 +1792,21 @@
 				0,
 				0
 			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Asthmatic",
+				"Athletic",
+				"Bloodthirsty",
+				"Clumsy",
+				"Dumb",
+				"Fear of Undead",
+				"Hate for Undead",
+				"Weasel"
+			],
 			"Base Wage": 0,
 			"Background Ability": [
 				{
-					"Effect Name": "XPGain",
+					"Effect Name": "XPGain_Percent",
 					"Value": 5
 				}
 			]
@@ -1426,6 +1849,21 @@
 				0,
 				0
 			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Asthmatic",
+				"Brute",
+				"Clubfooted",
+				"Cocky",
+				"Craven",
+				"Deathwish",
+				"Dumb",
+				"Fat",
+				"Gluttonous",
+				"Hate for Undead",
+				"Huge",
+				"Paranoid"
+			],
 			"Base Wage": 6,
 			"Background Ability": ""
 		},
@@ -1466,6 +1904,16 @@
 			"Starting Level": [
 				0,
 				1
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Asthmatic",
+				"Clubfooted",
+				"Craven",
+				"Dastard",
+				"Fat",
+				"Hate for Undead",
+				"Insecure"
 			],
 			"Base Wage": 9,
 			"Background Ability": ""
@@ -1508,6 +1956,20 @@
 				0,
 				0
 			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Bloodthirsty",
+				"Bright",
+				"Cocky",
+				"Deathwish",
+				"Dexterous",
+				"Fear of Undead",
+				"Fragile",
+				"Greedy",
+				"Hate for Undead",
+				"Quick",
+				"Sure Footing"
+			],
 			"Base Wage": 7,
 			"Background Ability": ""
 		},
@@ -1548,6 +2010,21 @@
 			"Starting Level": [
 				0,
 				0
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Bright",
+				"Clumsy",
+				"Craven",
+				"Dastard",
+				"Fat",
+				"Fragile",
+				"Hate for Undead",
+				"Huge",
+				"Iron Lungs",
+				"Night Blind",
+				"Strong",
+				"Swift"
 			],
 			"Base Wage": 6,
 			"Background Ability": ""
@@ -1590,6 +2067,22 @@
 				0,
 				0
 			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Athletic",
+				"Bloodthirsty",
+				"Brute",
+				"Clubfooted",
+				"Craven",
+				"Dastard",
+				"Dumb",
+				"Dumb",
+				"Huge",
+				"Insecure",
+				"Iron Jaw",
+				"Strong",
+				"Tough"
+			],
 			"Base Wage": 6,
 			"Background Ability": ""
 		},
@@ -1631,48 +2124,26 @@
 				0,
 				0
 			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Bloodthirsty",
+				"Brute",
+				"Clubfooted",
+				"Cocky",
+				"Craven",
+				"Disloyal",
+				"Dumb",
+				"Gluttonous",
+				"Greedy",
+				"Hate for Beasts",
+				"Impatient",
+				"Iron Lungs",
+				"Quick",
+				"Superstitious",
+				"Swift",
+				"Weasel"
+			],
 			"Base Wage": 5,
-			"Background Ability": ""
-		},
-		{
-			"Name": "Orc Slayer",
-			"Hitpoints": [
-				10,
-				10
-			],
-			"Fatigue": [
-				10,
-				10
-			],
-			"Resolve": [
-				15,
-				20
-			],
-			"Initiative": [
-				0,
-				0
-			],
-			"Melee Skill": [
-				10,
-				10
-			],
-			"Ranged Skill": [
-				-10,
-				5
-			],
-			"Melee Defense": [
-				0,
-				0
-			],
-			"Ranged Defense": [
-				-5,
-				0
-			],
-			"Starting Level": [
-				4,
-				5
-			],
-			"Base Wage": 25,
 			"Background Ability": ""
 		},
 		{
@@ -1712,6 +2183,25 @@
 			"Starting Level": [
 				0,
 				0
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Athletic",
+				"Bloodthirsty",
+				"Brute",
+				"Clubfooted",
+				"Cocky",
+				"Deathwish",
+				"Dexterous",
+				"Dumb",
+				"Fear of Undead",
+				"Hate for Beasts",
+				"Hate for Undead",
+				"Huge",
+				"Iron Jaw",
+				"Iron Lungs",
+				"Strong",
+				"Tough"
 			],
 			"Base Wage": 6,
 			"Background Ability": ""
@@ -1754,6 +2244,8 @@
 				0,
 				0
 			],
+			"Excluded Talents": [],
+			"Excluded Traits": [],
 			"Base Wage": 7,
 			"Background Ability": ""
 		},
@@ -1794,6 +2286,18 @@
 			"Starting Level": [
 				0,
 				0
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Brave",
+				"Bright",
+				"Clubfooted",
+				"Fat",
+				"Fearless",
+				"Hate for Undead",
+				"Loyal",
+				"Night Blind",
+				"Short Sighted"
 			],
 			"Base Wage": 8,
 			"Background Ability": ""
@@ -1836,6 +2340,25 @@
 				1,
 				4
 			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Ailing",
+				"Asthmatic",
+				"Bleeder",
+				"Clubfooted",
+				"Clumsy",
+				"Craven",
+				"Dastard",
+				"Fainthearted",
+				"Fragile",
+				"Hate for Undead",
+				"Hesitant",
+				"Insecure",
+				"Loyal",
+				"Night Blind",
+				"Tiny",
+				"Weasel"
+			],
 			"Base Wage": 28,
 			"Background Ability": ""
 		},
@@ -1876,6 +2399,28 @@
 			"Starting Level": [
 				0,
 				0
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Brave",
+				"Bright",
+				"Brute",
+				"Clubfooted",
+				"Clumsy",
+				"Cocky",
+				"Deathwish",
+				"Determined",
+				"Fat",
+				"Fearless",
+				"Greedy",
+				"Hate for Beasts",
+				"Hate for Undead",
+				"Hesitant",
+				"Huge",
+				"Short Sighted",
+				"Strong",
+				"Sure Footing",
+				"Tough"
 			],
 			"Base Wage": 4,
 			"Background Ability": ""
@@ -1918,6 +2463,24 @@
 				0,
 				0
 			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Athletic",
+				"Bloodthirsty",
+				"Brave",
+				"Bright",
+				"Cocky",
+				"Deathwish",
+				"Determined",
+				"Fat",
+				"Fearless",
+				"Greedy",
+				"Impatient",
+				"Iron Jaw",
+				"Loyal",
+				"Strong",
+				"Tough"
+			],
 			"Base Wage": 4,
 			"Background Ability": ""
 		},
@@ -1958,6 +2521,28 @@
 			"Starting Level": [
 				1,
 				2
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Bleeder",
+				"Bloodthirsty",
+				"Clubfooted",
+				"Clumsy",
+				"Craven",
+				"Dastard",
+				"Disloyal",
+				"Fainthearted",
+				"Fragile",
+				"Gluttonous",
+				"Hesitant",
+				"Insecure",
+				"Iron Lungs",
+				"Irrational",
+				"Strong",
+				"Swift",
+				"Tiny",
+				"Tough",
+				"Weasel"
 			],
 			"Base Wage": 15,
 			"Background Ability": ""
@@ -2000,6 +2585,25 @@
 				1,
 				3
 			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Ailing",
+				"Asthmatic",
+				"Bleeder",
+				"Clubfooted",
+				"Clumsy",
+				"Craven",
+				"Dastard",
+				"Fainthearted",
+				"Fragile",
+				"Hesitant",
+				"Insecure",
+				"Irrational",
+				"Loyal",
+				"Night Blind",
+				"Tiny",
+				"Weasel"
+			],
 			"Base Wage": 35,
 			"Background Ability": ""
 		},
@@ -2041,11 +2645,34 @@
 				0,
 				0
 			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Athletic",
+				"Bloodthirsty",
+				"Brave",
+				"Bright",
+				"Brute",
+				"Cocky",
+				"Determined",
+				"Disloyal",
+				"Fat",
+				"Fearless",
+				"Greedy",
+				"Hate for Beasts",
+				"Hate for Greenskins",
+				"Hate for Undead",
+				"Huge",
+				"Impatient",
+				"Iron Jaw",
+				"Optimistic",
+				"Strong",
+				"Sure Footing"
+			],
 			"Base Wage": 4,
 			"Background Ability": ""
 		},
 		{
-			"Name": "Sheperd",
+			"Name": "Shepherd",
 			"Hitpoints": [
 				0,
 				0
@@ -2081,6 +2708,26 @@
 			"Starting Level": [
 				0,
 				0
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Athletic",
+				"Bloodthirsty",
+				"Brave",
+				"Brute",
+				"Cocky",
+				"Deathwish",
+				"Disloyal",
+				"Drunkard",
+				"Fearless",
+				"Greedy",
+				"Hate for Undead",
+				"Impatient",
+				"Iron Jaw",
+				"Iron Lungs",
+				"Strong",
+				"Sure Footing",
+				"Tough"
 			],
 			"Base Wage": 6,
 			"Background Ability": ""
@@ -2123,6 +2770,27 @@
 				0,
 				0
 			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Asthmatic",
+				"Bleeder",
+				"Clubfooted",
+				"Clumsy",
+				"Craven",
+				"Dastard",
+				"Disloyal",
+				"Fainthearted",
+				"Fat",
+				"Fear of Beasts",
+				"Fear of Greenskins",
+				"Fear of Undead",
+				"Fragile",
+				"Greedy",
+				"Insecure",
+				"Irrational",
+				"Pessimist",
+				"Weasel"
+			],
 			"Base Wage": 20,
 			"Background Ability": ""
 		},
@@ -2163,6 +2831,37 @@
 			"Starting Level": [
 				2,
 				5
+			],
+			"Excluded Talents": [
+				"rangedSkill"
+			],
+			"Excluded Traits": [
+				"Athletic",
+				"Bleeder",
+				"Bloodthirsty",
+				"Bright",
+				"Clubfooted",
+				"Clumsy",
+				"Craven",
+				"Dastard",
+				"Dumb",
+				"Fainthearted",
+				"Fear of Beasts",
+				"Fear of Greenskins",
+				"Fear of Undead",
+				"Fragile",
+				"Gluttonous",
+				"Hesitant",
+				"Huge",
+				"Impatient",
+				"Insecure",
+				"Iron Lungs",
+				"Irrational",
+				"Paranoid",
+				"Strong",
+				"Tiny",
+				"Tough",
+				"Weasel"
 			],
 			"Base Wage": 35,
 			"Background Ability": ""
@@ -2205,6 +2904,24 @@
 				0,
 				0
 			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Athletic",
+				"Bloodthirsty",
+				"Brave",
+				"Brute",
+				"Clumsy",
+				"Cocky",
+				"Deathwish",
+				"Dumb",
+				"Fearless",
+				"Hate for Undead",
+				"Huge",
+				"Iron Lungs",
+				"Spartan",
+				"Strong",
+				"Tough"
+			],
 			"Base Wage": 5,
 			"Background Ability": ""
 		},
@@ -2245,6 +2962,29 @@
 			"Starting Level": [
 				0,
 				0
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Bloodthirsty",
+				"Brute",
+				"Brute",
+				"Clubfooted",
+				"Clumsy",
+				"Dumb",
+				"Fat",
+				"Hate for Beasts",
+				"Hate for Greenskins",
+				"Hate for Undead",
+				"Hesitant",
+				"Huge",
+				"Insecure",
+				"Loyal",
+				"Night Blind",
+				"Paranoid",
+				"Short Sighted",
+				"Strong",
+				"Strong",
+				"Team Player"
 			],
 			"Base Wage": 10,
 			"Background Ability": ""
@@ -2287,6 +3027,16 @@
 				0,
 				0
 			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Asthmatic",
+				"Clubfooted",
+				"Fat",
+				"Gluttonous",
+				"Hate for Beasts",
+				"Hate for Undead",
+				"Loyal"
+			],
 			"Base Wage": 6,
 			"Background Ability": ""
 		},
@@ -2328,10 +3078,40 @@
 				0,
 				1
 			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Ailing",
+				"Asthmatic",
+				"Bleeder",
+				"Bright",
+				"Clubfooted",
+				"Cocky",
+				"Craven",
+				"Dastard",
+				"Dexterous",
+				"Drunkard",
+				"Fainthearted",
+				"Fat",
+				"Fear of Beasts",
+				"Fragile",
+				"Gluttonous",
+				"Greedy",
+				"Hate for Undead",
+				"Hesitant",
+				"Insecure",
+				"Night Blind",
+				"Optimist",
+				"Paranoid",
+				"Pessimist",
+				"Short Sighted",
+				"Team Player",
+				"Tiny",
+				"Weasel"
+			],
 			"Base Wage": 12,
 			"Background Ability": [
 				{
-					"Effect Name": "XPGain",
+					"Effect Name": "XPGain_Percent",
 					"Value": -15
 				}
 			]
@@ -2374,10 +3154,30 @@
 				0,
 				2
 			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Clubfooted",
+				"Craven",
+				"Drunkard",
+				"Dumb",
+				"Fainthearted",
+				"Fear of Beasts",
+				"Fear of Beasts",
+				"Fear of Greenskins",
+				"Fear of Undead",
+				"Fear of Undead",
+				"Hate for Beasts",
+				"Hesitant",
+				"Insecure",
+				"Short Sighted",
+				"Superstitious",
+				"Team Player",
+				"Weasel"
+			],
 			"Base Wage": 13,
 			"Background Ability": [
 				{
-					"Effect Name": "SpecialMoraleChecks",
+					"Effect Name": "Morale_Special",
 					"Value": 20
 				}
 			]

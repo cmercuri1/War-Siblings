@@ -1,7 +1,14 @@
+/** War Siblings
+ * InventoryManager class
+ * Author: Christopher Mercuri cmercuri1@student.unimelb.edu.au
+ */
 package character;
 
 import java.util.ArrayList;
 
+import event_classes.EventObject;
+import event_classes.GenericObservee;
+import event_classes.Observer;
 import items.AbilityItem;
 import items.Armor;
 import items.Headgear;
@@ -11,14 +18,16 @@ import items.Weapon;
  * Manager specifically for keeping track of and managing the inventory/equiped
  * items of a character
  */
-public class InventoryManager {
+public class InventoryManager extends GenericObservee implements Observer {
 	private Armor body;
 	private Headgear head;
 	private AbilityItem right;
 	private AbilityItem left;
 	private ArrayList<AbilityItem> bag;
 
-	public InventoryManager() {
+	public InventoryManager(Observer o) {
+		this.setUpObservers();
+		this.registerObserver(o);
 		this.body = null;
 		this.head = null;
 		this.right = null;
@@ -136,4 +145,10 @@ public class InventoryManager {
 			}
 		}
 	}
+
+	@Override
+	public void onEventHappening(EventObject information) {
+		// TODO Auto-generated method stub
+	}
+
 }

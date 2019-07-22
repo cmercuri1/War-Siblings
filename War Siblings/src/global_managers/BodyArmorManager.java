@@ -1,3 +1,7 @@
+/** War Siblings
+ * BodyArmorManager Class
+ * Author: Christopher Mercuri cmercuri1@student.unimelb.edu.au
+ */
 package global_managers;
 
 import java.util.ArrayList;
@@ -19,6 +23,20 @@ public class BodyArmorManager extends BaseGlobalManager {
 				(Long) o.get("Durability"), (Long) o.get("Maximum Fatigue"), (String) o.get("Armor Type")));
 	}
 
+	@Override
+	protected void instantiate() {
+		if (this.armorList == null) {
+			this.armorList = new ArrayList<Armor>();
+		}
+	}
+
+	/* Getters */
+
+	public ArrayList<Armor> getArmorList() {
+		return this.armorList;
+	}
+
+	/** getBodyArmor: retrieves a particular body armor by name */
 	public Armor getBodyArmor(String name) {
 		for (Armor a : armorList) {
 			if (a.getName().equals(name)) {
@@ -28,15 +46,9 @@ public class BodyArmorManager extends BaseGlobalManager {
 		return null;
 	}
 
+	/** display: displays statistics for a particular body armor */
 	public void display(String name) {
 		this.getBodyArmor(name).display();
-	}
-
-	@Override
-	protected void instantiate() {
-		if (this.armorList == null) {
-			this.armorList = new ArrayList<Armor>();
-		}
 	}
 
 }

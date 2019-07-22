@@ -1,3 +1,7 @@
+/** War Siblings
+ * BaseWarriorGenerator Class
+ * Author: Christopher Mercuri cmercuri1@student.unimelb.edu.au
+ */
 package global_generators;
 
 import java.io.FileReader;
@@ -6,7 +10,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-import common_classes.DualValue;
+import storage_classes.DualValue;
 
 /**
  * A class that generates the base attributes and statistics of a player
@@ -44,6 +48,8 @@ public class BaseWarriorGenerator extends BaseCreatureGenerator {
 			ex.printStackTrace();
 		}
 	}
+
+	/* Getters */
 
 	public DualValue getLev() {
 		return this.lev;
