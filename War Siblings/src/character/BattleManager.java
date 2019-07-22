@@ -86,7 +86,7 @@ public class BattleManager extends GenericObservee implements Observer {
 	}
 
 	private void getTargetMeleeDefense() {
-		this.notifyTargets(new EventObject(Target.ATTRIBUTE, EventType.GET_SPECIAL, "meleeDefense", this));
+		this.notifyTargets(new EventObject(Target.ATTRIBUTE, EventType.GET_OTHER, "meleeDefense", this));
 	}
 
 	private void getOtherModifiers() {
@@ -218,18 +218,20 @@ public class BattleManager extends GenericObservee implements Observer {
 
 	@Override
 	public void onEventHappening(EventObject information) {
-		switch (information.getTask().value) {
-		case 1:
+		switch (information.getTask()) {
+		case ADD:
 			this.setEffect((Effect) information.getInformation());
 			break;
-		case 2:
+		case REMOVE:
 			this.removeEffect((Effect) information.getInformation());
 			break;
-		case 4:
+		case GOT:
 			this.applyMeleeSkill((double) information.getInformation());
 			break;
-		case 6:
+		case GOT_OTHER:
 			this.applyTargetMeleeDefense((double) information.getInformation());
+			break;
+		default:
 			break;
 		}
 	}

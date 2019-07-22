@@ -141,8 +141,8 @@ public class AbilityManager extends GenericObservee implements Observer {
 
 	@Override
 	public void onEventHappening(EventObject information) {
-		switch (information.getTask().value) {
-		case 1:
+		switch (information.getTask()) {
+		case ADD:
 			if (information.getInformation() instanceof TemporaryInjury) {
 				this.sufferTemporaryInjury((TemporaryInjury) information.getInformation());
 			} else if (information.getInformation() instanceof PerminentInjury) {
@@ -151,8 +151,10 @@ public class AbilityManager extends GenericObservee implements Observer {
 				this.addAbility((Ability) information.getInformation());
 			}
 			break;
-		case 2:
+		case REMOVE:
 			this.removeAbility((Ability) information.getInformation());
+			break;
+		default:
 			break;
 		}
 	}

@@ -36,6 +36,50 @@ public class Weapon extends AbilityItem {
 		this.weapType = weapType;
 	}
 
+	public Attribute getMinDam() {
+		return this.minDam;
+	}
+
+	public Attribute getMaxDam() {
+		return this.maxDam;
+	}
+
+	public Attribute getIgnArm() {
+		return this.ignArm;
+	}
+
+	public double getArmDam() {
+		return this.armDam;
+	}
+
+	public Attribute getRange() {
+		return this.range;
+	}
+
+	public double getSkillFat() {
+		return this.skillFat;
+	}
+
+	public double getHitChance() {
+		return this.hitChance;
+	}
+
+	public double getHeadShot() {
+		return this.headShot;
+	}
+
+	public Attribute getShieldDam() {
+		return this.shieldDam;
+	}
+
+	public int getNumHands() {
+		return this.numHands;
+	}
+
+	public String getWeapType() {
+		return this.weapType;
+	}
+
 	public void display() {
 		System.out.println(this.name);
 		System.out.println(this.numHands + "-handed, " + this.weapType);
@@ -61,7 +105,7 @@ public class Weapon extends AbilityItem {
 			System.out.print(" -");
 			a.display();
 		}
-		System.out.println("");
+		System.out.println();
 	}
 
 	public boolean isTwoHanded() {

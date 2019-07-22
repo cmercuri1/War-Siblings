@@ -14,7 +14,15 @@ public class Item {
 	}
 
 	public String getName() {
-		return name;
+		return this.name;
+	}
+
+	public Attribute getValue() {
+		return this.value;
+	}
+
+	public String getDesc() {
+		return this.desc;
 	}
 
 	public void display() {

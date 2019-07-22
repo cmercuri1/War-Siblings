@@ -8,6 +8,10 @@ public class Headgear extends Armor {
 		this.visRed = visRed;
 	}
 	
+	public double getVisRed() {
+		return this.visRed;
+	}
+
 	public void display() {
 		System.out.println(this.name);
 		System.out.println(this.durability.getAlteredCurrentValue() + "/" + this.durability.getAlteredValue());

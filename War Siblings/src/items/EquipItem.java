@@ -16,4 +16,12 @@ public class EquipItem extends Item {
 		this.fatigueRed = new Attribute(fatRed);
 	}
 
+	public DurAttribute getDurability() {
+		return this.durability;
+	}
+
+	public Attribute getFatigueRed() {
+		return this.fatigueRed;
+	}
+
 }

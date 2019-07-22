@@ -210,18 +210,20 @@ public class AttributeManager extends GenericObservee implements Observer {
 
 	@Override
 	public void onEventHappening(EventObject information) {
-		switch (information.getTask().value) {
-		case 1:
+		switch (information.getTask()) {
+		case ADD:
 			this.addModifier((Effect) information.getInformation());
 			break;
-		case 2:
+		case REMOVE:
 			this.removeModifier((Effect) information.getInformation());
 			break;
-		case 3:
+		case GET:
 			this.notifyObservers(new EventObject(Target.UNDEFINED, EventType.GOT, this.getAttribute((String) information.getInformation()).getAlteredValue(), information.getRequester()));
 			break;
-		case 5:
-			this.notifyObservers(new EventObject(Target.UNDEFINED, EventType.GOT_SPECIAL, this.getAttribute((String) information.getInformation()).getAlteredValue(), information.getRequester()));
+		case GET_OTHER:
+			this.notifyObservers(new EventObject(Target.UNDEFINED, EventType.GOT_OTHER, this.getAttribute((String) information.getInformation()).getAlteredValue(), information.getRequester()));
+			break;
+		default:
 			break;
 		}
 	}

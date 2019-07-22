@@ -9,11 +9,14 @@ public class DurAttribute extends Attribute {
 
 	protected double originalCurrentValue;
 	protected double alteredCurrentValue;
+	
+	protected boolean isBroken;
 
 	public DurAttribute(double value) {
 		super(value);
 		this.originalCurrentValue = this.originalMaxValue;
 		this.alteredCurrentValue = this.originalCurrentValue;
+		this.isBroken = false;
 	}
 
 	/**
@@ -32,8 +35,14 @@ public class DurAttribute extends Attribute {
 			}
 		}
 		this.alteredMaxValue = multi * this.originalMaxValue + add;
-		this.alteredCurrentValue = multi * this.originalCurrentValue + add;
+	}
+	
+	public void alterItem(double value) {
+		this.alteredCurrentValue += value;
 		this.currentChecker();
+		if (this.alteredCurrentValue == MINIMUM) {
+			this.isBroken = true;
+		}
 	}
 
 	/**

@@ -17,4 +17,8 @@ public class AbilityItem extends EquipItem {
 		this.abilityList = abilityList;
 	}
 
+	public ArrayList<Ability> getAbilityList() {
+		return this.abilityList;
+	}
+
 }

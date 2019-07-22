@@ -12,8 +12,8 @@ public class Tester {
 		Scanner in = new Scanner(System.in);
 		Character char1;
 
-		System.out.println("Random Background:");
-		char1 = new Character();
+		System.out.println("Enter a Background:");
+		char1 = new Character(in.nextLine());
 
 		char1.display();
 		

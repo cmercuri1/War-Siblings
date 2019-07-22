@@ -56,29 +56,31 @@ public class Character extends GenericObservee implements Observer {
 
 	@Override
 	public void onEventHappening(EventObject information) {
-		switch (information.getTarget().value) {
-		case 1: 
+		switch (information.getTarget()) {
+		case ABILITY: 
 			this.notifyObserver(abm, information);
 			break;
-		case 2:
+		case ATTRIBUTE:
 			this.notifyObserver(am, information);
 			break;
-		case 3:
+		case MORALE:
 			this.notifyObserver(mm, information);
 			break;
-		case 4:
+		case BATTLE:
 			this.notifyObserver(bm, information);
 			break;
-		case 5:
+		case INVENTORY:
 			this.notifyObserver(im, information);
 			break;
-		case 6:
-			switch (information.getTask().value) {
-			case 4:
+		case UNDEFINED:
+			switch (information.getTask()) {
+			case GOT:
 				this.notifyObserver(information.getRequester(), information);
 				break;
-			case 6:
+			case GOT_OTHER:
 				this.notifyObserver(information.getRequester(), information);
+				break;
+			default:
 				break;
 			}
 			break;

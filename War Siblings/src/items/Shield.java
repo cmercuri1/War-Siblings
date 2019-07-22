@@ -17,6 +17,14 @@ public class Shield extends AbilityItem {
 		this.rangedDef = new Attribute(rDef);
 	}
 
+	public Attribute getMeleeDef() {
+		return this.meleeDef;
+	}
+
+	public Attribute getRangedDef() {
+		return this.rangedDef;
+	}
+
 	public void display() {
 		System.out.println(this.name);
 		System.out.println(this.durability.getAlteredCurrentValue() + "/" + this.durability.getAlteredValue());
@@ -28,7 +36,7 @@ public class Shield extends AbilityItem {
 			System.out.print(" -");
 			a.display();
 		}
-		System.out.println("");
+		System.out.println();
 	}
 
 }

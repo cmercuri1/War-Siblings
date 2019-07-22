@@ -202,21 +202,23 @@ public class MoraleManager extends GenericObservee implements Observer {
 
 	@Override
 	public void onEventHappening(EventObject information) {
-		switch (information.getTask().value) {
-		case 1:
+		switch (information.getTask()) {
+		case ADD:
 			this.setEffect((Effect) information.getInformation());
 			break;
-		case 2:
+		case REMOVE:
 			this.removeEffect((Effect) information.getInformation());
 			break;
-		case 4:
+		case GOT:
 			this.setResolve((double) information.getInformation());
 			break;
-		case 8:
+		case SETUP:
 			this.setMorale();
 			break;
-		case 9:
+		case CLOSE:
 			this.removeMorale();
+			break;
+		default:
 			break;
 		}
 	}

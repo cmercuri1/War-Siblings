@@ -144,8 +144,7 @@ public class InventoryManager extends GenericObservee implements Observer {
 	
 	@Override
 	public void onEventHappening(EventObject information) {
-		// TODO Auto-generated method stub
-		
+		// TODO Auto-generated method stub	
 	}
 
 }
