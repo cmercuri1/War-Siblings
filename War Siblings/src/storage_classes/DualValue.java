@@ -1,4 +1,8 @@
-package common_classes;
+/** War Siblings
+ * DualValue class
+ * Author: Christopher Mercuri cmercuri1@student.unimelb.edu.au
+ */
+package storage_classes;
 
 import global_managers.GlobalManager;
 
@@ -15,14 +19,6 @@ public class DualValue {
 	public DualValue(int min, int max) {
 		this.min = min;
 		this.max = max;
-	}
-
-	public int getMin() {
-		return this.min;
-	}
-
-	public int getMax() {
-		return this.max;
 	}
 
 	private void updateMin(int addMin) {
@@ -42,5 +38,15 @@ public class DualValue {
 	// (inclusive)
 	public int getRand() {
 		return GlobalManager.rollBetween(this.min, this.max);
+	}
+	
+	/* Getters */
+
+	public int getMin() {
+		return this.min;
+	}
+
+	public int getMax() {
+		return this.max;
 	}
 }

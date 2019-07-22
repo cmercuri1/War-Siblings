@@ -1,3 +1,7 @@
+/** War Siblings
+ * ShieldManager Class
+ * Author: Christopher Mercuri cmercuri1@student.unimelb.edu.au
+ */
 package global_managers;
 
 import java.util.ArrayList;
@@ -5,8 +9,8 @@ import java.util.ArrayList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import common_classes.Ability;
 import items.Shield;
+import storage_classes.Ability;
 
 /** A class for Globally Storing and Managing all the Shields */
 public class ShieldManager extends BaseGlobalManager {
@@ -27,6 +31,20 @@ public class ShieldManager extends BaseGlobalManager {
 				(Long) o.get("Ranged Defense"), temp2));
 	}
 
+	@Override
+	protected void instantiate() {
+		if (this.shieldList == null) {
+			this.shieldList = new ArrayList<Shield>();
+		}
+	}
+
+	/* Getters */
+
+	public ArrayList<Shield> getShieldList() {
+		return this.shieldList;
+	}
+
+	/** getShield: gets a particular shield */
 	public Shield getShield(String name) {
 		for (Shield s : shieldList) {
 			if (s.getName().equals(name)) {
@@ -36,15 +54,9 @@ public class ShieldManager extends BaseGlobalManager {
 		return null;
 	}
 
+	/** display: displays the statistics of a particular shield */
 	public void display(String name) {
 		this.getShield(name).display();
-	}
-
-	@Override
-	protected void instantiate() {
-		if (this.shieldList == null) {
-			this.shieldList = new ArrayList<Shield>();
-		}
 	}
 
 }

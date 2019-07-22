@@ -1,6 +1,8 @@
-package character;
-
-import common_classes.Modifier;
+/** War Siblings
+ * BarAttribute class
+ * Author: Christopher Mercuri cmercuri1@student.unimelb.edu.au
+ */
+package storage_classes;
 
 /**
  * A class that adds to Attributes that have a current and a max value, such as
@@ -14,31 +16,6 @@ public class BarAttribute extends StarAttribute {
 
 	public BarAttribute(double value, int lMin) {
 		super(value, lMin);
-	}
-
-	/**
-	 * Updates the altered values of both current and maximum of the attribute
-	 * taking into account all the modifiers
-	 */
-	protected void updateAltered() {
-		double multi = 1;
-		double add = 0;
-		double finalAdd = 0;
-
-		for (Modifier m : modifiers) {
-			if (m.getIsMulti()) {
-				multi *= (1 + m.getValue() / 100);
-			} else {
-				if (m.getFinalAdd()) {
-					finalAdd += m.getValue();
-				} else {
-					add += m.getValue();
-				}
-			}
-		}
-		this.alteredMaxValue = multi * (this.originalMaxValue + add) + finalAdd;
-		this.alteredCurrentValue = multi * (this.originalCurrentValue);
-		this.currentChecker();
 	}
 	
 	public void alterCurrent(double value) {

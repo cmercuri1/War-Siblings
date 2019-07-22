@@ -1,29 +1,23 @@
+/** War Siblings
+ * MoodManager Class
+ * Author: Christopher Mercuri cmercuri1@student.unimelb.edu.au
+ */
 package global_managers;
 
 import java.util.ArrayList;
 
 import org.json.simple.JSONObject;
 
-import common_classes.Mood;
+import storage_classes.Mood;
 
+/**
+ * A class for Globally Storing and Managing all the Moods
+ */
 public class MoodManager extends BaseGlobalManager {
 	private ArrayList<Mood> moodList;
 
 	public MoodManager() {
 		super("MoodData.json", null, "Mood States");
-	}
-	
-	public ArrayList<Mood> getMoodList() {
-		return this.moodList;
-	}
-	
-	public Mood getAMood(double currentMood) {
-		for (Mood m: this.moodList) {
-			if (m.checkIfMood(currentMood)) {
-				return m;
-			}
-		}
-		return null;
 	}
 
 	@Override
@@ -36,6 +30,22 @@ public class MoodManager extends BaseGlobalManager {
 	@Override
 	protected void instantiate() {
 		this.moodList = new ArrayList<Mood>();
+	}
+
+	/* Getters */
+
+	public ArrayList<Mood> getMoodList() {
+		return this.moodList;
+	}
+
+	/** getAMood: gets a particular mood from the list */
+	public Mood getAMood(double currentMood) {
+		for (Mood m : this.moodList) {
+			if (m.checkIfMood(currentMood)) {
+				return m;
+			}
+		}
+		return null;
 	}
 
 }

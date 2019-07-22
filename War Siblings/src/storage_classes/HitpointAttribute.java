@@ -1,4 +1,8 @@
-package character;
+/** War Siblings
+ * HitpointAttribute class
+ * Author: Christopher Mercuri cmercuri1@student.unimelb.edu.au
+ */
+package storage_classes;
 
 /** Special Attribute used for Hitpoints */
 public class HitpointAttribute extends BarAttribute {
@@ -10,7 +14,7 @@ public class HitpointAttribute extends BarAttribute {
 		this.alteredCurrentValue = this.originalCurrentValue;
 		this.isDead = false;
 	}
-	
+
 	/**
 	 * Method that checks if altered current value is within relevant bounds and
 	 * resets it within otherwise

@@ -1,31 +1,37 @@
+/** War Siblings
+ * BattleManager class
+ * Author: Christopher Mercuri cmercuri1@student.unimelb.edu.au
+ */
 package character;
 
 import java.util.ArrayList;
 
-import common_classes.Attribute;
-import common_classes.Effect;
-import common_classes.Modifier;
 import event_classes.EventObject;
 import event_classes.EventType;
 import event_classes.GenericObservee;
 import event_classes.Observer;
 import event_classes.Target;
+import storage_classes.AttackAttribute;
+import storage_classes.Attribute;
+import storage_classes.Effect;
+import storage_classes.Modifier;
 
+/** A manager class that handles actions and consequences of battle */
 public class BattleManager extends GenericObservee implements Observer {
 	protected AttackAttribute chanceToHit;
-	
+
 	protected Attribute actionPointsOnMovement;
 	protected Attribute damage;
 	protected Attribute damageHeadshot;
 	protected Attribute fatigueOnMovement;
 	protected Attribute hitpointsOverTime;
 	protected Attribute visionNight;
-	
+
 	protected boolean ignoreAllyDeathMorale;
 	protected boolean ignoreInjuryMorale;
-	
+
 	protected double survivalChance;
-	
+
 	protected Effect bleedTime;
 	protected Effect damageMelee;
 	protected Effect damageUnarmed;
@@ -35,7 +41,7 @@ public class BattleManager extends GenericObservee implements Observer {
 	protected Effect poisonTime;
 	protected Effect resolveBeasts;
 	protected Effect resolveGreenskin;
-	protected Effect resolveUndead;	
+	protected Effect resolveUndead;
 
 	protected ArrayList<Observer> targets;
 
@@ -47,7 +53,7 @@ public class BattleManager extends GenericObservee implements Observer {
 		this.actionPointsOnMovement = new Attribute(0);
 		this.fatigueOnMovement = new Attribute(0);
 	}
-	
+
 	protected void setUpAttributes() {
 		this.actionPointsOnMovement = new Attribute(0);
 		this.damage = new Attribute(0);
@@ -55,10 +61,10 @@ public class BattleManager extends GenericObservee implements Observer {
 		this.fatigueOnMovement = new Attribute(0);
 		this.hitpointsOverTime = new Attribute(0);
 		this.visionNight = new Attribute(0);
-		
+
 		this.ignoreAllyDeathMorale = false;
 		this.ignoreInjuryMorale = false;
-		
+
 		this.survivalChance = 33;
 	}
 
@@ -66,11 +72,11 @@ public class BattleManager extends GenericObservee implements Observer {
 		super.setUpObservers();
 		this.targets = new ArrayList<Observer>();
 	}
-	
+
 	public void startBattle() {
 		this.notifyObservers(new EventObject(Target.MORALE, EventType.SETUP, null, null));
 	}
-	
+
 	public void endBattle() {
 		this.notifyObservers(new EventObject(Target.MORALE, EventType.CLOSE, null, null));
 	}
@@ -105,7 +111,7 @@ public class BattleManager extends GenericObservee implements Observer {
 	public void applyModifier(Modifier mod) {
 		this.chanceToHit.addModifier(mod);
 	}
-	
+
 	public void setEffect(Effect e) {
 		if (e.getName().equals("Actionpoints_OnMovement")) {
 			this.actionPointsOnMovement.addModifier(e.getModifier());
@@ -130,7 +136,7 @@ public class BattleManager extends GenericObservee implements Observer {
 		} else if (e.getName().equals("Injury_Chance_Percent")) {
 			this.injuryChance = e;
 		} else if (e.getName().equals("Injury_Ignore")) {
-			//TODO
+			// TODO
 		} else if (e.getName().equals("Morale_AllyDeath")) {
 			this.ignoreAllyDeathMorale = true;
 		} else if (e.getName().equals("Morale_Deathwish")) {
@@ -138,7 +144,7 @@ public class BattleManager extends GenericObservee implements Observer {
 		} else if (e.getName().equals("Poison_Time")) {
 			this.poisonTime = e;
 		} else if (e.getName().equals("RerollChance")) {
-			//TODO
+			// TODO
 		} else if (e.getName().equals("Resolve_Beasts")) {
 			this.resolveBeasts = e;
 		} else if (e.getName().equals("Resolve_Greenskins")) {
@@ -150,10 +156,10 @@ public class BattleManager extends GenericObservee implements Observer {
 		} else if (e.getName().equals("Vision_Night")) {
 			this.visionNight.addModifier(e.getModifier());
 		} else if (e.getName().equals("WardogStartingMorale")) {
-			//TODO
+			// TODO
 		}
 	}
-	
+
 	public void removeEffect(Effect e) {
 		if (e.getName().equals("Actionpoints_OnMovement")) {
 			this.actionPointsOnMovement.removeModifier(e.getModifier());
@@ -178,7 +184,7 @@ public class BattleManager extends GenericObservee implements Observer {
 		} else if (e.getName().equals("Injury_Chance_Percent")) {
 			this.injuryChance = null;
 		} else if (e.getName().equals("Injury_Ignore")) {
-			//TODO
+			// TODO
 		} else if (e.getName().equals("Morale_AllyDeath")) {
 			this.ignoreAllyDeathMorale = false;
 		} else if (e.getName().equals("Morale_Deathwish")) {
@@ -186,7 +192,7 @@ public class BattleManager extends GenericObservee implements Observer {
 		} else if (e.getName().equals("Poison_Time")) {
 			this.poisonTime = null;
 		} else if (e.getName().equals("RerollChance")) {
-			//TODO
+			// TODO
 		} else if (e.getName().equals("Resolve_Beasts")) {
 			this.resolveBeasts = null;
 		} else if (e.getName().equals("Resolve_Greenskins")) {
@@ -198,7 +204,7 @@ public class BattleManager extends GenericObservee implements Observer {
 		} else if (e.getName().equals("Vision_Night")) {
 			this.visionNight.addModifier(e.getModifier());
 		} else if (e.getName().equals("WardogStartingMorale")) {
-			//TODO
+			// TODO
 		}
 	}
 

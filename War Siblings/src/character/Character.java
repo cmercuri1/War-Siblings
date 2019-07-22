@@ -1,3 +1,7 @@
+/** War Siblings
+ * Character class
+ * Author: Christopher Mercuri cmercuri1@student.unimelb.edu.au
+ */
 package character;
 
 import event_classes.EventObject;

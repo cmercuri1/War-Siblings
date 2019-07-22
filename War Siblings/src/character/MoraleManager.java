@@ -1,7 +1,8 @@
+/** War Siblings
+ * MoraleManager class
+ * Author: Christopher Mercuri cmercuri1@student.unimelb.edu.au
+ */
 package character;
-
-import common_classes.Effect;
-import common_classes.MoraleState;
 
 import event_classes.EventObject;
 import event_classes.EventType;
@@ -9,6 +10,9 @@ import event_classes.GenericObservee;
 import event_classes.Observer;
 import event_classes.Target;
 import global_managers.GlobalManager;
+import storage_classes.Effect;
+import storage_classes.MoodAttribute;
+import storage_classes.MoraleState;
 
 /**
  * A class for managing the morale state of a character, along with any changes
@@ -183,7 +187,7 @@ public class MoraleManager extends GenericObservee implements Observer {
 			this.notifyObservers(new EventObject(Target.ABILITY, EventType.REMOVE,
 					GlobalManager.morale.getMoraleAbility(this.currentMorale), null));
 		} catch (NullPointerException nu) {
-		
+
 		}
 		try {
 			this.notifyObservers(

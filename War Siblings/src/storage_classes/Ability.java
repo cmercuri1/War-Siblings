@@ -1,7 +1,15 @@
-package common_classes;
+/** War Siblings
+ * Attribute class
+ * Author: Christopher Mercuri cmercuri1@student.unimelb.edu.au
+ */
+package storage_classes;
 
 import java.util.ArrayList;
 
+/**
+ * Base level Ability class used for helping handle any effects that can change
+ * elements of a character
+ */
 public class Ability {
 	protected String name;
 	protected String desc;
@@ -13,7 +21,7 @@ public class Ability {
 		this.effects = effects;
 	}
 
-	/** Constructor for when you have all the effects */
+	/** Constructor for when you need to find the effects */
 	public Ability(String name) {
 		this.name = name;
 		this.effects = this.retrieveEffects();

@@ -1,12 +1,11 @@
+/** War Siblings
+ * AbilityManager class
+ * Author: Christopher Mercuri cmercuri1@student.unimelb.edu.au
+ */
 package character;
 
 import java.util.ArrayList;
 
-import common_classes.Ability;
-import common_classes.Effect;
-import common_classes.PerminentInjury;
-import common_classes.TemporaryInjury;
-import common_classes.Trait;
 import event_classes.EventObject;
 import event_classes.EventType;
 import event_classes.GenericObservee;
@@ -15,6 +14,11 @@ import event_classes.Target;
 import global_generators.BackgroundGenerator;
 
 import global_managers.GlobalManager;
+import storage_classes.Ability;
+import storage_classes.Effect;
+import storage_classes.PerminentInjury;
+import storage_classes.TemporaryInjury;
+import storage_classes.Trait;
 
 /**
  * A manager class that handles all the abilities a character may have, either
@@ -75,7 +79,7 @@ public class AbilityManager extends GenericObservee implements Observer {
 
 		this.notifyOtherManagers(EventType.ADD, injury);
 	}
-	
+
 	public void healTemporaryInjuries() {
 		for (TemporaryInjury temp : this.tempInjuries) {
 			temp.checkForHealed();
@@ -91,7 +95,7 @@ public class AbilityManager extends GenericObservee implements Observer {
 
 		this.notifyOtherManagers(EventType.ADD, injury);
 	}
-	
+
 	public void healPerminentInjuries() {
 		this.permaInjuries.forEach(i -> this.notifyOtherManagers(EventType.REMOVE, i));
 		this.permaInjuries.clear();

@@ -1,10 +1,12 @@
-package character;
+/** War Siblings
+ * LevelAttribute class
+ * Author: Christopher Mercuri cmercuri1@student.unimelb.edu.au
+ */
+package storage_classes;
 
-import common_classes.Attribute;
-import common_classes.Modifier;
-import common_classes.XPLevel;
 import global_managers.GlobalManager;
 
+/** Special Attribute used in helping manager a character's level */
 public class LevelAttribute extends Attribute {
 	private double currXP;
 	private XPLevel nextLevel;

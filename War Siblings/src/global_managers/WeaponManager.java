@@ -1,3 +1,7 @@
+/** War Siblings
+ * WeaponManager Class
+ * Author: Christopher Mercuri cmercuri1@student.unimelb.edu.au
+ */
 package global_managers;
 
 import java.util.ArrayList;
@@ -5,13 +9,14 @@ import java.util.ArrayList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import common_classes.Ability;
 import items.Weapon;
+import storage_classes.Ability;
 
 /** A class for Globally Storing and Managing all the Weapons */
 public class WeaponManager extends BaseGlobalManager {
 	private ArrayList<Weapon> weaponList;
 
+	/** Constructor */
 	public WeaponManager() {
 		super("RegularGearData.json", "Weapon", "Weapons List");
 	}
@@ -39,6 +44,20 @@ public class WeaponManager extends BaseGlobalManager {
 				((Long) o.get("Number of Hands required")).intValue(), temp2, temp3));
 	}
 
+	@Override
+	protected void instantiate() {
+		if (this.weaponList == null) {
+			this.weaponList = new ArrayList<Weapon>();
+		}
+	}
+
+	/* Getters */
+
+	public ArrayList<Weapon> getWeaponList() {
+		return this.weaponList;
+	}
+
+	/** getWeapon: Gets a particular weapons from the list */
 	public Weapon getWeapon(String name) {
 		for (Weapon w : weaponList) {
 			if (w.getName().equals(name)) {
@@ -48,15 +67,9 @@ public class WeaponManager extends BaseGlobalManager {
 		return null;
 	}
 
+	/** display: Displays the statistics of a particular weapon */
 	public void display(String name) {
 		this.getWeapon(name).display();
-	}
-
-	@Override
-	protected void instantiate() {
-		if (this.weaponList == null) {
-			this.weaponList = new ArrayList<Weapon>();
-		}
 	}
 
 }

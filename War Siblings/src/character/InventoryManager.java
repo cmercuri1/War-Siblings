@@ -1,3 +1,7 @@
+/** War Siblings
+ * InventoryManager class
+ * Author: Christopher Mercuri cmercuri1@student.unimelb.edu.au
+ */
 package character;
 
 import java.util.ArrayList;
@@ -141,10 +145,10 @@ public class InventoryManager extends GenericObservee implements Observer {
 			}
 		}
 	}
-	
+
 	@Override
 	public void onEventHappening(EventObject information) {
-		// TODO Auto-generated method stub	
+		// TODO Auto-generated method stub
 	}
 
 }

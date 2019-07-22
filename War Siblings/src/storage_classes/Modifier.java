@@ -1,4 +1,8 @@
-package common_classes;
+/** War Siblings
+ * Modifier class
+ * Author: Christopher Mercuri cmercuri1@student.unimelb.edu.au
+ */
+package storage_classes;
 
 /**
  * Generic modifier class for all things that can affect attributes, handled by
@@ -10,7 +14,7 @@ public class Modifier {
 	protected boolean isMulti; // Used to distinguish between mulitplicative
 								// modifiers and additive modifiers
 	protected boolean finalAdd; // Used to determine if added after multiplicative or before
-	protected boolean isUnique;
+	protected boolean isUnique; // Used to determine if can have more than one of the same modifier affecting
 
 	public Modifier(String name, double val, boolean isMulti, boolean finalAdd, boolean isUnique) {
 		this.name = name;
@@ -18,30 +22,6 @@ public class Modifier {
 		this.isMulti = isMulti;
 		this.finalAdd = finalAdd;
 		this.isUnique = isUnique;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public double getValue() {
-		return this.value;
-	}
-	
-	public void alterValue(double value) {
-		this.value += value;
-	}
-
-	public boolean getIsMulti() {
-		return this.isMulti;
-	}
-
-	public boolean getFinalAdd() {
-		return this.finalAdd;
-	}
-
-	public boolean getIsUnique() {
-		return this.isUnique;
 	}
 
 	/** Checks if this modifier and another are the same */
@@ -82,6 +62,32 @@ public class Modifier {
 				return "+" + this.value;
 			}
 		}
+	}
+
+	/* Getters */
+
+	public String getName() {
+		return name;
+	}
+
+	public double getValue() {
+		return this.value;
+	}
+
+	public void alterValue(double value) {
+		this.value += value;
+	}
+
+	public boolean getIsMulti() {
+		return this.isMulti;
+	}
+
+	public boolean getFinalAdd() {
+		return this.finalAdd;
+	}
+
+	public boolean getIsUnique() {
+		return this.isUnique;
 	}
 
 	public void display() {

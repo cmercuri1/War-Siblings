@@ -1,3 +1,7 @@
+/** War Siblings
+ * PerminentInjuryManager Class
+ * Author: Christopher Mercuri cmercuri1@student.unimelb.edu.au
+ */
 package global_managers;
 
 import java.util.ArrayList;
@@ -5,18 +9,15 @@ import java.util.ArrayList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import common_classes.Effect;
-import common_classes.PerminentInjury;
+import storage_classes.Effect;
+import storage_classes.PerminentInjury;
 
+/** A class for Globally Storing and Managing all the Perminent Injuries */
 public class PerminentInjuryManager extends BaseGlobalManager {
 	private ArrayList<PerminentInjury> injuryList;
 
 	public PerminentInjuryManager() {
 		super("InjuryData.json", "Injuries", "Perminent Injuries");
-	}
-
-	public ArrayList<PerminentInjury> getInjuryList() {
-		return this.injuryList;
 	}
 
 	@Override
@@ -34,7 +35,8 @@ public class PerminentInjuryManager extends BaseGlobalManager {
 			}
 		}
 
-		this.injuryList.add(new PerminentInjury((String) o.get("Name"), (String) o.get("Description"), temp3, (Boolean) o.get("Content In Reserve")));
+		this.injuryList.add(new PerminentInjury((String) o.get("Name"), (String) o.get("Description"), temp3,
+				(Boolean) o.get("Content In Reserve")));
 	}
 
 	@Override
@@ -42,6 +44,12 @@ public class PerminentInjuryManager extends BaseGlobalManager {
 		if (this.injuryList == null) {
 			this.injuryList = new ArrayList<PerminentInjury>();
 		}
+	}
+
+	/* Getters */
+
+	public ArrayList<PerminentInjury> getInjuryList() {
+		return this.injuryList;
 	}
 
 }

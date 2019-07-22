@@ -1,3 +1,7 @@
+/** War Siblings
+ * TraitManager Class
+ * Author: Christopher Mercuri cmercuri1@student.unimelb.edu.au
+ */
 package global_managers;
 
 import java.util.ArrayList;
@@ -5,28 +9,15 @@ import java.util.ArrayList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import common_classes.Effect;
-import common_classes.Trait;
+import storage_classes.Effect;
+import storage_classes.Trait;
 
+/** A class for Globally Storing and Managing all the Temporary Injuries */
 public class TraitManager extends BaseGlobalManager {
 	private ArrayList<Trait> traitList;
 
 	public TraitManager() {
 		super("TraitsData.json", null, "Traits");
-	}
-
-	public ArrayList<Trait> getTraitList() {
-		return this.traitList;
-	}
-	
-	public ArrayList<Trait> getSpecificTraitList(ArrayList<String> excludedTraits) {
-		ArrayList<Trait> temp = this.traitList;
-		
-		for (String s : excludedTraits) {
-			temp.removeIf(t -> (t.getName().contains(s)));
-		}
-		
-		return temp;
 	}
 
 	@Override
@@ -57,10 +48,30 @@ public class TraitManager extends BaseGlobalManager {
 				temp4.add((String) ob);
 			}
 		} catch (NullPointerException n) {
-			
+
 		}
 
 		this.traitList.add(new Trait((String) o.get("Name"), temp3, temp4));
+	}
+
+	/* Getters */
+
+	public ArrayList<Trait> getTraitList() {
+		return this.traitList;
+	}
+
+	/**
+	 * getSpecificTraitList: curates and returns an altered list that is missing
+	 * items that don't match the required parameters
+	 */
+	public ArrayList<Trait> getSpecificTraitList(ArrayList<String> excludedTraits) {
+		ArrayList<Trait> temp = this.traitList;
+
+		for (String s : excludedTraits) {
+			temp.removeIf(t -> (t.getName().contains(s)));
+		}
+
+		return temp;
 	}
 
 }

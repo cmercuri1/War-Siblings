@@ -1,16 +1,24 @@
-package common_classes;
+/** War Siblings
+ * TemporaryInjury class
+ * Author: Christopher Mercuri cmercuri1@student.unimelb.edu.au
+ */
+package storage_classes;
 
 import java.util.ArrayList;
 
 import global_managers.GlobalManager;
 
+/**
+ * A class used for storing and assisting in resolving use of Temporary Injuries
+ * that can affect characters/creatures
+ */
 public class TemporaryInjury extends Ability {
 	protected boolean isHead;
 	protected String damageType;
 	protected double damageThreshold;
 	protected Attribute minDays;
 	protected Attribute maxDays;
-	
+
 	protected boolean isHealed;
 
 	public TemporaryInjury(String name, String desc, boolean isHead, String dType, double dThres,
@@ -22,10 +30,14 @@ public class TemporaryInjury extends Ability {
 		this.damageThreshold = dThres;
 		this.minDays = new Attribute(minDays);
 		this.maxDays = new Attribute(maxDays);
-		
+
 		this.isHealed = false;
 	}
 
+	/**
+	 * healInjury: tells the injury to heal itself a bit and then checks to see if
+	 * it has actually healed
+	 */
 	public void healInjury() {
 		this.minDays.addModifier(new Modifier("Healing", -1.0, false, true, false));
 		this.maxDays.addModifier(new Modifier("Healing", -1.0, false, true, false));
@@ -33,6 +45,11 @@ public class TemporaryInjury extends Ability {
 		this.checkForHealed();
 	}
 
+	/**
+	 * checkForHealed: checks to see if injury has healed. This can happen if
+	 * either: 1) The max days reaches 0 2) The min days reaches 0 and a random roll
+	 * succeeds
+	 */
 	public void checkForHealed() {
 		if (this.maxDays.getAlteredValue() == 0.0) {
 			this.isHealed = true;
@@ -48,6 +65,8 @@ public class TemporaryInjury extends Ability {
 			}
 		}
 	}
+
+	/* Getters */
 
 	public boolean isHead() {
 		return this.isHead;
@@ -68,7 +87,7 @@ public class TemporaryInjury extends Ability {
 	public Attribute getMaxDays() {
 		return this.maxDays;
 	}
-	
+
 	public boolean isHealed() {
 		return this.isHealed;
 	}

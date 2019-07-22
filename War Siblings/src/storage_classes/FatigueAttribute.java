@@ -1,4 +1,8 @@
-package character;
+/** War Siblings
+ * FatigueAttribute class
+ * Author: Christopher Mercuri cmercuri1@student.unimelb.edu.au
+ */
+package storage_classes;
 
 /** Special Attribute used for Fatigue */
 public class FatigueAttribute extends BarAttribute {

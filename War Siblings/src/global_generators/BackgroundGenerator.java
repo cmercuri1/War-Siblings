@@ -1,3 +1,7 @@
+/** War Siblings
+ * BackgroundGenerator Class
+ * Author: Christopher Mercuri cmercuri1@student.unimelb.edu.au
+ */
 package global_generators;
 
 import java.util.ArrayList;
@@ -5,8 +9,8 @@ import java.util.ArrayList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import common_classes.Ability;
-import common_classes.Effect;
+import storage_classes.Ability;
+import storage_classes.Effect;
 
 /**
  * A class that takes the Base Stats and attributes and changes them based on a
@@ -15,7 +19,7 @@ import common_classes.Effect;
 public class BackgroundGenerator extends BaseWarriorGenerator {
 	protected String background;
 	protected Ability bgAbility;
-	
+
 	protected ArrayList<String> excludedTalents;
 	protected ArrayList<String> excludedTraits;
 
@@ -66,7 +70,7 @@ public class BackgroundGenerator extends BaseWarriorGenerator {
 		} catch (ClassCastException ce) {
 			this.bgAbility = null;
 		}
-		
+
 		try {
 			temp = (JSONArray) o.get("Excluded Talents");
 			for (Object ob : temp) {
@@ -75,7 +79,7 @@ public class BackgroundGenerator extends BaseWarriorGenerator {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		try {
 			temp = (JSONArray) o.get("Excluded Traits");
 			for (Object ob : temp) {
@@ -85,6 +89,8 @@ public class BackgroundGenerator extends BaseWarriorGenerator {
 			e.printStackTrace();
 		}
 	}
+
+	/* Getters */
 
 	public String getBackground() {
 		return this.background;
@@ -102,6 +108,7 @@ public class BackgroundGenerator extends BaseWarriorGenerator {
 		return this.excludedTraits;
 	}
 
+	/** display: displays background name */
 	public void display() {
 		System.out.println(this.background);
 	}

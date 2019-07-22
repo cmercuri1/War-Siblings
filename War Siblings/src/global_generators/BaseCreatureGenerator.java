@@ -1,3 +1,7 @@
+/** War Siblings
+ * BaseCreatureGenerator Class
+ * Author: Christopher Mercuri cmercuri1@student.unimelb.edu.au
+ */
 package global_generators;
 
 import java.io.FileReader;
@@ -6,7 +10,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-import common_classes.DualValue;
+import storage_classes.DualValue;
 
 /**
  * A base generator class that others will use as a base for creating
@@ -67,6 +71,8 @@ public class BaseCreatureGenerator {
 			ex.printStackTrace();
 		}
 	}
+	
+	/* Getters */
 
 	public DualValue getHp() {
 		return this.hp;

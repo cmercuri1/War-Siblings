@@ -1,7 +1,8 @@
-package items;
-
-import common_classes.Attribute;
-import common_classes.Modifier;
+/** War Siblings
+ * DurAttribute Class
+ * Author: Christopher Mercuri cmercuri1@student.unimelb.edu.au
+ */
+package storage_classes;
 
 /** Special Attribute handling item durability */
 public class DurAttribute extends Attribute {

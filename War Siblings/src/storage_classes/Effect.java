@@ -1,7 +1,15 @@
-package common_classes;
+/** War Siblings
+ * Effect class
+ * Author: Christopher Mercuri cmercuri1@student.unimelb.edu.au
+ */
+package storage_classes;
 
 import global_managers.GlobalManager;
 
+/**
+ * Extention of modifier class, effects have a particular target and sub-target
+ * manager that they affect
+ */
 public class Effect extends Modifier {
 	protected String affectedManager;
 	protected String affectedSubManager;
@@ -25,7 +33,11 @@ public class Effect extends Modifier {
 		this.affectedManager = aM;
 		this.affectedSubManager = aSM;
 	}
-	
+
+	/**
+	 * Only used for Testing to create special effect without having to find correct
+	 * one
+	 */
 	public Effect(String eName, double value, boolean isMulti, boolean isFinal, boolean isUnique) {
 		super(eName, value, isMulti, isFinal, isUnique);
 	}
@@ -51,6 +63,8 @@ public class Effect extends Modifier {
 		}
 	}
 
+	/* Getters */
+
 	/** Returns the Modifier form of this effect */
 	public Modifier getModifier() {
 		return new Modifier(this.name, this.value, this.isMulti, this.finalAdd, this.isUnique);
@@ -65,6 +79,7 @@ public class Effect extends Modifier {
 	}
 
 	public void display() {
-		System.out.println("	-" + this.name + ": " + this.value + ", " + this.isMulti + ", " + this.affectedSubManager);
+		System.out
+				.println("	-" + this.name + ": " + this.value + ", " + this.isMulti + ", " + this.affectedSubManager);
 	}
 }

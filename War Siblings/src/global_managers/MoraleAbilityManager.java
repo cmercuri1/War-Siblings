@@ -1,3 +1,7 @@
+/** War Siblings
+ * MoraleAbilityManager Class
+ * Author: Christopher Mercuri cmercuri1@student.unimelb.edu.au
+ */
 package global_managers;
 
 import java.util.ArrayList;
@@ -5,28 +9,19 @@ import java.util.ArrayList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import common_classes.Ability;
-import common_classes.Effect;
-import common_classes.MoraleState;
+import storage_classes.Ability;
+import storage_classes.Effect;
+import storage_classes.MoraleState;
 
+/**
+ * A class for Globally Storing and Managing all the Abilties associated with
+ * Morale States
+ */
 public class MoraleAbilityManager extends BaseGlobalManager {
 	private ArrayList<Ability> abilityList;
 
 	public MoraleAbilityManager() {
 		super("MoraleAbilityData.json", null, "Morale States");
-	}
-
-	public ArrayList<Ability> getAbilityList() {
-		return this.abilityList;
-	}
-	
-	public Ability getMoraleAbility(MoraleState toFind) {
-		for (Ability a: this.abilityList) {
-			if (a.getName().toLowerCase().equals(toFind.toString().toLowerCase())) {
-				return a;
-			}
-		}
-		return null;
 	}
 
 	@Override
@@ -52,6 +47,24 @@ public class MoraleAbilityManager extends BaseGlobalManager {
 		if (this.abilityList == null) {
 			this.abilityList = new ArrayList<Ability>();
 		}
+	}
+
+	/* Getters */
+
+	public ArrayList<Ability> getAbilityList() {
+		return this.abilityList;
+	}
+
+	/**
+	 * getMoraleAbility: gets the abilities associated with a particular MoraleState
+	 */
+	public Ability getMoraleAbility(MoraleState toFind) {
+		for (Ability a : this.abilityList) {
+			if (a.getName().toLowerCase().equals(toFind.toString().toLowerCase())) {
+				return a;
+			}
+		}
+		return null;
 	}
 
 }

@@ -1,15 +1,21 @@
+/** War Siblings
+ * Shield Class
+ * Author: Christopher Mercuri cmercuri1@student.unimelb.edu.au
+ */
+
 package items;
 
 import java.util.ArrayList;
 
-import common_classes.Ability;
-import common_classes.Attribute;
+import storage_classes.Ability;
+import storage_classes.Attribute;
 
-/** Shield Class */
+/** A class used for storing and assisting in operating items usable as Shields */
 public class Shield extends AbilityItem {
-	protected Attribute meleeDef;
-	protected Attribute rangedDef;
+	protected Attribute meleeDef; // Bonus melee defense gained from shield
+	protected Attribute rangedDef; // Bonus ranged defense gained from shield
 
+	/** Constructor */
 	public Shield(String name, double value, String desc, double dura, double fatRed, double mDef, double rDef,
 			ArrayList<Ability> abilityList) {
 		super(name, value, desc, dura, fatRed, abilityList);
@@ -17,6 +23,8 @@ public class Shield extends AbilityItem {
 		this.rangedDef = new Attribute(rDef);
 	}
 
+	/* Getters */
+	
 	public Attribute getMeleeDef() {
 		return this.meleeDef;
 	}
@@ -38,5 +46,4 @@ public class Shield extends AbilityItem {
 		}
 		System.out.println();
 	}
-
 }

@@ -1,10 +1,14 @@
+/** War Siblings
+ * GenericObservee class
+ * Author: Christopher Mercuri cmercuri1@student.unimelb.edu.au
+ */
 package event_classes;
 
 import java.util.ArrayList;
 
 /**
- * Abstract class for allowing management by an overall Manager, generally the
- * Character class that creates the instance of this class
+ * Abstract class that implements the Observee interface. Most Managers extend
+ * this class to allow them to be Observed
  */
 public abstract class GenericObservee implements Observee {
 	protected ArrayList<Observer> observerObjects;
@@ -26,9 +30,9 @@ public abstract class GenericObservee implements Observee {
 			o.onEventHappening(information);
 		}
 	}
-	
+
 	public void notifyObserver(Observer o, EventObject information) {
-		for (Observer ob: this.observerObjects) {
+		for (Observer ob : this.observerObjects) {
 			if (ob.equals(o)) {
 				ob.onEventHappening(information);
 			}

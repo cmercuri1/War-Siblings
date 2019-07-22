@@ -1,10 +1,11 @@
+/** War Siblings
+ * AttributeManager class
+ * Author: Christopher Mercuri cmercuri1@student.unimelb.edu.au
+ */
 package character;
 
 import java.util.ArrayList;
 
-import common_classes.Attribute;
-import common_classes.Effect;
-import common_classes.Modifier;
 import event_classes.EventObject;
 import event_classes.EventType;
 import event_classes.GenericObservee;
@@ -12,6 +13,16 @@ import event_classes.Observer;
 import event_classes.Target;
 import global_generators.BackgroundGenerator;
 import global_managers.GlobalManager;
+import storage_classes.Attribute;
+import storage_classes.DefenseAttribute;
+import storage_classes.Effect;
+import storage_classes.FatigueAttribute;
+import storage_classes.HitpointAttribute;
+import storage_classes.LevelAttribute;
+import storage_classes.LevelUp;
+import storage_classes.Modifier;
+import storage_classes.StarAttribute;
+import storage_classes.WageAttribute;
 
 /**
  * A class that manages all the attributes and makes sure the operate correctly
@@ -40,10 +51,10 @@ public class AttributeManager extends GenericObservee implements Observer {
 		this.registerObserver(o);
 		this.assignAttributes(bg);
 		this.assignStars(bg.getExcludedTalents());
-		
+
 		if (this.levelManager.getAlteredValue() > 1) {
 			for (int i = 1; i < this.levelManager.getAlteredValue(); i++) {
-				this.wageManager.levelWage(i+1);
+				this.wageManager.levelWage(i + 1);
 			}
 		}
 	}
@@ -106,7 +117,7 @@ public class AttributeManager extends GenericObservee implements Observer {
 			managers.remove(j);
 		}
 	}
-	
+
 	public void addModifier(Effect t) {
 		this.getAttribute(t.getAffectedSubManager()).addModifier(t.getModifier());
 	}
@@ -179,7 +190,8 @@ public class AttributeManager extends GenericObservee implements Observer {
 	}
 
 	private void applyLevelUp(LevelUp levelUp) {
-		this.getAttribute(levelUp.getName()).addModifier(new Modifier("Level Up", levelUp.getValue(), false, false, false));
+		this.getAttribute(levelUp.getName())
+				.addModifier(new Modifier("Level Up", levelUp.getValue(), false, false, false));
 	}
 
 	/** Displays stuff, mainly for testing */
@@ -218,10 +230,14 @@ public class AttributeManager extends GenericObservee implements Observer {
 			this.removeModifier((Effect) information.getInformation());
 			break;
 		case GET:
-			this.notifyObservers(new EventObject(Target.UNDEFINED, EventType.GOT, this.getAttribute((String) information.getInformation()).getAlteredValue(), information.getRequester()));
+			this.notifyObservers(new EventObject(Target.UNDEFINED, EventType.GOT,
+					this.getAttribute((String) information.getInformation()).getAlteredValue(),
+					information.getRequester()));
 			break;
 		case GET_OTHER:
-			this.notifyObservers(new EventObject(Target.UNDEFINED, EventType.GOT_OTHER, this.getAttribute((String) information.getInformation()).getAlteredValue(), information.getRequester()));
+			this.notifyObservers(new EventObject(Target.UNDEFINED, EventType.GOT_OTHER,
+					this.getAttribute((String) information.getInformation()).getAlteredValue(),
+					information.getRequester()));
 			break;
 		default:
 			break;

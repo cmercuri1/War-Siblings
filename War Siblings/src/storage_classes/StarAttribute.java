@@ -1,7 +1,9 @@
-package character;
+/** War Siblings
+ * StarAttribute class
+ * Author: Christopher Mercuri cmercuri1@student.unimelb.edu.au
+ */
+package storage_classes;
 
-import common_classes.Attribute;
-import common_classes.DualValue;
 import global_managers.GlobalManager;
 
 /**

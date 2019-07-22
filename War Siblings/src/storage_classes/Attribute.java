@@ -1,4 +1,8 @@
-package common_classes;
+/** War Siblings
+ * Attribute class
+ * Author: Christopher Mercuri cmercuri1@student.unimelb.edu.au
+ */
+package storage_classes;
 
 import java.util.ArrayList;
 
