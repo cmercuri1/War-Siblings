@@ -4,8 +4,6 @@
  */
 package character;
 
-import java.util.ArrayList;
-
 import event_classes.EventObject;
 import event_classes.EventType;
 import event_classes.GenericObservee;
@@ -15,6 +13,7 @@ import global_generators.BackgroundGenerator;
 
 import global_managers.GlobalManager;
 import storage_classes.Ability;
+import storage_classes.ArrayList;
 import storage_classes.Effect;
 import storage_classes.PerminentInjury;
 import storage_classes.TemporaryInjury;
@@ -76,18 +75,12 @@ public class AbilityManager extends GenericObservee implements Observer {
 
 	public void sufferTemporaryInjury(TemporaryInjury injury) {
 		this.tempInjuries.add(injury);
-
+		this.tempInjuries.get(injury).registerObserver(this);
 		this.notifyOtherManagers(EventType.ADD, injury);
 	}
 
 	public void healTemporaryInjuries() {
-		for (TemporaryInjury temp : this.tempInjuries) {
-			temp.checkForHealed();
-			if (temp.isHealed()) {
-				this.notifyOtherManagers(EventType.REMOVE, temp);
-			}
-		}
-		this.tempInjuries.removeIf(i -> i.isHealed());
+		this.tempInjuries.forEach(t -> t.healInjury());
 	}
 
 	public void sufferPerminentInjury(PerminentInjury injury) {
@@ -157,6 +150,9 @@ public class AbilityManager extends GenericObservee implements Observer {
 			break;
 		case REMOVE:
 			this.removeAbility((Ability) information.getInformation());
+			break;
+		case HEALED:
+			this.tempInjuries.remove(information.getRequester());
 			break;
 		default:
 			break;

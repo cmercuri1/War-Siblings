@@ -4,7 +4,7 @@
  */
 package character;
 
-import java.util.ArrayList;
+import storage_classes.ArrayList;
 
 import event_classes.EventObject;
 import event_classes.GenericObservee;

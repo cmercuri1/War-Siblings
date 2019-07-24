@@ -4,6 +4,7 @@
  */
 package storage_classes;
 
+import event_classes.Observer;
 import global_managers.GlobalManager;
 
 /** Special Attribute used in helping manage a character's mood */
@@ -13,8 +14,8 @@ public class MoodAttribute extends Attribute {
 
 	private Mood currentMood;
 
-	public MoodAttribute(double value) {
-		super(value);
+	public MoodAttribute(double value, Observer o) {
+		super(value, o);
 		this.setMoodName();
 	}
 
@@ -47,9 +48,7 @@ public class MoodAttribute extends Attribute {
 
 	/** Intended to be called on a "Daily" basis */
 	public void moodTrending() {
-		for (Modifier m : this.modifiers) {
-			m.alterValue(-1);
-		}
+		this.modifiers.forEach(m -> m.alterValue(-1));
 		this.modifiers.removeIf(m -> m.getValue() == 0);
 	}
 

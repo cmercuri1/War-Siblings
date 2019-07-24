@@ -4,7 +4,12 @@
  */
 package storage_classes;
 
-import java.util.ArrayList;
+import storage_classes.ArrayList;
+
+import event_classes.EventObject;
+import event_classes.EventType;
+import event_classes.GenericObservee;
+import event_classes.Observer;
 
 /**
  * A class that manages a particular attribute, ensuring the original value can
@@ -13,7 +18,7 @@ import java.util.ArrayList;
  * 
  * Uses Doubles for better handling of fractions
  */
-public class Attribute {
+public class Attribute extends GenericObservee {
 	protected double originalMaxValue; // the base unaltered value of attribute
 	protected double alteredMaxValue; // base value post alterations, most
 										// commonly used in game
@@ -21,11 +26,12 @@ public class Attribute {
 	protected ArrayList<Modifier> modifiers; // all the modifiers that will have
 												// an effect on this Attribute
 
-	public Attribute(double value) {
-		this.originalMaxValue = value;
-
+	public Attribute(double value, Observer o) {
 		this.modifiers = new ArrayList<Modifier>();
-
+		this.setUpObservers();
+		
+		this.originalMaxValue = value;
+		this.observerObjects.add(o);
 		this.alteredMaxValue = this.originalMaxValue;
 	}
 
@@ -111,6 +117,7 @@ public class Attribute {
 			}
 		}
 		this.alteredMaxValue = multi * (this.originalMaxValue + add) + finalAdd;
+		this.notifyObservers(new EventObject(null, EventType.UPDATE, this.alteredMaxValue, null));
 	}
 
 	public double getAlteredValue() {

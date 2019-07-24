@@ -4,7 +4,7 @@
  */
 package global_managers;
 
-import java.util.ArrayList;
+import storage_classes.ArrayList;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -67,9 +67,7 @@ public class TraitManager extends BaseGlobalManager {
 	public ArrayList<Trait> getSpecificTraitList(ArrayList<String> excludedTraits) {
 		ArrayList<Trait> temp = this.traitList;
 
-		for (String s : excludedTraits) {
-			temp.removeIf(t -> (t.getName().contains(s)));
-		}
+		excludedTraits.forEach(s -> temp.removeIf(t -> (t.getName().contains(s))));
 
 		return temp;
 	}

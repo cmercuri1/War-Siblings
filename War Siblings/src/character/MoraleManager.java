@@ -39,7 +39,7 @@ public class MoraleManager extends GenericObservee implements Observer {
 		this.setUpObservers();
 		this.registerObserver(o);
 
-		this.mood = new MoodAttribute(50);
+		this.mood = new MoodAttribute(50, this);
 
 		this.startingMorale = DEFAULTMORALE;
 		this.optimistModifier = 0;
@@ -216,10 +216,10 @@ public class MoraleManager extends GenericObservee implements Observer {
 		case GOT:
 			this.setResolve((double) information.getInformation());
 			break;
-		case SETUP:
+		case START:
 			this.setMorale();
 			break;
-		case CLOSE:
+		case END:
 			this.removeMorale();
 			break;
 		default:

@@ -4,7 +4,7 @@
  */
 package storage_classes;
 
-import java.util.ArrayList;
+import storage_classes.ArrayList;
 
 /**
  * Base level Ability class used for helping handle any effects that can change
@@ -16,9 +16,23 @@ public class Ability {
 	protected ArrayList<Effect> effects;
 
 	/** Constructor for when you have all the effects */
+	public Ability(String name, String desc, ArrayList<Effect> effects) {
+		this.name = name;
+		this.desc = desc;
+		this.effects = effects;
+	}
+
+	/** Constructor for when you have all the effects */
 	public Ability(String name, ArrayList<Effect> effects) {
 		this.name = name;
 		this.effects = effects;
+	}
+
+	/** Constructor for when you need to find the effects */
+	public Ability(String name, String desc) {
+		this.name = name;
+		this.desc = desc;
+		this.effects = this.retrieveEffects();
 	}
 
 	/** Constructor for when you need to find the effects */
@@ -46,9 +60,7 @@ public class Ability {
 
 	public void display() {
 		System.out.print("	" + this.name + ": " + this.desc + "\n");
-		for (Effect e : this.effects) {
-			e.display();
-		}
+		this.effects.forEach(e -> e.display());
 	}
 
 }

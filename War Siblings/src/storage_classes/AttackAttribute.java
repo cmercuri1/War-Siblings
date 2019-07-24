@@ -10,7 +10,7 @@ public class AttackAttribute extends Attribute {
 	private final static int MINCAP = 5;
 
 	public AttackAttribute(double value) {
-		super(value);
+		super(value, null);
 	}
 
 	protected void updateAltered() {
@@ -37,5 +37,4 @@ public class AttackAttribute extends Attribute {
 			this.alteredMaxValue = MINCAP;
 		}
 	}
-
 }

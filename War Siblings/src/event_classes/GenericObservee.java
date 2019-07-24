@@ -4,7 +4,7 @@
  */
 package event_classes;
 
-import java.util.ArrayList;
+import storage_classes.ArrayList;
 
 /**
  * Abstract class that implements the Observee interface. Most Managers extend
@@ -26,9 +26,7 @@ public abstract class GenericObservee implements Observee {
 	}
 
 	public void notifyObservers(EventObject information) {
-		for (Observer o : this.observerObjects) {
-			o.onEventHappening(information);
-		}
+		this.observerObjects.forEach(o -> o.onEventHappening(information));
 	}
 
 	public void notifyObserver(Observer o, EventObject information) {

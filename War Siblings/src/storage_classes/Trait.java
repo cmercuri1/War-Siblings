@@ -4,7 +4,7 @@
  */
 package storage_classes;
 
-import java.util.ArrayList;
+import storage_classes.ArrayList;
 
 /**
  * A class used for storing information about Trait style abilities which can be

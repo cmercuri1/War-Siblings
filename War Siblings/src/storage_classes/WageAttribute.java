@@ -4,14 +4,15 @@
  */
 package storage_classes;
 
+import event_classes.Observer;
 import global_managers.GlobalManager;
 
 /** Special Wage attribute used for handling money per day */
 public class WageAttribute extends Attribute {
 	private final int VETERAN = 11;
 
-	public WageAttribute(double value) {
-		super(value);
+	public WageAttribute(double value, Observer o) {
+		super(value, o);
 
 		int temp = GlobalManager.rollBetween(0, 10);
 		if (temp != 5) {

@@ -4,6 +4,8 @@
  */
 package storage_classes;
 
+import event_classes.Observer;
+
 /**
  * Special Attribute used in managing a character's defense attributes which
  * have different scaling as they get higher
@@ -11,8 +13,8 @@ package storage_classes;
 public class DefenseAttribute extends StarAttribute {
 	private final static double SOFT_CAP = 45.0;
 
-	public DefenseAttribute(double value, int lMin) {
-		super(value, lMin);
+	public DefenseAttribute(double value, int lMin, Observer o) {
+		super(value, lMin, o);
 	}
 
 	/**

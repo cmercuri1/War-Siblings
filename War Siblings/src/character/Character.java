@@ -79,7 +79,11 @@ public class Character extends GenericObservee implements Observer {
 		case UNDEFINED:
 			switch (information.getTask()) {
 			case GOT:
-				this.notifyObserver(information.getRequester(), information);
+				try {
+					this.notifyObserver(information.getRequester(), information);
+				} catch (NullPointerException nu) {
+					
+				}
 				break;
 			case GOT_OTHER:
 				this.notifyObserver(information.getRequester(), information);

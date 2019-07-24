@@ -4,13 +4,15 @@
  */
 package character;
 
-import java.util.ArrayList;
+import storage_classes.ArrayList;
 
 import event_classes.EventObject;
 import event_classes.EventType;
 import event_classes.GenericObservee;
 import event_classes.Observer;
 import event_classes.Target;
+import global_managers.GlobalManager;
+import storage_classes.Attack;
 import storage_classes.AttackAttribute;
 import storage_classes.Attribute;
 import storage_classes.Effect;
@@ -49,18 +51,19 @@ public class BattleManager extends GenericObservee implements Observer {
 		this.setUpObservers();
 		this.registerObserver(o);
 
-		this.chanceToHit = new AttackAttribute(0);
-		this.actionPointsOnMovement = new Attribute(0);
-		this.fatigueOnMovement = new Attribute(0);
+		this.setUpAttributes();
 	}
 
 	protected void setUpAttributes() {
-		this.actionPointsOnMovement = new Attribute(0);
-		this.damage = new Attribute(0);
-		this.damageHeadshot = new Attribute(0);
-		this.fatigueOnMovement = new Attribute(0);
-		this.hitpointsOverTime = new Attribute(0);
-		this.visionNight = new Attribute(0);
+		this.chanceToHit = new AttackAttribute(0);
+		this.actionPointsOnMovement = new Attribute(0, this);
+		this.fatigueOnMovement = new Attribute(0, this);
+		this.actionPointsOnMovement = new Attribute(0, this);
+		this.damage = new Attribute(0, this);
+		this.damageHeadshot = new Attribute(0, this);
+		this.fatigueOnMovement = new Attribute(0, this);
+		this.hitpointsOverTime = new Attribute(0, this);
+		this.visionNight = new Attribute(0, this);
 
 		this.ignoreAllyDeathMorale = false;
 		this.ignoreInjuryMorale = false;
@@ -73,17 +76,46 @@ public class BattleManager extends GenericObservee implements Observer {
 		this.targets = new ArrayList<Observer>();
 	}
 
-	public void startBattle() {
-		this.notifyObservers(new EventObject(Target.MORALE, EventType.SETUP, null, null));
+	public void startBattle(ArrayList<Object> enemies) {
+		this.foeCheck(enemies, EventType.ADD);
+		this.notifyObservers(new EventObject(Target.MORALE, EventType.START, null, null));
+	}
+	
+	public void startRound() {
+		this.notifyObservers(new EventObject(Target.ATTRIBUTE, EventType.GET, "initiative", this));
+	}
+	
+	protected void sendInitiative(double value) {
+		this.notifyObserver(null, new EventObject(Target.UNDEFINED, EventType.GOT, value, null));
+	}
+	
+	public void startTurn() {
+		this.notifyObservers(new EventObject(Target.ATTRIBUTE, EventType.START, null, null));
 	}
 
-	public void endBattle() {
-		this.notifyObservers(new EventObject(Target.MORALE, EventType.CLOSE, null, null));
+	public void endBattle(ArrayList<Object> enemies) {
+		this.notifyObservers(new EventObject(Target.MORALE, EventType.END, null, null));
+		this.foeCheck(enemies, EventType.REMOVE);
 	}
 
-	public void setUpChanceToHit() {
+	private void foeCheck(ArrayList<Object> enemies, EventType type) {
+		if (enemies.contains("Beasts")) {
+			this.notifyObservers(new EventObject(Target.ATTRIBUTE, type,
+					new Effect("Resolve", this.resolveBeasts.getValue()), null));
+		}
+		if (enemies.contains("Greenskins")) {
+			this.notifyObservers(new EventObject(Target.ATTRIBUTE, type,
+					new Effect("Resolve", this.resolveGreenskin.getValue()), null));
+		}
+		if (enemies.contains("Undead")) {
+			this.notifyObservers(new EventObject(Target.ATTRIBUTE, type,
+					new Effect("Resolve", this.resolveUndead.getValue()), null));
+		}
+	}
+
+	public void getChanceToHit(Observer target) {
 		this.getMeleeSkill();
-		this.getTargetMeleeDefense();
+		this.getTargetMeleeDefense(target);
 		this.getOtherModifiers();
 	}
 
@@ -91,8 +123,8 @@ public class BattleManager extends GenericObservee implements Observer {
 		this.notifyObservers(new EventObject(Target.ATTRIBUTE, EventType.GET, "meleeSkill", this));
 	}
 
-	private void getTargetMeleeDefense() {
-		this.notifyTargets(new EventObject(Target.ATTRIBUTE, EventType.GET_OTHER, "meleeDefense", this));
+	private void getTargetMeleeDefense(Observer target) {
+		this.notifyTarget(target, new EventObject(Target.ATTRIBUTE, EventType.GET_OTHER, "meleeDefense", this));
 	}
 
 	private void getOtherModifiers() {
@@ -110,6 +142,21 @@ public class BattleManager extends GenericObservee implements Observer {
 
 	public void applyModifier(Modifier mod) {
 		this.chanceToHit.addModifier(mod);
+	}
+
+	public void attack(Observer target, Attack attack) {
+		double roll = GlobalManager.d100Roll();
+		this.getChanceToHit(target);
+
+		if (roll <= this.chanceToHit.getAlteredValue()) {
+			System.out.println("Succeeded: rolled: " + roll + ", needed: " + this.chanceToHit.getAlteredValue());
+			this.notifyObservers(new EventObject(Target.UNDEFINED, EventType.HIT, attack, null));
+			this.notifyTarget(target, new EventObject(Target.BATTLE, EventType.HIT, attack, null));
+		} else {
+			System.out.println("Failed: rolled: " + roll + ", needed: " + this.chanceToHit.getAlteredValue());
+			this.notifyObservers(new EventObject(Target.UNDEFINED, EventType.MISS, attack, null));
+			this.notifyTarget(target, new EventObject(Target.BATTLE, EventType.MISS, attack, null));
+		}
 	}
 
 	public void setEffect(Effect e) {
@@ -217,9 +264,11 @@ public class BattleManager extends GenericObservee implements Observer {
 	}
 
 	public void notifyTargets(EventObject information) {
-		for (Observer o : targets) {
-			o.onEventHappening(information);
-		}
+		this.targets.forEach(o -> o.onEventHappening(information));
+	}
+
+	public void notifyTarget(Observer target, EventObject information) {
+		this.targets.get(this.targets.indexOf(target)).onEventHappening(information);
 	}
 
 	@Override
@@ -232,10 +281,21 @@ public class BattleManager extends GenericObservee implements Observer {
 			this.removeEffect((Effect) information.getInformation());
 			break;
 		case GOT:
-			this.applyMeleeSkill((double) information.getInformation());
+			Object[] temp = (Object[]) information.getInformation();
+			if (temp[0].equals("meleeSkill")) {
+				this.applyMeleeSkill((double) temp[1]);
+			} else if (temp[0].equals("initiative")) {
+				this.sendInitiative((double) temp[1]);
+			}
 			break;
 		case GOT_OTHER:
 			this.applyTargetMeleeDefense((double) information.getInformation());
+			break;
+		case HIT:
+			this.notifyObservers(new EventObject(Target.ATTRIBUTE, EventType.HIT, information, null));
+			break;
+		case MISS:
+			this.notifyObservers(new EventObject(Target.ATTRIBUTE, EventType.MISS, information, null));
 			break;
 		default:
 			break;

@@ -4,22 +4,23 @@
  */
 package storage_classes;
 
-import java.util.ArrayList;
+import storage_classes.ArrayList;
 
+import event_classes.EventObject;
+import event_classes.EventType;
+import event_classes.Observer;
 import global_managers.GlobalManager;
 
 /**
  * A class used for storing and assisting in resolving use of Temporary Injuries
  * that can affect characters/creatures
  */
-public class TemporaryInjury extends Ability {
+public class TemporaryInjury extends ObservableAbility implements Observer {
 	protected boolean isHead;
 	protected String damageType;
 	protected double damageThreshold;
 	protected Attribute minDays;
 	protected Attribute maxDays;
-
-	protected boolean isHealed;
 
 	public TemporaryInjury(String name, String desc, boolean isHead, String dType, double dThres,
 			ArrayList<Effect> effects, double minDays, double maxDays) {
@@ -28,10 +29,8 @@ public class TemporaryInjury extends Ability {
 		this.isHead = isHead;
 		this.damageType = dType;
 		this.damageThreshold = dThres;
-		this.minDays = new Attribute(minDays);
-		this.maxDays = new Attribute(maxDays);
-
-		this.isHealed = false;
+		this.minDays = new Attribute(minDays, this);
+		this.maxDays = new Attribute(maxDays, this);
 	}
 
 	/**
@@ -41,24 +40,22 @@ public class TemporaryInjury extends Ability {
 	public void healInjury() {
 		this.minDays.addModifier(new Modifier("Healing", -1.0, false, true, false));
 		this.maxDays.addModifier(new Modifier("Healing", -1.0, false, true, false));
-
-		this.checkForHealed();
 	}
 
 	/**
 	 * checkForHealed: checks to see if injury has healed. This can happen if
-	 * either: 1) The max days reaches 0 2) The min days reaches 0 and a random roll
+	 * either: The max days reaches 0, or, The min days reaches 0 and a random roll
 	 * succeeds
 	 */
-	public void checkForHealed() {
+	protected void checkForHealed() {
 		if (this.maxDays.getAlteredValue() == 0.0) {
-			this.isHealed = true;
+			this.notifyObservers(new EventObject(null, EventType.HEALED, null, this));
 			return;
 		}
 
 		if (this.minDays.getAlteredValue() == 0.0) {
 			if (GlobalManager.d100Roll() <= 100 / (this.maxDays.getAlteredValue() + 1.0)) {
-				this.isHealed = true;
+				this.notifyObservers(new EventObject(null, EventType.HEALED, null, this));
 				return;
 			} else {
 				this.minDays.addModifier(new Modifier("Still Injured", 1.0, false, true, false));
@@ -88,8 +85,9 @@ public class TemporaryInjury extends Ability {
 		return this.maxDays;
 	}
 
-	public boolean isHealed() {
-		return this.isHealed;
+	@Override
+	public void onEventHappening(EventObject information) {
+
 	}
 
 	public void display() {

@@ -5,10 +5,12 @@
 
 package items;
 
+import event_classes.EventObject;
+import event_classes.Observer;
 import storage_classes.Attribute;
 
 /** A baseline class for item objects */
-public class Item {
+public class Item implements Observer {
 	protected String name; // Item name
 	protected Attribute value; // Value of item
 	protected String desc; // Description of item
@@ -16,7 +18,7 @@ public class Item {
 	/** Constructor */
 	public Item(String name, double value, String desc) {
 		this.name = name;
-		this.value = new Attribute(value);
+		this.value = new Attribute(value, this);
 		this.desc = desc;
 	}
 	
@@ -42,5 +44,11 @@ public class Item {
 		System.out.println(this.name);
 		System.out.println(this.value);
 		System.out.println(this.desc);
+	}
+
+	@Override
+	public void onEventHappening(EventObject information) {
+		// TODO Auto-generated method stub
+		
 	}
 }

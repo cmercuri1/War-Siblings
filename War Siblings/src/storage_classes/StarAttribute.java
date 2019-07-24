@@ -4,6 +4,7 @@
  */
 package storage_classes;
 
+import event_classes.Observer;
 import global_managers.GlobalManager;
 
 /**
@@ -21,8 +22,8 @@ public class StarAttribute extends Attribute {
 	private final int THRESHOLD2 = 65; // Minimum roll to get 2 stars
 	private final int THRESHOLD3 = 85; // Minimum roll to get 3 stars
 
-	public StarAttribute(double value, int lMin) {
-		super(value);
+	public StarAttribute(double value, int lMin, Observer o) {
+		super(value, o);
 		this.levelUp = new DualValue(lMin, lMin + 2);
 		this.numStars = 0;
 	}

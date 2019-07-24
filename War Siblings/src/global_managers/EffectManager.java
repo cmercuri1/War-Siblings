@@ -4,7 +4,7 @@
  */
 package global_managers;
 
-import java.util.ArrayList;
+import storage_classes.ArrayList;
 
 import org.json.simple.JSONObject;
 
@@ -52,9 +52,7 @@ public class EffectManager extends BaseGlobalManager {
 
 	/** display: displays all the effects */
 	public void display() {
-		for (Effect e : this.effectList) {
-			e.display();
-		}
+		this.effectList.forEach(e -> e.display());
 	}
 
 }

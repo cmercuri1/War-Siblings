@@ -4,7 +4,7 @@
  */
 package items;
 
-import java.util.ArrayList;
+import storage_classes.ArrayList;
 
 import storage_classes.Ability;
 

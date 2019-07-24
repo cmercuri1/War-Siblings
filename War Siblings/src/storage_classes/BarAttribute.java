@@ -4,6 +4,8 @@
  */
 package storage_classes;
 
+import event_classes.Observer;
+
 /**
  * A class that adds to Attributes that have a current and a max value, such as
  * hit points and fatigue
@@ -14,8 +16,8 @@ public class BarAttribute extends StarAttribute {
 	protected double originalCurrentValue;
 	protected double alteredCurrentValue;
 
-	public BarAttribute(double value, int lMin) {
-		super(value, lMin);
+	public BarAttribute(double value, int lMin, Observer o) {
+		super(value, lMin, o);
 	}
 	
 	public void alterCurrent(double value) {

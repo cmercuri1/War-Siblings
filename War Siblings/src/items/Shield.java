@@ -5,7 +5,7 @@
 
 package items;
 
-import java.util.ArrayList;
+import storage_classes.ArrayList;
 
 import storage_classes.Ability;
 import storage_classes.Attribute;
@@ -19,8 +19,8 @@ public class Shield extends AbilityItem {
 	public Shield(String name, double value, String desc, double dura, double fatRed, double mDef, double rDef,
 			ArrayList<Ability> abilityList) {
 		super(name, value, desc, dura, fatRed, abilityList);
-		this.meleeDef = new Attribute(mDef);
-		this.rangedDef = new Attribute(rDef);
+		this.meleeDef = new Attribute(mDef, this);
+		this.rangedDef = new Attribute(rDef, this);
 	}
 
 	/* Getters */

@@ -4,6 +4,9 @@
  */
 package storage_classes;
 
+import event_classes.EventObject;
+import event_classes.EventType;
+import event_classes.Observer;
 import global_managers.GlobalManager;
 
 /** Special Attribute used in helping manager a character's level */
@@ -11,25 +14,22 @@ public class LevelAttribute extends Attribute {
 	private double currXP;
 	private XPLevel nextLevel;
 
-	public LevelAttribute(double value) {
-		super(value);
-		this.setupXP();
-	}
-
-	private void setupXP() {
-		this.currXP = GlobalManager.xp.getCurrLevel((int) this.alteredMaxValue).getTotalXp();
+	public LevelAttribute(double value, Observer o) {
+		super(1, o);
 		this.nextLevel = GlobalManager.xp.getNextLevel((int) this.alteredMaxValue);
+		this.giveXP(GlobalManager.xp.getCurrLevel((int) value).getTotalXp());
 	}
 
 	public void giveXP(double value) {
 		this.currXP += value;
-		if (this.currXP >= this.nextLevel.getTotalXp()) {
+		while (this.currXP >= this.nextLevel.getTotalXp()) {
 			this.levelUp();
 		}
 	}
 
 	private void levelUp() {
 		this.addModifier(new Modifier("Level" + this.alteredMaxValue + 1, 1, false, false, true));
+		this.notifyObservers(new EventObject(null, EventType.LEVEL_UP, (int) this.alteredMaxValue, null));
 		this.nextLevel = GlobalManager.xp.getNextLevel((int) this.alteredMaxValue);
 	}
 
