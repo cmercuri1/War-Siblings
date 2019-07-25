@@ -6,8 +6,6 @@ package storage_classes;
 
 import storage_classes.ArrayList;
 
-import event_classes.EventObject;
-import event_classes.EventType;
 import event_classes.GenericObservee;
 import event_classes.Observer;
 
@@ -61,13 +59,7 @@ public class Attribute extends GenericObservee {
 	}
 
 	public void removeModifier(Modifier mod) {
-		for (Modifier m : this.modifiers) {
-			if (m.equals(mod)) {
-				this.modifiers.remove(m);
-				this.updateAltered();
-				return;
-			}
-		}
+		this.modifiers.remove(mod);
 	}
 
 	/** Method to remove all modifiers */
@@ -117,7 +109,6 @@ public class Attribute extends GenericObservee {
 			}
 		}
 		this.alteredMaxValue = multi * (this.originalMaxValue + add) + finalAdd;
-		this.notifyObservers(new EventObject(null, EventType.UPDATE, this.alteredMaxValue, null));
 	}
 
 	public double getAlteredValue() {

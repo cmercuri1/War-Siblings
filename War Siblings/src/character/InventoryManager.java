@@ -5,12 +5,15 @@
 package character;
 
 import storage_classes.ArrayList;
-
+import storage_classes.Effect;
 import event_classes.EventObject;
+import event_classes.EventType;
 import event_classes.GenericObservee;
 import event_classes.Observer;
+import event_classes.Target;
 import items.AbilityItem;
 import items.Armor;
+import items.EquipItem;
 import items.Headgear;
 import items.Weapon;
 
@@ -36,54 +39,82 @@ public class InventoryManager extends GenericObservee implements Observer {
 	}
 
 	/** Replaces current Body Armor with new one, returns old Body Armor */
-	public Armor swapBody(Armor next) {
+	public void swapBody(Armor next) {
 		Armor temp = this.body;
 		this.body = next;
-		return temp;
+		this.weighedDown(temp, next);
+		this.notifyObservers(new EventObject(Target.CHARACTER, EventType.RETURN_INVENTORY, temp, null));
 	}
 
 	/** Replaces current Helm with new one, returns old Helm */
-	public Headgear swapHead(Headgear next) {
+	public void swapHead(Headgear next) {
 		Headgear temp = this.head;
 		this.head = next;
-		return temp;
+		this.weighedDown(temp, next);
+		//this.notifyObservers(event);
+		this.notifyObservers(new EventObject(Target.CHARACTER, EventType.RETURN_INVENTORY, temp, null));
 	}
 
 	/**
 	 * Replaces current equipped right item (shield, weapon, etc) with new one,
 	 * returns old right item
 	 */
-	public AbilityItem swapRight(AbilityItem next) {
+	public void swapRight(AbilityItem next) {
 		AbilityItem temp = this.right;
 		this.right = next;
-		return temp;
+		this.weighedDown(temp, next);
+		this.notifyObservers(new EventObject(Target.CHARACTER, EventType.RETURN_INVENTORY, temp, null));
 	}
 
 	/**
 	 * Replaces current equipped left item (shield, weapon, etc) with new one,
 	 * returns old left item
 	 */
-	public AbilityItem swapLeft(AbilityItem next) {
+	public void swapLeft(AbilityItem next) {
 		AbilityItem temp = this.left;
 		this.left = next;
-		return temp;
+		this.weighedDown(temp, next);
+		this.notifyObservers(new EventObject(Target.CHARACTER, EventType.RETURN_INVENTORY, temp, null));
+	}
+
+	/** Replaces item in bag, returns replaced item */
+	public void swapBagItem(AbilityItem next, int index) {
+		AbilityItem temp = this.bag.remove(index);
+		this.bag.add(index, next);
+		this.weighedDown(temp, next);
+		this.notifyObservers(new EventObject(Target.CHARACTER, EventType.RETURN_INVENTORY, temp, null));
 	}
 
 	/**
 	 * Replaces current equipped item/s in both hands with a single two-handed item,
 	 * returns both previously equipped items
 	 */
-	public ArrayList<AbilityItem> swap2Hander(AbilityItem next) {
-		ArrayList<AbilityItem> returnedItems = new ArrayList<AbilityItem>();
-		if (this.right != null) {
-			returnedItems.add(swapRight(null));
-		}
+	public void swap2Hander(AbilityItem next) {
 		if (this.left != null) {
-			returnedItems.add(swapLeft(null));
+			this.swapLeft(null);
 		}
-		this.right = next;
+		this.swapRight(next);
+	}
 
-		return returnedItems;
+	protected void weighedDown(EquipItem old, EquipItem next) {
+		Effect fatiguePen;
+		Effect initiativePen;
+		try {
+			fatiguePen = new Effect("Fatigue_Final", old.getFatigueRed().getAlteredValue());
+			initiativePen = new Effect("Initiative_Final", old.getFatigueRed().getAlteredValue());
+			this.notifyObservers(new EventObject(Target.ATTRIBUTE, EventType.REMOVE, fatiguePen, null));
+			this.notifyObservers(new EventObject(Target.ATTRIBUTE, EventType.REMOVE, initiativePen, null));
+		} catch (NullPointerException nu) {
+
+		}
+		try {
+			fatiguePen = new Effect("Fatigue_Final", next.getFatigueRed().getAlteredValue());
+			initiativePen = new Effect("Initiative_Final", next.getFatigueRed().getAlteredValue());
+			this.notifyObservers(new EventObject(Target.ATTRIBUTE, EventType.ADD, fatiguePen, null));
+			this.notifyObservers(new EventObject(Target.ATTRIBUTE, EventType.ADD, initiativePen, null));
+		} catch (NullPointerException nu) {
+
+		}
 	}
 
 	/**
@@ -96,13 +127,6 @@ public class InventoryManager extends GenericObservee implements Observer {
 			return true;
 		}
 		return false;
-	}
-
-	/** Replaces item in bag, returns replaced item */
-	public AbilityItem swapBagItem(AbilityItem next, int index) {
-		AbilityItem temp = this.bag.remove(index);
-		this.bag.add(index, next);
-		return temp;
 	}
 
 	public Armor getBody() {
@@ -127,19 +151,25 @@ public class InventoryManager extends GenericObservee implements Observer {
 
 	public void display() {
 		System.out.println("Inventory:");
+
 		if (this.head != null) {
+			System.out.println("Head:");
 			this.head.display();
 		}
 		if (this.body != null) {
+			System.out.println("Body:");
 			this.body.display();
 		}
 		if (this.right != null) {
+			System.out.println("Right:");
 			this.right.display();
 		}
 		if (this.left != null) {
+			System.out.println("Left:");
 			this.left.display();
 		}
 		if (!this.bag.isEmpty()) {
+			System.out.println("Bag:");
 			for (AbilityItem a : bag) {
 				a.display();
 			}
@@ -147,8 +177,32 @@ public class InventoryManager extends GenericObservee implements Observer {
 	}
 
 	@Override
-	public void onEventHappening(EventObject information) {
-		// TODO Auto-generated method stub
+	public void onEventHappening(EventObject event) {
+		switch (event.getTarget()) {
+		case INVENTORY:
+			switch (event.getTask()) {
+			case CHANGE_BODY:
+				this.swapBody((Armor) event.getInformation());
+				break;
+			case CHANGE_HEAD:
+				this.swapHead((Headgear) event.getInformation());
+				break;
+			case CHANGE_LEFT:
+				this.swapLeft((AbilityItem) event.getInformation());
+				break;
+			case CHANGE_RIGHT:
+				this.swapRight((AbilityItem) event.getInformation());
+				break;
+			case CHANGE_2H:
+				this.swap2Hander((AbilityItem) event.getInformation());
+				break;
+			default:
+				break;
+			}
+			break;
+		default:
+			break;
+		}
 	}
 
 }

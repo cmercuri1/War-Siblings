@@ -1,10 +1,6 @@
+/storage_classes/
 /character/
-/common_classes/
 /event_classes/
+/run/
 /global_generators/
 /global_managers/
-/items/
-/run/
-/classes/
-/unused/
-/storage_classes/

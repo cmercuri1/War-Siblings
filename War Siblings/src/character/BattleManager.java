@@ -18,7 +18,10 @@ import storage_classes.Attribute;
 import storage_classes.Effect;
 import storage_classes.Modifier;
 
-/** A manager class that handles actions and consequences of battle */
+/**
+ * A manager class that handles actions and consequences of battle. This acts as
+ * the gatekeeper to the rest of the character for any interactions
+ */
 public class BattleManager extends GenericObservee implements Observer {
 	protected AttackAttribute chanceToHit;
 
@@ -76,29 +79,37 @@ public class BattleManager extends GenericObservee implements Observer {
 		this.targets = new ArrayList<Observer>();
 	}
 
-	public void startBattle(ArrayList<Object> enemies) {
-		this.foeCheck(enemies, EventType.ADD);
-		this.notifyObservers(new EventObject(Target.MORALE, EventType.START, null, null));
+	public void startBattle(ArrayList<String> enemies) {
+		try {
+			this.foeCheck(enemies, EventType.ADD);
+		} catch (NullPointerException nu) {
+
+		}
+		this.notifyObservers(new EventObject(Target.MORALE, EventType.START_BATTLE, null, null));
 	}
-	
+
 	public void startRound() {
 		this.notifyObservers(new EventObject(Target.ATTRIBUTE, EventType.GET, "initiative", this));
 	}
-	
+
 	protected void sendInitiative(double value) {
 		this.notifyObserver(null, new EventObject(Target.UNDEFINED, EventType.GOT, value, null));
 	}
-	
+
 	public void startTurn() {
-		this.notifyObservers(new EventObject(Target.ATTRIBUTE, EventType.START, null, null));
+		this.notifyObservers(new EventObject(Target.ATTRIBUTE, EventType.START_TURN, null, null));
 	}
 
-	public void endBattle(ArrayList<Object> enemies) {
-		this.notifyObservers(new EventObject(Target.MORALE, EventType.END, null, null));
-		this.foeCheck(enemies, EventType.REMOVE);
+	public void endBattle(ArrayList<String> enemies) {
+		this.notifyObservers(new EventObject(Target.MORALE, EventType.END_BATTLE, null, null));
+		try {
+			this.foeCheck(enemies, EventType.REMOVE);
+		} catch (NullPointerException nu) {
+
+		}
 	}
 
-	private void foeCheck(ArrayList<Object> enemies, EventType type) {
+	private void foeCheck(ArrayList<String> enemies, EventType type) {
 		if (enemies.contains("Beasts")) {
 			this.notifyObservers(new EventObject(Target.ATTRIBUTE, type,
 					new Effect("Resolve", this.resolveBeasts.getValue()), null));
@@ -271,34 +282,63 @@ public class BattleManager extends GenericObservee implements Observer {
 		this.targets.get(this.targets.indexOf(target)).onEventHappening(information);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public void onEventHappening(EventObject information) {
-		switch (information.getTask()) {
-		case ADD:
-			this.setEffect((Effect) information.getInformation());
-			break;
-		case REMOVE:
-			this.removeEffect((Effect) information.getInformation());
-			break;
-		case GOT:
-			Object[] temp = (Object[]) information.getInformation();
-			if (temp[0].equals("meleeSkill")) {
-				this.applyMeleeSkill((double) temp[1]);
-			} else if (temp[0].equals("initiative")) {
-				this.sendInitiative((double) temp[1]);
+	public void onEventHappening(EventObject event) {
+		switch (event.getTarget()) {
+		case BATTLE:
+			switch (event.getTask()) {
+			case ADD:
+				this.setEffect((Effect) event.getInformation());
+				break;
+			case REMOVE:
+				this.removeEffect((Effect) event.getInformation());
+				break;
+			case GOT:
+				Object[] temp = (Object[]) event.getInformation();
+				if (temp[0].equals("meleeSkill")) {
+					this.applyMeleeSkill((double) temp[1]);
+				} else if (temp[0].equals("initiative")) {
+					this.sendInitiative((double) temp[1]);
+				}
+				break;
+			case GOT_OTHER:
+				this.applyTargetMeleeDefense((double) event.getInformation());
+				break;
+			case HIT:
+				this.notifyObservers(new EventObject(Target.ATTRIBUTE, EventType.HIT, event, null));
+				break;
+			case MISS:
+				this.notifyObservers(new EventObject(Target.ATTRIBUTE, EventType.MISS, event, null));
+				break;
+			case START_BATTLE:
+				this.startBattle((ArrayList<String>) event.getInformation());
+				break;
+			case END_BATTLE:
+				this.endBattle((ArrayList<String>) event.getInformation());
+				break;
+			case ROLL_POSITIVE:
+				this.notifyObservers(
+						new EventObject(Target.MORALE, EventType.ROLL_POSITIVE, event.getInformation(), null));
+				break;
+			case ROLL_NEGATIVE:
+				this.notifyObservers(
+						new EventObject(Target.MORALE, EventType.ROLL_NEGATIVE, event.getInformation(), null));
+				break;
+			case ROLL_SPECIAL:
+				this.notifyObservers(
+						new EventObject(Target.MORALE, EventType.ROLL_SPECIAL, event.getInformation(), null));
+				break;
+			case FAILED_SPECIAL_ROLL:
+
+				break;
+			default:
+				break;
 			}
-			break;
-		case GOT_OTHER:
-			this.applyTargetMeleeDefense((double) information.getInformation());
-			break;
-		case HIT:
-			this.notifyObservers(new EventObject(Target.ATTRIBUTE, EventType.HIT, information, null));
-			break;
-		case MISS:
-			this.notifyObservers(new EventObject(Target.ATTRIBUTE, EventType.MISS, information, null));
 			break;
 		default:
 			break;
+
 		}
 	}
 }

@@ -24,7 +24,7 @@ public class EffectManager extends BaseGlobalManager {
 	@Override
 	protected void addItem(JSONObject o) {
 		this.effectList.add(new Effect((String) o.get("Effect Name"), (String) o.get("Relevant Manager"),
-				(String) o.get("Sub Manager"), (boolean) o.get("FinalAdd")));
+				(String) o.get("Sub Manager")));
 	}
 
 	@Override

@@ -4,7 +4,10 @@
  */
 package storage_classes;
 
+import event_classes.EventObject;
+import event_classes.EventType;
 import event_classes.Observer;
+import event_classes.Target;
 
 /**
  * A class that adds to Attributes that have a current and a max value, such as
@@ -19,10 +22,12 @@ public class BarAttribute extends StarAttribute {
 	public BarAttribute(double value, int lMin, Observer o) {
 		super(value, lMin, o);
 	}
-	
+
 	public void alterCurrent(double value) {
 		this.alteredCurrentValue += value;
 		this.currentChecker();
+		Object[] temp = {this, this.alteredCurrentValue};
+		this.notifyObservers(new EventObject(Target.ATTRIBUTE, EventType.UPDATE, temp, null));
 	}
 
 	/**
@@ -40,7 +45,7 @@ public class BarAttribute extends StarAttribute {
 	public double getAlteredCurrentValue() {
 		return this.alteredCurrentValue;
 	}
-	
+
 	public String toString() {
 		String temp = ((Double) this.alteredCurrentValue).intValue() + "/" + ((Double) this.alteredMaxValue).intValue();
 		if (this.numStars > 0) {

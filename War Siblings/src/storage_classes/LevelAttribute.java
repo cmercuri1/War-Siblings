@@ -7,6 +7,7 @@ package storage_classes;
 import event_classes.EventObject;
 import event_classes.EventType;
 import event_classes.Observer;
+import event_classes.Target;
 import global_managers.GlobalManager;
 
 /** Special Attribute used in helping manager a character's level */
@@ -29,7 +30,7 @@ public class LevelAttribute extends Attribute {
 
 	private void levelUp() {
 		this.addModifier(new Modifier("Level" + this.alteredMaxValue + 1, 1, false, false, true));
-		this.notifyObservers(new EventObject(null, EventType.LEVEL_UP, (int) this.alteredMaxValue, null));
+		this.notifyObservers(new EventObject(Target.ATTRIBUTE, EventType.LEVEL_UP, (int) this.alteredMaxValue, null));
 		this.nextLevel = GlobalManager.xp.getNextLevel((int) this.alteredMaxValue);
 	}
 

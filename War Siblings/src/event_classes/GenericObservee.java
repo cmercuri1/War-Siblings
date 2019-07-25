@@ -25,14 +25,14 @@ public abstract class GenericObservee implements Observee {
 		this.observerObjects.remove(o);
 	}
 
-	public void notifyObservers(EventObject information) {
-		this.observerObjects.forEach(o -> o.onEventHappening(information));
+	public void notifyObservers(EventObject event) {
+		this.observerObjects.forEach(o -> o.onEventHappening(event));
 	}
 
-	public void notifyObserver(Observer o, EventObject information) {
+	public void notifyObserver(Observer o, EventObject event) {
 		for (Observer ob : this.observerObjects) {
 			if (ob.equals(o)) {
-				ob.onEventHappening(information);
+				ob.onEventHappening(event);
 			}
 		}
 	}

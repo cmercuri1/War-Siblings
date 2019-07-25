@@ -137,22 +137,28 @@ public class AbilityManager extends GenericObservee implements Observer {
 	}
 
 	@Override
-	public void onEventHappening(EventObject information) {
-		switch (information.getTask()) {
-		case ADD:
-			if (information.getInformation() instanceof TemporaryInjury) {
-				this.sufferTemporaryInjury((TemporaryInjury) information.getInformation());
-			} else if (information.getInformation() instanceof PerminentInjury) {
-				this.sufferPerminentInjury((PerminentInjury) information.getInformation());
-			} else {
-				this.addAbility((Ability) information.getInformation());
+	public void onEventHappening(EventObject event) {
+		switch (event.getTarget()) {
+		case ABILITY:
+			switch (event.getTask()) {
+			case ADD:
+				if (event.getInformation() instanceof TemporaryInjury) {
+					this.sufferTemporaryInjury((TemporaryInjury) event.getInformation());
+				} else if (event.getInformation() instanceof PerminentInjury) {
+					this.sufferPerminentInjury((PerminentInjury) event.getInformation());
+				} else {
+					this.addAbility((Ability) event.getInformation());
+				}
+				break;
+			case REMOVE:
+				this.removeAbility((Ability) event.getInformation());
+				break;
+			case HEALED:
+				this.tempInjuries.remove(event.getRequester());
+				break;
+			default:
+				break;
 			}
-			break;
-		case REMOVE:
-			this.removeAbility((Ability) information.getInformation());
-			break;
-		case HEALED:
-			this.tempInjuries.remove(information.getRequester());
 			break;
 		default:
 			break;

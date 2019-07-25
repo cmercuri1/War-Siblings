@@ -48,7 +48,12 @@ public class MoodAttribute extends Attribute {
 
 	/** Intended to be called on a "Daily" basis */
 	public void moodTrending() {
-		this.modifiers.forEach(m -> m.alterValue(-1));
+		this.modifiers.forEach(m -> {
+			if (m.getValue() > 0)
+				m.alterValue(-1);
+			else
+				m.alterValue(1);
+		});
 		this.modifiers.removeIf(m -> m.getValue() == 0);
 	}
 
