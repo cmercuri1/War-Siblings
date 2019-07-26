@@ -203,35 +203,47 @@ public class MoraleManager extends GenericObservee implements Observer {
 
 	@Override
 	public void onEventHappening(EventObject event) {
-		switch (event.getTask()) {
-		case ADD:
-			this.setEffect((Effect) event.getInformation());
+		switch (event.getTarget()) {
+		case MORALE:
+			switch (event.getTask()) {
+			case ADD:
+				this.setEffect((Effect) event.getInformation());
+				break;
+			case REMOVE:
+				this.removeEffect((Effect) event.getInformation());
+				break;
+			case START_BATTLE:
+				this.setMorale();
+				break;
+			case END_BATTLE:
+				this.removeMorale();
+				break;
+			case ROLL_POSITIVE:
+				this.makePositiveCheck((double) event.getInformation());
+				break;
+			case ROLL_NEGATIVE:
+				this.makeNegativeCheck((double) event.getInformation());
+				break;
+			case ROLL_SPECIAL:
+				this.makeSpecialCheck((double) event.getInformation());
+				break;
+			default:
+				break;
+			}
 			break;
-		case REMOVE:
-			this.removeEffect((Effect) event.getInformation());
-			break;
-		case GOT:
-			Object[] temp = (Object[]) event.getInformation();
-			this.setResolve((double) temp[1]);
-			break;
-		case START_BATTLE:
-			this.setMorale();
-			break;
-		case END_BATTLE:
-			this.removeMorale();
-			break;
-		case ROLL_POSITIVE:
-			this.makePositiveCheck((double) event.getInformation());
-			break;
-		case ROLL_NEGATIVE:
-			this.makeNegativeCheck((double) event.getInformation());
-			break;
-		case ROLL_SPECIAL:
-			this.makeSpecialCheck((double) event.getInformation());
-			break;
+		case UNDEFINED:
+			switch (event.getTask()) {
+			case GOT:
+				Object[] temp = (Object[]) event.getInformation();
+				this.setResolve((double) temp[1]);
+				break;
+			default:
+				break;
+			}
 		default:
 			break;
 		}
+		
 	}
 
 }

@@ -26,16 +26,16 @@ public class Tester {
 		Scanner in = new Scanner(System.in);
 		Character char1;
 
-		System.out.println("Enter a Background:");
-		char1 = new Character(in.nextLine());
+		System.out.println("");
+		char1 = new Character("Apprentice");
 
 		char1.display();
 
 		char1.notifyObservers(new EventObject(Target.BATTLE, EventType.START_BATTLE, null, null));
 		char1.display();
-		char1.notifyObservers(new EventObject(Target.BATTLE, EventType.ROLL_NEGATIVE, 0.0, null));
+		char1.notifyObservers(new EventObject(Target.BATTLE, EventType.ROLL_NEGATIVE, ((double)0), null));
 		char1.display();
-		char1.notifyObservers(new EventObject(Target.BATTLE, EventType.ROLL_POSITIVE, 50.0, null));
+		char1.notifyObservers(new EventObject(Target.BATTLE, EventType.ROLL_POSITIVE, ((double)50), null));
 		char1.display();
 		char1.notifyObservers(new EventObject(Target.BATTLE, EventType.END_BATTLE, null, null));
 		char1.display();

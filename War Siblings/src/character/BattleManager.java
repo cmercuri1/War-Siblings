@@ -294,17 +294,6 @@ public class BattleManager extends GenericObservee implements Observer {
 			case REMOVE:
 				this.removeEffect((Effect) event.getInformation());
 				break;
-			case GOT:
-				Object[] temp = (Object[]) event.getInformation();
-				if (temp[0].equals("meleeSkill")) {
-					this.applyMeleeSkill((double) temp[1]);
-				} else if (temp[0].equals("initiative")) {
-					this.sendInitiative((double) temp[1]);
-				}
-				break;
-			case GOT_OTHER:
-				this.applyTargetMeleeDefense((double) event.getInformation());
-				break;
 			case HIT:
 				this.notifyObservers(new EventObject(Target.ATTRIBUTE, EventType.HIT, event, null));
 				break;
@@ -336,6 +325,22 @@ public class BattleManager extends GenericObservee implements Observer {
 				break;
 			}
 			break;
+		case UNDEFINED:
+			switch (event.getTask()) {
+			case GOT:
+				Object[] temp = (Object[]) event.getInformation();
+				if (temp[0].equals("meleeSkill")) {
+					this.applyMeleeSkill((double) temp[1]);
+				} else if (temp[0].equals("initiative")) {
+					this.sendInitiative((double) temp[1]);
+				}
+				break;
+			case GOT_OTHER:
+				this.applyTargetMeleeDefense((double) event.getInformation());
+				break;
+			default:
+				break;
+			}
 		default:
 			break;
 

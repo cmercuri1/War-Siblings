@@ -114,12 +114,10 @@ public class AttributeManager extends GenericObservee implements Observer {
 	}
 
 	public void addModifier(Effect t) {
-		System.out.println(t.getAffectedSubManager());
 		this.getAttribute(t.getAffectedSubManager()).addModifier(t.getModifier());
 	}
 
 	public void removeModifier(Effect t) {
-		System.out.println(t.getAffectedSubManager());
 		this.getAttribute(t.getAffectedSubManager()).removeModifier(t.getModifier());
 	}
 

@@ -27,7 +27,7 @@ public class Attribute extends GenericObservee {
 	public Attribute(double value, Observer o) {
 		this.modifiers = new ArrayList<Modifier>();
 		this.setUpObservers();
-		
+
 		this.originalMaxValue = value;
 		this.observerObjects.add(o);
 		this.alteredMaxValue = this.originalMaxValue;
@@ -59,7 +59,13 @@ public class Attribute extends GenericObservee {
 	}
 
 	public void removeModifier(Modifier mod) {
-		this.modifiers.remove(mod);
+		for (Modifier m: this.modifiers) {
+			if (m.equals(mod)) {
+				this.modifiers.remove(m);
+				this.updateAltered();
+				return;
+			}
+		}
 	}
 
 	/** Method to remove all modifiers */
@@ -122,7 +128,7 @@ public class Attribute extends GenericObservee {
 	protected String stringModifiers() {
 		String temp = "(";
 		for (Modifier m : this.modifiers) {
-			temp += m.toString();
+			temp += m.toString() + " ";
 		}
 		temp += ")";
 		return temp;

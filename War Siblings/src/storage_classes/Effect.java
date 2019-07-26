@@ -51,14 +51,14 @@ public class Effect extends Modifier {
 			this.name = eName.replace("_Percent", "");
 		}
 	}
-	
+
 	private void setFinalAdd(String eName) {
 		if (eName.contains("_Final")) {
 			this.finalAdd = true;
 			this.name = eName.replace("_Final", "");
 		}
 	}
-	
+
 	private void setIsUnique(String eName) {
 		if (eName.contains("_Unique")) {
 			this.isUnique = true;
@@ -98,7 +98,8 @@ public class Effect extends Modifier {
 	}
 
 	public void display() {
-		System.out
-				.println("	-" + this.name + ": " + this.value + ", " + this.isMulti + ", " + this.affectedSubManager);
+		System.out.print("	");
+		super.display();
+		System.out.println("	" + this.affectedManager + ", " + this.affectedSubManager);
 	}
 }
