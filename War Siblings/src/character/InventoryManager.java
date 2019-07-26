@@ -51,36 +51,27 @@ public class InventoryManager extends GenericObservee implements Observer {
 		Headgear temp = this.head;
 		this.head = next;
 		this.weighedDown(temp, next);
-		//this.notifyObservers(event);
+		// this.notifyObservers(event);
 		this.notifyObservers(new EventObject(Target.CHARACTER, EventType.RETURN_INVENTORY, temp, null));
+	}
+
+	public void swapItem(AbilityItem limb, AbilityItem next) {
+		if (next instanceof Weapon && ((Weapon) next).isTwoHanded()) {
+			this.swap2Hander(next);
+			return;
+		} else {
+			this.swap1Hander(limb, next);
+			return;
+		}
 	}
 
 	/**
 	 * Replaces current equipped right item (shield, weapon, etc) with new one,
 	 * returns old right item
 	 */
-	public void swapRight(AbilityItem next) {
-		AbilityItem temp = this.right;
-		this.right = next;
-		this.weighedDown(temp, next);
-		this.notifyObservers(new EventObject(Target.CHARACTER, EventType.RETURN_INVENTORY, temp, null));
-	}
-
-	/**
-	 * Replaces current equipped left item (shield, weapon, etc) with new one,
-	 * returns old left item
-	 */
-	public void swapLeft(AbilityItem next) {
-		AbilityItem temp = this.left;
-		this.left = next;
-		this.weighedDown(temp, next);
-		this.notifyObservers(new EventObject(Target.CHARACTER, EventType.RETURN_INVENTORY, temp, null));
-	}
-
-	/** Replaces item in bag, returns replaced item */
-	public void swapBagItem(AbilityItem next, int index) {
-		AbilityItem temp = this.bag.remove(index);
-		this.bag.add(index, next);
+	public void swap1Hander(AbilityItem arm, AbilityItem next) {
+		AbilityItem temp = arm;
+		arm = next;
 		this.weighedDown(temp, next);
 		this.notifyObservers(new EventObject(Target.CHARACTER, EventType.RETURN_INVENTORY, temp, null));
 	}
@@ -91,9 +82,17 @@ public class InventoryManager extends GenericObservee implements Observer {
 	 */
 	public void swap2Hander(AbilityItem next) {
 		if (this.left != null) {
-			this.swapLeft(null);
+			this.swap1Hander(this.left, null);
 		}
-		this.swapRight(next);
+		this.swap1Hander(this.right, next);
+	}
+
+	/** Replaces item in bag, returns replaced item */
+	public void swapBagItem(AbilityItem next, int index) {
+		AbilityItem temp = this.bag.remove(index);
+		this.bag.add(index, next);
+		this.weighedDown(temp, next);
+		this.notifyObservers(new EventObject(Target.CHARACTER, EventType.RETURN_INVENTORY, temp, null));
 	}
 
 	protected void weighedDown(EquipItem old, EquipItem next) {
@@ -188,13 +187,10 @@ public class InventoryManager extends GenericObservee implements Observer {
 				this.swapHead((Headgear) event.getInformation());
 				break;
 			case CHANGE_LEFT:
-				this.swapLeft((AbilityItem) event.getInformation());
+				this.swapItem(this.left, (AbilityItem) event.getInformation());
 				break;
 			case CHANGE_RIGHT:
-				this.swapRight((AbilityItem) event.getInformation());
-				break;
-			case CHANGE_2H:
-				this.swap2Hander((AbilityItem) event.getInformation());
+				this.swapItem(this.right, (AbilityItem) event.getInformation());
 				break;
 			default:
 				break;

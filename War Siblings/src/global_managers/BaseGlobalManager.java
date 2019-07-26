@@ -29,7 +29,7 @@ public abstract class BaseGlobalManager {
 	 * fillList: finds the file required for the Manager object and parses through
 	 * it as per the addItem method
 	 */
-	private void fillList(String fileName, String objectName, String arrayName) {
+	protected void fillList(String fileName, String objectName, String arrayName) {
 		JSONParser parser = new JSONParser();
 		JSONArray list;
 

@@ -112,7 +112,16 @@
 					"Effect Name": "Morale_Deathwish"
 				}
 			]
-		},
+		}, {"Name": "Dual Grip",
+			"Specific Backgrounds": [
+				"Special"
+			],
+			"Effects": [
+				{
+					"Effect Name": "Damage_Percent",
+					"Value": 25
+				}
+			]},
 		{
 			"Name": "Fanatic of Davkul",
 			"Specific Backgrounds": [
