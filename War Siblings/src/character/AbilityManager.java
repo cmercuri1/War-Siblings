@@ -96,14 +96,12 @@ public class AbilityManager extends GenericObservee implements Observer {
 
 	public void addAbility(Ability ability) {
 		this.characterAbilities.add(ability);
-
 		this.notifyOtherManagers(EventType.ADD, ability);
 	}
 
 	public void removeAbility(Ability ability) {
-		this.characterAbilities.remove(ability);
-
-		this.notifyOtherManagers(EventType.REMOVE, ability);
+		if (this.characterAbilities.remove(ability))
+			this.notifyOtherManagers(EventType.REMOVE, ability);
 	}
 
 	public void removeAbility(String abilityName) {

@@ -2,9 +2,7 @@
 	"Traits": [
 		{
 			"Name": "Acolyte of Davkul",
-			"Specific Backgrounds": [
-				"CultistSpec"
-			],
+			"Specific Backgrounds": "CultistSpec",
 			"Effects": [
 				{
 					"Effect Name": "Resolve",
@@ -24,9 +22,7 @@
 		},
 		{
 			"Name": "Addict",
-			"Specific Backgrounds": [
-				"Special"
-			],
+			"Specific Backgrounds": "Special",
 			"Effects": [
 				{
 					"Effect Name": "Resolve_Percent",
@@ -41,20 +37,18 @@
 					"Value": -10
 				},
 				{
-					"Effect Name": "MeleeDef_Percent",
+					"Effect Name": "MeleeDefense_Percent",
 					"Value": -10
 				},
 				{
-					"Effect Name": "RangedDef_Percent",
+					"Effect Name": "RangedDefense_Percent",
 					"Value": -10
 				}
 			]
 		},
 		{
 			"Name": "Chosen of Davkul",
-			"Specific Backgrounds": [
-				"CultistSpec"
-			],
+			"Specific Backgrounds": "CultistSpec",
 			"Effects": [
 				{
 					"Effect Name": "Hitpoints",
@@ -65,11 +59,11 @@
 					"Value": 10
 				},
 				{
-					"Effect Name": "MeleeDef",
+					"Effect Name": "MeleeDefense",
 					"Value": 5
 				},
 				{
-					"Effect Name": "RangedDef",
+					"Effect Name": "RangedDefense",
 					"Value": 5
 				},
 				{
@@ -89,9 +83,7 @@
 		},
 		{
 			"Name": "Disciple of Davkul",
-			"Specific Backgrounds": [
-				"CultistSpec"
-			],
+			"Specific Backgrounds": "CultistSpec",
 			"Effects": [
 				{
 					"Effect Name": "Hitpoints",
@@ -112,21 +104,20 @@
 					"Effect Name": "Morale_Deathwish"
 				}
 			]
-		}, {"Name": "Dual Grip",
-			"Specific Backgrounds": [
-				"Special"
-			],
+		},
+		{
+			"Name": "Dual Grip",
+			"Specific Backgrounds": "Special",
 			"Effects": [
 				{
 					"Effect Name": "Damage_Percent",
 					"Value": 25
 				}
-			]},
+			]
+		},
 		{
 			"Name": "Fanatic of Davkul",
-			"Specific Backgrounds": [
-				"CultistSpec"
-			],
+			"Specific Backgrounds": "CultistSpec",
 			"Effects": [
 				{
 					"Effect Name": "Resolve",
@@ -139,9 +130,7 @@
 		},
 		{
 			"Name": "Old",
-			"Specific Backgrounds": [
-				"SwordmasterSpec"
-			],
+			"Specific Backgrounds": "SwordmasterSpec",
 			"Effects": [
 				{
 					"Effect Name": "Resolve",
@@ -167,9 +156,7 @@
 		},
 		{
 			"Name": "Player Character",
-			"Specific Backgrounds": [
-				"LoneWolfSpec"
-			],
+			"Specific Backgrounds": "LoneWolfSpec",
 			"Effects": [
 				{
 					"Effect Name": "Resolve",
@@ -179,9 +166,7 @@
 		},
 		{
 			"Name": "Prophet of Davkul",
-			"Specific Backgrounds": [
-				"CultistSpec"
-			],
+			"Specific Backgrounds": "CultistSpec",
 			"Effects": [
 				{
 					"Effect Name": "Hitpoints",
@@ -192,11 +177,11 @@
 					"Value": 10
 				},
 				{
-					"Effect Name": "MeleeDef",
+					"Effect Name": "MeleeDefense",
 					"Value": 5
 				},
 				{
-					"Effect Name": "RangedDef",
+					"Effect Name": "RangedDefense",
 					"Value": 5
 				},
 				{
@@ -216,9 +201,7 @@
 		},
 		{
 			"Name": "Zealot of Davkul",
-			"Specific Backgrounds": [
-				"CultistSpec"
-			],
+			"Specific Backgrounds": "CultistSpec",
 			"Effects": [
 				{
 					"Effect Name": "Resolve",

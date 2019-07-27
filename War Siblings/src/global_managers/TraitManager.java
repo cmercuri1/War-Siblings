@@ -18,7 +18,8 @@ public class TraitManager extends TwoListGlobalManager {
 	private ArrayList<Trait> specialTraitList;
 
 	public TraitManager() {
-		super("TraitsData.json", null, "Traits","SpecialTraitsData.json", null, "Traits");
+		super("TraitsData.json", null, "Traits", "SpecialTraitsData.json", null, "Traits");
+		this.fillList2("SpecialTraitsData.json", null, "Traits");
 	}
 
 	@Override
@@ -62,7 +63,6 @@ public class TraitManager extends TwoListGlobalManager {
 	protected void addItem2(JSONObject o) {
 		JSONArray temp;
 		ArrayList<Effect> temp3 = new ArrayList<Effect>();
-		ArrayList<String> temp4 = new ArrayList<String>();
 
 		temp = (JSONArray) o.get("Effects");
 		for (Object ob : temp) {
@@ -73,16 +73,8 @@ public class TraitManager extends TwoListGlobalManager {
 				temp3.add(new Effect((String) temp2.get("Effect Name")));
 			}
 		}
-		try {
-			temp = (JSONArray) o.get("Mutually Exclusive");
-			for (Object ob : temp) {
-				temp4.add((String) ob);
-			}
-		} catch (NullPointerException n) {
 
-		}
-
-		this.specialTraitList.add(new Trait((String) o.get("Name"), temp3, temp4));
+		this.specialTraitList.add(new Trait((String) o.get("Name"), temp3, (String) o.get("Specifc Backgrounds")));
 	}
 
 	/* Getters */
@@ -90,8 +82,27 @@ public class TraitManager extends TwoListGlobalManager {
 	public ArrayList<Trait> getTraitList() {
 		return this.traitList;
 	}
+
+	public Trait getTrait(String traitName) {
+		for (Trait t : this.traitList) {
+			if (t.getName().equals(traitName)) {
+				return t;
+			}
+		}
+		return null;
+	}
+
 	public ArrayList<Trait> getSpecialTraitList() {
 		return this.specialTraitList;
+	}
+
+	public Trait getSpecialTrait(String traitName) {
+		for (Trait t : this.specialTraitList) {
+			if (t.getName().equals(traitName)) {
+				return t;
+			}
+		}
+		return null;
 	}
 
 	/**
@@ -102,6 +113,14 @@ public class TraitManager extends TwoListGlobalManager {
 		ArrayList<Trait> temp = this.traitList;
 
 		excludedTraits.forEach(s -> temp.removeIf(t -> (t.getName().contains(s))));
+
+		return temp;
+	}
+
+	public ArrayList<Trait> getSpecifcSpecialTraitList(String background) {
+		ArrayList<Trait> temp = this.specialTraitList;
+
+		temp.removeIf(t -> !t.getSpecificBackground().equals(background));
 
 		return temp;
 	}

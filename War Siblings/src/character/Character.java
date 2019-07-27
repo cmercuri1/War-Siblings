@@ -44,17 +44,18 @@ public class Character extends GenericObservee implements Observer {
 		this.observerObjects.add(this.im);
 
 		this.am = new AttributeManager(bg, this);
-		this.observerObjects.add(am);
+		this.observerObjects.add(this.am);
 
 		this.mm = new MoraleManager(this);
-		this.observerObjects.add(mm);
+		this.observerObjects.add(this.mm);
 
 		this.abm = new AbilityManager(this);
-		this.observerObjects.add(abm);
+		this.observerObjects.add(this.abm);
 
 		this.bm = new BattleManager(this);
-		this.observerObjects.add(bm);
+		this.observerObjects.add(this.bm);
 
+		this.im.setUpInventory(bg);
 		this.abm.setUpAbilities(bg);
 	}
 

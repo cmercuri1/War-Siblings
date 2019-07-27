@@ -5,12 +5,15 @@
 package character;
 
 import storage_classes.ArrayList;
+import storage_classes.BackgroundItem;
 import storage_classes.Effect;
 import event_classes.EventObject;
 import event_classes.EventType;
 import event_classes.GenericObservee;
 import event_classes.Observer;
 import event_classes.Target;
+import global_generators.BackgroundGenerator;
+import global_managers.GlobalManager;
 import items.AbilityItem;
 import items.Armor;
 import items.EquipItem;
@@ -27,6 +30,8 @@ public class InventoryManager extends GenericObservee implements Observer {
 	private AbilityItem right;
 	private AbilityItem left;
 	private ArrayList<AbilityItem> bag;
+	
+	private enum arm {LEFT,RIGHT};
 
 	public InventoryManager(Observer o) {
 		this.setUpObservers();
@@ -38,6 +43,78 @@ public class InventoryManager extends GenericObservee implements Observer {
 		this.bag = new ArrayList<AbilityItem>(2);
 	}
 
+	public void setUpInventory(BackgroundGenerator bg) {
+		int roll = GlobalManager.d100Roll();
+		for (BackgroundItem i : bg.getHeadOptions()) {
+			if (roll <= i.getChanceToGet()) {
+				if (i.getItem() != null)
+					this.swapHead((Headgear) i.getItem());
+				break;
+			} else {
+				roll -= i.getChanceToGet();
+			}
+		}
+
+		roll = GlobalManager.d100Roll();
+		for (BackgroundItem i : bg.getBodyOptions()) {
+			if (roll <= i.getChanceToGet()) {
+				if (i.getItem() != null)
+					this.swapBody((Armor) i.getItem());
+				break;
+			} else {
+				roll -= i.getChanceToGet();
+			}
+		}
+
+		roll = GlobalManager.d100Roll();
+		for (BackgroundItem i : bg.getRightOptions()) {
+			if (roll <= i.getChanceToGet()) {
+				if (i.getItem() != null) {
+					this.swapItem(arm.RIGHT, (AbilityItem) i.getItem());
+					if (i.getItem().getName().contains("Bow") || i.getItem().getName().contains("Crossbow")) {
+						// TODO GIVE QUIVER
+					}
+				}
+				break;
+			} else {
+				roll -= i.getChanceToGet();
+			}
+		}
+
+		roll = GlobalManager.d100Roll();
+		if (!((this.right instanceof Weapon) && (((Weapon) this.right).isTwoHanded()))) {
+			for (BackgroundItem i : bg.getLeftOptions()) {
+				if (roll <= i.getChanceToGet()) {
+					if (i.getItem() != null)
+						this.swapItem(arm.LEFT, (AbilityItem) i.getItem());
+					break;
+				} else {
+					roll -= i.getChanceToGet();
+				}
+			}
+		}
+
+		roll = GlobalManager.d100Roll();
+		for (BackgroundItem i : bg.getBackPackOptions()) {
+			if (roll <= i.getChanceToGet()) {
+				if (i.getItem() != null)
+					System.out.println("adding " + i.getItem().getName() + " to bag");
+					//this.swapBagItem((AbilityItem) i.getItem(), 0);
+				break;
+			} else {
+				roll -= i.getChanceToGet();
+			}
+		}
+	}
+
+	/** Replaces current Helm with new one, returns old Helm */
+	public void swapHead(Headgear next) {
+		Headgear temp = this.head;
+		this.head = next;
+		this.weighedDown(temp, next);
+		this.notifyObservers(new EventObject(Target.CHARACTER, EventType.RETURN_INVENTORY, temp, null));
+	}
+
 	/** Replaces current Body Armor with new one, returns old Body Armor */
 	public void swapBody(Armor next) {
 		Armor temp = this.body;
@@ -46,21 +123,12 @@ public class InventoryManager extends GenericObservee implements Observer {
 		this.notifyObservers(new EventObject(Target.CHARACTER, EventType.RETURN_INVENTORY, temp, null));
 	}
 
-	/** Replaces current Helm with new one, returns old Helm */
-	public void swapHead(Headgear next) {
-		Headgear temp = this.head;
-		this.head = next;
-		this.weighedDown(temp, next);
-		// this.notifyObservers(event);
-		this.notifyObservers(new EventObject(Target.CHARACTER, EventType.RETURN_INVENTORY, temp, null));
-	}
-
-	public void swapItem(AbilityItem limb, AbilityItem next) {
-		if (next instanceof Weapon && ((Weapon) next).isTwoHanded()) {
+	public void swapItem(arm arm, AbilityItem next) {
+		if ((next instanceof Weapon) && ((Weapon) next).isTwoHanded()) {
 			this.swap2Hander(next);
 			return;
 		} else {
-			this.swap1Hander(limb, next);
+			this.swap1Hander(arm, next);
 			return;
 		}
 	}
@@ -69,10 +137,20 @@ public class InventoryManager extends GenericObservee implements Observer {
 	 * Replaces current equipped right item (shield, weapon, etc) with new one,
 	 * returns old right item
 	 */
-	public void swap1Hander(AbilityItem arm, AbilityItem next) {
-		AbilityItem temp = arm;
-		arm = next;
+	public void swap1Hander(arm arm, AbilityItem next) {
+		AbilityItem temp = null;
+		switch (arm) {
+		case LEFT:
+			temp = this.left;
+			this.left = next;
+			break;
+		case RIGHT:
+			temp = this.right;
+			this.right = next;
+			break;
+		}
 		this.weighedDown(temp, next);
+		this.isDualGripping();
 		this.notifyObservers(new EventObject(Target.CHARACTER, EventType.RETURN_INVENTORY, temp, null));
 	}
 
@@ -82,9 +160,9 @@ public class InventoryManager extends GenericObservee implements Observer {
 	 */
 	public void swap2Hander(AbilityItem next) {
 		if (this.left != null) {
-			this.swap1Hander(this.left, null);
+			this.swap1Hander(arm.LEFT, null);
 		}
-		this.swap1Hander(this.right, next);
+		this.swap1Hander(arm.RIGHT, next);
 	}
 
 	/** Replaces item in bag, returns replaced item */
@@ -117,15 +195,18 @@ public class InventoryManager extends GenericObservee implements Observer {
 	}
 
 	/**
-	 * Checker function that determines if the character is Dual Gripping a one
-	 * handed melee weapon
+	 * Method that determines if the character is Dual Gripping a one handed melee
+	 * weapon and informs the
 	 */
-	public boolean isDualGripping() {
+	public void isDualGripping() {
 		if (((this.right instanceof Weapon) && (!((Weapon) this.right).isTwoHanded()) && (this.left == null))
 				|| ((this.left instanceof Weapon) && (!((Weapon) this.left).isTwoHanded()) && (this.right == null))) {
-			return true;
+			this.notifyObservers(new EventObject(Target.ABILITY, EventType.ADD,
+					GlobalManager.traits.getSpecialTrait("Dual Grip"), null));
+		} else {
+			this.notifyObservers(new EventObject(Target.ABILITY, EventType.REMOVE,
+					GlobalManager.traits.getSpecialTrait("Dual Grip"), null));
 		}
-		return false;
 	}
 
 	public Armor getBody() {
@@ -187,10 +268,10 @@ public class InventoryManager extends GenericObservee implements Observer {
 				this.swapHead((Headgear) event.getInformation());
 				break;
 			case CHANGE_LEFT:
-				this.swapItem(this.left, (AbilityItem) event.getInformation());
+				this.swapItem(arm.LEFT, (AbilityItem) event.getInformation());
 				break;
 			case CHANGE_RIGHT:
-				this.swapItem(this.right, (AbilityItem) event.getInformation());
+				this.swapItem(arm.RIGHT, (AbilityItem) event.getInformation());
 				break;
 			default:
 				break;

@@ -60,7 +60,11 @@ public class Ability {
 
 	public void display() {
 		System.out.print("	" + this.name + ": " + this.desc + "\n");
-		this.effects.forEach(e -> e.display());
+		try {
+			this.effects.forEach(e -> e.display());
+		} catch (NullPointerException n) {
+			
+		}
 	}
 
 }

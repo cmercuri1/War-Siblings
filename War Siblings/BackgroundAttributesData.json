@@ -54,6 +54,52 @@
 				"Spartan",
 				"Weasel"
 			],
+			"Starting Headgear": [
+				{
+					"Item Name": "Nasal Helmet",
+					"Chance to Start": 75
+				},
+				{
+					"Item Name": "Padded Nasal Helmet",
+					"Chance to Start": 25
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Mail Shirt",
+					"Chance to Start": 75
+				},
+				{
+					"Item Name": "Mail Hauberk",
+					"Chance to Start": 25
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "Arming Sword",
+					"Chance to Start": 75
+				},
+				{
+					"Item Name": "Winged Mace",
+					"Chance to Start": 25
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "Kite Shield",
+					"Chance to Start": 60
+				},
+				{
+					"Item Name": "Heater Shield",
+					"Chance to Start": 40
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
 			"Base Wage": 25,
 			"Background Ability": ""
 		},
@@ -105,6 +151,44 @@
 				"Dumb",
 				"Fear of Undead",
 				"Hate for Undead"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Linen Tunic",
+					"Chance to Start": 30
+				},
+				{
+					"Item Name": "Apron",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Leather Tunic",
+					"Chance to Start": 30
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
 			],
 			"Base Wage": 8,
 			"Background Ability": [
@@ -178,6 +262,36 @@
 				"Team Player",
 				"Weasel"
 			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
 			"Base Wage": 20,
 			"Background Ability": ""
 		},
@@ -236,6 +350,36 @@
 				"Tiny",
 				"Weasel"
 			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
 			"Base Wage": 20,
 			"Background Ability": ""
 		},
@@ -288,6 +432,64 @@
 				"Hesitant",
 				"Team Player",
 				"Tiny"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "Hood",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Nasal Helmet",
+					"Chance to Start": 60
+				},
+				{
+					"Item Name": "Padded Nasal Helmet",
+					"Chance to Start": 15
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Rugged Surcoat",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Padded leather",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Basic Mail Shirt",
+					"Chance to Start": 40
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "Shortsword",
+					"Chance to Start": 30
+				},
+				{
+					"Item Name": "Falchion",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Hand Axe",
+					"Chance to Start": 30
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 50
+				},
+				{
+					"Item Name": "Wooden Shield",
+					"Chance to Start": 50
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
 			],
 			"Base Wage": 14,
 			"Background Ability": ""
@@ -349,6 +551,36 @@
 				"Short Sighted",
 				"Weasel"
 			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
 			"Base Wage": 15,
 			"Background Ability": ""
 		},
@@ -407,6 +639,52 @@
 				"Iron Jaw",
 				"Strong",
 				"Tough"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 50
+				},
+				{
+					"Item Name": "Hood",
+					"Chance to Start": 50
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Tattered Sackcloth",
+					"Chance to Start": 50
+				},
+				{
+					"Item Name": "Leather Wraps",
+					"Chance to Start": 50
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Knife",
+					"Chance to Start": 30
+				},
+				{
+					"Item Name": "Wooden Stick",
+					"Chance to Start": 30
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
 			],
 			"Base Wage": 3,
 			"Background Ability": ""
@@ -468,6 +746,40 @@
 				"Short Sighted",
 				"Strong",
 				"Tough"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 30
+				},
+				{
+					"Item Name": "Feathered Hat",
+					"Chance to Start": 70
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Apron",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "Short Bow",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
 			],
 			"Base Wage": 8,
 			"Background Ability": ""
@@ -532,6 +844,44 @@
 				"Tiny",
 				"Weasel"
 			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Tattered Sackcloth",
+					"Chance to Start": 100
+				},
+				{
+					"Item Name": "Sackcloth",
+					"Chance to Start": 100
+				},
+				{
+					"Item Name": "Leather Wraps",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
 			"Base Wage": 13,
 			"Background Ability": [
 				{
@@ -595,6 +945,36 @@
 				"Tiny",
 				"Weasel"
 			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Butcher's Apron",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "Butchers' Cleaver",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
 			"Base Wage": 7,
 			"Background Ability": ""
 		},
@@ -644,6 +1024,36 @@
 				"Fat",
 				"Gluttonous",
 				"Tiny"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
 			],
 			"Base Wage": 8,
 			"Background Ability": ""
@@ -705,6 +1115,44 @@
 				"Swift",
 				"Tough",
 				"Weasel"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Tattered Sackcloth",
+					"Chance to Start": 60
+				},
+				{
+					"Item Name": "Leather Wraps",
+					"Chance to Start": 40
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 50
+				},
+				{
+					"Item Name": "Wooden Stick",
+					"Chance to Start": 50
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
 			],
 			"Base Wage": 3,
 			"Background Ability": ""
@@ -770,6 +1218,52 @@
 				"Night Blind",
 				"Team Player"
 			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 35
+				},
+				{
+					"Item Name": "Cultist Hood",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Cultist Leather Hood",
+					"Chance to Start": 25
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Tattered Sackcloth",
+					"Chance to Start": 50
+				},
+				{
+					"Item Name": "Leather Wraps",
+					"Chance to Start": 50
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 50
+				},
+				{
+					"Item Name": "Dagger",
+					"Chance to Start": 50
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
 			"Base Wage": 6,
 			"Background Ability": ""
 		},
@@ -817,6 +1311,52 @@
 				"Hate for Beasts",
 				"Hate for Greenskins",
 				"Hate for Undead"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Headscarf",
+					"Chance to Start": 60
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Sackcloth",
+					"Chance to Start": 50
+				},
+				{
+					"Item Name": "Linen Tunic",
+					"Chance to Start": 50
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 30
+				},
+				{
+					"Item Name": "Knife",
+					"Chance to Start": 30
+				},
+				{
+					"Item Name": "Wooden Stick",
+					"Chance to Start": 40
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
 			],
 			"Base Wage": 3,
 			"Background Ability": ""
@@ -877,6 +1417,72 @@
 				"Sure Footing",
 				"Team Player"
 			],
+			"Starting Headgear": [
+				{
+					"Item Name": "Hood",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Aketon Cap",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Full Aketon Cap",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Open Leather Cap",
+					"Chance to Start": 25
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Leather Tunic",
+					"Chance to Start": 35
+				},
+				{
+					"Item Name": "Padded Surcoat",
+					"Chance to Start": 35
+				},
+				{
+					"Item Name": "Gambeson",
+					"Chance to Start": 30
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "Short Bow",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Bludgeon",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Hatchet",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Militia Spear",
+					"Chance to Start": 30
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 50
+				},
+				{
+					"Item Name": "Wooden Shield",
+					"Chance to Start": 50
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
 			"Base Wage": 11,
 			"Background Ability": ""
 		},
@@ -925,6 +1531,60 @@
 				"Fragile",
 				"Spartan",
 				"Team Player"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "Aketon Cap",
+					"Chance to Start": 50
+				},
+				{
+					"Item Name": "Feathered Hat",
+					"Chance to Start": 50
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Basic Mail Shirt",
+					"Chance to Start": 35
+				},
+				{
+					"Item Name": "Mail Shirt",
+					"Chance to Start": 35
+				},
+				{
+					"Item Name": "Mail Hauberk",
+					"Chance to Start": 30
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "Short Sword",
+					"Chance to Start": 35
+				},
+				{
+					"Item Name": "Hatchet",
+					"Chance to Start": 30
+				},
+				{
+					"Item Name": "Militia Spear",
+					"Chance to Start": 35
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "Buckler",
+					"Chance to Start": 50
+				},
+				{
+					"Item Name": "Wooden Shield",
+					"Chance to Start": 50
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
 			],
 			"Base Wage": 18,
 			"Background Ability": ""
@@ -978,6 +1638,40 @@
 				"Lucky",
 				"Weasel"
 			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Linen Tunic",
+					"Chance to Start": 60
+				},
+				{
+					"Item Name": "Leather Tunic",
+					"Chance to Start": 40
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
 			"Base Wage": 6,
 			"Background Ability": ""
 		},
@@ -1026,6 +1720,56 @@
 				"Fear of Undead",
 				"Hate for Undead",
 				"Weasel"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 50
+				},
+				{
+					"Item Name": "Straw Hat",
+					"Chance to Start": 50
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Sackcloth",
+					"Chance to Start": 60
+				},
+				{
+					"Item Name": "Leather Tunic",
+					"Chance to Start": 40
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Wooden Flail",
+					"Chance to Start": 30
+				},
+				{
+					"Item Name": "Knife",
+					"Chance to Start": 30
+				},
+				{
+					"Item Name": "Pitchfork",
+					"Chance to Start": 15
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
 			],
 			"Base Wage": 10,
 			"Background Ability": ""
@@ -1077,6 +1821,52 @@
 				"Paranoid",
 				"Tiny",
 				"Weasel"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 50
+				},
+				{
+					"Item Name": "Straw Hat",
+					"Chance to Start": 50
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Sackcloth",
+					"Chance to Start": 60
+				},
+				{
+					"Item Name": "Leather Tunic",
+					"Chance to Start": 40
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 45
+				},
+				{
+					"Item Name": "Knife",
+					"Chance to Start": 55
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 50
+				},
+				{
+					"Item Name": "Net",
+					"Chance to Start": 50
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
 			],
 			"Base Wage": 7,
 			"Background Ability": ""
@@ -1134,6 +1924,44 @@
 				"Strong",
 				"Tough",
 				"Weasel"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 25
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Sackcloth",
+					"Chance to Start": 55
+				},
+				{
+					"Item Name": "Monk's Robe'",
+					"Chance to Start": 45
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "Wooden Flail",
+					"Chance to Start": 60
+				},
+				{
+					"Item Name": "Reinforced Wooden Flail",
+					"Chance to Start": 40
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
 			],
 			"Base Wage": 6,
 			"Background Ability": ""
@@ -1199,6 +2027,40 @@
 				"Strong",
 				"Tough"
 			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 55
+				},
+				{
+					"Item Name": "Feathered Hat",
+					"Chance to Start": 45
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Linen Tunic",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
 			"Base Wage": 6,
 			"Background Ability": ""
 		},
@@ -1255,6 +2117,48 @@
 				"Team Player",
 				"Weasel"
 			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 35
+				},
+				{
+					"Item Name": "Hood",
+					"Chance to Start": 65
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Tattered Sackcloth",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Sackcloth",
+					"Chance to Start": 60
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Knife",
+					"Chance to Start": 60
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
 			"Base Wage": 5,
 			"Background Ability": ""
 		},
@@ -1310,6 +2214,68 @@
 				"Optimist",
 				"Superstitious",
 				"Weasel"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 33
+				},
+				{
+					"Item Name": "Headscarf",
+					"Chance to Start": 34
+				},
+				{
+					"Item Name": "Open Leather Cap",
+					"Chance to Start": 33
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Leather Wraps",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Rugged Surcoat",
+					"Chance to Start": 37
+				},
+				{
+					"Item Name": "Leather Tunic",
+					"Chance to Start": 38
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 10
+				},
+				{
+					"Item Name": "Knife",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Wooden Stick",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Dagger",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Broken Ancient Sword",
+					"Chance to Start": 15
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
 			],
 			"Base Wage": 6,
 			"Background Ability": ""
@@ -1378,6 +2344,60 @@
 				"Tiny",
 				"Weasel"
 			],
+			"Starting Headgear": [
+				{
+					"Item Name": "Closed Flat Top Helmet",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Bascinet with Mail",
+					"Chance to Start": 25
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Worn Mail Shirt",
+					"Chance to Start": 30
+				},
+				{
+					"Item Name": "Mail Hauberk",
+					"Chance to Start": 30
+				},
+				{
+					"Item Name": "Reinforced Mail Hauberk",
+					"Chance to Start": 30
+				},
+				{
+					"Item Name": "Sellsword's Armor'",
+					"Chance to Start": 10
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "Longsword",
+					"Chance to Start": 30
+				},
+				{
+					"Item Name": "Greatsword",
+					"Chance to Start": 35
+				},
+				{
+					"Item Name": "Greataxe",
+					"Chance to Start": 35
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 25
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
 			"Base Wage": 35,
 			"Background Ability": ""
 		},
@@ -1443,6 +2463,36 @@
 				"Sure Footing",
 				"Tough"
 			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Linen Tunic",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
 			"Base Wage": 8,
 			"Background Ability": [
 				{
@@ -1500,6 +2550,48 @@
 				"Hate for Undead",
 				"Tiny",
 				"Weasel"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 50
+				},
+				{
+					"Item Name": "Open Leather Cap",
+					"Chance to Start": 50
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Padded Surcoat",
+					"Chance to Start": 50
+				},
+				{
+					"Item Name": "Rugged Surcoat",
+					"Chance to Start": 50
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 60
+				},
+				{
+					"Item Name": "Net",
+					"Chance to Start": 40
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
 			],
 			"Base Wage": 7,
 			"Background Ability": [
@@ -1565,6 +2657,56 @@
 				"Short Sighted",
 				"Weasel"
 			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Hood",
+					"Chance to Start": 35
+				},
+				{
+					"Item Name": "Hunter's Hat'",
+					"Chance to Start": 25
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Leather Tunic",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Thick Tunic",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Padded Surcoat",
+					"Chance to Start": 35
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "Hunting Bow",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "Knife",
+					"Chance to Start": 60
+				},
+				{
+					"Item Name": "Dagger",
+					"Chance to Start": 40
+				}
+			],
 			"Base Wage": 20,
 			"Background Ability": ""
 		},
@@ -1622,6 +2764,44 @@
 				"Short Sighted",
 				"Strong",
 				"Tough"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 50
+				},
+				{
+					"Item Name": "Jester's Hat'",
+					"Chance to Start": 50
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Linen Tunic",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 65
+				},
+				{
+					"Item Name": "Dagger",
+					"Chance to Start": 35
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
 			],
 			"Base Wage": 7,
 			"Background Ability": [
@@ -1688,6 +2868,40 @@
 				"Optimist",
 				"Team Player"
 			],
+			"Starting Headgear": [
+				{
+					"Item Name": "Hood",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Leather Tunic",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "Knife",
+					"Chance to Start": 65
+				},
+				{
+					"Item Name": "Dagger",
+					"Chance to Start": 35
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
 			"Base Wage": 6,
 			"Background Ability": [
 				{
@@ -1751,6 +2965,52 @@
 				"Tiny",
 				"Weasel"
 			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Linen Tunic",
+					"Chance to Start": 30
+				},
+				{
+					"Item Name": "Leather Tunic",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Padded Surcoat",
+					"Chance to Start": 30
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "Hatchet",
+					"Chance to Start": 35
+				},
+				{
+					"Item Name": "Hand Axe",
+					"Chance to Start": 35
+				},
+				{
+					"Item Name": "Woodcutter's Axe'",
+					"Chance to Start": 30
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
 			"Base Wage": 13,
 			"Background Ability": ""
 		},
@@ -1802,6 +3062,36 @@
 				"Fear of Undead",
 				"Hate for Undead",
 				"Weasel"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Linen Tunic",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
 			],
 			"Base Wage": 0,
 			"Background Ability": [
@@ -1864,6 +3154,44 @@
 				"Huge",
 				"Paranoid"
 			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Hood",
+					"Chance to Start": 30
+				},
+				{
+					"Item Name": "Straw Hat",
+					"Chance to Start": 30
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Leather Tunic",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
 			"Base Wage": 6,
 			"Background Ability": ""
 		},
@@ -1914,6 +3242,92 @@
 				"Fat",
 				"Hate for Undead",
 				"Insecure"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 15
+				},
+				{
+					"Item Name": "Straw Hat",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Aketon Cap",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Full Aketon Cap",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Open Leather Cap",
+					"Chance to Start": 15
+				},
+				{
+					"Item Name": "Full Leather Cap",
+					"Chance to Start": 10
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Leather Tunic",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Padded Surcoat",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Leather Lamellar Armor",
+					"Chance to Start": 20
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "Militia Spear",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Shortsword",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Bludgeon",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Hand Axe",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Pike",
+					"Chance to Start": 10
+				},
+				{
+					"Item Name": "Billhook",
+					"Chance to Start": 5
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Buckler",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Wooden Shield",
+					"Chance to Start": 20
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
 			],
 			"Base Wage": 9,
 			"Background Ability": ""
@@ -1969,6 +3383,44 @@
 				"Hate for Undead",
 				"Quick",
 				"Sure Footing"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Linen Tunic",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Knife",
+					"Chance to Start": 30
+				},
+				{
+					"Item Name": "Wooden Stick",
+					"Chance to Start": 30
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
 			],
 			"Base Wage": 7,
 			"Background Ability": ""
@@ -2026,6 +3478,44 @@
 				"Strong",
 				"Swift"
 			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 35
+				},
+				{
+					"Item Name": "Mouthpiece",
+					"Chance to Start": 65
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Sackcloth",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Pickaxe",
+					"Chance to Start": 80
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
 			"Base Wage": 6,
 			"Background Ability": ""
 		},
@@ -2082,6 +3572,44 @@
 				"Iron Jaw",
 				"Strong",
 				"Tough"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Feathered Hat",
+					"Chance to Start": 60
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Linen Tunic",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 45
+				},
+				{
+					"Item Name": "Lute",
+					"Chance to Start": 55
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
 			],
 			"Base Wage": 6,
 			"Background Ability": ""
@@ -2143,6 +3671,36 @@
 				"Swift",
 				"Weasel"
 			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Monk's Robe'",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
 			"Base Wage": 5,
 			"Background Ability": ""
 		},
@@ -2203,6 +3761,52 @@
 				"Strong",
 				"Tough"
 			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 50
+				},
+				{
+					"Item Name": "Feathered Hat",
+					"Chance to Start": 50
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Linen Tunic",
+					"Chance to Start": 75
+				},
+				{
+					"Item Name": "Noble Tunic",
+					"Chance to Start": 25
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Knife",
+					"Chance to Start": 37
+				},
+				{
+					"Item Name": "Dagger",
+					"Chance to Start": 38
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
 			"Base Wage": 6,
 			"Background Ability": ""
 		},
@@ -2246,6 +3850,48 @@
 			],
 			"Excluded Talents": [],
 			"Excluded Traits": [],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Feathered Hat",
+					"Chance to Start": 60
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Linen Tunic",
+					"Chance to Start": 35
+				},
+				{
+					"Item Name": "Noble Tunic",
+					"Chance to Start": 65
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 60
+				},
+				{
+					"Item Name": "Knife",
+					"Chance to Start": 40
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
 			"Base Wage": 7,
 			"Background Ability": ""
 		},
@@ -2298,6 +3944,64 @@
 				"Loyal",
 				"Night Blind",
 				"Short Sighted"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 50
+				},
+				{
+					"Item Name": "Hood",
+					"Chance to Start": 50
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Sackcloth",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Leather Wraps",
+					"Chance to Start": 30
+				},
+				{
+					"Item Name": "Leather Tunic",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Rugged Surcoat",
+					"Chance to Start": 25
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "Short Bow",
+					"Chance to Start": 80
+				},
+				{
+					"Item Name": "Wonky Bow",
+					"Chance to Start": 20
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Knife",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Militia Spear",
+					"Chance to Start": 20
+				}
 			],
 			"Base Wage": 8,
 			"Background Ability": ""
@@ -2358,6 +4062,72 @@
 				"Night Blind",
 				"Tiny",
 				"Weasel"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 10
+				},
+				{
+					"Item Name": "Nasal Helmet with Rusty Mail",
+					"Chance to Start": 55
+				},
+				{
+					"Item Name": "Padded Dented Nasal Helmet",
+					"Chance to Start": 35
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Padded leather",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Patched Mail Shirt",
+					"Chance to Start": 38
+				},
+				{
+					"Item Name": "Leather Lamellar",
+					"Chance to Start": 37
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "Morning Star",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Hand Axe",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Falchion",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Flail",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Longsword",
+					"Chance to Start": 10
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Wooden Shield",
+					"Chance to Start": 60
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
 			],
 			"Base Wage": 28,
 			"Background Ability": ""
@@ -2422,6 +4192,44 @@
 				"Sure Footing",
 				"Tough"
 			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Tattered Sackcloth",
+					"Chance to Start": 35
+				},
+				{
+					"Item Name": "Sackcloth",
+					"Chance to Start": 65
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 45
+				},
+				{
+					"Item Name": "Net",
+					"Chance to Start": 55
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
 			"Base Wage": 4,
 			"Background Ability": ""
 		},
@@ -2480,6 +4288,44 @@
 				"Loyal",
 				"Strong",
 				"Tough"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Tattered Sackcloth",
+					"Chance to Start": 50
+				},
+				{
+					"Item Name": "Sackcloth",
+					"Chance to Start": 50
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 35
+				},
+				{
+					"Item Name": "Knife",
+					"Chance to Start": 65
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
 			],
 			"Base Wage": 4,
 			"Background Ability": ""
@@ -2544,6 +4390,72 @@
 				"Tough",
 				"Weasel"
 			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Rusty Mail Coif",
+					"Chance to Start": 27
+				},
+				{
+					"Item Name": "Mail Coif",
+					"Chance to Start": 27
+				},
+				{
+					"Item Name": "Nasal Helmet",
+					"Chance to Start": 26
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Patched Mail Shirt",
+					"Chance to Start": 33
+				},
+				{
+					"Item Name": "Padded Leather",
+					"Chance to Start": 34
+				},
+				{
+					"Item Name": "Basic Mail Shirt",
+					"Chance to Start": 33
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "Shortsword",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Falchion",
+					"Chance to Start": 27
+				},
+				{
+					"Item Name": "Boar Spear",
+					"Chance to Start": 27
+				},
+				{
+					"Item Name": "Hand Axe",
+					"Chance to Start": 26
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Wooden Shield",
+					"Chance to Start": 75
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
 			"Base Wage": 15,
 			"Background Ability": ""
 		},
@@ -2603,6 +4515,36 @@
 				"Night Blind",
 				"Tiny",
 				"Weasel"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
 			],
 			"Base Wage": 35,
 			"Background Ability": ""
@@ -2668,6 +4610,40 @@
 				"Strong",
 				"Sure Footing"
 			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Sackcloth",
+					"Chance to Start": 30
+				},
+				{
+					"Item Name": "Linen Tunic",
+					"Chance to Start": 70
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
 			"Base Wage": 4,
 			"Background Ability": ""
 		},
@@ -2728,6 +4704,40 @@
 				"Strong",
 				"Sure Footing",
 				"Tough"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 35
+				},
+				{
+					"Item Name": "Straw Hat",
+					"Chance to Start": 65
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Linen Tunic",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
 			],
 			"Base Wage": 6,
 			"Background Ability": ""
@@ -2790,6 +4800,60 @@
 				"Irrational",
 				"Pessimist",
 				"Weasel"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Open Leather Cap",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Aketon Cap",
+					"Chance to Start": 40
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Gambeson",
+					"Chance to Start": 34
+				},
+				{
+					"Item Name": "Leather Tunic",
+					"Chance to Start": 33
+				},
+				{
+					"Item Name": "Padded Surcoat",
+					"Chance to Start": 33
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "Hatchet",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Boar Spear",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Winged Mace",
+					"Chance to Start": 20
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
 			],
 			"Base Wage": 20,
 			"Background Ability": ""
@@ -2863,6 +4927,52 @@
 				"Tough",
 				"Weasel"
 			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 45
+				},
+				{
+					"Item Name": "Feathered Hat",
+					"Chance to Start": 55
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Linen Tunic",
+					"Chance to Start": 55
+				},
+				{
+					"Item Name": "Leather Tunic",
+					"Chance to Start": 45
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "Arming Sword",
+					"Chance to Start": 30
+				},
+				{
+					"Item Name": "Noble Sword",
+					"Chance to Start": 35
+				},
+				{
+					"Item Name": "Fencing Sword",
+					"Chance to Start": 35
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
 			"Base Wage": 35,
 			"Background Ability": ""
 		},
@@ -2921,6 +5031,44 @@
 				"Spartan",
 				"Strong",
 				"Tough"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 50
+				},
+				{
+					"Item Name": "Feathered Hat",
+					"Chance to Start": 50
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Linen Tunic",
+					"Chance to Start": 80
+				},
+				{
+					"Item Name": "Noble Tunic",
+					"Chance to Start": 20
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
 			],
 			"Base Wage": 5,
 			"Background Ability": ""
@@ -2986,6 +5134,52 @@
 				"Strong",
 				"Team Player"
 			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 30
+				},
+				{
+					"Item Name": "Hood",
+					"Chance to Start": 70
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Sackcloth",
+					"Chance to Start": 38
+				},
+				{
+					"Item Name": "Linen Tunic",
+					"Chance to Start": 37
+				},
+				{
+					"Item Name": "Leather Tunic",
+					"Chance to Start": 25
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "Knife",
+					"Chance to Start": 65
+				},
+				{
+					"Item Name": "Dagger",
+					"Chance to Start": 35
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
 			"Base Wage": 10,
 			"Background Ability": ""
 		},
@@ -3036,6 +5230,60 @@
 				"Hate for Beasts",
 				"Hate for Undead",
 				"Loyal"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 34
+				},
+				{
+					"Item Name": "Hood",
+					"Chance to Start": 33
+				},
+				{
+					"Item Name": "Straw Hat",
+					"Chance to Start": 33
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Tattered Sack",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Leather Wraps",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Leather Tunic",
+					"Chance to Start": 20
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 34
+				},
+				{
+					"Item Name": "Knife",
+					"Chance to Start": 33
+				},
+				{
+					"Item Name": "Wooden Stick",
+					"Chance to Start": 33
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
 			],
 			"Base Wage": 6,
 			"Background Ability": ""
@@ -3108,6 +5356,52 @@
 				"Tiny",
 				"Weasel"
 			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 50
+				},
+				{
+					"Item Name": "Leather Wraps",
+					"Chance to Start": 50
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "Hatchet",
+					"Chance to Start": 30
+				},
+				{
+					"Item Name": "Boar Spear",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Cudgel",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Woodcutter's Axe'",
+					"Chance to Start": 20
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
 			"Base Wage": 12,
 			"Background Ability": [
 				{
@@ -3173,6 +5467,52 @@
 				"Superstitious",
 				"Team Player",
 				"Weasel"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 5
+				},
+				{
+					"Item Name": "Witch Hunter's Hat'",
+					"Chance to Start": 95
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Padded Surcoat",
+					"Chance to Start": 35
+				},
+				{
+					"Item Name": "Rugged Surcoat",
+					"Chance to Start": 35
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "Light Crossbow",
+					"Chance to Start": 70
+				},
+				{
+					"Item Name": "Crossbow",
+					"Chance to Start": 30
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "Knife",
+					"Chance to Start": 65
+				},
+				{
+					"Item Name": "Dagger",
+					"Chance to Start": 35
+				}
 			],
 			"Base Wage": 13,
 			"Background Ability": [

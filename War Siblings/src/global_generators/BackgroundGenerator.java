@@ -5,6 +5,7 @@
 package global_generators;
 
 import storage_classes.ArrayList;
+import storage_classes.BackgroundItem;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -22,12 +23,24 @@ public class BackgroundGenerator extends BaseWarriorGenerator {
 
 	protected ArrayList<String> excludedTalents;
 	protected ArrayList<String> excludedTraits;
+	protected ArrayList<BackgroundItem> headOptions;
+	protected ArrayList<BackgroundItem> bodyOptions;
+	protected ArrayList<BackgroundItem> rightOptions;
+	protected ArrayList<BackgroundItem> leftOptions;
+	protected ArrayList<BackgroundItem> backPackOptions;
 
 	/** Constructor applying background traits */
 	public BackgroundGenerator(JSONObject o) {
 		super();
+
 		this.excludedTalents = new ArrayList<String>();
 		this.excludedTraits = new ArrayList<String>();
+		this.headOptions = new ArrayList<BackgroundItem>();
+		this.bodyOptions = new ArrayList<BackgroundItem>();
+		this.rightOptions = new ArrayList<BackgroundItem>();
+		this.leftOptions = new ArrayList<BackgroundItem>();
+		this.backPackOptions = new ArrayList<BackgroundItem>();
+
 		this.updateAttributes(o);
 	}
 
@@ -88,6 +101,61 @@ public class BackgroundGenerator extends BaseWarriorGenerator {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
+		try {
+			temp = (JSONArray) o.get("Starting Headgear");
+			for (Object ob : temp) {
+				JSONObject ob2 = (JSONObject) ob;
+				this.headOptions
+						.add(new BackgroundItem((String) ob2.get("Item Name"), (Long) ob2.get("Chance to Start")));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		try {
+			temp = (JSONArray) o.get("Starting Body");
+			for (Object ob : temp) {
+				JSONObject ob2 = (JSONObject) ob;
+				this.bodyOptions
+						.add(new BackgroundItem((String) ob2.get("Item Name"), (Long) ob2.get("Chance to Start")));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		try {
+			temp = (JSONArray) o.get("Starting Right");
+			for (Object ob : temp) {
+				JSONObject ob2 = (JSONObject) ob;
+				this.rightOptions
+						.add(new BackgroundItem((String) ob2.get("Item Name"), (Long) ob2.get("Chance to Start")));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		try {
+			temp = (JSONArray) o.get("Starting Left");
+			for (Object ob : temp) {
+				JSONObject ob2 = (JSONObject) ob;
+				this.leftOptions
+						.add(new BackgroundItem((String) ob2.get("Item Name"), (Long) ob2.get("Chance to Start")));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		try {
+			temp = (JSONArray) o.get("Starting Bag");
+			for (Object ob : temp) {
+				JSONObject ob2 = (JSONObject) ob;
+				this.backPackOptions
+						.add(new BackgroundItem((String) ob2.get("Item Name"), (Long) ob2.get("Chance to Start")));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	/* Getters */
@@ -106,6 +174,26 @@ public class BackgroundGenerator extends BaseWarriorGenerator {
 
 	public ArrayList<String> getExcludedTraits() {
 		return this.excludedTraits;
+	}
+
+	public ArrayList<BackgroundItem> getHeadOptions() {
+		return this.headOptions;
+	}
+
+	public ArrayList<BackgroundItem> getBodyOptions() {
+		return this.bodyOptions;
+	}
+
+	public ArrayList<BackgroundItem> getRightOptions() {
+		return this.rightOptions;
+	}
+
+	public ArrayList<BackgroundItem> getLeftOptions() {
+		return this.leftOptions;
+	}
+
+	public ArrayList<BackgroundItem> getBackPackOptions() {
+		return this.backPackOptions;
 	}
 
 	/** display: displays background name */
