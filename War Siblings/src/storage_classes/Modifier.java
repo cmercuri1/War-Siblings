@@ -26,9 +26,9 @@ public class Modifier {
 
 	/** Checks if this modifier and another are the same */
 	public boolean equals(Modifier other) {
-		if (this.name.equals(other.getName()) && (this.value == other.getValue())
-				&& (this.isMulti && other.getIsMulti()) && (this.finalAdd && other.getFinalAdd())
-				&& (this.isUnique && other.getIsUnique())) {
+		if (this.name.equals(other.getName()) && (((Double)this.value).equals(other.getValue()))
+				&& (this.isMulti == other.getIsMulti()) && (this.finalAdd == other.getFinalAdd())
+				&& (this.isUnique == other.getIsUnique())) {
 			return true;
 		}
 		return false;
@@ -53,15 +53,19 @@ public class Modifier {
 	}
 
 	public String toString() {
+		String temp = this.name + ": ";
 		if (this.isMulti) {
-			return "x" + this.value;
+			temp += "x" + this.value;
 		} else {
+			temp += "+" + this.value;
 			if (this.finalAdd) {
-				return "+" + this.value + "F";
-			} else {
-				return "+" + this.value;
+				temp += "F";
 			}
 		}
+		if (this.isUnique) {
+			temp += ", U";
+		}
+		return temp;
 	}
 
 	/* Getters */

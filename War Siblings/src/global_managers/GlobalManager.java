@@ -32,7 +32,6 @@ public class GlobalManager {
 	static {
 		effects = new EffectManager();
 		xp = new ExperienceManager();
-		characters = new BackgroundManager();
 		bodyArmors = new BodyArmorManager();
 		headgears = new HeadgearManager();
 		shields = new ShieldManager();
@@ -42,6 +41,7 @@ public class GlobalManager {
 		tempInjury = new TemporyInjuryManager();
 		permInjury = new PerminentInjuryManager();
 		moods = new MoodManager();
+		characters = new BackgroundManager();
 
 		rng = new Random();
 	}

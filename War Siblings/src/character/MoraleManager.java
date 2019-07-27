@@ -39,7 +39,7 @@ public class MoraleManager extends GenericObservee implements Observer {
 		this.setUpObservers();
 		this.registerObserver(o);
 
-		this.mood = new MoodAttribute(50);
+		this.mood = new MoodAttribute(50, this);
 
 		this.startingMorale = DEFAULTMORALE;
 		this.optimistModifier = 0;
@@ -84,8 +84,8 @@ public class MoraleManager extends GenericObservee implements Observer {
 		return this.currentMorale;
 	}
 
-	public void makePositiveCheck() {
-		if (this.makeCheck(this.optimistModifier)) {
+	public void makePositiveCheck(double additionalModifier) {
+		if (this.makeCheck(this.optimistModifier + additionalModifier)) {
 			if (this.currentMorale.getValue() < MoraleState.CONFIDENT.getValue()) {
 				if (!(this.currentMorale.equals(MoraleState.STEADY) && this.isInsecure)) {
 					this.changeState(MoraleState.valueOfMoraleValue(currentMorale.getValue() + 1));
@@ -94,17 +94,17 @@ public class MoraleManager extends GenericObservee implements Observer {
 		}
 	}
 
-	public void makeNegativeCheck() {
-		if (!this.makeCheck(this.pessimistModifier)) {
+	public void makeNegativeCheck(double additionalModifier) {
+		if (!this.makeCheck(this.pessimistModifier + additionalModifier)) {
 			if (this.currentMorale.getValue() > MoraleState.FLEEING.getValue()) {
 				this.changeState(MoraleState.valueOfMoraleValue(currentMorale.getValue() - 1));
 			}
 		}
 	}
 
-	public void makeSpecialCheck() {
-		if (!this.makeCheck(this.specialModifier + this.pessimistModifier)) {
-
+	public void makeSpecialCheck(double additionalModifier) {
+		if (!this.makeCheck(this.specialModifier + this.pessimistModifier + additionalModifier)) {
+			this.notifyObservers(new EventObject(Target.BATTLE, EventType.FAILED_SPECIAL_ROLL, null, null));
 		}
 	}
 
@@ -180,9 +180,6 @@ public class MoraleManager extends GenericObservee implements Observer {
 	}
 
 	private void changeState(MoraleState state) {
-		MoraleState[] temp = { this.currentMorale, state };
-		this.notifyObservers(new EventObject(Target.UNDEFINED, EventType.UNDEFINED, temp, null));
-
 		try {
 			this.notifyObservers(new EventObject(Target.ABILITY, EventType.REMOVE,
 					GlobalManager.morale.getMoraleAbility(this.currentMorale), null));
@@ -205,26 +202,48 @@ public class MoraleManager extends GenericObservee implements Observer {
 	}
 
 	@Override
-	public void onEventHappening(EventObject information) {
-		switch (information.getTask()) {
-		case ADD:
-			this.setEffect((Effect) information.getInformation());
+	public void onEventHappening(EventObject event) {
+		switch (event.getTarget()) {
+		case MORALE:
+			switch (event.getTask()) {
+			case ADD:
+				this.setEffect((Effect) event.getInformation());
+				break;
+			case REMOVE:
+				this.removeEffect((Effect) event.getInformation());
+				break;
+			case START_BATTLE:
+				this.setMorale();
+				break;
+			case END_BATTLE:
+				this.removeMorale();
+				break;
+			case ROLL_POSITIVE:
+				this.makePositiveCheck((double) event.getInformation());
+				break;
+			case ROLL_NEGATIVE:
+				this.makeNegativeCheck((double) event.getInformation());
+				break;
+			case ROLL_SPECIAL:
+				this.makeSpecialCheck((double) event.getInformation());
+				break;
+			default:
+				break;
+			}
 			break;
-		case REMOVE:
-			this.removeEffect((Effect) information.getInformation());
-			break;
-		case GOT:
-			this.setResolve((double) information.getInformation());
-			break;
-		case SETUP:
-			this.setMorale();
-			break;
-		case CLOSE:
-			this.removeMorale();
-			break;
+		case UNDEFINED:
+			switch (event.getTask()) {
+			case GOT:
+				Object[] temp = (Object[]) event.getInformation();
+				this.setResolve((double) temp[1]);
+				break;
+			default:
+				break;
+			}
 		default:
 			break;
 		}
+		
 	}
 
 }

@@ -12,7 +12,7 @@ package items;
 public class Headgear extends Armor {
 	protected double visRed;
 
-	/** Constuctor */
+	/** Constructor */
 	public Headgear(String name, double value, String desc, double dura, double fatRed, String type, double visRed) {
 		super(name, value, desc, dura, fatRed, type);
 		this.visRed = visRed;

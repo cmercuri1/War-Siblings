@@ -4,15 +4,16 @@
  */
 package character;
 
-import java.util.ArrayList;
-
 import event_classes.EventObject;
 import event_classes.EventType;
 import event_classes.GenericObservee;
 import event_classes.Observer;
 import event_classes.Target;
+
 import global_generators.BackgroundGenerator;
 import global_managers.GlobalManager;
+
+import storage_classes.ArrayList;
 import storage_classes.Attribute;
 import storage_classes.DefenseAttribute;
 import storage_classes.Effect;
@@ -51,12 +52,6 @@ public class AttributeManager extends GenericObservee implements Observer {
 		this.registerObserver(o);
 		this.assignAttributes(bg);
 		this.assignStars(bg.getExcludedTalents());
-
-		if (this.levelManager.getAlteredValue() > 1) {
-			for (int i = 1; i < this.levelManager.getAlteredValue(); i++) {
-				this.wageManager.levelWage(i + 1);
-			}
-		}
 	}
 
 	/**
@@ -64,23 +59,23 @@ public class AttributeManager extends GenericObservee implements Observer {
 	 * background
 	 */
 	private void assignAttributes(BackgroundGenerator bg) {
-		this.hitpointManager = new HitpointAttribute((double) bg.getHp().getRand(), 2);
-		this.fatigueManager = new FatigueAttribute((double) bg.getFat().getRand(), 2);
-		this.resolveManager = new StarAttribute((double) bg.getRes().getRand(), 2);
-		this.initiativeManager = new StarAttribute((double) bg.getIni().getRand(), 3);
-		this.meleeSkillManager = new StarAttribute((double) bg.getmSk().getRand(), 1);
-		this.rangedSkillManager = new StarAttribute((double) bg.getrSk().getRand(), 2);
-		this.meleeDefenseManager = new DefenseAttribute((double) bg.getmDef().getRand(), 1);
-		this.rangedDefenseManager = new DefenseAttribute((double) bg.getrDef().getRand(), 1);
+		this.hitpointManager = new HitpointAttribute((double) bg.getHp().getRand(), 2, this);
+		this.fatigueManager = new FatigueAttribute((double) bg.getFat().getRand(), 2, this);
+		this.resolveManager = new StarAttribute((double) bg.getRes().getRand(), 2, this);
+		this.initiativeManager = new StarAttribute((double) bg.getIni().getRand(), 3, this);
+		this.meleeSkillManager = new StarAttribute((double) bg.getmSk().getRand(), 1, this);
+		this.rangedSkillManager = new StarAttribute((double) bg.getrSk().getRand(), 2, this);
+		this.meleeDefenseManager = new DefenseAttribute((double) bg.getmDef().getRand(), 1, this);
+		this.rangedDefenseManager = new DefenseAttribute((double) bg.getrDef().getRand(), 1, this);
 
-		this.wageManager = new WageAttribute((double) bg.getBaseWage());
-		this.foodManager = new Attribute((double) bg.getDailyFood());
-		this.xpRateManager = new Attribute((double) bg.getXpRate());
-		this.levelManager = new LevelAttribute((double) bg.getLev().getRand());
-		this.actionPointsManager = new Attribute((double) bg.getActionPoints());
-		this.headshotManager = new Attribute((double) bg.getHeadShot());
-		this.fatigueRegManager = new Attribute((double) bg.getFatRegain());
-		this.visionManager = new Attribute((double) bg.getVision());
+		this.wageManager = new WageAttribute((double) bg.getBaseWage(), this);
+		this.foodManager = new Attribute((double) bg.getDailyFood(), this);
+		this.xpRateManager = new Attribute((double) bg.getXpRate(), this);
+		this.levelManager = new LevelAttribute((double) bg.getLev().getRand(), this);
+		this.actionPointsManager = new Attribute((double) bg.getActionPoints(), this);
+		this.headshotManager = new Attribute((double) bg.getHeadShot(), this);
+		this.fatigueRegManager = new Attribute((double) bg.getFatRegain(), this);
+		this.visionManager = new Attribute((double) bg.getVision(), this);
 	}
 
 	/** Randomly assigns stars/talents towards up to 3 attributes */
@@ -220,27 +215,60 @@ public class AttributeManager extends GenericObservee implements Observer {
 		System.out.println();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public void onEventHappening(EventObject information) {
-		switch (information.getTask()) {
-		case ADD:
-			this.addModifier((Effect) information.getInformation());
-			break;
-		case REMOVE:
-			this.removeModifier((Effect) information.getInformation());
-			break;
-		case GET:
-			this.notifyObservers(new EventObject(Target.UNDEFINED, EventType.GOT,
-					this.getAttribute((String) information.getInformation()).getAlteredValue(),
-					information.getRequester()));
-			break;
-		case GET_OTHER:
-			this.notifyObservers(new EventObject(Target.UNDEFINED, EventType.GOT_OTHER,
-					this.getAttribute((String) information.getInformation()).getAlteredValue(),
-					information.getRequester()));
+	public void onEventHappening(EventObject event) {
+		Object[] temp;
+		switch (event.getTarget()) {
+		case ATTRIBUTE:
+			switch (event.getTask()) {
+			case ADD:
+				this.addModifier((Effect) event.getInformation());
+				break;
+			case REMOVE:
+				this.removeModifier((Effect) event.getInformation());
+				break;
+			case GET:
+				temp = new Object[] { event.getInformation(),
+						this.getAttribute((String) event.getInformation()).getAlteredValue() };
+				this.notifyObservers(
+						new EventObject(Target.UNDEFINED, EventType.GOT, temp, event.getRequester()));
+				break;
+			case GET_OTHER:
+				this.notifyObservers(new EventObject(Target.UNDEFINED, EventType.GOT_OTHER,
+						this.getAttribute((String) event.getInformation()).getAlteredValue(),
+						event.getRequester()));
+				break;
+			case START_TURN:
+				this.fatigueManager.alterCurrent(-this.fatigueRegManager.getAlteredValue());
+				break;
+			case LEVEL_UP:
+				this.notifyObservers(new EventObject(Target.UI, EventType.LEVEL_UP, this.getLevelUps(), null));
+				this.wageManager.levelWage((int) event.getInformation());
+				break;
+			case APPLY_LEVEL_UP:
+				this.applyLevelUps((ArrayList<LevelUp>) event.getInformation());
+				break;
+			case HIT:
+				this.fatigueManager.onHit();
+				break;
+			case MISS:
+				this.fatigueManager.onMiss();
+				break;
+			case UPDATE:
+				temp = (Object[]) event.getInformation();
+				if (temp[0] instanceof FatigueAttribute) {
+					this.initiativeManager
+							.addModifier(new Modifier("Fatigue_Penalty", -(double) temp[1], false, true, true));
+				}
+				break;
+			default:
+				break;
+			}
 			break;
 		default:
 			break;
+
 		}
 	}
 }

@@ -4,45 +4,28 @@
  */
 package storage_classes;
 
+import event_classes.EventObject;
+import event_classes.EventType;
+import event_classes.Observer;
+
 /** Special Attribute handling item durability */
 public class DurAttribute extends Attribute {
 	private final double MINIMUM = 0.0;
 
 	protected double originalCurrentValue;
 	protected double alteredCurrentValue;
-	
-	protected boolean isBroken;
 
-	public DurAttribute(double value) {
-		super(value);
+	public DurAttribute(double value, Observer o) {
+		super(value, o);
 		this.originalCurrentValue = this.originalMaxValue;
 		this.alteredCurrentValue = this.originalCurrentValue;
-		this.isBroken = false;
-	}
-
-	/**
-	 * Updates the altered values of both current and maximum of the attribute
-	 * taking into account all the modifiers
-	 */
-	protected void updateAltered() {
-		double multi = 1;
-		double add = 0;
-
-		for (Modifier m : modifiers) {
-			if (m.getIsMulti()) {
-				multi *= m.getValue();
-			} else {
-				add += m.getValue();
-			}
-		}
-		this.alteredMaxValue = multi * this.originalMaxValue + add;
 	}
 	
 	public void alterItem(double value) {
 		this.alteredCurrentValue += value;
 		this.currentChecker();
 		if (this.alteredCurrentValue == MINIMUM) {
-			this.isBroken = true;
+			this.notifyObservers(new EventObject(null, EventType.BROKEN, null, null));
 		}
 	}
 

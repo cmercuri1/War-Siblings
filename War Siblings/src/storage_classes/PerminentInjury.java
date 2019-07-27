@@ -4,13 +4,13 @@
  */
 package storage_classes;
 
-import java.util.ArrayList;
+import storage_classes.ArrayList;
 
 /**
  * A class used for storing and assisting in resolving use of Perminent Injuries
  * that can affect characters/creatures
  */
-public class PerminentInjury extends Ability {
+public class PerminentInjury extends ObservableAbility {
 	protected boolean contentInReserve;	
 
 	public PerminentInjury(String name, String desc, ArrayList<Effect> effects, boolean contentInReserve) {

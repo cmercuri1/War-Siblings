@@ -16,20 +16,23 @@ public class Effect extends Modifier {
 
 	public Effect(String eName, double val) {
 		super(eName, val, false, false, false);
-		this.setIsMulti(eName);
+		this.setIsMulti(this.name);
+		this.setFinalAdd(this.name);
+		this.setIsUnique(this.name);
 		this.findExtra();
 	}
 
 	public Effect(String eName) {
 		super(eName, GlobalManager.UNUSED, false, false, false);
-		this.setIsMulti(eName);
+		this.setIsMulti(this.name);
+		this.setFinalAdd(this.name);
+		this.setIsUnique(this.name);
 		this.findExtra();
 	}
 
 	/** Only used for GlobalMananger */
-	public Effect(String eName, String aM, String aSM, boolean isFinal) {
-		super(eName, GlobalManager.UNUSED, false, isFinal, false);
-		this.setIsMulti(eName);
+	public Effect(String eName, String aM, String aSM) {
+		super(eName, GlobalManager.UNUSED, false, false, false);
 		this.affectedManager = aM;
 		this.affectedSubManager = aSM;
 	}
@@ -43,7 +46,24 @@ public class Effect extends Modifier {
 	}
 
 	private void setIsMulti(String eName) {
-		this.isMulti = eName.contains("Percent");
+		if (eName.contains("_Percent")) {
+			this.isMulti = true;
+			this.name = eName.replace("_Percent", "");
+		}
+	}
+
+	private void setFinalAdd(String eName) {
+		if (eName.contains("_Final")) {
+			this.finalAdd = true;
+			this.name = eName.replace("_Final", "");
+		}
+	}
+
+	private void setIsUnique(String eName) {
+		if (eName.contains("_Unique")) {
+			this.isUnique = true;
+			this.name = eName.replace("_Unique", "");
+		}
 	}
 
 	/**
@@ -57,7 +77,6 @@ public class Effect extends Modifier {
 
 			this.affectedManager = temp.affectedManager;
 			this.affectedSubManager = temp.affectedSubManager;
-			this.finalAdd = temp.finalAdd;
 		} catch (NullPointerException nu) {
 			nu.printStackTrace();
 		}
@@ -79,7 +98,8 @@ public class Effect extends Modifier {
 	}
 
 	public void display() {
-		System.out
-				.println("	-" + this.name + ": " + this.value + ", " + this.isMulti + ", " + this.affectedSubManager);
+		System.out.print("	");
+		super.display();
+		System.out.println("	" + this.affectedManager + ", " + this.affectedSubManager);
 	}
 }

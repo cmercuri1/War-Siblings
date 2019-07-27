@@ -21,9 +21,8 @@ public class Tester {
 	public void run() {
 		Scanner in = new Scanner(System.in);
 		Character char1;
-
-		System.out.println("Enter a Background:");
-		char1 = new Character(in.nextLine());
+		
+		char1 = new Character();
 
 		char1.display();
 

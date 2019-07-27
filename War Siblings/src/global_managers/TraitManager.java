@@ -4,7 +4,7 @@
  */
 package global_managers;
 
-import java.util.ArrayList;
+import storage_classes.ArrayList;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -13,17 +13,22 @@ import storage_classes.Effect;
 import storage_classes.Trait;
 
 /** A class for Globally Storing and Managing all the Temporary Injuries */
-public class TraitManager extends BaseGlobalManager {
+public class TraitManager extends TwoListGlobalManager {
 	private ArrayList<Trait> traitList;
+	private ArrayList<Trait> specialTraitList;
 
 	public TraitManager() {
-		super("TraitsData.json", null, "Traits");
+		super("TraitsData.json", null, "Traits", "SpecialTraitsData.json", null, "Traits");
+		this.fillList2("SpecialTraitsData.json", null, "Traits");
 	}
 
 	@Override
 	protected void instantiate() {
 		if (this.traitList == null) {
 			this.traitList = new ArrayList<Trait>();
+		}
+		if (this.specialTraitList == null) {
+			this.specialTraitList = new ArrayList<Trait>();
 		}
 	}
 
@@ -54,10 +59,50 @@ public class TraitManager extends BaseGlobalManager {
 		this.traitList.add(new Trait((String) o.get("Name"), temp3, temp4));
 	}
 
+	@Override
+	protected void addItem2(JSONObject o) {
+		JSONArray temp;
+		ArrayList<Effect> temp3 = new ArrayList<Effect>();
+
+		temp = (JSONArray) o.get("Effects");
+		for (Object ob : temp) {
+			JSONObject temp2 = (JSONObject) ob;
+			try {
+				temp3.add(new Effect((String) temp2.get("Effect Name"), (Long) temp2.get("Value")));
+			} catch (NullPointerException nul) {
+				temp3.add(new Effect((String) temp2.get("Effect Name")));
+			}
+		}
+
+		this.specialTraitList.add(new Trait((String) o.get("Name"), temp3, (String) o.get("Specifc Backgrounds")));
+	}
+
 	/* Getters */
 
 	public ArrayList<Trait> getTraitList() {
 		return this.traitList;
+	}
+
+	public Trait getTrait(String traitName) {
+		for (Trait t : this.traitList) {
+			if (t.getName().equals(traitName)) {
+				return t;
+			}
+		}
+		return null;
+	}
+
+	public ArrayList<Trait> getSpecialTraitList() {
+		return this.specialTraitList;
+	}
+
+	public Trait getSpecialTrait(String traitName) {
+		for (Trait t : this.specialTraitList) {
+			if (t.getName().equals(traitName)) {
+				return t;
+			}
+		}
+		return null;
 	}
 
 	/**
@@ -67,11 +112,16 @@ public class TraitManager extends BaseGlobalManager {
 	public ArrayList<Trait> getSpecificTraitList(ArrayList<String> excludedTraits) {
 		ArrayList<Trait> temp = this.traitList;
 
-		for (String s : excludedTraits) {
-			temp.removeIf(t -> (t.getName().contains(s)));
-		}
+		excludedTraits.forEach(s -> temp.removeIf(t -> (t.getName().contains(s))));
 
 		return temp;
 	}
 
+	public ArrayList<Trait> getSpecifcSpecialTraitList(String background) {
+		ArrayList<Trait> temp = this.specialTraitList;
+
+		temp.removeIf(t -> !t.getSpecificBackground().equals(background));
+
+		return temp;
+	}
 }

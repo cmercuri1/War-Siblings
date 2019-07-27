@@ -4,15 +4,18 @@
  */
 package storage_classes;
 
+import event_classes.EventObject;
+import event_classes.EventType;
+import event_classes.Observer;
+import event_classes.Target;
+
 /** Special Attribute used for Hitpoints */
 public class HitpointAttribute extends BarAttribute {
-	protected boolean isDead;
 
-	public HitpointAttribute(double value, int lMin) {
-		super(value, lMin);
+	public HitpointAttribute(double value, int lMin, Observer o) {
+		super(value, lMin, o);
 		this.originalCurrentValue = this.originalMaxValue;
 		this.alteredCurrentValue = this.originalCurrentValue;
-		this.isDead = false;
 	}
 
 	/**
@@ -22,7 +25,7 @@ public class HitpointAttribute extends BarAttribute {
 	protected void currentChecker() {
 		if (this.alteredCurrentValue < MINIMUM) {
 			this.alteredCurrentValue = MINIMUM;
-			this.isDead = true;
+			this.notifyObservers(new EventObject(Target.ATTRIBUTE, EventType.NO_HP, null, null));
 		} else if (this.alteredCurrentValue > this.alteredMaxValue) {
 			this.alteredCurrentValue = this.alteredMaxValue;
 		}

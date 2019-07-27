@@ -15,11 +15,11 @@ public class EquipItem extends Item {
 	protected DurAttribute durability; // Durability of the item, if 0 item can break
 	protected Attribute fatigueRed; // Reduction to fatigue while using the item
 
-	/** Constuctor */
+	/** Constructor */
 	public EquipItem(String name, double value, String desc, double dura, double fatRed) {
 		super(name, value, desc);
-		this.durability = new DurAttribute(dura);
-		this.fatigueRed = new Attribute(fatRed);
+		this.durability = new DurAttribute(dura, this);
+		this.fatigueRed = new Attribute(fatRed, this);
 	}
 
 	/* Getters */

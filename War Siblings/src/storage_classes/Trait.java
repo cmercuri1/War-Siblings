@@ -4,7 +4,7 @@
  */
 package storage_classes;
 
-import java.util.ArrayList;
+import storage_classes.ArrayList;
 
 /**
  * A class used for storing information about Trait style abilities which can be
@@ -12,16 +12,26 @@ import java.util.ArrayList;
  */
 public class Trait extends Ability {
 	protected ArrayList<String> mutalExcl; // A list of which traits this one is incompatible with
+	protected String specificBackground;
 
 	public Trait(String name, ArrayList<Effect> effects, ArrayList<String> mutalExcl) {
 		super(name, effects);
 		this.mutalExcl = mutalExcl;
 	}
 
+	public Trait(String name, ArrayList<Effect> effects, String specificBackground) {
+		super(name, effects);
+		this.specificBackground = specificBackground;
+	}
+
 	/* Getters */
 
 	public ArrayList<String> getMutalExcl() {
 		return this.mutalExcl;
+	}
+
+	public String getSpecificBackground() {
+		return this.specificBackground;
 	}
 
 }

@@ -42,53 +42,70 @@ public class Character extends GenericObservee implements Observer {
 
 		this.im = new InventoryManager(this);
 		this.observerObjects.add(this.im);
-		
+
 		this.am = new AttributeManager(bg, this);
-		this.observerObjects.add(am);
-		
+		this.observerObjects.add(this.am);
+
 		this.mm = new MoraleManager(this);
-		this.observerObjects.add(mm);
-		
+		this.observerObjects.add(this.mm);
+
 		this.abm = new AbilityManager(this);
-		this.observerObjects.add(abm);
-		
+		this.observerObjects.add(this.abm);
+
 		this.bm = new BattleManager(this);
-		this.observerObjects.add(bm);
-		
+		this.observerObjects.add(this.bm);
+
+		this.im.setUpInventory(bg);
 		this.abm.setUpAbilities(bg);
 	}
 
 	@Override
-	public void onEventHappening(EventObject information) {
-		switch (information.getTarget()) {
-		case ABILITY: 
-			this.notifyObserver(abm, information);
+	public void onEventHappening(EventObject event) {
+		switch (event.getTarget()) {
+		case ABILITY:
+			this.notifyObserver(abm, event);
 			break;
 		case ATTRIBUTE:
-			this.notifyObserver(am, information);
+			this.notifyObserver(am, event);
 			break;
 		case MORALE:
-			this.notifyObserver(mm, information);
+			this.notifyObserver(mm, event);
 			break;
 		case BATTLE:
-			this.notifyObserver(bm, information);
+			this.notifyObserver(bm, event);
 			break;
 		case INVENTORY:
-			this.notifyObserver(im, information);
+			this.notifyObserver(im, event);
 			break;
 		case UNDEFINED:
-			switch (information.getTask()) {
+			switch (event.getTask()) {
 			case GOT:
-				this.notifyObserver(information.getRequester(), information);
+				this.notifyObserver(event.getRequester(), event);
 				break;
 			case GOT_OTHER:
-				this.notifyObserver(information.getRequester(), information);
+				this.notifyObserver(event.getRequester(), event);
 				break;
 			default:
 				break;
 			}
 			break;
-		}	
+		case CHARACTER:
+			switch (event.getTask()) {
+			case LEVEL_UP:
+				// TODO Notify UI about level up and new perk choice
+				break;
+			case APPLY_LEVEL_UP:
+				this.notifyObserver(this.am, event);
+				break;
+			default:
+				break;
+			}
+			break;
+		case UI:
+			break;
+		default:
+			break;
+		}
 	}
 
 	public String getCharName() {
@@ -118,7 +135,7 @@ public class Character extends GenericObservee implements Observer {
 	public MoraleManager getMm() {
 		return this.mm;
 	}
-	
+
 	public BattleManager getBm() {
 		return this.bm;
 	}

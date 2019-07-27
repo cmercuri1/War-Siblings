@@ -5,7 +5,7 @@
 
 package items;
 
-import java.util.ArrayList;
+import storage_classes.ArrayList;
 
 import storage_classes.Ability;
 import storage_classes.Attribute;
@@ -31,15 +31,15 @@ public class Weapon extends AbilityItem {
 			double ignArm, double armDam, double range, double skillFat, double hitChance, double headShot,
 			double shieldDam, int numHands, String weapType, ArrayList<Ability> abilityList) {
 		super(name, value, desc, dura, fatRed, abilityList);
-		this.minDam = new Attribute(minDam);
-		this.maxDam = new Attribute(maxDam);
-		this.ignArm = new Attribute(ignArm);
-		this.armDam = new Attribute(armDam);
-		this.range = new Attribute(range);
+		this.minDam = new Attribute(minDam, this);
+		this.maxDam = new Attribute(maxDam, this);
+		this.ignArm = new Attribute(ignArm, this);
+		this.armDam = new Attribute(armDam, this);
+		this.range = new Attribute(range, this);
 		this.skillFat = skillFat;
 		this.hitChance = hitChance;
 		this.headShot = headShot;
-		this.shieldDam = new Attribute(shieldDam);
+		this.shieldDam = new Attribute(shieldDam, this);
 		this.numHands = numHands;
 		this.weapType = weapType;
 	}

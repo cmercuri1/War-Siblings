@@ -4,8 +4,6 @@
  */
 package character;
 
-import java.util.ArrayList;
-
 import event_classes.EventObject;
 import event_classes.EventType;
 import event_classes.GenericObservee;
@@ -15,6 +13,7 @@ import global_generators.BackgroundGenerator;
 
 import global_managers.GlobalManager;
 import storage_classes.Ability;
+import storage_classes.ArrayList;
 import storage_classes.Effect;
 import storage_classes.PerminentInjury;
 import storage_classes.TemporaryInjury;
@@ -76,18 +75,12 @@ public class AbilityManager extends GenericObservee implements Observer {
 
 	public void sufferTemporaryInjury(TemporaryInjury injury) {
 		this.tempInjuries.add(injury);
-
+		this.tempInjuries.get(injury).registerObserver(this);
 		this.notifyOtherManagers(EventType.ADD, injury);
 	}
 
 	public void healTemporaryInjuries() {
-		for (TemporaryInjury temp : this.tempInjuries) {
-			temp.checkForHealed();
-			if (temp.isHealed()) {
-				this.notifyOtherManagers(EventType.REMOVE, temp);
-			}
-		}
-		this.tempInjuries.removeIf(i -> i.isHealed());
+		this.tempInjuries.forEach(t -> t.healInjury());
 	}
 
 	public void sufferPerminentInjury(PerminentInjury injury) {
@@ -103,14 +96,12 @@ public class AbilityManager extends GenericObservee implements Observer {
 
 	public void addAbility(Ability ability) {
 		this.characterAbilities.add(ability);
-
 		this.notifyOtherManagers(EventType.ADD, ability);
 	}
 
 	public void removeAbility(Ability ability) {
-		this.characterAbilities.remove(ability);
-
-		this.notifyOtherManagers(EventType.REMOVE, ability);
+		if (this.characterAbilities.remove(ability))
+			this.notifyOtherManagers(EventType.REMOVE, ability);
 	}
 
 	public void removeAbility(String abilityName) {
@@ -144,19 +135,28 @@ public class AbilityManager extends GenericObservee implements Observer {
 	}
 
 	@Override
-	public void onEventHappening(EventObject information) {
-		switch (information.getTask()) {
-		case ADD:
-			if (information.getInformation() instanceof TemporaryInjury) {
-				this.sufferTemporaryInjury((TemporaryInjury) information.getInformation());
-			} else if (information.getInformation() instanceof PerminentInjury) {
-				this.sufferPerminentInjury((PerminentInjury) information.getInformation());
-			} else {
-				this.addAbility((Ability) information.getInformation());
+	public void onEventHappening(EventObject event) {
+		switch (event.getTarget()) {
+		case ABILITY:
+			switch (event.getTask()) {
+			case ADD:
+				if (event.getInformation() instanceof TemporaryInjury) {
+					this.sufferTemporaryInjury((TemporaryInjury) event.getInformation());
+				} else if (event.getInformation() instanceof PerminentInjury) {
+					this.sufferPerminentInjury((PerminentInjury) event.getInformation());
+				} else {
+					this.addAbility((Ability) event.getInformation());
+				}
+				break;
+			case REMOVE:
+				this.removeAbility((Ability) event.getInformation());
+				break;
+			case HEALED:
+				this.tempInjuries.remove(event.getRequester());
+				break;
+			default:
+				break;
 			}
-			break;
-		case REMOVE:
-			this.removeAbility((Ability) information.getInformation());
 			break;
 		default:
 			break;

@@ -6,5 +6,5 @@ package event_classes;
 
 /** An enum used to tell EventObjects where to go */
 public enum Target {
-	ABILITY, ATTRIBUTE, MORALE, BATTLE, INVENTORY, UNDEFINED;
+	ABILITY, ATTRIBUTE, MORALE, BATTLE, INVENTORY, CHARACTER, UI, UNDEFINED;
 }
