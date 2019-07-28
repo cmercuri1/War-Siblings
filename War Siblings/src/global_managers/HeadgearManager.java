@@ -15,7 +15,7 @@ public class HeadgearManager extends BaseGlobalManager {
 	private ArrayList<Headgear> helmList;
 
 	public HeadgearManager() {
-		super("RegularGearData.json", "Armor", "Headgear");
+		super("res/game_data/RegularGearData.json", "Armor", "Headgear");
 	}
 
 	protected void addItem(JSONObject o) {

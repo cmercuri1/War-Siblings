@@ -5,6 +5,8 @@
 package global_generators;
 
 import java.io.FileReader;
+import java.nio.file.FileSystems;
+import java.nio.file.Path;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -25,15 +27,17 @@ public class BaseWarriorGenerator extends BaseCreatureGenerator {
 	protected int xpRate;
 
 	public BaseWarriorGenerator() {
-		super("WarriorAttributesData.json");
-		this.getWarriorAttributes();
+		super("res/game_data/WarriorAttributesData.json");
+		this.getWarriorAttributes("res/game_data/WarriorAttributesData.json");
 	}
 
-	private void getWarriorAttributes() {
+	private void getWarriorAttributes(String fileName) {
 		JSONParser parser = new JSONParser();
 
+		Path file = FileSystems.getDefault().getPath("", fileName);
+
 		try {
-			JSONObject jsonObject = (JSONObject) parser.parse(new FileReader("WarriorAttributesData.json"));
+			JSONObject jsonObject = (JSONObject) parser.parse(new FileReader(file.toFile()));
 
 			JSONObject baseStats = (JSONObject) jsonObject.get("Base Stats");
 

@@ -18,7 +18,7 @@ public class ExperienceManager extends BaseGlobalManager {
 	private ArrayList<XPLevel> xpList;
 
 	public ExperienceManager() {
-		super("XPData.json", null, "XP Req");
+		super("res/game_data/XPData.json", null, "XP Req");
 	}
 
 	@Override

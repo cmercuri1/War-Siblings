@@ -5,6 +5,8 @@
 package global_managers;
 
 import java.io.FileReader;
+import java.nio.file.FileSystems;
+import java.nio.file.Path;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -32,9 +34,11 @@ public abstract class BaseGlobalManager {
 	protected void fillList(String fileName, String objectName, String arrayName) {
 		JSONParser parser = new JSONParser();
 		JSONArray list;
+		
+		Path file = FileSystems.getDefault().getPath("", fileName);
 
 		try {
-			JSONObject jsonObject = (JSONObject) parser.parse(new FileReader(fileName));
+			JSONObject jsonObject = (JSONObject) parser.parse(new FileReader(file.toFile()));
 			if (objectName == null) {
 				list = (JSONArray) jsonObject.get(arrayName);
 			} else {

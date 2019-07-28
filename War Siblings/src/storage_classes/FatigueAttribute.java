@@ -10,7 +10,7 @@ import event_classes.Observer;
 import event_classes.Target;
 
 /** Special Attribute used for Fatigue */
-public class FatigueAttribute extends BarAttribute {
+public class FatigueAttribute extends BarStarAttribute {
 	private static final double HIT = 4;
 	private static final double MISS = 2;
 

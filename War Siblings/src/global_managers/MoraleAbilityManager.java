@@ -21,7 +21,7 @@ public class MoraleAbilityManager extends BaseGlobalManager {
 	private ArrayList<Ability> abilityList;
 
 	public MoraleAbilityManager() {
-		super("MoraleAbilityData.json", null, "Morale States");
+		super("res/game_data/MoraleAbilityData.json", null, "Morale States");
 	}
 
 	@Override

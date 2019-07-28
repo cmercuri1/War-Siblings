@@ -18,8 +18,8 @@ public class TraitManager extends TwoListGlobalManager {
 	private ArrayList<Trait> specialTraitList;
 
 	public TraitManager() {
-		super("TraitsData.json", null, "Traits", "SpecialTraitsData.json", null, "Traits");
-		this.fillList2("SpecialTraitsData.json", null, "Traits");
+		super("res/game_data/TraitsData.json", null, "Traits", "res/game_data/SpecialTraitsData.json", null, "Traits");
+		this.fillList2("res/game_data/SpecialTraitsData.json", null, "Traits");
 	}
 
 	@Override

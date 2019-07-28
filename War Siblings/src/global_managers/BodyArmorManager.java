@@ -15,7 +15,7 @@ public class BodyArmorManager extends BaseGlobalManager {
 	private ArrayList<Armor> armorList;
 
 	public BodyArmorManager() {
-		super("RegularGearData.json", "Armor", "Body Armor");
+		super("res/game_data/RegularGearData.json", "Armor", "Body Armor");
 	}
 
 	protected void addItem(JSONObject o) {

@@ -17,7 +17,7 @@ public class PerminentInjuryManager extends BaseGlobalManager {
 	private ArrayList<PerminentInjury> injuryList;
 
 	public PerminentInjuryManager() {
-		super("InjuryData.json", "Injuries", "Perminent Injuries");
+		super("res/game_data/InjuryData.json", "Injuries", "Perminent Injuries");
 	}
 
 	@Override

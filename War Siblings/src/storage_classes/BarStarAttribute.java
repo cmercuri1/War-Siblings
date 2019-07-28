@@ -1,3 +1,7 @@
+/** War Siblings
+ * BarAttribute class
+ * Author: Christopher Mercuri cmercuri1@student.unimelb.edu.au
+ */
 package storage_classes;
 
 import event_classes.EventObject;
@@ -5,15 +9,18 @@ import event_classes.EventType;
 import event_classes.Observer;
 import event_classes.Target;
 
-public class BarAttribute extends Attribute {
-
+/**
+ * A class that adds to Attributes that have a current and a max value, such as
+ * hit points and fatigue
+ */
+public class BarStarAttribute extends StarAttribute {
 	protected final double MINIMUM = 0.0;
 
 	protected double originalCurrentValue;
 	protected double alteredCurrentValue;
 
-	public BarAttribute(double value, Observer o) {
-		super(value, o);
+	public BarStarAttribute(double value, int lMin, Observer o) {
+		super(value, lMin, o);
 	}
 
 	public void alterCurrent(double value) {
@@ -41,6 +48,10 @@ public class BarAttribute extends Attribute {
 
 	public String toString() {
 		String temp = ((Double) this.alteredCurrentValue).intValue() + "/" + ((Double) this.alteredMaxValue).intValue();
+		if (this.numStars > 0) {
+			temp += " and has " + this.numStars + " stars";
+		}
 		return temp + this.stringModifiers();
 	}
+
 }

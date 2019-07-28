@@ -5,6 +5,8 @@
 package global_generators;
 
 import java.io.FileReader;
+import java.nio.file.FileSystems;
+import java.nio.file.Path;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -32,15 +34,18 @@ public class BaseCreatureGenerator {
 	protected int fatRegain;
 	protected int vision;
 
-	public BaseCreatureGenerator(String file) {
-		this.getAttributes(file);
+	public BaseCreatureGenerator(String fileName) {
+		this.getAttributes(fileName);
 	}
 
-	private void getAttributes(String file) {
+	private void getAttributes(String fileName) {
 		JSONParser parser = new JSONParser();
+		
+
+		Path file = FileSystems.getDefault().getPath("", fileName);
 
 		try {
-			JSONObject jsonObject = (JSONObject) parser.parse(new FileReader(file));
+			JSONObject jsonObject = (JSONObject) parser.parse(new FileReader(file.toFile()));
 
 			JSONObject baseStats = (JSONObject) jsonObject.get("Base Stats");
 

@@ -17,7 +17,7 @@ public class MoodManager extends BaseGlobalManager {
 	private ArrayList<Mood> moodList;
 
 	public MoodManager() {
-		super("MoodData.json", null, "Mood States");
+		super("res/game_data/MoodData.json", null, "Mood States");
 	}
 
 	@Override

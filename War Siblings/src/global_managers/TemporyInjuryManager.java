@@ -17,7 +17,7 @@ public class TemporyInjuryManager extends BaseGlobalManager {
 	private ArrayList<TemporaryInjury> injuryList;
 
 	public TemporyInjuryManager() {
-		super("InjuryData.json", "Injuries", "Temporary Injuries");
+		super("res/game_data/InjuryData.json", "Injuries", "Temporary Injuries");
 	}
 
 	@Override

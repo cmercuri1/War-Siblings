@@ -17,7 +17,7 @@ public class ShieldManager extends BaseGlobalManager {
 	private ArrayList<Shield> shieldList;
 
 	public ShieldManager() {
-		super("RegularGearData.json", "Shield", "Shields List");
+		super("res/game_data/RegularGearData.json", "Shield", "Shields List");
 	}
 
 	protected void addItem(JSONObject o) {

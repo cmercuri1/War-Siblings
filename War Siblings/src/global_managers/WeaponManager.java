@@ -18,7 +18,7 @@ public class WeaponManager extends BaseGlobalManager {
 
 	/** Constructor */
 	public WeaponManager() {
-		super("RegularGearData.json", "Weapon", "Weapons List");
+		super("res/game_data/RegularGearData.json", "Weapon", "Weapons List");
 	}
 
 	protected void addItem(JSONObject o) {

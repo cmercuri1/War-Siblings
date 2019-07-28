@@ -10,7 +10,7 @@ import event_classes.Observer;
 import event_classes.Target;
 
 /** Special Attribute used for Hitpoints */
-public class HitpointAttribute extends BarAttribute {
+public class HitpointAttribute extends BarStarAttribute {
 
 	public HitpointAttribute(double value, int lMin, Observer o) {
 		super(value, lMin, o);

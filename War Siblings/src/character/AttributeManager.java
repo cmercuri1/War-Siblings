@@ -15,6 +15,7 @@ import global_managers.GlobalManager;
 
 import storage_classes.ArrayList;
 import storage_classes.Attribute;
+import storage_classes.BarAttribute;
 import storage_classes.DefenseAttribute;
 import storage_classes.Effect;
 import storage_classes.FatigueAttribute;
@@ -42,7 +43,7 @@ public class AttributeManager extends GenericObservee implements Observer {
 	private Attribute foodManager;
 	private Attribute xpRateManager;
 	private LevelAttribute levelManager;
-	private Attribute actionPointsManager;
+	private BarAttribute actionPointsManager;
 	private Attribute headshotManager;
 	private Attribute fatigueRegManager;
 	private Attribute visionManager;
@@ -72,7 +73,7 @@ public class AttributeManager extends GenericObservee implements Observer {
 		this.foodManager = new Attribute((double) bg.getDailyFood(), this);
 		this.xpRateManager = new Attribute((double) bg.getXpRate(), this);
 		this.levelManager = new LevelAttribute((double) bg.getLev().getRand(), this);
-		this.actionPointsManager = new Attribute((double) bg.getActionPoints(), this);
+		this.actionPointsManager = new BarAttribute((double) bg.getActionPoints(), this);
 		this.headshotManager = new Attribute((double) bg.getHeadShot(), this);
 		this.fatigueRegManager = new Attribute((double) bg.getFatRegain(), this);
 		this.visionManager = new Attribute((double) bg.getVision(), this);
@@ -206,7 +207,7 @@ public class AttributeManager extends GenericObservee implements Observer {
 		System.out.println();
 		System.out.println("Wage of " + this.wageManager.toString());
 		System.out.println("Consumes " + this.foodManager.toString());
-		System.out.println("Action points per turn: " + this.actionPointsManager.toString());
+		System.out.println("Action points: " + this.actionPointsManager.toString());
 		System.out.println("% Chance to hit head: " + this.headshotManager.toString());
 		System.out.println("Points of Fatigue Regained each Turn: " + this.fatigueRegManager.toString());
 		System.out.println("Tiles of Vision: " + this.visionManager.toString());

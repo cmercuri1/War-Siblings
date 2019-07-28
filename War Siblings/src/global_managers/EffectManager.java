@@ -18,7 +18,7 @@ public class EffectManager extends BaseGlobalManager {
 	private ArrayList<Effect> effectList;
 
 	public EffectManager() {
-		super("EffectData.json", null, "Effects");
+		super("res/game_data/EffectData.json", null, "Effects");
 	}
 
 	@Override

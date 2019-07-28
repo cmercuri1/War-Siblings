@@ -15,7 +15,7 @@ public class BackgroundManager extends BaseGlobalManager {
 	private ArrayList<BackgroundGenerator> bgList;
 
 	public BackgroundManager() {
-		super("BackgroundAttributesData.json", null, "Background Changes");
+		super("res/game_data/BackgroundAttributesData.json", null, "Background Changes");
 	}
 
 	protected void addItem(JSONObject o) {
