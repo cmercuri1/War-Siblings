@@ -14,7 +14,6 @@ import event_classes.Observer;
 import event_classes.Target;
 import global_generators.BackgroundGenerator;
 import global_managers.GlobalManager;
-import items.AbilityItem;
 import items.Armor;
 import items.EquipItem;
 import items.Headgear;
@@ -27,20 +26,24 @@ import items.Weapon;
 public class InventoryManager extends GenericObservee implements Observer {
 	private Armor body;
 	private Headgear head;
-	private AbilityItem right;
-	private AbilityItem left;
-	private ArrayList<AbilityItem> bag;
-	
-	private enum arm {LEFT,RIGHT};
+	private EquipItem right;
+	private EquipItem left;
+	private ArrayList<EquipItem> bag;
+
+	private enum arm {
+		LEFT, RIGHT
+	};
 
 	public InventoryManager(Observer o) {
 		this.setUpObservers();
 		this.registerObserver(o);
-		this.body = null;
-		this.head = null;
-		this.right = null;
-		this.left = null;
-		this.bag = new ArrayList<AbilityItem>(2);
+		this.body = GlobalManager.bodyArmors.DEFAULT;
+		this.head = GlobalManager.headgears.DEFAULT;
+		this.right = GlobalManager.weapons.DEFAULT;
+		this.left = GlobalManager.weapons.DEFAULT;
+
+		this.bag = new ArrayList<EquipItem>();
+
 	}
 
 	public void setUpInventory(BackgroundGenerator bg) {
@@ -70,7 +73,7 @@ public class InventoryManager extends GenericObservee implements Observer {
 		for (BackgroundItem i : bg.getRightOptions()) {
 			if (roll <= i.getChanceToGet()) {
 				if (i.getItem() != null) {
-					this.swapItem(arm.RIGHT, (AbilityItem) i.getItem());
+					this.swapItem(arm.RIGHT, (EquipItem) i.getItem());
 					if (i.getItem().getName().contains("Bow") || i.getItem().getName().contains("Crossbow")) {
 						// TODO GIVE QUIVER
 					}
@@ -86,7 +89,7 @@ public class InventoryManager extends GenericObservee implements Observer {
 			for (BackgroundItem i : bg.getLeftOptions()) {
 				if (roll <= i.getChanceToGet()) {
 					if (i.getItem() != null)
-						this.swapItem(arm.LEFT, (AbilityItem) i.getItem());
+						this.swapItem(arm.LEFT, (EquipItem) i.getItem());
 					break;
 				} else {
 					roll -= i.getChanceToGet();
@@ -99,7 +102,7 @@ public class InventoryManager extends GenericObservee implements Observer {
 			if (roll <= i.getChanceToGet()) {
 				if (i.getItem() != null)
 					System.out.println("adding " + i.getItem().getName() + " to bag");
-					//this.swapBagItem((AbilityItem) i.getItem(), 0);
+				this.swapBagItem((EquipItem) i.getItem(), 0);
 				break;
 			} else {
 				roll -= i.getChanceToGet();
@@ -123,7 +126,7 @@ public class InventoryManager extends GenericObservee implements Observer {
 		this.notifyObservers(new EventObject(Target.CHARACTER, EventType.RETURN_INVENTORY, temp, null));
 	}
 
-	public void swapItem(arm arm, AbilityItem next) {
+	public void swapItem(arm arm, EquipItem next) {
 		if ((next instanceof Weapon) && ((Weapon) next).isTwoHanded()) {
 			this.swap2Hander(next);
 			return;
@@ -137,8 +140,8 @@ public class InventoryManager extends GenericObservee implements Observer {
 	 * Replaces current equipped right item (shield, weapon, etc) with new one,
 	 * returns old right item
 	 */
-	public void swap1Hander(arm arm, AbilityItem next) {
-		AbilityItem temp = null;
+	public void swap1Hander(arm arm, EquipItem next) {
+		EquipItem temp = null;
 		switch (arm) {
 		case LEFT:
 			temp = this.left;
@@ -158,17 +161,23 @@ public class InventoryManager extends GenericObservee implements Observer {
 	 * Replaces current equipped item/s in both hands with a single two-handed item,
 	 * returns both previously equipped items
 	 */
-	public void swap2Hander(AbilityItem next) {
+	public void swap2Hander(EquipItem next) {
 		if (this.left != null) {
-			this.swap1Hander(arm.LEFT, null);
+			this.swap1Hander(arm.LEFT, GlobalManager.weapons.DEFAULT);
 		}
 		this.swap1Hander(arm.RIGHT, next);
 	}
 
 	/** Replaces item in bag, returns replaced item */
-	public void swapBagItem(AbilityItem next, int index) {
-		AbilityItem temp = this.bag.remove(index);
-		this.bag.add(index, next);
+	public void swapBagItem(EquipItem next, int index) {
+		EquipItem temp;
+		try {
+			temp = this.bag.remove(index);
+			this.bag.add(index, next);
+		} catch (IndexOutOfBoundsException e) {
+			temp = GlobalManager.weapons.DEFAULT;
+			this.bag.add(next);
+		}
 		this.weighedDown(temp, next);
 		this.notifyObservers(new EventObject(Target.CHARACTER, EventType.RETURN_INVENTORY, temp, null));
 	}
@@ -217,41 +226,43 @@ public class InventoryManager extends GenericObservee implements Observer {
 		return this.head;
 	}
 
-	public AbilityItem getRight() {
+	public EquipItem getRight() {
 		return this.right;
 	}
 
-	public AbilityItem getLeft() {
+	public EquipItem getLeft() {
 		return this.left;
 	}
 
-	public ArrayList<AbilityItem> getBag() {
+	public ArrayList<EquipItem> getBag() {
 		return this.bag;
 	}
 
 	public void display() {
 		System.out.println("Inventory:");
 
-		if (this.head != null) {
+		if (!this.head.equals(GlobalManager.headgears.DEFAULT)) {
 			System.out.println("Head:");
 			this.head.display();
 		}
-		if (this.body != null) {
+		if (!this.body.equals(GlobalManager.bodyArmors.DEFAULT)) {
 			System.out.println("Body:");
 			this.body.display();
 		}
-		if (this.right != null) {
+		if (!this.right.equals(GlobalManager.weapons.DEFAULT)) {
 			System.out.println("Right:");
 			this.right.display();
 		}
-		if (this.left != null) {
+		if (!this.left.equals(GlobalManager.weapons.DEFAULT)) {
 			System.out.println("Left:");
 			this.left.display();
 		}
 		if (!this.bag.isEmpty()) {
 			System.out.println("Bag:");
-			for (AbilityItem a : bag) {
-				a.display();
+			for (EquipItem a : this.bag) {
+				if (a != null)
+					a.display();
+
 			}
 		}
 	}
@@ -264,14 +275,26 @@ public class InventoryManager extends GenericObservee implements Observer {
 			case CHANGE_BODY:
 				this.swapBody((Armor) event.getInformation());
 				break;
+			case REMOVE_BODY:
+				this.swapBody(GlobalManager.bodyArmors.DEFAULT);
+				break;
 			case CHANGE_HEAD:
 				this.swapHead((Headgear) event.getInformation());
 				break;
+			case REMOVE_HEAD:
+				this.swapHead(GlobalManager.headgears.DEFAULT);
+				break;
 			case CHANGE_LEFT:
-				this.swapItem(arm.LEFT, (AbilityItem) event.getInformation());
+				this.swapItem(arm.LEFT, (EquipItem) event.getInformation());
+				break;
+			case REMOVE_LEFT:
+				this.swapItem(arm.LEFT, GlobalManager.weapons.DEFAULT);
 				break;
 			case CHANGE_RIGHT:
-				this.swapItem(arm.RIGHT, (AbilityItem) event.getInformation());
+				this.swapItem(arm.RIGHT, (EquipItem) event.getInformation());
+				break;
+			case REMOVE_RIGHT:
+				this.swapItem(arm.RIGHT, GlobalManager.weapons.DEFAULT);
 				break;
 			default:
 				break;
