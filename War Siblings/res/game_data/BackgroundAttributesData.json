@@ -853,15 +853,15 @@
 			"Starting Body": [
 				{
 					"Item Name": "Tattered Sackcloth",
-					"Chance to Start": 100
+					"Chance to Start": 34
 				},
 				{
 					"Item Name": "Sackcloth",
-					"Chance to Start": 100
+					"Chance to Start": 33
 				},
 				{
 					"Item Name": "Leather Wraps",
-					"Chance to Start": 100
+					"Chance to Start": 33
 				}
 			],
 			"Starting Right": [
@@ -1928,7 +1928,7 @@
 			"Starting Headgear": [
 				{
 					"Item Name": "null",
-					"Chance to Start": 25
+					"Chance to Start": 100
 				}
 			],
 			"Starting Body": [
@@ -2347,11 +2347,11 @@
 			"Starting Headgear": [
 				{
 					"Item Name": "Closed Flat Top Helmet",
-					"Chance to Start": 25
+					"Chance to Start": 50
 				},
 				{
 					"Item Name": "Bascinet with Mail",
-					"Chance to Start": 25
+					"Chance to Start": 50
 				}
 			],
 			"Starting Body": [
@@ -2389,7 +2389,7 @@
 			"Starting Left": [
 				{
 					"Item Name": "null",
-					"Chance to Start": 25
+					"Chance to Start": 100
 				}
 			],
 			"Starting Bag": [
@@ -5481,11 +5481,11 @@
 			"Starting Body": [
 				{
 					"Item Name": "Padded Surcoat",
-					"Chance to Start": 35
+					"Chance to Start": 50
 				},
 				{
 					"Item Name": "Rugged Surcoat",
-					"Chance to Start": 35
+					"Chance to Start": 50
 				}
 			],
 			"Starting Right": [

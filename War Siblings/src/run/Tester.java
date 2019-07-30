@@ -22,7 +22,7 @@ public class Tester {
 		Scanner in = new Scanner(System.in);
 		Character char1;
 		
-		char1 = new Character();
+		char1 = new Character(null);
 
 		char1.display();
 

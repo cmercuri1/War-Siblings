@@ -5,8 +5,10 @@
 package character;
 
 import event_classes.EventObject;
+import event_classes.EventType;
 import event_classes.GenericObservee;
 import event_classes.Observer;
+import event_classes.Target;
 import global_generators.BackgroundGenerator;
 import global_managers.GlobalManager;
 
@@ -27,18 +29,19 @@ public class Character extends GenericObservee implements Observer {
 	private BattleManager bm;
 
 	/** New Character with specific background */
-	public Character(String background) {
-		this.generalSetUp(GlobalManager.characters.getBackground(background));
+	public Character(String background, Observer o) {
+		this.generalSetUp(GlobalManager.backgrounds.getBackground(background), o);
 	}
 
 	/** New Character with random background */
-	public Character() {
-		this.generalSetUp(GlobalManager.characters.getRandomBackground());
+	public Character(Observer o) {
+		this.generalSetUp(GlobalManager.backgrounds.getRandomBackground(), o);
 	}
 
-	private void generalSetUp(BackgroundGenerator bg) {
+	private void generalSetUp(BackgroundGenerator bg, Observer o) {
 		this.backgroundName = bg.getBackground();
 		this.setUpObservers();
+		this.observerObjects.add(o);
 
 		this.im = new InventoryManager(this);
 		this.observerObjects.add(this.im);
@@ -57,6 +60,7 @@ public class Character extends GenericObservee implements Observer {
 
 		this.im.setUpInventory(bg);
 		this.abm.setUpAbilities(bg);
+		this.notifyObservers(new EventObject(Target.UI, EventType.FINISHED_GENERATING, this, null));
 	}
 
 	@Override

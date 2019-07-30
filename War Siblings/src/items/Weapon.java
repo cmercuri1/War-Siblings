@@ -45,6 +45,13 @@ public class Weapon extends AbilityItem {
 	}
 
 	/* Relevant Getters for each element */
+	public String getDamage() {
+		return this.getMinDam().toString() + " - " + this.getMaxDam().toString();
+	}
+
+	public String getArmorDamage() {
+		return this.armDam.toString() + "%";
+	}
 
 	public Attribute getMinDam() {
 		return this.minDam;

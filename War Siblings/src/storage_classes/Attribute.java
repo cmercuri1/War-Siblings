@@ -120,8 +120,12 @@ public class Attribute extends GenericObservee {
 	public double getAlteredValue() {
 		return this.alteredMaxValue;
 	}
-
+	
 	public String toString() {
+		return ((Integer) ((Double) this.alteredMaxValue).intValue()).toString();
+	}
+
+	public String toStringFull() {
 		return ((Integer) ((Double) this.alteredMaxValue).intValue()).toString() + this.stringModifiers();
 	}
 

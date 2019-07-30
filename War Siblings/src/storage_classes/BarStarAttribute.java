@@ -26,7 +26,7 @@ public class BarStarAttribute extends StarAttribute {
 	public void alterCurrent(double value) {
 		this.alteredCurrentValue += value;
 		this.currentChecker();
-		Object[] temp = {this, this.alteredCurrentValue};
+		Object[] temp = { this, this.alteredCurrentValue };
 		this.notifyObservers(new EventObject(Target.ATTRIBUTE, EventType.UPDATE, temp, null));
 	}
 
@@ -47,6 +47,10 @@ public class BarStarAttribute extends StarAttribute {
 	}
 
 	public String toString() {
+		return ((Double) this.alteredCurrentValue).intValue() + "/" + ((Double) this.alteredMaxValue).intValue();
+	}
+
+	public String toStringFull() {
 		String temp = ((Double) this.alteredCurrentValue).intValue() + "/" + ((Double) this.alteredMaxValue).intValue();
 		if (this.numStars > 0) {
 			temp += " and has " + this.numStars + " stars";

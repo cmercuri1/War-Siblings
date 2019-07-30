@@ -10,5 +10,5 @@ public interface Observer {
 	 * onEventHappening: the class that implements this handles how it acts when
 	 * told that an Event has happened
 	 */
-	void onEventHappening(EventObject information);
+	void onEventHappening(EventObject event);
 }
