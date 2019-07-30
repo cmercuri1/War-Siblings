@@ -4,6 +4,8 @@
  */
 package storage_classes;
 
+import javax.swing.ImageIcon;
+
 import storage_classes.ArrayList;
 
 /**
@@ -14,18 +16,22 @@ public class Ability {
 	protected String name;
 	protected String desc;
 	protected ArrayList<Effect> effects;
-
+	
+	protected ImageIcon image;
+	
 	/** Constructor for when you have all the effects */
 	public Ability(String name, String desc, ArrayList<Effect> effects) {
 		this.name = name;
 		this.desc = desc;
 		this.effects = effects;
+		this.setImage();
 	}
 
 	/** Constructor for when you have all the effects */
 	public Ability(String name, ArrayList<Effect> effects) {
 		this.name = name;
 		this.effects = effects;
+		this.setImage();
 	}
 
 	/** Constructor for when you need to find the effects */
@@ -45,6 +51,10 @@ public class Ability {
 		// TODO Add JSON data for general weapon effects?
 		return null;
 	}
+	
+	protected void setImage() {
+		//TODO
+	}
 
 	public String getName() {
 		return this.name;
@@ -56,6 +66,10 @@ public class Ability {
 
 	public ArrayList<Effect> getEffects() {
 		return this.effects;
+	}
+	
+	public ImageIcon getImage() {
+		return this.image;
 	}
 
 	public void display() {

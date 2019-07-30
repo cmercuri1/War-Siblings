@@ -4,6 +4,8 @@
  */
 package storage_classes;
 
+import javax.swing.ImageIcon;
+
 import storage_classes.ArrayList;
 
 /**
@@ -22,6 +24,10 @@ public class Trait extends Ability {
 	public Trait(String name, ArrayList<Effect> effects, String specificBackground) {
 		super(name, effects);
 		this.specificBackground = specificBackground;
+	}
+
+	protected void setImage() {
+		this.image = new ImageIcon("res/images/Traits/" + this.name + ".png");
 	}
 
 	/* Getters */

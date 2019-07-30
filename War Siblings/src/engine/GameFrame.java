@@ -1,3 +1,7 @@
+/** War Siblings
+ * GameFrame class
+ * Author: Christopher Mercuri cmercuri1@student.unimelb.edu.au
+ */
 package engine;
 
 import java.awt.Container;
@@ -25,6 +29,7 @@ import character.Character;
 import event_classes.EventObject;
 import event_classes.Observer;
 import global_managers.GlobalManager;
+import storage_classes.ArrayList;
 
 public class GameFrame extends JFrame implements ActionListener, ItemListener, Observer {
 	/**
@@ -36,6 +41,7 @@ public class GameFrame extends JFrame implements ActionListener, ItemListener, O
 
 	private JComboBox<String> box;
 	private String[] backgrounds;
+	private ArrayList<ImageIcon> abilityIcons;
 
 	JLabel helmData;
 	JLabel bodyData;
@@ -85,22 +91,22 @@ public class GameFrame extends JFrame implements ActionListener, ItemListener, O
 
 		this.setUpData();
 
-		JLabel helmIcon = new JLabel(new ImageIcon("res/images/Helmet_stat_icon.png"));
-		JLabel bodyIcon = new JLabel(new ImageIcon("res/images/Armor_stat_icon.png"));
-		JLabel hpIcon = new JLabel(new ImageIcon("res/images/Health.png"));
-		JLabel apIcon = new JLabel(new ImageIcon("res/images/Action_points.png"));
-		JLabel fatIcon = new JLabel(new ImageIcon("res/images/Fatigue.png"));
-		JLabel morIcon = new JLabel(new ImageIcon("res/images/Morale_state.png"));
-		JLabel resIcon = new JLabel(new ImageIcon("res/images/Resolve.png"));
-		JLabel initIcon = new JLabel(new ImageIcon("res/images/Initiative.png"));
-		JLabel mSkIcon = new JLabel(new ImageIcon("res/images/Melee_skill.png"));
-		JLabel rSkIcon = new JLabel(new ImageIcon("res/images/Ranged_skill.png"));
-		JLabel mDefIcon = new JLabel(new ImageIcon("res/images/Melee_defense.png"));
-		JLabel rDefIcon = new JLabel(new ImageIcon("res/images/Ranged_defense.png"));
-		JLabel damIcon = new JLabel(new ImageIcon("res/images/Regular_damage.png"));
-		JLabel armDamIcon = new JLabel(new ImageIcon("res/images/Armor_damage.png"));
-		JLabel hsIcon = new JLabel(new ImageIcon("res/images/Chance_to_hit_head.png"));
-		JLabel visIcon = new JLabel(new ImageIcon("res/images/Vision.png"));
+		JLabel helmIcon = new JLabel(new ImageIcon("res/images/Attributes/Helmet_stat_icon.png"));
+		JLabel bodyIcon = new JLabel(new ImageIcon("res/images/Attributes/Armor_stat_icon.png"));
+		JLabel hpIcon = new JLabel(new ImageIcon("res/images/Attributes/Health.png"));
+		JLabel apIcon = new JLabel(new ImageIcon("res/images/Attributes/Action_points.png"));
+		JLabel fatIcon = new JLabel(new ImageIcon("res/images/Attributes/Fatigue.png"));
+		JLabel morIcon = new JLabel(new ImageIcon("res/images/Attributes/Morale_state.png"));
+		JLabel resIcon = new JLabel(new ImageIcon("res/images/Attributes/Resolve.png"));
+		JLabel initIcon = new JLabel(new ImageIcon("res/images/Attributes/Initiative.png"));
+		JLabel mSkIcon = new JLabel(new ImageIcon("res/images/Attributes/Melee_skill.png"));
+		JLabel rSkIcon = new JLabel(new ImageIcon("res/images/Attributes/Ranged_skill.png"));
+		JLabel mDefIcon = new JLabel(new ImageIcon("res/images/Attributes/Melee_defense.png"));
+		JLabel rDefIcon = new JLabel(new ImageIcon("res/images/Attributes/Ranged_defense.png"));
+		JLabel damIcon = new JLabel(new ImageIcon("res/images/Attributes/Regular_damage.png"));
+		JLabel armDamIcon = new JLabel(new ImageIcon("res/images/Attributes/Armor_damage.png"));
+		JLabel hsIcon = new JLabel(new ImageIcon("res/images/Attributes/Chance_to_hit_head.png"));
+		JLabel visIcon = new JLabel(new ImageIcon("res/images/Attributes/Vision.png"));
 
 		createLayout(helmIcon, helmData, bodyIcon, bodyData, hpIcon, hpData, apIcon, apData, fatIcon, fatData, morIcon,
 				morData, resIcon, resData, initIcon, initData, mSkIcon, mSkData, rSkIcon, rSkData, mDefIcon, mDefData,
@@ -200,6 +206,10 @@ public class GameFrame extends JFrame implements ActionListener, ItemListener, O
 		this.armDamData.setText(tba.getIm().getRight().getArmorDamage());
 		this.hsData.setText(tba.getAm().getAttribute("headshot").toString() + "%");
 		this.visData.setText(tba.getAm().getAttribute("vision").toString());
+		
+		this.abilityIcons.clear();
+		
+		tba.getAbm().getAbilities().forEach(a -> this.abilityIcons.add(a.getImage()));
 	}
 
 	@Override
