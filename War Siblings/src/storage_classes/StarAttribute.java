@@ -61,7 +61,7 @@ public class StarAttribute extends Attribute {
 		return this.numStars;
 	}
 
-	public String toString() {
+	public String toStringFull() {
 		String temp = "" + ((Double) this.alteredMaxValue).intValue();
 		if (this.numStars > 0) {
 			temp += " and has " + this.numStars + " stars";

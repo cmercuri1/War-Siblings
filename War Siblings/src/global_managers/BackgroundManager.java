@@ -35,6 +35,14 @@ public class BackgroundManager extends BaseGlobalManager {
 		return this.bgList;
 	}
 
+	public String[] getBgNames() {
+		ArrayList<String> bgNames = new ArrayList<String>();
+		bgNames.add("Please select");
+		this.bgList.forEach(b -> bgNames.add(b.getBackground()));
+		String[] temp = new String[this.bgList.size()];
+		return bgNames.toArray(temp);
+	}
+
 	/** getRandomBackground: retrieves a random background from list */
 	public BackgroundGenerator getRandomBackground() {
 		return this.bgList.get(GlobalManager.rng.nextInt(this.bgList.size()));

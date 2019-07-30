@@ -37,10 +37,10 @@ public class InventoryManager extends GenericObservee implements Observer {
 	public InventoryManager(Observer o) {
 		this.setUpObservers();
 		this.registerObserver(o);
-		this.body = GlobalManager.bodyArmors.DEFAULT;
-		this.head = GlobalManager.headgears.DEFAULT;
-		this.right = GlobalManager.weapons.DEFAULT;
-		this.left = GlobalManager.weapons.DEFAULT;
+		this.body = GlobalManager.equipment.getBody().DEFAULT;
+		this.head = GlobalManager.equipment.getHead().DEFAULT;
+		this.right = GlobalManager.equipment.DEFAULT;
+		this.left = GlobalManager.equipment.DEFAULT;
 
 		this.bag = new ArrayList<EquipItem>();
 
@@ -163,7 +163,7 @@ public class InventoryManager extends GenericObservee implements Observer {
 	 */
 	public void swap2Hander(EquipItem next) {
 		if (this.left != null) {
-			this.swap1Hander(arm.LEFT, GlobalManager.weapons.DEFAULT);
+			this.swap1Hander(arm.LEFT, GlobalManager.equipment.DEFAULT);
 		}
 		this.swap1Hander(arm.RIGHT, next);
 	}
@@ -175,7 +175,7 @@ public class InventoryManager extends GenericObservee implements Observer {
 			temp = this.bag.remove(index);
 			this.bag.add(index, next);
 		} catch (IndexOutOfBoundsException e) {
-			temp = GlobalManager.weapons.DEFAULT;
+			temp = GlobalManager.equipment.DEFAULT;
 			this.bag.add(next);
 		}
 		this.weighedDown(temp, next);
@@ -241,19 +241,19 @@ public class InventoryManager extends GenericObservee implements Observer {
 	public void display() {
 		System.out.println("Inventory:");
 
-		if (!this.head.equals(GlobalManager.headgears.DEFAULT)) {
+		if (!this.head.equals(GlobalManager.equipment.getHead().DEFAULT)) {
 			System.out.println("Head:");
 			this.head.display();
 		}
-		if (!this.body.equals(GlobalManager.bodyArmors.DEFAULT)) {
+		if (!this.body.equals(GlobalManager.equipment.getBody().DEFAULT)) {
 			System.out.println("Body:");
 			this.body.display();
 		}
-		if (!this.right.equals(GlobalManager.weapons.DEFAULT)) {
+		if (!this.right.equals(GlobalManager.equipment.DEFAULT)) {
 			System.out.println("Right:");
 			this.right.display();
 		}
-		if (!this.left.equals(GlobalManager.weapons.DEFAULT)) {
+		if (!this.left.equals(GlobalManager.equipment.DEFAULT)) {
 			System.out.println("Left:");
 			this.left.display();
 		}
@@ -276,25 +276,25 @@ public class InventoryManager extends GenericObservee implements Observer {
 				this.swapBody((Armor) event.getInformation());
 				break;
 			case REMOVE_BODY:
-				this.swapBody(GlobalManager.bodyArmors.DEFAULT);
+				this.swapBody(GlobalManager.equipment.getBody().DEFAULT);
 				break;
 			case CHANGE_HEAD:
 				this.swapHead((Headgear) event.getInformation());
 				break;
 			case REMOVE_HEAD:
-				this.swapHead(GlobalManager.headgears.DEFAULT);
+				this.swapHead(GlobalManager.equipment.getHead().DEFAULT);
 				break;
 			case CHANGE_LEFT:
 				this.swapItem(arm.LEFT, (EquipItem) event.getInformation());
 				break;
 			case REMOVE_LEFT:
-				this.swapItem(arm.LEFT, GlobalManager.weapons.DEFAULT);
+				this.swapItem(arm.LEFT, GlobalManager.equipment.DEFAULT);
 				break;
 			case CHANGE_RIGHT:
 				this.swapItem(arm.RIGHT, (EquipItem) event.getInformation());
 				break;
 			case REMOVE_RIGHT:
-				this.swapItem(arm.RIGHT, GlobalManager.weapons.DEFAULT);
+				this.swapItem(arm.RIGHT, GlobalManager.equipment.DEFAULT);
 				break;
 			default:
 				break;

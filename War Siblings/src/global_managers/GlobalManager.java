@@ -12,12 +12,9 @@ import java.util.Random;
  * statically
  */
 public class GlobalManager {
-	public static BackgroundManager characters;
-	public static BodyArmorManager bodyArmors;
+	public static BackgroundManager backgrounds;
 	public static EffectManager effects;
-	public static HeadgearManager headgears;
-	public static ShieldManager shields;
-	public static WeaponManager weapons;
+	public static EquipmentManager equipment;
 	public static TraitManager traits;
 	public static ExperienceManager xp;
 	public static MoraleAbilityManager morale;
@@ -32,16 +29,13 @@ public class GlobalManager {
 	static {
 		effects = new EffectManager();
 		xp = new ExperienceManager();
-		bodyArmors = new BodyArmorManager();
-		headgears = new HeadgearManager();
-		shields = new ShieldManager();
-		weapons = new WeaponManager();
 		traits = new TraitManager();
+		equipment = new EquipmentManager();
 		morale = new MoraleAbilityManager();
 		tempInjury = new TemporyInjuryManager();
 		permInjury = new PerminentInjuryManager();
 		moods = new MoodManager();
-		characters = new BackgroundManager();
+		backgrounds = new BackgroundManager();
 
 		rng = new Random();
 	}

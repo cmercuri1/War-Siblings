@@ -45,4 +45,8 @@ public class DurAttribute extends Attribute {
 		return this.alteredCurrentValue;
 	}
 
+	public String toString() {
+		return ((Double) this.alteredCurrentValue).intValue() + "/" + ((Double) this.alteredMaxValue).intValue();
+	}
+
 }

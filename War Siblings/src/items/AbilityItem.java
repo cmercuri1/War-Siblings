@@ -23,7 +23,6 @@ public class AbilityItem extends EquipItem {
 	}
 
 	/* Getters */
-
 	public ArrayList<Ability> getAbilityList() {
 		return this.abilityList;
 	}

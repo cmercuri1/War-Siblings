@@ -49,6 +49,7 @@ public class MoraleManager extends GenericObservee implements Observer {
 		this.isIrrational = false;
 		this.isInsecure = false;
 		this.isDetermined = false;
+		this.changeState(MoraleState.STEADY);
 	}
 
 	/** Needs to be called after abilities are set up */

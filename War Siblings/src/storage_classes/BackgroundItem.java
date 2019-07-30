@@ -23,19 +23,19 @@ public class BackgroundItem {
 	private Item setUpItem(String itemName) {
 		Item temp;
 
-		temp = GlobalManager.bodyArmors.getBodyArmor(itemName);
+		temp = GlobalManager.equipment.getBody().getBodyArmor(itemName);
 		if (temp != null) {
 			return temp;
 		}
-		temp = GlobalManager.headgears.getHeadArmor(itemName);
+		temp = GlobalManager.equipment.getHead().getHeadArmor(itemName);
 		if (temp != null) {
 			return temp;
 		}
-		temp = GlobalManager.shields.getShield(itemName);
+		temp = GlobalManager.equipment.getShield().getShield(itemName);
 		if (temp != null) {
 			return temp;
 		}
-		temp = GlobalManager.weapons.getWeapon(itemName);
+		temp = GlobalManager.equipment.getWeapon().getWeapon(itemName);
 		if (temp != null) {
 			return temp;
 		}

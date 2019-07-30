@@ -19,7 +19,7 @@ public class BarAttribute extends Attribute {
 	public void alterCurrent(double value) {
 		this.alteredCurrentValue += value;
 		this.currentChecker();
-		Object[] temp = {this, this.alteredCurrentValue};
+		Object[] temp = { this, this.alteredCurrentValue };
 		this.notifyObservers(new EventObject(Target.ATTRIBUTE, EventType.UPDATE, temp, null));
 	}
 
@@ -40,7 +40,11 @@ public class BarAttribute extends Attribute {
 	}
 
 	public String toString() {
-		String temp = ((Double) this.alteredCurrentValue).intValue() + "/" + ((Double) this.alteredMaxValue).intValue();
-		return temp + this.stringModifiers();
+		return ((Double) this.alteredCurrentValue).intValue() + "/" + ((Double) this.alteredMaxValue).intValue();
+	}
+
+	public String toStringFull() {
+		return ((Double) this.alteredCurrentValue).intValue() + "/" + ((Double) this.alteredMaxValue).intValue()
+				+ this.stringModifiers();
 	}
 }

@@ -23,6 +23,13 @@ public class EquipItem extends Item {
 	}
 
 	/* Getters */
+	public String getDamage() {
+		return "0 - 0";
+	}
+	
+	public String getArmorDamage() {
+		return "50%";
+	}
 
 	public DurAttribute getDurability() {
 		return this.durability;
