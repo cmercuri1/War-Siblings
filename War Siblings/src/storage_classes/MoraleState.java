@@ -12,7 +12,8 @@ import java.util.Map;
  * morale can be in, is then used to get relevant morale ability information
  */
 public enum MoraleState {
-	FLEEING(0), BREAKING(1), WAVERING(2), STEADY(3), CONFIDENT(4), UNBREAKABLE(999);
+	FLEEING(0, "Fleeing"), BREAKING(1, "Breaking"), WAVERING(2, "Wavering"), STEADY(3, "Steady"),
+	CONFIDENT(4, "Confident"), UNBREAKABLE(999, "Unbreakable");
 
 	private static final Map<Integer, MoraleState> BY_VALUE = new HashMap<>();
 
@@ -23,9 +24,11 @@ public enum MoraleState {
 	}
 
 	private final int value;
+	private final String displayForm;
 
-	private MoraleState(int value) {
+	private MoraleState(int value, String disForm) {
 		this.value = value;
+		this.displayForm = disForm;
 	}
 
 	public int getValue() {
@@ -34,5 +37,9 @@ public enum MoraleState {
 
 	public static MoraleState valueOfMoraleValue(int value) {
 		return BY_VALUE.get(value);
+	}
+
+	public String toString() {
+		return this.displayForm;
 	}
 }

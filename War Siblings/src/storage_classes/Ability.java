@@ -55,6 +55,10 @@ public class Ability {
 	protected void setImage() {
 		//TODO
 	}
+	
+	public void setImage(ImageIcon img) {
+		this.image = img;
+	}
 
 	public String getName() {
 		return this.name;

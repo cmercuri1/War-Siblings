@@ -30,10 +30,6 @@ public class InventoryManager extends GenericObservee implements Observer {
 	private EquipItem left;
 	private ArrayList<EquipItem> bag;
 
-	private enum arm {
-		LEFT, RIGHT
-	};
-
 	public InventoryManager(Observer o) {
 		this.setUpObservers();
 		this.registerObserver(o);
@@ -43,7 +39,8 @@ public class InventoryManager extends GenericObservee implements Observer {
 		this.left = GlobalManager.equipment.DEFAULT;
 
 		this.bag = new ArrayList<EquipItem>();
-
+		this.bag.add(GlobalManager.equipment.DEFAULT);
+		this.bag.add(GlobalManager.equipment.DEFAULT);
 	}
 
 	public void setUpInventory(BackgroundGenerator bg) {
@@ -73,7 +70,7 @@ public class InventoryManager extends GenericObservee implements Observer {
 		for (BackgroundItem i : bg.getRightOptions()) {
 			if (roll <= i.getChanceToGet()) {
 				if (i.getItem() != null) {
-					this.swapItem(arm.RIGHT, (EquipItem) i.getItem());
+					this.swapItem(this.right, (EquipItem) i.getItem());
 					if (i.getItem().getName().contains("Bow") || i.getItem().getName().contains("Crossbow")) {
 						// TODO GIVE QUIVER
 					}
@@ -89,7 +86,7 @@ public class InventoryManager extends GenericObservee implements Observer {
 			for (BackgroundItem i : bg.getLeftOptions()) {
 				if (roll <= i.getChanceToGet()) {
 					if (i.getItem() != null)
-						this.swapItem(arm.LEFT, (EquipItem) i.getItem());
+						this.swapItem(this.left, (EquipItem) i.getItem());
 					break;
 				} else {
 					roll -= i.getChanceToGet();
@@ -101,7 +98,6 @@ public class InventoryManager extends GenericObservee implements Observer {
 		for (BackgroundItem i : bg.getBackPackOptions()) {
 			if (roll <= i.getChanceToGet()) {
 				if (i.getItem() != null)
-					System.out.println("adding " + i.getItem().getName() + " to bag");
 				this.swapBagItem((EquipItem) i.getItem(), 0);
 				break;
 			} else {
@@ -126,12 +122,12 @@ public class InventoryManager extends GenericObservee implements Observer {
 		this.notifyObservers(new EventObject(Target.CHARACTER, EventType.RETURN_INVENTORY, temp, null));
 	}
 
-	public void swapItem(arm arm, EquipItem next) {
+	public void swapItem(EquipItem target, EquipItem next) {
 		if ((next instanceof Weapon) && ((Weapon) next).isTwoHanded()) {
 			this.swap2Hander(next);
 			return;
 		} else {
-			this.swap1Hander(arm, next);
+			this.swap1Hander(target, next);
 			return;
 		}
 	}
@@ -140,19 +136,11 @@ public class InventoryManager extends GenericObservee implements Observer {
 	 * Replaces current equipped right item (shield, weapon, etc) with new one,
 	 * returns old right item
 	 */
-	public void swap1Hander(arm arm, EquipItem next) {
-		EquipItem temp = null;
-		switch (arm) {
-		case LEFT:
-			temp = this.left;
-			this.left = next;
-			break;
-		case RIGHT:
-			temp = this.right;
-			this.right = next;
-			break;
-		}
+	public void swap1Hander(EquipItem target, EquipItem next) {
+		EquipItem temp = target;
+		target = next;
 		this.weighedDown(temp, next);
+
 		this.isDualGripping();
 		this.notifyObservers(new EventObject(Target.CHARACTER, EventType.RETURN_INVENTORY, temp, null));
 	}
@@ -163,21 +151,16 @@ public class InventoryManager extends GenericObservee implements Observer {
 	 */
 	public void swap2Hander(EquipItem next) {
 		if (this.left != null) {
-			this.swap1Hander(arm.LEFT, GlobalManager.equipment.DEFAULT);
+			this.swap1Hander(this.left, GlobalManager.equipment.DEFAULT);
 		}
-		this.swap1Hander(arm.RIGHT, next);
+		this.swap1Hander(this.right, next);
 	}
 
 	/** Replaces item in bag, returns replaced item */
 	public void swapBagItem(EquipItem next, int index) {
-		EquipItem temp;
-		try {
-			temp = this.bag.remove(index);
-			this.bag.add(index, next);
-		} catch (IndexOutOfBoundsException e) {
-			temp = GlobalManager.equipment.DEFAULT;
-			this.bag.add(next);
-		}
+		EquipItem temp = this.bag.remove(index);
+		this.bag.add(index, next);
+
 		this.weighedDown(temp, next);
 		this.notifyObservers(new EventObject(Target.CHARACTER, EventType.RETURN_INVENTORY, temp, null));
 	}
@@ -260,7 +243,7 @@ public class InventoryManager extends GenericObservee implements Observer {
 		if (!this.bag.isEmpty()) {
 			System.out.println("Bag:");
 			for (EquipItem a : this.bag) {
-				if (a != null)
+				if (!a.equals(GlobalManager.equipment.DEFAULT))
 					a.display();
 
 			}
@@ -285,16 +268,16 @@ public class InventoryManager extends GenericObservee implements Observer {
 				this.swapHead(GlobalManager.equipment.getHead().DEFAULT);
 				break;
 			case CHANGE_LEFT:
-				this.swapItem(arm.LEFT, (EquipItem) event.getInformation());
+				this.swapItem(this.left, (EquipItem) event.getInformation());
 				break;
 			case REMOVE_LEFT:
-				this.swapItem(arm.LEFT, GlobalManager.equipment.DEFAULT);
+				this.swapItem(this.left, GlobalManager.equipment.DEFAULT);
 				break;
 			case CHANGE_RIGHT:
-				this.swapItem(arm.RIGHT, (EquipItem) event.getInformation());
+				this.swapItem(this.right, (EquipItem) event.getInformation());
 				break;
 			case REMOVE_RIGHT:
-				this.swapItem(arm.RIGHT, GlobalManager.equipment.DEFAULT);
+				this.swapItem(this.right, GlobalManager.equipment.DEFAULT);
 				break;
 			default:
 				break;

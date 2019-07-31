@@ -24,12 +24,15 @@ import storage_classes.Trait;
  * from items, traits or from level abilities
  */
 public class AbilityManager extends GenericObservee implements Observer {
+	private ArrayList<Trait> characterTraits;
 	private ArrayList<Ability> characterAbilities;
+
 	private ArrayList<PerminentInjury> permaInjuries;
 	private ArrayList<TemporaryInjury> tempInjuries;
 
 	public AbilityManager(Observer o) {
 		this.characterAbilities = new ArrayList<Ability>();
+		this.characterTraits = new ArrayList<Trait>();
 		this.permaInjuries = new ArrayList<PerminentInjury>();
 		this.tempInjuries = new ArrayList<TemporaryInjury>();
 
@@ -39,7 +42,10 @@ public class AbilityManager extends GenericObservee implements Observer {
 
 	public void setUpAbilities(BackgroundGenerator background) {
 		if (background.getBgAbility() != null) {
-			this.addAbility(background.getBgAbility());
+			Ability temp = background.getBgAbility();
+			temp.setImage(background.getBgIcon());
+			this.addAbility(temp);
+
 		}
 		this.traitDetermining(background.getExcludedTraits());
 	}
@@ -58,7 +64,7 @@ public class AbilityManager extends GenericObservee implements Observer {
 			if (GlobalManager.d100Roll() < 51) {
 				int pos = GlobalManager.rng.nextInt(temp.size());
 				Trait sel = temp.get(pos);
-				this.addAbility(sel);
+				this.addTrait(sel);
 				temp.remove(sel);
 				if (!sel.getMutalExcl().isEmpty()) {
 					for (String s : sel.getMutalExcl()) {
@@ -69,8 +75,21 @@ public class AbilityManager extends GenericObservee implements Observer {
 		}
 	}
 
+	public Ability getAbility(String abilityName) {
+		for (Ability a : this.characterAbilities) {
+			if (a.getName().equals(abilityName)) {
+				return a;
+			}
+		}
+		return null;
+	}
+
 	public ArrayList<Ability> getAbilities() {
 		return this.characterAbilities;
+	}
+
+	public ArrayList<Trait> getTraits() {
+		return this.characterTraits;
 	}
 
 	public void sufferTemporaryInjury(TemporaryInjury injury) {
@@ -99,9 +118,19 @@ public class AbilityManager extends GenericObservee implements Observer {
 		this.notifyOtherManagers(EventType.ADD, ability);
 	}
 
+	public void addTrait(Trait trait) {
+		this.characterTraits.add(trait);
+		this.notifyOtherManagers(EventType.ADD, trait);
+	}
+
 	public void removeAbility(Ability ability) {
 		if (this.characterAbilities.remove(ability))
 			this.notifyOtherManagers(EventType.REMOVE, ability);
+	}
+
+	public void removeTrait(Trait trait) {
+		if (this.characterAbilities.remove(trait))
+			this.notifyOtherManagers(EventType.REMOVE, trait);
 	}
 
 	public void removeAbility(String abilityName) {
