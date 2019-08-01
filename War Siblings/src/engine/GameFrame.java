@@ -19,11 +19,9 @@ import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 
 import static javax.swing.GroupLayout.Alignment.*;
-import static javax.swing.SwingConstants.*;
 import static javax.swing.LayoutStyle.ComponentPlacement.*;
 
 import character.Character;
@@ -40,7 +38,6 @@ public class GameFrame extends JFrame implements ActionListener, ItemListener, O
 	private Character character;
 
 	private JComboBox<String> box;
-	private String[] backgrounds;
 
 	JLabel helm;
 	JLabel body;
@@ -62,6 +59,7 @@ public class GameFrame extends JFrame implements ActionListener, ItemListener, O
 	JLabel bgIcon;
 	JLabel trait1;
 	JLabel trait2;
+	JLabel trait3;
 
 	public static void main(String[] args) {
 
@@ -83,9 +81,7 @@ public class GameFrame extends JFrame implements ActionListener, ItemListener, O
 		JLabel charSpec = new JLabel("Specify a Background:");
 		this.message = "Character";
 
-		backgrounds = GlobalManager.backgrounds.getBgNames();
-
-		box = new JComboBox<>(backgrounds);
+		box = new JComboBox<>(GlobalManager.backgrounds.getBgNames());
 		box.addItemListener(this);
 
 		JButton newCharButton = new JButton("New Character");
@@ -95,7 +91,7 @@ public class GameFrame extends JFrame implements ActionListener, ItemListener, O
 		this.setUpData();
 
 		createLayout(helm, body, hp, ap, fat, mor, res, init, mSk, rSk, mDef, rDef, dam, armDam, hs, vis, charSpec, box,
-				newCharButton, bgIcon, trait1, trait2);
+				newCharButton, bgIcon, trait1, trait2, trait3);
 
 		setTitle("War Siblings");
 		setSize(800, 600);
@@ -214,6 +210,7 @@ public class GameFrame extends JFrame implements ActionListener, ItemListener, O
 		this.bgIcon = new JLabel();
 		this.trait1 = new JLabel();
 		this.trait2 = new JLabel();
+		this.trait3 = new JLabel();
 	}
 
 	private void createLayout(JComponent... arg) {
@@ -225,7 +222,8 @@ public class GameFrame extends JFrame implements ActionListener, ItemListener, O
 		gl.setAutoCreateGaps(true);
 
 		gl.setHorizontalGroup(gl.createSequentialGroup()
-				.addGroup(gl.createSequentialGroup().addComponent(arg[19]).addComponent(arg[20]).addComponent(arg[21]))
+				.addComponent(arg[19]).addComponent(arg[20]).addComponent(arg[21])
+						.addComponent(arg[22])
 				.addGroup(gl.createParallelGroup().addComponent(arg[0]).addComponent(arg[1]).addComponent(arg[2])
 						.addComponent(arg[3]).addComponent(arg[4]).addComponent(arg[5]).addComponent(arg[6])
 						.addComponent(arg[7]))
@@ -237,15 +235,15 @@ public class GameFrame extends JFrame implements ActionListener, ItemListener, O
 		gl.setVerticalGroup(
 				gl.createSequentialGroup()
 						.addGroup(gl.createParallelGroup(BASELINE).addComponent(arg[19]).addComponent(arg[20])
-								.addComponent(arg[21]))
-						.addGroup(gl.createParallelGroup(BASELINE).addComponent(arg[0]).addComponent(arg[8]))
-						.addGroup(gl.createParallelGroup(BASELINE).addComponent(arg[1]).addComponent(arg[9]))
-						.addGroup(gl.createParallelGroup(BASELINE).addComponent(arg[2]).addComponent(arg[10]))
-						.addGroup(gl.createParallelGroup(BASELINE).addComponent(arg[3]).addComponent(arg[11]))
-						.addGroup(gl.createParallelGroup(BASELINE).addComponent(arg[4]).addComponent(arg[12]))
-						.addGroup(gl.createParallelGroup(BASELINE).addComponent(arg[5]).addComponent(arg[13]))
-						.addGroup(gl.createParallelGroup(BASELINE).addComponent(arg[6]).addComponent(arg[14]))
-						.addGroup(gl.createParallelGroup(BASELINE).addComponent(arg[7]).addComponent(arg[15]))
+								.addComponent(arg[21]).addComponent(arg[22]))
+						.addGroup(gl.createParallelGroup(LEADING).addComponent(arg[0]).addComponent(arg[8]))
+						.addGroup(gl.createParallelGroup(LEADING).addComponent(arg[1]).addComponent(arg[9]))
+						.addGroup(gl.createParallelGroup(LEADING).addComponent(arg[2]).addComponent(arg[10]))
+						.addGroup(gl.createParallelGroup(LEADING).addComponent(arg[3]).addComponent(arg[11]))
+						.addGroup(gl.createParallelGroup(LEADING).addComponent(arg[4]).addComponent(arg[12]))
+						.addGroup(gl.createParallelGroup(LEADING).addComponent(arg[5]).addComponent(arg[13]))
+						.addGroup(gl.createParallelGroup(LEADING).addComponent(arg[6]).addComponent(arg[14]))
+						.addGroup(gl.createParallelGroup(LEADING).addComponent(arg[7]).addComponent(arg[15]))
 						.addPreferredGap(RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 						.addGroup(gl
 								.createSequentialGroup().addComponent(arg[16]).addComponent(arg[17],
@@ -273,20 +271,35 @@ public class GameFrame extends JFrame implements ActionListener, ItemListener, O
 		this.hs.setText(tba.getAm().getAttribute("headshot").toString() + "%");
 		this.vis.setText(tba.getAm().getAttribute("vision").toString());
 
-		if (tba.getAbm().getAbility("Background Ability") != null) {
-			this.bgIcon.setIcon(tba.getAbm().getAbilities().get(0).getImage());
-		} else {
-			this.bgIcon.setIcon(null);
+		this.bgIcon.setIcon(tba.getBgIcon());
+		this.trait1.setIcon(null);
+		this.trait2.setIcon(null);
+		this.trait3.setIcon(null);
+		
+		try {
+			this.trait1.setIcon(tba.getAbm().getTraits().get(0).getImage());
+		} catch (IndexOutOfBoundsException e) {
 		}
-
+		try {
+			this.trait2.setIcon(tba.getAbm().getTraits().get(1).getImage());
+		} catch (IndexOutOfBoundsException e) {
+		}
+		try {
+			this.trait3.setIcon(tba.getAbm().getTraits().get(2).getImage());
+		} catch (IndexOutOfBoundsException e) {
+		}
+		tba.display();
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		JOptionPane.showMessageDialog(this, "New " + message + "!", "Information", JOptionPane.INFORMATION_MESSAGE);
+		// JOptionPane.showMessageDialog(this, "New " + message + "!", "Information",
+		// JOptionPane.INFORMATION_MESSAGE);
 		if (message.equals("Character")) {
+			this.character = null;
 			this.character = new Character(this);
 		} else {
+			this.character = null;
 			this.character = new Character(message, this);
 		}
 	}
@@ -294,7 +307,7 @@ public class GameFrame extends JFrame implements ActionListener, ItemListener, O
 	@Override
 	public void itemStateChanged(ItemEvent e) {
 		if (e.getStateChange() == ItemEvent.SELECTED) {
-			if (e.getItem().toString().equals("Please select")) {
+			if (e.getItem().toString().equals("Random")) {
 				this.message = "Character";
 			} else {
 				this.message = e.getItem().toString();

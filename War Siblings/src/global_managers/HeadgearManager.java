@@ -35,7 +35,8 @@ public class HeadgearManager extends BaseGlobalManager {
 	/* Getters */
 
 	public ArrayList<Headgear> getHelmList() {
-		return this.helmList;
+		ArrayList<Headgear> temp = new ArrayList<>(this.helmList);
+		return temp;
 	}
 
 	/** getHeadArmor: gets a particular Headgear by name; */

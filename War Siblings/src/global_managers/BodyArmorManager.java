@@ -34,7 +34,8 @@ public class BodyArmorManager extends BaseGlobalManager {
 	/* Getters */
 
 	public ArrayList<Armor> getArmorList() {
-		return this.armorList;
+		ArrayList<Armor> temp = new ArrayList<>(this.armorList);
+		return temp;
 	}
 
 	/** getBodyArmor: retrieves a particular body armor by name */

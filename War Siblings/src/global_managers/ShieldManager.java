@@ -41,7 +41,8 @@ public class ShieldManager extends BaseGlobalManager {
 	/* Getters */
 
 	public ArrayList<Shield> getShieldList() {
-		return this.shieldList;
+		ArrayList<Shield> temp = new ArrayList<>(this.shieldList);
+		return temp;
 	}
 
 	/** getShield: gets a particular shield */

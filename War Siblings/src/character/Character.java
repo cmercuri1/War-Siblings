@@ -4,6 +4,8 @@
  */
 package character;
 
+import javax.swing.ImageIcon;
+
 import event_classes.EventObject;
 import event_classes.EventType;
 import event_classes.GenericObservee;
@@ -20,6 +22,7 @@ public class Character extends GenericObservee implements Observer {
 	private String charName;
 	private String charTitle;
 	private String backgroundName;
+	private ImageIcon bgIcon;
 
 	// Single Attribute manager handles attributes
 	private AttributeManager am;
@@ -40,6 +43,7 @@ public class Character extends GenericObservee implements Observer {
 
 	private void generalSetUp(BackgroundGenerator bg, Observer o) {
 		this.backgroundName = bg.getBackground();
+		this.bgIcon = new ImageIcon("res/images/Backgrounds/" + this.backgroundName + ".png");
 		this.setUpObservers();
 		this.observerObjects.add(o);
 
@@ -124,6 +128,10 @@ public class Character extends GenericObservee implements Observer {
 		return this.backgroundName;
 	}
 
+	public ImageIcon getBgIcon() {
+		return this.bgIcon;
+	}
+
 	public AttributeManager getAm() {
 		return this.am;
 	}
@@ -144,7 +152,7 @@ public class Character extends GenericObservee implements Observer {
 		return this.bm;
 	}
 
-	public void display() {
+	public void display() {		
 		System.out.println("New Character!");
 		System.out.println("Background is " + this.backgroundName);
 

@@ -20,6 +20,11 @@ public class DurAttribute extends Attribute {
 		this.originalCurrentValue = this.originalMaxValue;
 		this.alteredCurrentValue = this.originalCurrentValue;
 	}
+
+	public void updateAltered() {
+		super.updateAltered();
+		this.currentChecker();
+	}
 	
 	public void alterItem(double value) {
 		this.alteredCurrentValue += value;

@@ -196,22 +196,22 @@ public class AttributeManager extends GenericObservee implements Observer {
 
 		System.out.println("This character has:");
 
-		System.out.println("Hitpoints: " + this.hitpointManager.toString());
-		System.out.println("Fatigue: " + this.fatigueManager.toString());
-		System.out.println("Resolve: " + this.resolveManager.toString());
-		System.out.println("Initiative: " + this.initiativeManager.toString());
-		System.out.println("Melee Skill: " + this.meleeSkillManager.toString());
-		System.out.println("Ranged Skill: " + this.rangedSkillManager.toString());
-		System.out.println("Melee Defense: " + this.meleeDefenseManager.toString());
-		System.out.println("Ranged Defense: " + this.rangedDefenseManager.toString());
+		System.out.println("Hitpoints: " + this.hitpointManager.toStringFull());
+		System.out.println("Fatigue: " + this.fatigueManager.toStringFull());
+		System.out.println("Resolve: " + this.resolveManager.toStringFull());
+		System.out.println("Initiative: " + this.initiativeManager.toStringFull());
+		System.out.println("Melee Skill: " + this.meleeSkillManager.toStringFull());
+		System.out.println("Ranged Skill: " + this.rangedSkillManager.toStringFull());
+		System.out.println("Melee Defense: " + this.meleeDefenseManager.toStringFull());
+		System.out.println("Ranged Defense: " + this.rangedDefenseManager.toStringFull());
 		System.out.println();
-		System.out.println("Wage of " + this.wageManager.toString());
-		System.out.println("Consumes " + this.foodManager.toString());
-		System.out.println("Action points: " + this.actionPointsManager.toString());
-		System.out.println("% Chance to hit head: " + this.headshotManager.toString());
-		System.out.println("Points of Fatigue Regained each Turn: " + this.fatigueRegManager.toString());
-		System.out.println("Tiles of Vision: " + this.visionManager.toString());
-		System.out.println("Experience Rate is " + this.xpRateManager.toString());
+		System.out.println("Wage of " + this.wageManager.toStringFull());
+		System.out.println("Consumes " + this.foodManager.toStringFull());
+		System.out.println("Action points: " + this.actionPointsManager.toStringFull());
+		System.out.println("% Chance to hit head: " + this.headshotManager.toStringFull());
+		System.out.println("Points of Fatigue Regained each Turn: " + this.fatigueRegManager.toStringFull());
+		System.out.println("Tiles of Vision: " + this.visionManager.toStringFull());
+		System.out.println("Experience Rate is " + this.xpRateManager.toStringFull());
 
 		System.out.println();
 	}

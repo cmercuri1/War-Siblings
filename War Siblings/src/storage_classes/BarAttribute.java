@@ -15,6 +15,11 @@ public class BarAttribute extends Attribute {
 	public BarAttribute(double value, Observer o) {
 		super(value, o);
 	}
+	
+	public void updateAltered() {
+		super.updateAltered();
+		this.currentChecker();
+	}
 
 	public void alterCurrent(double value) {
 		this.alteredCurrentValue += value;

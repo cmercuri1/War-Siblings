@@ -37,7 +37,8 @@ public class EffectManager extends BaseGlobalManager {
 	/* Getters */
 
 	public ArrayList<Effect> getEffectList() {
-		return this.effectList;
+		ArrayList<Effect> temp = new ArrayList<>(this.effectList);
+		return temp;
 	}
 
 	/** search: finds and returns the effect by its name */

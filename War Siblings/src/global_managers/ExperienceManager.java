@@ -35,7 +35,8 @@ public class ExperienceManager extends BaseGlobalManager {
 	/* Getters */
 
 	public ArrayList<XPLevel> getXpList() {
-		return this.xpList;
+		ArrayList<XPLevel> temp = new ArrayList<>(this.xpList);
+		return temp;
 	}
 
 	/** getCurrLevel: gets the correct XPLevel object for the current level */

@@ -23,6 +23,11 @@ public class BarStarAttribute extends StarAttribute {
 		super(value, lMin, o);
 	}
 
+	public void updateAltered() {
+		super.updateAltered();
+		this.currentChecker();
+	}
+	
 	public void alterCurrent(double value) {
 		this.alteredCurrentValue += value;
 		this.currentChecker();

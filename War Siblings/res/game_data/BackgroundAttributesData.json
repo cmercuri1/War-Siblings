@@ -1590,7 +1590,7 @@
 			"Background Ability": ""
 		},
 		{
-			"Name": "Eunich",
+			"Name": "Eunuch",
 			"Hitpoints": [
 				0,
 				0
@@ -3520,7 +3520,7 @@
 			"Background Ability": ""
 		},
 		{
-			"Name": "Minstel",
+			"Name": "Minstrel",
 			"Hitpoints": [
 				-5,
 				-3

@@ -136,6 +136,7 @@ public class BackgroundGenerator extends BaseWarriorGenerator {
 				JSONObject ob2 = (JSONObject) ob;
 				this.rightOptions
 						.add(new BackgroundItem((String) ob2.get("Item Name"), (Long) ob2.get("Chance to Start")));
+				
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -201,7 +202,7 @@ public class BackgroundGenerator extends BaseWarriorGenerator {
 	public ArrayList<BackgroundItem> getBackPackOptions() {
 		return this.backPackOptions;
 	}
-	
+
 	public ImageIcon getBgIcon() {
 		return this.bgIcon;
 	}

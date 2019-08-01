@@ -50,7 +50,8 @@ public class TemporyInjuryManager extends BaseGlobalManager {
 	/* Getters */
 
 	public ArrayList<TemporaryInjury> getInjuryList() {
-		return this.injuryList;
+		ArrayList<TemporaryInjury> temp = new ArrayList<>(this.injuryList);
+		return temp;
 	}
 
 	/**
@@ -58,7 +59,7 @@ public class TemporyInjuryManager extends BaseGlobalManager {
 	 * items that don't match the required parameters
 	 */
 	public ArrayList<TemporaryInjury> getSpecificInjuryList(boolean isHead, String damageType) {
-		ArrayList<TemporaryInjury> temp = this.injuryList;
+		ArrayList<TemporaryInjury> temp = new ArrayList<>(this.injuryList);
 
 		temp.removeIf(t -> !(t.isHead() && isHead));
 		temp.removeIf(t -> !(t.getDamageType().equals(damageType)));

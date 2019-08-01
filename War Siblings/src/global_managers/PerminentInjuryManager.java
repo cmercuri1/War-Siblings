@@ -49,7 +49,8 @@ public class PerminentInjuryManager extends BaseGlobalManager {
 	/* Getters */
 
 	public ArrayList<PerminentInjury> getInjuryList() {
-		return this.injuryList;
+		ArrayList<PerminentInjury> temp = new ArrayList<>(this.injuryList);
+		return temp;
 	}
 
 }
