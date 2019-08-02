@@ -141,36 +141,43 @@ public class Weapon extends AbilityItem {
 	}
 
 	public String toString() {
-		String temp = "<html>" + this.name + "<br>" + this.desc + "<br>" + this.weapType + "," + this.numHands
-				+ "-handed" + "<br>Worth " + this.value.toString() + " crowns<br>" + this.durability.toString() + "<br"
-				+ this.minDam.toString() + " - " + this.maxDam.toString() + "<br>" + this.ignArm.toString()
-				+ "% of damage ignores armor<br>" + this.armDam + "% effective against armor";
-		
-		
+		String temp = "<html>" + this.name + "<br>" + this.desc + "<br>" + this.weapType + ", " + this.numHands
+				+ "-handed" + "<br>Worth " + this.value.toString() + " crowns";
+		if (this.durability.getAlteredCurrentValue() > 1) {
+			temp += "<br>" + this.durability.toString();
+		}
+
+		if (this.maxDam.getAlteredValue() > 0) {
+			temp += "<br" + this.minDam.toString() + " - " + this.maxDam.toString() + "<br>" + this.ignArm.toString()
+					+ "% of damage ignores armor<br>" + this.armDam + "% effective against armor";
+		}
+
 		if (this.shieldDam.getAlteredValue() > 0) {
 			temp += "<br>Shield damage of " + this.shieldDam.getAlteredValue();
 		}
-		
+
 		if (this.hitChance > 0) {
 			temp += "<br>Has an additional " + this.hitChance + "% chance to hit";
 		}
-		
+
 		if (this.headShot > 0) {
 			temp += "<br>Chance to hit head " + this.headShot + "%";
 		}
-		
+
 		if (this.range.getAlteredValue() > 1) {
-			temp += "<br>Range of " + this.range.getAlteredValue()+ " tiles";
+			temp += "<br>Range of " + this.range.getAlteredValue() + " tiles";
 		}
-		
-		temp += "<br>" + "<br>Reduces Maximum Fatigue by " + this.fatigueRed.toString();
-		
+
+		if (this.fatigueRed.getAlteredValue() > 0) {
+			temp += "<br>Reduces Maximum Fatigue by " + this.fatigueRed.toString();
+		}
+
 		if (this.skillFat > 0) {
 			temp += "<br>Weapon skills build up " + this.skillFat + " more fatigue";
 		} else if (this.skillFat < 0) {
 			temp += "<br>Weapon skills build up " + this.skillFat + " less fatigue";
 		}
-		
+
 		return temp + "</html>";
 	}
 }

@@ -53,9 +53,13 @@ public class EquipItem extends Item {
 	}
 
 	public String toString() {
-		return super.toString() + "<html><br>" + this.durability.toString() + "<br>Reduces Maximum Fatigue by "
-				+ this.fatigueRed.toString() + "</html>";
+		String temp = super.toString() + "<html><br>" + this.durability.toString();
 
+		if (this.fatigueRed.getAlteredValue() > 0) {
+			temp += "<br>Reduces Maximum Fatigue by " + this.fatigueRed.toString();
+		}
+
+		return temp + "</html>";
 	}
 
 	public void onEventHappening(EventObject event) {
