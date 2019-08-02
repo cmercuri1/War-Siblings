@@ -25,7 +25,7 @@ public class Armor extends EquipItem {
 
 	public void display() {
 		System.out.println(this.name);
-		System.out.println(this.durability.getAlteredCurrentValue() + "/" + this.durability.getAlteredValue());
+		System.out.println(this.durability.toString());
 		System.out.println(this.desc);
 		System.out.println("Reduces Max Fatigue by " + this.fatigueRed.getAlteredValue());
 		System.out.println("");

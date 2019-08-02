@@ -32,6 +32,11 @@ public class DurAttribute extends Attribute {
 		if (this.alteredCurrentValue == MINIMUM) {
 			this.notifyObservers(new EventObject(null, EventType.BROKEN, null, null));
 		}
+		this.notifyObservers(new EventObject(null, EventType.MODIFYVALUE, this.getPercentage(),null));
+	}
+	
+	protected double getPercentage() {
+		return this.alteredCurrentValue/this.alteredMaxValue;
 	}
 
 	/**

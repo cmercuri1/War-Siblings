@@ -15,7 +15,6 @@ import storage_classes.Ability;
 /** A class for Globally Storing and Managing all the Weapons */
 public class WeaponManager extends BaseGlobalManager {
 	private ArrayList<Weapon> weaponList;
-	public final Weapon DEFAULT = new Weapon(null, 0, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null, null);
 
 	/** Constructor */
 	public WeaponManager() {

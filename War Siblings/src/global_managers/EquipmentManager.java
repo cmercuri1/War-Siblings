@@ -16,7 +16,7 @@ public class EquipmentManager {
 	protected ShieldManager shield;
 	protected WeaponManager weapon;
 
-	public final EquipItem DEFAULT = new EquipItem(null, 0, null, 0, 0);
+	public final EquipItem DEFAULT = new EquipItem("Unarmed", 0, null, 0, 0);
 
 	public EquipmentManager() {
 		this.body = new BodyArmorManager();

@@ -17,7 +17,7 @@ public class Headgear extends Armor {
 		super(name, value, desc, dura, fatRed, type);
 		this.visRed = visRed;
 	}
-	
+
 	/* Getters */
 
 	public double getVisRed() {
@@ -31,5 +31,13 @@ public class Headgear extends Armor {
 		System.out.println("Reduces Max Fatigue by " + this.fatigueRed.getAlteredValue());
 		System.out.print("Reduces vision by " + this.visRed);
 		System.out.println("");
+	}
+
+	public String toString() {
+		String temp = super.toString();
+		if (this.visRed > 0) {
+			temp += ("<html><br>Reduces vision by " + ((Double) this.visRed).intValue() + " tiles</html>");
+		}
+		return temp;
 	}
 }

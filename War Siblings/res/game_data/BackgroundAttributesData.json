@@ -453,7 +453,7 @@
 					"Chance to Start": 20
 				},
 				{
-					"Item Name": "Padded leather",
+					"Item Name": "Padded Leather",
 					"Chance to Start": 40
 				},
 				{
@@ -471,7 +471,7 @@
 					"Chance to Start": 40
 				},
 				{
-					"Item Name": "Hand Axe",
+					"Item Name": "Handaxe",
 					"Chance to Start": 30
 				}
 			],
@@ -959,7 +959,7 @@
 			],
 			"Starting Right": [
 				{
-					"Item Name": "Butchers' Cleaver",
+					"Item Name": "Butcher's Cleaver",
 					"Chance to Start": 100
 				}
 			],
@@ -1558,7 +1558,7 @@
 			],
 			"Starting Right": [
 				{
-					"Item Name": "Short Sword",
+					"Item Name": "Shortsword",
 					"Chance to Start": 35
 				},
 				{
@@ -1937,7 +1937,7 @@
 					"Chance to Start": 55
 				},
 				{
-					"Item Name": "Monk's Robe'",
+					"Item Name": "Monk's Robe",
 					"Chance to Start": 45
 				}
 			],
@@ -2368,7 +2368,7 @@
 					"Chance to Start": 30
 				},
 				{
-					"Item Name": "Sellsword's Armor'",
+					"Item Name": "Sellsword's Armor",
 					"Chance to Start": 10
 				}
 			],
@@ -2667,7 +2667,7 @@
 					"Chance to Start": 35
 				},
 				{
-					"Item Name": "Hunter's Hat'",
+					"Item Name": "Hunter's Hat",
 					"Chance to Start": 25
 				}
 			],
@@ -2771,7 +2771,7 @@
 					"Chance to Start": 50
 				},
 				{
-					"Item Name": "Jester's Hat'",
+					"Item Name": "Jester's Hat",
 					"Chance to Start": 50
 				}
 			],
@@ -2991,11 +2991,11 @@
 					"Chance to Start": 35
 				},
 				{
-					"Item Name": "Hand Axe",
+					"Item Name": "Handaxe",
 					"Chance to Start": 35
 				},
 				{
-					"Item Name": "Woodcutter's Axe'",
+					"Item Name": "Woodcutter's Axe",
 					"Chance to Start": 30
 				}
 			],
@@ -3297,7 +3297,7 @@
 					"Chance to Start": 20
 				},
 				{
-					"Item Name": "Hand Axe",
+					"Item Name": "Handaxe",
 					"Chance to Start": 20
 				},
 				{
@@ -3679,7 +3679,7 @@
 			],
 			"Starting Body": [
 				{
-					"Item Name": "Monk's Robe'",
+					"Item Name": "Monk's Robe",
 					"Chance to Start": 100
 				}
 			],
@@ -4079,7 +4079,7 @@
 			],
 			"Starting Body": [
 				{
-					"Item Name": "Padded leather",
+					"Item Name": "Padded Leather",
 					"Chance to Start": 25
 				},
 				{
@@ -4087,7 +4087,7 @@
 					"Chance to Start": 38
 				},
 				{
-					"Item Name": "Leather Lamellar",
+					"Item Name": "Leather Lamellar Armor",
 					"Chance to Start": 37
 				}
 			],
@@ -4097,7 +4097,7 @@
 					"Chance to Start": 25
 				},
 				{
-					"Item Name": "Hand Axe",
+					"Item Name": "Handaxe",
 					"Chance to Start": 20
 				},
 				{
@@ -4436,7 +4436,7 @@
 					"Chance to Start": 27
 				},
 				{
-					"Item Name": "Hand Axe",
+					"Item Name": "Handaxe",
 					"Chance to Start": 26
 				}
 			],
@@ -5247,7 +5247,7 @@
 			],
 			"Starting Body": [
 				{
-					"Item Name": "Tattered Sack",
+					"Item Name": "Tattered Sackcloth",
 					"Chance to Start": 40
 				},
 				{
@@ -5386,7 +5386,7 @@
 					"Chance to Start": 25
 				},
 				{
-					"Item Name": "Woodcutter's Axe'",
+					"Item Name": "Woodcutter's Axe",
 					"Chance to Start": 20
 				}
 			],
@@ -5474,7 +5474,7 @@
 					"Chance to Start": 5
 				},
 				{
-					"Item Name": "Witch Hunter's Hat'",
+					"Item Name": "Witchhunter's Hat",
 					"Chance to Start": 95
 				}
 			],
