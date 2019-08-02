@@ -168,7 +168,7 @@ public class Weapon extends AbilityItem {
 			temp += "<br>Range of " + this.range.getAlteredValue() + " tiles";
 		}
 
-		if (this.fatigueRed.getAlteredValue() > 0) {
+		if (this.fatigueRed.getAlteredValue() < 0) {
 			temp += "<br>Reduces Maximum Fatigue by " + this.fatigueRed.toString();
 		}
 
@@ -178,6 +178,6 @@ public class Weapon extends AbilityItem {
 			temp += "<br>Weapon skills build up " + this.skillFat + " less fatigue";
 		}
 
-		return temp + "</html>";
+		return temp += "</html>";
 	}
 }
