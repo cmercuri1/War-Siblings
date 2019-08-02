@@ -142,7 +142,7 @@ public class Weapon extends AbilityItem {
 
 	public String toString() {
 		String temp = "<html>" + this.name + "<br>" + this.desc + "<br>" + this.weapType + "," + this.numHands
-				+ "-handed" + "<br>Worth " + this.value.toString() + "crowns<br>" + this.durability.toString() + "<br"
+				+ "-handed" + "<br>Worth " + this.value.toString() + " crowns<br>" + this.durability.toString() + "<br"
 				+ this.minDam.toString() + " - " + this.maxDam.toString() + "<br>" + this.ignArm.toString()
 				+ "% of damage ignores armor<br>" + this.armDam + "% effective against armor";
 		
@@ -157,10 +157,6 @@ public class Weapon extends AbilityItem {
 		
 		if (this.headShot > 0) {
 			temp += "<br>Chance to hit head " + this.headShot + "%";
-		}
-		
-		if (this.range.getAlteredValue() > 1) {
-			temp += "<br>Range of " + this.range.getAlteredValue()+ " tiles";
 		}
 		
 		if (this.range.getAlteredValue() > 1) {

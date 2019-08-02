@@ -58,7 +58,7 @@ public class Item implements Observer {
 	}
 
 	public String toString() {
-		return "<html>" + this.name + "<br>" + this.desc + "<br>Worth " + this.value.toString() + "crowns</html>";
+		return "<html>" + this.name + "<br>" + this.desc + "<br>Worth " + this.value.toString() + " crowns</html>";
 	}
 
 	@Override

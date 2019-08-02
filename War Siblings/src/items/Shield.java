@@ -52,8 +52,9 @@ public class Shield extends AbilityItem {
 	}
 
 	public String toString() {
-		return "<html>" + this.name + "<br>" + this.desc + "<br>Worth " + this.value.toString() + "crowns<br>"
-				+ this.durability.toString() + "<br>" + this.meleeDef.toString() + "<br>" + this.rangedDef.toString()
-				+ "<br>Reduces Maximum Fatigue by " + this.fatigueRed.toString() + "</html>";
+		return "<html>" + this.name + "<br>" + this.desc + "<br>Worth " + this.value.toString() + " crowns<br>"
+				+ this.durability.toString() + "<br>Melee Defense +" + this.meleeDef.toString() + "<br>Ranged defense +"
+				+ this.rangedDef.toString() + "<br>Reduces Maximum Fatigue by " + this.fatigueRed.toString()
+				+ "</html>";
 	}
 }
