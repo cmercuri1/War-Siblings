@@ -106,7 +106,8 @@ public class Character extends GenericObservee implements Observer {
 				this.notifyObserver(this.am, event);
 				break;
 			case RANGED_PREF:
-				if (this.backgroundName.equals("Sellsword") || this.backgroundName.equals("Deserter")) {
+				if (this.backgroundName.equals("Sellsword") || this.backgroundName.equals("Deserter")
+						|| this.backgroundName.equals("Beast Slayer")) {
 					this.notifyObserver(im, new EventObject(Target.INVENTORY, EventType.RANGED_PREF, null, null));
 
 				}

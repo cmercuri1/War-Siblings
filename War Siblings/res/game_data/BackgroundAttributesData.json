@@ -655,6 +655,22 @@
 				{
 					"Item Name": "Scramasax",
 					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Short Bow",
+					"Chance to Start": 35
+				},
+				{
+					"Item Name": "Light Crossbow",
+					"Chance to Start": 35
+				},
+				{
+					"Item Name": "Hunting Bow",
+					"Chance to Start": 15
+				},
+				{
+					"Item Name": "Crossbow",
+					"Chance to Start": 15
 				}
 			],
 			"Starting Left": [
