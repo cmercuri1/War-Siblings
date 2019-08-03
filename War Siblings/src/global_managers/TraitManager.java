@@ -80,7 +80,8 @@ public class TraitManager extends TwoListGlobalManager {
 	/* Getters */
 
 	public ArrayList<Trait> getTraitList() {
-		return this.traitList;
+		ArrayList<Trait> temp = new ArrayList<>(this.traitList);
+		return temp;
 	}
 
 	public Trait getTrait(String traitName) {
@@ -93,7 +94,8 @@ public class TraitManager extends TwoListGlobalManager {
 	}
 
 	public ArrayList<Trait> getSpecialTraitList() {
-		return this.specialTraitList;
+		ArrayList<Trait> temp = new ArrayList<>(this.specialTraitList);
+		return temp;
 	}
 
 	public Trait getSpecialTrait(String traitName) {
@@ -110,15 +112,15 @@ public class TraitManager extends TwoListGlobalManager {
 	 * items that don't match the required parameters
 	 */
 	public ArrayList<Trait> getSpecificTraitList(ArrayList<String> excludedTraits) {
-		ArrayList<Trait> temp = this.traitList;
+		ArrayList<Trait> temp = new ArrayList<>(this.traitList);
 
-		excludedTraits.forEach(s -> temp.removeIf(t -> (t.getName().contains(s))));
+		excludedTraits.forEach(s -> temp.removeIf(t -> (t.getName().equals(s))));
 
 		return temp;
 	}
 
 	public ArrayList<Trait> getSpecifcSpecialTraitList(String background) {
-		ArrayList<Trait> temp = this.specialTraitList;
+		ArrayList<Trait> temp = new ArrayList<>(this.traitList);
 
 		temp.removeIf(t -> !t.getSpecificBackground().equals(background));
 

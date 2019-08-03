@@ -7,10 +7,14 @@ package items;
 
 import storage_classes.ArrayList;
 
+import javax.swing.ImageIcon;
+
 import storage_classes.Ability;
 import storage_classes.Attribute;
 
-/** A class used for storing and assisting in operating items usable as Shields */
+/**
+ * A class used for storing and assisting in operating items usable as Shields
+ */
 public class Shield extends AbilityItem {
 	protected Attribute meleeDef; // Bonus melee defense gained from shield
 	protected Attribute rangedDef; // Bonus ranged defense gained from shield
@@ -22,9 +26,17 @@ public class Shield extends AbilityItem {
 		this.meleeDef = new Attribute(mDef, this);
 		this.rangedDef = new Attribute(rDef, this);
 	}
+	
+	@Override
+	protected void setIcon() {
+		this.image = new ImageIcon("res/images/Items/Shields/" + this.name + ".png");
+		if (this.image == null) {
+			System.out.println("Error Finding: " + this.name);
+		}
+	}
 
 	/* Getters */
-	
+
 	public Attribute getMeleeDef() {
 		return this.meleeDef;
 	}
@@ -37,6 +49,8 @@ public class Shield extends AbilityItem {
 		System.out.println(this.name);
 		System.out.println(this.durability.getAlteredCurrentValue() + "/" + this.durability.getAlteredValue());
 		System.out.println(this.desc);
+		System.out.println("Grants a bonus of " + this.meleeDef + " to Melee Defense");
+		System.out.println("Grants a bonus of " + this.rangedDef + " to Ranged Defense");
 		System.out.println("Reduces Max Fatigue by " + this.fatigueRed.getAlteredValue());
 
 		System.out.println("Grants use of: ");
@@ -45,5 +59,12 @@ public class Shield extends AbilityItem {
 			a.display();
 		}
 		System.out.println();
+	}
+
+	public String toString() {
+		return "<html>" + this.name + "<br>" + this.desc + "<br>Worth " + this.value.toString() + " crowns<br>"
+				+ this.durability.toString() + "<br>Melee Defense +" + this.meleeDef.toString() + "<br>Ranged defense +"
+				+ this.rangedDef.toString() + "<br>Reduces Maximum Fatigue by " + this.fatigueRed.toString()
+				+ "</html>";
 	}
 }

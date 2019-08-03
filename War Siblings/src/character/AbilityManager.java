@@ -42,9 +42,7 @@ public class AbilityManager extends GenericObservee implements Observer {
 
 	public void setUpAbilities(BackgroundGenerator background) {
 		if (background.getBgAbility() != null) {
-			Ability temp = background.getBgAbility();
-			temp.setImage(background.getBgIcon());
-			this.addAbility(temp);
+			this.addAbility(background.getBgAbility());
 
 		}
 		this.traitDetermining(background.getExcludedTraits());
@@ -62,8 +60,7 @@ public class AbilityManager extends GenericObservee implements Observer {
 		// gained, "Tiny" should not be able to be rolled
 		for (int i = 0; i < 2; i++) {
 			if (GlobalManager.d100Roll() < 51) {
-				int pos = GlobalManager.rng.nextInt(temp.size());
-				Trait sel = temp.get(pos);
+				Trait sel = temp.get(GlobalManager.rng.nextInt(temp.size()));
 				this.addTrait(sel);
 				temp.remove(sel);
 				if (!sel.getMutalExcl().isEmpty()) {
@@ -157,6 +154,8 @@ public class AbilityManager extends GenericObservee implements Observer {
 	public void display() {
 		System.out.println("Character Abilities:");
 		this.characterAbilities.forEach(a -> a.display());
+		System.out.println("Character Traits:");
+		this.characterTraits.forEach(a -> a.display());
 		System.out.println("Temporary Injuries:");
 		this.tempInjuries.forEach(a -> a.display());
 		System.out.println("Perminent Injuries:");

@@ -54,7 +54,8 @@ public class WeaponManager extends BaseGlobalManager {
 	/* Getters */
 
 	public ArrayList<Weapon> getWeaponList() {
-		return this.weaponList;
+		ArrayList<Weapon> temp = new ArrayList<>(this.weaponList);
+		return temp;
 	}
 
 	/** getWeapon: Gets a particular weapons from the list */

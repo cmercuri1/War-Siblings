@@ -18,7 +18,7 @@ import storage_classes.MoraleState;
  * Morale States
  */
 public class MoraleAbilityManager extends BaseGlobalManager {
-	private ArrayList<Ability> abilityList;
+	private ArrayList<Ability> moraleAbilityList;
 
 	public MoraleAbilityManager() {
 		super("res/game_data/MoraleAbilityData.json", null, "Morale States");
@@ -39,27 +39,28 @@ public class MoraleAbilityManager extends BaseGlobalManager {
 			}
 		}
 
-		this.abilityList.add(new Ability((String) o.get("Name"), temp3));
+		this.moraleAbilityList.add(new Ability((String) o.get("Name"), temp3));
 	}
 
 	@Override
 	protected void instantiate() {
-		if (this.abilityList == null) {
-			this.abilityList = new ArrayList<Ability>();
+		if (this.moraleAbilityList == null) {
+			this.moraleAbilityList = new ArrayList<Ability>();
 		}
 	}
 
 	/* Getters */
 
-	public ArrayList<Ability> getAbilityList() {
-		return this.abilityList;
+	public ArrayList<Ability> getMoraleAbilityList() {
+		ArrayList<Ability> temp = new ArrayList<>(this.moraleAbilityList);
+		return temp;
 	}
 
 	/**
 	 * getMoraleAbility: gets the abilities associated with a particular MoraleState
 	 */
 	public Ability getMoraleAbility(MoraleState toFind) {
-		for (Ability a : this.abilityList) {
+		for (Ability a : this.moraleAbilityList) {
 			if (a.getName().toLowerCase().equals(toFind.toString().toLowerCase())) {
 				return a;
 			}

@@ -12,7 +12,6 @@ import items.Armor;
 
 /** A class for Globally Storing and Managing all the Body Armors */
 public class BodyArmorManager extends BaseGlobalManager {
-	public final Armor DEFAULT = new Armor(null, 0, null, 0, 0, null);
 	private ArrayList<Armor> armorList;
 
 	public BodyArmorManager() {
@@ -34,7 +33,8 @@ public class BodyArmorManager extends BaseGlobalManager {
 	/* Getters */
 
 	public ArrayList<Armor> getArmorList() {
-		return this.armorList;
+		ArrayList<Armor> temp = new ArrayList<>(this.armorList);
+		return temp;
 	}
 
 	/** getBodyArmor: retrieves a particular body armor by name */

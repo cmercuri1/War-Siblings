@@ -19,11 +19,9 @@ import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 
 import static javax.swing.GroupLayout.Alignment.*;
-import static javax.swing.SwingConstants.*;
 import static javax.swing.LayoutStyle.ComponentPlacement.*;
 
 import character.Character;
@@ -40,7 +38,6 @@ public class GameFrame extends JFrame implements ActionListener, ItemListener, O
 	private Character character;
 
 	private JComboBox<String> box;
-	private String[] backgrounds;
 
 	JLabel helm;
 	JLabel body;
@@ -62,6 +59,12 @@ public class GameFrame extends JFrame implements ActionListener, ItemListener, O
 	JLabel bgIcon;
 	JLabel trait1;
 	JLabel trait2;
+	JLabel trait3;
+
+	JLabel headArmor;
+	JLabel bodyArmor;
+	JLabel rightItem;
+	JLabel leftItem;
 
 	public static void main(String[] args) {
 
@@ -83,9 +86,7 @@ public class GameFrame extends JFrame implements ActionListener, ItemListener, O
 		JLabel charSpec = new JLabel("Specify a Background:");
 		this.message = "Character";
 
-		backgrounds = GlobalManager.backgrounds.getBgNames();
-
-		box = new JComboBox<>(backgrounds);
+		box = new JComboBox<>(GlobalManager.backgrounds.getBgNames());
 		box.addItemListener(this);
 
 		JButton newCharButton = new JButton("New Character");
@@ -94,14 +95,63 @@ public class GameFrame extends JFrame implements ActionListener, ItemListener, O
 
 		this.setUpData();
 
-		createLayout(helm, body, hp, ap, fat, mor, res, init, mSk, rSk, mDef, rDef, dam, armDam, hs, vis, charSpec, box,
-				newCharButton, bgIcon, trait1, trait2);
+		createLayout(charSpec, box, newCharButton);
 
 		setTitle("War Siblings");
 		setSize(800, 600);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+
+	private void createLayout(JComponent... arg) {
+		Container pane = getContentPane();
+		GroupLayout gl = new GroupLayout(pane);
+		pane.setLayout(gl);
+
+		gl.setAutoCreateContainerGaps(true);
+		gl.setAutoCreateGaps(true);
+
+		gl.setHorizontalGroup(gl.createSequentialGroup().addGroup(gl.createParallelGroup()
+				.addGroup(gl.createSequentialGroup().addComponent(bgIcon).addComponent(trait1).addComponent(trait2)
+						.addComponent(trait3))
+				.addGroup(gl.createSequentialGroup()
+						.addGroup(gl.createParallelGroup().addComponent(helm).addComponent(body).addComponent(ap)
+								.addComponent(fat).addComponent(mor).addComponent(res).addComponent(init))
+						.addGroup(gl.createParallelGroup().addComponent(mSk).addComponent(rSk).addComponent(mDef)
+								.addComponent(rDef).addComponent(dam).addComponent(hs).addComponent(vis))))
+				.addGroup(gl.createParallelGroup()
+						.addGroup(gl.createSequentialGroup().addComponent(rightItem)
+								.addGroup(gl.createParallelGroup()
+										.addComponent(headArmor)
+										.addComponent(bodyArmor))
+								.addComponent(leftItem))
+						.addGroup(gl.createParallelGroup().addComponent(arg[0]).addComponent(arg[1],
+								GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(arg[2]))));
+
+		gl.setVerticalGroup(gl.createSequentialGroup()
+				.addGroup(gl.createParallelGroup()
+						.addGroup(gl.createSequentialGroup()
+								.addGroup(gl.createParallelGroup().addComponent(bgIcon).addComponent(trait1)
+										.addComponent(trait2).addComponent(trait3))
+								.addGroup(gl.createParallelGroup(BASELINE).addComponent(helm).addComponent(mSk))
+								.addGroup(gl.createParallelGroup(BASELINE).addComponent(body).addComponent(rSk))
+								.addGroup(gl.createParallelGroup(BASELINE).addComponent(ap).addComponent(mDef))
+								.addGroup(gl.createParallelGroup(BASELINE).addComponent(fat).addComponent(rDef))
+								.addGroup(gl.createParallelGroup(BASELINE).addComponent(mor).addComponent(dam))
+								.addGroup(gl.createParallelGroup(BASELINE).addComponent(res).addComponent(hs))
+								.addGroup(gl.createParallelGroup(BASELINE).addComponent(init).addComponent(vis)))
+						.addGroup(gl.createSequentialGroup().addComponent(headArmor)
+								.addGroup(gl.createParallelGroup(BASELINE)
+										.addComponent(rightItem)
+										.addComponent(bodyArmor)
+										.addComponent(leftItem))))
+				.addGroup(
+						gl.createSequentialGroup().addComponent(arg[0]).addComponent(arg[1], GroupLayout.PREFERRED_SIZE,
+								GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE).addComponent(arg[2])));
+
+		pack();
 	}
 
 	private void setUpData() {
@@ -214,45 +264,12 @@ public class GameFrame extends JFrame implements ActionListener, ItemListener, O
 		this.bgIcon = new JLabel();
 		this.trait1 = new JLabel();
 		this.trait2 = new JLabel();
-	}
+		this.trait3 = new JLabel();
 
-	private void createLayout(JComponent... arg) {
-		Container pane = getContentPane();
-		GroupLayout gl = new GroupLayout(pane);
-		pane.setLayout(gl);
-
-		gl.setAutoCreateContainerGaps(true);
-		gl.setAutoCreateGaps(true);
-
-		gl.setHorizontalGroup(gl.createSequentialGroup()
-				.addGroup(gl.createSequentialGroup().addComponent(arg[19]).addComponent(arg[20]).addComponent(arg[21]))
-				.addGroup(gl.createParallelGroup().addComponent(arg[0]).addComponent(arg[1]).addComponent(arg[2])
-						.addComponent(arg[3]).addComponent(arg[4]).addComponent(arg[5]).addComponent(arg[6])
-						.addComponent(arg[7]))
-				.addGroup(gl.createParallelGroup().addComponent(arg[8]).addComponent(arg[9]).addComponent(arg[10])
-						.addComponent(arg[11]).addComponent(arg[12]).addComponent(arg[13]).addComponent(arg[14])
-						.addComponent(arg[15]))
-				.addGroup(gl.createParallelGroup().addComponent(arg[16]).addComponent(arg[17]).addComponent(arg[18])));
-
-		gl.setVerticalGroup(
-				gl.createSequentialGroup()
-						.addGroup(gl.createParallelGroup(BASELINE).addComponent(arg[19]).addComponent(arg[20])
-								.addComponent(arg[21]))
-						.addGroup(gl.createParallelGroup(BASELINE).addComponent(arg[0]).addComponent(arg[8]))
-						.addGroup(gl.createParallelGroup(BASELINE).addComponent(arg[1]).addComponent(arg[9]))
-						.addGroup(gl.createParallelGroup(BASELINE).addComponent(arg[2]).addComponent(arg[10]))
-						.addGroup(gl.createParallelGroup(BASELINE).addComponent(arg[3]).addComponent(arg[11]))
-						.addGroup(gl.createParallelGroup(BASELINE).addComponent(arg[4]).addComponent(arg[12]))
-						.addGroup(gl.createParallelGroup(BASELINE).addComponent(arg[5]).addComponent(arg[13]))
-						.addGroup(gl.createParallelGroup(BASELINE).addComponent(arg[6]).addComponent(arg[14]))
-						.addGroup(gl.createParallelGroup(BASELINE).addComponent(arg[7]).addComponent(arg[15]))
-						.addPreferredGap(RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addGroup(gl
-								.createSequentialGroup().addComponent(arg[16]).addComponent(arg[17],
-										GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(arg[18])));
-
-		pack();
+		this.headArmor = new JLabel();
+		this.bodyArmor = new JLabel();
+		this.rightItem = new JLabel();
+		this.leftItem = new JLabel();
 	}
 
 	private void applyCharacter(Character tba) {
@@ -273,28 +290,57 @@ public class GameFrame extends JFrame implements ActionListener, ItemListener, O
 		this.hs.setText(tba.getAm().getAttribute("headshot").toString() + "%");
 		this.vis.setText(tba.getAm().getAttribute("vision").toString());
 
-		if (tba.getAbm().getAbility("Background Ability") != null) {
-			this.bgIcon.setIcon(tba.getAbm().getAbilities().get(0).getImage());
-		} else {
-			this.bgIcon.setIcon(null);
+		this.bgIcon.setIcon(tba.getBgIcon());
+
+		try {
+			this.trait1.setIcon(tba.getAbm().getTraits().get(0).getImage());
+			this.trait1.setToolTipText(tba.getAbm().getTraits().get(0).getDesc());
+		} catch (IndexOutOfBoundsException e) {
+			this.trait1.setIcon(null);
+		}
+		try {
+			this.trait2.setIcon(tba.getAbm().getTraits().get(1).getImage());
+			this.trait2.setToolTipText(tba.getAbm().getTraits().get(1).getDesc());
+		} catch (IndexOutOfBoundsException e) {
+			this.trait2.setIcon(null);
+		}
+		try {
+			this.trait3.setIcon(tba.getAbm().getTraits().get(2).getImage());
+			this.trait3.setToolTipText(tba.getAbm().getTraits().get(2).getDesc());
+		} catch (IndexOutOfBoundsException e) {
+			this.trait3.setIcon(null);
 		}
 
+		this.headArmor.setIcon(tba.getIm().getHead().getImage());
+		this.headArmor.setToolTipText(tba.getIm().getHead().toString());
+
+		this.bodyArmor.setIcon(tba.getIm().getBody().getImage());
+		this.bodyArmor.setToolTipText(tba.getIm().getBody().toString());
+
+		this.rightItem.setIcon(tba.getIm().getRight().getImage());
+		this.rightItem.setToolTipText(tba.getIm().getRight().toString());
+
+		this.leftItem.setIcon(tba.getIm().getLeft().getImage());
+		this.leftItem.setToolTipText(tba.getIm().getLeft().toString());
+
+		// tba.display();
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		JOptionPane.showMessageDialog(this, "New " + message + "!", "Information", JOptionPane.INFORMATION_MESSAGE);
 		if (message.equals("Character")) {
-			this.character = new Character(this);
+			this.setCharacter(null);
+			this.setCharacter(new Character(this));
 		} else {
-			this.character = new Character(message, this);
+			this.setCharacter(null);
+			this.setCharacter(new Character(message, this));
 		}
 	}
 
 	@Override
 	public void itemStateChanged(ItemEvent e) {
 		if (e.getStateChange() == ItemEvent.SELECTED) {
-			if (e.getItem().toString().equals("Please select")) {
+			if (e.getItem().toString().equals("Random")) {
 				this.message = "Character";
 			} else {
 				this.message = e.getItem().toString();
@@ -321,5 +367,13 @@ public class GameFrame extends JFrame implements ActionListener, ItemListener, O
 
 		}
 
+	}
+
+	public Character getCharacter() {
+		return character;
+	}
+
+	public void setCharacter(Character character) {
+		this.character = character;
 	}
 }

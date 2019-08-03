@@ -35,7 +35,8 @@ public class MoodManager extends BaseGlobalManager {
 	/* Getters */
 
 	public ArrayList<Mood> getMoodList() {
-		return this.moodList;
+		ArrayList<Mood> temp = new ArrayList<>(this.moodList);
+		return temp;
 	}
 
 	/** getAMood: gets a particular mood from the list */

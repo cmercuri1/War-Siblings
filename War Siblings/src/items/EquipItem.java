@@ -4,8 +4,12 @@
  */
 package items;
 
+import javax.swing.ImageIcon;
+
+import event_classes.EventObject;
 import storage_classes.Attribute;
 import storage_classes.DurAttribute;
+import storage_classes.Modifier;
 
 /**
  * Equip Item class that allows for an item to be equipped and thus may reduce
@@ -22,13 +26,17 @@ public class EquipItem extends Item {
 		this.fatigueRed = new Attribute(fatRed, this);
 	}
 
+	protected void setIcon() {
+		this.image = new ImageIcon("res/Images/Items/" + this.name + ".png");
+	}
+
 	/* Getters */
 	public String getDamage() {
 		return "0 - 0";
 	}
-	
+
 	public String getArmorDamage() {
-		return "50%";
+		return "0%";
 	}
 
 	public DurAttribute getDurability() {
@@ -42,5 +50,29 @@ public class EquipItem extends Item {
 	/** damageRepair: method for damaging/repairing an item */
 	public void damageRepair(double value) {
 		this.durability.alterItem(value);
+	}
+
+	public String toString() {
+		String temp = super.toString() + "<html><br>" + this.durability.toString();
+
+		if (this.fatigueRed.getAlteredValue() > 0) {
+			temp += "<br>Reduces Maximum Fatigue by " + this.fatigueRed.toString();
+		}
+
+		return temp + "</html>";
+	}
+
+	public void onEventHappening(EventObject event) {
+		switch (event.getTask()) {
+		case BROKEN:
+			break;
+		case MODIFYVALUE:
+			this.value.addModifier(
+					new Modifier("Durability Modifier", (double) event.getInformation(), true, false, true));
+			break;
+		default:
+			break;
+
+		}
 	}
 }

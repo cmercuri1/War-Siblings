@@ -48,6 +48,8 @@ public class AttributeManager extends GenericObservee implements Observer {
 	private Attribute fatigueRegManager;
 	private Attribute visionManager;
 
+	private int pref; // Only used in determining starting equipment
+
 	public AttributeManager(BackgroundGenerator bg, Observer o) {
 		this.setUpObservers();
 		this.registerObserver(o);
@@ -111,6 +113,10 @@ public class AttributeManager extends GenericObservee implements Observer {
 			int j = GlobalManager.rng.nextInt(managers.size());
 			managers.get(j).setNumStars();
 			managers.remove(j);
+		}
+
+		if (pref > 0) {
+			this.notifyObservers(new EventObject(Target.CHARACTER, EventType.RANGED_PREF, null, null));
 		}
 	}
 
@@ -196,22 +202,22 @@ public class AttributeManager extends GenericObservee implements Observer {
 
 		System.out.println("This character has:");
 
-		System.out.println("Hitpoints: " + this.hitpointManager.toString());
-		System.out.println("Fatigue: " + this.fatigueManager.toString());
-		System.out.println("Resolve: " + this.resolveManager.toString());
-		System.out.println("Initiative: " + this.initiativeManager.toString());
-		System.out.println("Melee Skill: " + this.meleeSkillManager.toString());
-		System.out.println("Ranged Skill: " + this.rangedSkillManager.toString());
-		System.out.println("Melee Defense: " + this.meleeDefenseManager.toString());
-		System.out.println("Ranged Defense: " + this.rangedDefenseManager.toString());
+		System.out.println("Hitpoints: " + this.hitpointManager.toStringFull());
+		System.out.println("Fatigue: " + this.fatigueManager.toStringFull());
+		System.out.println("Resolve: " + this.resolveManager.toStringFull());
+		System.out.println("Initiative: " + this.initiativeManager.toStringFull());
+		System.out.println("Melee Skill: " + this.meleeSkillManager.toStringFull());
+		System.out.println("Ranged Skill: " + this.rangedSkillManager.toStringFull());
+		System.out.println("Melee Defense: " + this.meleeDefenseManager.toStringFull());
+		System.out.println("Ranged Defense: " + this.rangedDefenseManager.toStringFull());
 		System.out.println();
-		System.out.println("Wage of " + this.wageManager.toString());
-		System.out.println("Consumes " + this.foodManager.toString());
-		System.out.println("Action points: " + this.actionPointsManager.toString());
-		System.out.println("% Chance to hit head: " + this.headshotManager.toString());
-		System.out.println("Points of Fatigue Regained each Turn: " + this.fatigueRegManager.toString());
-		System.out.println("Tiles of Vision: " + this.visionManager.toString());
-		System.out.println("Experience Rate is " + this.xpRateManager.toString());
+		System.out.println("Wage of " + this.wageManager.toStringFull());
+		System.out.println("Consumes " + this.foodManager.toStringFull());
+		System.out.println("Action points: " + this.actionPointsManager.toStringFull());
+		System.out.println("% Chance to hit head: " + this.headshotManager.toStringFull());
+		System.out.println("Points of Fatigue Regained each Turn: " + this.fatigueRegManager.toStringFull());
+		System.out.println("Tiles of Vision: " + this.visionManager.toStringFull());
+		System.out.println("Experience Rate is " + this.xpRateManager.toStringFull());
 
 		System.out.println();
 	}
@@ -232,13 +238,11 @@ public class AttributeManager extends GenericObservee implements Observer {
 			case GET:
 				temp = new Object[] { event.getInformation(),
 						this.getAttribute((String) event.getInformation()).getAlteredValue() };
-				this.notifyObservers(
-						new EventObject(Target.UNDEFINED, EventType.GOT, temp, event.getRequester()));
+				this.notifyObservers(new EventObject(Target.UNDEFINED, EventType.GOT, temp, event.getRequester()));
 				break;
 			case GET_OTHER:
 				this.notifyObservers(new EventObject(Target.UNDEFINED, EventType.GOT_OTHER,
-						this.getAttribute((String) event.getInformation()).getAlteredValue(),
-						event.getRequester()));
+						this.getAttribute((String) event.getInformation()).getAlteredValue(), event.getRequester()));
 				break;
 			case START_TURN:
 				this.fatigueManager.alterCurrent(-this.fatigueRegManager.getAlteredValue());
@@ -261,6 +265,18 @@ public class AttributeManager extends GenericObservee implements Observer {
 				if (temp[0] instanceof FatigueAttribute) {
 					this.initiativeManager
 							.addModifier(new Modifier("Fatigue_Penalty", -(double) temp[1], false, true, true));
+				}
+				break;
+			case STAR_ASSIGNED:
+				temp = (Object[]) event.getInformation();
+				int star = 0;
+				if (temp[0] == this.meleeSkillManager) {
+					star = (int) temp[1];
+					pref -= star;
+				}
+				if (temp[0] == this.rangedSkillManager) {
+					star = (int) temp[1];
+					pref += star;
 				}
 				break;
 			default:

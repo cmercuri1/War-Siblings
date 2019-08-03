@@ -20,6 +20,11 @@ public class DurAttribute extends Attribute {
 		this.originalCurrentValue = this.originalMaxValue;
 		this.alteredCurrentValue = this.originalCurrentValue;
 	}
+
+	public void updateAltered() {
+		super.updateAltered();
+		this.currentChecker();
+	}
 	
 	public void alterItem(double value) {
 		this.alteredCurrentValue += value;
@@ -27,6 +32,11 @@ public class DurAttribute extends Attribute {
 		if (this.alteredCurrentValue == MINIMUM) {
 			this.notifyObservers(new EventObject(null, EventType.BROKEN, null, null));
 		}
+		this.notifyObservers(new EventObject(null, EventType.MODIFYVALUE, this.getPercentage(),null));
+	}
+	
+	protected double getPercentage() {
+		return this.alteredCurrentValue/this.alteredMaxValue;
 	}
 
 	/**
