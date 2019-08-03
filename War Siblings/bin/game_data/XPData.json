@@ -1,0 +1,214 @@
+{
+	"XP Req": [
+		{
+			"Level": 1,
+			"XP Required": 0,
+			"Total XP": 0
+		},
+		{
+			"Level": 2,
+			"XP Required": 200,
+			"Total XP": 200
+		},
+		{
+			"Level": 3,
+			"XP Required": 300,
+			"Total XP": 500
+		},
+		{
+			"Level": 4,
+			"XP Required": 500,
+			"Total XP": 1000
+		},
+		{
+			"Level": 5,
+			"XP Required": 1000,
+			"Total XP": 2000
+		},
+		{
+			"Level": 6,
+			"XP Required": 1500,
+			"Total XP": 3500
+		},
+		{
+			"Level": 7,
+			"XP Required": 1500,
+			"Total XP": 5000
+		},
+		{
+			"Level": 8,
+			"XP Required": 2000,
+			"Total XP": 7000
+		},
+		{
+			"Level": 9,
+			"XP Required": 2000,
+			"Total XP": 9000
+		},
+		{
+			"Level": 10,
+			"XP Required": 3000,
+			"Total XP": 12000
+		},
+		{
+			"Level": 11,
+			"XP Required": 3000,
+			"Total XP": 15000
+		},
+		{
+			"Level": 12,
+			"XP Required": 5000,
+			"Total XP": 20000
+		},
+		{
+			"Level": 13,
+			"XP Required": 5000,
+			"Total XP": 25000
+		},
+		{
+			"Level": 14,
+			"XP Required": 5000,
+			"Total XP": 30000
+		},
+		{
+			"Level": 15,
+			"XP Required": 5000,
+			"Total XP": 35000
+		},
+		{
+			"Level": 16,
+			"XP Required": 5000,
+			"Total XP": 40000
+		},
+		{
+			"Level": 17,
+			"XP Required": 5000,
+			"Total XP": 45000
+		},
+		{
+			"Level": 18,
+			"XP Required": 5000,
+			"Total XP": 50000
+		},
+		{
+			"Level": 19,
+			"XP Required": 5000,
+			"Total XP": 55000
+		},
+		{
+			"Level": 20,
+			"XP Required": 5000,
+			"Total XP": 60000
+		},
+		{
+			"Level": 21,
+			"XP Required": 10000,
+			"Total XP": 70000
+		},
+		{
+			"Level": 22,
+			"XP Required": 10000,
+			"Total XP": 80000
+		},
+		{
+			"Level": 23,
+			"XP Required": 10000,
+			"Total XP": 90000
+		},
+		{
+			"Level": 24,
+			"XP Required": 10000,
+			"Total XP": 100000
+		},
+		{
+			"Level": 25,
+			"XP Required": 10000,
+			"Total XP": 110000
+		},
+		{
+			"Level": 26,
+			"XP Required": 10000,
+			"Total XP": 120000
+		},
+		{
+			"Level": 27,
+			"XP Required": 10000,
+			"Total XP": 130000
+		},
+		{
+			"Level": 28,
+			"XP Required": 10000,
+			"Total XP": 140000
+		},
+		{
+			"Level": 29,
+			"XP Required": 10000,
+			"Total XP": 150000
+		},
+		{
+			"Level": 30,
+			"XP Required": 10000,
+			"Total XP": 160000
+		},
+		{
+			"Level": 31,
+			"XP Required": 10000,
+			"Total XP": 170000
+		},
+		{
+			"Level": 32,
+			"XP Required": 10000,
+			"Total XP": 180000
+		},
+		{
+			"Level": 33,
+			"XP Required": 10000,
+			"Total XP": 190000
+		},
+		{
+			"Level": 34,
+			"XP Required": 10000,
+			"Total XP": 200000
+		},
+		{
+			"Level": 35,
+			"XP Required": 20000,
+			"Total XP": 220000
+		},
+		{
+			"Level": 36,
+			"XP Required": 20000,
+			"Total XP": 240000
+		},
+		{
+			"Level": 37,
+			"XP Required": 20000,
+			"Total XP": 260000
+		},
+		{
+			"Level": 38,
+			"XP Required": 20000,
+			"Total XP": 280000
+		},
+		{
+			"Level": 39,
+			"XP Required": 20000,
+			"Total XP": 300000
+		},
+		{
+			"Level": 40,
+			"XP Required": 30000,
+			"Total XP": 330000
+		},
+		{
+			"Level": 41,
+			"XP Required": 30000,
+			"Total XP": 360000
+		},
+		{
+			"Level": 42,
+			"XP Required": 30000,
+			"Total XP": 390000
+		}
+	]
+}

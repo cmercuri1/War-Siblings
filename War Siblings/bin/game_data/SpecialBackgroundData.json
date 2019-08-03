@@ -1,0 +1,196 @@
+{
+	"Backgrounds": [
+		{
+			"Name": "Crusader",
+			"Hitpoints": [
+				10,
+				10
+			],
+			"Fatigue": [
+				10,
+				10
+			],
+			"Resolve": [
+				15,
+				20
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				10,
+				10
+			],
+			"Ranged Skill": [
+				-10,
+				-5
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				-5,
+				0
+			],
+			"Starting Level": [
+				4,
+				5
+			],
+			"Excluded Talents": [
+				"rangedSkill",
+				"rangedDefense"
+			],
+			"Excluded Traits": [
+				"Ailing",
+				"Asthmatic",
+				"Bleeder",
+				"Bloodthirsty",
+				"Brute",
+				"Clubfooted",
+				"Clumsy",
+				"Craven",
+				"Dastard",
+				"Disloyal",
+				"Dumb",
+				"Fainthearted",
+				"Fear of Undead",
+				"Fragile",
+				"Gluttonous",
+				"Greedy",
+				"Hate for Beasts",
+				"Hate for Greenskins",
+				"Hate for Undead",
+				"Hesitant",
+				"Insecure",
+				"Irrational",
+				"Night Blind",
+				"Paranoid",
+				"Swift",
+				"Tiny",
+				"Weasel"
+			],
+			"Base Wage": 25,
+			"Background Ability": ""
+		},
+		{
+			"Name": "King's Guard",
+			"Hitpoints": [
+				-5,
+				5
+			],
+			"Fatigue": [
+				0,
+				10
+			],
+			"Resolve": [
+				15,
+				15
+			],
+			"Initiative": [
+				-15,
+				0
+			],
+			"Melee Skill": [
+				5,
+				5
+			],
+			"Ranged Skill": [
+				-5,
+				0
+			],
+			"Melee Defense": [
+				5,
+				5
+			],
+			"Ranged Defense": [
+				5,
+				5
+			],
+			"Starting Level": [
+				2,
+				2
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [],
+			"Base Wage": 30,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Orc Slayer",
+			"Hitpoints": [
+				10,
+				10
+			],
+			"Fatigue": [
+				10,
+				10
+			],
+			"Resolve": [
+				15,
+				20
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				10,
+				10
+			],
+			"Ranged Skill": [
+				-10,
+				5
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				-5,
+				0
+			],
+			"Starting Level": [
+				4,
+				5
+			],
+			"Excluded Talents": [
+				"rangedSkill",
+				"rangedDefense"
+			],
+			"Excluded Traits": [
+				"Ailing",
+				"Asthmatic",
+				"Bleeder",
+				"Bloodthirsty",
+				"Brute",
+				"Clubfooted",
+				"Clumsy",
+				"Craven",
+				"Dastard",
+				"Disloyal",
+				"Dumb",
+				"Fainthearted",
+				"Fear of Greenskins",
+				"Fragile",
+				"Gluttonous",
+				"Greedy",
+				"Hate for Beasts",
+				"Hate for Greenskins",
+				"Hate for Undead",
+				"Hesitant",
+				"Insecure",
+				"Irrational",
+				"Night Blind",
+				"Paranoid",
+				"Swift",
+				"Team Player",
+				"Tiny",
+				"Weasel"
+			],
+			"Base Wage": 25,
+			"Background Ability": ""
+		}
+	]
+}

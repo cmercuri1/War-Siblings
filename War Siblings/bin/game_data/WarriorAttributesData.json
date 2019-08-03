@@ -1,0 +1,47 @@
+{
+	"Base Stats": {
+		"Hitpoints": [
+			50,
+			60
+		],
+		"Fatigue": [
+			90,
+			100
+		],
+		"Resolve": [
+			30,
+			40
+		],
+		"Initiative": [
+			100,
+			110
+		],
+		"Melee Skill": [
+			47,
+			57
+		],
+		"Ranged Skill": [
+			32,
+			42
+		],
+		"Melee Defense": [
+			0,
+			5
+		],
+		"Ranged Defense": [
+			0,
+			5
+		],
+		"Starting Level": [
+			1,
+			1
+		],
+		"Base Wage": 0,
+		"Action Points": 9,
+		"Food Eaten per Day": 2,
+		"Change to Hit Head": 25,
+		"Fatigue Regain": 15,
+		"Vision": 7,
+		"Experience Rate": 100
+	}
+}
