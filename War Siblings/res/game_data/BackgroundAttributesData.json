@@ -264,19 +264,19 @@
 			],
 			"Starting Headgear": [
 				{
-					"Item Name": "null",
+					"Item Name": "Hood",
 					"Chance to Start": 100
 				}
 			],
 			"Starting Body": [
 				{
-					"Item Name": "null",
+					"Item Name": "Leather Tunic",
 					"Chance to Start": 100
 				}
 			],
 			"Starting Right": [
 				{
-					"Item Name": "null",
+					"Item Name": "Dagger",
 					"Chance to Start": 100
 				}
 			],
@@ -353,25 +353,73 @@
 			"Starting Headgear": [
 				{
 					"Item Name": "null",
-					"Chance to Start": 100
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Leather Headband",
+					"Chance to Start": 35
+				},
+				{
+					"Item Name": "Bear Headpiece",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Leather Helmet",
+					"Chance to Start": 15
 				}
 			],
 			"Starting Body": [
 				{
 					"Item Name": "null",
-					"Chance to Start": 100
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Thick Furs",
+					"Chance to Start": 35
+				},
+				{
+					"Item Name": "Animal Hide Armor",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Reinforced Animal Hide Armor",
+					"Chance to Start": 15
 				}
 			],
 			"Starting Right": [
 				{
-					"Item Name": "null",
-					"Chance to Start": 100
+					"Item Name": "Antler Cleaver",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Hatchet",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Tree Limb",
+					"Chance to Start": 10
+				},
+				{
+					"Item Name": "Crude Axe",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Axehammer",
+					"Chance to Start": 10
+				},
+				{
+					"Item Name": "Blunt Cleaver",
+					"Chance to Start": 10
 				}
 			],
 			"Starting Left": [
 				{
 					"Item Name": "null",
-					"Chance to Start": 100
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Old Wooden Shield",
+					"Chance to Start": 60
 				}
 			],
 			"Starting Bag": [
@@ -554,25 +602,73 @@
 			"Starting Headgear": [
 				{
 					"Item Name": "null",
-					"Chance to Start": 100
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Hood",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Hunter's Hat'",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Full Leather Cap",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Bear Headpiece",
+					"Chance to Start": 5
 				}
 			],
 			"Starting Body": [
 				{
-					"Item Name": "null",
-					"Chance to Start": 100
+					"Item Name": "Thick Tunic",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Rugged Surcoat",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Blotched Gambeson",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Padded Leather",
+					"Chance to Start": 25
 				}
 			],
 			"Starting Right": [
 				{
-					"Item Name": "null",
-					"Chance to Start": 100
+					"Item Name": "Hatchet",
+					"Chance to Start": 30
+				},
+				{
+					"Item Name": "Boar Spear",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Handaxe",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Scramasax",
+					"Chance to Start": 25
 				}
 			],
 			"Starting Left": [
 				{
 					"Item Name": "null",
-					"Chance to Start": 100
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Net",
+					"Chance to Start": 50
+				},
+				{
+					"Item Name": "Wooden Shield",
+					"Chance to Start": 25
 				}
 			],
 			"Starting Bag": [
@@ -765,8 +861,12 @@
 			],
 			"Starting Right": [
 				{
+					"Item Name": "Wonky Bow",
+					"Chance to Start": 40
+				},
+				{
 					"Item Name": "Short Bow",
-					"Chance to Start": 100
+					"Chance to Start": 60
 				}
 			],
 			"Starting Left": [
@@ -1028,24 +1128,104 @@
 			"Starting Headgear": [
 				{
 					"Item Name": "null",
-					"Chance to Start": 100
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Headscarf",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Open Leather Cap",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Aketon Cap",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Full Leather Cap",
+					"Chance to Start": 20
 				}
 			],
 			"Starting Body": [
 				{
-					"Item Name": "null",
-					"Chance to Start": 100
+					"Item Name": "Leather Tunic",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Thick Tunic",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Padded Surcoat",
+					"Chance to Start": 15
+				},
+				{
+					"Item Name": "Rugged Surcoat",
+					"Chance to Start": 15
+				},
+				{
+					"Item Name": "Gambeson",
+					"Chance to Start": 10
+				},
+				{
+					"Item Name": "Blotched Gambeson",
+					"Chance to Start": 10
+				},
+				{
+					"Item Name": "Padded Leather",
+					"Chance to Start": 10
 				}
 			],
 			"Starting Right": [
 				{
-					"Item Name": "null",
-					"Chance to Start": 100
+					"Item Name": "Wooden Stick",
+					"Chance to Start": 10
+				},
+				{
+					"Item Name": "Shortsword",
+					"Chance to Start": 15
+				},
+				{
+					"Item Name": "Militia Spear",
+					"Chance to Start": 15
+				},
+				{
+					"Item Name": "Hatchet",
+					"Chance to Start": 10
+				},
+				{
+					"Item Name": "Scramasax",
+					"Chance to Start": 10
+				},
+				{
+					"Item Name": "Falchion",
+					"Chance to Start": 10
+				},
+				{
+					"Item Name": "Bludgeon",
+					"Chance to Start": 15
+				},
+				{
+					"Item Name": "Boar Spear",
+					"Chance to Start": 10
+				},
+				{
+					"Item Name": "Handaxe",
+					"Chance to Start": 5
 				}
 			],
 			"Starting Left": [
 				{
 					"Item Name": "null",
+					"Chance to Start": 100
+				},
+				{
+					"Item Name": "Buckler",
+					"Chance to Start": 100
+				},
+				{
+					"Item Name": "Wooden Shield",
 					"Chance to Start": 100
 				}
 			],
@@ -1245,11 +1425,15 @@
 			"Starting Right": [
 				{
 					"Item Name": "null",
-					"Chance to Start": 50
+					"Chance to Start": 30
+				},
+				{
+					"Item Name": "Knife",
+					"Chance to Start": 35
 				},
 				{
 					"Item Name": "Dagger",
-					"Chance to Start": 50
+					"Chance to Start": 35
 				}
 			],
 			"Starting Left": [
@@ -1451,20 +1635,20 @@
 			],
 			"Starting Right": [
 				{
-					"Item Name": "Short Bow",
-					"Chance to Start": 20
-				},
-				{
 					"Item Name": "Bludgeon",
-					"Chance to Start": 25
+					"Chance to Start": 30
 				},
 				{
 					"Item Name": "Hatchet",
-					"Chance to Start": 25
+					"Chance to Start": 30
 				},
 				{
 					"Item Name": "Militia Spear",
-					"Chance to Start": 30
+					"Chance to Start": 35
+				},
+				{
+					"Item Name": "Short Bow",
+					"Chance to Start": 65
 				}
 			],
 			"Starting Left": [
@@ -2687,8 +2871,12 @@
 			],
 			"Starting Right": [
 				{
+					"Item Name": "Short Bow",
+					"Chance to Start": 15
+				},
+				{
 					"Item Name": "Hunting Bow",
-					"Chance to Start": 100
+					"Chance to Start": 85
 				}
 			],
 			"Starting Left": [
@@ -3975,12 +4163,16 @@
 			],
 			"Starting Right": [
 				{
-					"Item Name": "Short Bow",
-					"Chance to Start": 80
+					"Item Name": "Wonky Bow",
+					"Chance to Start": 15
 				},
 				{
-					"Item Name": "Wonky Bow",
-					"Chance to Start": 20
+					"Item Name": "Staff Sling",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Short Bow",
+					"Chance to Start": 45
 				}
 			],
 			"Starting Left": [
@@ -4518,26 +4710,130 @@
 			],
 			"Starting Headgear": [
 				{
-					"Item Name": "null",
-					"Chance to Start": 100
+					"Item Name": "Full Aketon Cap",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Mail Coif",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Padded Nasal Helmet",
+					"Chance to Start": 35
+				},
+				{
+					"Item Name": "Padded Kettle Hat",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Nasal Helmet with Mail",
+					"Chance to Start": 5
 				}
 			],
 			"Starting Body": [
 				{
-					"Item Name": "null",
-					"Chance to Start": 100
+					"Item Name": "Patched Mail Shirt",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Worn Mail Shirt",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Basic Mail Shirt",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Mail Shirt",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Leather Scale Armor",
+					"Chance to Start": 10
+				},
+				{
+					"Item Name": "Mail Hauberk",
+					"Chance to Start": 5
 				}
 			],
 			"Starting Right": [
 				{
-					"Item Name": "null",
-					"Chance to Start": 100
+					"Item Name": "Scimitar",
+					"Chance to Start": 10
+				},
+				{
+					"Item Name": "Falchion",
+					"Chance to Start": 10
+				},
+				{
+					"Item Name": "Bludgeon",
+					"Chance to Start": 10
+				},
+				{
+					"Item Name": "Boar Spear",
+					"Chance to Start": 10
+				},
+				{
+					"Item Name": "Scramasax",
+					"Chance to Start": 10
+				},
+				{
+					"Item Name": "Flail",
+					"Chance to Start": 10
+				},
+				{
+					"Item Name": "Morning Star",
+					"Chance to Start": 10
+				},
+				{
+					"Item Name": "Military Pick",
+					"Chance to Start": 5
+				},
+				{
+					"Item Name": "Handaxe",
+					"Chance to Start": 5
+				},
+				{
+					"Item Name": "Arming Sword",
+					"Chance to Start": 5
+				},
+				{
+					"Item Name": "Longsword",
+					"Chance to Start": 5
+				},
+				{
+					"Item Name": "Longaxe",
+					"Chance to Start": 5
+				},
+				{
+					"Item Name": "Billhook",
+					"Chance to Start": 5
+				},
+				{
+					"Item Name": "Hunting Bow",
+					"Chance to Start": 50
+				},
+				{
+					"Item Name": "Crossbow",
+					"Chance to Start": 50
 				}
 			],
 			"Starting Left": [
 				{
 					"Item Name": "null",
-					"Chance to Start": 100
+					"Chance to Start": 15
+				},
+				{
+					"Item Name": "Wooden Shield",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Kite Shield",
+					"Chance to Start": 30
+				},
+				{
+					"Item Name": "Heater Shield",
+					"Chance to Start": 30
 				}
 			],
 			"Starting Bag": [

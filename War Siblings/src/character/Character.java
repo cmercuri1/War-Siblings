@@ -105,6 +105,12 @@ public class Character extends GenericObservee implements Observer {
 			case APPLY_LEVEL_UP:
 				this.notifyObserver(this.am, event);
 				break;
+			case RANGED_PREF:
+				if (this.backgroundName.equals("Sellsword") || this.backgroundName.equals("Deserter")) {
+					this.notifyObserver(im, new EventObject(Target.INVENTORY, EventType.RANGED_PREF, null, null));
+
+				}
+				break;
 			default:
 				break;
 			}
@@ -152,7 +158,7 @@ public class Character extends GenericObservee implements Observer {
 		return this.bm;
 	}
 
-	public void display() {		
+	public void display() {
 		System.out.println("New Character!");
 		System.out.println("Background is " + this.backgroundName);
 

@@ -5,6 +5,8 @@
 
 package items;
 
+import javax.swing.ImageIcon;
+
 /**
  * A class for storing and assisting in operating items that function as Helmets
  * and other protective headgear
@@ -16,6 +18,14 @@ public class Headgear extends Armor {
 	public Headgear(String name, double value, String desc, double dura, double fatRed, String type, double visRed) {
 		super(name, value, desc, dura, fatRed, type);
 		this.visRed = visRed;
+	}
+	
+	@Override
+	protected void setIcon() {
+		this.image = new ImageIcon("res/images/Items/Headgear/" + this.name + ".png");
+		if (this.image == null) {
+			System.out.println("Error Finding: " + this.name);
+		}
 	}
 
 	/* Getters */

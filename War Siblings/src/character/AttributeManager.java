@@ -48,6 +48,8 @@ public class AttributeManager extends GenericObservee implements Observer {
 	private Attribute fatigueRegManager;
 	private Attribute visionManager;
 
+	private int pref; // Only used in determining starting equipment
+
 	public AttributeManager(BackgroundGenerator bg, Observer o) {
 		this.setUpObservers();
 		this.registerObserver(o);
@@ -111,6 +113,10 @@ public class AttributeManager extends GenericObservee implements Observer {
 			int j = GlobalManager.rng.nextInt(managers.size());
 			managers.get(j).setNumStars();
 			managers.remove(j);
+		}
+
+		if (pref > 0) {
+			this.notifyObservers(new EventObject(Target.CHARACTER, EventType.RANGED_PREF, null, null));
 		}
 	}
 
@@ -232,13 +238,11 @@ public class AttributeManager extends GenericObservee implements Observer {
 			case GET:
 				temp = new Object[] { event.getInformation(),
 						this.getAttribute((String) event.getInformation()).getAlteredValue() };
-				this.notifyObservers(
-						new EventObject(Target.UNDEFINED, EventType.GOT, temp, event.getRequester()));
+				this.notifyObservers(new EventObject(Target.UNDEFINED, EventType.GOT, temp, event.getRequester()));
 				break;
 			case GET_OTHER:
 				this.notifyObservers(new EventObject(Target.UNDEFINED, EventType.GOT_OTHER,
-						this.getAttribute((String) event.getInformation()).getAlteredValue(),
-						event.getRequester()));
+						this.getAttribute((String) event.getInformation()).getAlteredValue(), event.getRequester()));
 				break;
 			case START_TURN:
 				this.fatigueManager.alterCurrent(-this.fatigueRegManager.getAlteredValue());
@@ -261,6 +265,18 @@ public class AttributeManager extends GenericObservee implements Observer {
 				if (temp[0] instanceof FatigueAttribute) {
 					this.initiativeManager
 							.addModifier(new Modifier("Fatigue_Penalty", -(double) temp[1], false, true, true));
+				}
+				break;
+			case STAR_ASSIGNED:
+				temp = (Object[]) event.getInformation();
+				int star = 0;
+				if (temp[0] == this.meleeSkillManager) {
+					star = (int) temp[1];
+					pref -= star;
+				}
+				if (temp[0] == this.rangedSkillManager) {
+					star = (int) temp[1];
+					pref += star;
 				}
 				break;
 			default:

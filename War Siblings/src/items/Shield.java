@@ -7,6 +7,8 @@ package items;
 
 import storage_classes.ArrayList;
 
+import javax.swing.ImageIcon;
+
 import storage_classes.Ability;
 import storage_classes.Attribute;
 
@@ -23,6 +25,14 @@ public class Shield extends AbilityItem {
 		super(name, value, desc, dura, fatRed, abilityList);
 		this.meleeDef = new Attribute(mDef, this);
 		this.rangedDef = new Attribute(rDef, this);
+	}
+	
+	@Override
+	protected void setIcon() {
+		this.image = new ImageIcon("res/images/Items/Shields/" + this.name + ".png");
+		if (this.image == null) {
+			System.out.println("Error Finding: " + this.name);
+		}
 	}
 
 	/* Getters */

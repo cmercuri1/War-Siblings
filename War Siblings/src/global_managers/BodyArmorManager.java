@@ -12,7 +12,6 @@ import items.Armor;
 
 /** A class for Globally Storing and Managing all the Body Armors */
 public class BodyArmorManager extends BaseGlobalManager {
-	public final Armor DEFAULT = new Armor(null, 0, null, 0, 0, null);
 	private ArrayList<Armor> armorList;
 
 	public BodyArmorManager() {

@@ -1,8 +1,6 @@
-/character/
-/engine/
-/event_classes/
-/global_generators/
-/global_managers/
 /items/
-/run/
+/engine/
+/global_managers/
+/character/
+/event_classes/
 /storage_classes/

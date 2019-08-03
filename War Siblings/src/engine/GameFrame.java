@@ -123,10 +123,8 @@ public class GameFrame extends JFrame implements ActionListener, ItemListener, O
 				.addGroup(gl.createParallelGroup()
 						.addGroup(gl.createSequentialGroup().addComponent(rightItem)
 								.addGroup(gl.createParallelGroup()
-										.addComponent(headArmor, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
-												Short.MAX_VALUE)
-										.addComponent(bodyArmor, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
-												Short.MAX_VALUE))
+										.addComponent(headArmor)
+										.addComponent(bodyArmor))
 								.addComponent(leftItem))
 						.addGroup(gl.createParallelGroup().addComponent(arg[0]).addComponent(arg[1],
 								GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
@@ -146,12 +144,9 @@ public class GameFrame extends JFrame implements ActionListener, ItemListener, O
 								.addGroup(gl.createParallelGroup(BASELINE).addComponent(init).addComponent(vis)))
 						.addGroup(gl.createSequentialGroup().addComponent(headArmor)
 								.addGroup(gl.createParallelGroup(BASELINE)
-										.addComponent(rightItem, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
-												Short.MAX_VALUE)
-										.addComponent(bodyArmor, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
-												Short.MAX_VALUE)
-										.addComponent(leftItem, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
-												Short.MAX_VALUE))))
+										.addComponent(rightItem)
+										.addComponent(bodyArmor)
+										.addComponent(leftItem))))
 				.addGroup(
 						gl.createSequentialGroup().addComponent(arg[0]).addComponent(arg[1], GroupLayout.PREFERRED_SIZE,
 								GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE).addComponent(arg[2])));

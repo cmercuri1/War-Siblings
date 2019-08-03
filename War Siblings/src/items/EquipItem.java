@@ -36,7 +36,7 @@ public class EquipItem extends Item {
 	}
 
 	public String getArmorDamage() {
-		return "50%";
+		return "0%";
 	}
 
 	public DurAttribute getDurability() {

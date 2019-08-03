@@ -12,7 +12,6 @@ import items.Headgear;
 
 /** A class for Globally Storing and Managing all the Headgears */
 public class HeadgearManager extends BaseGlobalManager {
-	public final Headgear DEFAULT = new Headgear(null, 0, null, 0, 0, null, 0);
 	private ArrayList<Headgear> helmList;
 
 	public HeadgearManager() {

@@ -4,7 +4,10 @@
  */
 package storage_classes;
 
+import event_classes.EventObject;
+import event_classes.EventType;
 import event_classes.Observer;
+import event_classes.Target;
 import global_managers.GlobalManager;
 
 /**
@@ -47,6 +50,10 @@ public class StarAttribute extends Attribute {
 		} else {
 			this.numStars = 0;
 		}
+		
+		Object[] temp = {this, this.numStars};
+		
+		this.notifyObservers(new EventObject(Target.ATTRIBUTE, EventType.STAR_ASSIGNED, temp, null));
 	}
 
 	/**

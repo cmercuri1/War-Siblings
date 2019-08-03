@@ -31,6 +31,8 @@ public class InventoryManager extends GenericObservee implements Observer {
 	private EquipItem left;
 	private ArrayList<EquipItem> bag;
 
+	private boolean rangedPref = false;
+
 	private enum ARM {
 		LEFT, RIGHT
 	};
@@ -38,14 +40,14 @@ public class InventoryManager extends GenericObservee implements Observer {
 	public InventoryManager(Observer o) {
 		this.setUpObservers();
 		this.registerObserver(o);
-		this.body = GlobalManager.equipment.getBody().DEFAULT;
-		this.head = GlobalManager.equipment.getHead().DEFAULT;
-		this.right = GlobalManager.equipment.DEFAULT;
-		this.left = GlobalManager.equipment.DEFAULT;
+		this.body = GlobalManager.equipment.DEFAULTBODY;
+		this.head = GlobalManager.equipment.DEFAULTHEAD;
+		this.right = GlobalManager.equipment.DEFAULTRIGHT;
+		this.left = GlobalManager.equipment.DEFAULTLEFT;
 
 		this.bag = new ArrayList<EquipItem>();
-		this.bag.add(GlobalManager.equipment.DEFAULT);
-		this.bag.add(GlobalManager.equipment.DEFAULT);
+		this.bag.add(GlobalManager.equipment.DEFAULTBAG);
+		this.bag.add(GlobalManager.equipment.DEFAULTBAG);
 	}
 
 	public void setUpInventory(BackgroundGenerator bg) {
@@ -71,7 +73,11 @@ public class InventoryManager extends GenericObservee implements Observer {
 			}
 		}
 
+		// Uses System for determining whether starting equipment is a ranged weapon on
+		// Deserter/Sellsword Backgrounds
 		roll = GlobalManager.d100Roll();
+		if (rangedPref)
+			roll += 100;
 		for (BackgroundItem i : bg.getRightOptions()) {
 			if (roll <= i.getChanceToGet()) {
 				if (i.getItem() != null) {
@@ -143,7 +149,7 @@ public class InventoryManager extends GenericObservee implements Observer {
 	 * returns old right item
 	 */
 	public void swap1Hander(ARM target, EquipItem next) {
-		EquipItem temp = GlobalManager.equipment.DEFAULT;
+		EquipItem temp = GlobalManager.equipment.DEFAULTRIGHT;
 		switch (target) {
 		case LEFT:
 			temp = this.left;
@@ -173,7 +179,7 @@ public class InventoryManager extends GenericObservee implements Observer {
 	 */
 	public void swap2Hander(EquipItem next) {
 		if (this.left != null) {
-			this.swap1Hander(ARM.LEFT, GlobalManager.equipment.DEFAULT);
+			this.swap1Hander(ARM.LEFT, GlobalManager.equipment.DEFAULTLEFT);
 		}
 		this.swap1Hander(ARM.RIGHT, next);
 	}
@@ -251,8 +257,10 @@ public class InventoryManager extends GenericObservee implements Observer {
 	 * weapon and informs the
 	 */
 	public void isDualGripping() {
-		if (((this.right instanceof Weapon) && (!((Weapon) this.right).isTwoHanded()) && (this.left == null))
-				|| ((this.left instanceof Weapon) && (!((Weapon) this.left).isTwoHanded()) && (this.right == null))) {
+		if (((this.right instanceof Weapon) && (!((Weapon) this.right).isTwoHanded())
+				&& (this.left == GlobalManager.equipment.DEFAULTLEFT))
+				|| ((this.left instanceof Weapon) && (!((Weapon) this.left).isTwoHanded())
+						&& (this.right == GlobalManager.equipment.DEFAULTRIGHT))) {
 			this.notifyObservers(new EventObject(Target.ABILITY, EventType.ADD,
 					GlobalManager.traits.getSpecialTrait("Dual Grip"), null));
 		} else {
@@ -298,7 +306,7 @@ public class InventoryManager extends GenericObservee implements Observer {
 
 		System.out.println("Bag:");
 		for (EquipItem a : this.bag) {
-			if (!a.equals(GlobalManager.equipment.DEFAULT))
+			if (!a.equals(GlobalManager.equipment.DEFAULTRIGHT))
 				a.display();
 
 		}
@@ -313,25 +321,28 @@ public class InventoryManager extends GenericObservee implements Observer {
 				this.swapBody((Armor) event.getInformation());
 				break;
 			case REMOVE_BODY:
-				this.swapBody(GlobalManager.equipment.getBody().DEFAULT);
+				this.swapBody(GlobalManager.equipment.DEFAULTBODY);
 				break;
 			case CHANGE_HEAD:
 				this.swapHead((Headgear) event.getInformation());
 				break;
 			case REMOVE_HEAD:
-				this.swapHead(GlobalManager.equipment.getHead().DEFAULT);
+				this.swapHead(GlobalManager.equipment.DEFAULTHEAD);
 				break;
 			case CHANGE_LEFT:
 				this.swapItem(ARM.LEFT, (EquipItem) event.getInformation());
 				break;
 			case REMOVE_LEFT:
-				this.swapItem(ARM.LEFT, GlobalManager.equipment.DEFAULT);
+				this.swapItem(ARM.LEFT, GlobalManager.equipment.DEFAULTLEFT);
 				break;
 			case CHANGE_RIGHT:
 				this.swapItem(ARM.RIGHT, (EquipItem) event.getInformation());
 				break;
 			case REMOVE_RIGHT:
-				this.swapItem(ARM.RIGHT, GlobalManager.equipment.DEFAULT);
+				this.swapItem(ARM.RIGHT, GlobalManager.equipment.DEFAULTRIGHT);
+				break;
+			case RANGED_PREF:
+				this.rangedPref = true;
 				break;
 			default:
 				break;
