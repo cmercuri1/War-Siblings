@@ -16,17 +16,13 @@ public class Effect extends Modifier {
 
 	public Effect(String eName, double val) {
 		super(eName, val, false, false, false);
-		this.setIsMulti(this.name);
-		this.setFinalAdd(this.name);
-		this.setIsUnique(this.name);
+		this.setBooleans(eName);
 		this.findExtra();
 	}
 
 	public Effect(String eName) {
 		super(eName, GlobalManager.UNUSED, false, false, false);
-		this.setIsMulti(this.name);
-		this.setFinalAdd(this.name);
-		this.setIsUnique(this.name);
+		this.setBooleans(eName);
 		this.findExtra();
 	}
 
@@ -44,22 +40,30 @@ public class Effect extends Modifier {
 	public Effect(String eName, double value, boolean isMulti, boolean isFinal, boolean isUnique) {
 		super(eName, value, isMulti, isFinal, isUnique);
 	}
+	
+	protected void setBooleans(String eName) {
+		if (!this.setIsMulti(eName))
+			this.setFinalAdd(eName);
+		this.setIsUnique(eName);
+	}
 
-	private void setIsMulti(String eName) {
+	protected boolean setIsMulti(String eName) {
 		if (eName.contains("_Percent")) {
 			this.isMulti = true;
 			this.name = eName.replace("_Percent", "");
+			return true;
 		}
+		return false;
 	}
 
-	private void setFinalAdd(String eName) {
+	protected void setFinalAdd(String eName) {
 		if (eName.contains("_Final")) {
 			this.finalAdd = true;
 			this.name = eName.replace("_Final", "");
 		}
 	}
 
-	private void setIsUnique(String eName) {
+	protected void setIsUnique(String eName) {
 		if (eName.contains("_Unique")) {
 			this.isUnique = true;
 			this.name = eName.replace("_Unique", "");
@@ -70,7 +74,7 @@ public class Effect extends Modifier {
 	 * Finds the general effect and configures this instances managers to match so
 	 * that it knows who to tell to adjust
 	 */
-	public void findExtra() {
+	protected void findExtra() {
 		Effect temp;
 		try {
 			temp = GlobalManager.effects.search(this.name);

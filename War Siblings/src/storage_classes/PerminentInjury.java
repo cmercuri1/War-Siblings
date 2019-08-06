@@ -14,8 +14,7 @@ public class PerminentInjury extends ObservableAbility {
 	protected boolean contentInReserve;	
 
 	public PerminentInjury(String name, String desc, ArrayList<Effect> effects, boolean contentInReserve) {
-		super(name, effects);
-		this.desc = desc;
+		super(name, desc, effects);
 		this.contentInReserve = contentInReserve;
 	}
 

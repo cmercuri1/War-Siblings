@@ -7,7 +7,7 @@ package character;
 import storage_classes.ArrayList;
 
 import event_classes.EventObject;
-import event_classes.EventType;
+import event_classes.Type;
 import event_classes.GenericObservee;
 import event_classes.Observer;
 import event_classes.Target;
@@ -81,35 +81,35 @@ public class BattleManager extends GenericObservee implements Observer {
 
 	public void startBattle(ArrayList<String> enemies) {
 		try {
-			this.foeCheck(enemies, EventType.ADD);
+			this.foeCheck(enemies, Type.ADD);
 		} catch (NullPointerException nu) {
 
 		}
-		this.notifyObservers(new EventObject(Target.MORALE, EventType.START_BATTLE, null, null));
+		this.notifyObservers(new EventObject(Target.MORALE, Type.START_BATTLE, null, null));
 	}
 
 	public void startRound() {
-		this.notifyObservers(new EventObject(Target.ATTRIBUTE, EventType.GET, "initiative", this));
+		this.notifyObservers(new EventObject(Target.ATTRIBUTE, Type.GET, "initiative", this));
 	}
 
 	protected void sendInitiative(double value) {
-		this.notifyObserver(null, new EventObject(Target.UNDEFINED, EventType.GOT, value, null));
+		this.notifyObserver(null, new EventObject(Target.UNDEFINED, Type.GOT, value, null));
 	}
 
 	public void startTurn() {
-		this.notifyObservers(new EventObject(Target.ATTRIBUTE, EventType.START_TURN, null, null));
+		this.notifyObservers(new EventObject(Target.ATTRIBUTE, Type.START_TURN, null, null));
 	}
 
 	public void endBattle(ArrayList<String> enemies) {
-		this.notifyObservers(new EventObject(Target.MORALE, EventType.END_BATTLE, null, null));
+		this.notifyObservers(new EventObject(Target.MORALE, Type.END_BATTLE, null, null));
 		try {
-			this.foeCheck(enemies, EventType.REMOVE);
+			this.foeCheck(enemies, Type.REMOVE);
 		} catch (NullPointerException nu) {
 
 		}
 	}
 
-	private void foeCheck(ArrayList<String> enemies, EventType type) {
+	private void foeCheck(ArrayList<String> enemies, Type type) {
 		if (enemies.contains("Beasts")) {
 			this.notifyObservers(new EventObject(Target.ATTRIBUTE, type,
 					new Effect("Resolve", this.resolveBeasts.getValue()), null));
@@ -131,11 +131,11 @@ public class BattleManager extends GenericObservee implements Observer {
 	}
 
 	private void getMeleeSkill() {
-		this.notifyObservers(new EventObject(Target.ATTRIBUTE, EventType.GET, "meleeSkill", this));
+		this.notifyObservers(new EventObject(Target.ATTRIBUTE, Type.GET, "meleeSkill", this));
 	}
 
 	private void getTargetMeleeDefense(Observer target) {
-		this.notifyTarget(target, new EventObject(Target.ATTRIBUTE, EventType.GET_OTHER, "meleeDefense", this));
+		this.notifyTarget(target, new EventObject(Target.ATTRIBUTE, Type.GET_OTHER, "meleeDefense", this));
 	}
 
 	private void getOtherModifiers() {
@@ -161,12 +161,12 @@ public class BattleManager extends GenericObservee implements Observer {
 
 		if (roll <= this.chanceToHit.getAlteredValue()) {
 			System.out.println("Succeeded: rolled: " + roll + ", needed: " + this.chanceToHit.getAlteredValue());
-			this.notifyObservers(new EventObject(Target.UNDEFINED, EventType.HIT, attack, null));
-			this.notifyTarget(target, new EventObject(Target.BATTLE, EventType.HIT, attack, null));
+			this.notifyObservers(new EventObject(Target.UNDEFINED, Type.HIT, attack, null));
+			this.notifyTarget(target, new EventObject(Target.BATTLE, Type.HIT, attack, null));
 		} else {
 			System.out.println("Failed: rolled: " + roll + ", needed: " + this.chanceToHit.getAlteredValue());
-			this.notifyObservers(new EventObject(Target.UNDEFINED, EventType.MISS, attack, null));
-			this.notifyTarget(target, new EventObject(Target.BATTLE, EventType.MISS, attack, null));
+			this.notifyObservers(new EventObject(Target.UNDEFINED, Type.MISS, attack, null));
+			this.notifyTarget(target, new EventObject(Target.BATTLE, Type.MISS, attack, null));
 		}
 	}
 
@@ -295,10 +295,10 @@ public class BattleManager extends GenericObservee implements Observer {
 				this.removeEffect((Effect) event.getInformation());
 				break;
 			case HIT:
-				this.notifyObservers(new EventObject(Target.ATTRIBUTE, EventType.HIT, event, null));
+				this.notifyObservers(new EventObject(Target.ATTRIBUTE, Type.HIT, event, null));
 				break;
 			case MISS:
-				this.notifyObservers(new EventObject(Target.ATTRIBUTE, EventType.MISS, event, null));
+				this.notifyObservers(new EventObject(Target.ATTRIBUTE, Type.MISS, event, null));
 				break;
 			case START_BATTLE:
 				this.startBattle((ArrayList<String>) event.getInformation());
@@ -308,15 +308,15 @@ public class BattleManager extends GenericObservee implements Observer {
 				break;
 			case ROLL_POSITIVE:
 				this.notifyObservers(
-						new EventObject(Target.MORALE, EventType.ROLL_POSITIVE, event.getInformation(), null));
+						new EventObject(Target.MORALE, Type.ROLL_POSITIVE, event.getInformation(), null));
 				break;
 			case ROLL_NEGATIVE:
 				this.notifyObservers(
-						new EventObject(Target.MORALE, EventType.ROLL_NEGATIVE, event.getInformation(), null));
+						new EventObject(Target.MORALE, Type.ROLL_NEGATIVE, event.getInformation(), null));
 				break;
 			case ROLL_SPECIAL:
 				this.notifyObservers(
-						new EventObject(Target.MORALE, EventType.ROLL_SPECIAL, event.getInformation(), null));
+						new EventObject(Target.MORALE, Type.ROLL_SPECIAL, event.getInformation(), null));
 				break;
 			case FAILED_SPECIAL_ROLL:
 

@@ -10,11 +10,11 @@ package event_classes;
  */
 public class EventObject {
 	protected Target target;
-	protected EventType task;
+	protected Type task;
 	protected Object information; // Is Object so that anything can be placed here
-	protected Observer requester;
+	protected Object requester;
 
-	public EventObject(Target target, EventType task, Object information, Observer requester) {
+	public EventObject(Target target, Type task, Object information, Object requester) {
 		this.target = target;
 		this.task = task;
 		this.information = information;
@@ -25,7 +25,7 @@ public class EventObject {
 		return this.target;
 	}
 
-	public EventType getTask() {
+	public Type getTask() {
 		return this.task;
 	}
 
@@ -33,7 +33,7 @@ public class EventObject {
 		return this.information;
 	}
 
-	public Observer getRequester() {
+	public Object getRequester() {
 		return this.requester;
 	}
 

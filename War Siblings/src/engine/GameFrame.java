@@ -22,7 +22,6 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
 import static javax.swing.GroupLayout.Alignment.*;
-import static javax.swing.LayoutStyle.ComponentPlacement.*;
 
 import character.Character;
 import event_classes.EventObject;
@@ -275,38 +274,38 @@ public class GameFrame extends JFrame implements ActionListener, ItemListener, O
 	private void applyCharacter(Character tba) {
 		this.helm.setText(tba.getIm().getHead().getDurability().toString());
 		this.body.setText(tba.getIm().getBody().getDurability().toString());
-		this.hp.setText(tba.getAm().getAttribute("hitpoint").toString());
-		this.ap.setText(tba.getAm().getAttribute("actionPoints").toString());
-		this.fat.setText(tba.getAm().getAttribute("fatigue").toString());
+		this.hp.setText(tba.getAm().getAttributes()[0].toString());
+		this.ap.setText(tba.getAm().getAttributes()[1].toString());
+		this.fat.setText(tba.getAm().getAttributes()[2].toString());
 		this.mor.setText(tba.getMm().getCurrentState().toString());
-		this.res.setText(tba.getAm().getAttribute("resolve").toString());
-		this.init.setText(tba.getAm().getAttribute("initiative").toString());
-		this.mSk.setText(tba.getAm().getAttribute("meleeSkill").toString());
-		this.rSk.setText(tba.getAm().getAttribute("rangedSkill").toString());
-		this.mDef.setText(tba.getAm().getAttribute("meleeDefense").toString());
-		this.rDef.setText(tba.getAm().getAttribute("rangedDefense").toString());
+		this.res.setText(tba.getAm().getAttributes()[3].toString());
+		this.init.setText(tba.getAm().getAttributes()[4].toString());
+		this.mSk.setText(tba.getAm().getAttributes()[5].toString());
+		this.rSk.setText(tba.getAm().getAttributes()[6].toString());
+		this.mDef.setText(tba.getAm().getAttributes()[7].toString());
+		this.rDef.setText(tba.getAm().getAttributes()[8].toString());
 		this.dam.setText(tba.getIm().getRight().getDamage());
 		this.armDam.setText(tba.getIm().getRight().getArmorDamage());
-		this.hs.setText(tba.getAm().getAttribute("headshot").toString() + "%");
-		this.vis.setText(tba.getAm().getAttribute("vision").toString());
+		this.hs.setText(tba.getAm().getAttributes()[9].toString() + "%");
+		this.vis.setText(tba.getAm().getAttributes()[10].toString());
 
 		this.bgIcon.setIcon(tba.getBgIcon());
 
 		try {
 			this.trait1.setIcon(tba.getAbm().getTraits().get(0).getImage());
-			this.trait1.setToolTipText(tba.getAbm().getTraits().get(0).getDesc());
+			this.trait1.setToolTipText(tba.getAbm().getTraits().get(0).toString());
 		} catch (IndexOutOfBoundsException e) {
 			this.trait1.setIcon(null);
 		}
 		try {
 			this.trait2.setIcon(tba.getAbm().getTraits().get(1).getImage());
-			this.trait2.setToolTipText(tba.getAbm().getTraits().get(1).getDesc());
+			this.trait2.setToolTipText(tba.getAbm().getTraits().get(1).toString());
 		} catch (IndexOutOfBoundsException e) {
 			this.trait2.setIcon(null);
 		}
 		try {
 			this.trait3.setIcon(tba.getAbm().getTraits().get(2).getImage());
-			this.trait3.setToolTipText(tba.getAbm().getTraits().get(2).getDesc());
+			this.trait3.setToolTipText(tba.getAbm().getTraits().get(2).toString());
 		} catch (IndexOutOfBoundsException e) {
 			this.trait3.setIcon(null);
 		}

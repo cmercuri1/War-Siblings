@@ -35,7 +35,7 @@ public abstract class BaseGlobalManager {
 		JSONParser parser = new JSONParser();
 		JSONArray list;
 		
-		Path file = FileSystems.getDefault().getPath("", fileName);
+		Path file = FileSystems.getDefault().getPath(fileName);
 
 		try {
 			JSONObject jsonObject = (JSONObject) parser.parse(new FileReader(file.toFile()));

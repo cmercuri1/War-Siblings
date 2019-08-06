@@ -5,7 +5,7 @@
 package storage_classes;
 
 import event_classes.EventObject;
-import event_classes.EventType;
+import event_classes.Type;
 import event_classes.Observer;
 import event_classes.Target;
 
@@ -25,7 +25,7 @@ public class HitpointAttribute extends BarStarAttribute {
 	protected void currentChecker() {
 		if (this.alteredCurrentValue < MINIMUM) {
 			this.alteredCurrentValue = MINIMUM;
-			this.notifyObservers(new EventObject(Target.ATTRIBUTE, EventType.NO_HP, null, null));
+			this.notifyObservers(new EventObject(Target.ATTRIBUTE, Type.NO_HP, null, null));
 		} else if (this.alteredCurrentValue > this.alteredMaxValue) {
 			this.alteredCurrentValue = this.alteredMaxValue;
 		}

@@ -5,7 +5,7 @@
 package storage_classes;
 
 import event_classes.EventObject;
-import event_classes.EventType;
+import event_classes.Type;
 import event_classes.Observer;
 import event_classes.Target;
 import global_managers.GlobalManager;
@@ -30,7 +30,7 @@ public class LevelAttribute extends Attribute {
 
 	private void levelUp() {
 		this.addModifier(new Modifier("Level" + this.alteredMaxValue + 1, 1, false, false, true));
-		this.notifyObservers(new EventObject(Target.ATTRIBUTE, EventType.LEVEL_UP, (int) this.alteredMaxValue, null));
+		this.notifyObservers(new EventObject(Target.ATTRIBUTE, Type.LEVEL_UP, (int) this.alteredMaxValue, null));
 		this.nextLevel = GlobalManager.xp.getNextLevel((int) this.alteredMaxValue);
 	}
 
@@ -39,6 +39,11 @@ public class LevelAttribute extends Attribute {
 	}
 
 	public String toString() {
+		return ((Integer) ((Double) this.alteredMaxValue).intValue()).toString() + " (" + this.currXP + "/"
+				+ ((Integer) ((Double) this.nextLevel.getTotalXp()).intValue()).toString() + ")";
+	}
+
+	public String toStringFull() {
 		return ((Integer) ((Double) this.alteredMaxValue).intValue()).toString() + " (" + this.currXP + "/"
 				+ ((Integer) ((Double) this.nextLevel.getTotalXp()).intValue()).toString() + ")"
 				+ this.stringModifiers();

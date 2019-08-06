@@ -5,7 +5,7 @@
 package character;
 
 import event_classes.EventObject;
-import event_classes.EventType;
+import event_classes.Type;
 import event_classes.GenericObservee;
 import event_classes.Observer;
 import event_classes.Target;
@@ -92,7 +92,7 @@ public class AbilityManager extends GenericObservee implements Observer {
 	public void sufferTemporaryInjury(TemporaryInjury injury) {
 		this.tempInjuries.add(injury);
 		this.tempInjuries.get(injury).registerObserver(this);
-		this.notifyOtherManagers(EventType.ADD, injury);
+		this.notifyOtherManagers(Type.ADD, injury);
 	}
 
 	public void healTemporaryInjuries() {
@@ -102,32 +102,32 @@ public class AbilityManager extends GenericObservee implements Observer {
 	public void sufferPerminentInjury(PerminentInjury injury) {
 		this.permaInjuries.add(injury);
 
-		this.notifyOtherManagers(EventType.ADD, injury);
+		this.notifyOtherManagers(Type.ADD, injury);
 	}
 
 	public void healPerminentInjuries() {
-		this.permaInjuries.forEach(i -> this.notifyOtherManagers(EventType.REMOVE, i));
+		this.permaInjuries.forEach(i -> this.notifyOtherManagers(Type.REMOVE, i));
 		this.permaInjuries.clear();
 	}
 
 	public void addAbility(Ability ability) {
 		this.characterAbilities.add(ability);
-		this.notifyOtherManagers(EventType.ADD, ability);
+		this.notifyOtherManagers(Type.ADD, ability);
 	}
 
 	public void addTrait(Trait trait) {
 		this.characterTraits.add(trait);
-		this.notifyOtherManagers(EventType.ADD, trait);
+		this.notifyOtherManagers(Type.ADD, trait);
 	}
 
 	public void removeAbility(Ability ability) {
 		if (this.characterAbilities.remove(ability))
-			this.notifyOtherManagers(EventType.REMOVE, ability);
+			this.notifyOtherManagers(Type.REMOVE, ability);
 	}
 
 	public void removeTrait(Trait trait) {
-		if (this.characterAbilities.remove(trait))
-			this.notifyOtherManagers(EventType.REMOVE, trait);
+		if (this.characterTraits.remove(trait))
+			this.notifyOtherManagers(Type.REMOVE, trait);
 	}
 
 	public void removeAbility(String abilityName) {
@@ -139,7 +139,7 @@ public class AbilityManager extends GenericObservee implements Observer {
 		}
 	}
 
-	private void notifyOtherManagers(EventType type, Ability ability) {
+	private void notifyOtherManagers(Type type, Ability ability) {
 		for (Effect t : ability.getEffects()) {
 			if (t.getAffectedManager().equals("Attribute")) {
 				this.notifyObservers(new EventObject(Target.ATTRIBUTE, type, t, null));
@@ -172,12 +172,18 @@ public class AbilityManager extends GenericObservee implements Observer {
 					this.sufferTemporaryInjury((TemporaryInjury) event.getInformation());
 				} else if (event.getInformation() instanceof PerminentInjury) {
 					this.sufferPerminentInjury((PerminentInjury) event.getInformation());
+				} else if (event.getInformation() instanceof Trait) {
+					this.addTrait((Trait) event.getInformation());
 				} else {
 					this.addAbility((Ability) event.getInformation());
 				}
 				break;
 			case REMOVE:
-				this.removeAbility((Ability) event.getInformation());
+				if (event.getInformation() instanceof Trait) {
+					this.removeTrait((Trait) event.getInformation());
+				} else {
+					this.removeAbility((Ability) event.getInformation());
+				}
 				break;
 			case HEALED:
 				this.tempInjuries.remove(event.getRequester());

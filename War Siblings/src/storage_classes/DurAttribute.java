@@ -5,7 +5,7 @@
 package storage_classes;
 
 import event_classes.EventObject;
-import event_classes.EventType;
+import event_classes.Type;
 import event_classes.Observer;
 
 /** Special Attribute handling item durability */
@@ -30,9 +30,9 @@ public class DurAttribute extends Attribute {
 		this.alteredCurrentValue += value;
 		this.currentChecker();
 		if (this.alteredCurrentValue == MINIMUM) {
-			this.notifyObservers(new EventObject(null, EventType.BROKEN, null, null));
+			this.notifyObservers(new EventObject(null, Type.BROKEN, null, null));
 		}
-		this.notifyObservers(new EventObject(null, EventType.MODIFYVALUE, this.getPercentage(),null));
+		this.notifyObservers(new EventObject(null, Type.MODIFYVALUE, this.getPercentage(),null));
 	}
 	
 	protected double getPercentage() {

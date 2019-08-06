@@ -1,19 +1,23 @@
 package storage_classes;
 
 import event_classes.EventObject;
-import event_classes.EventType;
+import event_classes.Type;
 import event_classes.Observer;
 import event_classes.Target;
 
 public class BarAttribute extends Attribute {
 
-	protected final double MINIMUM = 0.0;
+	protected final static double MINIMUM = 0.0;
 
 	protected double originalCurrentValue;
 	protected double alteredCurrentValue;
 
 	public BarAttribute(double value, Observer o) {
 		super(value, o);
+	}
+	
+	public BarAttribute(double value) {
+		super(value);
 	}
 	
 	public void updateAltered() {
@@ -25,7 +29,7 @@ public class BarAttribute extends Attribute {
 		this.alteredCurrentValue += value;
 		this.currentChecker();
 		Object[] temp = { this, this.alteredCurrentValue };
-		this.notifyObservers(new EventObject(Target.ATTRIBUTE, EventType.UPDATE, temp, null));
+		this.notifyObservers(new EventObject(Target.ATTRIBUTE, Type.UPDATE, temp, null));
 	}
 
 	/**

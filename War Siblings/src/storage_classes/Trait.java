@@ -27,7 +27,11 @@ public class Trait extends Ability {
 	}
 
 	protected void setImage() {
-		this.image = new ImageIcon("res/images/Traits/" + this.name + ".png");
+		try {
+			this.image = new ImageIcon(Trait.class.getResource("/images/Traits/" + this.name + ".png"));
+		} catch (NullPointerException n) {
+			System.out.println(this.name);
+		}
 	}
 
 	/* Getters */

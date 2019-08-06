@@ -13,7 +13,7 @@ import java.util.Map;
  */
 public enum MoraleState {
 	FLEEING(0, "Fleeing"), BREAKING(1, "Breaking"), WAVERING(2, "Wavering"), STEADY(3, "Steady"),
-	CONFIDENT(4, "Confident"), UNBREAKABLE(999, "Unbreakable");
+	CONFIDENT(4, "Confident"), UNBREAKABLE(5, "Unbreakable");
 
 	private static final Map<Integer, MoraleState> BY_VALUE = new HashMap<>();
 

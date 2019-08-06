@@ -16,10 +16,10 @@ public class Ability {
 	protected String name;
 	protected String desc;
 	protected ArrayList<Effect> effects;
-	
+
 	protected ImageIcon image;
-	
-	/** Constructor for when you have all the effects */
+
+	/** Constructor for when you have all the effects and description */
 	public Ability(String name, String desc, ArrayList<Effect> effects) {
 		this.name = name;
 		this.desc = desc;
@@ -34,28 +34,14 @@ public class Ability {
 		this.setImage();
 	}
 
-	/** Constructor for when you need to find the effects */
-	public Ability(String name, String desc) {
-		this.name = name;
-		this.desc = desc;
-		this.effects = this.retrieveEffects();
-	}
-
-	/** Constructor for when you need to find the effects */
-	public Ability(String name) {
-		this.name = name;
-		this.effects = this.retrieveEffects();
-	}
-
-	private ArrayList<Effect> retrieveEffects() {
-		// TODO Add JSON data for general weapon effects?
-		return null;
-	}
-	
 	protected void setImage() {
-		//TODO
+		try {
+			this.image = new ImageIcon(Ability.class.getResource("/images/Abilities/" + this.name + ".png"));
+		} catch (NullPointerException n) {
+			//System.out.println(this.name);
+		}
 	}
-	
+
 	public void setImage(ImageIcon img) {
 		this.image = img;
 	}
@@ -71,9 +57,13 @@ public class Ability {
 	public ArrayList<Effect> getEffects() {
 		return this.effects;
 	}
-	
+
 	public ImageIcon getImage() {
 		return this.image;
+	}
+	
+	public String toString() {
+		return "<html>" + this.name + ": "+ this.desc;
 	}
 
 	public void display() {
@@ -81,7 +71,7 @@ public class Ability {
 		try {
 			this.effects.forEach(e -> e.display());
 		} catch (NullPointerException n) {
-			
+
 		}
 	}
 

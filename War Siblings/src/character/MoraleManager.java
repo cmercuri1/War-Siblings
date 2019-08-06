@@ -5,7 +5,7 @@
 package character;
 
 import event_classes.EventObject;
-import event_classes.EventType;
+import event_classes.Type;
 import event_classes.GenericObservee;
 import event_classes.Observer;
 import event_classes.Target;
@@ -105,7 +105,7 @@ public class MoraleManager extends GenericObservee implements Observer {
 
 	public void makeSpecialCheck(double additionalModifier) {
 		if (!this.makeCheck(this.specialModifier + this.pessimistModifier + additionalModifier)) {
-			this.notifyObservers(new EventObject(Target.BATTLE, EventType.FAILED_SPECIAL_ROLL, null, null));
+			this.notifyObservers(new EventObject(Target.BATTLE, Type.FAILED_SPECIAL_ROLL, null, null));
 		}
 	}
 
@@ -133,7 +133,7 @@ public class MoraleManager extends GenericObservee implements Observer {
 	}
 
 	private void getResolve() {
-		this.notifyObservers(new EventObject(Target.ATTRIBUTE, EventType.GET, "resolve", this));
+		this.notifyObservers(new EventObject(Target.ATTRIBUTE, Type.GET, "resolve", this));
 	}
 
 	public void setResolve(double resolve) {
@@ -182,14 +182,14 @@ public class MoraleManager extends GenericObservee implements Observer {
 
 	private void changeState(MoraleState state) {
 		try {
-			this.notifyObservers(new EventObject(Target.ABILITY, EventType.REMOVE,
+			this.notifyObservers(new EventObject(Target.ABILITY, Type.REMOVE,
 					GlobalManager.morale.getMoraleAbility(this.currentMorale), null));
 		} catch (NullPointerException nu) {
 
 		}
 		try {
 			this.notifyObservers(
-					new EventObject(Target.ABILITY, EventType.ADD, GlobalManager.morale.getMoraleAbility(state), null));
+					new EventObject(Target.ABILITY, Type.ADD, GlobalManager.morale.getMoraleAbility(state), null));
 		} catch (NullPointerException nu) {
 
 		}

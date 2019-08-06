@@ -148,7 +148,7 @@ public class Weapon extends AbilityItem {
 		}
 
 		if (this.maxDam.getAlteredValue() > 0) {
-			temp += "<br" + this.minDam.toString() + " - " + this.maxDam.toString() + "<br>" + this.ignArm.toString()
+			temp += "<br>" + this.minDam.toString() + " - " + this.maxDam.toString() + "<br>" + this.ignArm.toString()
 					+ "% of damage ignores armor<br>" + this.armDam + "% effective against armor";
 		}
 

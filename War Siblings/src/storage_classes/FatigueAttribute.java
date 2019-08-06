@@ -5,7 +5,7 @@
 package storage_classes;
 
 import event_classes.EventObject;
-import event_classes.EventType;
+import event_classes.Type;
 import event_classes.Observer;
 import event_classes.Target;
 
@@ -27,7 +27,7 @@ public class FatigueAttribute extends BarStarAttribute {
 			this.alteredCurrentValue = MINIMUM;
 		} else if (this.alteredCurrentValue > this.alteredMaxValue) {
 			this.alteredCurrentValue = this.alteredMaxValue;
-			this.notifyObservers(new EventObject(Target.ATTRIBUTE, EventType.NO_FATIGUE, null, null));
+			this.notifyObservers(new EventObject(Target.ATTRIBUTE, Type.NO_FATIGUE, null, null));
 		}
 	}
 

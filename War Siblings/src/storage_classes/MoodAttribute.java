@@ -20,22 +20,7 @@ public class MoodAttribute extends Attribute {
 	}
 
 	protected void updateAltered() {
-		double multi = 1;
-		double add = 0;
-		double finalAdd = 0;
-
-		for (Modifier m : modifiers) {
-			if (m.getIsMulti()) {
-				multi *= (1 + m.getValue() / 100);
-			} else {
-				if (m.getFinalAdd()) {
-					finalAdd += m.getValue();
-				} else {
-					add += m.getValue();
-				}
-			}
-		}
-		this.alteredMaxValue = multi * (this.originalMaxValue + add) + finalAdd;
+		super.updateAltered();
 
 		if (this.alteredMaxValue > MOODMAX) {
 			this.alteredMaxValue = MOODMAX;
@@ -57,12 +42,22 @@ public class MoodAttribute extends Attribute {
 		this.modifiers.removeIf(m -> m.getValue() == 0);
 	}
 
+	public int getMoraleState() {
+		return this.currentMood.rollMoraleState();
+	}
+
+	// Getters
+
 	public Mood getCurrentMood() {
 		return this.currentMood;
 	}
 
 	private void setMoodName() {
 		this.currentMood = GlobalManager.moods.getAMood(alteredMaxValue);
+	}
+
+	public String toString() {
+		return this.currentMood.getName() + " (" + this.alteredMaxValue + "): " + this.currentMood.getDesc();
 	}
 
 }

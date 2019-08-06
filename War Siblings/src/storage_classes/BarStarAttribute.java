@@ -5,7 +5,7 @@
 package storage_classes;
 
 import event_classes.EventObject;
-import event_classes.EventType;
+import event_classes.Type;
 import event_classes.Observer;
 import event_classes.Target;
 
@@ -32,7 +32,7 @@ public class BarStarAttribute extends StarAttribute {
 		this.alteredCurrentValue += value;
 		this.currentChecker();
 		Object[] temp = { this, this.alteredCurrentValue };
-		this.notifyObservers(new EventObject(Target.ATTRIBUTE, EventType.UPDATE, temp, null));
+		this.notifyObservers(new EventObject(Target.ATTRIBUTE, Type.UPDATE, temp, null));
 	}
 
 	/**

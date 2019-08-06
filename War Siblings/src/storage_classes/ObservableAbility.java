@@ -14,24 +14,25 @@ import event_classes.Observer;
 public class ObservableAbility extends Ability implements Observee {
 	protected ArrayList<Observer> observerList;
 
+	public ObservableAbility(String name, String desc, ArrayList<Effect> effects, Observer o) {
+		super(name, desc, effects);
+		this.observerList = new ArrayList<Observer>();
+		this.registerObserver(o);
+	}
+
+	public ObservableAbility(String name, String desc, ArrayList<Effect> effects) {
+		super(name, desc, effects);
+		this.observerList = new ArrayList<Observer>();
+	}
+
 	public ObservableAbility(String name, ArrayList<Effect> effects, Observer o) {
 		super(name, effects);
 		this.observerList = new ArrayList<Observer>();
 		this.registerObserver(o);
 	}
+
 	public ObservableAbility(String name, ArrayList<Effect> effects) {
 		super(name, effects);
-		this.observerList = new ArrayList<Observer>();
-	}
-
-	public ObservableAbility(String name, Observer o) {
-		super(name);
-		this.observerList = new ArrayList<Observer>();
-		this.registerObserver(o);
-	}
-
-	public ObservableAbility(String name) {
-		super(name);
 		this.observerList = new ArrayList<Observer>();
 	}
 
@@ -46,13 +47,13 @@ public class ObservableAbility extends Ability implements Observee {
 	}
 
 	@Override
-	public void notifyObservers(EventObject information) {
-		this.observerList.forEach(o -> o.onEventHappening(information));
+	public void notifyObservers(EventObject event) {
+		this.observerList.forEach(o -> o.onEventHappening(event));
 	}
 
 	@Override
-	public void notifyObserver(Observer o, EventObject information) {
-		this.observerList.get(o).onEventHappening(information);
+	public void notifyObserver(Observer o, EventObject event) {
+		this.observerList.get(o).onEventHappening(event);
 	}
 
 }

@@ -33,7 +33,7 @@ public class WeaponManager extends BaseGlobalManager {
 		temp = (JSONArray) o.get("Ability List");
 		ArrayList<Ability> temp3 = new ArrayList<Ability>();
 		for (Object ob : temp) {
-			temp3.add(new Ability((String) ob));
+			temp3.add(new Ability((String) ob, "", null));
 		}
 
 		this.weaponList.add(new Weapon((String) o.get("Name"), (Long) o.get("Value"), (String) o.get("Description"),

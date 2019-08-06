@@ -7,7 +7,7 @@ package storage_classes;
 import storage_classes.ArrayList;
 
 import event_classes.EventObject;
-import event_classes.EventType;
+import event_classes.Type;
 import event_classes.Observer;
 import global_managers.GlobalManager;
 
@@ -24,8 +24,7 @@ public class TemporaryInjury extends ObservableAbility implements Observer {
 
 	public TemporaryInjury(String name, String desc, boolean isHead, String dType, double dThres,
 			ArrayList<Effect> effects, double minDays, double maxDays) {
-		super(name, effects);
-		this.desc = desc;
+		super(name, desc, effects);
 		this.isHead = isHead;
 		this.damageType = dType;
 		this.damageThreshold = dThres;
@@ -49,13 +48,13 @@ public class TemporaryInjury extends ObservableAbility implements Observer {
 	 */
 	protected void checkForHealed() {
 		if (this.maxDays.getAlteredValue() == 0.0) {
-			this.notifyObservers(new EventObject(null, EventType.HEALED, null, this));
+			this.notifyObservers(new EventObject(null, Type.HEALED, null, this));
 			return;
 		}
 
 		if (this.minDays.getAlteredValue() == 0.0) {
-			if (GlobalManager.d100Roll() <= 100 / (this.maxDays.getAlteredValue() + 1.0)) {
-				this.notifyObservers(new EventObject(null, EventType.HEALED, null, this));
+			if (GlobalManager.d100Roll() <= 100 / (this.maxDays.getAlteredValue())) {
+				this.notifyObservers(new EventObject(null, Type.HEALED, null, this));
 				return;
 			} else {
 				this.minDays.addModifier(new Modifier("Still Injured", 1.0, false, true, false));
@@ -86,8 +85,15 @@ public class TemporaryInjury extends ObservableAbility implements Observer {
 	}
 
 	@Override
-	public void onEventHappening(EventObject information) {
-
+	public void onEventHappening(EventObject event) {
+		switch (event.getTask()) {
+		case UPDATE:
+			this.checkForHealed();
+			break;
+		default:
+			break;
+		
+		}
 	}
 
 	public void display() {

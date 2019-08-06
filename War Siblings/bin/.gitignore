@@ -1,6 +1,11 @@
-/items/
-/engine/
-/global_managers/
+/game_data/
+/images/
+/battle/
 /character/
+/engine/
 /event_classes/
+/global_generators/
+/global_managers/
+/items/
+/run/
 /storage_classes/

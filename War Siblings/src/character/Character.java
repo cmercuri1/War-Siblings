@@ -7,7 +7,7 @@ package character;
 import javax.swing.ImageIcon;
 
 import event_classes.EventObject;
-import event_classes.EventType;
+import event_classes.Type;
 import event_classes.GenericObservee;
 import event_classes.Observer;
 import event_classes.Target;
@@ -62,9 +62,9 @@ public class Character extends GenericObservee implements Observer {
 		this.bm = new BattleManager(this);
 		this.observerObjects.add(this.bm);
 
-		this.im.setUpInventory(bg);
 		this.abm.setUpAbilities(bg);
-		this.notifyObservers(new EventObject(Target.UI, EventType.FINISHED_GENERATING, this, null));
+		this.im.setUpInventory(bg);
+		this.notifyObservers(new EventObject(Target.UI, Type.FINISHED_GENERATING, this, null));
 	}
 
 	@Override
@@ -88,10 +88,10 @@ public class Character extends GenericObservee implements Observer {
 		case UNDEFINED:
 			switch (event.getTask()) {
 			case GOT:
-				this.notifyObserver(event.getRequester(), event);
+				this.notifyObserver((Observer) event.getRequester(), event);
 				break;
 			case GOT_OTHER:
-				this.notifyObserver(event.getRequester(), event);
+				this.notifyObserver((Observer) event.getRequester(), event);
 				break;
 			default:
 				break;
@@ -108,7 +108,7 @@ public class Character extends GenericObservee implements Observer {
 			case RANGED_PREF:
 				if (this.backgroundName.equals("Sellsword") || this.backgroundName.equals("Deserter")
 						|| this.backgroundName.equals("Beast Slayer")) {
-					this.notifyObserver(im, new EventObject(Target.INVENTORY, EventType.RANGED_PREF, null, null));
+					this.notifyObserver(im, new EventObject(Target.INVENTORY, Type.RANGED_PREF, null, null));
 
 				}
 				break;

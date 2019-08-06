@@ -5,7 +5,7 @@
 package storage_classes;
 
 import event_classes.EventObject;
-import event_classes.EventType;
+import event_classes.Type;
 import event_classes.Observer;
 import event_classes.Target;
 import global_managers.GlobalManager;
@@ -27,6 +27,12 @@ public class StarAttribute extends Attribute {
 
 	public StarAttribute(double value, int lMin, Observer o) {
 		super(value, o);
+		this.levelUp = new DualValue(lMin, lMin + 2);
+		this.numStars = 0;
+	}
+	
+	public StarAttribute(double value, int lMin) {
+		super(value);
 		this.levelUp = new DualValue(lMin, lMin + 2);
 		this.numStars = 0;
 	}
@@ -53,7 +59,7 @@ public class StarAttribute extends Attribute {
 		
 		Object[] temp = {this, this.numStars};
 		
-		this.notifyObservers(new EventObject(Target.ATTRIBUTE, EventType.STAR_ASSIGNED, temp, null));
+		this.notifyObservers(new EventObject(Target.ATTRIBUTE, Type.STAR_ASSIGNED, temp, null));
 	}
 
 	/**

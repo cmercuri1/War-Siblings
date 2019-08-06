@@ -14,22 +14,7 @@ public class AttackAttribute extends Attribute {
 	}
 
 	protected void updateAltered() {
-		double multi = 1;
-		double add = 0;
-		double finalAdd = 0;
-
-		for (Modifier m : modifiers) {
-			if (m.getIsMulti()) {
-				multi *= (1 + m.getValue() / 100);
-			} else {
-				if (m.getFinalAdd()) {
-					finalAdd += m.getValue();
-				} else {
-					add += m.getValue();
-				}
-			}
-		}
-		this.alteredMaxValue = multi * (this.originalMaxValue + add) + finalAdd;
+		super.updateAltered();
 
 		if (this.alteredMaxValue > MAXCAP) {
 			this.alteredMaxValue = MAXCAP;

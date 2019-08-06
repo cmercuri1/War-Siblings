@@ -5,7 +5,7 @@
 package character;
 
 import event_classes.EventObject;
-import event_classes.EventType;
+import event_classes.Type;
 import event_classes.GenericObservee;
 import event_classes.Observer;
 import event_classes.Target;
@@ -48,11 +48,16 @@ public class AttributeManager extends GenericObservee implements Observer {
 	private Attribute fatigueRegManager;
 	private Attribute visionManager;
 
+	private ArrayList<ArrayList<LevelUp>> levelUps;
+
 	private int pref; // Only used in determining starting equipment
 
 	public AttributeManager(BackgroundGenerator bg, Observer o) {
 		this.setUpObservers();
 		this.registerObserver(o);
+
+		this.levelUps = new ArrayList<ArrayList<LevelUp>>();
+		
 		this.assignAttributes(bg);
 		this.assignStars(bg.getExcludedTalents());
 	}
@@ -116,26 +121,32 @@ public class AttributeManager extends GenericObservee implements Observer {
 		}
 
 		if (pref > 0) {
-			this.notifyObservers(new EventObject(Target.CHARACTER, EventType.RANGED_PREF, null, null));
+			this.notifyObservers(new EventObject(Target.CHARACTER, Type.RANGED_PREF, null, null));
 		}
 	}
 
-	public void addModifier(Effect t) {
+	protected void addModifier(Effect t) {
 		this.getAttribute(t.getAffectedSubManager()).addModifier(t.getModifier());
 	}
 
-	public void removeModifier(Effect t) {
+	protected void removeModifier(Effect t) {
 		this.getAttribute(t.getAffectedSubManager()).removeModifier(t.getModifier());
 	}
 
+	public Attribute[] getAttributes() {
+		return new Attribute[] { this.hitpointManager, this.actionPointsManager, this.fatigueManager,
+				this.resolveManager, this.initiativeManager, this.meleeSkillManager, this.rangedSkillManager,
+				this.meleeDefenseManager, this.rangedDefenseManager, this.headshotManager, this.visionManager };
+	}
+
 	/** Designed to get the relevant attribute */
-	public Attribute getAttribute(String attributeName) {
+	protected Attribute getAttribute(String attributeName) {
 		if (attributeName.equals("hitpoint")) {
 			return this.hitpointManager;
 		} else if (attributeName.equals("fatigue")) {
 			return this.fatigueManager;
 		} else if (attributeName.equals("resolve")) {
-			return this.resolveManager;
+			return this.fatigueManager;
 		} else if (attributeName.equals("initiative")) {
 			return this.initiativeManager;
 		} else if (attributeName.equals("meleeSkill")) {
@@ -166,8 +177,12 @@ public class AttributeManager extends GenericObservee implements Observer {
 		return null;
 	}
 
+	public ArrayList<ArrayList<LevelUp>> getLevelUp() {
+		return this.levelUps;
+	}
+
 	/** Gets the level up value from the relevant attributes */
-	public ArrayList<LevelUp> getLevelUps() {
+	private void getLevelUps() {
 		ArrayList<LevelUp> levelUpArray = new ArrayList<LevelUp>();
 		levelUpArray.add(new LevelUp("hitpoint", this.hitpointManager.getLevelup()));
 		levelUpArray.add(new LevelUp("fatigue", this.fatigueManager.getLevelup()));
@@ -178,7 +193,7 @@ public class AttributeManager extends GenericObservee implements Observer {
 		levelUpArray.add(new LevelUp("meleeDefense", this.meleeDefenseManager.getLevelup()));
 		levelUpArray.add(new LevelUp("rangedDefense", this.rangedDefenseManager.getLevelup()));
 
-		return levelUpArray;
+		this.levelUps.add(levelUpArray);
 	}
 
 	/**
@@ -238,18 +253,20 @@ public class AttributeManager extends GenericObservee implements Observer {
 			case GET:
 				temp = new Object[] { event.getInformation(),
 						this.getAttribute((String) event.getInformation()).getAlteredValue() };
-				this.notifyObservers(new EventObject(Target.UNDEFINED, EventType.GOT, temp, event.getRequester()));
+				this.notifyObservers(new EventObject(Target.UNDEFINED, Type.GOT, temp, event.getRequester()));
 				break;
+			case GET_LEVELUPS:
+				this.notifyObservers(new EventObject(Target.UI, Type.GOT_LEVELUPS, this.getLevelUp(), null));
 			case GET_OTHER:
-				this.notifyObservers(new EventObject(Target.UNDEFINED, EventType.GOT_OTHER,
+				this.notifyObservers(new EventObject(Target.UNDEFINED, Type.GOT_OTHER,
 						this.getAttribute((String) event.getInformation()).getAlteredValue(), event.getRequester()));
 				break;
 			case START_TURN:
 				this.fatigueManager.alterCurrent(-this.fatigueRegManager.getAlteredValue());
 				break;
 			case LEVEL_UP:
-				this.notifyObservers(new EventObject(Target.UI, EventType.LEVEL_UP, this.getLevelUps(), null));
 				this.wageManager.levelWage((int) event.getInformation());
+				this.getLevelUps();
 				break;
 			case APPLY_LEVEL_UP:
 				this.applyLevelUps((ArrayList<LevelUp>) event.getInformation());

@@ -8,7 +8,7 @@ import storage_classes.ArrayList;
 import storage_classes.BackgroundItem;
 import storage_classes.Effect;
 import event_classes.EventObject;
-import event_classes.EventType;
+import event_classes.Type;
 import event_classes.GenericObservee;
 import event_classes.Observer;
 import event_classes.Target;
@@ -123,7 +123,7 @@ public class InventoryManager extends GenericObservee implements Observer {
 		this.head = next;
 		this.weighedDown(temp, next);
 		this.impedeVision(temp, next);
-		this.notifyObservers(new EventObject(Target.CHARACTER, EventType.RETURN_INVENTORY, temp, null));
+		this.notifyObservers(new EventObject(Target.CHARACTER, Type.RETURN_INVENTORY, temp, null));
 	}
 
 	/** Replaces current Body Armor with new one, returns old Body Armor */
@@ -131,7 +131,7 @@ public class InventoryManager extends GenericObservee implements Observer {
 		Armor temp = this.body;
 		this.body = next;
 		this.weighedDown(temp, next);
-		this.notifyObservers(new EventObject(Target.CHARACTER, EventType.RETURN_INVENTORY, temp, null));
+		this.notifyObservers(new EventObject(Target.CHARACTER, Type.RETURN_INVENTORY, temp, null));
 	}
 
 	public void swapItem(ARM target, EquipItem next) {
@@ -170,7 +170,7 @@ public class InventoryManager extends GenericObservee implements Observer {
 		}
 
 		this.isDualGripping();
-		this.notifyObservers(new EventObject(Target.CHARACTER, EventType.RETURN_INVENTORY, temp, null));
+		this.notifyObservers(new EventObject(Target.CHARACTER, Type.RETURN_INVENTORY, temp, null));
 	}
 
 	/**
@@ -190,7 +190,7 @@ public class InventoryManager extends GenericObservee implements Observer {
 		this.bag.add(index, next);
 
 		this.weighedDown(temp, next);
-		this.notifyObservers(new EventObject(Target.CHARACTER, EventType.RETURN_INVENTORY, temp, null));
+		this.notifyObservers(new EventObject(Target.CHARACTER, Type.RETURN_INVENTORY, temp, null));
 	}
 
 	protected void weighedDown(EquipItem old, EquipItem next) {
@@ -199,16 +199,16 @@ public class InventoryManager extends GenericObservee implements Observer {
 		try {
 			fatiguePen = new Effect("Fatigue_Final", old.getFatigueRed().getAlteredValue());
 			initiativePen = new Effect("Initiative_Final", old.getFatigueRed().getAlteredValue());
-			this.notifyObservers(new EventObject(Target.ATTRIBUTE, EventType.REMOVE, fatiguePen, null));
-			this.notifyObservers(new EventObject(Target.ATTRIBUTE, EventType.REMOVE, initiativePen, null));
+			this.notifyObservers(new EventObject(Target.ATTRIBUTE, Type.REMOVE, fatiguePen, null));
+			this.notifyObservers(new EventObject(Target.ATTRIBUTE, Type.REMOVE, initiativePen, null));
 		} catch (NullPointerException nu) {
 
 		}
 		try {
 			fatiguePen = new Effect("Fatigue_Final", next.getFatigueRed().getAlteredValue());
 			initiativePen = new Effect("Initiative_Final", next.getFatigueRed().getAlteredValue());
-			this.notifyObservers(new EventObject(Target.ATTRIBUTE, EventType.ADD, fatiguePen, null));
-			this.notifyObservers(new EventObject(Target.ATTRIBUTE, EventType.ADD, initiativePen, null));
+			this.notifyObservers(new EventObject(Target.ATTRIBUTE, Type.ADD, fatiguePen, null));
+			this.notifyObservers(new EventObject(Target.ATTRIBUTE, Type.ADD, initiativePen, null));
 		} catch (NullPointerException nu) {
 
 		}
@@ -218,13 +218,13 @@ public class InventoryManager extends GenericObservee implements Observer {
 		Effect visionPen;
 		try {
 			visionPen = new Effect("Vision_Final", old.getVisRed());
-			this.notifyObservers(new EventObject(Target.ATTRIBUTE, EventType.REMOVE, visionPen, null));
+			this.notifyObservers(new EventObject(Target.ATTRIBUTE, Type.REMOVE, visionPen, null));
 		} catch (NullPointerException nu) {
 
 		}
 		try {
 			visionPen = new Effect("Vision_Final", next.getVisRed());
-			this.notifyObservers(new EventObject(Target.ATTRIBUTE, EventType.ADD, visionPen, null));
+			this.notifyObservers(new EventObject(Target.ATTRIBUTE, Type.ADD, visionPen, null));
 		} catch (NullPointerException nu) {
 
 		}
@@ -234,8 +234,8 @@ public class InventoryManager extends GenericObservee implements Observer {
 		try {
 			Effect meleeDefense = new Effect("MeleeDefense_Final", old.getMeleeDef().getAlteredValue());
 			Effect rangedDefense = new Effect("RangedDefense_Final", old.getRangedDef().getAlteredValue());
-			this.notifyObservers(new EventObject(Target.ATTRIBUTE, EventType.REMOVE, meleeDefense, null));
-			this.notifyObservers(new EventObject(Target.ATTRIBUTE, EventType.REMOVE, rangedDefense, null));
+			this.notifyObservers(new EventObject(Target.ATTRIBUTE, Type.REMOVE, meleeDefense, null));
+			this.notifyObservers(new EventObject(Target.ATTRIBUTE, Type.REMOVE, rangedDefense, null));
 		} catch (NullPointerException nu) {
 
 		}
@@ -245,8 +245,8 @@ public class InventoryManager extends GenericObservee implements Observer {
 		try {
 			Effect meleeDefense = new Effect("MeleeDefense_Final", next.getMeleeDef().getAlteredValue());
 			Effect rangedDefense = new Effect("RangedDefense_Final", next.getRangedDef().getAlteredValue());
-			this.notifyObservers(new EventObject(Target.ATTRIBUTE, EventType.ADD, meleeDefense, null));
-			this.notifyObservers(new EventObject(Target.ATTRIBUTE, EventType.ADD, rangedDefense, null));
+			this.notifyObservers(new EventObject(Target.ATTRIBUTE, Type.ADD, meleeDefense, null));
+			this.notifyObservers(new EventObject(Target.ATTRIBUTE, Type.ADD, rangedDefense, null));
 		} catch (NullPointerException nu) {
 
 		}
@@ -257,15 +257,15 @@ public class InventoryManager extends GenericObservee implements Observer {
 	 * weapon and informs the
 	 */
 	public void isDualGripping() {
-		if (((this.right instanceof Weapon) && (!((Weapon) this.right).isTwoHanded())
+		if (((this.right instanceof Weapon) && !(((Weapon) this.right).isTwoHanded())
 				&& (this.left == GlobalManager.equipment.DEFAULTLEFT))
-				|| ((this.left instanceof Weapon) && (!((Weapon) this.left).isTwoHanded())
+				|| ((this.left instanceof Weapon) && !(((Weapon) this.left).isTwoHanded())
 						&& (this.right == GlobalManager.equipment.DEFAULTRIGHT))) {
-			this.notifyObservers(new EventObject(Target.ABILITY, EventType.ADD,
-					GlobalManager.traits.getSpecialTrait("Dual Grip"), null));
+			this.notifyObservers(new EventObject(Target.ABILITY, Type.ADD,
+					GlobalManager.traits.getSpecialTrait("Double Grip"), null));
 		} else {
-			this.notifyObservers(new EventObject(Target.ABILITY, EventType.REMOVE,
-					GlobalManager.traits.getSpecialTrait("Dual Grip"), null));
+			this.notifyObservers(new EventObject(Target.ABILITY, Type.REMOVE,
+					GlobalManager.traits.getSpecialTrait("Double Grip"), null));
 		}
 	}
 

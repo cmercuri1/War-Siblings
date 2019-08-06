@@ -5,9 +5,11 @@
 package storage_classes;
 
 import storage_classes.ArrayList;
-
+import event_classes.EventObject;
+import event_classes.Type;
 import event_classes.GenericObservee;
 import event_classes.Observer;
+import event_classes.Target;
 
 /**
  * A class that manages a particular attribute, ensuring the original value can
@@ -23,7 +25,7 @@ public class Attribute extends GenericObservee {
 
 	protected ArrayList<Modifier> modifiers; // all the modifiers that will have
 												// an effect on this Attribute
-
+	
 	public Attribute(double value, Observer o) {
 		this.modifiers = new ArrayList<Modifier>();
 		this.setUpObservers();
@@ -33,6 +35,14 @@ public class Attribute extends GenericObservee {
 		this.alteredMaxValue = this.originalMaxValue;
 	}
 
+	public Attribute(double value) {
+		this.modifiers = new ArrayList<Modifier>();
+		this.setUpObservers();
+
+		this.originalMaxValue = value;
+		this.alteredMaxValue = this.originalMaxValue;
+	}
+	
 	public void addModifier(Modifier m) {
 		if (!m.getIsUnique()) {
 			this.modifiers.add(m);
@@ -70,14 +80,14 @@ public class Attribute extends GenericObservee {
 
 	/** Method to remove all modifiers */
 	public void removeAllModifiers() {
-		this.modifiers.removeAll(modifiers);
+		this.modifiers.clear();
 		this.updateAltered();
 	}
 
 	/** Method to remove all additive modifiers */
 	public void removeAllAdd() {
 		for (Modifier m : this.modifiers) {
-			if (m.getIsMulti() == false) {
+			if (!m.getIsMulti()) {
 				this.modifiers.remove(m);
 			}
 		}
@@ -87,7 +97,7 @@ public class Attribute extends GenericObservee {
 	/** Method to remove all multiplicative modifiers */
 	public void removeAllMulti() {
 		for (Modifier m : this.modifiers) {
-			if (m.getIsMulti() == true) {
+			if (m.getIsMulti()) {
 				this.modifiers.remove(m);
 			}
 		}
@@ -115,6 +125,7 @@ public class Attribute extends GenericObservee {
 			}
 		}
 		this.alteredMaxValue = multi * (this.originalMaxValue + add) + finalAdd;
+		this.notifyObservers(new EventObject(Target.UNDEFINED, Type.UPDATE, this.alteredMaxValue, null));
 	}
 
 	public double getAlteredValue() {

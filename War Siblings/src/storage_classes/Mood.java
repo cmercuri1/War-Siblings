@@ -4,6 +4,8 @@
  */
 package storage_classes;
 
+import global_managers.GlobalManager;
+
 /**
  * Storage class for storing Mood information, which is used in determining
  * starting Morale for combat as well as potential to leave party
@@ -33,6 +35,14 @@ public class Mood {
 			return true;
 		}
 		return false;
+	}
+	
+	public int rollMoraleState() {
+		int roll = GlobalManager.d100Roll();
+		if (roll < this.bestMoralechance) {
+			return ((Double)this.bestMoraleState).intValue();
+		}
+		return ((Double)this.bestMoraleState).intValue()-1;
 	}
 
 	/* Getters */
