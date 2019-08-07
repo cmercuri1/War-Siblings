@@ -4,20 +4,26 @@
  */
 package event_classes;
 
-import storage_classes.Attribute;
+import storage_classes.Effect;
 
 public class EffectEvent extends InfoEvent {
-	protected enum Task {ADD, REMOVE, GOT};
-	
-	protected Task thisTask;
-	protected Attribute information;
-	
-	public EffectEvent(Task t, Attribute info, Object src) {
+	public enum Task {
+		ADD, REMOVE, GOT
+	};
+
+	protected Task task;
+	protected Effect information;
+
+	public EffectEvent(Task t, Effect info, Object src) {
 		super(info, src);
-		this.thisTask = t;
+		this.task = t;
 	}
-	
-	public Attribute getInformation() {
+
+	public Task getTask() {
+		return this.task;
+	}
+
+	public Effect getInformation() {
 		return this.information;
 	}
 }

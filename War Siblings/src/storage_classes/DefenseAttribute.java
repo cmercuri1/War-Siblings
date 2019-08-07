@@ -4,7 +4,7 @@
  */
 package storage_classes;
 
-import event_classes.Observer;
+import event_classes.AttributeEvent;
 
 /**
  * Special Attribute used in managing a character's defense attributes which
@@ -13,8 +13,8 @@ import event_classes.Observer;
 public class DefenseAttribute extends StarAttribute {
 	private final static double SOFT_CAP = 45.0;
 
-	public DefenseAttribute(double value, int lMin, Observer o) {
-		super(value, lMin, o);
+	public DefenseAttribute(double value, int lMin) {
+		super(value, lMin);
 	}
 
 	/**
@@ -46,5 +46,7 @@ public class DefenseAttribute extends StarAttribute {
 		} else {
 			this.alteredMaxValue = temp;
 		}
+
+		this.notifyAttributeListeners(new AttributeEvent(AttributeEvent.Task.UPDATE, this.alteredMaxValue, this));
 	}
 }

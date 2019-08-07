@@ -1,25 +1,25 @@
 package storage_classes;
 
-import event_classes.EventObject;
-import event_classes.Type;
-import event_classes.Observer;
-import event_classes.Target;
+import event_classes.MultiValueAttributeEvent;
+import listener_interfaces.MultiValueAttributeListener;
+import notifier_interfaces.MultiValueAttributeNotifier;
 
-public class BarAttribute extends Attribute {
-
+public class BarAttribute extends Attribute implements MultiValueAttributeNotifier {
 	protected final static double MINIMUM = 0.0;
 
-	protected double originalCurrentValue;
 	protected double alteredCurrentValue;
 
-	public BarAttribute(double value, Observer o) {
-		super(value, o);
-	}
-	
+	protected ArrayList<MultiValueAttributeListener> mvAttributeListeners;
+
 	public BarAttribute(double value) {
 		super(value);
 	}
-	
+
+	protected void setUpNotificationSystem() {
+		super.setUpNotificationSystem();
+		this.mvAttributeListeners = new ArrayList<MultiValueAttributeListener>();
+	}
+
 	public void updateAltered() {
 		super.updateAltered();
 		this.currentChecker();
@@ -28,8 +28,8 @@ public class BarAttribute extends Attribute {
 	public void alterCurrent(double value) {
 		this.alteredCurrentValue += value;
 		this.currentChecker();
-		Object[] temp = { this, this.alteredCurrentValue };
-		this.notifyObservers(new EventObject(Target.ATTRIBUTE, Type.UPDATE, temp, null));
+		this.notifyMultiValueAttributeListeners(new MultiValueAttributeEvent(
+				MultiValueAttributeEvent.Task.UPDATE_CURRENT, this.alteredCurrentValue, this));
 	}
 
 	/**
@@ -55,5 +55,20 @@ public class BarAttribute extends Attribute {
 	public String toStringFull() {
 		return ((Double) this.alteredCurrentValue).intValue() + "/" + ((Double) this.alteredMaxValue).intValue()
 				+ this.stringModifiers();
+	}
+
+	@Override
+	public void addMultiValueAttributeListener(MultiValueAttributeListener a) {
+		this.mvAttributeListeners.add(a);
+	}
+
+	@Override
+	public void removeMultiValueAttributeListener(MultiValueAttributeListener a) {
+		this.mvAttributeListeners.remove(a);
+	}
+
+	@Override
+	public void notifyMultiValueAttributeListeners(MultiValueAttributeEvent a) {
+		this.mvAttributeListeners.forEach(m -> m.onMultiValueAttributeEvent(a));
 	}
 }

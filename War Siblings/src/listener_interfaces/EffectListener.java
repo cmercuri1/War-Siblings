@@ -2,7 +2,9 @@
  * EffectListener interface
  * Author: Chris Mercuri cmercuri1@student.unimelb.edu.au
  */
-package event_classes;
+package listener_interfaces;
+
+import event_classes.EffectEvent;
 
 public interface EffectListener {
 	void onEffectEvent(EffectEvent e);

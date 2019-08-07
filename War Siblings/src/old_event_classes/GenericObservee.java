@@ -2,7 +2,7 @@
  * GenericObservee class
  * Author: Christopher Mercuri cmercuri1@student.unimelb.edu.au
  */
-package event_classes;
+package old_event_classes;
 
 import storage_classes.ArrayList;
 

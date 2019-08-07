@@ -10,13 +10,13 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import storage_classes.Effect;
-import storage_classes.PerminentInjury;
+import storage_classes.PermanentInjury;
 
 /** A class for Globally Storing and Managing all the Perminent Injuries */
-public class PerminentInjuryManager extends BaseGlobalManager {
-	private ArrayList<PerminentInjury> injuryList;
+public class PermanentInjuryManager extends BaseGlobalManager {
+	private ArrayList<PermanentInjury> injuryList;
 
-	public PerminentInjuryManager() {
+	public PermanentInjuryManager() {
 		super("res/game_data/InjuryData.json", "Injuries", "Perminent Injuries");
 	}
 
@@ -35,21 +35,21 @@ public class PerminentInjuryManager extends BaseGlobalManager {
 			}
 		}
 
-		this.injuryList.add(new PerminentInjury((String) o.get("Name"), (String) o.get("Description"), temp3,
+		this.injuryList.add(new PermanentInjury((String) o.get("Name"), (String) o.get("Description"), temp3,
 				(Boolean) o.get("Content In Reserve")));
 	}
 
 	@Override
 	protected void instantiate() {
 		if (this.injuryList == null) {
-			this.injuryList = new ArrayList<PerminentInjury>();
+			this.injuryList = new ArrayList<PermanentInjury>();
 		}
 	}
 
 	/* Getters */
 
-	public ArrayList<PerminentInjury> getInjuryList() {
-		ArrayList<PerminentInjury> temp = new ArrayList<>(this.injuryList);
+	public ArrayList<PermanentInjury> getInjuryList() {
+		ArrayList<PermanentInjury> temp = new ArrayList<>(this.injuryList);
 		return temp;
 	}
 

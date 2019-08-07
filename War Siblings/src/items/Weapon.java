@@ -19,12 +19,11 @@ public class Weapon extends AbilityItem {
 	protected Attribute ignArm; // Percentage of damage that can ignore Armor of target
 	protected Attribute armDam; // Percentage multiplier for damage against Armor
 	protected Attribute range; // Range of the weapon
-
-	protected double skillFat; // Additional/reduced fatigue on use of skills
-	protected double hitChance; // Additional/reduced hit chance on skills
-	protected double headShot; // Additional/reduced chance to hit head
-
+	protected Attribute skillFat; // Additional/reduced fatigue on use of skills
+	protected Attribute hitChance; // Additional/reduced hit chance on skills
+	protected Attribute headShot; // Additional/reduced chance to hit head
 	protected Attribute shieldDam; // Amount of damage on a shield when using Split Shield Skill
+
 	protected int numHands; // Number of hands required to use weapon (1 or 2)
 	protected String weapType; // Type of weapon (sword/axe/spear/etc)
 
@@ -33,17 +32,30 @@ public class Weapon extends AbilityItem {
 			double ignArm, double armDam, double range, double skillFat, double hitChance, double headShot,
 			double shieldDam, int numHands, String weapType, ArrayList<Ability> abilityList) {
 		super(name, value, desc, dura, fatRed, abilityList);
-		this.minDam = new Attribute(minDam, this);
-		this.maxDam = new Attribute(maxDam, this);
-		this.ignArm = new Attribute(ignArm, this);
-		this.armDam = new Attribute(armDam, this);
-		this.range = new Attribute(range, this);
-		this.skillFat = skillFat;
-		this.hitChance = hitChance;
-		this.headShot = headShot;
-		this.shieldDam = new Attribute(shieldDam, this);
+		this.minDam = new Attribute(minDam);
+		this.maxDam = new Attribute(maxDam);
+		this.ignArm = new Attribute(ignArm);
+		this.armDam = new Attribute(armDam);
+		this.range = new Attribute(range);
+		this.skillFat = new Attribute(skillFat);
+		this.hitChance = new Attribute(hitChance);
+		this.headShot = new Attribute(headShot);
+		this.shieldDam = new Attribute(shieldDam);
 		this.numHands = numHands;
 		this.weapType = weapType;
+	}
+
+	protected void setUpListeners() {
+		super.setUpListeners();
+		this.minDam.addAttributeListener(this);
+		this.maxDam.addAttributeListener(this);
+		this.ignArm.addAttributeListener(this);
+		this.armDam.addAttributeListener(this);
+		this.range.addAttributeListener(this);
+		this.skillFat.addAttributeListener(this);
+		this.hitChance.addAttributeListener(this);
+		this.headShot.addAttributeListener(this);
+		this.shieldDam.addAttributeListener(this);
 	}
 
 	@Override
@@ -83,15 +95,15 @@ public class Weapon extends AbilityItem {
 		return this.range;
 	}
 
-	public double getSkillFat() {
+	public Attribute getSkillFat() {
 		return this.skillFat;
 	}
 
-	public double getHitChance() {
+	public Attribute getHitChance() {
 		return this.hitChance;
 	}
 
-	public double getHeadShot() {
+	public Attribute getHeadShot() {
 		return this.headShot;
 	}
 
@@ -156,11 +168,11 @@ public class Weapon extends AbilityItem {
 			temp += "<br>Shield damage of " + this.shieldDam.getAlteredValue();
 		}
 
-		if (this.hitChance > 0) {
+		if (this.hitChance.getAlteredValue() > 0) {
 			temp += "<br>Has an additional " + this.hitChance + "% chance to hit";
 		}
 
-		if (this.headShot > 0) {
+		if (this.headShot.getAlteredValue() > 0) {
 			temp += "<br>Chance to hit head " + this.headShot + "%";
 		}
 
@@ -172,9 +184,9 @@ public class Weapon extends AbilityItem {
 			temp += "<br>Reduces Maximum Fatigue by " + this.fatigueRed.toString();
 		}
 
-		if (this.skillFat > 0) {
+		if (this.skillFat.getAlteredValue() > 0) {
 			temp += "<br>Weapon skills build up " + this.skillFat + " more fatigue";
-		} else if (this.skillFat < 0) {
+		} else if (this.skillFat.getAlteredValue() < 0) {
 			temp += "<br>Weapon skills build up " + this.skillFat + " less fatigue";
 		}
 

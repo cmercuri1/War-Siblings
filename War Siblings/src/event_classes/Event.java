@@ -6,11 +6,11 @@ package event_classes;
 
 public abstract class Event {
 	protected Object source;
-	
+
 	public Event(Object src) {
 		this.source = src;
 	}
-	
+
 	public Object getSource() {
 		return this.source;
 	}

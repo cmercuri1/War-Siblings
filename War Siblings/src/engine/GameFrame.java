@@ -24,9 +24,9 @@ import javax.swing.SwingConstants;
 import static javax.swing.GroupLayout.Alignment.*;
 
 import character.Character;
-import event_classes.EventObject;
-import event_classes.Observer;
 import global_managers.GlobalManager;
+import old_event_classes.EventObject;
+import old_event_classes.Observer;
 
 public class GameFrame extends JFrame implements ActionListener, ItemListener, Observer {
 	/**

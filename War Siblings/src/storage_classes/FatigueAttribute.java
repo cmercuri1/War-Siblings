@@ -4,18 +4,28 @@
  */
 package storage_classes;
 
-import event_classes.EventObject;
-import event_classes.Type;
-import event_classes.Observer;
-import event_classes.Target;
+import event_classes.FatigueAttributeEvent;
+import listener_interfaces.FatigueAttributeListener;
+import notifier_interfaces.FatigueAttributeNotifier;
+import old_event_classes.EventObject;
+import old_event_classes.Observer;
+import old_event_classes.Target;
+import old_event_classes.Type;
 
 /** Special Attribute used for Fatigue */
-public class FatigueAttribute extends BarStarAttribute {
-	private static final double HIT = 4;
-	private static final double MISS = 2;
+public class FatigueAttribute extends BarStarAttribute implements FatigueAttributeNotifier {
+	protected static final double HIT = 4;
+	protected static final double MISS = 2;
 
-	public FatigueAttribute(double value, int lMin, Observer o) {
-		super(value, lMin, o);
+	protected ArrayList<FatigueAttributeListener> fatigueAttributeListeners;
+
+	public FatigueAttribute(double value, int lMin) {
+		super(value, lMin);
+	}
+
+	protected void setUpNotificationSystem() {
+		super.setUpNotificationSystem();
+		this.fatigueAttributeListeners = new ArrayList<FatigueAttributeListener>();
 	}
 
 	/**
@@ -27,7 +37,8 @@ public class FatigueAttribute extends BarStarAttribute {
 			this.alteredCurrentValue = MINIMUM;
 		} else if (this.alteredCurrentValue > this.alteredMaxValue) {
 			this.alteredCurrentValue = this.alteredMaxValue;
-			this.notifyObservers(new EventObject(Target.ATTRIBUTE, Type.NO_FATIGUE, null, null));
+			this.notifyFatigueAttributeListeners(
+					new FatigueAttributeEvent(FatigueAttributeEvent.Task.FULL_FATIGUE, 0.0, this));
 		}
 	}
 
@@ -37,6 +48,21 @@ public class FatigueAttribute extends BarStarAttribute {
 
 	public void onMiss() {
 		this.alterCurrent(MISS);
+	}
+
+	@Override
+	public void addFatigueAttributeListener(FatigueAttributeListener f) {
+		this.fatigueAttributeListeners.add(f);
+	}
+
+	@Override
+	public void removeFatigueAttributeListener(FatigueAttributeListener f) {
+		this.fatigueAttributeListeners.remove(f);
+	}
+
+	@Override
+	public void notifyFatigueAttributeListeners(FatigueAttributeEvent f) {
+		this.fatigueAttributeListeners.forEach(l -> l.onFatigueAttributeEvent(f));
 	}
 
 }

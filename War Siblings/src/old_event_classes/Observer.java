@@ -2,7 +2,7 @@
  * Observer interface
  * Author: Christopher Mercuri cmercuri1@student.unimelb.edu.au
  */
-package event_classes;
+package old_event_classes;
 
 /** An interface that helps with Event Handling through receiving of EventObjects */
 public interface Observer {

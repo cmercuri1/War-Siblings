@@ -19,7 +19,7 @@ public class GlobalManager {
 	public static ExperienceManager xp;
 	public static MoraleAbilityManager morale;
 	public static TemporyInjuryManager tempInjury;
-	public static PerminentInjuryManager permInjury;
+	public static PermanentInjuryManager permInjury;
 	public static MoodManager moods;
 
 	public static Random rng;
@@ -33,7 +33,7 @@ public class GlobalManager {
 		equipment = new EquipmentManager();
 		morale = new MoraleAbilityManager();
 		tempInjury = new TemporyInjuryManager();
-		permInjury = new PerminentInjuryManager();
+		permInjury = new PermanentInjuryManager();
 		moods = new MoodManager();
 		backgrounds = new BackgroundManager();
 

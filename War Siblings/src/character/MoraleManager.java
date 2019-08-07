@@ -4,12 +4,12 @@
  */
 package character;
 
-import event_classes.EventObject;
-import event_classes.Type;
-import event_classes.GenericObservee;
-import event_classes.Observer;
-import event_classes.Target;
 import global_managers.GlobalManager;
+import old_event_classes.EventObject;
+import old_event_classes.GenericObservee;
+import old_event_classes.Observer;
+import old_event_classes.Target;
+import old_event_classes.Type;
 import storage_classes.Effect;
 import storage_classes.MoodAttribute;
 import storage_classes.MoraleState;

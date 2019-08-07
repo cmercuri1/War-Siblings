@@ -4,18 +4,22 @@
  */
 package storage_classes;
 
-import event_classes.EventObject;
-import event_classes.Type;
-import event_classes.Observer;
-import event_classes.Target;
+import event_classes.HitpointAttributeEvent;
+import listener_interfaces.HitpointAttributeListener;
+import notifier_interfaces.HitpointAttributeNotifier;
 
 /** Special Attribute used for Hitpoints */
-public class HitpointAttribute extends BarStarAttribute {
-
-	public HitpointAttribute(double value, int lMin, Observer o) {
-		super(value, lMin, o);
-		this.originalCurrentValue = this.originalMaxValue;
-		this.alteredCurrentValue = this.originalCurrentValue;
+public class HitpointAttribute extends BarStarAttribute implements HitpointAttributeNotifier {
+protected ArrayList<HitpointAttributeListener> hitpointAttributeListeners;
+	
+	public HitpointAttribute(double value, int lMin) {
+		super(value, lMin);
+		this.alteredCurrentValue = this.originalMaxValue;
+	}
+	
+	protected void setUpNotificationSystem() {
+		super.setUpNotificationSystem();
+		this.hitpointAttributeListeners = new ArrayList<HitpointAttributeListener>();
 	}
 
 	/**
@@ -25,10 +29,25 @@ public class HitpointAttribute extends BarStarAttribute {
 	protected void currentChecker() {
 		if (this.alteredCurrentValue < MINIMUM) {
 			this.alteredCurrentValue = MINIMUM;
-			this.notifyObservers(new EventObject(Target.ATTRIBUTE, Type.NO_HP, null, null));
+			this.notifyHitpointAttributeListeners(new HitpointAttributeEvent(HitpointAttributeEvent.Task.NO_HP, 0.0, this));
 		} else if (this.alteredCurrentValue > this.alteredMaxValue) {
 			this.alteredCurrentValue = this.alteredMaxValue;
 		}
+	}
+
+	@Override
+	public void addHitpointAttributeListener(HitpointAttributeListener h) {
+		this.hitpointAttributeListeners.add(h);
+	}
+
+	@Override
+	public void removeHitpointAttributeListener(HitpointAttributeListener h) {
+		this.hitpointAttributeListeners.remove(h);
+	}
+
+	@Override
+	public void notifyHitpointAttributeListeners(HitpointAttributeEvent h) {
+		this.hitpointAttributeListeners.forEach(l -> l.onHitpointAttributeEvent(h));
 	}
 
 }

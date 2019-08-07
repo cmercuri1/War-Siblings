@@ -7,12 +7,12 @@ package items;
 
 import javax.swing.ImageIcon;
 
-import event_classes.EventObject;
-import event_classes.Observer;
+import event_classes.AttributeEvent;
+import listener_interfaces.AttributeListener;
 import storage_classes.Attribute;
 
 /** A baseline class for item objects */
-public class Item implements Observer {
+public class Item implements AttributeListener {
 	protected String name; // Item name
 	protected Attribute value; // Value of item
 	protected String desc; // Description of item
@@ -21,12 +21,18 @@ public class Item implements Observer {
 	/** Constructor */
 	public Item(String name, double value, String desc) {
 		this.name = name;
-		this.value = new Attribute(value, this);
+		this.value = new Attribute(value);
 		this.desc = desc;
 		this.setIcon();
+		this.setUpListeners();
+	}
+	
+	protected void setUpListeners() {
+		this.value.addAttributeListener(this);
 	}
 
 	protected void setIcon() {
+		//TODO
 	}
 
 	/* Getters */
@@ -62,8 +68,14 @@ public class Item implements Observer {
 	}
 
 	@Override
-	public void onEventHappening(EventObject information) {
+	public void onAttributeEvent(AttributeEvent a) {
+		switch(a.getTask()) {
+		case UPDATE:
+			break;
+		default:
+			break;
+		
+		}
 		// TODO Auto-generated method stub
-
 	}
 }

@@ -4,59 +4,54 @@
  */
 package storage_classes;
 
-import event_classes.EventObject;
-import event_classes.Type;
-import event_classes.Observer;
+import event_classes.ItemEvent;
+import listener_interfaces.ItemListener;
+import notifier_interfaces.ItemNotifier;
 
 /** Special Attribute handling item durability */
-public class DurAttribute extends Attribute {
-	private final double MINIMUM = 0.0;
-
-	protected double originalCurrentValue;
-	protected double alteredCurrentValue;
-
-	public DurAttribute(double value, Observer o) {
-		super(value, o);
-		this.originalCurrentValue = this.originalMaxValue;
-		this.alteredCurrentValue = this.originalCurrentValue;
-	}
-
-	public void updateAltered() {
-		super.updateAltered();
-		this.currentChecker();
+public class DurAttribute extends BarAttribute implements ItemNotifier {
+	protected ArrayList<ItemListener> itemListeners;
+	
+	public DurAttribute(double value) {
+		super(value);
 	}
 	
-	public void alterItem(double value) {
-		this.alteredCurrentValue += value;
-		this.currentChecker();
-		if (this.alteredCurrentValue == MINIMUM) {
-			this.notifyObservers(new EventObject(null, Type.BROKEN, null, null));
+	protected void setUpNotificationSystem() {
+		super.setUpNotificationSystem();
+		this.itemListeners = new ArrayList<ItemListener>();
+	}
+	
+	public void alterCurrent(double value) {
+		super.alterCurrent(value);
+		this.notifyItemListeners(new ItemEvent(ItemEvent.Task.MODIFY_VALUE, this.getPercentage(),this));
+	}
+	
+	protected void currentChecker() {
+		if (this.alteredCurrentValue < MINIMUM) {
+			this.alteredCurrentValue = MINIMUM;
+			this.notifyItemListeners(new ItemEvent(ItemEvent.Task.BROKEN, this.getPercentage(),this));
+		} else if (this.alteredCurrentValue > this.alteredMaxValue) {
+			this.alteredCurrentValue = this.alteredMaxValue;
+			this.notifyItemListeners(new ItemEvent(ItemEvent.Task.REPAIRED, this.getPercentage(),this));
 		}
-		this.notifyObservers(new EventObject(null, Type.MODIFYVALUE, this.getPercentage(),null));
 	}
 	
 	protected double getPercentage() {
 		return this.alteredCurrentValue/this.alteredMaxValue;
 	}
 
-	/**
-	 * Method that checks if altered current value is within relevant bounds and
-	 * resets it within otherwise
-	 */
-	private void currentChecker() {
-		if (this.alteredCurrentValue < MINIMUM) {
-			this.alteredCurrentValue = MINIMUM;
-		} else if (this.alteredCurrentValue > this.alteredMaxValue) {
-			this.alteredCurrentValue = this.alteredMaxValue;
-		}
+	@Override
+	public void addItemListener(ItemListener i) {
+		this.itemListeners.add(i);
 	}
 
-	public double getAlteredCurrentValue() {
-		return this.alteredCurrentValue;
+	@Override
+	public void removeItemListener(ItemListener i) {
+		this.itemListeners.remove(i);
 	}
 
-	public String toString() {
-		return ((Double) this.alteredCurrentValue).intValue() + "/" + ((Double) this.alteredMaxValue).intValue();
+	@Override
+	public void notifyItemListeners(ItemEvent i) {
+		this.itemListeners.forEach(l -> l.onItemEvent(i));
 	}
-
 }

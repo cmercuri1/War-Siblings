@@ -4,7 +4,7 @@
  */
 package storage_classes;
 
-import event_classes.Observer;
+import event_classes.AttributeEvent;
 import global_managers.GlobalManager;
 
 /** Special Attribute used in helping manage a character's mood */
@@ -14,19 +14,35 @@ public class MoodAttribute extends Attribute {
 
 	private Mood currentMood;
 
-	public MoodAttribute(double value, Observer o) {
-		super(value, o);
+	public MoodAttribute(double value) {
+		super(value);
 		this.setMoodName();
 	}
 
 	protected void updateAltered() {
-		super.updateAltered();
+		double multi = 1;
+		double add = 0;
+		double finalAdd = 0;
+
+		for (Modifier m : modifiers) {
+			if (m.getIsMulti()) {
+				multi *= (1 + m.getValue() / 100);
+			} else {
+				if (m.getFinalAdd()) {
+					finalAdd += m.getValue();
+				} else {
+					add += m.getValue();
+				}
+			}
+		}
+		this.alteredMaxValue = multi * (this.originalMaxValue + add) + finalAdd;
 
 		if (this.alteredMaxValue > MOODMAX) {
 			this.alteredMaxValue = MOODMAX;
 		} else if (this.alteredMaxValue < MOODMIN) {
 			this.alteredMaxValue = MOODMIN;
 		}
+		this.notifyAttributeListeners(new AttributeEvent(AttributeEvent.Task.UPDATE, this.alteredMaxValue, this));
 
 		this.setMoodName();
 	}

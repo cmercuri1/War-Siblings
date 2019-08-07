@@ -4,21 +4,27 @@
  */
 package storage_classes;
 
-import event_classes.EventObject;
-import event_classes.Type;
-import event_classes.Observer;
-import event_classes.Target;
+import event_classes.LevelUpAttributeEvent;
 import global_managers.GlobalManager;
+import listener_interfaces.LevelUpAttributeListener;
+import notifier_interfaces.LevelUpAttributeNotifier;
 
 /** Special Attribute used in helping manager a character's level */
-public class LevelAttribute extends Attribute {
-	private double currXP;
-	private XPLevel nextLevel;
+public class LevelAttribute extends Attribute implements LevelUpAttributeNotifier {
+	protected double currXP;
+	protected XPLevel nextLevel;
 
-	public LevelAttribute(double value, Observer o) {
-		super(1, o);
+	protected ArrayList<LevelUpAttributeListener> lvlUpAttributeListeners;
+
+	public LevelAttribute(double value) {
+		super(1);
 		this.nextLevel = GlobalManager.xp.getNextLevel((int) this.alteredMaxValue);
 		this.giveXP(GlobalManager.xp.getCurrLevel((int) value).getTotalXp());
+	}
+
+	protected void setUpNotificationSystem() {
+		super.setUpNotificationSystem();
+		this.lvlUpAttributeListeners = new ArrayList<LevelUpAttributeListener>();
 	}
 
 	public void giveXP(double value) {
@@ -30,7 +36,8 @@ public class LevelAttribute extends Attribute {
 
 	private void levelUp() {
 		this.addModifier(new Modifier("Level" + this.alteredMaxValue + 1, 1, false, false, true));
-		this.notifyObservers(new EventObject(Target.ATTRIBUTE, Type.LEVEL_UP, (int) this.alteredMaxValue, null));
+		this.notifyLevelUpAttributeListeners(
+				new LevelUpAttributeEvent(LevelUpAttributeEvent.Task.LEVEL_UP, this.alteredMaxValue, this));
 		this.nextLevel = GlobalManager.xp.getNextLevel((int) this.alteredMaxValue);
 	}
 
@@ -47,5 +54,20 @@ public class LevelAttribute extends Attribute {
 		return ((Integer) ((Double) this.alteredMaxValue).intValue()).toString() + " (" + this.currXP + "/"
 				+ ((Integer) ((Double) this.nextLevel.getTotalXp()).intValue()).toString() + ")"
 				+ this.stringModifiers();
+	}
+
+	@Override
+	public void addLevelUpAttributeListener(LevelUpAttributeListener l) {
+		this.lvlUpAttributeListeners.add(l);
+	}
+
+	@Override
+	public void removeLevelUpAttributeListener(LevelUpAttributeListener l) {
+		this.lvlUpAttributeListeners.remove(l);
+	}
+
+	@Override
+	public void notifyLevelUpAttributeListeners(LevelUpAttributeEvent l) {
+		this.lvlUpAttributeListeners.forEach(e -> e.onLevelUpAttributeEvent(l));
 	}
 }

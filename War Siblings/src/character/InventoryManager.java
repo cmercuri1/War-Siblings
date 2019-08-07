@@ -7,11 +7,6 @@ package character;
 import storage_classes.ArrayList;
 import storage_classes.BackgroundItem;
 import storage_classes.Effect;
-import event_classes.EventObject;
-import event_classes.Type;
-import event_classes.GenericObservee;
-import event_classes.Observer;
-import event_classes.Target;
 import global_generators.BackgroundGenerator;
 import global_managers.GlobalManager;
 import items.Armor;
@@ -19,6 +14,11 @@ import items.EquipItem;
 import items.Headgear;
 import items.Shield;
 import items.Weapon;
+import old_event_classes.EventObject;
+import old_event_classes.GenericObservee;
+import old_event_classes.Observer;
+import old_event_classes.Target;
+import old_event_classes.Type;
 
 /**
  * Manager specifically for keeping track of and managing the inventory/equiped

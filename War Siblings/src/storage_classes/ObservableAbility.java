@@ -4,11 +4,10 @@
  */
 package storage_classes;
 
+import old_event_classes.EventObject;
+import old_event_classes.Observee;
+import old_event_classes.Observer;
 import storage_classes.ArrayList;
-
-import event_classes.EventObject;
-import event_classes.Observee;
-import event_classes.Observer;
 
 /** Extends ability so that it can use be observed */
 public class ObservableAbility extends Ability implements Observee {

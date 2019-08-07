@@ -4,14 +4,14 @@
  */
 package event_classes;
 
-public class InfoEvent extends Event {
+public abstract class InfoEvent extends Event {
 	protected Object information;
-	
+
 	public InfoEvent(Object info, Object src) {
 		super(src);
 		this.information = info;
 	}
-	
+
 	public Object getInformation() {
 		return this.information;
 	}

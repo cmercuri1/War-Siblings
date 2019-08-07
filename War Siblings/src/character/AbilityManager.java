@@ -4,18 +4,23 @@
  */
 package character;
 
-import event_classes.EventObject;
-import event_classes.Type;
-import event_classes.GenericObservee;
-import event_classes.Observer;
-import event_classes.Target;
+import event_classes.AbilityEvent;
+import event_classes.EffectEvent;
+import event_classes.PermanentInjuryEvent;
+import event_classes.TemporaryInjuryEvent;
 import global_generators.BackgroundGenerator;
 
 import global_managers.GlobalManager;
+import listener_interfaces.AbilityListener;
+import listener_interfaces.EffectListener;
+import listener_interfaces.MultiListener;
+import listener_interfaces.PermanentInjuryListener;
+import listener_interfaces.TemporaryInjuryListener;
+import notifier_interfaces.EffectNotifier;
 import storage_classes.Ability;
 import storage_classes.ArrayList;
 import storage_classes.Effect;
-import storage_classes.PerminentInjury;
+import storage_classes.PermanentInjury;
 import storage_classes.TemporaryInjury;
 import storage_classes.Trait;
 
@@ -23,21 +28,22 @@ import storage_classes.Trait;
  * A manager class that handles all the abilities a character may have, either
  * from items, traits or from level abilities
  */
-public class AbilityManager extends GenericObservee implements Observer {
-	private ArrayList<Trait> characterTraits;
-	private ArrayList<Ability> characterAbilities;
+public class AbilityManager
+		implements MultiListener, AbilityListener, PermanentInjuryListener, TemporaryInjuryListener, EffectNotifier {
+	protected ArrayList<Trait> characterTraits;
+	protected ArrayList<Ability> characterAbilities;
+	protected ArrayList<PermanentInjury> permaInjuries;
+	protected ArrayList<TemporaryInjury> tempInjuries;
 
-	private ArrayList<PerminentInjury> permaInjuries;
-	private ArrayList<TemporaryInjury> tempInjuries;
-
-	public AbilityManager(Observer o) {
+	protected ArrayList<EffectListener> effectListeners;
+	
+	public AbilityManager() {
 		this.characterAbilities = new ArrayList<Ability>();
 		this.characterTraits = new ArrayList<Trait>();
-		this.permaInjuries = new ArrayList<PerminentInjury>();
+		this.permaInjuries = new ArrayList<PermanentInjury>();
 		this.tempInjuries = new ArrayList<TemporaryInjury>();
 
-		this.setUpObservers();
-		this.registerObserver(o);
+		this.setUpListeners();
 	}
 
 	public void setUpAbilities(BackgroundGenerator background) {
@@ -90,44 +96,49 @@ public class AbilityManager extends GenericObservee implements Observer {
 	}
 
 	public void sufferTemporaryInjury(TemporaryInjury injury) {
+		injury.addTemporaryInjuryListener(this);
 		this.tempInjuries.add(injury);
-		this.tempInjuries.get(injury).registerObserver(this);
-		this.notifyOtherManagers(Type.ADD, injury);
+		this.notifyOtherManagers(EffectEvent.Task.ADD, injury);
 	}
-
+	
 	public void healTemporaryInjuries() {
 		this.tempInjuries.forEach(t -> t.healInjury());
 	}
 
-	public void sufferPerminentInjury(PerminentInjury injury) {
+	public void sufferPermanentInjury(PermanentInjury injury) {
+		injury.addPermanentInjuryListener(this);
 		this.permaInjuries.add(injury);
-
-		this.notifyOtherManagers(Type.ADD, injury);
+		this.notifyOtherManagers(EffectEvent.Task.ADD, injury);
+	}
+	
+	public void healPermanentInjury(PermanentInjury injury) {
+		injury.removePermanentInjuryListener(this);
+		this.permaInjuries.remove(injury);
+		this.notifyOtherManagers(EffectEvent.Task.ADD, injury);
 	}
 
-	public void healPerminentInjuries() {
-		this.permaInjuries.forEach(i -> this.notifyOtherManagers(Type.REMOVE, i));
-		this.permaInjuries.clear();
+	public void healPermanentInjuries() {
+		this.permaInjuries.forEach(i -> this.healPermanentInjury(i));
 	}
 
 	public void addAbility(Ability ability) {
 		this.characterAbilities.add(ability);
-		this.notifyOtherManagers(Type.ADD, ability);
+		this.notifyOtherManagers(EffectEvent.Task.ADD, ability);
 	}
 
 	public void addTrait(Trait trait) {
 		this.characterTraits.add(trait);
-		this.notifyOtherManagers(Type.ADD, trait);
+		this.notifyOtherManagers(EffectEvent.Task.ADD, trait);
 	}
 
 	public void removeAbility(Ability ability) {
 		if (this.characterAbilities.remove(ability))
-			this.notifyOtherManagers(Type.REMOVE, ability);
+			this.notifyOtherManagers(EffectEvent.Task.REMOVE, ability);
 	}
 
 	public void removeTrait(Trait trait) {
 		if (this.characterTraits.remove(trait))
-			this.notifyOtherManagers(Type.REMOVE, trait);
+			this.notifyOtherManagers(EffectEvent.Task.REMOVE, trait);
 	}
 
 	public void removeAbility(String abilityName) {
@@ -139,15 +150,9 @@ public class AbilityManager extends GenericObservee implements Observer {
 		}
 	}
 
-	private void notifyOtherManagers(Type type, Ability ability) {
+	private void notifyOtherManagers(EffectEvent.Task task, Ability ability) {
 		for (Effect t : ability.getEffects()) {
-			if (t.getAffectedManager().equals("Attribute")) {
-				this.notifyObservers(new EventObject(Target.ATTRIBUTE, type, t, null));
-			} else if (t.getAffectedManager().equals("Morale")) {
-				this.notifyObservers(new EventObject(Target.MORALE, type, t, null));
-			} else if (t.getAffectedManager().equals("Battle")) {
-				this.notifyObservers(new EventObject(Target.BATTLE, type, t, null));
-			}
+			this.notifyEffectListeners(new EffectEvent(task, t, this));
 		}
 	}
 
@@ -163,37 +168,68 @@ public class AbilityManager extends GenericObservee implements Observer {
 	}
 
 	@Override
-	public void onEventHappening(EventObject event) {
-		switch (event.getTarget()) {
-		case ABILITY:
-			switch (event.getTask()) {
-			case ADD:
-				if (event.getInformation() instanceof TemporaryInjury) {
-					this.sufferTemporaryInjury((TemporaryInjury) event.getInformation());
-				} else if (event.getInformation() instanceof PerminentInjury) {
-					this.sufferPerminentInjury((PerminentInjury) event.getInformation());
-				} else if (event.getInformation() instanceof Trait) {
-					this.addTrait((Trait) event.getInformation());
-				} else {
-					this.addAbility((Ability) event.getInformation());
-				}
-				break;
-			case REMOVE:
-				if (event.getInformation() instanceof Trait) {
-					this.removeTrait((Trait) event.getInformation());
-				} else {
-					this.removeAbility((Ability) event.getInformation());
-				}
-				break;
-			case HEALED:
-				this.tempInjuries.remove(event.getRequester());
-				break;
-			default:
-				break;
-			}
+	public void onTemporaryInjuryEvent(TemporaryInjuryEvent t) {
+		switch (t.getTask()) {
+		case ADD:
+			this.sufferTemporaryInjury(t.getInformation());
 			break;
-		default:
+		case HEALED:
+			t.getInformation().removeTemporaryInjuryListener(this);
+			this.tempInjuries.remove(t.getInformation());
+			break;
+		case HEAL_ALL:
+			this.healTemporaryInjuries();
+			break;		
+		}
+	}
+
+	@Override
+	public void onPermanentInjuryEvent(PermanentInjuryEvent p) {
+		switch (p.getTask()) {
+		case ADD:
+			this.sufferPermanentInjury(p.getInformation());
+			break;
+		case HEALED:
+			this.healPermanentInjury(p.getInformation());
+			break;
+		case HEAL_ALL:
+			this.healPermanentInjuries();
 			break;
 		}
+	}
+
+	@Override
+	public void onAbilityEvent(AbilityEvent a) {
+		switch (a.getTask()) {
+		case ADD:
+			this.addAbility(a.getInformation());
+			break;
+		case REMOVE:
+			this.removeAbility(a.getInformation());
+			break;
+		case REMOVE_ALL:
+			this.characterAbilities.forEach(c -> this.removeAbility(c));
+			break;
+		}
+	}
+
+	@Override
+	public void setUpListeners() {
+		this.effectListeners = new ArrayList<EffectListener>();
+	}
+
+	@Override
+	public void addEffectListener(EffectListener e) {
+		this.effectListeners.add(e);		
+	}
+
+	@Override
+	public void removeEffectListener(EffectListener e) {
+		this.effectListeners.remove(e);
+	}
+
+	@Override
+	public void notifyEffectListeners(EffectEvent e) {
+		this.effectListeners.forEach(l -> l.onEffectEvent(e));
 	}
 }
