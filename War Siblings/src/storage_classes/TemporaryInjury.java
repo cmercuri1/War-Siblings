@@ -22,7 +22,7 @@ public class TemporaryInjury extends Ability implements TemporaryInjuryNotifier,
 	protected double damageThreshold;
 	protected Attribute minDays;
 	protected Attribute maxDays;
-	
+
 	protected ArrayList<TemporaryInjuryListener> tempInuryListeners;
 
 	public TemporaryInjury(String name, String desc, boolean isHead, String dType, double dThres,
@@ -36,7 +36,7 @@ public class TemporaryInjury extends Ability implements TemporaryInjuryNotifier,
 
 		this.setUpNotificationSystem();
 	}
-	
+
 	protected void setUpNotificationSystem() {
 		this.tempInuryListeners = new ArrayList<TemporaryInjuryListener>();
 		this.minDays.addAttributeListener(this);
@@ -124,5 +124,10 @@ public class TemporaryInjury extends Ability implements TemporaryInjuryNotifier,
 	@Override
 	public void notifyTemporaryInjuryListeners(TemporaryInjuryEvent t) {
 		this.tempInuryListeners.forEach(l -> l.onTemporaryInjuryEvent(t));
+	}
+
+	@Override
+	public void notifyTemporaryInjuryListener(TemporaryInjuryListener t, TemporaryInjuryEvent e) {
+		this.tempInuryListeners.get(t).onTemporaryInjuryEvent(e);
 	}
 }

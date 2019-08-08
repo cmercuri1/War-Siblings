@@ -4,13 +4,24 @@
  */
 package character;
 
+import event_classes.AttributeEvent;
+import event_classes.EffectEvent;
+import event_classes.LevelUpAttributeEvent;
+import event_classes.MultiValueAttributeEvent;
+import event_classes.PostDataEvent;
+import event_classes.RetrieveEvent;
+import event_classes.StarAttributeEvent;
 import global_generators.BackgroundGenerator;
 import global_managers.GlobalManager;
-import old_event_classes.EventObject;
-import old_event_classes.GenericObservee;
-import old_event_classes.Observer;
-import old_event_classes.Target;
-import old_event_classes.Type;
+import listener_interfaces.AttributeListener;
+import listener_interfaces.EffectListener;
+import listener_interfaces.LevelUpAttributeListener;
+import listener_interfaces.MultiValueAttributeListener;
+import listener_interfaces.PostDataListener;
+import listener_interfaces.RetrievalListener;
+import listener_interfaces.StarAttributeListener;
+import notifier_interfaces.PostDataNotifier;
+import notifier_interfaces.MultiNotifier;
 import storage_classes.ArrayList;
 import storage_classes.Attribute;
 import storage_classes.BarAttribute;
@@ -27,65 +38,71 @@ import storage_classes.WageAttribute;
 /**
  * A class that manages all the attributes and makes sure the operate correctly
  */
-public class AttributeManager extends GenericObservee implements Observer {
-	private HitpointAttribute hitpointManager;
-	private FatigueAttribute fatigueManager;
-	private StarAttribute resolveManager;
-	private StarAttribute initiativeManager;
-	private StarAttribute meleeSkillManager;
-	private StarAttribute rangedSkillManager;
-	private DefenseAttribute meleeDefenseManager;
-	private DefenseAttribute rangedDefenseManager;
+public class AttributeManager implements MultiNotifier, AttributeListener, EffectListener, LevelUpAttributeListener,
+		MultiValueAttributeListener, RetrievalListener, StarAttributeListener, PostDataNotifier {
+	protected HitpointAttribute hitpointManager;
+	protected FatigueAttribute fatigueManager;
+	protected StarAttribute resolveManager;
+	protected StarAttribute initiativeManager;
+	protected StarAttribute meleeSkillManager;
+	protected StarAttribute rangedSkillManager;
+	protected DefenseAttribute meleeDefenseManager;
+	protected DefenseAttribute rangedDefenseManager;
 
-	private WageAttribute wageManager;
-	private Attribute foodManager;
-	private Attribute xpRateManager;
-	private LevelAttribute levelManager;
-	private BarAttribute actionPointsManager;
-	private Attribute headshotManager;
-	private Attribute fatigueRegManager;
-	private Attribute visionManager;
+	protected WageAttribute wageManager;
+	protected Attribute foodManager;
+	protected Attribute xpRateManager;
+	protected LevelAttribute levelManager;
+	protected BarAttribute actionPointsManager;
+	protected Attribute headshotManager;
+	protected Attribute fatigueRegManager;
+	protected Attribute visionManager;
 
-	private ArrayList<ArrayList<LevelUp>> levelUps;
+	protected ArrayList<ArrayList<LevelUp>> levelUps;
 
-	private int pref; // Only used in determining starting equipment
+	protected ArrayList<PostDataListener> attributeListeners;
 
-	public AttributeManager(BackgroundGenerator bg, Observer o) {
-		this.setUpObservers();
-		this.registerObserver(o);
+	protected int pref; // Only used in determining starting equipment
 
+	public AttributeManager(BackgroundGenerator bg) {
 		this.levelUps = new ArrayList<ArrayList<LevelUp>>();
-		
+		this.setUpListeners();
+
 		this.assignAttributes(bg);
 		this.assignStars(bg.getExcludedTalents());
+	}
+
+	@Override
+	public void setUpListeners() {
+		this.attributeListeners = new ArrayList<PostDataListener>();
 	}
 
 	/**
 	 * Assigns the attributes their randomly generated base values from the relevant
 	 * background
 	 */
-	private void assignAttributes(BackgroundGenerator bg) {
-		this.hitpointManager = new HitpointAttribute((double) bg.getHp().getRand(), 2, this);
-		this.fatigueManager = new FatigueAttribute((double) bg.getFat().getRand(), 2, this);
-		this.resolveManager = new StarAttribute((double) bg.getRes().getRand(), 2, this);
-		this.initiativeManager = new StarAttribute((double) bg.getIni().getRand(), 3, this);
-		this.meleeSkillManager = new StarAttribute((double) bg.getmSk().getRand(), 1, this);
-		this.rangedSkillManager = new StarAttribute((double) bg.getrSk().getRand(), 2, this);
-		this.meleeDefenseManager = new DefenseAttribute((double) bg.getmDef().getRand(), 1, this);
-		this.rangedDefenseManager = new DefenseAttribute((double) bg.getrDef().getRand(), 1, this);
+	protected void assignAttributes(BackgroundGenerator bg) {
+		this.hitpointManager = new HitpointAttribute((double) bg.getHp().getRand(), 2);
+		this.fatigueManager = new FatigueAttribute((double) bg.getFat().getRand(), 2);
+		this.resolveManager = new StarAttribute((double) bg.getRes().getRand(), 2);
+		this.initiativeManager = new StarAttribute((double) bg.getIni().getRand(), 3);
+		this.meleeSkillManager = new StarAttribute((double) bg.getmSk().getRand(), 1);
+		this.rangedSkillManager = new StarAttribute((double) bg.getrSk().getRand(), 2);
+		this.meleeDefenseManager = new DefenseAttribute((double) bg.getmDef().getRand(), 1);
+		this.rangedDefenseManager = new DefenseAttribute((double) bg.getrDef().getRand(), 1);
 
-		this.wageManager = new WageAttribute((double) bg.getBaseWage(), this);
-		this.foodManager = new Attribute((double) bg.getDailyFood(), this);
-		this.xpRateManager = new Attribute((double) bg.getXpRate(), this);
-		this.levelManager = new LevelAttribute((double) bg.getLev().getRand(), this);
-		this.actionPointsManager = new BarAttribute((double) bg.getActionPoints(), this);
-		this.headshotManager = new Attribute((double) bg.getHeadShot(), this);
-		this.fatigueRegManager = new Attribute((double) bg.getFatRegain(), this);
-		this.visionManager = new Attribute((double) bg.getVision(), this);
+		this.wageManager = new WageAttribute((double) bg.getBaseWage());
+		this.foodManager = new Attribute((double) bg.getDailyFood());
+		this.xpRateManager = new Attribute((double) bg.getXpRate());
+		this.levelManager = new LevelAttribute((double) bg.getLev().getRand());
+		this.actionPointsManager = new BarAttribute((double) bg.getActionPoints());
+		this.headshotManager = new Attribute((double) bg.getHeadShot());
+		this.fatigueRegManager = new Attribute((double) bg.getFatRegain());
+		this.visionManager = new Attribute((double) bg.getVision());
 	}
 
 	/** Randomly assigns stars/talents towards up to 3 attributes */
-	private void assignStars(ArrayList<String> excludedTalents) {
+	protected void assignStars(ArrayList<String> excludedTalents) {
 		ArrayList<StarAttribute> managers = new ArrayList<StarAttribute>();
 		if (!excludedTalents.contains("hitpoints")) {
 			managers.add(this.hitpointManager);
@@ -119,7 +136,7 @@ public class AttributeManager extends GenericObservee implements Observer {
 		}
 
 		if (pref > 0) {
-			this.notifyObservers(new EventObject(Target.CHARACTER, Type.RANGED_PREF, null, null));
+			// TODO NOTIFY INVENTORY MANAGER OF RANGED PREFERENCE
 		}
 	}
 
@@ -175,12 +192,12 @@ public class AttributeManager extends GenericObservee implements Observer {
 		return null;
 	}
 
-	public ArrayList<ArrayList<LevelUp>> getLevelUp() {
+	public ArrayList<ArrayList<LevelUp>> getLevelUps() {
 		return this.levelUps;
 	}
 
 	/** Gets the level up value from the relevant attributes */
-	private void getLevelUps() {
+	protected void setUpLevelUp() {
 		ArrayList<LevelUp> levelUpArray = new ArrayList<LevelUp>();
 		levelUpArray.add(new LevelUp("hitpoint", this.hitpointManager.getLevelup()));
 		levelUpArray.add(new LevelUp("fatigue", this.fatigueManager.getLevelup()));
@@ -204,7 +221,7 @@ public class AttributeManager extends GenericObservee implements Observer {
 		}
 	}
 
-	private void applyLevelUp(LevelUp levelUp) {
+	protected void applyLevelUp(LevelUp levelUp) {
 		this.getAttribute(levelUp.getName())
 				.addModifier(new Modifier("Level Up", levelUp.getValue(), false, false, false));
 	}
@@ -235,72 +252,84 @@ public class AttributeManager extends GenericObservee implements Observer {
 		System.out.println();
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
-	public void onEventHappening(EventObject event) {
-		Object[] temp;
-		switch (event.getTarget()) {
-		case ATTRIBUTE:
-			switch (event.getTask()) {
+	public void onLevelUpAttributeEvent(LevelUpAttributeEvent l) {
+		switch (l.getTask()) {
+		case LEVEL_UP:
+			this.setUpLevelUp();
+			break;
+		}
+	}
+
+	@Override
+	public void onAttributeEvent(AttributeEvent a) {
+		switch (a.getTask()) {
+		case UPDATE:
+			break;
+		}
+	}
+
+	@Override
+	public void onStarAttributeEvent(StarAttributeEvent s) {
+		switch (s.getTask()) {
+		case STAR_ASSIGNED:
+			if (s.getSource() == this.meleeSkillManager)
+				pref -= s.getInformation();
+			if (s.getSource() == this.rangedSkillManager)
+				pref += s.getInformation();
+			break;
+		}
+	}
+
+	@Override
+	public void onRetrieveEvent(RetrieveEvent r) {
+		this.notifyPostDataListener(r.getSource(), new PostDataEvent(PostDataEvent.Task.GOT,
+				this.getAttribute(r.getInformation()).getAlteredValue(), this));
+
+	}
+
+	@Override
+	public void onEffectEvent(EffectEvent e) {
+		if (e.getInformation().getAffectedManager().equals("Attribute")) {
+			switch (e.getTask()) {
 			case ADD:
-				this.addModifier((Effect) event.getInformation());
+				this.addModifier(e.getInformation());
 				break;
 			case REMOVE:
-				this.removeModifier((Effect) event.getInformation());
-				break;
-			case GET:
-				temp = new Object[] { event.getInformation(),
-						this.getAttribute((String) event.getInformation()).getAlteredValue() };
-				this.notifyObservers(new EventObject(Target.UNDEFINED, Type.GOT, temp, event.getRequester()));
-				break;
-			case GET_LEVELUPS:
-				this.notifyObservers(new EventObject(Target.UI, Type.GOT_LEVELUPS, this.getLevelUp(), null));
-			case GET_OTHER:
-				this.notifyObservers(new EventObject(Target.UNDEFINED, Type.GOT_OTHER,
-						this.getAttribute((String) event.getInformation()).getAlteredValue(), event.getRequester()));
-				break;
-			case START_TURN:
-				this.fatigueManager.alterCurrent(-this.fatigueRegManager.getAlteredValue());
-				break;
-			case LEVEL_UP:
-				this.wageManager.levelWage((int) event.getInformation());
-				this.getLevelUps();
-				break;
-			case APPLY_LEVEL_UP:
-				this.applyLevelUps((ArrayList<LevelUp>) event.getInformation());
-				break;
-			case HIT:
-				this.fatigueManager.onHit();
-				break;
-			case MISS:
-				this.fatigueManager.onMiss();
-				break;
-			case UPDATE:
-				temp = (Object[]) event.getInformation();
-				if (temp[0] instanceof FatigueAttribute) {
-					this.initiativeManager
-							.addModifier(new Modifier("Fatigue_Penalty", -(double) temp[1], false, true, true));
-				}
-				break;
-			case STAR_ASSIGNED:
-				temp = (Object[]) event.getInformation();
-				int star = 0;
-				if (temp[0] == this.meleeSkillManager) {
-					star = (int) temp[1];
-					pref -= star;
-				}
-				if (temp[0] == this.rangedSkillManager) {
-					star = (int) temp[1];
-					pref += star;
-				}
-				break;
-			default:
+				this.removeModifier(e.getInformation());
 				break;
 			}
-			break;
-		default:
-			break;
-
 		}
+	}
+
+	@Override
+	public void onMultiValueAttributeEvent(MultiValueAttributeEvent m) {
+		switch (m.getTask()) {
+		case UPDATE_CURRENT:
+			if (m.getSource() == this.fatigueManager)
+				this.initiativeManager
+						.addModifier(new Modifier("Fatigue_Penalty", -m.getInformation(), false, true, true));
+			break;
+		}
+	}
+
+	@Override
+	public void addPostDataListener(PostDataListener a) {
+		this.attributeListeners.add(a);
+	}
+
+	@Override
+	public void removePostDataListener(PostDataListener a) {
+		this.attributeListeners.remove(a);
+	}
+
+	@Override
+	public void notifyPostDataListeners(PostDataEvent a) {
+		this.attributeListeners.forEach(l -> l.onPostDataEvent(a));
+	}
+
+	@Override
+	public void notifyPostDataListener(PostDataListener a, PostDataEvent e) {
+		this.attributeListeners.get(a).onPostDataEvent(e);
 	}
 }

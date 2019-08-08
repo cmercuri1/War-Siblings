@@ -2,8 +2,8 @@
  * MultiListener
  * Author: Chris Mercuri cmercuri1@student.unimelb.edu.au
  */
-package listener_interfaces;
+package notifier_interfaces;
 
-public interface MultiListener {
+public interface MultiNotifier {
 	void setUpListeners();
 }

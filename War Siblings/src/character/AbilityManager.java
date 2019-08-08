@@ -13,10 +13,10 @@ import global_generators.BackgroundGenerator;
 import global_managers.GlobalManager;
 import listener_interfaces.AbilityListener;
 import listener_interfaces.EffectListener;
-import listener_interfaces.MultiListener;
 import listener_interfaces.PermanentInjuryListener;
 import listener_interfaces.TemporaryInjuryListener;
 import notifier_interfaces.EffectNotifier;
+import notifier_interfaces.MultiNotifier;
 import storage_classes.Ability;
 import storage_classes.ArrayList;
 import storage_classes.Effect;
@@ -29,14 +29,14 @@ import storage_classes.Trait;
  * from items, traits or from level abilities
  */
 public class AbilityManager
-		implements MultiListener, AbilityListener, PermanentInjuryListener, TemporaryInjuryListener, EffectNotifier {
+		implements MultiNotifier, AbilityListener, PermanentInjuryListener, TemporaryInjuryListener, EffectNotifier {
 	protected ArrayList<Trait> characterTraits;
 	protected ArrayList<Ability> characterAbilities;
 	protected ArrayList<PermanentInjury> permaInjuries;
 	protected ArrayList<TemporaryInjury> tempInjuries;
 
 	protected ArrayList<EffectListener> effectListeners;
-	
+
 	public AbilityManager() {
 		this.characterAbilities = new ArrayList<Ability>();
 		this.characterTraits = new ArrayList<Trait>();
@@ -58,7 +58,7 @@ public class AbilityManager
 	 * Gets Traits and picks up to two for the character, then ensures effects from
 	 * traits are applied
 	 */
-	private void traitDetermining(ArrayList<String> excludedTraits) {
+	protected void traitDetermining(ArrayList<String> excludedTraits) {
 		ArrayList<Trait> temp = GlobalManager.traits.getSpecificTraitList(excludedTraits);
 
 		// Roll for up to two different traits, with 50% chance each time? If a trait is
@@ -100,7 +100,7 @@ public class AbilityManager
 		this.tempInjuries.add(injury);
 		this.notifyOtherManagers(EffectEvent.Task.ADD, injury);
 	}
-	
+
 	public void healTemporaryInjuries() {
 		this.tempInjuries.forEach(t -> t.healInjury());
 	}
@@ -110,7 +110,7 @@ public class AbilityManager
 		this.permaInjuries.add(injury);
 		this.notifyOtherManagers(EffectEvent.Task.ADD, injury);
 	}
-	
+
 	public void healPermanentInjury(PermanentInjury injury) {
 		injury.removePermanentInjuryListener(this);
 		this.permaInjuries.remove(injury);
@@ -150,7 +150,7 @@ public class AbilityManager
 		}
 	}
 
-	private void notifyOtherManagers(EffectEvent.Task task, Ability ability) {
+	protected void notifyOtherManagers(EffectEvent.Task task, Ability ability) {
 		for (Effect t : ability.getEffects()) {
 			this.notifyEffectListeners(new EffectEvent(task, t, this));
 		}
@@ -179,7 +179,7 @@ public class AbilityManager
 			break;
 		case HEAL_ALL:
 			this.healTemporaryInjuries();
-			break;		
+			break;
 		}
 	}
 
@@ -220,7 +220,7 @@ public class AbilityManager
 
 	@Override
 	public void addEffectListener(EffectListener e) {
-		this.effectListeners.add(e);		
+		this.effectListeners.add(e);
 	}
 
 	@Override
@@ -231,5 +231,10 @@ public class AbilityManager
 	@Override
 	public void notifyEffectListeners(EffectEvent e) {
 		this.effectListeners.forEach(l -> l.onEffectEvent(e));
+	}
+
+	@Override
+	public void notifyEffectListener(EffectListener l, EffectEvent e) {
+		this.effectListeners.get(l).onEffectEvent(e);
 	}
 }

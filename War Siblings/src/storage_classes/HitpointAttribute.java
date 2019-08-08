@@ -10,13 +10,13 @@ import notifier_interfaces.HitpointAttributeNotifier;
 
 /** Special Attribute used for Hitpoints */
 public class HitpointAttribute extends BarStarAttribute implements HitpointAttributeNotifier {
-protected ArrayList<HitpointAttributeListener> hitpointAttributeListeners;
-	
+	protected ArrayList<HitpointAttributeListener> hitpointAttributeListeners;
+
 	public HitpointAttribute(double value, int lMin) {
 		super(value, lMin);
 		this.alteredCurrentValue = this.originalMaxValue;
 	}
-	
+
 	protected void setUpNotificationSystem() {
 		super.setUpNotificationSystem();
 		this.hitpointAttributeListeners = new ArrayList<HitpointAttributeListener>();
@@ -29,7 +29,8 @@ protected ArrayList<HitpointAttributeListener> hitpointAttributeListeners;
 	protected void currentChecker() {
 		if (this.alteredCurrentValue < MINIMUM) {
 			this.alteredCurrentValue = MINIMUM;
-			this.notifyHitpointAttributeListeners(new HitpointAttributeEvent(HitpointAttributeEvent.Task.NO_HP, 0.0, this));
+			this.notifyHitpointAttributeListeners(
+					new HitpointAttributeEvent(HitpointAttributeEvent.Task.NO_HP, 0.0, this));
 		} else if (this.alteredCurrentValue > this.alteredMaxValue) {
 			this.alteredCurrentValue = this.alteredMaxValue;
 		}
@@ -48,6 +49,11 @@ protected ArrayList<HitpointAttributeListener> hitpointAttributeListeners;
 	@Override
 	public void notifyHitpointAttributeListeners(HitpointAttributeEvent h) {
 		this.hitpointAttributeListeners.forEach(l -> l.onHitpointAttributeEvent(h));
+	}
+
+	@Override
+	public void notifyHitpointAttributeListener(HitpointAttributeListener h, HitpointAttributeEvent e) {
+		this.hitpointAttributeListeners.get(h).onHitpointAttributeEvent(e);
 	}
 
 }

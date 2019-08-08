@@ -9,6 +9,10 @@ import listener_interfaces.HitpointAttributeListener;
 
 public interface HitpointAttributeNotifier {
 	void addHitpointAttributeListener(HitpointAttributeListener h);
+
 	void removeHitpointAttributeListener(HitpointAttributeListener h);
+
 	void notifyHitpointAttributeListeners(HitpointAttributeEvent h);
+
+	void notifyHitpointAttributeListener(HitpointAttributeListener h, HitpointAttributeEvent e);
 }

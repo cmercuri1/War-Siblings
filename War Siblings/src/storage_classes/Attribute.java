@@ -158,4 +158,9 @@ public class Attribute implements AttributeNotifier {
 	public void notifyAttributeListeners(AttributeEvent a) {
 		this.attributeListeners.forEach(l->l.onAttributeEvent(a));
 	}
+
+	@Override
+	public void notifyAttributeListener(AttributeListener a, AttributeEvent e) {
+		this.attributeListeners.get(a).onAttributeEvent(e);
+	}
 }

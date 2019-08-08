@@ -7,10 +7,6 @@ package storage_classes;
 import event_classes.FatigueAttributeEvent;
 import listener_interfaces.FatigueAttributeListener;
 import notifier_interfaces.FatigueAttributeNotifier;
-import old_event_classes.EventObject;
-import old_event_classes.Observer;
-import old_event_classes.Target;
-import old_event_classes.Type;
 
 /** Special Attribute used for Fatigue */
 public class FatigueAttribute extends BarStarAttribute implements FatigueAttributeNotifier {
@@ -63,6 +59,11 @@ public class FatigueAttribute extends BarStarAttribute implements FatigueAttribu
 	@Override
 	public void notifyFatigueAttributeListeners(FatigueAttributeEvent f) {
 		this.fatigueAttributeListeners.forEach(l -> l.onFatigueAttributeEvent(f));
+	}
+
+	@Override
+	public void notifyFatigueAttributeListener(FatigueAttributeListener f, FatigueAttributeEvent e) {
+		this.fatigueAttributeListeners.get(f).onFatigueAttributeEvent(e);		
 	}
 
 }

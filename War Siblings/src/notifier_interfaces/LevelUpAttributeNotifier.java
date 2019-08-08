@@ -9,6 +9,10 @@ import listener_interfaces.LevelUpAttributeListener;
 
 public interface LevelUpAttributeNotifier {
 	void addLevelUpAttributeListener(LevelUpAttributeListener l);
+
 	void removeLevelUpAttributeListener(LevelUpAttributeListener l);
+
 	void notifyLevelUpAttributeListeners(LevelUpAttributeEvent l);
+
+	void notifyLevelUpAttributeListener(LevelUpAttributeListener l, LevelUpAttributeEvent e);
 }

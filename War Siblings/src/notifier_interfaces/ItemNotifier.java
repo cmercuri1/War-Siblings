@@ -9,6 +9,10 @@ import listener_interfaces.ItemListener;
 
 public interface ItemNotifier {
 	void addItemListener(ItemListener i);
+
 	void removeItemListener(ItemListener i);
+
 	void notifyItemListeners(ItemEvent i);
+
+	void notifyItemListener(ItemListener i, ItemEvent e);
 }

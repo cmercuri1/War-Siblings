@@ -9,6 +9,10 @@ import listener_interfaces.StarAttributeListener;
 
 public interface StarAttributeNotifier {
 	void addStarAttributeListener(StarAttributeListener s);
+
 	void removeStarAttributeListener(StarAttributeListener s);
+
 	void notifyStarAttributeListeners(StarAttributeEvent s);
+
+	void notifyStarAttributeListener(StarAttributeListener s, StarAttributeEvent e);
 }

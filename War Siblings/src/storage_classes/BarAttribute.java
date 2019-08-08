@@ -71,4 +71,9 @@ public class BarAttribute extends Attribute implements MultiValueAttributeNotifi
 	public void notifyMultiValueAttributeListeners(MultiValueAttributeEvent a) {
 		this.mvAttributeListeners.forEach(m -> m.onMultiValueAttributeEvent(a));
 	}
+
+	@Override
+	public void notifyMultiValueAttributeListener(MultiValueAttributeListener m, MultiValueAttributeEvent a) {
+		this.mvAttributeListeners.get(m).onMultiValueAttributeEvent(a);
+	}
 }

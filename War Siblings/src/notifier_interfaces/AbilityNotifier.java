@@ -9,6 +9,10 @@ import listener_interfaces.AbilityListener;
 
 public interface AbilityNotifier {
 	void addAbilityListener(AbilityListener a);
+
 	void removeAbilityListener(AbilityListener a);
+
 	void notifyAbilityListeners(AbilityEvent a);
+
+	void notifyAbilityListener(AbilityListener a, AbilityEvent e);
 }

@@ -9,6 +9,10 @@ import listener_interfaces.TemporaryInjuryListener;
 
 public interface TemporaryInjuryNotifier {
 	void addTemporaryInjuryListener(TemporaryInjuryListener t);
+
 	void removeTemporaryInjuryListener(TemporaryInjuryListener t);
+
 	void notifyTemporaryInjuryListeners(TemporaryInjuryEvent t);
+
+	void notifyTemporaryInjuryListener(TemporaryInjuryListener t, TemporaryInjuryEvent e);
 }

@@ -4,12 +4,24 @@
  */
 package character;
 
+import event_classes.AbilityEvent;
+import event_classes.BattleEvent;
+import event_classes.EffectEvent;
+import event_classes.MoraleEvent;
+import event_classes.PostDataEvent;
+import event_classes.RetrieveEvent;
 import global_managers.GlobalManager;
-import old_event_classes.EventObject;
-import old_event_classes.GenericObservee;
-import old_event_classes.Observer;
-import old_event_classes.Target;
-import old_event_classes.Type;
+import listener_interfaces.AbilityListener;
+import listener_interfaces.BattleListener;
+import listener_interfaces.EffectListener;
+import listener_interfaces.MoraleListener;
+import listener_interfaces.PostDataListener;
+import listener_interfaces.RetrievalListener;
+import notifier_interfaces.AbilityNotifier;
+import notifier_interfaces.BattleNotifier;
+import notifier_interfaces.MultiNotifier;
+import notifier_interfaces.RetrievalNotifier;
+import storage_classes.ArrayList;
 import storage_classes.Effect;
 import storage_classes.MoodAttribute;
 import storage_classes.MoraleState;
@@ -18,28 +30,30 @@ import storage_classes.MoraleState;
  * A class for managing the morale state of a character, along with any changes
  * that has on the rest of the character
  */
-public class MoraleManager extends GenericObservee implements Observer {
-	private static double DEFAULTMORALE = 6;
+public class MoraleManager
+		implements EffectListener, PostDataListener, MoraleListener, BattleListener, BattleNotifier, RetrievalNotifier, AbilityNotifier, MultiNotifier {
+	protected static double DEFAULTMORALE = 6;
 
-	private MoraleState currentMorale;
+	protected MoraleState currentMorale;
 
-	private MoodAttribute mood;
+	protected MoodAttribute mood;
 
-	private double startingMorale;
-	private double optimistModifier;
-	private double pessimistModifier;
-	private double specialModifier;
-	private double currentResolve;
+	protected double startingMorale;
+	protected double optimistModifier;
+	protected double pessimistModifier;
+	protected double specialModifier;
+	protected double currentResolve;
 
-	private boolean isIrrational;
-	private boolean isInsecure;
-	private boolean isDetermined;
+	protected boolean isIrrational;
+	protected boolean isInsecure;
+	protected boolean isDetermined;
 
-	public MoraleManager(Observer o) {
-		this.setUpObservers();
-		this.registerObserver(o);
+	protected ArrayList<AbilityListener> abilityListeners;
+	protected ArrayList<BattleListener> battleListeners;
+	protected ArrayList<RetrievalListener> retrievalListeners;
 
-		this.mood = new MoodAttribute(50, this);
+	public MoraleManager() {
+		this.mood = new MoodAttribute(50);
 
 		this.startingMorale = DEFAULTMORALE;
 		this.optimistModifier = 0;
@@ -49,11 +63,17 @@ public class MoraleManager extends GenericObservee implements Observer {
 		this.isIrrational = false;
 		this.isInsecure = false;
 		this.isDetermined = false;
-		this.changeState(MoraleState.STEADY);
+		this.removeMorale();
+
+		this.setUpListeners();
+	}
+
+	public MoraleState getCurrentState() {
+		return this.currentMorale;
 	}
 
 	/** Needs to be called after abilities are set up */
-	public void setMorale() {
+	protected void setMorale() {
 		double temp;
 		double chanceRoll;
 
@@ -77,15 +97,11 @@ public class MoraleManager extends GenericObservee implements Observer {
 		}
 	}
 
-	public void removeMorale() {
-		this.changeState(null);
+	protected void removeMorale() {
+		this.changeState(MoraleState.STEADY);
 	}
 
-	public MoraleState getCurrentState() {
-		return this.currentMorale;
-	}
-
-	public void makePositiveCheck(double additionalModifier) {
+	protected void makePositiveCheck(double additionalModifier) {
 		if (this.makeCheck(this.optimistModifier + additionalModifier)) {
 			if (this.currentMorale.getValue() < MoraleState.CONFIDENT.getValue()) {
 				if (!(this.currentMorale.equals(MoraleState.STEADY) && this.isInsecure)) {
@@ -95,7 +111,7 @@ public class MoraleManager extends GenericObservee implements Observer {
 		}
 	}
 
-	public void makeNegativeCheck(double additionalModifier) {
+	protected void makeNegativeCheck(double additionalModifier) {
 		if (!this.makeCheck(this.pessimistModifier + additionalModifier)) {
 			if (this.currentMorale.getValue() > MoraleState.FLEEING.getValue()) {
 				this.changeState(MoraleState.valueOfMoraleValue(currentMorale.getValue() - 1));
@@ -103,13 +119,13 @@ public class MoraleManager extends GenericObservee implements Observer {
 		}
 	}
 
-	public void makeSpecialCheck(double additionalModifier) {
+	protected void makeSpecialCheck(double additionalModifier) {
 		if (!this.makeCheck(this.specialModifier + this.pessimistModifier + additionalModifier)) {
-			this.notifyObservers(new EventObject(Target.BATTLE, Type.FAILED_SPECIAL_ROLL, null, null));
+			this.notifyBattleListeners(new BattleEvent(BattleEvent.Task.FAILED_SPECIAL_ROLL, null, this));
 		}
 	}
 
-	private boolean makeCheck(Double modifier) {
+	protected boolean makeCheck(Double modifier) {
 		this.getResolve();
 		double temp = 0;
 
@@ -132,19 +148,19 @@ public class MoraleManager extends GenericObservee implements Observer {
 		}
 	}
 
-	private void getResolve() {
-		this.notifyObservers(new EventObject(Target.ATTRIBUTE, Type.GET, "resolve", this));
+	protected void getResolve() {
+		this.notifyRetrievalListeners(new RetrieveEvent("resolve", this));
 	}
 
-	public void setResolve(double resolve) {
+	protected void setResolve(double resolve) {
 		this.currentResolve = resolve;
 	}
 
-	public void changeMood(Effect e) {
+	protected void changeMood(Effect e) {
 		this.mood.addModifier(e.getModifier());
 	}
 
-	public void setEffect(Effect e) {
+	protected void setEffect(Effect e) {
 		if (e.getName().equals("Morale_Optimist")) {
 			this.optimistModifier = e.getValue();
 		} else if (e.getName().equals("Morale_Pessimist")) {
@@ -162,7 +178,7 @@ public class MoraleManager extends GenericObservee implements Observer {
 		}
 	}
 
-	public void removeEffect(Effect e) {
+	protected void removeEffect(Effect e) {
 		if (e.getName().equals("Morale_Optimist")) {
 			this.optimistModifier = 0;
 		} else if (e.getName().equals("Morale_Pessimist")) {
@@ -180,18 +196,15 @@ public class MoraleManager extends GenericObservee implements Observer {
 		}
 	}
 
-	private void changeState(MoraleState state) {
+	protected void changeState(MoraleState state) {
 		try {
-			this.notifyObservers(new EventObject(Target.ABILITY, Type.REMOVE,
-					GlobalManager.morale.getMoraleAbility(this.currentMorale), null));
+			this.notifyAbilityListeners(new AbilityEvent(AbilityEvent.Task.REMOVE, GlobalManager.morale.getMoraleAbility(this.currentMorale), this));
 		} catch (NullPointerException nu) {
 
 		}
 		try {
-			this.notifyObservers(
-					new EventObject(Target.ABILITY, Type.ADD, GlobalManager.morale.getMoraleAbility(state), null));
+			this.notifyAbilityListeners(new AbilityEvent(AbilityEvent.Task.ADD, GlobalManager.morale.getMoraleAbility(this.currentMorale), this));
 		} catch (NullPointerException nu) {
-
 		}
 
 		this.currentMorale = state;
@@ -203,48 +216,118 @@ public class MoraleManager extends GenericObservee implements Observer {
 	}
 
 	@Override
-	public void onEventHappening(EventObject event) {
-		switch (event.getTarget()) {
-		case MORALE:
-			switch (event.getTask()) {
-			case ADD:
-				this.setEffect((Effect) event.getInformation());
-				break;
-			case REMOVE:
-				this.removeEffect((Effect) event.getInformation());
-				break;
-			case START_BATTLE:
-				this.setMorale();
-				break;
-			case END_BATTLE:
-				this.removeMorale();
-				break;
-			case ROLL_POSITIVE:
-				this.makePositiveCheck((double) event.getInformation());
-				break;
-			case ROLL_NEGATIVE:
-				this.makeNegativeCheck((double) event.getInformation());
-				break;
-			case ROLL_SPECIAL:
-				this.makeSpecialCheck((double) event.getInformation());
-				break;
-			default:
-				break;
-			}
-			break;
-		case UNDEFINED:
-			switch (event.getTask()) {
-			case GOT:
-				Object[] temp = (Object[]) event.getInformation();
-				this.setResolve((double) temp[1]);
-				break;
-			default:
-				break;
-			}
-		default:
-			break;
-		}
-		
+	public void addAbilityListener(AbilityListener a) {
+		this.abilityListeners.add(a);
 	}
 
+	@Override
+	public void removeAbilityListener(AbilityListener a) {
+		this.abilityListeners.remove(a);
+	}
+
+	@Override
+	public void notifyAbilityListeners(AbilityEvent a) {
+		this.abilityListeners.forEach(l -> l.onAbilityEvent(a));
+	}
+
+	@Override
+	public void notifyAbilityListener(AbilityListener a, AbilityEvent e) {
+		this.abilityListeners.get(a).onAbilityEvent(e);
+	}
+
+	@Override
+	public void addRetrievalListener(RetrievalListener r) {
+		this.retrievalListeners.add(r);
+	}
+
+	@Override
+	public void removeRetrievalListener(RetrievalListener r) {
+		this.retrievalListeners.remove(r);
+	}
+
+	@Override
+	public void notifyRetrievalListeners(RetrieveEvent r) {
+		this.retrievalListeners.forEach(l -> l.onRetrieveEvent(r));
+	}
+
+	@Override
+	public void notifyRetrievalListener(RetrievalListener r, RetrieveEvent e) {
+		this.retrievalListeners.get(r).onRetrieveEvent(e);
+	}
+
+	@Override
+	public void onEffectEvent(EffectEvent e) {
+		switch (e.getTask()) {
+		case ADD:
+			this.setEffect(e.getInformation());
+			break;
+		case REMOVE:
+			this.removeEffect(e.getInformation());
+			break;
+		}
+	}
+
+	@Override
+	public void setUpListeners() {
+		this.abilityListeners = new ArrayList<AbilityListener>();
+		this.battleListeners = new ArrayList<BattleListener>();
+		this.retrievalListeners = new ArrayList<RetrievalListener>();
+	}
+
+	@Override
+	public void addBattleListener(BattleListener b) {
+		this.battleListeners.add(b);
+	}
+
+	@Override
+	public void removeBattleListener(BattleListener b) {
+		this.battleListeners.remove(b);
+	}
+
+	@Override
+	public void notifyBattleListeners(BattleEvent b) {
+		this.battleListeners.forEach(l -> l.onBattleEvent(b));
+	}
+
+	@Override
+	public void notifyBattleListener(BattleListener b, BattleEvent e) {
+		this.battleListeners.forEach(l -> l.onBattleEvent(e));
+	}
+
+	@Override
+	public void onPostDataEvent(PostDataEvent p) {
+		switch (p.getTask()) {
+		case GOT:
+			this.setResolve((double) p.getInformation());
+			break;
+		case GOT_OTHER:
+			break;
+		}
+	}
+
+	@Override
+	public void onBattleEvent(BattleEvent b) {
+		switch(b.getTask()) {
+		case END_BATTLE:
+			this.removeMorale();
+			break;
+		case FAILED_SPECIAL_ROLL:
+			break;
+		case START_BATTLE:
+			this.setMorale();
+			break;
+		}
+	}
+
+	@Override
+	public void onMoraleEvent(MoraleEvent m) {
+		switch (m.getTask()) {
+		case ROLL_NEGATIVE:
+			break;
+		case ROLL_POSITIVE:
+			break;
+		case ROLL_SPECIAL:
+			break;
+		}
+	}
 }

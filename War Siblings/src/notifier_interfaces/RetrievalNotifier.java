@@ -9,6 +9,10 @@ import listener_interfaces.RetrievalListener;
 
 public interface RetrievalNotifier {
 	void addRetrievalListener(RetrievalListener r);
+
 	void removeRetrievalListener(RetrievalListener r);
+
 	void notifyRetrievalListeners(RetrieveEvent r);
+
+	void notifyRetrievalListener(RetrievalListener r, RetrieveEvent e);
 }

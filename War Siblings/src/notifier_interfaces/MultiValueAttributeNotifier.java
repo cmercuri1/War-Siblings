@@ -9,6 +9,10 @@ import listener_interfaces.MultiValueAttributeListener;
 
 public interface MultiValueAttributeNotifier {
 	void addMultiValueAttributeListener(MultiValueAttributeListener a);
+
 	void removeMultiValueAttributeListener(MultiValueAttributeListener a);
+
 	void notifyMultiValueAttributeListeners(MultiValueAttributeEvent a);
+
+	void notifyMultiValueAttributeListener(MultiValueAttributeListener m, MultiValueAttributeEvent a);
 }

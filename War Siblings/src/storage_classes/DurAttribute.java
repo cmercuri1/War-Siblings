@@ -54,4 +54,9 @@ public class DurAttribute extends BarAttribute implements ItemNotifier {
 	public void notifyItemListeners(ItemEvent i) {
 		this.itemListeners.forEach(l -> l.onItemEvent(i));
 	}
+
+	@Override
+	public void notifyItemListener(ItemListener i, ItemEvent e) {
+		this.itemListeners.get(i).onItemEvent(e);		
+	}
 }

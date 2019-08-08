@@ -4,14 +4,21 @@
  */
 package event_classes;
 
+import listener_interfaces.PostDataListener;
+
 public class RetrieveEvent extends InfoEvent {
 	protected String information;
-
-	public RetrieveEvent(String info, Object src) {
+	protected PostDataListener source;
+	
+	public RetrieveEvent(String info, PostDataListener src) {
 		super(info, src);
 	}
 
 	public String getInformation() {
 		return this.information;
+	}
+	
+	public PostDataListener getSource() {
+		return this.source;
 	}
 }

@@ -70,4 +70,9 @@ public class LevelAttribute extends Attribute implements LevelUpAttributeNotifie
 	public void notifyLevelUpAttributeListeners(LevelUpAttributeEvent l) {
 		this.lvlUpAttributeListeners.forEach(e -> e.onLevelUpAttributeEvent(l));
 	}
+
+	@Override
+	public void notifyLevelUpAttributeListener(LevelUpAttributeListener l, LevelUpAttributeEvent e) {
+		this.lvlUpAttributeListeners.get(l).onLevelUpAttributeEvent(e);
+	}
 }

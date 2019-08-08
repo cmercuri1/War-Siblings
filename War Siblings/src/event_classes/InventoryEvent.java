@@ -1,20 +1,20 @@
 /** War Siblings
- * AttributeEvent
+ * InventoryEvent
  * Author: Chris Mercuri cmercuri1@student.unimelb.edu.au
  */
 package event_classes;
 
-import storage_classes.Effect;
+import items.Item;
 
-public class EffectEvent extends InfoEvent {
+public class InventoryEvent extends InfoEvent {
 	public enum Task {
-		ADD, REMOVE
+		RETURN_INVENTORY
 	};
 
 	protected Task task;
-	protected Effect information;
+	protected Item information;
 
-	public EffectEvent(Task t, Effect info, Object src) {
+	public InventoryEvent(Task t, Item info, Object src) {
 		super(info, src);
 		this.task = t;
 	}
@@ -23,7 +23,7 @@ public class EffectEvent extends InfoEvent {
 		return this.task;
 	}
 
-	public Effect getInformation() {
+	public Item getInformation() {
 		return this.information;
 	}
 }

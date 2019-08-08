@@ -50,4 +50,9 @@ public class PermanentInjury extends Ability implements PermanentInjuryNotifier 
 		this.permaInjuryListeners.forEach(l -> l.onPermanentInjuryEvent(p));
 	}
 
+	@Override
+	public void notifyPermanentInjuryListener(PermanentInjuryListener p, PermanentInjuryEvent e) {
+		this.permaInjuryListeners.get(p).onPermanentInjuryEvent(e);
+	}
+
 }

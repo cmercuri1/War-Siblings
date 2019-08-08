@@ -96,4 +96,9 @@ public class StarAttribute extends Attribute implements StarAttributeNotifier {
 	public void notifyStarAttributeListeners(StarAttributeEvent s) {
 		this.starAttributeListeners.forEach(l -> l.onStarAttributeEvent(s));
 	}
+
+	@Override
+	public void notifyStarAttributeListener(StarAttributeListener s, StarAttributeEvent e) {
+		this.starAttributeListeners.get(s).onStarAttributeEvent(e);		
+	}
 }

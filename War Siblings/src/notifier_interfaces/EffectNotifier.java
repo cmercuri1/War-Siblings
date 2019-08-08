@@ -9,6 +9,10 @@ import listener_interfaces.EffectListener;
 
 public interface EffectNotifier {
 	void addEffectListener(EffectListener e);
+
 	void removeEffectListener(EffectListener e);
+
 	void notifyEffectListeners(EffectEvent e);
+
+	void notifyEffectListener(EffectListener l, EffectEvent e);
 }
