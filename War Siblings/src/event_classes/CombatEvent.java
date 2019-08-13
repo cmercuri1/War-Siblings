@@ -1,17 +1,17 @@
 /** War Siblings
- * BattleEvent
+ * CombatEvent
  * Author: Chris Mercuri cmercuri1@student.unimelb.edu.au
  */
 package event_classes;
 
-public class BattleEvent extends InfoEvent {
+public class CombatEvent extends InfoEvent {
 	public enum Task {
-		START_BATTLE, END_BATTLE, FAILED_SPECIAL_ROLL
+		HIT, MISS
 	};
 
 	protected Task task;
 
-	public BattleEvent(Task t, Object info, Object src) {
+	public CombatEvent(Task t, Object info, Object src) {
 		super(info, src);
 		this.task = t;
 	}

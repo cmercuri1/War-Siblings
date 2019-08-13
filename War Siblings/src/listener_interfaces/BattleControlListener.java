@@ -4,8 +4,8 @@
  */
 package listener_interfaces;
 
-import event_classes.BattleEvent;
+import event_classes.BattleControlEvent;
 
-public interface BattleListener {
-	void onBattleEvent(BattleEvent b);
+public interface BattleControlListener {
+	void onBattleControlEvent(BattleControlEvent b);
 	}

@@ -5,20 +5,20 @@
 package character;
 
 import event_classes.AbilityEvent;
-import event_classes.BattleEvent;
+import event_classes.BattleControlEvent;
 import event_classes.EffectEvent;
-import event_classes.MoraleEvent;
+import event_classes.MoraleRollEvent;
 import event_classes.PostDataEvent;
 import event_classes.RetrieveEvent;
 import global_managers.GlobalManager;
 import listener_interfaces.AbilityListener;
-import listener_interfaces.BattleListener;
+import listener_interfaces.BattleControlListener;
 import listener_interfaces.EffectListener;
-import listener_interfaces.MoraleListener;
+import listener_interfaces.MoraleRollListener;
 import listener_interfaces.PostDataListener;
 import listener_interfaces.RetrievalListener;
 import notifier_interfaces.AbilityNotifier;
-import notifier_interfaces.BattleNotifier;
+import notifier_interfaces.BattleControlNotifier;
 import notifier_interfaces.MultiNotifier;
 import notifier_interfaces.RetrievalNotifier;
 import storage_classes.ArrayList;
@@ -31,7 +31,7 @@ import storage_classes.MoraleState;
  * that has on the rest of the character
  */
 public class MoraleManager
-		implements EffectListener, PostDataListener, MoraleListener, BattleListener, BattleNotifier, RetrievalNotifier, AbilityNotifier, MultiNotifier {
+		implements EffectListener, PostDataListener, MoraleRollListener, BattleControlListener, BattleControlNotifier, RetrievalNotifier, AbilityNotifier, MultiNotifier {
 	protected static double DEFAULTMORALE = 6;
 
 	protected MoraleState currentMorale;
@@ -49,7 +49,7 @@ public class MoraleManager
 	protected boolean isDetermined;
 
 	protected ArrayList<AbilityListener> abilityListeners;
-	protected ArrayList<BattleListener> battleListeners;
+	protected ArrayList<BattleControlListener> battleControlListeners;
 	protected ArrayList<RetrievalListener> retrievalListeners;
 
 	public MoraleManager() {
@@ -121,7 +121,7 @@ public class MoraleManager
 
 	protected void makeSpecialCheck(double additionalModifier) {
 		if (!this.makeCheck(this.specialModifier + this.pessimistModifier + additionalModifier)) {
-			this.notifyBattleListeners(new BattleEvent(BattleEvent.Task.FAILED_SPECIAL_ROLL, null, this));
+			this.notifyBattleListeners(new BattleControlEvent(BattleControlEvent.Task.FAILED_SPECIAL_ROLL, null, this));
 		}
 	}
 
@@ -270,28 +270,28 @@ public class MoraleManager
 	@Override
 	public void setUpListeners() {
 		this.abilityListeners = new ArrayList<AbilityListener>();
-		this.battleListeners = new ArrayList<BattleListener>();
+		this.battleControlListeners = new ArrayList<BattleControlListener>();
 		this.retrievalListeners = new ArrayList<RetrievalListener>();
 	}
 
 	@Override
-	public void addBattleListener(BattleListener b) {
-		this.battleListeners.add(b);
+	public void addBattleListener(BattleControlListener b) {
+		this.battleControlListeners.add(b);
 	}
 
 	@Override
-	public void removeBattleListener(BattleListener b) {
-		this.battleListeners.remove(b);
+	public void removeBattleListener(BattleControlListener b) {
+		this.battleControlListeners.remove(b);
 	}
 
 	@Override
-	public void notifyBattleListeners(BattleEvent b) {
-		this.battleListeners.forEach(l -> l.onBattleEvent(b));
+	public void notifyBattleListeners(BattleControlEvent b) {
+		this.battleControlListeners.forEach(l -> l.onBattleEvent(b));
 	}
 
 	@Override
-	public void notifyBattleListener(BattleListener b, BattleEvent e) {
-		this.battleListeners.forEach(l -> l.onBattleEvent(e));
+	public void notifyBattleListener(BattleControlListener b, BattleControlEvent e) {
+		this.battleControlListeners.forEach(l -> l.onBattleEvent(e));
 	}
 
 	@Override
@@ -306,7 +306,7 @@ public class MoraleManager
 	}
 
 	@Override
-	public void onBattleEvent(BattleEvent b) {
+	public void onBattleEvent(BattleControlEvent b) {
 		switch(b.getTask()) {
 		case END_BATTLE:
 			this.removeMorale();
@@ -320,7 +320,7 @@ public class MoraleManager
 	}
 
 	@Override
-	public void onMoraleEvent(MoraleEvent m) {
+	public void onMoraleEvent(MoraleRollEvent m) {
 		switch (m.getTask()) {
 		case ROLL_NEGATIVE:
 			break;

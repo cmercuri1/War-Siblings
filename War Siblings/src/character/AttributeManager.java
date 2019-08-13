@@ -283,7 +283,7 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Effec
 
 	@Override
 	public void onRetrieveEvent(RetrieveEvent r) {
-		this.notifyPostDataListener(r.getSource(), new PostDataEvent(PostDataEvent.Task.GOT,
+		this.notifyPostDataListener(r.getSource(), new PostDataEvent(PostDataEvent.Task.GOT, r.getInformation(),
 				this.getAttribute(r.getInformation()).getAlteredValue(), this));
 
 	}

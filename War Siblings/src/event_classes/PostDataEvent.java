@@ -8,13 +8,19 @@ public class PostDataEvent extends InfoEvent {
 	public enum Task {GOT, GOT_OTHER};
 	
 	protected Task task;
+	protected String requestedInfo;
 	
-	public PostDataEvent(Task t, Object info, Object src) {
+	public PostDataEvent(Task t, String requestedInfo, Object info, Object src) {
 		super(info, src);
 		this.task = t;
+		this.requestedInfo = requestedInfo;
 	}
 	
 	public Task getTask() {
 		return this.task;
+	}
+	
+	public String getRequestedInfo() {
+		return this.requestedInfo;
 	}
 }

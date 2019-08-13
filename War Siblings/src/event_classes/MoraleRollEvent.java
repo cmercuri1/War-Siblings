@@ -4,13 +4,13 @@
  */
 package event_classes;
 
-public class MoraleEvent extends InfoEvent {
+public class MoraleRollEvent extends InfoEvent {
 	public enum Task {ROLL_POSITIVE, ROLL_NEGATIVE, ROLL_SPECIAL};
 	
 	protected Task task;
 	protected double infomation;
 	
-	public MoraleEvent(Task t, double info, Object src) {
+	public MoraleRollEvent(Task t, double info, Object src) {
 		super(info, src);
 		this.task = t;
 	}

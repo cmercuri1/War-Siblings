@@ -5,11 +5,21 @@
 package character;
 
 import storage_classes.ArrayList;
+import event_classes.EffectEvent;
+import event_classes.BattleControlEvent;
+import event_classes.CombatEvent;
+import event_classes.PostDataEvent;
+import event_classes.RetrieveEvent;
 import global_managers.GlobalManager;
-import old_event_classes.EventObject;
-import old_event_classes.GenericObservee;
-import old_event_classes.Observer;
-import old_event_classes.Target;
+import listener_interfaces.EffectListener;
+import listener_interfaces.BattleControlListener;
+import listener_interfaces.CombatListener;
+import listener_interfaces.PostDataListener;
+import listener_interfaces.RetrievalListener;
+import notifier_interfaces.BattleControlNotifier;
+import notifier_interfaces.CombatNotifier;
+import notifier_interfaces.MultiNotifier;
+import notifier_interfaces.RetrievalNotifier;
 import old_event_classes.Type;
 import storage_classes.Attack;
 import storage_classes.AttackAttribute;
@@ -21,7 +31,8 @@ import storage_classes.Modifier;
  * A manager class that handles actions and consequences of battle. This acts as
  * the gatekeeper to the rest of the character for any interactions
  */
-public class BattleManager extends GenericObservee implements Observer {
+public class BattleManager implements EffectListener, BattleControlListener, BattleControlNotifier,
+		RetrievalNotifier, PostDataListener, CombatNotifier, MultiNotifier {
 	protected AttackAttribute chanceToHit;
 
 	protected Attribute actionPointsOnMovement;
@@ -47,35 +58,30 @@ public class BattleManager extends GenericObservee implements Observer {
 	protected Effect resolveGreenskin;
 	protected Effect resolveUndead;
 
-	protected ArrayList<Observer> targets;
+	protected ArrayList<BattleControlListener> battleControlListeners;
+	protected ArrayList<RetrievalListener> retrievalListeners;
+	protected ArrayList<CombatListener> combatListeners;
 
-	public BattleManager(Observer o) {
-		this.setUpObservers();
-		this.registerObserver(o);
-
+	public BattleManager() {
+		this.setUpListeners();
 		this.setUpAttributes();
 	}
 
 	protected void setUpAttributes() {
 		this.chanceToHit = new AttackAttribute(0);
-		this.actionPointsOnMovement = new Attribute(0, this);
-		this.fatigueOnMovement = new Attribute(0, this);
-		this.actionPointsOnMovement = new Attribute(0, this);
-		this.damage = new Attribute(0, this);
-		this.damageHeadshot = new Attribute(0, this);
-		this.fatigueOnMovement = new Attribute(0, this);
-		this.hitpointsOverTime = new Attribute(0, this);
-		this.visionNight = new Attribute(0, this);
+		this.actionPointsOnMovement = new Attribute(0);
+		this.fatigueOnMovement = new Attribute(0);
+		this.actionPointsOnMovement = new Attribute(0);
+		this.damage = new Attribute(0);
+		this.damageHeadshot = new Attribute(0);
+		this.fatigueOnMovement = new Attribute(0);
+		this.hitpointsOverTime = new Attribute(0);
+		this.visionNight = new Attribute(0);
 
 		this.ignoreAllyDeathMorale = false;
 		this.ignoreInjuryMorale = false;
 
 		this.survivalChance = 33;
-	}
-
-	protected void setUpObservers() {
-		super.setUpObservers();
-		this.targets = new ArrayList<Observer>();
 	}
 
 	public void startBattle(ArrayList<String> enemies) {
@@ -84,23 +90,23 @@ public class BattleManager extends GenericObservee implements Observer {
 		} catch (NullPointerException nu) {
 
 		}
-		this.notifyObservers(new EventObject(Target.MORALE, Type.START_BATTLE, null, null));
+		// TODO NOTIFY MORALE TO START
 	}
 
 	public void startRound() {
-		this.notifyObservers(new EventObject(Target.ATTRIBUTE, Type.GET, "initiative", this));
+		// TODO NOTIFY ATTRIBUTE TO GET INITIATIVE
 	}
 
 	protected void sendInitiative(double value) {
-		this.notifyObserver(null, new EventObject(Target.UNDEFINED, Type.GOT, value, null));
+		// POST INITIATIVE TO RIGHT LISTENER?
 	}
 
 	public void startTurn() {
-		this.notifyObservers(new EventObject(Target.ATTRIBUTE, Type.START_TURN, null, null));
+		// TODO NOTIFY ATTRIBUTE THAT TURN HAS STARTED
 	}
 
 	public void endBattle(ArrayList<String> enemies) {
-		this.notifyObservers(new EventObject(Target.MORALE, Type.END_BATTLE, null, null));
+		// TODO NOTIFY MORALE THAT BATTLE HAS ENDED
 		try {
 			this.foeCheck(enemies, Type.REMOVE);
 		} catch (NullPointerException nu) {
@@ -108,38 +114,34 @@ public class BattleManager extends GenericObservee implements Observer {
 		}
 	}
 
-	private void foeCheck(ArrayList<String> enemies, Type type) {
+	protected void foeCheck(ArrayList<String> enemies, Type type) {
 		if (enemies.contains("Beasts")) {
-			this.notifyObservers(new EventObject(Target.ATTRIBUTE, type,
-					new Effect("Resolve", this.resolveBeasts.getValue()), null));
+			// TODO NOTIFY ATTRIBUTE OF RESOLVE CHANGE
 		}
 		if (enemies.contains("Greenskins")) {
-			this.notifyObservers(new EventObject(Target.ATTRIBUTE, type,
-					new Effect("Resolve", this.resolveGreenskin.getValue()), null));
+			// TODO NOTIFY ATTRIBUTE OF RESOLVE CHANGE
 		}
 		if (enemies.contains("Undead")) {
-			this.notifyObservers(new EventObject(Target.ATTRIBUTE, type,
-					new Effect("Resolve", this.resolveUndead.getValue()), null));
+			// TODO NOTIFY ATTRIBUTE OF RESOLVE CHANGE
 		}
 	}
 
-	public void getChanceToHit(Observer target) {
+	public void getChanceToHit() {
 		this.getMeleeSkill();
-		this.getTargetMeleeDefense(target);
+		this.getTargetMeleeDefense();
 		this.getOtherModifiers();
 	}
 
-	private void getMeleeSkill() {
-		this.notifyObservers(new EventObject(Target.ATTRIBUTE, Type.GET, "meleeSkill", this));
+	protected void getMeleeSkill() {
+		this.notifyRetrievalListeners(new RetrieveEvent("meleeSkill", this));
 	}
 
-	private void getTargetMeleeDefense(Observer target) {
-		this.notifyTarget(target, new EventObject(Target.ATTRIBUTE, Type.GET_OTHER, "meleeDefense", this));
+	protected void getTargetMeleeDefense() {
+		this.notifyRetrievalListeners(new RetrieveEvent("initiative", this));
 	}
 
-	private void getOtherModifiers() {
+	protected void getOtherModifiers() {
 		// TODO
-		this.notifyObservers(null);
 	}
 
 	public void applyMeleeSkill(double value) {
@@ -154,18 +156,16 @@ public class BattleManager extends GenericObservee implements Observer {
 		this.chanceToHit.addModifier(mod);
 	}
 
-	public void attack(Observer target, Attack attack) {
+	public void attack(Attack attack) {
 		double roll = GlobalManager.d100Roll();
-		this.getChanceToHit(target);
+		this.getChanceToHit();
 
 		if (roll <= this.chanceToHit.getAlteredValue()) {
 			System.out.println("Succeeded: rolled: " + roll + ", needed: " + this.chanceToHit.getAlteredValue());
-			this.notifyObservers(new EventObject(Target.UNDEFINED, Type.HIT, attack, null));
-			this.notifyTarget(target, new EventObject(Target.BATTLE, Type.HIT, attack, null));
+			// TODO NOTIFY THINGS THAT HAS BEEN HIT
 		} else {
 			System.out.println("Failed: rolled: " + roll + ", needed: " + this.chanceToHit.getAlteredValue());
-			this.notifyObservers(new EventObject(Target.UNDEFINED, Type.MISS, attack, null));
-			this.notifyTarget(target, new EventObject(Target.BATTLE, Type.MISS, attack, null));
+			// TODO NOTIFY THINGS THAT HAS BEEN MISSED
 		}
 	}
 
@@ -265,84 +265,110 @@ public class BattleManager extends GenericObservee implements Observer {
 		}
 	}
 
-	public void registerTarget(Observer o) {
-		this.targets.add(o);
-	}
-
-	public void removeTarget(Observer o) {
-		this.targets.remove(o);
-	}
-
-	public void notifyTargets(EventObject information) {
-		this.targets.forEach(o -> o.onEventHappening(information));
-	}
-
-	public void notifyTarget(Observer target, EventObject information) {
-		this.targets.get(this.targets.indexOf(target)).onEventHappening(information);
-	}
-
-	@SuppressWarnings("unchecked")
 	@Override
-	public void onEventHappening(EventObject event) {
-		switch (event.getTarget()) {
-		case BATTLE:
-			switch (event.getTask()) {
-			case ADD:
-				this.setEffect((Effect) event.getInformation());
-				break;
-			case REMOVE:
-				this.removeEffect((Effect) event.getInformation());
-				break;
-			case HIT:
-				this.notifyObservers(new EventObject(Target.ATTRIBUTE, Type.HIT, event, null));
-				break;
-			case MISS:
-				this.notifyObservers(new EventObject(Target.ATTRIBUTE, Type.MISS, event, null));
-				break;
-			case START_BATTLE:
-				this.startBattle((ArrayList<String>) event.getInformation());
-				break;
-			case END_BATTLE:
-				this.endBattle((ArrayList<String>) event.getInformation());
-				break;
-			case ROLL_POSITIVE:
-				this.notifyObservers(
-						new EventObject(Target.MORALE, Type.ROLL_POSITIVE, event.getInformation(), null));
-				break;
-			case ROLL_NEGATIVE:
-				this.notifyObservers(
-						new EventObject(Target.MORALE, Type.ROLL_NEGATIVE, event.getInformation(), null));
-				break;
-			case ROLL_SPECIAL:
-				this.notifyObservers(
-						new EventObject(Target.MORALE, Type.ROLL_SPECIAL, event.getInformation(), null));
-				break;
-			case FAILED_SPECIAL_ROLL:
+	public void addCombatListener(CombatListener c) {
+		this.combatListeners.add(c);
+	}
 
-				break;
-			default:
-				break;
+	@Override
+	public void removeCombatListener(CombatListener c) {
+		this.combatListeners.remove(c);
+	}
+
+	@Override
+	public void notifyCombatListeners(CombatEvent c) {
+		this.combatListeners.forEach(l -> l.onCombatEvent(c));
+	}
+
+	@Override
+	public void notifyCombatListener(CombatListener c, CombatEvent e) {
+		this.combatListeners.get(c).onCombatEvent(e);
+	}
+
+	@Override
+	public void onPostDataEvent(PostDataEvent p) {
+		switch (p.getTask()) {
+		case GOT:
+			if (p.getRequestedInfo().equals("meleeSkill")) {
+				this.applyMeleeSkill((double) p.getInformation());
+			} else if (p.getRequestedInfo().equals("initiative")) {
+				this.sendInitiative((double) p.getInformation());
 			}
 			break;
-		case UNDEFINED:
-			switch (event.getTask()) {
-			case GOT:
-				Object[] temp = (Object[]) event.getInformation();
-				if (temp[0].equals("meleeSkill")) {
-					this.applyMeleeSkill((double) temp[1]);
-				} else if (temp[0].equals("initiative")) {
-					this.sendInitiative((double) temp[1]);
-				}
-				break;
-			case GOT_OTHER:
-				this.applyTargetMeleeDefense((double) event.getInformation());
-				break;
-			default:
-				break;
-			}
-		default:
+		case GOT_OTHER:
+			this.applyTargetMeleeDefense((double) p.getInformation());
 			break;
+		}
+	}
 
+	@Override
+	public void addRetrievalListener(RetrievalListener r) {
+		this.retrievalListeners.add(r);
+	}
+
+	@Override
+	public void removeRetrievalListener(RetrievalListener r) {
+		this.retrievalListeners.remove(r);
+	}
+
+	@Override
+	public void notifyRetrievalListeners(RetrieveEvent r) {
+		this.retrievalListeners.forEach(l -> l.onRetrieveEvent(r));
+	}
+
+	@Override
+	public void notifyRetrievalListener(RetrievalListener r, RetrieveEvent e) {
+		this.retrievalListeners.get(r).onRetrieveEvent(e);
+	}
+
+	@Override
+	public void addBattleControlListener(BattleControlListener b) {
+		this.battleControlListeners.add(b);
+	}
+
+	@Override
+	public void removeBattleControlListener(BattleControlListener b) {
+		this.battleControlListeners.remove(b);
+	}
+
+	@Override
+	public void notifyBattleControlListeners(BattleControlEvent b) {
+		this.battleControlListeners.forEach(l -> l.onBattleControlEvent(b));
+	}
+
+	@Override
+	public void notifyBattleControlListener(BattleControlListener b, BattleControlEvent e) {
+		this.battleControlListeners.get(b).onBattleControlEvent(e);
+	}
+
+	@Override
+	public void onEffectEvent(EffectEvent a) {
+		switch (a.getTask()) {
+		case ADD:
+			this.setEffect(a.getInformation());
+			break;
+		case REMOVE:
+			this.removeEffect(a.getInformation());
+			break;
+		}
+	}
+
+	@Override
+	public void setUpListeners() {
+		this.battleControlListeners = new ArrayList<BattleControlListener>();
+		this.combatListeners = new ArrayList<CombatListener>();
+		this.retrievalListeners = new ArrayList<RetrievalListener>();
+	}
+
+	@Override
+	public void onBattleControlEvent(BattleControlEvent b) {
+		switch (b.getTask()) {
+		case END_BATTLE:
+			this.endBattle(b.getInformation());
+			break;
+		case START_BATTLE:
+			this.startBattle(b.getInformation());
+			break;
 		}
 	}
 }
