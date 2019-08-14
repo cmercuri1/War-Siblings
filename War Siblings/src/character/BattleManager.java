@@ -26,8 +26,6 @@ import notifier_interfaces.MultiNotifier;
 import notifier_interfaces.RetrievalNotifier;
 import notifier_interfaces.RoundControlNotifier;
 import notifier_interfaces.TurnControlNotifier;
-import old_event_classes.Type;
-import storage_classes.Attack;
 import storage_classes.AttackAttribute;
 import storage_classes.Attribute;
 import storage_classes.Effect;
@@ -103,7 +101,7 @@ public class BattleManager implements EffectListener, BattleControlListener, Bat
 
 	public void startBattle(ArrayList<String> enemies) {
 		try {
-			this.foeCheck(enemies, Type.ADD);
+			this.foeCheck(enemies);
 		} catch (NullPointerException nu) {
 
 		}
@@ -125,13 +123,13 @@ public class BattleManager implements EffectListener, BattleControlListener, Bat
 	public void endBattle(ArrayList<String> enemies) {
 		this.notifyBattleControlListeners(new BattleControlEvent(BattleControlEvent.Task.END_BATTLE, enemies, this));
 		try {
-			this.foeCheck(enemies, Type.REMOVE);
+			this.foeCheck(enemies);
 		} catch (NullPointerException nu) {
 
 		}
 	}
 
-	protected void foeCheck(ArrayList<String> enemies, Type type) {
+	protected void foeCheck(ArrayList<String> enemies) {
 		if (enemies.contains("Beasts")) {
 			// TODO NOTIFY ATTRIBUTE OF RESOLVE CHANGE
 		}
@@ -173,7 +171,7 @@ public class BattleManager implements EffectListener, BattleControlListener, Bat
 		this.chanceToHit.addModifier(mod);
 	}
 
-	public void attack(Attack attack) {
+	public void attack() {
 		double roll = GlobalManager.d100Roll();
 		this.getChanceToHit();
 

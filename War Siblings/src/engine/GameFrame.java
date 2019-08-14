@@ -25,18 +25,16 @@ import static javax.swing.GroupLayout.Alignment.*;
 
 import character.Character;
 import global_managers.GlobalManager;
-import old_event_classes.EventObject;
-import old_event_classes.Observer;
 
-public class GameFrame extends JFrame implements ActionListener, ItemListener, Observer {
+public class GameFrame extends JFrame implements ActionListener, ItemListener{
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -2418441605648905558L;
-	private String message;
-	private Character character;
+	protected static final long serialVersionUID = -2418441605648905558L;
+	protected String message;
+	protected Character character;
 
-	private JComboBox<String> box;
+	protected JComboBox<String> box;
 
 	JLabel helm;
 	JLabel body;
@@ -103,7 +101,7 @@ public class GameFrame extends JFrame implements ActionListener, ItemListener, O
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
-	private void createLayout(JComponent... arg) {
+	protected void createLayout(JComponent... arg) {
 		Container pane = getContentPane();
 		GroupLayout gl = new GroupLayout(pane);
 		pane.setLayout(gl);
@@ -153,7 +151,7 @@ public class GameFrame extends JFrame implements ActionListener, ItemListener, O
 		pack();
 	}
 
-	private void setUpData() {
+	protected void setUpData() {
 		this.helm = new JLabel("0/0", new ImageIcon("res/images/Attributes/Helmet_stat_icon.png"),
 				SwingConstants.TRAILING);
 		this.helm.setToolTipText("<html>When the head of a character is hit, the armor points of the worn helmet<br>"
@@ -271,7 +269,7 @@ public class GameFrame extends JFrame implements ActionListener, ItemListener, O
 		this.leftItem = new JLabel();
 	}
 
-	private void applyCharacter(Character tba) {
+	protected void applyCharacter(Character tba) {
 		this.helm.setText(tba.getIm().getHead().getDurability().toString());
 		this.body.setText(tba.getIm().getBody().getDurability().toString());
 		this.hp.setText(tba.getAm().getAttributes()[0].toString());
@@ -345,27 +343,6 @@ public class GameFrame extends JFrame implements ActionListener, ItemListener, O
 				this.message = e.getItem().toString();
 			}
 		}
-	}
-
-	@Override
-	public void onEventHappening(EventObject event) {
-		switch (event.getTarget()) {
-		case UI:
-			switch (event.getTask()) {
-			case FINISHED_GENERATING:
-				this.applyCharacter((Character) event.getInformation());
-				break;
-			default:
-				break;
-			}
-			break;
-		case UNDEFINED:
-			break;
-		default:
-			break;
-
-		}
-
 	}
 
 	public Character getCharacter() {

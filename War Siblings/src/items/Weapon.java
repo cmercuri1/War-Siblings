@@ -43,10 +43,10 @@ public class Weapon extends AbilityItem {
 		this.shieldDam = new Attribute(shieldDam);
 		this.numHands = numHands;
 		this.weapType = weapType;
+		this.setUpWeaponListeners();
 	}
 
-	protected void setUpListeners() {
-		super.setUpListeners();
+	protected void setUpWeaponListeners() {
 		this.minDam.addAttributeListener(this);
 		this.maxDam.addAttributeListener(this);
 		this.ignArm.addAttributeListener(this);

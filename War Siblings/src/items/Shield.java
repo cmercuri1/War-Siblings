@@ -25,9 +25,10 @@ public class Shield extends AbilityItem {
 		super(name, value, desc, dura, fatRed, abilityList);
 		this.meleeDef = new Attribute(mDef);
 		this.rangedDef = new Attribute(rDef);
+		this.setUpShieldListeners();
 	}
 	
-	protected void setUpListeners() {
+	protected void setUpShieldListeners() {
 		super.setUpListeners();
 		this.meleeDef.addAttributeListener(this);
 		this.rangedDef.addAttributeListener(this);

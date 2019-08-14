@@ -72,10 +72,6 @@ public class Item implements AttributeListener {
 		switch(a.getTask()) {
 		case UPDATE:
 			break;
-		default:
-			break;
-		
 		}
-		// TODO Auto-generated method stub
 	}
 }

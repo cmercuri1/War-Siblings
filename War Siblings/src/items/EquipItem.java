@@ -10,7 +10,6 @@ import event_classes.ItemEvent;
 import event_classes.MultiValueAttributeEvent;
 import listener_interfaces.ItemListener;
 import listener_interfaces.MultiValueAttributeListener;
-import old_event_classes.EventObject;
 import storage_classes.Attribute;
 import storage_classes.DurAttribute;
 import storage_classes.Modifier;
@@ -28,10 +27,10 @@ public class EquipItem extends Item implements MultiValueAttributeListener, Item
 		super(name, value, desc);
 		this.durability = new DurAttribute(dura);
 		this.fatigueRed = new Attribute(fatRed);
+		this.setUpEquipItemListeners();
 	}
 	
-	protected void setUpListeners() {
-		super.setUpListeners();
+	protected void setUpEquipItemListeners() {
 		this.durability.addAttributeListener(this);
 		this.durability.addItemListener(this);
 		this.durability.addMultiValueAttributeListener(this);
@@ -75,28 +74,13 @@ public class EquipItem extends Item implements MultiValueAttributeListener, Item
 		return temp + "</html>";
 	}
 
-	public void onEventHappening(EventObject event) {
-		switch (event.getTask()) {
-		case BROKEN:
-			break;
-		case MODIFYVALUE:
-			this.value.addModifier(
-					new Modifier("Durability Modifier", (double) event.getInformation(), true, false, true));
-			break;
-		default:
-			break;
-
-		}
-	}
-
 	@Override
 	public void onMultiValueAttributeEvent(MultiValueAttributeEvent m) {
 		switch (m.getTask()) {
 		case UPDATE_CURRENT:
+			this.value.addModifier(
+					new Modifier("Durability Modifier", m.getInformation(), true, false, true));
 			break;
-		default:
-			break;
-		
 		}
 	}
 
@@ -108,8 +92,6 @@ public class EquipItem extends Item implements MultiValueAttributeListener, Item
 		case MODIFY_VALUE:
 			break;
 		case REPAIRED:
-			break;
-		default:
 			break;
 		}
 	}
