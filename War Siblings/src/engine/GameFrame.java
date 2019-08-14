@@ -329,10 +329,10 @@ public class GameFrame extends JFrame implements ActionListener, ItemListener, O
 	public void actionPerformed(ActionEvent e) {
 		if (message.equals("Character")) {
 			this.setCharacter(null);
-			this.setCharacter(new Character(this));
+			this.setCharacter(new Character());
 		} else {
 			this.setCharacter(null);
-			this.setCharacter(new Character(message, this));
+			this.setCharacter(new Character(message));
 		}
 	}
 
