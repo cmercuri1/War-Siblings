@@ -24,15 +24,20 @@ import javax.swing.SwingConstants;
 import static javax.swing.GroupLayout.Alignment.*;
 
 import character.Character;
+import event_classes.CharacterEvent;
 import global_managers.GlobalManager;
+import listener_interfaces.CharacterListener;
+import notifier_interfaces.CharacterNotifier;
+import storage_classes.ArrayList;
 
-public class GameFrame extends JFrame implements ActionListener, ItemListener{
+public class GameFrame extends JFrame implements ActionListener, ItemListener, CharacterListener, CharacterNotifier {
 	/**
 	 * 
 	 */
 	protected static final long serialVersionUID = -2418441605648905558L;
 	protected String message;
 	protected Character character;
+	protected ArrayList<CharacterListener> characterListeners;
 
 	protected JComboBox<String> box;
 
@@ -81,7 +86,7 @@ public class GameFrame extends JFrame implements ActionListener, ItemListener{
 
 	public void initUI() {
 		JLabel charSpec = new JLabel("Specify a Background:");
-		this.message = "Character";
+		this.message = "Random";
 
 		box = new JComboBox<>(GlobalManager.backgrounds.getBgNames());
 		box.addItemListener(this);
@@ -89,6 +94,11 @@ public class GameFrame extends JFrame implements ActionListener, ItemListener{
 		JButton newCharButton = new JButton("New Character");
 		newCharButton.addActionListener(this);
 		newCharButton.setMnemonic(KeyEvent.VK_C);
+
+		this.character = new Character();
+		this.characterListeners = new ArrayList<CharacterListener>();
+		this.characterListeners.add(character);
+		this.character.addCharacterListener(this);
 
 		this.setUpData();
 
@@ -119,9 +129,7 @@ public class GameFrame extends JFrame implements ActionListener, ItemListener{
 								.addComponent(rDef).addComponent(dam).addComponent(hs).addComponent(vis))))
 				.addGroup(gl.createParallelGroup()
 						.addGroup(gl.createSequentialGroup().addComponent(rightItem)
-								.addGroup(gl.createParallelGroup()
-										.addComponent(headArmor)
-										.addComponent(bodyArmor))
+								.addGroup(gl.createParallelGroup().addComponent(headArmor).addComponent(bodyArmor))
 								.addComponent(leftItem))
 						.addGroup(gl.createParallelGroup().addComponent(arg[0]).addComponent(arg[1],
 								GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
@@ -140,10 +148,8 @@ public class GameFrame extends JFrame implements ActionListener, ItemListener{
 								.addGroup(gl.createParallelGroup(BASELINE).addComponent(res).addComponent(hs))
 								.addGroup(gl.createParallelGroup(BASELINE).addComponent(init).addComponent(vis)))
 						.addGroup(gl.createSequentialGroup().addComponent(headArmor)
-								.addGroup(gl.createParallelGroup(BASELINE)
-										.addComponent(rightItem)
-										.addComponent(bodyArmor)
-										.addComponent(leftItem))))
+								.addGroup(gl.createParallelGroup(BASELINE).addComponent(rightItem)
+										.addComponent(bodyArmor).addComponent(leftItem))))
 				.addGroup(
 						gl.createSequentialGroup().addComponent(arg[0]).addComponent(arg[1], GroupLayout.PREFERRED_SIZE,
 								GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE).addComponent(arg[2])));
@@ -320,36 +326,49 @@ public class GameFrame extends JFrame implements ActionListener, ItemListener{
 		this.leftItem.setIcon(tba.getIm().getLeft().getImage());
 		this.leftItem.setToolTipText(tba.getIm().getLeft().toString());
 
-		// tba.display();
+		tba.display();
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (message.equals("Character")) {
-			this.setCharacter(null);
-			this.setCharacter(new Character());
-		} else {
-			this.setCharacter(null);
-			this.setCharacter(new Character(message));
-		}
+		this.notifyCharacterListeners(new CharacterEvent(CharacterEvent.Task.CHANGED_CHARACTER, message, this));
 	}
 
 	@Override
 	public void itemStateChanged(ItemEvent e) {
 		if (e.getStateChange() == ItemEvent.SELECTED) {
-			if (e.getItem().toString().equals("Random")) {
-				this.message = "Character";
-			} else {
-				this.message = e.getItem().toString();
-			}
+			this.message = e.getItem().toString();
 		}
 	}
 
-	public Character getCharacter() {
-		return character;
+	@Override
+	public void addCharacterListener(CharacterListener c) {
+		this.characterListeners.add(c);
 	}
 
-	public void setCharacter(Character character) {
-		this.character = character;
+	@Override
+	public void removeCharacterListener(CharacterListener c) {
+		this.characterListeners.remove(c);
+	}
+
+	@Override
+	public void notifyCharacterListeners(CharacterEvent c) {
+		this.characterListeners.forEach(l -> l.onCharacterEvent(c));
+	}
+
+	@Override
+	public void notifyCharacterListener(CharacterListener c, CharacterEvent e) {
+		this.characterListeners.get(c).onCharacterEvent(e);
+	}
+
+	@Override
+	public void onCharacterEvent(CharacterEvent c) {
+		switch (c.getTask()) {
+		case CHANGED_CHARACTER:
+			break;
+		case FINISHED_CHARACTER:
+			this.applyCharacter((Character) c.getInformation());
+			break;
+		}
 	}
 }

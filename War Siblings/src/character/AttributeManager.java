@@ -5,22 +5,27 @@
 package character;
 
 import event_classes.AttributeEvent;
+import event_classes.CharacterInventoryEvent;
 import event_classes.EffectEvent;
 import event_classes.LevelUpAttributeEvent;
 import event_classes.MultiValueAttributeEvent;
 import event_classes.PostDataEvent;
 import event_classes.RetrieveEvent;
 import event_classes.StarAttributeEvent;
+import event_classes.TurnControlEvent;
 import global_generators.BackgroundGenerator;
 import global_managers.GlobalManager;
 import listener_interfaces.AttributeListener;
+import listener_interfaces.CharacterInventoryListener;
 import listener_interfaces.EffectListener;
 import listener_interfaces.LevelUpAttributeListener;
 import listener_interfaces.MultiValueAttributeListener;
 import listener_interfaces.PostDataListener;
 import listener_interfaces.RetrievalListener;
+import listener_interfaces.TurnControlListener;
 import listener_interfaces.StarAttributeListener;
 import notifier_interfaces.PostDataNotifier;
+import notifier_interfaces.CharacterInventoryNotifier;
 import notifier_interfaces.MultiNotifier;
 import storage_classes.ArrayList;
 import storage_classes.Attribute;
@@ -36,10 +41,11 @@ import storage_classes.StarAttribute;
 import storage_classes.WageAttribute;
 
 /**
- * A class that manages all the attributes and makes sure the operate correctly
+ * A class that manages all the attributes and makes sure they operate correctly
  */
 public class AttributeManager implements MultiNotifier, AttributeListener, EffectListener, LevelUpAttributeListener,
-		MultiValueAttributeListener, RetrievalListener, StarAttributeListener, PostDataNotifier {
+		MultiValueAttributeListener, RetrievalListener, TurnControlListener, StarAttributeListener, PostDataNotifier,
+		CharacterInventoryNotifier {
 	protected HitpointAttribute hitpointManager;
 	protected FatigueAttribute fatigueManager;
 	protected StarAttribute resolveManager;
@@ -60,7 +66,8 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Effec
 
 	protected ArrayList<ArrayList<LevelUp>> levelUps;
 
-	protected ArrayList<PostDataListener> attributeListeners;
+	protected ArrayList<PostDataListener> postDataListeners;
+	protected ArrayList<CharacterInventoryListener> charInventoryListeners;
 
 	protected int pref; // Only used in determining starting equipment
 
@@ -71,9 +78,10 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Effec
 
 	@Override
 	public void setUpListeners() {
-		this.attributeListeners = new ArrayList<PostDataListener>();
+		this.postDataListeners = new ArrayList<PostDataListener>();
+		this.charInventoryListeners = new ArrayList<CharacterInventoryListener>();
 	}
-	
+
 	public void setUpAttributes(BackgroundGenerator bg) {
 		this.assignAttributes(bg);
 		this.assignStars(bg.getExcludedTalents());
@@ -138,7 +146,8 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Effec
 		}
 
 		if (pref > 0) {
-			// TODO NOTIFY INVENTORY MANAGER OF RANGED PREFERENCE
+			this.notifyCharacterInventoryListeners(
+					new CharacterInventoryEvent(CharacterInventoryEvent.Task.RANGED_PREF, null, this));
 		}
 	}
 
@@ -287,7 +296,6 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Effec
 	public void onRetrieveEvent(RetrieveEvent r) {
 		this.notifyPostDataListener(r.getTarget(), new PostDataEvent(PostDataEvent.Task.GOT, r.getInformation(),
 				this.getAttribute(r.getInformation()).getAlteredValue(), this));
-
 	}
 
 	@Override
@@ -317,21 +325,53 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Effec
 
 	@Override
 	public void addPostDataListener(PostDataListener a) {
-		this.attributeListeners.add(a);
+		this.postDataListeners.add(a);
 	}
 
 	@Override
 	public void removePostDataListener(PostDataListener a) {
-		this.attributeListeners.remove(a);
+		this.postDataListeners.remove(a);
 	}
 
 	@Override
 	public void notifyPostDataListeners(PostDataEvent a) {
-		this.attributeListeners.forEach(l -> l.onPostDataEvent(a));
+		this.postDataListeners.forEach(l -> l.onPostDataEvent(a));
 	}
 
 	@Override
 	public void notifyPostDataListener(PostDataListener a, PostDataEvent e) {
-		this.attributeListeners.get(a).onPostDataEvent(e);
+		this.postDataListeners.get(a).onPostDataEvent(e);
+	}
+
+	@Override
+	public void addCharacterInventoryListener(CharacterInventoryListener c) {
+		this.charInventoryListeners.add(c);
+	}
+
+	@Override
+	public void removeCharacterInventoryListener(CharacterInventoryListener c) {
+		this.charInventoryListeners.remove(c);
+	}
+
+	@Override
+	public void notifyCharacterInventoryListeners(CharacterInventoryEvent c) {
+		this.charInventoryListeners.forEach(l -> l.onCharacterInventoryEvent(c));
+	}
+
+	@Override
+	public void notifyCharacterInventoryListener(CharacterInventoryListener c, CharacterInventoryEvent e) {
+		this.charInventoryListeners.get(c).onCharacterInventoryEvent(e);
+	}
+
+	@Override
+	public void onTurnControlEvent(TurnControlEvent t) {
+		switch (t.getTask()) {
+		case END_TURN:
+			break;
+		case START_TURN:
+			this.fatigueManager.alterCurrent(-this.fatigueRegManager.getAlteredValue());
+			break;
+		}
+
 	}
 }

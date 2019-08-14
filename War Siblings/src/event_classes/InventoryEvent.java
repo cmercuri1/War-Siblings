@@ -18,6 +18,7 @@ public class InventoryEvent extends InfoEvent {
 
 	public InventoryEvent(Task t, Item info, InventoryNotifier src) {
 		super(info, src);
+		this.information = info;
 		this.task = t;
 	}
 

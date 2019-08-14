@@ -15,6 +15,7 @@ public class RetrieveEvent extends InfoEvent {
 
 	public RetrieveEvent(PostDataListener target, String info, RetrievalNotifier src) {
 		super(info, src);
+		this.information = info;
 		this.target = target;
 	}
 

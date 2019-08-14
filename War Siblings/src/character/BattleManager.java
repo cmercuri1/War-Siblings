@@ -6,6 +6,7 @@ package character;
 
 import storage_classes.ArrayList;
 import event_classes.EffectEvent;
+import event_classes.MoraleEvent;
 import event_classes.BattleControlEvent;
 import event_classes.CombatEvent;
 import event_classes.PostDataEvent;
@@ -14,6 +15,7 @@ import event_classes.RoundControlEvent;
 import event_classes.TurnControlEvent;
 import global_managers.GlobalManager;
 import listener_interfaces.EffectListener;
+import listener_interfaces.MoraleListener;
 import listener_interfaces.BattleControlListener;
 import listener_interfaces.CombatListener;
 import listener_interfaces.PostDataListener;
@@ -22,6 +24,7 @@ import listener_interfaces.RoundControlListener;
 import listener_interfaces.TurnControlListener;
 import notifier_interfaces.BattleControlNotifier;
 import notifier_interfaces.CombatNotifier;
+import notifier_interfaces.EffectNotifier;
 import notifier_interfaces.MultiNotifier;
 import notifier_interfaces.RetrievalNotifier;
 import notifier_interfaces.RoundControlNotifier;
@@ -35,8 +38,9 @@ import storage_classes.Modifier;
  * A manager class that handles actions and consequences of battle. This acts as
  * the gatekeeper to the rest of the character for any interactions
  */
-public class BattleManager implements EffectListener, BattleControlListener, BattleControlNotifier, RetrievalNotifier,
-		PostDataListener, CombatNotifier, MultiNotifier, TurnControlNotifier, RoundControlNotifier {
+public class BattleManager
+		implements EffectListener, BattleControlListener, MoraleListener, BattleControlNotifier, RetrievalNotifier,
+		PostDataListener, CombatNotifier, MultiNotifier, TurnControlNotifier, RoundControlNotifier, EffectNotifier {
 	protected AttackAttribute chanceToHit;
 
 	protected Attribute actionPointsOnMovement;
@@ -67,6 +71,7 @@ public class BattleManager implements EffectListener, BattleControlListener, Bat
 	protected ArrayList<CombatListener> combatListeners;
 	protected ArrayList<TurnControlListener> turnControlListeners;
 	protected ArrayList<RoundControlListener> roundControlListeners;
+	protected ArrayList<EffectListener> effectListeners;
 
 	public BattleManager() {
 		this.setUpListeners();
@@ -80,6 +85,7 @@ public class BattleManager implements EffectListener, BattleControlListener, Bat
 		this.retrievalListeners = new ArrayList<RetrievalListener>();
 		this.turnControlListeners = new ArrayList<TurnControlListener>();
 		this.roundControlListeners = new ArrayList<RoundControlListener>();
+		this.effectListeners = new ArrayList<EffectListener>();
 	}
 
 	protected void setUpAttributes() {
@@ -101,7 +107,7 @@ public class BattleManager implements EffectListener, BattleControlListener, Bat
 
 	public void startBattle(ArrayList<String> enemies) {
 		try {
-			this.foeCheck(enemies);
+			this.foeCheck(EffectEvent.Task.ADD, enemies);
 		} catch (NullPointerException nu) {
 
 		}
@@ -123,21 +129,24 @@ public class BattleManager implements EffectListener, BattleControlListener, Bat
 	public void endBattle(ArrayList<String> enemies) {
 		this.notifyBattleControlListeners(new BattleControlEvent(BattleControlEvent.Task.END_BATTLE, enemies, this));
 		try {
-			this.foeCheck(enemies);
+			this.foeCheck(EffectEvent.Task.REMOVE, enemies);
 		} catch (NullPointerException nu) {
 
 		}
 	}
 
-	protected void foeCheck(ArrayList<String> enemies) {
+	protected void foeCheck(EffectEvent.Task task, ArrayList<String> enemies) {
 		if (enemies.contains("Beasts")) {
-			// TODO NOTIFY ATTRIBUTE OF RESOLVE CHANGE
+			this.notifyEffectListeners(
+					new EffectEvent(task, new Effect("Resolve", this.resolveBeasts.getValue()), this));
 		}
 		if (enemies.contains("Greenskins")) {
-			// TODO NOTIFY ATTRIBUTE OF RESOLVE CHANGE
+			this.notifyEffectListeners(
+					new EffectEvent(task, new Effect("Resolve", this.resolveGreenskin.getValue()), this));
 		}
 		if (enemies.contains("Undead")) {
-			// TODO NOTIFY ATTRIBUTE OF RESOLVE CHANGE
+			this.notifyEffectListeners(
+					new EffectEvent(task, new Effect("Resolve", this.resolveUndead.getValue()), this));
 		}
 	}
 
@@ -311,7 +320,8 @@ public class BattleManager implements EffectListener, BattleControlListener, Bat
 			}
 			break;
 		case GOT_OTHER:
-			this.applyTargetMeleeDefense((double) p.getInformation());
+			if (p.getRequestedInfo().equals("meleeDefense"))
+				this.applyTargetMeleeDefense((double) p.getInformation());
 			break;
 		}
 	}
@@ -358,14 +368,15 @@ public class BattleManager implements EffectListener, BattleControlListener, Bat
 
 	@Override
 	public void onEffectEvent(EffectEvent a) {
-		switch (a.getTask()) {
-		case ADD:
-			this.setEffect(a.getInformation());
-			break;
-		case REMOVE:
-			this.removeEffect(a.getInformation());
-			break;
-		}
+		if (a.getInformation().getAffectedManager().equals("Battle"))
+			switch (a.getTask()) {
+			case ADD:
+				this.setEffect(a.getInformation());
+				break;
+			case REMOVE:
+				this.removeEffect(a.getInformation());
+				break;
+			}
 	}
 
 	@Override
@@ -418,5 +429,43 @@ public class BattleManager implements EffectListener, BattleControlListener, Bat
 	@Override
 	public void notifyTurnControlListener(TurnControlListener t, TurnControlEvent e) {
 		this.turnControlListeners.get(t).onTurnControlEvent(e);
+	}
+
+	@Override
+	public void onMoraleEvent(MoraleEvent m) {
+		switch (m.getTask()) {
+		case NEGATIVE_ROLL_FAIL:
+			break;
+		case NEGATIVE_ROLL_SUCCESS:
+			break;
+		case POSITIVE_ROLL_FAIL:
+			break;
+		case POSITIVE_ROLL_SUCCESS:
+			break;
+		case SPECIAL_ROLL_FAIL:
+			break;
+		case SPECIAL_ROLL_SUCCESS:
+			break;
+		}
+	}
+
+	@Override
+	public void addEffectListener(EffectListener e) {
+		this.effectListeners.add(e);
+	}
+
+	@Override
+	public void removeEffectListener(EffectListener e) {
+		this.effectListeners.remove(e);
+	}
+
+	@Override
+	public void notifyEffectListeners(EffectEvent e) {
+		this.effectListeners.forEach(l -> l.onEffectEvent(e));
+	}
+
+	@Override
+	public void notifyEffectListener(EffectListener l, EffectEvent e) {
+		this.effectListeners.get(l).onEffectEvent(e);
 	}
 }

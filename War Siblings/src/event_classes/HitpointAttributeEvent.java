@@ -17,6 +17,7 @@ public class HitpointAttributeEvent extends InfoEvent {
 
 	public HitpointAttributeEvent(Task t, double info, HitpointAttributeNotifier src) {
 		super(info, src);
+		this.information = info;
 		this.task = t;
 	}
 

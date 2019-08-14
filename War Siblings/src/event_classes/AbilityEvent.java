@@ -16,8 +16,9 @@ public class AbilityEvent extends InfoEvent {
 	protected Ability information;
 	protected AbilityNotifier source;
 
-	public AbilityEvent(Task t, Ability a, AbilityNotifier source) {
-		super(a, source);
+	public AbilityEvent(Task t, Ability info, AbilityNotifier source) {
+		super(info, source);
+		this.information = info;
 		this.task = t;
 	}
 

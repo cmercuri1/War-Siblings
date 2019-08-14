@@ -4,6 +4,7 @@
  */
 package event_classes;
 
+import notifier_interfaces.BattleControlNotifier;
 import storage_classes.ArrayList;
 
 public class BattleControlEvent extends InfoEvent {
@@ -13,9 +14,11 @@ public class BattleControlEvent extends InfoEvent {
 
 	protected Task task;
 	protected ArrayList<String> information;
+	protected BattleControlNotifier source;
 
-	public BattleControlEvent(Task t, ArrayList<String> info, Object src) {
+	public BattleControlEvent(Task t, ArrayList<String> info, BattleControlNotifier src) {
 		super(info, src);
+		this.information = info;
 		this.task = t;
 	}
 
@@ -27,4 +30,7 @@ public class BattleControlEvent extends InfoEvent {
 		return this.information;
 	}
 
+	public BattleControlNotifier getSource() {
+		return this.source;
+	}
 }

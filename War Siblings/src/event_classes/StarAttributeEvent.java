@@ -17,6 +17,7 @@ public class StarAttributeEvent extends InfoEvent {
 
 	public StarAttributeEvent(Task t, double info, StarAttributeNotifier src) {
 		super(info, src);
+		this.information = info;
 		this.task = t;
 	}
 

@@ -16,8 +16,9 @@ public class PermanentInjuryEvent extends InfoEvent {
 	protected PermanentInjury information;
 	protected PermanentInjuryNotifier source;
 
-	public PermanentInjuryEvent(Task t, PermanentInjury a, PermanentInjuryNotifier source) {
-		super(a, source);
+	public PermanentInjuryEvent(Task t, PermanentInjury info, PermanentInjuryNotifier source) {
+		super(info, source);
+		this.information = info;
 		this.task = t;
 	}
 

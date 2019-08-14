@@ -18,6 +18,7 @@ public class EffectEvent extends InfoEvent {
 
 	public EffectEvent(Task t, Effect info, EffectNotifier src) {
 		super(info, src);
+		this.information = info;
 		this.task = t;
 	}
 

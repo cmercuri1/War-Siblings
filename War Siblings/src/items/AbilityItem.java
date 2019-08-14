@@ -19,6 +19,7 @@ public class AbilityItem extends EquipItem {
 	public AbilityItem(String name, double value, String desc, double dura, double fatRed,
 			ArrayList<Ability> abilityList) {
 		super(name, value, desc, dura, fatRed);
+		this.abilityList = new ArrayList<Ability>();
 		this.abilityList = abilityList;
 	}
 

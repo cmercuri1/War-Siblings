@@ -17,6 +17,7 @@ public class LevelUpAttributeEvent extends InfoEvent {
 
 	public LevelUpAttributeEvent(Task t, double info, LevelUpAttributeNotifier src) {
 		super(info, src);
+		this.information = info;
 		this.task = t;
 	}
 

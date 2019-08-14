@@ -17,6 +17,7 @@ public class FatigueAttributeEvent extends InfoEvent {
 
 	public FatigueAttributeEvent(Task t, double info, FatigueAttributeNotifier src) {
 		super(info, src);
+		this.information = info;
 		this.task = t;
 	}
 

@@ -27,13 +27,13 @@ public class Shield extends AbilityItem {
 		this.rangedDef = new Attribute(rDef);
 		this.setUpShieldListeners();
 	}
-	
+
 	protected void setUpShieldListeners() {
 		super.setUpListeners();
 		this.meleeDef.addAttributeListener(this);
 		this.rangedDef.addAttributeListener(this);
 	}
-	
+
 	@Override
 	protected void setIcon() {
 		this.image = new ImageIcon("res/images/Items/Shields/" + this.name + ".png");
@@ -60,11 +60,14 @@ public class Shield extends AbilityItem {
 		System.out.println("Grants a bonus of " + this.rangedDef + " to Ranged Defense");
 		System.out.println("Reduces Max Fatigue by " + this.fatigueRed.getAlteredValue());
 
-		System.out.println("Grants use of: ");
-		for (Ability a : this.abilityList) {
-			System.out.print(" -");
-			a.display();
+		if (this.abilityList != null) {
+			System.out.println("Grants use of: ");
+			for (Ability a : this.abilityList) {
+				System.out.print(" -");
+				a.display();
+			}
 		}
+
 		System.out.println();
 	}
 

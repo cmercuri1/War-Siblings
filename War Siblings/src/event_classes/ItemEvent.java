@@ -17,6 +17,7 @@ public class ItemEvent extends InfoEvent {
 
 	public ItemEvent(Task t, double info, ItemNotifier src) {
 		super(info, src);
+		this.information = info;
 		this.task = t;
 	}
 

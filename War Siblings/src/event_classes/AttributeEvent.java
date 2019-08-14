@@ -17,6 +17,7 @@ public class AttributeEvent extends InfoEvent {
 
 	public AttributeEvent(Task t, double info, AttributeNotifier src) {
 		super(info, src);
+		this.information = info;
 		this.task = t;
 	}
 

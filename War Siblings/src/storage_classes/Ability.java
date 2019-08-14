@@ -38,7 +38,7 @@ public class Ability {
 		try {
 			this.image = new ImageIcon(Ability.class.getResource("/images/Abilities/" + this.name + ".png"));
 		} catch (NullPointerException n) {
-			//System.out.println(this.name);
+			
 		}
 	}
 

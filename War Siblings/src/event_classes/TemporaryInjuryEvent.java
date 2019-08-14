@@ -16,8 +16,9 @@ public class TemporaryInjuryEvent extends InfoEvent {
 	protected TemporaryInjury information;
 	protected TemporaryInjuryNotifier source;
 
-	public TemporaryInjuryEvent(Task t, TemporaryInjury a, TemporaryInjuryNotifier source) {
-		super(a, source);
+	public TemporaryInjuryEvent(Task t, TemporaryInjury info, TemporaryInjuryNotifier source) {
+		super(info, source);
+		this.information = info;
 		this.task = t;
 	}
 

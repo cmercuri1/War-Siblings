@@ -139,11 +139,14 @@ public class Weapon extends AbilityItem {
 			System.out.println("Deals 1.0 Points of Damage to Shields");
 		}
 
-		System.out.println("Grants use of: ");
-		for (Ability a : this.abilityList) {
-			System.out.print(" -");
-			a.display();
+		if (this.abilityList != null) {
+			System.out.println("Grants use of: ");
+			for (Ability a : this.abilityList) {
+				System.out.print(" -");
+				a.display();
+			}
 		}
+
 		System.out.println();
 	}
 

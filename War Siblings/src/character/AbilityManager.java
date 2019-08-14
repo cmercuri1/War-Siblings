@@ -8,6 +8,7 @@ import event_classes.AbilityEvent;
 import event_classes.EffectEvent;
 import event_classes.PermanentInjuryEvent;
 import event_classes.TemporaryInjuryEvent;
+import event_classes.TraitEvent;
 import global_generators.BackgroundGenerator;
 
 import global_managers.GlobalManager;
@@ -15,6 +16,7 @@ import listener_interfaces.AbilityListener;
 import listener_interfaces.EffectListener;
 import listener_interfaces.PermanentInjuryListener;
 import listener_interfaces.TemporaryInjuryListener;
+import listener_interfaces.TraitListener;
 import notifier_interfaces.EffectNotifier;
 import notifier_interfaces.MultiNotifier;
 import storage_classes.Ability;
@@ -28,8 +30,8 @@ import storage_classes.Trait;
  * A manager class that handles all the abilities a character may have, either
  * from items, traits or from level abilities
  */
-public class AbilityManager
-		implements MultiNotifier, AbilityListener, PermanentInjuryListener, TemporaryInjuryListener, EffectNotifier {
+public class AbilityManager implements MultiNotifier, AbilityListener, TraitListener, PermanentInjuryListener,
+		TemporaryInjuryListener, EffectNotifier {
 	protected ArrayList<Trait> characterTraits;
 	protected ArrayList<Ability> characterAbilities;
 	protected ArrayList<PermanentInjury> permaInjuries;
@@ -236,5 +238,20 @@ public class AbilityManager
 	@Override
 	public void notifyEffectListener(EffectListener l, EffectEvent e) {
 		this.effectListeners.get(l).onEffectEvent(e);
+	}
+
+	@Override
+	public void onTraitEvent(TraitEvent t) {
+		switch (t.getTask()) {
+		case ADD:
+			this.addTrait(t.getInformation());
+			break;
+		case REMOVE:
+			this.removeTrait(t.getInformation());
+			break;
+		case REMOVE_ALL:
+			this.characterTraits.forEach(c -> this.removeTrait(c));
+			break;
+		}
 	}
 }

@@ -7,7 +7,7 @@ package character;
 import storage_classes.ArrayList;
 import storage_classes.BackgroundItem;
 import storage_classes.Effect;
-import event_classes.AbilityEvent;
+import event_classes.TraitEvent;
 import event_classes.EffectEvent;
 import event_classes.CharacterInventoryEvent;
 import event_classes.InventoryEvent;
@@ -18,11 +18,11 @@ import items.EquipItem;
 import items.Headgear;
 import items.Shield;
 import items.Weapon;
-import listener_interfaces.AbilityListener;
+import listener_interfaces.TraitListener;
 import listener_interfaces.EffectListener;
 import listener_interfaces.CharacterInventoryListener;
 import listener_interfaces.InventoryListener;
-import notifier_interfaces.AbilityNotifier;
+import notifier_interfaces.TraitNotifier;
 import notifier_interfaces.EffectNotifier;
 import notifier_interfaces.InventoryNotifier;
 import notifier_interfaces.MultiNotifier;
@@ -32,7 +32,7 @@ import notifier_interfaces.MultiNotifier;
  * items of a character
  */
 public class InventoryManager
-		implements CharacterInventoryListener, InventoryNotifier, EffectNotifier, AbilityNotifier, MultiNotifier {
+		implements CharacterInventoryListener, InventoryNotifier, EffectNotifier, TraitNotifier, MultiNotifier {
 	protected Armor body;
 	protected Headgear head;
 	protected EquipItem right;
@@ -40,7 +40,7 @@ public class InventoryManager
 
 	protected ArrayList<EquipItem> bag;
 
-	protected ArrayList<AbilityListener> abilityListeners;
+	protected ArrayList<TraitListener> abilityListeners;
 	protected ArrayList<EffectListener> effectListeners;
 	protected ArrayList<InventoryListener> inventoryListeners;
 
@@ -281,10 +281,10 @@ public class InventoryManager
 				&& (this.left == GlobalManager.equipment.DEFAULTLEFT))
 				|| ((this.left instanceof Weapon) && !(((Weapon) this.left).isTwoHanded())
 						&& (this.right == GlobalManager.equipment.DEFAULTRIGHT))) {
-			this.notifyAbilityListeners(
-					new AbilityEvent(AbilityEvent.Task.ADD, GlobalManager.traits.getSpecialTrait("Double Grip"), this));
+			this.notifyTraitListeners(
+					new TraitEvent(TraitEvent.Task.ADD, GlobalManager.traits.getSpecialTrait("Double Grip"), this));
 		} else {
-			this.notifyAbilityListeners(new AbilityEvent(AbilityEvent.Task.REMOVE,
+			this.notifyTraitListeners(new TraitEvent(TraitEvent.Task.REMOVE,
 					GlobalManager.traits.getSpecialTrait("Double Grip"), this));
 		}
 	}
@@ -333,23 +333,23 @@ public class InventoryManager
 	}
 
 	@Override
-	public void addAbilityListener(AbilityListener a) {
+	public void addTraitListener(TraitListener a) {
 		this.abilityListeners.add(a);
 	}
 
 	@Override
-	public void removeAbilityListener(AbilityListener a) {
+	public void removeTraitListener(TraitListener a) {
 		this.abilityListeners.remove(a);
 	}
 
 	@Override
-	public void notifyAbilityListeners(AbilityEvent a) {
-		this.abilityListeners.forEach(l -> l.onAbilityEvent(a));
+	public void notifyTraitListeners(TraitEvent a) {
+		this.abilityListeners.forEach(l -> l.onTraitEvent(a));
 	}
 
 	@Override
-	public void notifyAbilityListener(AbilityListener a, AbilityEvent e) {
-		this.abilityListeners.get(a).onAbilityEvent(e);
+	public void notifyTraitListener(TraitListener a, TraitEvent e) {
+		this.abilityListeners.get(a).onTraitEvent(e);
 	}
 
 	@Override
@@ -396,27 +396,38 @@ public class InventoryManager
 	public void onCharacterInventoryEvent(CharacterInventoryEvent c) {
 		switch (c.getTask()) {
 		case CHANGE_BODY:
+			this.swapBody((Armor) c.getInformation());
 			break;
 		case CHANGE_HEAD:
+			this.swapHead((Headgear) c.getInformation());
 			break;
 		case CHANGE_LEFT:
+			this.swapItem(ARM.LEFT, c.getInformation());
 			break;
 		case CHANGE_RIGHT:
+			this.swapItem(ARM.RIGHT, c.getInformation());
 			break;
 		case REMOVE_BODY:
+			this.swapBody(GlobalManager.equipment.DEFAULTBODY);
 			break;
 		case REMOVE_HEAD:
+			this.swapHead(GlobalManager.equipment.DEFAULTHEAD);
 			break;
 		case REMOVE_LEFT:
+			this.swapItem(ARM.LEFT, GlobalManager.equipment.DEFAULTLEFT);
 			break;
 		case REMOVE_RIGHT:
+			this.swapItem(ARM.LEFT, GlobalManager.equipment.DEFAULTLEFT);
+			break;
+		case RANGED_PREF:
+			this.rangedPref = true;
 			break;
 		}
 	}
 
 	@Override
 	public void setUpListeners() {
-		this.abilityListeners = new ArrayList<AbilityListener>();
+		this.abilityListeners = new ArrayList<TraitListener>();
 		this.effectListeners = new ArrayList<EffectListener>();
 		this.inventoryListeners = new ArrayList<InventoryListener>();
 	}

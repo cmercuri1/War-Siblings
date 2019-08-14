@@ -7,6 +7,7 @@ package character;
 import event_classes.AbilityEvent;
 import event_classes.BattleControlEvent;
 import event_classes.EffectEvent;
+import event_classes.MoraleEvent;
 import event_classes.MoraleRollEvent;
 import event_classes.PostDataEvent;
 import event_classes.RetrieveEvent;
@@ -14,11 +15,12 @@ import global_managers.GlobalManager;
 import listener_interfaces.AbilityListener;
 import listener_interfaces.BattleControlListener;
 import listener_interfaces.EffectListener;
+import listener_interfaces.MoraleListener;
 import listener_interfaces.MoraleRollListener;
 import listener_interfaces.PostDataListener;
 import listener_interfaces.RetrievalListener;
 import notifier_interfaces.AbilityNotifier;
-import notifier_interfaces.BattleControlNotifier;
+import notifier_interfaces.MoraleNotifier;
 import notifier_interfaces.MultiNotifier;
 import notifier_interfaces.RetrievalNotifier;
 import storage_classes.ArrayList;
@@ -31,7 +33,7 @@ import storage_classes.MoraleState;
  * that has on the rest of the character
  */
 public class MoraleManager implements EffectListener, PostDataListener, MoraleRollListener, BattleControlListener,
-		BattleControlNotifier, RetrievalNotifier, AbilityNotifier, MultiNotifier {
+		RetrievalNotifier, AbilityNotifier, MoraleNotifier, MultiNotifier {
 	protected static double DEFAULTMORALE = 6;
 
 	protected MoraleState currentMorale;
@@ -49,8 +51,8 @@ public class MoraleManager implements EffectListener, PostDataListener, MoraleRo
 	protected boolean isDetermined;
 
 	protected ArrayList<AbilityListener> abilityListeners;
-	protected ArrayList<BattleControlListener> battleControlListeners;
 	protected ArrayList<RetrievalListener> retrievalListeners;
+	protected ArrayList<MoraleListener> moraleListeners;
 
 	public MoraleManager() {
 		this.mood = new MoodAttribute(50);
@@ -66,6 +68,13 @@ public class MoraleManager implements EffectListener, PostDataListener, MoraleRo
 		this.removeMorale();
 
 		this.setUpListeners();
+	}
+
+	@Override
+	public void setUpListeners() {
+		this.abilityListeners = new ArrayList<AbilityListener>();
+		this.retrievalListeners = new ArrayList<RetrievalListener>();
+		this.moraleListeners = new ArrayList<MoraleListener>();
 	}
 
 	public MoraleState getCurrentState() {
@@ -106,8 +115,10 @@ public class MoraleManager implements EffectListener, PostDataListener, MoraleRo
 			if (this.currentMorale.getValue() < MoraleState.CONFIDENT.getValue()) {
 				if (!(this.currentMorale.equals(MoraleState.STEADY) && this.isInsecure)) {
 					this.changeState(MoraleState.valueOfMoraleValue(currentMorale.getValue() + 1));
+					this.notifyMoraleListeners(new MoraleEvent(MoraleEvent.Task.POSITIVE_ROLL_SUCCESS, null, this));
 				}
 			}
+			this.notifyMoraleListeners(new MoraleEvent(MoraleEvent.Task.POSITIVE_ROLL_FAIL, null, this));
 		}
 	}
 
@@ -115,14 +126,17 @@ public class MoraleManager implements EffectListener, PostDataListener, MoraleRo
 		if (!this.makeCheck(this.pessimistModifier + additionalModifier)) {
 			if (this.currentMorale.getValue() > MoraleState.FLEEING.getValue()) {
 				this.changeState(MoraleState.valueOfMoraleValue(currentMorale.getValue() - 1));
+				this.notifyMoraleListeners(new MoraleEvent(MoraleEvent.Task.NEGATIVE_ROLL_FAIL, null, this));
 			}
 		}
+		this.notifyMoraleListeners(new MoraleEvent(MoraleEvent.Task.NEGATIVE_ROLL_SUCCESS, null, this));
 	}
 
 	protected void makeSpecialCheck(double additionalModifier) {
 		if (!this.makeCheck(this.specialModifier + this.pessimistModifier + additionalModifier)) {
-			// TODO
+			this.notifyMoraleListeners(new MoraleEvent(MoraleEvent.Task.SPECIAL_ROLL_FAIL, null, this));
 		}
+		this.notifyMoraleListeners(new MoraleEvent(MoraleEvent.Task.SPECIAL_ROLL_SUCCESS, null, this));
 	}
 
 	protected boolean makeCheck(Double modifier) {
@@ -259,41 +273,15 @@ public class MoraleManager implements EffectListener, PostDataListener, MoraleRo
 
 	@Override
 	public void onEffectEvent(EffectEvent e) {
-		switch (e.getTask()) {
-		case ADD:
-			this.setEffect(e.getInformation());
-			break;
-		case REMOVE:
-			this.removeEffect(e.getInformation());
-			break;
-		}
-	}
-
-	@Override
-	public void setUpListeners() {
-		this.abilityListeners = new ArrayList<AbilityListener>();
-		this.battleControlListeners = new ArrayList<BattleControlListener>();
-		this.retrievalListeners = new ArrayList<RetrievalListener>();
-	}
-
-	@Override
-	public void addBattleControlListener(BattleControlListener b) {
-		this.battleControlListeners.add(b);
-	}
-
-	@Override
-	public void removeBattleControlListener(BattleControlListener b) {
-		this.battleControlListeners.remove(b);
-	}
-
-	@Override
-	public void notifyBattleControlListeners(BattleControlEvent b) {
-		this.battleControlListeners.forEach(l -> l.onBattleControlEvent(b));
-	}
-
-	@Override
-	public void notifyBattleControlListener(BattleControlListener b, BattleControlEvent e) {
-		this.battleControlListeners.forEach(l -> l.onBattleControlEvent(e));
+		if (e.getInformation().getAffectedManager().equals("Morale"))
+			switch (e.getTask()) {
+			case ADD:
+				this.setEffect(e.getInformation());
+				break;
+			case REMOVE:
+				this.removeEffect(e.getInformation());
+				break;
+			}
 	}
 
 	@Override
@@ -324,11 +312,34 @@ public class MoraleManager implements EffectListener, PostDataListener, MoraleRo
 	public void onMoraleRollEvent(MoraleRollEvent m) {
 		switch (m.getTask()) {
 		case ROLL_NEGATIVE:
+			this.makeNegativeCheck(m.getInformation());
 			break;
 		case ROLL_POSITIVE:
+			this.makePositiveCheck(m.getInformation());
 			break;
 		case ROLL_SPECIAL:
+			this.makeSpecialCheck(m.getInformation());
 			break;
 		}
+	}
+
+	@Override
+	public void addMoraleListener(MoraleListener m) {
+		this.moraleListeners.add(m);
+	}
+
+	@Override
+	public void removeMoraleListener(MoraleListener m) {
+		this.moraleListeners.remove(m);
+	}
+
+	@Override
+	public void notifyMoraleListeners(MoraleEvent m) {
+		this.moraleListeners.forEach(l -> l.onMoraleEvent(m));
+	}
+
+	@Override
+	public void notifyMoraleListener(MoraleListener m, MoraleEvent e) {
+		this.moraleListeners.get(m).onMoraleEvent(e);
 	}
 }

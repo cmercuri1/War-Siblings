@@ -17,6 +17,7 @@ public class MoraleRollEvent extends InfoEvent {
 
 	public MoraleRollEvent(Task t, double info, MoraleRollNotifier src) {
 		super(info, src);
+		this.information = info;
 		this.task = t;
 	}
 

@@ -17,6 +17,7 @@ public class MultiValueAttributeEvent extends InfoEvent {
 
 	public MultiValueAttributeEvent(Task t, double info, MultiValueAttributeNotifier src) {
 		super(info, src);
+		this.information = info;
 		this.task = t;
 	}
 
