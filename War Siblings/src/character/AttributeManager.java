@@ -64,17 +64,19 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Effec
 
 	protected int pref; // Only used in determining starting equipment
 
-	public AttributeManager(BackgroundGenerator bg) {
+	public AttributeManager() {
 		this.levelUps = new ArrayList<ArrayList<LevelUp>>();
 		this.setUpListeners();
-
-		this.assignAttributes(bg);
-		this.assignStars(bg.getExcludedTalents());
 	}
 
 	@Override
 	public void setUpListeners() {
 		this.attributeListeners = new ArrayList<PostDataListener>();
+	}
+	
+	public void setUpAttributes(BackgroundGenerator bg) {
+		this.assignAttributes(bg);
+		this.assignStars(bg.getExcludedTalents());
 	}
 
 	/**
@@ -283,7 +285,7 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Effec
 
 	@Override
 	public void onRetrieveEvent(RetrieveEvent r) {
-		this.notifyPostDataListener(r.getSource(), new PostDataEvent(PostDataEvent.Task.GOT, r.getInformation(),
+		this.notifyPostDataListener(r.getTarget(), new PostDataEvent(PostDataEvent.Task.GOT, r.getInformation(),
 				this.getAttribute(r.getInformation()).getAlteredValue(), this));
 
 	}

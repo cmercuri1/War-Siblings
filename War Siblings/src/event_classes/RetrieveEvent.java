@@ -5,20 +5,28 @@
 package event_classes;
 
 import listener_interfaces.PostDataListener;
+import notifier_interfaces.RetrievalNotifier;
 
 public class RetrieveEvent extends InfoEvent {
+
+	protected PostDataListener target;
 	protected String information;
-	protected PostDataListener source;
-	
-	public RetrieveEvent(String info, PostDataListener src) {
+	protected RetrievalNotifier source;
+
+	public RetrieveEvent(PostDataListener target, String info, RetrievalNotifier src) {
 		super(info, src);
+		this.target = target;
+	}
+
+	public PostDataListener getTarget() {
+		return this.target;
 	}
 
 	public String getInformation() {
 		return this.information;
 	}
-	
-	public PostDataListener getSource() {
+
+	public RetrievalNotifier getSource() {
 		return this.source;
 	}
 }

@@ -4,6 +4,8 @@
  */
 package event_classes;
 
+import notifier_interfaces.AttributeNotifier;
+
 public class AttributeEvent extends InfoEvent {
 	public enum Task {
 		UPDATE
@@ -11,8 +13,9 @@ public class AttributeEvent extends InfoEvent {
 
 	protected Task task;
 	protected double information;
+	protected AttributeNotifier source;
 
-	public AttributeEvent(Task t, double info, Object src) {
+	public AttributeEvent(Task t, double info, AttributeNotifier src) {
 		super(info, src);
 		this.task = t;
 	}
@@ -23,5 +26,9 @@ public class AttributeEvent extends InfoEvent {
 
 	public Double getInformation() {
 		return this.information;
+	}
+
+	public AttributeNotifier getSource() {
+		return this.source;
 	}
 }

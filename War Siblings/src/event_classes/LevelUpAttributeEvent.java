@@ -4,6 +4,8 @@
  */
 package event_classes;
 
+import notifier_interfaces.LevelUpAttributeNotifier;
+
 public class LevelUpAttributeEvent extends InfoEvent {
 	public enum Task {
 		LEVEL_UP
@@ -11,8 +13,9 @@ public class LevelUpAttributeEvent extends InfoEvent {
 
 	protected Task task;
 	protected double information;
+	protected LevelUpAttributeNotifier source;
 
-	public LevelUpAttributeEvent(Task t, double info, Object src) {
+	public LevelUpAttributeEvent(Task t, double info, LevelUpAttributeNotifier src) {
 		super(info, src);
 		this.task = t;
 	}
@@ -23,5 +26,9 @@ public class LevelUpAttributeEvent extends InfoEvent {
 
 	public Double getInformation() {
 		return this.information;
+	}
+
+	public LevelUpAttributeNotifier getSource() {
+		return this.source;
 	}
 }

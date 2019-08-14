@@ -4,24 +4,32 @@
  */
 package event_classes;
 
+import notifier_interfaces.ItemNotifier;
+
 public class ItemEvent extends InfoEvent {
 	public enum Task {
-		BROKEN, MODIFY_VALUE, REPAIRED};
-	
+		BROKEN, MODIFY_VALUE, REPAIRED
+	};
+
 	protected Task task;
 	protected double information;
-	
-	public ItemEvent(Task t, double info, Object src) {
+	protected ItemNotifier source;
+
+	public ItemEvent(Task t, double info, ItemNotifier src) {
 		super(info, src);
 		this.task = t;
 	}
-	
+
 	public Task getTask() {
 		return this.task;
 	}
-	
+
 	public Double getInformation() {
 		return this.information;
+	}
+
+	public ItemNotifier getSource() {
+		return this.source;
 	}
 
 }

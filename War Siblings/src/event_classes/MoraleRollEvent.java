@@ -4,13 +4,18 @@
  */
 package event_classes;
 
+import notifier_interfaces.MoraleRollNotifier;
+
 public class MoraleRollEvent extends InfoEvent {
-	public enum Task {ROLL_POSITIVE, ROLL_NEGATIVE, ROLL_SPECIAL};
-	
+	public enum Task {
+		ROLL_POSITIVE, ROLL_NEGATIVE, ROLL_SPECIAL
+	};
+
 	protected Task task;
-	protected double infomation;
-	
-	public MoraleRollEvent(Task t, double info, Object src) {
+	protected double information;
+	protected MoraleRollNotifier source;
+
+	public MoraleRollEvent(Task t, double info, MoraleRollNotifier src) {
 		super(info, src);
 		this.task = t;
 	}
@@ -18,8 +23,12 @@ public class MoraleRollEvent extends InfoEvent {
 	public Task getTask() {
 		return this.task;
 	}
-	
+
 	public Double getInformation() {
-		return this.infomation;
+		return this.information;
+	}
+
+	public MoraleRollNotifier getSource() {
+		return this.source;
 	}
 }

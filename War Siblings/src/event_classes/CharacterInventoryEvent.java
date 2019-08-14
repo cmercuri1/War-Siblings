@@ -5,6 +5,7 @@
 package event_classes;
 
 import items.Item;
+import notifier_interfaces.CharacterInventoryNotifier;
 
 public class CharacterInventoryEvent extends InfoEvent {
 	public enum Task {
@@ -13,8 +14,9 @@ public class CharacterInventoryEvent extends InfoEvent {
 
 	protected Task task;
 	protected Item information;
+	protected CharacterInventoryNotifier source;
 
-	public CharacterInventoryEvent(Task t, Item info, Object src) {
+	public CharacterInventoryEvent(Task t, Item info, CharacterInventoryNotifier src) {
 		super(info, src);
 		this.task = t;
 	}
@@ -25,6 +27,10 @@ public class CharacterInventoryEvent extends InfoEvent {
 
 	public Item getInformation() {
 		return this.information;
+	}
+
+	public CharacterInventoryNotifier getSource() {
+		return this.source;
 	}
 
 }

@@ -4,6 +4,7 @@
  */
 package event_classes;
 
+import notifier_interfaces.AbilityNotifier;
 import storage_classes.Ability;
 
 public class AbilityEvent extends InfoEvent {
@@ -13,8 +14,9 @@ public class AbilityEvent extends InfoEvent {
 
 	protected Task task;
 	protected Ability information;
+	protected AbilityNotifier source;
 
-	public AbilityEvent(Task t, Ability a, Object source) {
+	public AbilityEvent(Task t, Ability a, AbilityNotifier source) {
 		super(a, source);
 		this.task = t;
 	}
@@ -27,4 +29,7 @@ public class AbilityEvent extends InfoEvent {
 		return this.information;
 	}
 
+	public AbilityNotifier getSource() {
+		return this.source;
+	}
 }

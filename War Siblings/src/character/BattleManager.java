@@ -10,16 +10,22 @@ import event_classes.BattleControlEvent;
 import event_classes.CombatEvent;
 import event_classes.PostDataEvent;
 import event_classes.RetrieveEvent;
+import event_classes.RoundControlEvent;
+import event_classes.TurnControlEvent;
 import global_managers.GlobalManager;
 import listener_interfaces.EffectListener;
 import listener_interfaces.BattleControlListener;
 import listener_interfaces.CombatListener;
 import listener_interfaces.PostDataListener;
 import listener_interfaces.RetrievalListener;
+import listener_interfaces.RoundControlListener;
+import listener_interfaces.TurnControlListener;
 import notifier_interfaces.BattleControlNotifier;
 import notifier_interfaces.CombatNotifier;
 import notifier_interfaces.MultiNotifier;
 import notifier_interfaces.RetrievalNotifier;
+import notifier_interfaces.RoundControlNotifier;
+import notifier_interfaces.TurnControlNotifier;
 import old_event_classes.Type;
 import storage_classes.Attack;
 import storage_classes.AttackAttribute;
@@ -31,8 +37,8 @@ import storage_classes.Modifier;
  * A manager class that handles actions and consequences of battle. This acts as
  * the gatekeeper to the rest of the character for any interactions
  */
-public class BattleManager implements EffectListener, BattleControlListener, BattleControlNotifier,
-		RetrievalNotifier, PostDataListener, CombatNotifier, MultiNotifier {
+public class BattleManager implements EffectListener, BattleControlListener, BattleControlNotifier, RetrievalNotifier,
+		PostDataListener, CombatNotifier, MultiNotifier, TurnControlNotifier, RoundControlNotifier {
 	protected AttackAttribute chanceToHit;
 
 	protected Attribute actionPointsOnMovement;
@@ -61,10 +67,21 @@ public class BattleManager implements EffectListener, BattleControlListener, Bat
 	protected ArrayList<BattleControlListener> battleControlListeners;
 	protected ArrayList<RetrievalListener> retrievalListeners;
 	protected ArrayList<CombatListener> combatListeners;
+	protected ArrayList<TurnControlListener> turnControlListeners;
+	protected ArrayList<RoundControlListener> roundControlListeners;
 
 	public BattleManager() {
 		this.setUpListeners();
 		this.setUpAttributes();
+	}
+
+	@Override
+	public void setUpListeners() {
+		this.battleControlListeners = new ArrayList<BattleControlListener>();
+		this.combatListeners = new ArrayList<CombatListener>();
+		this.retrievalListeners = new ArrayList<RetrievalListener>();
+		this.turnControlListeners = new ArrayList<TurnControlListener>();
+		this.roundControlListeners = new ArrayList<RoundControlListener>();
 	}
 
 	protected void setUpAttributes() {
@@ -90,11 +107,11 @@ public class BattleManager implements EffectListener, BattleControlListener, Bat
 		} catch (NullPointerException nu) {
 
 		}
-		// TODO NOTIFY MORALE TO START
+		this.notifyBattleControlListeners(new BattleControlEvent(BattleControlEvent.Task.START_BATTLE, enemies, this));
 	}
 
 	public void startRound() {
-		// TODO NOTIFY ATTRIBUTE TO GET INITIATIVE
+		this.notifyRetrievalListeners(new RetrieveEvent(this, "initiative", this));
 	}
 
 	protected void sendInitiative(double value) {
@@ -102,11 +119,11 @@ public class BattleManager implements EffectListener, BattleControlListener, Bat
 	}
 
 	public void startTurn() {
-		// TODO NOTIFY ATTRIBUTE THAT TURN HAS STARTED
+		this.notifyTurnControlListeners(new TurnControlEvent(TurnControlEvent.Task.START_TURN, null, this));
 	}
 
 	public void endBattle(ArrayList<String> enemies) {
-		// TODO NOTIFY MORALE THAT BATTLE HAS ENDED
+		this.notifyBattleControlListeners(new BattleControlEvent(BattleControlEvent.Task.END_BATTLE, enemies, this));
 		try {
 			this.foeCheck(enemies, Type.REMOVE);
 		} catch (NullPointerException nu) {
@@ -133,11 +150,11 @@ public class BattleManager implements EffectListener, BattleControlListener, Bat
 	}
 
 	protected void getMeleeSkill() {
-		this.notifyRetrievalListeners(new RetrieveEvent("meleeSkill", this));
+		this.notifyRetrievalListeners(new RetrieveEvent(this, "meleeSkill", this));
 	}
 
 	protected void getTargetMeleeDefense() {
-		this.notifyRetrievalListeners(new RetrieveEvent("initiative", this));
+		this.notifyRetrievalListeners(new RetrieveEvent(this, "initiative", this));
 	}
 
 	protected void getOtherModifiers() {
@@ -162,10 +179,10 @@ public class BattleManager implements EffectListener, BattleControlListener, Bat
 
 		if (roll <= this.chanceToHit.getAlteredValue()) {
 			System.out.println("Succeeded: rolled: " + roll + ", needed: " + this.chanceToHit.getAlteredValue());
-			// TODO NOTIFY THINGS THAT HAS BEEN HIT
+			this.notifyCombatListeners(new CombatEvent(CombatEvent.Task.HIT, roll, this));
 		} else {
 			System.out.println("Failed: rolled: " + roll + ", needed: " + this.chanceToHit.getAlteredValue());
-			// TODO NOTIFY THINGS THAT HAS BEEN MISSED
+			this.notifyCombatListeners(new CombatEvent(CombatEvent.Task.MISS, roll, this));
 		}
 	}
 
@@ -354,13 +371,6 @@ public class BattleManager implements EffectListener, BattleControlListener, Bat
 	}
 
 	@Override
-	public void setUpListeners() {
-		this.battleControlListeners = new ArrayList<BattleControlListener>();
-		this.combatListeners = new ArrayList<CombatListener>();
-		this.retrievalListeners = new ArrayList<RetrievalListener>();
-	}
-
-	@Override
 	public void onBattleControlEvent(BattleControlEvent b) {
 		switch (b.getTask()) {
 		case END_BATTLE:
@@ -370,5 +380,45 @@ public class BattleManager implements EffectListener, BattleControlListener, Bat
 			this.startBattle(b.getInformation());
 			break;
 		}
+	}
+
+	@Override
+	public void addRoundControlListener(RoundControlListener r) {
+		this.roundControlListeners.add(r);
+	}
+
+	@Override
+	public void removeRoundControlListener(RoundControlListener r) {
+		this.roundControlListeners.remove(r);
+	}
+
+	@Override
+	public void notifyRoundControlListeners(RoundControlEvent r) {
+		this.roundControlListeners.forEach(l -> l.onRoundControlEvent(r));
+	}
+
+	@Override
+	public void notifyRoundControlListener(RoundControlListener r, RoundControlEvent e) {
+		this.roundControlListeners.get(r).onRoundControlEvent(e);
+	}
+
+	@Override
+	public void addTurnControlListener(TurnControlListener t) {
+		this.turnControlListeners.add(t);
+	}
+
+	@Override
+	public void removeTurnControlListener(TurnControlListener t) {
+		this.turnControlListeners.remove(t);
+	}
+
+	@Override
+	public void notifyTurnControlListeners(TurnControlEvent t) {
+		this.turnControlListeners.forEach(l -> l.onTurnControlEvent(t));
+	}
+
+	@Override
+	public void notifyTurnControlListener(TurnControlListener t, TurnControlEvent e) {
+		this.turnControlListeners.get(t).onTurnControlEvent(e);
 	}
 }

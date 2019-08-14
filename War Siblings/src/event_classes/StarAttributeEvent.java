@@ -4,6 +4,8 @@
  */
 package event_classes;
 
+import notifier_interfaces.StarAttributeNotifier;
+
 public class StarAttributeEvent extends InfoEvent {
 	public enum Task {
 		STAR_ASSIGNED
@@ -11,8 +13,9 @@ public class StarAttributeEvent extends InfoEvent {
 
 	protected Task task;
 	protected double information;
+	protected StarAttributeNotifier source;
 
-	public StarAttributeEvent(Task t, double info, Object src) {
+	public StarAttributeEvent(Task t, double info, StarAttributeNotifier src) {
 		super(info, src);
 		this.task = t;
 	}
@@ -24,5 +27,8 @@ public class StarAttributeEvent extends InfoEvent {
 	public Double getInformation() {
 		return this.information;
 	}
-	
+
+	public StarAttributeNotifier getSource() {
+		return this.source;
+	}
 }

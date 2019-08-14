@@ -30,8 +30,8 @@ import storage_classes.MoraleState;
  * A class for managing the morale state of a character, along with any changes
  * that has on the rest of the character
  */
-public class MoraleManager
-		implements EffectListener, PostDataListener, MoraleRollListener, BattleControlListener, BattleControlNotifier, RetrievalNotifier, AbilityNotifier, MultiNotifier {
+public class MoraleManager implements EffectListener, PostDataListener, MoraleRollListener, BattleControlListener,
+		BattleControlNotifier, RetrievalNotifier, AbilityNotifier, MultiNotifier {
 	protected static double DEFAULTMORALE = 6;
 
 	protected MoraleState currentMorale;
@@ -121,7 +121,7 @@ public class MoraleManager
 
 	protected void makeSpecialCheck(double additionalModifier) {
 		if (!this.makeCheck(this.specialModifier + this.pessimistModifier + additionalModifier)) {
-			this.notifyBattleListeners(new BattleControlEvent(BattleControlEvent.Task.FAILED_SPECIAL_ROLL, null, this));
+			// TODO
 		}
 	}
 
@@ -149,7 +149,7 @@ public class MoraleManager
 	}
 
 	protected void getResolve() {
-		this.notifyRetrievalListeners(new RetrieveEvent("resolve", this));
+		this.notifyRetrievalListeners(new RetrieveEvent(this, "resolve", this));
 	}
 
 	protected void setResolve(double resolve) {
@@ -198,12 +198,14 @@ public class MoraleManager
 
 	protected void changeState(MoraleState state) {
 		try {
-			this.notifyAbilityListeners(new AbilityEvent(AbilityEvent.Task.REMOVE, GlobalManager.morale.getMoraleAbility(this.currentMorale), this));
+			this.notifyAbilityListeners(new AbilityEvent(AbilityEvent.Task.REMOVE,
+					GlobalManager.morale.getMoraleAbility(this.currentMorale), this));
 		} catch (NullPointerException nu) {
 
 		}
 		try {
-			this.notifyAbilityListeners(new AbilityEvent(AbilityEvent.Task.ADD, GlobalManager.morale.getMoraleAbility(this.currentMorale), this));
+			this.notifyAbilityListeners(new AbilityEvent(AbilityEvent.Task.ADD,
+					GlobalManager.morale.getMoraleAbility(this.currentMorale), this));
 		} catch (NullPointerException nu) {
 		}
 
@@ -275,30 +277,31 @@ public class MoraleManager
 	}
 
 	@Override
-	public void addBattleListener(BattleControlListener b) {
+	public void addBattleControlListener(BattleControlListener b) {
 		this.battleControlListeners.add(b);
 	}
 
 	@Override
-	public void removeBattleListener(BattleControlListener b) {
+	public void removeBattleControlListener(BattleControlListener b) {
 		this.battleControlListeners.remove(b);
 	}
 
 	@Override
-	public void notifyBattleListeners(BattleControlEvent b) {
-		this.battleControlListeners.forEach(l -> l.onBattleEvent(b));
+	public void notifyBattleControlListeners(BattleControlEvent b) {
+		this.battleControlListeners.forEach(l -> l.onBattleControlEvent(b));
 	}
 
 	@Override
-	public void notifyBattleListener(BattleControlListener b, BattleControlEvent e) {
-		this.battleControlListeners.forEach(l -> l.onBattleEvent(e));
+	public void notifyBattleControlListener(BattleControlListener b, BattleControlEvent e) {
+		this.battleControlListeners.forEach(l -> l.onBattleControlEvent(e));
 	}
 
 	@Override
 	public void onPostDataEvent(PostDataEvent p) {
 		switch (p.getTask()) {
 		case GOT:
-			this.setResolve((double) p.getInformation());
+			if (p.getRequestedInfo().equals("resolve"))
+				this.setResolve((double) p.getInformation());
 			break;
 		case GOT_OTHER:
 			break;
@@ -306,12 +309,10 @@ public class MoraleManager
 	}
 
 	@Override
-	public void onBattleEvent(BattleControlEvent b) {
-		switch(b.getTask()) {
+	public void onBattleControlEvent(BattleControlEvent b) {
+		switch (b.getTask()) {
 		case END_BATTLE:
 			this.removeMorale();
-			break;
-		case FAILED_SPECIAL_ROLL:
 			break;
 		case START_BATTLE:
 			this.setMorale();
@@ -320,7 +321,7 @@ public class MoraleManager
 	}
 
 	@Override
-	public void onMoraleEvent(MoraleRollEvent m) {
+	public void onMoraleRollEvent(MoraleRollEvent m) {
 		switch (m.getTask()) {
 		case ROLL_NEGATIVE:
 			break;

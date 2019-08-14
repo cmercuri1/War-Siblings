@@ -59,15 +59,14 @@ public class TemporaryInjury extends Ability implements TemporaryInjuryNotifier,
 	 */
 	protected void checkForHealed() {
 		if (this.maxDays.getAlteredValue() == 0.0) {
-			this.notifyTemporaryInjuryListeners(
-					new TemporaryInjuryEvent(TemporaryInjuryEvent.Task.HEALED, null, damageThreshold));
+			this.notifyTemporaryInjuryListeners(new TemporaryInjuryEvent(TemporaryInjuryEvent.Task.HEALED, null, this));
 			return;
 		}
 
 		if (this.minDays.getAlteredValue() == 0.0) {
 			if (GlobalManager.d100Roll() <= 100 / (this.maxDays.getAlteredValue())) {
 				this.notifyTemporaryInjuryListeners(
-						new TemporaryInjuryEvent(TemporaryInjuryEvent.Task.HEALED, null, damageThreshold));
+						new TemporaryInjuryEvent(TemporaryInjuryEvent.Task.HEALED, null, this));
 				return;
 			} else {
 				this.minDays.addModifier(new Modifier("Still Injured", 1.0, false, true, false));

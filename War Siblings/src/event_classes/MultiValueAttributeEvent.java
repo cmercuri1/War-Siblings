@@ -4,6 +4,8 @@
  */
 package event_classes;
 
+import notifier_interfaces.MultiValueAttributeNotifier;
+
 public class MultiValueAttributeEvent extends InfoEvent {
 	public enum Task {
 		UPDATE_CURRENT
@@ -11,8 +13,9 @@ public class MultiValueAttributeEvent extends InfoEvent {
 
 	protected Task task;
 	protected double information;
+	protected MultiValueAttributeNotifier source;
 
-	public MultiValueAttributeEvent(Task t, double info, Object src) {
+	public MultiValueAttributeEvent(Task t, double info, MultiValueAttributeNotifier src) {
 		super(info, src);
 		this.task = t;
 	}
@@ -25,4 +28,7 @@ public class MultiValueAttributeEvent extends InfoEvent {
 		return this.information;
 	}
 
+	public MultiValueAttributeNotifier getSource() {
+		return this.source;
+	}
 }

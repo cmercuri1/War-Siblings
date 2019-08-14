@@ -4,6 +4,7 @@
  */
 package event_classes;
 
+import notifier_interfaces.PermanentInjuryNotifier;
 import storage_classes.PermanentInjury;
 
 public class PermanentInjuryEvent extends InfoEvent {
@@ -13,8 +14,9 @@ public class PermanentInjuryEvent extends InfoEvent {
 
 	protected Task task;
 	protected PermanentInjury information;
+	protected PermanentInjuryNotifier source;
 
-	public PermanentInjuryEvent(Task t, PermanentInjury a, Object source) {
+	public PermanentInjuryEvent(Task t, PermanentInjury a, PermanentInjuryNotifier source) {
 		super(a, source);
 		this.task = t;
 	}
@@ -27,4 +29,7 @@ public class PermanentInjuryEvent extends InfoEvent {
 		return this.information;
 	}
 
+	public PermanentInjuryNotifier getSource() {
+		return this.source;
+	}
 }

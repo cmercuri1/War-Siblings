@@ -8,17 +8,12 @@ import javax.swing.ImageIcon;
 
 import global_generators.BackgroundGenerator;
 import global_managers.GlobalManager;
-import old_event_classes.EventObject;
-import old_event_classes.GenericObservee;
-import old_event_classes.Observer;
-import old_event_classes.Target;
-import old_event_classes.Type;
 
 /**
  * Class that uses generators to generate a player usable character as well as
  * observes and maintains all the managers that help run the character
  */
-public class Character extends GenericObservee implements Observer {
+public class Character{
 	private String charName;
 	private String charTitle;
 	private String backgroundName;
@@ -32,95 +27,28 @@ public class Character extends GenericObservee implements Observer {
 	private BattleManager bm;
 
 	/** New Character with specific background */
-	public Character(String background, Observer o) {
-		this.generalSetUp(GlobalManager.backgrounds.getBackground(background), o);
+	public Character(String background) {
+		this.generalSetUp(GlobalManager.backgrounds.getBackground(background));
 	}
 
 	/** New Character with random background */
-	public Character(Observer o) {
-		this.generalSetUp(GlobalManager.backgrounds.getRandomBackground(), o);
+	public Character() {
+		this.generalSetUp(GlobalManager.backgrounds.getRandomBackground());
 	}
 
-	private void generalSetUp(BackgroundGenerator bg, Observer o) {
+	private void generalSetUp(BackgroundGenerator bg) {
 		this.backgroundName = bg.getBackground();
 		this.bgIcon = new ImageIcon("res/images/Backgrounds/" + this.backgroundName + ".png");
-		this.setUpObservers();
-		this.observerObjects.add(o);
 
-		this.im = new InventoryManager(this);
-		this.observerObjects.add(this.im);
+		this.im = new InventoryManager();
+		this.am = new AttributeManager();
+		this.mm = new MoraleManager();
+		this.abm = new AbilityManager();
+		this.bm = new BattleManager();
 
-		this.am = new AttributeManager(bg, this);
-		this.observerObjects.add(this.am);
-
-		this.mm = new MoraleManager(this);
-		this.observerObjects.add(this.mm);
-
-		this.abm = new AbilityManager(this);
-		this.observerObjects.add(this.abm);
-
-		this.bm = new BattleManager(this);
-		this.observerObjects.add(this.bm);
-
+		this.am.setUpAttributes(bg);
 		this.abm.setUpAbilities(bg);
 		this.im.setUpInventory(bg);
-		this.notifyObservers(new EventObject(Target.UI, Type.FINISHED_GENERATING, this, null));
-	}
-
-	@Override
-	public void onEventHappening(EventObject event) {
-		switch (event.getTarget()) {
-		case ABILITY:
-			this.notifyObserver(abm, event);
-			break;
-		case ATTRIBUTE:
-			this.notifyObserver(am, event);
-			break;
-		case MORALE:
-			this.notifyObserver(mm, event);
-			break;
-		case BATTLE:
-			this.notifyObserver(bm, event);
-			break;
-		case INVENTORY:
-			this.notifyObserver(im, event);
-			break;
-		case UNDEFINED:
-			switch (event.getTask()) {
-			case GOT:
-				this.notifyObserver((Observer) event.getRequester(), event);
-				break;
-			case GOT_OTHER:
-				this.notifyObserver((Observer) event.getRequester(), event);
-				break;
-			default:
-				break;
-			}
-			break;
-		case CHARACTER:
-			switch (event.getTask()) {
-			case LEVEL_UP:
-				// TODO Notify UI about level up and new perk choice
-				break;
-			case APPLY_LEVEL_UP:
-				this.notifyObserver(this.am, event);
-				break;
-			case RANGED_PREF:
-				if (this.backgroundName.equals("Sellsword") || this.backgroundName.equals("Deserter")
-						|| this.backgroundName.equals("Beast Slayer")) {
-					this.notifyObserver(im, new EventObject(Target.INVENTORY, Type.RANGED_PREF, null, null));
-
-				}
-				break;
-			default:
-				break;
-			}
-			break;
-		case UI:
-			break;
-		default:
-			break;
-		}
 	}
 
 	public String getCharName() {

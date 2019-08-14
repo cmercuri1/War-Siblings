@@ -4,6 +4,8 @@
  */
 package event_classes;
 
+import notifier_interfaces.FatigueAttributeNotifier;
+
 public class FatigueAttributeEvent extends InfoEvent {
 	public enum Task {
 		FULL_FATIGUE
@@ -11,8 +13,9 @@ public class FatigueAttributeEvent extends InfoEvent {
 
 	protected Task task;
 	protected double information;
+	protected FatigueAttributeNotifier source;
 
-	public FatigueAttributeEvent(Task t, double info, Object src) {
+	public FatigueAttributeEvent(Task t, double info, FatigueAttributeNotifier src) {
 		super(info, src);
 		this.task = t;
 	}
@@ -23,5 +26,9 @@ public class FatigueAttributeEvent extends InfoEvent {
 
 	public Double getInformation() {
 		return this.information;
+	}
+
+	public FatigueAttributeNotifier getSource() {
+		return this.source;
 	}
 }

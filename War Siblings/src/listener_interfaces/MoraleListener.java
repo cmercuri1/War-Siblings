@@ -4,8 +4,8 @@
  */
 package listener_interfaces;
 
-import event_classes.MoraleRollEvent;
+import event_classes.MoraleEvent;
 
-public interface MoraleRollListener {
-	void onMoraleRollEvent(MoraleRollEvent m);
+public interface MoraleListener {
+	void onMoraleEvent(MoraleEvent m);
 }

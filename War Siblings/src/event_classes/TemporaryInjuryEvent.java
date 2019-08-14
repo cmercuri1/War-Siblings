@@ -4,6 +4,7 @@
  */
 package event_classes;
 
+import notifier_interfaces.TemporaryInjuryNotifier;
 import storage_classes.TemporaryInjury;;
 
 public class TemporaryInjuryEvent extends InfoEvent {
@@ -13,8 +14,9 @@ public class TemporaryInjuryEvent extends InfoEvent {
 
 	protected Task task;
 	protected TemporaryInjury information;
+	protected TemporaryInjuryNotifier source;
 
-	public TemporaryInjuryEvent(Task t, TemporaryInjury a, Object source) {
+	public TemporaryInjuryEvent(Task t, TemporaryInjury a, TemporaryInjuryNotifier source) {
 		super(a, source);
 		this.task = t;
 	}
@@ -25,6 +27,10 @@ public class TemporaryInjuryEvent extends InfoEvent {
 
 	public TemporaryInjury getInformation() {
 		return this.information;
+	}
+	
+	public TemporaryInjuryNotifier getSource() {
+		return this.source;
 	}
 
 }

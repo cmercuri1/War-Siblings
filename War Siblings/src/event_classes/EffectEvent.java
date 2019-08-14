@@ -4,6 +4,7 @@
  */
 package event_classes;
 
+import notifier_interfaces.EffectNotifier;
 import storage_classes.Effect;
 
 public class EffectEvent extends InfoEvent {
@@ -13,8 +14,9 @@ public class EffectEvent extends InfoEvent {
 
 	protected Task task;
 	protected Effect information;
+	protected EffectNotifier source;
 
-	public EffectEvent(Task t, Effect info, Object src) {
+	public EffectEvent(Task t, Effect info, EffectNotifier src) {
 		super(info, src);
 		this.task = t;
 	}
@@ -25,5 +27,9 @@ public class EffectEvent extends InfoEvent {
 
 	public Effect getInformation() {
 		return this.information;
+	}
+
+	public EffectNotifier getSource() {
+		return this.source;
 	}
 }
