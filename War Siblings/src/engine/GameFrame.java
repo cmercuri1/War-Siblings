@@ -326,7 +326,7 @@ public class GameFrame extends JFrame implements ActionListener, ItemListener, C
 		this.leftItem.setIcon(tba.getIm().getLeft().getImage());
 		this.leftItem.setToolTipText(tba.getIm().getLeft().toString());
 
-		tba.display();
+		//tba.display();
 	}
 
 	@Override
