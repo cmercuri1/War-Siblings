@@ -210,7 +210,9 @@ public class AbilityManager implements MultiNotifier, AbilityListener, TraitList
 			this.removeAbility(a.getInformation());
 			break;
 		case REMOVE_ALL:
-			this.characterAbilities.forEach(c -> this.removeAbility(c));
+			while (!this.characterAbilities.isEmpty()) {
+				this.removeAbility(this.characterAbilities.get(this.characterAbilities.size() - 1));
+			}
 			break;
 		}
 	}
@@ -250,7 +252,9 @@ public class AbilityManager implements MultiNotifier, AbilityListener, TraitList
 			this.removeTrait(t.getInformation());
 			break;
 		case REMOVE_ALL:
-			this.characterTraits.forEach(c -> this.removeTrait(c));
+			while (!this.characterTraits.isEmpty()) {
+				this.removeTrait(this.characterTraits.get(this.characterTraits.size() - 1));
+			}
 			break;
 		}
 	}

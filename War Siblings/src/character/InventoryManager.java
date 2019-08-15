@@ -242,7 +242,7 @@ public class InventoryManager
 		}
 		try {
 			visionPen = new Effect("Vision_Final", next.getVisRed());
-			this.notifyEffectListeners(new EffectEvent(EffectEvent.Task.REMOVE, visionPen, this));
+			this.notifyEffectListeners(new EffectEvent(EffectEvent.Task.ADD, visionPen, this));
 		} catch (NullPointerException nu) {
 
 		}
@@ -284,8 +284,8 @@ public class InventoryManager
 			this.notifyTraitListeners(
 					new TraitEvent(TraitEvent.Task.ADD, GlobalManager.traits.getSpecialTrait("Double Grip"), this));
 		} else {
-			this.notifyTraitListeners(new TraitEvent(TraitEvent.Task.REMOVE,
-					GlobalManager.traits.getSpecialTrait("Double Grip"), this));
+			this.notifyTraitListeners(
+					new TraitEvent(TraitEvent.Task.REMOVE, GlobalManager.traits.getSpecialTrait("Double Grip"), this));
 		}
 	}
 
@@ -417,10 +417,16 @@ public class InventoryManager
 			this.swapItem(ARM.LEFT, GlobalManager.equipment.DEFAULTLEFT);
 			break;
 		case REMOVE_RIGHT:
-			this.swapItem(ARM.LEFT, GlobalManager.equipment.DEFAULTLEFT);
+			this.swapItem(ARM.RIGHT, GlobalManager.equipment.DEFAULTLEFT);
 			break;
 		case RANGED_PREF:
 			this.rangedPref = true;
+			break;
+		case REMOVE_ALL:
+			this.swapBody(GlobalManager.equipment.DEFAULTBODY);
+			this.swapHead(GlobalManager.equipment.DEFAULTHEAD);
+			this.swapItem(ARM.LEFT, GlobalManager.equipment.DEFAULTLEFT);
+			this.swapItem(ARM.RIGHT, GlobalManager.equipment.DEFAULTLEFT);
 			break;
 		}
 	}
