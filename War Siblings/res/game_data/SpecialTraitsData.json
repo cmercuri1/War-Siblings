@@ -29,19 +29,19 @@
 					"Value": -10
 				},
 				{
-					"Effect Name": "MeleeSkill_Percent",
+					"Effect Name": "Melee_Skill_Percent",
 					"Value": -10
 				},
 				{
-					"Effect Name": "RangedSkill_Percent",
+					"Effect Name": "Ranged_Skill_Percent",
 					"Value": -10
 				},
 				{
-					"Effect Name": "MeleeDefense_Percent",
+					"Effect Name": "Melee_Defense_Percent",
 					"Value": -10
 				},
 				{
-					"Effect Name": "RangedDefense_Percent",
+					"Effect Name": "Ranged_Defense_Percent",
 					"Value": -10
 				}
 			]
@@ -59,11 +59,11 @@
 					"Value": 10
 				},
 				{
-					"Effect Name": "MeleeDefense",
+					"Effect Name": "Melee_Defense",
 					"Value": 5
 				},
 				{
-					"Effect Name": "RangedDefense",
+					"Effect Name": "Ranged_Defense",
 					"Value": 5
 				},
 				{
@@ -177,11 +177,11 @@
 					"Value": 10
 				},
 				{
-					"Effect Name": "MeleeDefense",
+					"Effect Name": "Melee_Defense",
 					"Value": 5
 				},
 				{
-					"Effect Name": "RangedDefense",
+					"Effect Name": "Ranged_Defense",
 					"Value": 5
 				},
 				{

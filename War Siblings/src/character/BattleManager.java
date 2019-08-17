@@ -43,13 +43,6 @@ public class BattleManager
 		PostDataListener, CombatNotifier, MultiNotifier, TurnControlNotifier, RoundControlNotifier, EffectNotifier {
 	protected AttackAttribute chanceToHit;
 
-	protected Attribute actionPointsOnMovement;
-	protected Attribute damage;
-	protected Attribute damageHeadshot;
-	protected Attribute fatigueOnMovement;
-	protected Attribute hitpointsOverTime;
-	protected Attribute visionNight;
-
 	protected boolean ignoreAllyDeathMorale;
 	protected boolean ignoreInjuryMorale;
 
@@ -90,14 +83,6 @@ public class BattleManager
 
 	protected void setUpAttributes() {
 		this.chanceToHit = new AttackAttribute(0);
-		this.actionPointsOnMovement = new Attribute(0);
-		this.fatigueOnMovement = new Attribute(0);
-		this.actionPointsOnMovement = new Attribute(0);
-		this.damage = new Attribute(0);
-		this.damageHeadshot = new Attribute(0);
-		this.fatigueOnMovement = new Attribute(0);
-		this.hitpointsOverTime = new Attribute(0);
-		this.visionNight = new Attribute(0);
 
 		this.ignoreAllyDeathMorale = false;
 		this.ignoreInjuryMorale = false;
@@ -194,26 +179,12 @@ public class BattleManager
 	}
 
 	public void setEffect(Effect e) {
-		if (e.getName().equals("Actionpoints_OnMovement")) {
-			this.actionPointsOnMovement.addModifier(e.getModifier());
-		} else if (e.getName().equals("Bleed_Time")) {
+		if (e.getName().equals("Bleed_Time")) {
 			this.bleedTime = e;
-		} else if (e.getName().equals("Damage_Percent")) {
-			this.damage.addModifier(e.getModifier());
-		} else if (e.getName().equals("Damage_Headshot_Percent")) {
-			this.damageHeadshot.addModifier(e.getModifier());
-		} else if (e.getName().equals("Damage_Melee_Percent")) {
-			this.damageMelee = e;
-		} else if (e.getName().equals("Damage_Unarmed_Percent")) {
-			this.damageUnarmed = e;
 		} else if (e.getName().equals("Fatality_Chance_Percent")) {
 			this.fatalityChance = e;
-		} else if (e.getName().equals("Fatigue_OnMovement")) {
-			this.fatigueOnMovement.addModifier(e.getModifier());
 		} else if (e.getName().equals("FriendlyFireChance_Percent")) {
 			this.friendlyFire = e;
-		} else if (e.getName().equals("Hitpoints_Over_Time")) {
-			this.hitpointsOverTime.addModifier(e.getModifier());
 		} else if (e.getName().equals("Injury_Chance_Percent")) {
 			this.injuryChance = e;
 		} else if (e.getName().equals("Injury_Ignore")) {
@@ -234,35 +205,19 @@ public class BattleManager
 			this.resolveUndead = e;
 		} else if (e.getName().equals("SurvivalChance")) {
 			this.survivalChance = e.getValue();
-		} else if (e.getName().equals("Vision_Night")) {
-			this.visionNight.addModifier(e.getModifier());
 		} else if (e.getName().equals("WardogStartingMorale")) {
 			// TODO
 		}
 	}
 
 	public void removeEffect(Effect e) {
-		if (e.getName().equals("Actionpoints_OnMovement")) {
-			this.actionPointsOnMovement.removeModifier(e.getModifier());
-		} else if (e.getName().equals("Bleed_Time")) {
+		if (e.getName().equals("Bleed_Time")) {
 			this.bleedTime = null;
-		} else if (e.getName().equals("Damage_Percent")) {
-			this.damage.removeModifier(e.getModifier());
-		} else if (e.getName().equals("Damage_Headshot_Percent")) {
-			this.damageHeadshot.removeModifier(e.getModifier());
-		} else if (e.getName().equals("Damage_Melee_Percent")) {
-			this.damageMelee = null;
-		} else if (e.getName().equals("Damage_Unarmed_Percent")) {
-			this.damageUnarmed = null;
 		} else if (e.getName().equals("Fatality_Chance_Percent")) {
 			this.fatalityChance = null;
-		} else if (e.getName().equals("Fatigue_OnMovement")) {
-			this.fatigueOnMovement.removeModifier(e.getModifier());
-		} else if (e.getName().equals("FriendlyFireChance_Percent")) {
+		}  else if (e.getName().equals("FriendlyFireChance_Percent")) {
 			this.friendlyFire = null;
-		} else if (e.getName().equals("Hitpoints_Over_Time")) {
-			this.hitpointsOverTime.removeModifier(e.getModifier());
-		} else if (e.getName().equals("Injury_Chance_Percent")) {
+		}  else if (e.getName().equals("Injury_Chance_Percent")) {
 			this.injuryChance = null;
 		} else if (e.getName().equals("Injury_Ignore")) {
 			// TODO
@@ -282,8 +237,6 @@ public class BattleManager
 			this.resolveUndead = null;
 		} else if (e.getName().equals("SurvivalChance")) {
 			this.survivalChance = 33;
-		} else if (e.getName().equals("Vision_Night")) {
-			this.visionNight.addModifier(e.getModifier());
 		} else if (e.getName().equals("WardogStartingMorale")) {
 			// TODO
 		}

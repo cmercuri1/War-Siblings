@@ -4,6 +4,8 @@
  */
 package character;
 
+import java.lang.reflect.Field;
+
 import event_classes.AttributeEvent;
 import event_classes.CharacterInventoryEvent;
 import event_classes.EffectEvent;
@@ -38,6 +40,7 @@ import storage_classes.LevelAttribute;
 import storage_classes.LevelUp;
 import storage_classes.Modifier;
 import storage_classes.StarAttribute;
+import storage_classes.VisionAttribute;
 import storage_classes.WageAttribute;
 
 /**
@@ -46,23 +49,30 @@ import storage_classes.WageAttribute;
 public class AttributeManager implements MultiNotifier, AttributeListener, EffectListener, LevelUpAttributeListener,
 		MultiValueAttributeListener, RetrievalListener, TurnControlListener, StarAttributeListener, PostDataNotifier,
 		CharacterInventoryNotifier {
-	protected HitpointAttribute hitpointManager;
-	protected FatigueAttribute fatigueManager;
-	protected StarAttribute resolveManager;
-	protected StarAttribute initiativeManager;
-	protected StarAttribute meleeSkillManager;
-	protected StarAttribute rangedSkillManager;
-	protected DefenseAttribute meleeDefenseManager;
-	protected DefenseAttribute rangedDefenseManager;
+	protected HitpointAttribute hitpoint;
+	protected FatigueAttribute fatigue;
+	protected StarAttribute resolve;
+	protected StarAttribute initiative;
+	protected StarAttribute melee_skill;
+	protected StarAttribute ranged_skill;
+	protected DefenseAttribute melee_defense;
+	protected DefenseAttribute ranged_defense;
 
-	protected WageAttribute wageManager;
-	protected Attribute foodManager;
-	protected Attribute xpRateManager;
-	protected LevelAttribute levelManager;
-	protected BarAttribute actionPointsManager;
-	protected Attribute headshotManager;
-	protected Attribute fatigueRegManager;
-	protected Attribute visionManager;
+	protected WageAttribute wage;
+	protected Attribute food_consumption;
+	protected Attribute xp_rate;
+	protected LevelAttribute level;
+	protected BarAttribute action_points;
+	protected Attribute headshot_chance;
+	protected Attribute fatigue_recovery;
+	protected VisionAttribute vision;
+
+	protected Attribute action_points_on_movement;
+	protected Attribute fatigue_on_movement;
+	protected Attribute damage;
+	protected Attribute armor_damage;
+	protected Attribute ignore_armor;
+	protected Attribute damage_headshot;
 
 	protected ArrayList<ArrayList<LevelUp>> levelUps;
 
@@ -92,51 +102,57 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Effec
 	 * background
 	 */
 	protected void assignAttributes(BackgroundGenerator bg) {
-		this.hitpointManager = new HitpointAttribute((double) bg.getHp().getRand(), 2);
-		this.fatigueManager = new FatigueAttribute((double) bg.getFat().getRand(), 2);
-		this.resolveManager = new StarAttribute((double) bg.getRes().getRand(), 2);
-		this.initiativeManager = new StarAttribute((double) bg.getIni().getRand(), 3);
-		this.meleeSkillManager = new StarAttribute((double) bg.getmSk().getRand(), 1);
-		this.rangedSkillManager = new StarAttribute((double) bg.getrSk().getRand(), 2);
-		this.meleeDefenseManager = new DefenseAttribute((double) bg.getmDef().getRand(), 1);
-		this.rangedDefenseManager = new DefenseAttribute((double) bg.getrDef().getRand(), 1);
+		this.hitpoint = new HitpointAttribute((double) bg.getHp().getRand(), 2);
+		this.fatigue = new FatigueAttribute((double) bg.getFat().getRand(), 2);
+		this.resolve = new StarAttribute((double) bg.getRes().getRand(), 2);
+		this.initiative = new StarAttribute((double) bg.getIni().getRand(), 3);
+		this.melee_skill = new StarAttribute((double) bg.getmSk().getRand(), 1);
+		this.ranged_skill = new StarAttribute((double) bg.getrSk().getRand(), 2);
+		this.melee_defense = new DefenseAttribute((double) bg.getmDef().getRand(), 1);
+		this.ranged_defense = new DefenseAttribute((double) bg.getrDef().getRand(), 1);
 
-		this.wageManager = new WageAttribute((double) bg.getBaseWage());
-		this.foodManager = new Attribute((double) bg.getDailyFood());
-		this.xpRateManager = new Attribute((double) bg.getXpRate());
-		this.levelManager = new LevelAttribute((double) bg.getLev().getRand());
-		this.actionPointsManager = new BarAttribute((double) bg.getActionPoints());
-		this.headshotManager = new Attribute((double) bg.getHeadShot());
-		this.fatigueRegManager = new Attribute((double) bg.getFatRegain());
-		this.visionManager = new Attribute((double) bg.getVision());
+		this.wage = new WageAttribute((double) bg.getBaseWage());
+		this.food_consumption = new Attribute((double) bg.getDailyFood());
+		this.xp_rate = new Attribute((double) bg.getXpRate());
+		this.level = new LevelAttribute((double) bg.getLev().getRand());
+		this.action_points = new BarAttribute((double) bg.getActionPoints());
+		this.headshot_chance = new Attribute((double) bg.getHeadShot());
+		this.fatigue_recovery = new Attribute((double) bg.getFatRegain());
+		this.vision = new VisionAttribute((double) bg.getVision());
+
+		this.action_points_on_movement = new Attribute(2);
+		this.fatigue_on_movement = new Attribute(2);
+		this.damage = new Attribute(0);
+		this.armor_damage = new Attribute(0);
+		this.damage_headshot = new Attribute(150);
 	}
 
 	/** Randomly assigns stars/talents towards up to 3 attributes */
 	protected void assignStars(ArrayList<String> excludedTalents) {
 		ArrayList<StarAttribute> managers = new ArrayList<StarAttribute>();
 		if (!excludedTalents.contains("hitpoints")) {
-			managers.add(this.hitpointManager);
+			managers.add(this.hitpoint);
 		}
 		if (!excludedTalents.contains("fatigue")) {
-			managers.add(this.fatigueManager);
+			managers.add(this.fatigue);
 		}
 		if (!excludedTalents.contains("resolve")) {
-			managers.add(this.resolveManager);
+			managers.add(this.resolve);
 		}
 		if (!excludedTalents.contains("initiative")) {
-			managers.add(this.initiativeManager);
+			managers.add(this.initiative);
 		}
 		if (!excludedTalents.contains("meleeSkill")) {
-			managers.add(this.meleeSkillManager);
+			managers.add(this.melee_skill);
 		}
 		if (!excludedTalents.contains("rangedSkill")) {
-			managers.add(this.rangedSkillManager);
+			managers.add(this.ranged_skill);
 		}
 		if (!excludedTalents.contains("meleeDefense")) {
-			managers.add(this.meleeDefenseManager);
+			managers.add(this.melee_defense);
 		}
 		if (!excludedTalents.contains("rangedDefense")) {
-			managers.add(this.rangedDefenseManager);
+			managers.add(this.ranged_defense);
 		}
 
 		for (int i = 0; i < 3; i++) {
@@ -152,7 +168,7 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Effec
 	}
 
 	protected void addModifier(Effect t) {
-		this.getAttribute(t.getAffectedSubManager()).addModifier(t.getModifier());
+		this.getAttribute(t.getName().toLowerCase()).addModifier(t.getModifier());
 	}
 
 	protected void removeModifier(Effect t) {
@@ -160,45 +176,23 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Effec
 	}
 
 	public Attribute[] getAttributes() {
-		return new Attribute[] { this.hitpointManager, this.actionPointsManager, this.fatigueManager,
-				this.resolveManager, this.initiativeManager, this.meleeSkillManager, this.rangedSkillManager,
-				this.meleeDefenseManager, this.rangedDefenseManager, this.headshotManager, this.visionManager };
+		return new Attribute[] { this.hitpoint, this.action_points, this.fatigue, this.resolve, this.initiative,
+				this.melee_skill, this.ranged_skill, this.melee_defense, this.ranged_defense, this.headshot_chance, this.vision };
 	}
 
 	/** Designed to get the relevant attribute */
 	protected Attribute getAttribute(String attributeName) {
-		if (attributeName.equals("hitpoint")) {
-			return this.hitpointManager;
-		} else if (attributeName.equals("fatigue")) {
-			return this.fatigueManager;
-		} else if (attributeName.equals("resolve")) {
-			return this.fatigueManager;
-		} else if (attributeName.equals("initiative")) {
-			return this.initiativeManager;
-		} else if (attributeName.equals("meleeSkill")) {
-			return this.meleeSkillManager;
-		} else if (attributeName.equals("rangedSkill")) {
-			return this.rangedSkillManager;
-		} else if (attributeName.equals("meleeDefense")) {
-			return this.meleeDefenseManager;
-		} else if (attributeName.equals("rangedDefense")) {
-			return this.rangedDefenseManager;
-		} else if (attributeName.equals("wage")) {
-			return this.wageManager;
-		} else if (attributeName.equals("food")) {
-			return this.foodManager;
-		} else if (attributeName.equals("xpRate")) {
-			return this.xpRateManager;
-		} else if (attributeName.equals("level")) {
-			return this.levelManager;
-		} else if (attributeName.equals("actionPoints")) {
-			return this.actionPointsManager;
-		} else if (attributeName.equals("headshot")) {
-			return this.headshotManager;
-		} else if (attributeName.equals("fatigueReg")) {
-			return this.fatigueRegManager;
-		} else if (attributeName.equals("vision")) {
-			return this.visionManager;
+		Field temp = null;
+		try {
+			temp = this.getClass().getDeclaredField(attributeName);
+		} catch (NoSuchFieldException | SecurityException e) {
+			e.printStackTrace();
+		}
+
+		try {
+			return (Attribute) temp.get(this);
+		} catch (IllegalArgumentException | IllegalAccessException e) {
+			e.printStackTrace();
 		}
 		return null;
 	}
@@ -210,14 +204,14 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Effec
 	/** Gets the level up value from the relevant attributes */
 	protected void setUpLevelUp() {
 		ArrayList<LevelUp> levelUpArray = new ArrayList<LevelUp>();
-		levelUpArray.add(new LevelUp("hitpoint", this.hitpointManager.getLevelup()));
-		levelUpArray.add(new LevelUp("fatigue", this.fatigueManager.getLevelup()));
-		levelUpArray.add(new LevelUp("resolve", this.resolveManager.getLevelup()));
-		levelUpArray.add(new LevelUp("initiative", this.initiativeManager.getLevelup()));
-		levelUpArray.add(new LevelUp("meleeSkill", this.meleeSkillManager.getLevelup()));
-		levelUpArray.add(new LevelUp("rangedSkill", this.rangedSkillManager.getLevelup()));
-		levelUpArray.add(new LevelUp("meleeDefense", this.meleeDefenseManager.getLevelup()));
-		levelUpArray.add(new LevelUp("rangedDefense", this.rangedDefenseManager.getLevelup()));
+		levelUpArray.add(new LevelUp("hitpoint", this.hitpoint.getLevelup()));
+		levelUpArray.add(new LevelUp("fatigue", this.fatigue.getLevelup()));
+		levelUpArray.add(new LevelUp("resolve", this.resolve.getLevelup()));
+		levelUpArray.add(new LevelUp("initiative", this.initiative.getLevelup()));
+		levelUpArray.add(new LevelUp("meleeSkill", this.melee_skill.getLevelup()));
+		levelUpArray.add(new LevelUp("rangedSkill", this.ranged_skill.getLevelup()));
+		levelUpArray.add(new LevelUp("meleeDefense", this.melee_defense.getLevelup()));
+		levelUpArray.add(new LevelUp("rangedDefense", this.ranged_defense.getLevelup()));
 
 		this.levelUps.add(levelUpArray);
 	}
@@ -239,26 +233,26 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Effec
 
 	/** Displays stuff, mainly for testing */
 	public void display() {
-		System.out.println("Level is " + this.levelManager.toString());
+		System.out.println("Level is " + this.level.toString());
 
 		System.out.println("This character has:");
 
-		System.out.println("Hitpoints: " + this.hitpointManager.toStringFull());
-		System.out.println("Fatigue: " + this.fatigueManager.toStringFull());
-		System.out.println("Resolve: " + this.resolveManager.toStringFull());
-		System.out.println("Initiative: " + this.initiativeManager.toStringFull());
-		System.out.println("Melee Skill: " + this.meleeSkillManager.toStringFull());
-		System.out.println("Ranged Skill: " + this.rangedSkillManager.toStringFull());
-		System.out.println("Melee Defense: " + this.meleeDefenseManager.toStringFull());
-		System.out.println("Ranged Defense: " + this.rangedDefenseManager.toStringFull());
+		System.out.println("Hitpoints: " + this.hitpoint.toStringFull());
+		System.out.println("Fatigue: " + this.fatigue.toStringFull());
+		System.out.println("Resolve: " + this.resolve.toStringFull());
+		System.out.println("Initiative: " + this.initiative.toStringFull());
+		System.out.println("Melee Skill: " + this.melee_skill.toStringFull());
+		System.out.println("Ranged Skill: " + this.ranged_skill.toStringFull());
+		System.out.println("Melee Defense: " + this.melee_defense.toStringFull());
+		System.out.println("Ranged Defense: " + this.ranged_defense.toStringFull());
 		System.out.println();
-		System.out.println("Wage of " + this.wageManager.toStringFull());
-		System.out.println("Consumes " + this.foodManager.toStringFull());
-		System.out.println("Action points: " + this.actionPointsManager.toStringFull());
-		System.out.println("% Chance to hit head: " + this.headshotManager.toStringFull());
-		System.out.println("Points of Fatigue Regained each Turn: " + this.fatigueRegManager.toStringFull());
-		System.out.println("Tiles of Vision: " + this.visionManager.toStringFull());
-		System.out.println("Experience Rate is " + this.xpRateManager.toStringFull());
+		System.out.println("Wage of " + this.wage.toStringFull());
+		System.out.println("Consumes " + this.food_consumption.toStringFull());
+		System.out.println("Action points: " + this.action_points.toStringFull());
+		System.out.println("% Chance to hit head: " + this.headshot_chance.toStringFull());
+		System.out.println("Points of Fatigue Regained each Turn: " + this.fatigue_recovery.toStringFull());
+		System.out.println("Tiles of Vision: " + this.vision.toStringFull());
+		System.out.println("Experience Rate is " + this.xp_rate.toStringFull());
 
 		System.out.println();
 	}
@@ -284,9 +278,9 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Effec
 	public void onStarAttributeEvent(StarAttributeEvent s) {
 		switch (s.getTask()) {
 		case STAR_ASSIGNED:
-			if (s.getSource() == this.meleeSkillManager)
+			if (s.getSource() == this.melee_skill)
 				pref -= s.getInformation();
-			if (s.getSource() == this.rangedSkillManager)
+			if (s.getSource() == this.ranged_skill)
 				pref += s.getInformation();
 			break;
 		}
@@ -316,9 +310,8 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Effec
 	public void onMultiValueAttributeEvent(MultiValueAttributeEvent m) {
 		switch (m.getTask()) {
 		case UPDATE_CURRENT:
-			if (m.getSource() == this.fatigueManager)
-				this.initiativeManager
-						.addModifier(new Modifier("Fatigue_Penalty", -m.getInformation(), false, true, true));
+			if (m.getSource() == this.fatigue)
+				this.initiative.addModifier(new Modifier("Fatigue_Penalty", -m.getInformation(), false, true, true));
 			break;
 		}
 	}
@@ -369,7 +362,7 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Effec
 		case END_TURN:
 			break;
 		case START_TURN:
-			this.fatigueManager.alterCurrent(-this.fatigueRegManager.getAlteredValue());
+			this.fatigue.alterCurrent(-this.fatigue_recovery.getAlteredValue());
 			break;
 		}
 

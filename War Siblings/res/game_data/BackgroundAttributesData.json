@@ -193,7 +193,7 @@
 			"Base Wage": 8,
 			"Background Ability": [
 				{
-					"Effect Name": "XPGain_Percent",
+					"Effect Name": "XP_Rate_Percent",
 					"Value": 10
 				}
 			]
@@ -2696,7 +2696,7 @@
 			"Base Wage": 8,
 			"Background Ability": [
 				{
-					"Effect Name": "XPGain_Percent",
+					"Effect Name": "XP_Rate_Percent",
 					"Value": 15
 				}
 			]
@@ -2796,7 +2796,7 @@
 			"Base Wage": 7,
 			"Background Ability": [
 				{
-					"Effect Name": "WardogStartingMorale",
+					"Effect Name": "Wardog_Starting_Morale",
 					"Value": 5
 				}
 			]
@@ -3010,7 +3010,7 @@
 			"Base Wage": 7,
 			"Background Ability": [
 				{
-					"Effect Name": "HeadshotChance",
+					"Effect Name": "Headshot_Chance",
 					"Value": 5
 				}
 			]
@@ -3109,7 +3109,7 @@
 			"Base Wage": 6,
 			"Background Ability": [
 				{
-					"Effect Name": "HeadshotChance",
+					"Effect Name": "Headshot_Chance",
 					"Value": 10
 				}
 			]
@@ -3300,7 +3300,7 @@
 			"Base Wage": 0,
 			"Background Ability": [
 				{
-					"Effect Name": "XPGain_Percent",
+					"Effect Name": "XP_Rate_Percent",
 					"Value": 5
 				}
 			]
@@ -5717,7 +5717,7 @@
 			"Base Wage": 12,
 			"Background Ability": [
 				{
-					"Effect Name": "XPGain_Percent",
+					"Effect Name": "XP_Rate_Percent",
 					"Value": -15
 				}
 			]

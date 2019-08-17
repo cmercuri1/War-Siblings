@@ -9,11 +9,11 @@
 				"Damage Threshold": 50,
 				"Effects": [
 					{
-						"Effect Name": "MeleeSkill_Percent",
+						"Effect Name": "Melee_Skill_Percent",
 						"Value": -50
 					},
 					{
-						"Effect Name": "RangedSkill_Percent",
+						"Effect Name": "Ranged_Skill_Percent",
 						"Value": -50
 					},
 					{
@@ -36,7 +36,7 @@
 						"Value": -40
 					},
 					{
-						"Effect Name": "Actionpoints_OnMovement",
+						"Effect Name": "Action_points_OnMovement",
 						"Value": 2
 					}
 				],
@@ -70,7 +70,7 @@
 						"Value": -20
 					},
 					{
-						"Effect Name": "Actionpoints_OnMovement",
+						"Effect Name": "Action_points_On_Movement",
 						"Value": 1
 					}
 				],
@@ -85,11 +85,11 @@
 				"Damage Threshold": 25,
 				"Effects": [
 					{
-						"Effect Name": "MeleeSkill_Percent",
+						"Effect Name": "Melee_Skill_Percent",
 						"Value": -5
 					},
 					{
-						"Effect Name": "RangedSkill_Percent",
+						"Effect Name": "Ranged_Skill_Percent",
 						"Value": -5
 					}
 				],
@@ -104,7 +104,7 @@
 				"Damage Threshold": 50,
 				"Effects": [
 					{
-						"Effect Name": "Actionpoints",
+						"Effect Name": "Action_points",
 						"Value": -3
 					}
 				],
@@ -119,7 +119,7 @@
 				"Damage Threshold": 25,
 				"Effects": [
 					{
-						"Effect Name": "MeleeDefense_Percent",
+						"Effect Name": "Melee_Defense_Percent",
 						"Value": -25
 					}
 				],
@@ -134,11 +134,11 @@
 				"Damage Threshold": 25,
 				"Effects": [
 					{
-						"Effect Name": "MeleeSkill_Percent",
+						"Effect Name": "Melee_Skill_Percent",
 						"Value": -20
 					},
 					{
-						"Effect Name": "RangedSkill_Percent",
+						"Effect Name": "Ranged_Skill_Percent",
 						"Value": -20
 					}
 				],
@@ -168,11 +168,11 @@
 				"Damage Threshold": 50,
 				"Effects": [
 					{
-						"Effect Name": "MeleeSkill_Percent",
+						"Effect Name": "Melee_Skill_Percent",
 						"Value": -40
 					},
 					{
-						"Effect Name": "RangedSkill_Percent",
+						"Effect Name": "Ranged_Skill_Percent",
 						"Value": -40
 					}
 				],
@@ -191,7 +191,7 @@
 						"Value": -20
 					},
 					{
-						"Effect Name": "Actionpoints_OnMovement",
+						"Effect Name": "Action_points_On_Movement",
 						"Value": 1
 					}
 				],
@@ -240,19 +240,19 @@
 				"Damage Threshold": 60,
 				"Effects": [
 					{
-						"Effect Name": "MeleeSkill_Percent",
+						"Effect Name": "Melee_Skill_Percent",
 						"Value": -50
 					},
 					{
-						"Effect Name": "RangedSkill_Percent",
+						"Effect Name": "Ranged_Skill_Percent",
 						"Value": -50
 					},
 					{
-						"Effect Name": "MeleeDefense_Percent",
+						"Effect Name": "Melee_Defense_Percent",
 						"Value": -50
 					},
 					{
-						"Effect Name": "RangedDefense_Percent",
+						"Effect Name": "Ranged_Defense_Percent",
 						"Value": -50
 					},
 					{
@@ -275,19 +275,19 @@
 				"Damage Threshold": 50,
 				"Effects": [
 					{
-						"Effect Name": "MeleeSkill_Percent",
+						"Effect Name": "Melee_Skill_Percent",
 						"Value": -50
 					},
 					{
-						"Effect Name": "RangedSkill_Percent",
+						"Effect Name": "Ranged_Skill_Percent",
 						"Value": -50
 					},
 					{
-						"Effect Name": "MeleeDefense_Percent",
+						"Effect Name": "Melee_Defense_Percent",
 						"Value": -50
 					},
 					{
-						"Effect Name": "RangedDefense_Percent",
+						"Effect Name": "Ranged_Defense_Percent",
 						"Value": -50
 					},
 					{
@@ -314,7 +314,7 @@
 						"Value": -30
 					},
 					{
-						"Effect Name": "Actionpoints_OnMovement",
+						"Effect Name": "Action_points_On_Movement",
 						"Value": 2
 					}
 				],
@@ -329,11 +329,11 @@
 				"Damage Threshold": 25,
 				"Effects": [
 					{
-						"Effect Name": "MeleeSkill_Percent",
+						"Effect Name": "Melee_Skill_Percent",
 						"Value": -15
 					},
 					{
-						"Effect Name": "RangedSkill_Percent",
+						"Effect Name": "Ranged_Skill_Percent",
 						"Value": -15
 					}
 				],
@@ -396,7 +396,7 @@
 				"Damage Threshold": 25,
 				"Effects": [
 					{
-						"Effect Name": "MeleeDefense_Percent",
+						"Effect Name": "Melee_Defense_Percent",
 						"Value": -40
 					},
 					{
@@ -468,11 +468,11 @@
 				"Damage Threshold": 50,
 				"Effects": [
 					{
-						"Effect Name": "MeleeSkill_Percent",
+						"Effect Name": "Melee_Skill_Percent",
 						"Value": -50
 					},
 					{
-						"Effect Name": "RangedSkill_Percent",
+						"Effect Name": "Ranged_Skill_Percent",
 						"Value": -50
 					}
 				],
@@ -535,19 +535,19 @@
 				"Damage Threshold": 50,
 				"Effects": [
 					{
-						"Effect Name": "MeleeSkill_Percent",
+						"Effect Name": "Melee_Skill_Percent",
 						"Value": -25
 					},
 					{
-						"Effect Name": "RangedSkill_Percent",
+						"Effect Name": "Ranged_Skill_Percent",
 						"Value": -25
 					},
 					{
-						"Effect Name": "MeleeDefense_Percent",
+						"Effect Name": "Melee_Defense_Percent",
 						"Value": -25
 					},
 					{
-						"Effect Name": "RangedDefense_Percent",
+						"Effect Name": "Ranged_Defense_Percent",
 						"Value": -25
 					},
 					{
@@ -667,7 +667,7 @@
 						"Value": -40
 					},
 					{
-						"Effect Name": "Actionpoints_OnMovement",
+						"Effect Name": "Action_points_On_Movement",
 						"Value": 2
 					}
 				],
@@ -697,11 +697,11 @@
 				"Damage Threshold": 25,
 				"Effects": [
 					{
-						"Effect Name": "MeleeSkill_Percent",
+						"Effect Name": "Melee_Skill_Percent",
 						"Value": -25
 					},
 					{
-						"Effect Name": "RangedSkill_Percent",
+						"Effect Name": "Ranged_Skill_Percent",
 						"Value": -25
 					}
 				],
@@ -731,11 +731,11 @@
 				"Damage Threshold": 25,
 				"Effects": [
 					{
-						"Effect Name": "MeleeSkill_Percent",
+						"Effect Name": "Melee_Skill_Percent",
 						"Value": -20
 					},
 					{
-						"Effect Name": "RangedSkill_Percent",
+						"Effect Name": "Ranged_Skill_Percent",
 						"Value": -20
 					}
 				],
@@ -754,7 +754,7 @@
 						"Value": -30
 					},
 					{
-						"Effect Name": "MeleeDefense_Percent",
+						"Effect Name": "Melee_Defense_Percent",
 						"Value": -30
 					}
 				],
@@ -833,7 +833,7 @@
 				"Damage Threshold": 50,
 				"Effects": [
 					{
-						"Effect Name": "RangedSkill_Percent",
+						"Effect Name": "Ranged_Skill_Percent",
 						"Value": -50
 					},
 					{
@@ -923,7 +923,7 @@
 						"Value": -25
 					},
 					{
-						"Effect Name": "XPGain_Percent",
+						"Effect Name": "XP_Rate_Percent",
 						"Value": -25
 					}
 				]
@@ -934,15 +934,15 @@
 				"Content In Reserve": true,
 				"Effects": [
 					{
-						"Effect Name": "MeleeSkill_Percent",
+						"Effect Name": "Melee_Skill_Percent",
 						"Value": -20
 					},
 					{
-						"Effect Name": "RangedSkill_Percent",
+						"Effect Name": "Ranged_Skill_Percent",
 						"Value": -20
 					},
 					{
-						"Effect Name": "MeleeDefense_Percent",
+						"Effect Name": "Melee_Defense_Percent",
 						"Value": -30
 					}
 				]
@@ -953,11 +953,11 @@
 				"Content In Reserve": true,
 				"Effects": [
 					{
-						"Effect Name": "MeleeDefense_Percent",
+						"Effect Name": "Melee_Defense_Percent",
 						"Value": -40
 					},
 					{
-						"Effect Name": "RangedDefense_Percent",
+						"Effect Name": "Ranged_Defense_Percent",
 						"Value": -40
 					},
 					{
@@ -983,7 +983,7 @@
 				"Content In Reserve": true,
 				"Effects": [
 					{
-						"Effect Name": "Actionpoints_OnMovement",
+						"Effect Name": "Action_points_On_Movement",
 						"Value": 1
 					},
 					{
@@ -1009,7 +1009,7 @@
 				"Content In Reserve": false,
 				"Effects": [
 					{
-						"Effect Name": "RangedSkill_Percent",
+						"Effect Name": "Ranged_Skill_Percent",
 						"Value": -50
 					},
 					{
@@ -1024,11 +1024,11 @@
 				"Content In Reserve": false,
 				"Effects": [
 					{
-						"Effect Name": "MeleeSkill_Percent",
+						"Effect Name": "Melee_Skill_Percent",
 						"Value": -5
 					},
 					{
-						"Effect Name": "RangedSkill_Percent",
+						"Effect Name": "Ranged_Skill_Percent",
 						"Value": -5
 					}
 				]

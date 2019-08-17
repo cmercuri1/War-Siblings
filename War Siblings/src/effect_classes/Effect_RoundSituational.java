@@ -7,7 +7,7 @@ package effect_classes;
 import event_classes.RoundControlEvent;
 import listener_interfaces.RoundControlListener;
 
-public abstract class Effect_RoundSituational extends Effect implements Effect_Triggered, RoundControlListener {
+public abstract class Effect_RoundSituational extends Effect_Triggered implements RoundControlListener {
 
 	@Override
 	public void onRoundControlEvent(RoundControlEvent r) {

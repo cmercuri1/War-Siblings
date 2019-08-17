@@ -28,7 +28,7 @@
 			],
 			"Effects": [
 				{
-					"Effect Name": "Fatigue_OnMovement",
+					"Effect Name": "Fatigue_On_Movement",
 					"Value": -2
 				}
 			]
@@ -72,7 +72,7 @@
 			],
 			"Effects": [
 				{
-					"Effect Name": "XPGain_Percent",
+					"Effect Name": "XP_Rate_Percent",
 					"Value": 10
 				}
 			]
@@ -85,7 +85,7 @@
 					"Value": 15
 				},
 				{
-					"Effect Name": "MeleeSkill",
+					"Effect Name": "Melee_Skill",
 					"Value": -5
 				}
 			]
@@ -97,7 +97,7 @@
 			],
 			"Effects": [
 				{
-					"Effect Name": "Fatigue_OnMovement",
+					"Effect Name": "Fatigue_On_Movement",
 					"Value": 2
 				}
 			]
@@ -109,7 +109,7 @@
 			],
 			"Effects": [
 				{
-					"Effect Name": "MeleeSkill",
+					"Effect Name": "Melee_Skill",
 					"Value": -5
 				}
 			]
@@ -122,11 +122,11 @@
 					"Value": 5
 				},
 				{
-					"Effect Name": "MeleeDefense",
+					"Effect Name": "Melee_Defense",
 					"Value": -5
 				},
 				{
-					"Effect Name": "RangedDefense",
+					"Effect Name": "Ranged_Defense",
 					"Value": -5
 				}
 			]
@@ -185,7 +185,7 @@
 			],
 			"Effects": [
 				{
-					"Effect Name": "MeleeSkill",
+					"Effect Name": "Melee_Skill",
 					"Value": 5
 				}
 			]
@@ -213,11 +213,11 @@
 					"Value": 5
 				},
 				{
-					"Effect Name": "MeleeSkill",
+					"Effect Name": "Melee_Skill",
 					"Value": -5
 				},
 				{
-					"Effect Name": "RangedSkill",
+					"Effect Name": "Ranged_Skill",
 					"Value": -10
 				}
 			]
@@ -229,7 +229,7 @@
 			],
 			"Effects": [
 				{
-					"Effect Name": "XPGain_Percent",
+					"Effect Name": "XP_Rate_Percent",
 					"Value": -15
 				}
 			]
@@ -345,7 +345,7 @@
 			],
 			"Effects": [
 				{
-					"Effect Name": "FoodConsumption",
+					"Effect Name": "Food_Consumption",
 					"Value": 1
 				}
 			]
@@ -419,11 +419,11 @@
 					"Value": 10
 				},
 				{
-					"Effect Name": "MeleeDefense",
+					"Effect Name": "Melee_Defense",
 					"Value": -5
 				},
 				{
-					"Effect Name": "RangedDefense",
+					"Effect Name": "Ranged_Defense",
 					"Value": -5
 				}
 			]
@@ -546,11 +546,11 @@
 			"Name": "Paranoid",
 			"Effects": [
 				{
-					"Effect Name": "MeleeDefense",
+					"Effect Name": "Melee_Defense",
 					"Value": 5
 				},
 				{
-					"Effect Name": "RangedDefense",
+					"Effect Name": "Ranged_Defense",
 					"Value": 5
 				},
 				{
@@ -603,7 +603,7 @@
 			],
 			"Effects": [
 				{
-					"Effect Name": "FoodConsumption",
+					"Effect Name": "Food_Consumption",
 					"Value": -1
 				}
 			]
@@ -633,7 +633,7 @@
 			],
 			"Effects": [
 				{
-					"Effect Name": "MeleeDefense",
+					"Effect Name": "Melee_Defense",
 					"Value": 5
 				}
 			]
@@ -651,7 +651,7 @@
 			"Name": "Swift",
 			"Effects": [
 				{
-					"Effect Name": "RangedDefense",
+					"Effect Name": "Ranged_Defense",
 					"Value": 5
 				}
 			]
@@ -672,11 +672,11 @@
 			],
 			"Effects": [
 				{
-					"Effect Name": "MeleeDefense",
+					"Effect Name": "Melee_Defense",
 					"Value": 5
 				},
 				{
-					"Effect Name": "RangedDefense",
+					"Effect Name": "Ranged_Defense",
 					"Value": 5
 				},
 				{

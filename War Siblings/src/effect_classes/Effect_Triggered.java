@@ -9,31 +9,31 @@ import listener_interfaces.TriggeredEffectListener;
 import notifier_interfaces.TriggeredEffectNotifier;
 import storage_classes.ArrayList;
 
-public interface Effect_Triggered extends TriggeredEffectNotifier {
+public abstract class Effect_Triggered extends Effect implements TriggeredEffectNotifier {
 
-	ArrayList<TriggeredEffectListener> triggeredEffectListeners = new ArrayList<TriggeredEffectListener>();;
+	protected ArrayList<TriggeredEffectListener> triggeredEffectListeners = new ArrayList<TriggeredEffectListener>();
 
-	void triggerStart();
+	abstract protected void triggerStart();
 
-	void triggerEnd();
+	abstract protected void triggerEnd();
 
 	@Override
-	public default void addTriggeredEffectListener(TriggeredEffectListener t) {
-		triggeredEffectListeners.add(t);
+	public void addTriggeredEffectListener(TriggeredEffectListener t) {
+		this.triggeredEffectListeners.add(t);
 	}
 
 	@Override
-	public default void removeTriggeredEffectListener(TriggeredEffectListener t) {
-		triggeredEffectListeners.remove(t);
+	public void removeTriggeredEffectListener(TriggeredEffectListener t) {
+		this.triggeredEffectListeners.remove(t);
 	}
 
 	@Override
-	public default void notifyTriggeredEffectListeners(TriggeredEffectEvent t) {
-		triggeredEffectListeners.forEach(l -> l.onTriggeredEffectEvent(t));
+	public void notifyTriggeredEffectListeners(TriggeredEffectEvent t) {
+		this.triggeredEffectListeners.forEach(l -> l.onTriggeredEffectEvent(t));
 	}
 
 	@Override
-	public default void notifyTriggeredEffectListener(TriggeredEffectListener t, TriggeredEffectEvent e) {
-		triggeredEffectListeners.get(t).onTriggeredEffectEvent(e);
+	public void notifyTriggeredEffectListener(TriggeredEffectListener t, TriggeredEffectEvent e) {
+		this.triggeredEffectListeners.get(t).onTriggeredEffectEvent(e);
 	}
 }
