@@ -9,8 +9,8 @@ import storage_classes.ArrayList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import effect_classes.Effect;
 import storage_classes.Ability;
-import storage_classes.Effect;
 import storage_classes.MoraleState;
 
 /**

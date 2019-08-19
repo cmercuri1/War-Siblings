@@ -4,6 +4,7 @@
  */
 package storage_classes;
 
+import effect_classes.Modifier;
 import global_managers.GlobalManager;
 
 /** Special Wage attribute used for handling money per day */

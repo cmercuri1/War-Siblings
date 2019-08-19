@@ -1,22 +1,22 @@
 /** War Siblings
- * AttributeEvent
+ * ModifierEvent
  * Author: Chris Mercuri cmercuri1@student.unimelb.edu.au
  */
 package event_classes;
 
-import effect_classes.Effect;
-import notifier_interfaces.EffectNotifier;
+import effect_classes.Modifier;
+import notifier_interfaces.ModifierNotifier;
 
-public class EffectEvent extends InfoEvent {
+public class ModifierEvent extends InfoEvent {
 	public enum Task {
 		ADD, REMOVE
 	};
 
 	protected Task task;
-	protected Effect information;
-	protected EffectNotifier source;
+	protected Modifier information;
+	protected ModifierNotifier source;
 
-	public EffectEvent(Task t, Effect info, EffectNotifier src) {
+	public ModifierEvent(Task t, Modifier info, ModifierNotifier src) {
 		super(info, src);
 		this.information = info;
 		this.task = t;
@@ -26,11 +26,11 @@ public class EffectEvent extends InfoEvent {
 		return this.task;
 	}
 
-	public Effect getInformation() {
+	public Modifier getInformation() {
 		return this.information;
 	}
 
-	public EffectNotifier getSource() {
+	public ModifierNotifier getSource() {
 		return this.source;
 	}
 }

@@ -12,7 +12,17 @@ public class Effect_Modifier extends Effect {
 		this.mod = new Modifier(modName, modValue);
 	}
 
+	public Effect_Modifier(Modifier mod) {
+		this.mod = mod;
+	}
+
 	public Modifier getMod() {
 		return this.mod;
+	}
+
+	@Override
+	public void display() {
+		// TODO Auto-generated method stub
+
 	}
 }

@@ -6,6 +6,7 @@ package storage_classes;
 
 import javax.swing.ImageIcon;
 
+import effect_classes.Effect;
 import storage_classes.ArrayList;
 
 /**

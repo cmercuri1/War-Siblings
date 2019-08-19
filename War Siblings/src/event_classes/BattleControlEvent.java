@@ -5,7 +5,7 @@
 package event_classes;
 
 import notifier_interfaces.BattleControlNotifier;
-import storage_classes.ArrayList;
+import storage_classes.BattleConditions;
 
 public class BattleControlEvent extends InfoEvent {
 	public enum Task {
@@ -13,10 +13,10 @@ public class BattleControlEvent extends InfoEvent {
 	};
 
 	protected Task task;
-	protected ArrayList<String> information;
+	protected BattleConditions information;
 	protected BattleControlNotifier source;
 
-	public BattleControlEvent(Task t, ArrayList<String> info, BattleControlNotifier src) {
+	public BattleControlEvent(Task t, BattleConditions info, BattleControlNotifier src) {
 		super(info, src);
 		this.information = info;
 		this.task = t;
@@ -26,7 +26,7 @@ public class BattleControlEvent extends InfoEvent {
 		return this.task;
 	}
 
-	public ArrayList<String> getInformation() {
+	public BattleConditions getInformation() {
 		return this.information;
 	}
 

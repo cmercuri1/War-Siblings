@@ -6,13 +6,13 @@ package items;
 
 import javax.swing.ImageIcon;
 
+import effect_classes.Modifier;
 import event_classes.ItemEvent;
 import event_classes.MultiValueAttributeEvent;
 import listener_interfaces.ItemListener;
 import listener_interfaces.MultiValueAttributeListener;
 import storage_classes.Attribute;
 import storage_classes.DurAttribute;
-import storage_classes.Modifier;
 
 /**
  * Equip Item class that allows for an item to be equipped and thus may reduce

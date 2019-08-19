@@ -5,23 +5,31 @@
 package character;
 
 import event_classes.AbilityEvent;
+import event_classes.BattleControlEvent;
 import event_classes.EffectEvent;
+import event_classes.ModifierEvent;
 import event_classes.PermanentInjuryEvent;
+import event_classes.RoundControlEvent;
 import event_classes.TemporaryInjuryEvent;
 import event_classes.TraitEvent;
+import event_classes.TriggeredEffectEvent;
+import event_classes.TurnControlEvent;
 import global_generators.BackgroundGenerator;
 
 import global_managers.GlobalManager;
 import listener_interfaces.AbilityListener;
-import listener_interfaces.EffectListener;
+import listener_interfaces.BattleControlListener;
+import listener_interfaces.ModifierListener;
 import listener_interfaces.PermanentInjuryListener;
+import listener_interfaces.RoundControlListener;
 import listener_interfaces.TemporaryInjuryListener;
 import listener_interfaces.TraitListener;
-import notifier_interfaces.EffectNotifier;
+import listener_interfaces.TriggeredEffectListener;
+import listener_interfaces.TurnControlListener;
+import notifier_interfaces.ModifierNotifier;
 import notifier_interfaces.MultiNotifier;
 import storage_classes.Ability;
 import storage_classes.ArrayList;
-import storage_classes.Effect;
 import storage_classes.PermanentInjury;
 import storage_classes.TemporaryInjury;
 import storage_classes.Trait;
@@ -30,14 +38,16 @@ import storage_classes.Trait;
  * A manager class that handles all the abilities a character may have, either
  * from items, traits or from level abilities
  */
-public class AbilityManager implements MultiNotifier, AbilityListener, TraitListener, PermanentInjuryListener,
-		TemporaryInjuryListener, EffectNotifier {
-	protected ArrayList<Trait> characterTraits;
+public class AbilityManager implements AbilityListener, TraitListener, PermanentInjuryListener, TemporaryInjuryListener,
+		TriggeredEffectListener, BattleControlListener, TurnControlListener, RoundControlListener, MultiNotifier,
+		ModifierNotifier {
+
 	protected ArrayList<Ability> characterAbilities;
+	protected ArrayList<Trait> characterTraits;
 	protected ArrayList<PermanentInjury> permaInjuries;
 	protected ArrayList<TemporaryInjury> tempInjuries;
 
-	protected ArrayList<EffectListener> effectListeners;
+	protected ArrayList<ModifierListener> effectListeners;
 
 	public AbilityManager() {
 		this.characterAbilities = new ArrayList<Ability>();
@@ -46,6 +56,11 @@ public class AbilityManager implements MultiNotifier, AbilityListener, TraitList
 		this.tempInjuries = new ArrayList<TemporaryInjury>();
 
 		this.setUpListeners();
+	}
+
+	@Override
+	public void setUpListeners() {
+		this.effectListeners = new ArrayList<ModifierListener>();
 	}
 
 	public void setUpAbilities(BackgroundGenerator background) {
@@ -143,19 +158,8 @@ public class AbilityManager implements MultiNotifier, AbilityListener, TraitList
 			this.notifyOtherManagers(EffectEvent.Task.REMOVE, trait);
 	}
 
-	public void removeAbility(String abilityName) {
-		for (Ability a : this.characterAbilities) {
-			if (a.getName().equals(abilityName)) {
-				this.removeAbility(a);
-				return;
-			}
-		}
-	}
-
 	protected void notifyOtherManagers(EffectEvent.Task task, Ability ability) {
-		for (Effect t : ability.getEffects()) {
-			this.notifyEffectListeners(new EffectEvent(task, t, this));
-		}
+		//TODO
 	}
 
 	public void display() {
@@ -218,31 +222,6 @@ public class AbilityManager implements MultiNotifier, AbilityListener, TraitList
 	}
 
 	@Override
-	public void setUpListeners() {
-		this.effectListeners = new ArrayList<EffectListener>();
-	}
-
-	@Override
-	public void addEffectListener(EffectListener e) {
-		this.effectListeners.add(e);
-	}
-
-	@Override
-	public void removeEffectListener(EffectListener e) {
-		this.effectListeners.remove(e);
-	}
-
-	@Override
-	public void notifyEffectListeners(EffectEvent e) {
-		this.effectListeners.forEach(l -> l.onEffectEvent(e));
-	}
-
-	@Override
-	public void notifyEffectListener(EffectListener l, EffectEvent e) {
-		this.effectListeners.get(l).onEffectEvent(e);
-	}
-
-	@Override
 	public void onTraitEvent(TraitEvent t) {
 		switch (t.getTask()) {
 		case ADD:
@@ -257,5 +236,69 @@ public class AbilityManager implements MultiNotifier, AbilityListener, TraitList
 			}
 			break;
 		}
+	}
+
+	@Override
+	public void onTriggeredEffectEvent(TriggeredEffectEvent t) {
+		switch (t.getTask()) {
+		case APPLY:
+			break;
+		case DAMAGE:
+			break;
+		case IMPEDE:
+			break;
+		case REMOVE:
+			break;
+		}
+	}
+
+	@Override
+	public void onRoundControlEvent(RoundControlEvent r) {
+		switch (r.getTask()) {
+		case END_ROUND:
+			break;
+		case START_ROUND:
+			break;
+		}
+	}
+
+	@Override
+	public void onTurnControlEvent(TurnControlEvent t) {
+		switch (t.getTask()) {
+		case END_TURN:
+			break;
+		case START_TURN:
+			break;
+		}
+	}
+
+	@Override
+	public void onBattleControlEvent(BattleControlEvent b) {
+		switch (b.getTask()) {
+		case END_BATTLE:
+			break;
+		case START_BATTLE:
+			break;
+		}
+	}
+
+	@Override
+	public void addModifierListener(ModifierListener e) {
+		this.effectListeners.add(e);
+	}
+
+	@Override
+	public void removeModifierListener(ModifierListener e) {
+		this.effectListeners.remove(e);
+	}
+
+	@Override
+	public void notifyModifierListeners(ModifierEvent e) {
+		this.effectListeners.forEach(l -> l.onModifierEvent(e));
+	}
+
+	@Override
+	public void notifyModifierListener(ModifierListener l, ModifierEvent e) {
+		this.effectListeners.get(l).onModifierEvent(e);
 	}
 }

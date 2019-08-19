@@ -9,7 +9,6 @@ import storage_classes.ArrayList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import storage_classes.Effect;
 import storage_classes.Trait;
 
 /** A class for Globally Storing and Managing all the Temporary Injuries */

@@ -1,24 +1,21 @@
 /** War Siblings
- * Effect_Modifier_Battle
+ * Effect_Modifier_Triggered
  * Author: Chris Mercuri cmercuri1@student.unimelb.edu.au
  */
 package effect_classes;
 
 import event_classes.TriggeredEffectEvent;
 
-public class Effect_Modifier_Battle extends Effect_Battle_Triggered {
+public class Effect_Modifier_Triggered extends Effect_Triggered {
+
 	protected Modifier mod;
 
-	public Effect_Modifier_Battle(String modName, double modValue) {
+	public Effect_Modifier_Triggered(String modName, double modValue) {
 		this.mod = new Modifier(modName, modValue);
 	}
-	
-	public Effect_Modifier_Battle(Modifier mod) {
-		this.mod = mod;
-	}
 
-	public Modifier getMod() {
-		return this.mod;
+	public Effect_Modifier_Triggered(Modifier mod) {
+		this.mod = mod;
 	}
 
 	@Override
@@ -33,7 +30,7 @@ public class Effect_Modifier_Battle extends Effect_Battle_Triggered {
 
 	@Override
 	public void display() {
-		
+
 	}
 
 }

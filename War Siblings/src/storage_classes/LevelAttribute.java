@@ -4,6 +4,7 @@
  */
 package storage_classes;
 
+import effect_classes.Modifier;
 import event_classes.LevelUpAttributeEvent;
 import global_managers.GlobalManager;
 import listener_interfaces.LevelUpAttributeListener;

@@ -6,10 +6,14 @@ package character;
 
 import java.lang.reflect.Field;
 
+import effect_classes.Modifier;
+import event_classes.AbilityEvent;
 import event_classes.AttributeEvent;
 import event_classes.CharacterInventoryEvent;
-import event_classes.EffectEvent;
 import event_classes.LevelUpAttributeEvent;
+import event_classes.ModifierEvent;
+import event_classes.MoraleEvent;
+import event_classes.MoraleRollEvent;
 import event_classes.MultiValueAttributeEvent;
 import event_classes.PostDataEvent;
 import event_classes.RetrieveEvent;
@@ -17,28 +21,33 @@ import event_classes.StarAttributeEvent;
 import event_classes.TurnControlEvent;
 import global_generators.BackgroundGenerator;
 import global_managers.GlobalManager;
+import listener_interfaces.AbilityListener;
 import listener_interfaces.AttributeListener;
 import listener_interfaces.CharacterInventoryListener;
-import listener_interfaces.EffectListener;
 import listener_interfaces.LevelUpAttributeListener;
+import listener_interfaces.ModifierListener;
+import listener_interfaces.MoraleListener;
+import listener_interfaces.MoraleRollListener;
 import listener_interfaces.MultiValueAttributeListener;
 import listener_interfaces.PostDataListener;
 import listener_interfaces.RetrievalListener;
 import listener_interfaces.TurnControlListener;
 import listener_interfaces.StarAttributeListener;
 import notifier_interfaces.PostDataNotifier;
+import notifier_interfaces.AbilityNotifier;
 import notifier_interfaces.CharacterInventoryNotifier;
+import notifier_interfaces.MoraleNotifier;
 import notifier_interfaces.MultiNotifier;
 import storage_classes.ArrayList;
 import storage_classes.Attribute;
 import storage_classes.BarAttribute;
 import storage_classes.DefenseAttribute;
-import storage_classes.Effect;
 import storage_classes.FatigueAttribute;
 import storage_classes.HitpointAttribute;
 import storage_classes.LevelAttribute;
 import storage_classes.LevelUp;
-import storage_classes.Modifier;
+import storage_classes.MoodAttribute;
+import storage_classes.MoraleState;
 import storage_classes.StarAttribute;
 import storage_classes.VisionAttribute;
 import storage_classes.WageAttribute;
@@ -46,38 +55,45 @@ import storage_classes.WageAttribute;
 /**
  * A class that manages all the attributes and makes sure they operate correctly
  */
-public class AttributeManager implements MultiNotifier, AttributeListener, EffectListener, LevelUpAttributeListener,
-		MultiValueAttributeListener, RetrievalListener, TurnControlListener, StarAttributeListener, PostDataNotifier,
-		CharacterInventoryNotifier {
-	protected HitpointAttribute hitpoint;
+public class AttributeManager implements MultiNotifier, AttributeListener, ModifierListener, LevelUpAttributeListener,
+		MultiValueAttributeListener, RetrievalListener, TurnControlListener, StarAttributeListener, MoraleRollListener,
+		PostDataNotifier, CharacterInventoryNotifier, AbilityNotifier, MoraleNotifier {
+	// Visible Character Attributes
+	protected HitpointAttribute hitpoints;
 	protected FatigueAttribute fatigue;
 	protected StarAttribute resolve;
 	protected StarAttribute initiative;
-	protected StarAttribute melee_skill;
-	protected StarAttribute ranged_skill;
-	protected DefenseAttribute melee_defense;
-	protected DefenseAttribute ranged_defense;
+	protected StarAttribute meleeSkill;
+	protected StarAttribute rangedSkill;
+	protected DefenseAttribute meleeDefense;
+	protected DefenseAttribute rangedDefense;
 
-	protected WageAttribute wage;
-	protected Attribute food_consumption;
-	protected Attribute xp_rate;
-	protected LevelAttribute level;
-	protected BarAttribute action_points;
-	protected Attribute headshot_chance;
-	protected Attribute fatigue_recovery;
+	protected MoodAttribute mood;
+	protected MoraleState currentMorale;
 	protected VisionAttribute vision;
+	protected BarAttribute actionPoints;
+	protected Attribute headshotChance;
 
-	protected Attribute action_points_on_movement;
-	protected Attribute fatigue_on_movement;
+	// "Hidden" Character Attributes
+	protected WageAttribute wage;
+	protected Attribute foodConsumption;
+	protected Attribute xpRate;
+	protected LevelAttribute level;
+	protected Attribute fatigueRecovery;
 	protected Attribute damage;
-	protected Attribute armor_damage;
-	protected Attribute ignore_armor;
-	protected Attribute damage_headshot;
+	protected Attribute armorDamage;
+	protected Attribute ignoreArmor;
+	protected Attribute damageHeadshot;
+	protected Attribute survivalChance;
+	protected Attribute inflictInjury;
+	protected Attribute injuryThreshold;
 
 	protected ArrayList<ArrayList<LevelUp>> levelUps;
 
 	protected ArrayList<PostDataListener> postDataListeners;
 	protected ArrayList<CharacterInventoryListener> charInventoryListeners;
+	protected ArrayList<MoraleListener> moraleListeners;
+	protected ArrayList<AbilityListener> abilityListeners;
 
 	protected int pref; // Only used in determining starting equipment
 
@@ -90,6 +106,8 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Effec
 	public void setUpListeners() {
 		this.postDataListeners = new ArrayList<PostDataListener>();
 		this.charInventoryListeners = new ArrayList<CharacterInventoryListener>();
+		this.moraleListeners = new ArrayList<MoraleListener>();
+		this.abilityListeners = new ArrayList<AbilityListener>();
 	}
 
 	public void setUpAttributes(BackgroundGenerator bg) {
@@ -102,36 +120,39 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Effec
 	 * background
 	 */
 	protected void assignAttributes(BackgroundGenerator bg) {
-		this.hitpoint = new HitpointAttribute((double) bg.getHp().getRand(), 2);
+		this.hitpoints = new HitpointAttribute((double) bg.getHp().getRand(), 2);
 		this.fatigue = new FatigueAttribute((double) bg.getFat().getRand(), 2);
 		this.resolve = new StarAttribute((double) bg.getRes().getRand(), 2);
 		this.initiative = new StarAttribute((double) bg.getIni().getRand(), 3);
-		this.melee_skill = new StarAttribute((double) bg.getmSk().getRand(), 1);
-		this.ranged_skill = new StarAttribute((double) bg.getrSk().getRand(), 2);
-		this.melee_defense = new DefenseAttribute((double) bg.getmDef().getRand(), 1);
-		this.ranged_defense = new DefenseAttribute((double) bg.getrDef().getRand(), 1);
+		this.meleeSkill = new StarAttribute((double) bg.getmSk().getRand(), 1);
+		this.rangedSkill = new StarAttribute((double) bg.getrSk().getRand(), 2);
+		this.meleeDefense = new DefenseAttribute((double) bg.getmDef().getRand(), 1);
+		this.rangedDefense = new DefenseAttribute((double) bg.getrDef().getRand(), 1);
 
-		this.wage = new WageAttribute((double) bg.getBaseWage());
-		this.food_consumption = new Attribute((double) bg.getDailyFood());
-		this.xp_rate = new Attribute((double) bg.getXpRate());
-		this.level = new LevelAttribute((double) bg.getLev().getRand());
-		this.action_points = new BarAttribute((double) bg.getActionPoints());
-		this.headshot_chance = new Attribute((double) bg.getHeadShot());
-		this.fatigue_recovery = new Attribute((double) bg.getFatRegain());
+		this.mood = new MoodAttribute(50);
+		this.actionPoints = new BarAttribute((double) bg.getActionPoints());
+		this.headshotChance = new Attribute((double) bg.getHeadShot());
 		this.vision = new VisionAttribute((double) bg.getVision());
 
-		this.action_points_on_movement = new Attribute(2);
-		this.fatigue_on_movement = new Attribute(2);
+		this.wage = new WageAttribute((double) bg.getBaseWage());
+		this.foodConsumption = new Attribute((double) bg.getDailyFood());
+		this.xpRate = new Attribute((double) bg.getXpRate());
+		this.level = new LevelAttribute((double) bg.getLev().getRand());
+		this.fatigueRecovery = new Attribute((double) bg.getFatRegain());
 		this.damage = new Attribute(0);
-		this.armor_damage = new Attribute(0);
-		this.damage_headshot = new Attribute(150);
+		this.armorDamage = new Attribute(0);
+		this.ignoreArmor = new Attribute(0);
+		this.damageHeadshot = new Attribute(150);
+		this.survivalChance = new Attribute(33);
+		this.inflictInjury = new Attribute(0);
+		this.injuryThreshold = new Attribute(0);
 	}
 
 	/** Randomly assigns stars/talents towards up to 3 attributes */
 	protected void assignStars(ArrayList<String> excludedTalents) {
 		ArrayList<StarAttribute> managers = new ArrayList<StarAttribute>();
 		if (!excludedTalents.contains("hitpoints")) {
-			managers.add(this.hitpoint);
+			managers.add(this.hitpoints);
 		}
 		if (!excludedTalents.contains("fatigue")) {
 			managers.add(this.fatigue);
@@ -143,16 +164,16 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Effec
 			managers.add(this.initiative);
 		}
 		if (!excludedTalents.contains("meleeSkill")) {
-			managers.add(this.melee_skill);
+			managers.add(this.meleeSkill);
 		}
 		if (!excludedTalents.contains("rangedSkill")) {
-			managers.add(this.ranged_skill);
+			managers.add(this.rangedSkill);
 		}
 		if (!excludedTalents.contains("meleeDefense")) {
-			managers.add(this.melee_defense);
+			managers.add(this.meleeDefense);
 		}
 		if (!excludedTalents.contains("rangedDefense")) {
-			managers.add(this.ranged_defense);
+			managers.add(this.rangedDefense);
 		}
 
 		for (int i = 0; i < 3; i++) {
@@ -167,17 +188,53 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Effec
 		}
 	}
 
-	protected void addModifier(Effect t) {
-		this.getAttribute(t.getName().toLowerCase()).addModifier(t.getModifier());
+	/** Needs to be called after abilities are set up */
+	protected void setMorale() {
+		double temp;
+		double chanceRoll;
+
+		chanceRoll = this.mood.getCurrentMood().getBestMoralechance();
+
+		if (GlobalManager.d100Roll() > chanceRoll) {
+			temp = this.mood.getCurrentMood().getBestMoraleState() - 1;
+		} else {
+			temp = this.mood.getCurrentMood().getBestMoraleState();
+		}
+
+		this.changeState(MoraleState.valueOfMoraleValue((int) temp));
 	}
 
-	protected void removeModifier(Effect t) {
-		this.getAttribute(t.getAffectedSubManager()).removeModifier(t.getModifier());
+	protected void resetMorale() {
+		this.changeState(MoraleState.STEADY);
+	}
+
+	protected void changeState(MoraleState state) {
+		try {
+			this.notifyAbilityListeners(new AbilityEvent(AbilityEvent.Task.REMOVE,
+					GlobalManager.morale.getMoraleAbility(this.currentMorale), this));
+		} catch (NullPointerException nu) {
+		}
+		try {
+			this.notifyAbilityListeners(new AbilityEvent(AbilityEvent.Task.ADD,
+					GlobalManager.morale.getMoraleAbility(this.currentMorale), this));
+		} catch (NullPointerException nu) {
+		}
+
+		this.currentMorale = state;
+	}
+
+	protected void addModifier(Modifier t) {
+		this.getAttribute(t.getName()).addModifier(t);
+	}
+
+	protected void removeModifier(Modifier t) {
+		this.getAttribute(t.getName()).removeModifier(t);
 	}
 
 	public Attribute[] getAttributes() {
-		return new Attribute[] { this.hitpoint, this.action_points, this.fatigue, this.resolve, this.initiative,
-				this.melee_skill, this.ranged_skill, this.melee_defense, this.ranged_defense, this.headshot_chance, this.vision };
+		return new Attribute[] { this.hitpoints, this.actionPoints, this.fatigue, this.resolve, this.initiative,
+				this.meleeSkill, this.rangedSkill, this.meleeDefense, this.rangedDefense, this.damage, this.armorDamage,
+				this.headshotChance, this.vision };
 	}
 
 	/** Designed to get the relevant attribute */
@@ -204,14 +261,14 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Effec
 	/** Gets the level up value from the relevant attributes */
 	protected void setUpLevelUp() {
 		ArrayList<LevelUp> levelUpArray = new ArrayList<LevelUp>();
-		levelUpArray.add(new LevelUp("hitpoint", this.hitpoint.getLevelup()));
+		levelUpArray.add(new LevelUp("hitpoint", this.hitpoints.getLevelup()));
 		levelUpArray.add(new LevelUp("fatigue", this.fatigue.getLevelup()));
 		levelUpArray.add(new LevelUp("resolve", this.resolve.getLevelup()));
 		levelUpArray.add(new LevelUp("initiative", this.initiative.getLevelup()));
-		levelUpArray.add(new LevelUp("meleeSkill", this.melee_skill.getLevelup()));
-		levelUpArray.add(new LevelUp("rangedSkill", this.ranged_skill.getLevelup()));
-		levelUpArray.add(new LevelUp("meleeDefense", this.melee_defense.getLevelup()));
-		levelUpArray.add(new LevelUp("rangedDefense", this.ranged_defense.getLevelup()));
+		levelUpArray.add(new LevelUp("melee_skill", this.meleeSkill.getLevelup()));
+		levelUpArray.add(new LevelUp("ranged_skill", this.rangedSkill.getLevelup()));
+		levelUpArray.add(new LevelUp("melee_defense", this.meleeDefense.getLevelup()));
+		levelUpArray.add(new LevelUp("ranged_defense", this.rangedDefense.getLevelup()));
 
 		this.levelUps.add(levelUpArray);
 	}
@@ -237,22 +294,22 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Effec
 
 		System.out.println("This character has:");
 
-		System.out.println("Hitpoints: " + this.hitpoint.toStringFull());
+		System.out.println("Hitpoints: " + this.hitpoints.toStringFull());
 		System.out.println("Fatigue: " + this.fatigue.toStringFull());
 		System.out.println("Resolve: " + this.resolve.toStringFull());
 		System.out.println("Initiative: " + this.initiative.toStringFull());
-		System.out.println("Melee Skill: " + this.melee_skill.toStringFull());
-		System.out.println("Ranged Skill: " + this.ranged_skill.toStringFull());
-		System.out.println("Melee Defense: " + this.melee_defense.toStringFull());
-		System.out.println("Ranged Defense: " + this.ranged_defense.toStringFull());
+		System.out.println("Melee Skill: " + this.meleeSkill.toStringFull());
+		System.out.println("Ranged Skill: " + this.rangedSkill.toStringFull());
+		System.out.println("Melee Defense: " + this.meleeDefense.toStringFull());
+		System.out.println("Ranged Defense: " + this.rangedDefense.toStringFull());
 		System.out.println();
 		System.out.println("Wage of " + this.wage.toStringFull());
-		System.out.println("Consumes " + this.food_consumption.toStringFull());
-		System.out.println("Action points: " + this.action_points.toStringFull());
-		System.out.println("% Chance to hit head: " + this.headshot_chance.toStringFull());
-		System.out.println("Points of Fatigue Regained each Turn: " + this.fatigue_recovery.toStringFull());
+		System.out.println("Consumes " + this.foodConsumption.toStringFull());
+		System.out.println("Action points: " + this.actionPoints.toStringFull());
+		System.out.println("% Chance to hit head: " + this.headshotChance.toStringFull());
+		System.out.println("Points of Fatigue Regained each Turn: " + this.fatigueRecovery.toStringFull());
 		System.out.println("Tiles of Vision: " + this.vision.toStringFull());
-		System.out.println("Experience Rate is " + this.xp_rate.toStringFull());
+		System.out.println("Experience Rate is " + this.xpRate.toStringFull());
 
 		System.out.println();
 	}
@@ -278,9 +335,9 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Effec
 	public void onStarAttributeEvent(StarAttributeEvent s) {
 		switch (s.getTask()) {
 		case STAR_ASSIGNED:
-			if (s.getSource() == this.melee_skill)
+			if (s.getSource() == this.meleeSkill)
 				pref -= s.getInformation();
-			if (s.getSource() == this.ranged_skill)
+			if (s.getSource() == this.rangedSkill)
 				pref += s.getInformation();
 			break;
 		}
@@ -293,16 +350,14 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Effec
 	}
 
 	@Override
-	public void onEffectEvent(EffectEvent e) {
-		if (e.getInformation().getAffectedManager().equals("Attribute")) {
-			switch (e.getTask()) {
-			case ADD:
-				this.addModifier(e.getInformation());
-				break;
-			case REMOVE:
-				this.removeModifier(e.getInformation());
-				break;
-			}
+	public void onModifierEvent(ModifierEvent m) {
+		switch (m.getTask()) {
+		case ADD:
+			this.addModifier(m.getInformation());
+			break;
+		case REMOVE:
+			this.removeModifier(m.getInformation());
+			break;
 		}
 	}
 
@@ -362,9 +417,63 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Effec
 		case END_TURN:
 			break;
 		case START_TURN:
-			this.fatigue.alterCurrent(-this.fatigue_recovery.getAlteredValue());
+			this.fatigue.alterCurrent(-this.fatigueRecovery.getAlteredValue());
 			break;
 		}
+
+	}
+
+	@Override
+	public void addMoraleListener(MoraleListener m) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void removeMoraleListener(MoraleListener m) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void notifyMoraleListeners(MoraleEvent m) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void notifyMoraleListener(MoraleListener m, MoraleEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void addAbilityListener(AbilityListener a) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void removeAbilityListener(AbilityListener a) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void notifyAbilityListeners(AbilityEvent a) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void notifyAbilityListener(AbilityListener a, AbilityEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void onMoraleRollEvent(MoraleRollEvent m) {
+		// TODO Auto-generated method stub
 
 	}
 }

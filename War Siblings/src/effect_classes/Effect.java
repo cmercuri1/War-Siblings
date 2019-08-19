@@ -10,4 +10,9 @@ public abstract class Effect {
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * @return
+	 */
+	public abstract void display();
+
 }

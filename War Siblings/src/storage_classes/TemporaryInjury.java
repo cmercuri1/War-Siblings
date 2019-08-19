@@ -5,6 +5,8 @@
 package storage_classes;
 
 import storage_classes.ArrayList;
+import effect_classes.Effect;
+import effect_classes.Modifier;
 import event_classes.AttributeEvent;
 import event_classes.TemporaryInjuryEvent;
 import global_managers.GlobalManager;

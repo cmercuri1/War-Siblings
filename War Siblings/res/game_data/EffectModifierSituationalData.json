@@ -62,15 +62,15 @@
 		},
 		{
 			"Effect Name": "Morale_Optimist",
-			"Effect Type": "Morale"
+			"Effect Type": "Effect_Morale_Roll"
 		},
 		{
 			"Effect Name": "Morale_Pessimist",
-			"Effect Type": "Morale"
+			"Effect Type": "Effect_Morale_Roll"
 		},
 		{
 			"Effect Name": "Morale_Special",
-			"Effect Type": "Morale"
+			"Effect Type": "Effect_Morale_Roll"
 		},
 		{
 			"Effect Name": "Morale_Starting",
@@ -86,15 +86,15 @@
 		},
 		{
 			"Effect Name": "Resolve_Beasts",
-			"Effect Type": "Battle"
+			"Effect Type": "Resolve_vsEnemy"
 		},
 		{
 			"Effect Name": "Resolve_Greenskins",
-			"Effect Type": "Battle"
+			"Effect Type": "Resolve_vsEnemy"
 		},
 		{
 			"Effect Name": "Resolve_Undead",
-			"Effect Type": "Battle"
+			"Effect Type": "Resolve_vsEnemy"
 		},
 		{
 			"Effect Name": "Stage 2",
@@ -102,7 +102,7 @@
 		},
 		{
 			"Effect Name": "Vision_Night",
-			"Effect Type": "Battle"
+			"Effect Type": "Vision_TimeOfDay"
 		},
 		{
 			"Effect Name": "WardogStartingMorale",

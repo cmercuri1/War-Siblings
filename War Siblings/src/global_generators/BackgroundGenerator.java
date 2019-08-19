@@ -12,8 +12,8 @@ import javax.swing.ImageIcon;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import effect_classes.Effect;
 import storage_classes.Ability;
-import storage_classes.Effect;
 
 /**
  * A class that takes the Base Stats and attributes and changes them based on a

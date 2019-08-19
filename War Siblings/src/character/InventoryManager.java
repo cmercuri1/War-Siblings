@@ -92,7 +92,7 @@ public class InventoryManager
 		// Uses System for determining whether starting equipment is a ranged weapon on
 		// Deserter/Sellsword Backgrounds
 		roll = GlobalManager.d100Roll();
-		if (rangedPref)
+		if (rangedPref && (bg.getBackground().equals("Deserter") || bg.getBackground().equals("Sellsword")))
 			roll += 100;
 		for (BackgroundItem i : bg.getRightOptions()) {
 			if (roll <= i.getChanceToGet()) {

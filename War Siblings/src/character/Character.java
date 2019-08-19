@@ -37,8 +37,7 @@ public class Character
 	protected AttributeManager am;
 	protected InventoryManager im;
 	protected AbilityManager abm;
-	protected MoraleManager mm;
-	protected BattleManager bm;
+	protected EventManager em;
 
 	protected ArrayList<CharacterListener> characterListeners;
 	protected ArrayList<CharacterInventoryListener> cInventoryListeners;
@@ -58,9 +57,8 @@ public class Character
 
 		this.im = new InventoryManager();
 		this.am = new AttributeManager();
-		this.mm = new MoraleManager();
 		this.abm = new AbilityManager();
-		this.bm = new BattleManager();
+		this.em = new EventManager();
 
 		this.assignListeners();
 
@@ -71,23 +69,14 @@ public class Character
 		this.im.addEffectListener(this.am);
 
 		this.am.addCharacterInventoryListener(this.im);
-		this.am.addPostDataListener(this.bm);
-		this.am.addPostDataListener(this.mm);
-
-		this.mm.addAbilityListener(this.abm);
-		this.mm.addMoraleListener(this.bm);
-		this.mm.addRetrievalListener(this.am);
 
 		this.abm.addEffectListener(this.am);
-		this.abm.addEffectListener(this.bm);
-		this.abm.addEffectListener(this.mm);
 
-		this.bm.addBattleControlListener(this.mm);
-		this.bm.addCombatListener(null);
-		this.bm.addEffectListener(this.am);
-		this.bm.addRetrievalListener(this.am);
-		this.bm.addRoundControlListener(null);
-		this.bm.addTurnControlListener(this.am);
+		this.em.addBattleControlListener(this.abm);
+		this.em.addCombatListener(null);
+		this.em.addRoundControlListener(this.abm);
+		this.em.addTurnControlListener(this.am);
+		this.em.addTurnControlListener(this.abm);
 
 		this.addAbilityListener(abm);
 		this.addCharacterInventoryListener(im);
@@ -140,12 +129,8 @@ public class Character
 		return this.abm;
 	}
 
-	public MoraleManager getMm() {
-		return this.mm;
-	}
-
-	public BattleManager getBm() {
-		return this.bm;
+	public EventManager getBm() {
+		return this.em;
 	}
 
 	public void display() {
@@ -155,7 +140,6 @@ public class Character
 		this.am.display();
 		this.im.display();
 		this.abm.display();
-		this.mm.display();
 		System.out.println();
 	}
 

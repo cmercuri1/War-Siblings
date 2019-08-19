@@ -4,6 +4,7 @@
  */
 package storage_classes;
 
+import effect_classes.Effect;
 import event_classes.PermanentInjuryEvent;
 import listener_interfaces.PermanentInjuryListener;
 import notifier_interfaces.PermanentInjuryNotifier;

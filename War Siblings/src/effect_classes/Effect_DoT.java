@@ -20,10 +20,6 @@ public class Effect_DoT extends Effect_TimedDuration_Turn implements AttributeLi
 	}
 
 	@Override
-	protected void triggerStart() {
-	}
-
-	@Override
 	protected void triggerEnd() {
 		this.notifyTriggeredEffectListeners(
 				new TriggeredEffectEvent(TriggeredEffectEvent.Task.DAMAGE, this.damageOnTurn.getAlteredValue(), this));

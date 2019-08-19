@@ -7,7 +7,7 @@ package effect_classes;
 import event_classes.BattleControlEvent;
 import listener_interfaces.BattleControlListener;
 
-public abstract class Effect_BattleSituational extends Effect_Triggered implements BattleControlListener {
+public abstract class Effect_Battle_Triggered extends Effect_Triggered implements BattleControlListener {
 
 	@Override
 	public void onBattleControlEvent(BattleControlEvent b) {

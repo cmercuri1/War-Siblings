@@ -4,6 +4,7 @@
  */
 package storage_classes;
 
+import effect_classes.Modifier;
 import event_classes.AttributeEvent;
 import listener_interfaces.AttributeListener;
 import notifier_interfaces.AttributeNotifier;

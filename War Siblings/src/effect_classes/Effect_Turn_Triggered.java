@@ -7,7 +7,7 @@ package effect_classes;
 import event_classes.TurnControlEvent;
 import listener_interfaces.TurnControlListener;
 
-public abstract class Effect_TurnSituational extends Effect_Triggered implements TurnControlListener {
+public abstract class Effect_Turn_Triggered extends Effect_Triggered implements TurnControlListener {
 
 	@Override
 	public void onTurnControlEvent(TurnControlEvent t) {

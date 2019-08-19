@@ -1,19 +1,25 @@
 /** War Siblings
- * Effect_Modifier_Battle
+ * Effect_Modifier_Battle_Situational
  * Author: Chris Mercuri cmercuri1@student.unimelb.edu.au
  */
 package effect_classes;
 
 import event_classes.TriggeredEffectEvent;
+import storage_classes.BattleConditions.Battlefield;
+import storage_classes.BattleConditions.Foes;
+import storage_classes.BattleConditions.TimeOfDay;
 
-public class Effect_Modifier_Battle extends Effect_Battle_Triggered {
+public class Effect_Modifier_Battle_Situational extends Effect_Battle_Situational {
 	protected Modifier mod;
 
-	public Effect_Modifier_Battle(String modName, double modValue) {
+	public Effect_Modifier_Battle_Situational(Battlefield battlefield, Foes foes, TimeOfDay time, String modName,
+			double modValue) {
+		super(battlefield, foes, time);
 		this.mod = new Modifier(modName, modValue);
 	}
-	
-	public Effect_Modifier_Battle(Modifier mod) {
+
+	public Effect_Modifier_Battle_Situational(Battlefield battlefield, Foes foes, TimeOfDay time, Modifier mod) {
+		super(battlefield, foes, time);
 		this.mod = mod;
 	}
 
@@ -33,7 +39,7 @@ public class Effect_Modifier_Battle extends Effect_Battle_Triggered {
 
 	@Override
 	public void display() {
-		
+
 	}
 
 }

@@ -38,6 +38,7 @@ public class Modifier {
 			this.name = eName.replace("_Percent", "");
 			return true;
 		}
+		this.isMulti = false;
 		return false;
 	}
 
@@ -46,6 +47,7 @@ public class Modifier {
 			this.finalAdd = true;
 			this.name = eName.replace("_Final", "");
 		}
+		this.finalAdd = false;
 	}
 
 	protected void setIsUnique(String eName) {
@@ -53,6 +55,7 @@ public class Modifier {
 			this.isUnique = true;
 			this.name = eName.replace("_Unique", "");
 		}
+		this.isUnique = false;
 	}
 
 	/** Checks if this modifier and another are the same */
