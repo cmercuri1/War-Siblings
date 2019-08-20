@@ -66,11 +66,6 @@ public class Character
 
 	protected void assignListeners() {
 		this.im.addTraitListener(this.abm);
-		this.im.addEffectListener(this.am);
-
-		this.am.addCharacterInventoryListener(this.im);
-
-		this.abm.addEffectListener(this.am);
 
 		this.em.addBattleControlListener(this.abm);
 		this.em.addCombatListener(null);
@@ -144,6 +139,22 @@ public class Character
 	}
 
 	@Override
+	public void onCharacterEvent(CharacterEvent c) {
+		switch (c.getTask()) {
+		case CHANGED_CHARACTER:
+			this.resetCharacter();
+			if (c.getInformation().equals("Random")) {
+				this.makeCharacter(GlobalManager.backgrounds.getRandomBackground());
+			} else {
+				this.makeCharacter(GlobalManager.backgrounds.getBackground((String) c.getInformation()));
+			}
+			break;
+		case FINISHED_CHARACTER:
+			break;
+		}
+	}
+
+	@Override
 	public void addCharacterListener(CharacterListener c) {
 		this.characterListeners.add(c);
 	}
@@ -161,22 +172,6 @@ public class Character
 	@Override
 	public void notifyCharacterListener(CharacterListener c, CharacterEvent e) {
 		this.characterListeners.get(c).onCharacterEvent(e);
-	}
-
-	@Override
-	public void onCharacterEvent(CharacterEvent c) {
-		switch (c.getTask()) {
-		case CHANGED_CHARACTER:
-			this.resetCharacter();
-			if (c.getInformation().equals("Random")) {
-				this.makeCharacter(GlobalManager.backgrounds.getRandomBackground());
-			} else {
-				this.makeCharacter(GlobalManager.backgrounds.getBackground((String) c.getInformation()));
-			}
-			break;
-		case FINISHED_CHARACTER:
-			break;
-		}
 	}
 
 	@Override

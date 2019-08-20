@@ -29,9 +29,9 @@ public class TemporyInjuryManager extends BaseGlobalManager {
 		for (Object ob : temp) {
 			JSONObject temp2 = (JSONObject) ob;
 			try {
-				temp3.add(new Effect((String) temp2.get("Effect Name"), (Long) temp2.get("Value")));
+				temp3.add(GlobalManager.effectFactory.getEffect((String) temp2.get("Effect Name"),
+						(Long) temp2.get("Value")));
 			} catch (NullPointerException nul) {
-				temp3.add(new Effect((String) temp2.get("Effect Name")));
 			}
 		}
 
@@ -65,6 +65,14 @@ public class TemporyInjuryManager extends BaseGlobalManager {
 		temp.removeIf(t -> !(t.getDamageType().equals(damageType)));
 
 		return temp;
+	}
+
+	public TemporaryInjury getInjury(String injuryName) {
+		for (TemporaryInjury t : this.injuryList) {
+			if (t.getName().equals(injuryName))
+				return t;
+		}
+		return null;
 	}
 
 }

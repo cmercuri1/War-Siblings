@@ -20,6 +20,7 @@ public class AbilityEvent extends InfoEvent {
 		super(info, source);
 		this.information = info;
 		this.task = t;
+		this.source = source;
 	}
 
 	public Task getTask() {

@@ -5,13 +5,14 @@
 package character;
 
 import storage_classes.ArrayList;
-import event_classes.MoraleEvent;
+import storage_classes.BattleConditions;
+import event_classes.MoraleRollOutcomeEvent;
 import event_classes.AbilityEvent;
 import event_classes.BattleControlEvent;
 import event_classes.CombatEvent;
 import event_classes.RoundControlEvent;
 import event_classes.TurnControlEvent;
-import listener_interfaces.MoraleListener;
+import listener_interfaces.MoraleRollOutcomeListener;
 import listener_interfaces.AbilityListener;
 import listener_interfaces.BattleControlListener;
 import listener_interfaces.CombatListener;
@@ -28,7 +29,7 @@ import notifier_interfaces.TurnControlNotifier;
  * A manager class that handles actions and consequences of battle. This acts as
  * the gatekeeper to the rest of the character for any interactions
  */
-public class EventManager implements BattleControlListener, MoraleListener, MultiNotifier, AbilityNotifier,
+public class EventManager implements BattleControlListener, MoraleRollOutcomeListener, MultiNotifier, AbilityNotifier,
 		BattleControlNotifier, CombatNotifier, TurnControlNotifier, RoundControlNotifier {
 
 	protected ArrayList<AbilityListener> abilityListeners;
@@ -63,7 +64,7 @@ public class EventManager implements BattleControlListener, MoraleListener, Mult
 	}
 
 	@Override
-	public void onMoraleEvent(MoraleEvent m) {
+	public void onMoraleRollOutcomeEvent(MoraleRollOutcomeEvent m) {
 		switch (m.getTask()) {
 		case NEGATIVE_ROLL_FAIL:
 			break;
@@ -80,8 +81,8 @@ public class EventManager implements BattleControlListener, MoraleListener, Mult
 		}
 	}
 
-	public void startBattle(ArrayList<String> enemies) {
-		this.notifyBattleControlListeners(new BattleControlEvent(BattleControlEvent.Task.START_BATTLE, enemies, this));
+	public void startBattle(BattleConditions bc) {
+		this.notifyBattleControlListeners(new BattleControlEvent(BattleControlEvent.Task.START_BATTLE, bc, this));
 	}
 
 	public void startRound() {
@@ -92,8 +93,8 @@ public class EventManager implements BattleControlListener, MoraleListener, Mult
 		this.notifyTurnControlListeners(new TurnControlEvent(TurnControlEvent.Task.START_TURN, null, this));
 	}
 
-	public void endBattle(ArrayList<String> enemies) {
-		this.notifyBattleControlListeners(new BattleControlEvent(BattleControlEvent.Task.END_BATTLE, enemies, this));
+	public void endBattle(BattleConditions bc) {
+		this.notifyBattleControlListeners(new BattleControlEvent(BattleControlEvent.Task.END_BATTLE, bc, this));
 	}
 
 	@Override

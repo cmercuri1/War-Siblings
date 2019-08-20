@@ -42,7 +42,7 @@ public class Effect_TimedDuration_Turn extends Effect_Turn_Triggered implements 
 		switch (a.getTask()) {
 		case UPDATE:
 			if (a.getSource().equals(duration))
-				if (a.getInformation() >= 0) {
+				if (a.getInformation() <= 0) {
 					this.notifyTriggeredEffectListeners(
 							new TriggeredEffectEvent(TriggeredEffectEvent.Task.REMOVE, null, this));
 				}

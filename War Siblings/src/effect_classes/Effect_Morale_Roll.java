@@ -4,12 +4,12 @@
  */
 package effect_classes;
 
-import event_classes.MoraleEvent;
+import event_classes.MoraleRollOutcomeEvent;
 import event_classes.MoraleRollEvent;
-import listener_interfaces.MoraleListener;
+import listener_interfaces.MoraleRollOutcomeListener;
 import listener_interfaces.MoraleRollListener;
 
-public class Effect_Morale_Roll extends Effect_Modifier_Triggered implements MoraleRollListener, MoraleListener {
+public class Effect_Morale_Roll extends Effect_Modifier_Triggered implements MoraleRollListener, MoraleRollOutcomeListener {
 	protected String type;
 
 	public Effect_Morale_Roll(String type, double modValue) {
@@ -18,7 +18,7 @@ public class Effect_Morale_Roll extends Effect_Modifier_Triggered implements Mor
 	}
 
 	@Override
-	public void onMoraleEvent(MoraleEvent m) {
+	public void onMoraleRollOutcomeEvent(MoraleRollOutcomeEvent m) {
 		if (m.getTask().toString().contains(this.type)) {
 			this.triggerEnd();
 		}

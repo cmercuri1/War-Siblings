@@ -2,9 +2,7 @@
  * Effect_Poison
  * Author: Chris Mercuri cmercuri1@student.unimelb.edu.au
  */
-package effect_classes_specific;
-
-import effect_classes.Effect_DoT;
+package effect_classes;
 
 public class Effect_Poison extends Effect_DoT {
 

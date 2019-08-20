@@ -4,12 +4,10 @@
  */
 package effect_classes;
 
-import event_classes.AttributeEvent;
 import event_classes.TriggeredEffectEvent;
-import listener_interfaces.AttributeListener;
 import storage_classes.Attribute;
 
-public class Effect_DoT extends Effect_TimedDuration_Turn implements AttributeListener {
+public class Effect_DoT extends Effect_TimedDuration_Turn {
 
 	protected Attribute damageOnTurn;
 
@@ -24,11 +22,6 @@ public class Effect_DoT extends Effect_TimedDuration_Turn implements AttributeLi
 		this.notifyTriggeredEffectListeners(
 				new TriggeredEffectEvent(TriggeredEffectEvent.Task.DAMAGE, this.damageOnTurn.getAlteredValue(), this));
 		super.triggerEnd();
-	}
-
-	@Override
-	public void onAttributeEvent(AttributeEvent a) {
-
 	}
 
 }

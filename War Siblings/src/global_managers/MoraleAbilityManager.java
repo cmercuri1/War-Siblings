@@ -33,9 +33,9 @@ public class MoraleAbilityManager extends BaseGlobalManager {
 		for (Object ob : temp) {
 			JSONObject temp2 = (JSONObject) ob;
 			try {
-				temp3.add(new Effect((String) temp2.get("Effect Name"), (Long) temp2.get("Value")));
+				temp3.add(GlobalManager.effectFactory.getEffect((String) temp2.get("Effect Name"),
+						(Long) temp2.get("Value")));
 			} catch (NullPointerException nul) {
-				temp3.add(new Effect((String) temp2.get("Effect Name")));
 			}
 		}
 

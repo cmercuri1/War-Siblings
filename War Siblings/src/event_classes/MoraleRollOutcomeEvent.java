@@ -4,18 +4,18 @@
  */
 package event_classes;
 
-import notifier_interfaces.MoraleNotifier;
+import notifier_interfaces.MoraleRollOutcomeNotifier;
 
-public class MoraleEvent extends InfoEvent {
+public class MoraleRollOutcomeEvent extends InfoEvent {
 	public enum Task {
 		POSITIVE_ROLL_SUCCESS, POSITIVE_ROLL_FAIL, NEGATIVE_ROLL_SUCCESS, NEGATIVE_ROLL_FAIL, SPECIAL_ROLL_SUCCESS,
 		SPECIAL_ROLL_FAIL,
 	};
 
 	protected Task task;
-	protected MoraleNotifier source;
+	protected MoraleRollOutcomeNotifier source;
 
-	public MoraleEvent(Task t, Object info, MoraleNotifier src) {
+	public MoraleRollOutcomeEvent(Task t, Object info, MoraleRollOutcomeNotifier src) {
 		super(info, src);
 		this.task = t;
 	}
@@ -24,7 +24,7 @@ public class MoraleEvent extends InfoEvent {
 		return this.task;
 	}
 
-	public MoraleNotifier getSource() {
+	public MoraleRollOutcomeNotifier getSource() {
 		return this.source;
 	}
 }

@@ -21,6 +21,8 @@ public class GlobalManager {
 	public static TemporyInjuryManager tempInjury;
 	public static PermanentInjuryManager permInjury;
 	public static MoodManager moods;
+	
+	public static EffectFactory effectFactory;
 
 	public static Random rng;
 
@@ -36,6 +38,8 @@ public class GlobalManager {
 		permInjury = new PermanentInjuryManager();
 		moods = new MoodManager();
 		backgrounds = new BackgroundManager();
+		
+		effectFactory = new EffectFactory();
 
 		rng = new Random();
 	}

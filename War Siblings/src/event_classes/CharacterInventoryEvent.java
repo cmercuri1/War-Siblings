@@ -10,7 +10,7 @@ import notifier_interfaces.CharacterInventoryNotifier;
 public class CharacterInventoryEvent extends InfoEvent {
 	public enum Task {
 		CHANGE_BODY, REMOVE_BODY, CHANGE_HEAD, REMOVE_HEAD, CHANGE_LEFT, REMOVE_LEFT, CHANGE_RIGHT, REMOVE_RIGHT,
-		RANGED_PREF, REMOVE_ALL
+		REMOVE_ALL
 	};
 
 	protected Task task;

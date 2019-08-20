@@ -9,10 +9,10 @@ import java.lang.reflect.Field;
 import effect_classes.Modifier;
 import event_classes.AbilityEvent;
 import event_classes.AttributeEvent;
-import event_classes.CharacterInventoryEvent;
+import event_classes.SkillPreferenceEvent;
 import event_classes.LevelUpAttributeEvent;
 import event_classes.ModifierEvent;
-import event_classes.MoraleEvent;
+import event_classes.MoraleRollOutcomeEvent;
 import event_classes.MoraleRollEvent;
 import event_classes.MultiValueAttributeEvent;
 import event_classes.PostDataEvent;
@@ -23,10 +23,10 @@ import global_generators.BackgroundGenerator;
 import global_managers.GlobalManager;
 import listener_interfaces.AbilityListener;
 import listener_interfaces.AttributeListener;
-import listener_interfaces.CharacterInventoryListener;
+import listener_interfaces.SkillPreferenceListener;
 import listener_interfaces.LevelUpAttributeListener;
 import listener_interfaces.ModifierListener;
-import listener_interfaces.MoraleListener;
+import listener_interfaces.MoraleRollOutcomeListener;
 import listener_interfaces.MoraleRollListener;
 import listener_interfaces.MultiValueAttributeListener;
 import listener_interfaces.PostDataListener;
@@ -35,8 +35,8 @@ import listener_interfaces.TurnControlListener;
 import listener_interfaces.StarAttributeListener;
 import notifier_interfaces.PostDataNotifier;
 import notifier_interfaces.AbilityNotifier;
-import notifier_interfaces.CharacterInventoryNotifier;
-import notifier_interfaces.MoraleNotifier;
+import notifier_interfaces.SkillPreferenceNotifier;
+import notifier_interfaces.MoraleRollOutcomeNotifier;
 import notifier_interfaces.MultiNotifier;
 import storage_classes.ArrayList;
 import storage_classes.Attribute;
@@ -57,7 +57,7 @@ import storage_classes.WageAttribute;
  */
 public class AttributeManager implements MultiNotifier, AttributeListener, ModifierListener, LevelUpAttributeListener,
 		MultiValueAttributeListener, RetrievalListener, TurnControlListener, StarAttributeListener, MoraleRollListener,
-		PostDataNotifier, CharacterInventoryNotifier, AbilityNotifier, MoraleNotifier {
+		PostDataNotifier, SkillPreferenceNotifier, MoraleRollOutcomeNotifier {
 	// Visible Character Attributes
 	protected HitpointAttribute hitpoints;
 	protected FatigueAttribute fatigue;
@@ -91,11 +91,9 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Modif
 	protected ArrayList<ArrayList<LevelUp>> levelUps;
 
 	protected ArrayList<PostDataListener> postDataListeners;
-	protected ArrayList<CharacterInventoryListener> charInventoryListeners;
-	protected ArrayList<MoraleListener> moraleListeners;
+	protected ArrayList<SkillPreferenceListener> charInventoryListeners;
+	protected ArrayList<MoraleRollOutcomeListener> moraleRollOutcomeListeners;
 	protected ArrayList<AbilityListener> abilityListeners;
-
-	protected int pref; // Only used in determining starting equipment
 
 	public AttributeManager() {
 		this.levelUps = new ArrayList<ArrayList<LevelUp>>();
@@ -105,14 +103,15 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Modif
 	@Override
 	public void setUpListeners() {
 		this.postDataListeners = new ArrayList<PostDataListener>();
-		this.charInventoryListeners = new ArrayList<CharacterInventoryListener>();
-		this.moraleListeners = new ArrayList<MoraleListener>();
+		this.charInventoryListeners = new ArrayList<SkillPreferenceListener>();
+		this.moraleRollOutcomeListeners = new ArrayList<MoraleRollOutcomeListener>();
 		this.abilityListeners = new ArrayList<AbilityListener>();
 	}
 
 	public void setUpAttributes(BackgroundGenerator bg) {
 		this.assignAttributes(bg);
 		this.assignStars(bg.getExcludedTalents());
+		this.resetMorale();
 	}
 
 	/**
@@ -181,11 +180,6 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Modif
 			managers.get(j).setNumStars();
 			managers.remove(j);
 		}
-
-		if (pref > 0) {
-			this.notifyCharacterInventoryListeners(
-					new CharacterInventoryEvent(CharacterInventoryEvent.Task.RANGED_PREF, null, this));
-		}
 	}
 
 	/** Needs to be called after abilities are set up */
@@ -215,8 +209,8 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Modif
 		} catch (NullPointerException nu) {
 		}
 		try {
-			this.notifyAbilityListeners(new AbilityEvent(AbilityEvent.Task.ADD,
-					GlobalManager.morale.getMoraleAbility(this.currentMorale), this));
+			this.notifyAbilityListeners(
+					new AbilityEvent(AbilityEvent.Task.ADD, GlobalManager.morale.getMoraleAbility(state), this));
 		} catch (NullPointerException nu) {
 		}
 
@@ -336,9 +330,11 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Modif
 		switch (s.getTask()) {
 		case STAR_ASSIGNED:
 			if (s.getSource() == this.meleeSkill)
-				pref -= s.getInformation();
+				this.notifySkillPreferenceListeners(
+						new SkillPreferenceEvent(SkillPreferenceEvent.Task.MELEE_PREF, s.getInformation(), this));
 			if (s.getSource() == this.rangedSkill)
-				pref += s.getInformation();
+				this.notifySkillPreferenceListeners(
+						new SkillPreferenceEvent(SkillPreferenceEvent.Task.RANGED_PREF, s.getInformation(), this));
 			break;
 		}
 	}
@@ -372,6 +368,24 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Modif
 	}
 
 	@Override
+	public void onTurnControlEvent(TurnControlEvent t) {
+		switch (t.getTask()) {
+		case END_TURN:
+			break;
+		case START_TURN:
+			this.fatigue.alterCurrent(-this.fatigueRecovery.getAlteredValue());
+			break;
+		}
+
+	}
+
+	@Override
+	public void onMoraleRollEvent(MoraleRollEvent m) {
+		// TODO Auto-generated method stub
+	
+	}
+
+	@Override
 	public void addPostDataListener(PostDataListener a) {
 		this.postDataListeners.add(a);
 	}
@@ -392,87 +406,45 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Modif
 	}
 
 	@Override
-	public void addCharacterInventoryListener(CharacterInventoryListener c) {
-		this.charInventoryListeners.add(c);
+	public void addSkillPreferenceListener(SkillPreferenceListener i) {
+		this.charInventoryListeners.add(i);
 	}
 
 	@Override
-	public void removeCharacterInventoryListener(CharacterInventoryListener c) {
-		this.charInventoryListeners.remove(c);
+	public void removeSkillPreferenceListener(SkillPreferenceListener i) {
+		this.charInventoryListeners.remove(i);
 	}
 
 	@Override
-	public void notifyCharacterInventoryListeners(CharacterInventoryEvent c) {
-		this.charInventoryListeners.forEach(l -> l.onCharacterInventoryEvent(c));
+	public void notifySkillPreferenceListeners(SkillPreferenceEvent i) {
+		this.charInventoryListeners.forEach(l -> l.onSkillPreferenceEvent(i));
 	}
 
 	@Override
-	public void notifyCharacterInventoryListener(CharacterInventoryListener c, CharacterInventoryEvent e) {
-		this.charInventoryListeners.get(c).onCharacterInventoryEvent(e);
+	public void notifySkillPreferenceListener(SkillPreferenceListener i, SkillPreferenceEvent e) {
+		this.charInventoryListeners.get(i).onSkillPreferenceEvent(e);
 	}
 
 	@Override
-	public void onTurnControlEvent(TurnControlEvent t) {
-		switch (t.getTask()) {
-		case END_TURN:
-			break;
-		case START_TURN:
-			this.fatigue.alterCurrent(-this.fatigueRecovery.getAlteredValue());
-			break;
-		}
-
-	}
-
-	@Override
-	public void addMoraleListener(MoraleListener m) {
+	public void addMoraleListener(MoraleRollOutcomeListener m) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void removeMoraleListener(MoraleListener m) {
+	public void removeMoraleListener(MoraleRollOutcomeListener m) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void notifyMoraleListeners(MoraleEvent m) {
+	public void notifyMoraleListeners(MoraleRollOutcomeEvent m) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void notifyMoraleListener(MoraleListener m, MoraleEvent e) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void addAbilityListener(AbilityListener a) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void removeAbilityListener(AbilityListener a) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void notifyAbilityListeners(AbilityEvent a) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void notifyAbilityListener(AbilityListener a, AbilityEvent e) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void onMoraleRollEvent(MoraleRollEvent m) {
+	public void notifyMoraleListener(MoraleRollOutcomeListener m, MoraleRollOutcomeEvent e) {
 		// TODO Auto-generated method stub
 
 	}
