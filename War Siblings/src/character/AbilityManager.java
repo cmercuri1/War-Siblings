@@ -6,8 +6,8 @@ package character;
 
 import event_classes.AbilityEvent;
 import event_classes.BattleControlEvent;
-import event_classes.EffectEvent;
 import event_classes.ModifierEvent;
+import event_classes.MoraleChangeEvent;
 import event_classes.PermanentInjuryEvent;
 import event_classes.RoundControlEvent;
 import event_classes.TemporaryInjuryEvent;
@@ -20,14 +20,19 @@ import global_managers.GlobalManager;
 import listener_interfaces.AbilityListener;
 import listener_interfaces.BattleControlListener;
 import listener_interfaces.ModifierListener;
+import listener_interfaces.MoraleChangeListener;
 import listener_interfaces.PermanentInjuryListener;
 import listener_interfaces.RoundControlListener;
 import listener_interfaces.TemporaryInjuryListener;
 import listener_interfaces.TraitListener;
 import listener_interfaces.TriggeredEffectListener;
 import listener_interfaces.TurnControlListener;
+import notifier_interfaces.BattleControlNotifier;
 import notifier_interfaces.ModifierNotifier;
+import notifier_interfaces.MoraleChangeNotifier;
 import notifier_interfaces.MultiNotifier;
+import notifier_interfaces.RoundControlNotifier;
+import notifier_interfaces.TurnControlNotifier;
 import storage_classes.Ability;
 import storage_classes.ArrayList;
 import storage_classes.PermanentInjury;
@@ -39,15 +44,21 @@ import storage_classes.Trait;
  * from items, traits or from level abilities
  */
 public class AbilityManager implements AbilityListener, TraitListener, PermanentInjuryListener, TemporaryInjuryListener,
-		TriggeredEffectListener, BattleControlListener, TurnControlListener, RoundControlListener, MultiNotifier,
-		ModifierNotifier {
+		TriggeredEffectListener, BattleControlListener, TurnControlListener, RoundControlListener, MoraleChangeListener,
+		MultiNotifier, ModifierNotifier, BattleControlNotifier, TurnControlNotifier, RoundControlNotifier,
+		MoraleChangeNotifier {
 
 	protected ArrayList<Ability> characterAbilities;
 	protected ArrayList<Trait> characterTraits;
 	protected ArrayList<PermanentInjury> permaInjuries;
 	protected ArrayList<TemporaryInjury> tempInjuries;
 
-	protected ArrayList<ModifierListener> effectListeners;
+	protected ArrayList<ModifierListener> modifierListeners;
+
+	protected ArrayList<BattleControlListener> battleControlListeners;
+	protected ArrayList<RoundControlListener> roundControlListeners;
+	protected ArrayList<TurnControlListener> turnControlListeners;
+	protected ArrayList<MoraleChangeListener> moraleChangeListeners;
 
 	public AbilityManager() {
 		this.characterAbilities = new ArrayList<Ability>();
@@ -60,7 +71,11 @@ public class AbilityManager implements AbilityListener, TraitListener, Permanent
 
 	@Override
 	public void setUpListeners() {
-		this.effectListeners = new ArrayList<ModifierListener>();
+		this.modifierListeners = new ArrayList<ModifierListener>();
+		this.battleControlListeners = new ArrayList<BattleControlListener>();
+		this.roundControlListeners = new ArrayList<RoundControlListener>();
+		this.turnControlListeners = new ArrayList<TurnControlListener>();
+		this.moraleChangeListeners = new ArrayList<MoraleChangeListener>();
 	}
 
 	public void setUpAbilities(BackgroundGenerator background) {
@@ -115,7 +130,7 @@ public class AbilityManager implements AbilityListener, TraitListener, Permanent
 	public void sufferTemporaryInjury(TemporaryInjury injury) {
 		injury.addTemporaryInjuryListener(this);
 		this.tempInjuries.add(injury);
-		this.notifyOtherManagers(EffectEvent.Task.ADD, injury);
+		this.notifyOtherManagers(ModifierEvent.Task.ADD, injury);
 	}
 
 	public void healTemporaryInjuries() {
@@ -125,13 +140,13 @@ public class AbilityManager implements AbilityListener, TraitListener, Permanent
 	public void sufferPermanentInjury(PermanentInjury injury) {
 		injury.addPermanentInjuryListener(this);
 		this.permaInjuries.add(injury);
-		this.notifyOtherManagers(EffectEvent.Task.ADD, injury);
+		this.notifyOtherManagers(ModifierEvent.Task.ADD, injury);
 	}
 
 	public void healPermanentInjury(PermanentInjury injury) {
 		injury.removePermanentInjuryListener(this);
 		this.permaInjuries.remove(injury);
-		this.notifyOtherManagers(EffectEvent.Task.ADD, injury);
+		this.notifyOtherManagers(ModifierEvent.Task.ADD, injury);
 	}
 
 	public void healPermanentInjuries() {
@@ -140,26 +155,26 @@ public class AbilityManager implements AbilityListener, TraitListener, Permanent
 
 	public void addAbility(Ability ability) {
 		this.characterAbilities.add(ability);
-		this.notifyOtherManagers(EffectEvent.Task.ADD, ability);
+		this.notifyOtherManagers(ModifierEvent.Task.ADD, ability);
 	}
 
 	public void addTrait(Trait trait) {
 		this.characterTraits.add(trait);
-		this.notifyOtherManagers(EffectEvent.Task.ADD, trait);
+		this.notifyOtherManagers(ModifierEvent.Task.ADD, trait);
 	}
 
 	public void removeAbility(Ability ability) {
 		if (this.characterAbilities.remove(ability))
-			this.notifyOtherManagers(EffectEvent.Task.REMOVE, ability);
+			this.notifyOtherManagers(ModifierEvent.Task.REMOVE, ability);
 	}
 
 	public void removeTrait(Trait trait) {
 		if (this.characterTraits.remove(trait))
-			this.notifyOtherManagers(EffectEvent.Task.REMOVE, trait);
+			this.notifyOtherManagers(ModifierEvent.Task.REMOVE, trait);
 	}
 
-	protected void notifyOtherManagers(EffectEvent.Task task, Ability ability) {
-		//TODO
+	protected void notifyOtherManagers(ModifierEvent.Task task, Ability ability) {
+		// TODO
 	}
 
 	public void display() {
@@ -249,6 +264,12 @@ public class AbilityManager implements AbilityListener, TraitListener, Permanent
 			break;
 		case REMOVE:
 			break;
+		case ADD_ABILITY:
+			break;
+		case REMOVE_ABILITY:
+			break;
+		case MORALE_REPLACE:
+			break;
 		}
 	}
 
@@ -283,22 +304,107 @@ public class AbilityManager implements AbilityListener, TraitListener, Permanent
 	}
 
 	@Override
+	public void onMoraleChangeEvent(MoraleChangeEvent m) {
+		this.notifyMoraleChangeListeners(m);
+	}
+
+	@Override
 	public void addModifierListener(ModifierListener e) {
-		this.effectListeners.add(e);
+		this.modifierListeners.add(e);
 	}
 
 	@Override
 	public void removeModifierListener(ModifierListener e) {
-		this.effectListeners.remove(e);
+		this.modifierListeners.remove(e);
 	}
 
 	@Override
 	public void notifyModifierListeners(ModifierEvent e) {
-		this.effectListeners.forEach(l -> l.onModifierEvent(e));
+		this.modifierListeners.forEach(l -> l.onModifierEvent(e));
 	}
 
 	@Override
 	public void notifyModifierListener(ModifierListener l, ModifierEvent e) {
-		this.effectListeners.get(l).onModifierEvent(e);
+		this.modifierListeners.get(l).onModifierEvent(e);
+	}
+
+	@Override
+	public void addMoraleChangeListener(MoraleChangeListener m) {
+		this.moraleChangeListeners.add(m);
+	}
+
+	@Override
+	public void removeMoraleChangeListener(MoraleChangeListener m) {
+		this.moraleChangeListeners.remove(m);
+	}
+
+	@Override
+	public void notifyMoraleChangeListeners(MoraleChangeEvent m) {
+		this.moraleChangeListeners.forEach(l -> l.onMoraleChangeEvent(m));
+	}
+
+	@Override
+	public void notifyMoraleChangeListener(MoraleChangeListener m, MoraleChangeEvent e) {
+		this.moraleChangeListeners.get(m).onMoraleChangeEvent(e);
+	}
+
+	@Override
+	public void addBattleControlListener(BattleControlListener b) {
+		this.battleControlListeners.add(b);
+	}
+
+	@Override
+	public void removeBattleControlListener(BattleControlListener b) {
+		this.battleControlListeners.remove(b);
+	}
+
+	@Override
+	public void notifyBattleControlListeners(BattleControlEvent b) {
+		this.battleControlListeners.forEach(l -> l.onBattleControlEvent(b));
+	}
+
+	@Override
+	public void notifyBattleControlListener(BattleControlListener b, BattleControlEvent e) {
+		this.battleControlListeners.get(b).onBattleControlEvent(e);
+	}
+
+	@Override
+	public void addRoundControlListener(RoundControlListener r) {
+		this.roundControlListeners.add(r);
+	}
+
+	@Override
+	public void removeRoundControlListener(RoundControlListener r) {
+		this.roundControlListeners.remove(r);
+	}
+
+	@Override
+	public void notifyRoundControlListeners(RoundControlEvent r) {
+		this.roundControlListeners.forEach(l -> l.onRoundControlEvent(r));
+	}
+
+	@Override
+	public void notifyRoundControlListener(RoundControlListener r, RoundControlEvent e) {
+		this.roundControlListeners.get(r).onRoundControlEvent(e);
+	}
+
+	@Override
+	public void addTurnControlListener(TurnControlListener t) {
+		this.turnControlListeners.add(t);
+	}
+
+	@Override
+	public void removeTurnControlListener(TurnControlListener t) {
+		this.turnControlListeners.remove(t);
+	}
+
+	@Override
+	public void notifyTurnControlListeners(TurnControlEvent t) {
+		this.turnControlListeners.forEach(l -> l.onTurnControlEvent(t));
+	}
+
+	@Override
+	public void notifyTurnControlListener(TurnControlListener t, TurnControlEvent e) {
+		this.turnControlListeners.get(t).onTurnControlEvent(e);
 	}
 }

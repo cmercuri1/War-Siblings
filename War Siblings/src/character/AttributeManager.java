@@ -7,11 +7,11 @@ package character;
 import java.lang.reflect.Field;
 
 import effect_classes.Modifier;
-import event_classes.AbilityEvent;
 import event_classes.AttributeEvent;
 import event_classes.SkillPreferenceEvent;
 import event_classes.LevelUpAttributeEvent;
 import event_classes.ModifierEvent;
+import event_classes.MoraleChangeEvent;
 import event_classes.MoraleRollOutcomeEvent;
 import event_classes.MoraleRollEvent;
 import event_classes.MultiValueAttributeEvent;
@@ -21,11 +21,11 @@ import event_classes.StarAttributeEvent;
 import event_classes.TurnControlEvent;
 import global_generators.BackgroundGenerator;
 import global_managers.GlobalManager;
-import listener_interfaces.AbilityListener;
 import listener_interfaces.AttributeListener;
 import listener_interfaces.SkillPreferenceListener;
 import listener_interfaces.LevelUpAttributeListener;
 import listener_interfaces.ModifierListener;
+import listener_interfaces.MoraleChangeListener;
 import listener_interfaces.MoraleRollOutcomeListener;
 import listener_interfaces.MoraleRollListener;
 import listener_interfaces.MultiValueAttributeListener;
@@ -34,8 +34,8 @@ import listener_interfaces.RetrievalListener;
 import listener_interfaces.TurnControlListener;
 import listener_interfaces.StarAttributeListener;
 import notifier_interfaces.PostDataNotifier;
-import notifier_interfaces.AbilityNotifier;
 import notifier_interfaces.SkillPreferenceNotifier;
+import notifier_interfaces.MoraleChangeNotifier;
 import notifier_interfaces.MoraleRollOutcomeNotifier;
 import notifier_interfaces.MultiNotifier;
 import storage_classes.ArrayList;
@@ -57,7 +57,7 @@ import storage_classes.WageAttribute;
  */
 public class AttributeManager implements MultiNotifier, AttributeListener, ModifierListener, LevelUpAttributeListener,
 		MultiValueAttributeListener, RetrievalListener, TurnControlListener, StarAttributeListener, MoraleRollListener,
-		PostDataNotifier, SkillPreferenceNotifier, MoraleRollOutcomeNotifier {
+		PostDataNotifier, SkillPreferenceNotifier, MoraleRollOutcomeNotifier, MoraleChangeNotifier {
 	// Visible Character Attributes
 	protected HitpointAttribute hitpoints;
 	protected FatigueAttribute fatigue;
@@ -93,7 +93,7 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Modif
 	protected ArrayList<PostDataListener> postDataListeners;
 	protected ArrayList<SkillPreferenceListener> charInventoryListeners;
 	protected ArrayList<MoraleRollOutcomeListener> moraleRollOutcomeListeners;
-	protected ArrayList<AbilityListener> abilityListeners;
+	protected ArrayList<MoraleChangeListener> moraleChangeListeners;
 
 	public AttributeManager() {
 		this.levelUps = new ArrayList<ArrayList<LevelUp>>();
@@ -105,7 +105,7 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Modif
 		this.postDataListeners = new ArrayList<PostDataListener>();
 		this.charInventoryListeners = new ArrayList<SkillPreferenceListener>();
 		this.moraleRollOutcomeListeners = new ArrayList<MoraleRollOutcomeListener>();
-		this.abilityListeners = new ArrayList<AbilityListener>();
+		this.moraleChangeListeners = new ArrayList<MoraleChangeListener>();
 	}
 
 	public void setUpAttributes(BackgroundGenerator bg) {
@@ -203,18 +203,8 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Modif
 	}
 
 	protected void changeState(MoraleState state) {
-		try {
-			this.notifyAbilityListeners(new AbilityEvent(AbilityEvent.Task.REMOVE,
-					GlobalManager.morale.getMoraleAbility(this.currentMorale), this));
-		} catch (NullPointerException nu) {
-		}
-		try {
-			this.notifyAbilityListeners(
-					new AbilityEvent(AbilityEvent.Task.ADD, GlobalManager.morale.getMoraleAbility(state), this));
-		} catch (NullPointerException nu) {
-		}
-
 		this.currentMorale = state;
+		this.notifyMoraleChangeListeners(new MoraleChangeEvent(this.currentMorale, this));
 	}
 
 	protected void addModifier(Modifier t) {
@@ -376,13 +366,21 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Modif
 			this.fatigue.alterCurrent(-this.fatigueRecovery.getAlteredValue());
 			break;
 		}
-
 	}
 
 	@Override
 	public void onMoraleRollEvent(MoraleRollEvent m) {
-		// TODO Auto-generated method stub
-	
+		switch (m.getTask()) {
+		case ROLL_NEGATIVE:
+			//TODO
+			break;
+		case ROLL_POSITIVE:
+			//TODO
+			break;
+		case ROLL_SPECIAL:
+			//TODO
+			break;
+		}
 	}
 
 	@Override
@@ -426,26 +424,42 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Modif
 	}
 
 	@Override
-	public void addMoraleListener(MoraleRollOutcomeListener m) {
-		// TODO Auto-generated method stub
-
+	public void addMoraleRollOutcomeListener(MoraleRollOutcomeListener m) {
+		this.moraleRollOutcomeListeners.add(m);
 	}
 
 	@Override
-	public void removeMoraleListener(MoraleRollOutcomeListener m) {
-		// TODO Auto-generated method stub
-
+	public void removeMoraleRollOutcomeListener(MoraleRollOutcomeListener m) {
+		this.moraleRollOutcomeListeners.remove(m);
 	}
 
 	@Override
-	public void notifyMoraleListeners(MoraleRollOutcomeEvent m) {
-		// TODO Auto-generated method stub
-
+	public void notifyMoraleRollOutcomeListeners(MoraleRollOutcomeEvent m) {
+		this.moraleRollOutcomeListeners.forEach(l -> l.onMoraleRollOutcomeEvent(m));
 	}
 
 	@Override
-	public void notifyMoraleListener(MoraleRollOutcomeListener m, MoraleRollOutcomeEvent e) {
-		// TODO Auto-generated method stub
+	public void notifyMoraleRollOutcomeListener(MoraleRollOutcomeListener m, MoraleRollOutcomeEvent e) {
+		this.moraleRollOutcomeListeners.get(m).onMoraleRollOutcomeEvent(e);
+	}
 
+	@Override
+	public void addMoraleChangeListener(MoraleChangeListener m) {
+		this.moraleChangeListeners.add(m);
+	}
+
+	@Override
+	public void removeMoraleChangeListener(MoraleChangeListener m) {
+		this.moraleChangeListeners.remove(m);
+	}
+
+	@Override
+	public void notifyMoraleChangeListeners(MoraleChangeEvent m) {
+		this.moraleChangeListeners.forEach(l -> l.onMoraleChangeEvent(m));
+	}
+
+	@Override
+	public void notifyMoraleChangeListener(MoraleChangeListener m, MoraleChangeEvent e) {
+		this.moraleChangeListeners.get(m).onMoraleChangeEvent(e);
 	}
 }

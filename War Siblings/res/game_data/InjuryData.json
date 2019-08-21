@@ -356,6 +356,21 @@
 				"Max Days": 6
 			},
 			{
+				"Name": "Cut Artery_Stage_2",
+				"Description": "An artery has been cut, leading to massive hemorrhaging and ultimately death if not treated out of combat. If survived, it is followed by severely lowered constitution due to loss of blood.",
+				"isHead": false,
+				"Damage Type": "Slash",
+				"Damage Threshold": 999,
+				"Effects": [
+					{
+						"Effect Name": "Hitpoints_Percent",
+						"Value": -35
+					}
+				],
+				"Min Days": 1,
+				"Max Days": 3
+			},
+			{
 				"Name": "Cut Artery",
 				"Description": "An artery has been cut, leading to massive hemorrhaging and ultimately death if not treated out of combat. If survived, it is followed by severely lowered constitution due to loss of blood.",
 				"isHead": false,
@@ -372,21 +387,6 @@
 				],
 				"Min Days": 0,
 				"Max Days": 0
-			},
-			{
-				"Name": "Cut Artery_Stage_2",
-				"Description": "An artery has been cut, leading to massive hemorrhaging and ultimately death if not treated out of combat. If survived, it is followed by severely lowered constitution due to loss of blood.",
-				"isHead": false,
-				"Damage Type": "Slash",
-				"Damage Threshold": 999,
-				"Effects": [
-					{
-						"Effect Name": "Hitpoints_Percent",
-						"Value": -35
-					}
-				],
-				"Min Days": 1,
-				"Max Days": 3
 			},
 			{
 				"Name": "Cut Leg Muscle",
@@ -495,6 +495,21 @@
 				"Max Days": 6
 			},
 			{
+				"Name": "Cut Neck Vein_Stage_2",
+				"Description": "A vein on the throat has been cut, leading to massive hemorrhaging and ultimately death if not treated out of combat. If survived, it is followed by a period of severely lowered constitution due to loss of blood, and will leave a menacing scar.",
+				"isHead": false,
+				"Damage Type": "Slash",
+				"Damage Threshold": 999,
+				"Effects": [
+					{
+						"Effect Name": "Hitpoints_Percent",
+						"Value": -52
+					}
+				],
+				"Min Days": 1,
+				"Max Days": 4
+			},
+			{
 				"Name": "Cut Neck Vein",
 				"Description": "A vein on the throat has been cut, leading to massive hemorrhaging and ultimately death if not treated out of combat. If survived, it is followed by a period of severely lowered constitution due to loss of blood, and will leave a menacing scar.",
 				"isHead": true,
@@ -511,21 +526,6 @@
 				],
 				"Min Days": 0,
 				"Max Days": 0
-			},
-			{
-				"Name": "Cut Neck Vein_Stage_2",
-				"Description": "A vein on the throat has been cut, leading to massive hemorrhaging and ultimately death if not treated out of combat. If survived, it is followed by a period of severely lowered constitution due to loss of blood, and will leave a menacing scar.",
-				"isHead": false,
-				"Damage Type": "Slash",
-				"Damage Threshold": 999,
-				"Effects": [
-					{
-						"Effect Name": "Hitpoints_Percent",
-						"Value": -52
-					}
-				],
-				"Min Days": 1,
-				"Max Days": 4
 			},
 			{
 				"Name": "Deep Face Cut",
@@ -563,6 +563,21 @@
 				"Max Days": 3
 			},
 			{
+				"Name": "Grazed Neck_Stage_2",
+				"Description": "A grazing wound on the neck bleeds profusely. If survived, it is followed by lowered constitution due to loss of blood.",
+				"isHead": false,
+				"Damage Type": "Slash",
+				"Damage Threshold": 999,
+				"Effects": [
+					{
+						"Effect Name": "Hitpoints_Percent",
+						"Value": -15
+					}
+				],
+				"Min Days": 1,
+				"Max Days": 2
+			},
+			{
 				"Name": "Grazed Neck",
 				"Description": "A grazing wound on the neck bleeds profusely. If survived, it is followed by lowered constitution due to loss of blood.",
 				"isHead": true,
@@ -579,21 +594,6 @@
 				],
 				"Min Days": 0,
 				"Max Days": 0
-			},
-			{
-				"Name": "Grazed Neck_Stage_2",
-				"Description": "A grazing wound on the neck bleeds profusely. If survived, it is followed by lowered constitution due to loss of blood.",
-				"isHead": false,
-				"Damage Type": "Slash",
-				"Damage Threshold": 999,
-				"Effects": [
-					{
-						"Effect Name": "Hitpoints_Percent",
-						"Value": -15
-					}
-				],
-				"Min Days": 1,
-				"Max Days": 2
 			},
 			{
 				"Name": "Pierced Cheek",
@@ -845,6 +845,21 @@
 				"Max Days": 4
 			},
 			{
+				"Name": "Grazed Neck_Stage_2",
+				"Description": "A grazing wound on the neck bleeds profusely. If survived, it is followed by lowered constitution due to loss of blood.",
+				"isHead": false,
+				"Damage Type": "Pierce",
+				"Damage Threshold": 999,
+				"Effects": [
+					{
+						"Effect Name": "Hitpoints_Percent",
+						"Value": -15
+					}
+				],
+				"Min Days": 1,
+				"Max Days": 2
+			},
+			{
 				"Name": "Grazed Neck",
 				"Description": "A grazing wound on the neck bleeds profusely. If survived, it is followed by lowered constitution due to loss of blood.",
 				"isHead": true,
@@ -861,21 +876,6 @@
 				],
 				"Min Days": 0,
 				"Max Days": 0
-			},
-			{
-				"Name": "Grazed Neck_Stage_2",
-				"Description": "A grazing wound on the neck bleeds profusely. If survived, it is followed by lowered constitution due to loss of blood.",
-				"isHead": false,
-				"Damage Type": "Pierce",
-				"Damage Threshold": 999,
-				"Effects": [
-					{
-						"Effect Name": "Hitpoints_Percent",
-						"Value": -15
-					}
-				],
-				"Min Days": 1,
-				"Max Days": 2
 			},
 			{
 				"Name": "Pierced Cheek",

@@ -7,7 +7,7 @@ package character;
 import storage_classes.ArrayList;
 import storage_classes.BackgroundItem;
 import event_classes.TraitEvent;
-import event_classes.EffectEvent;
+import event_classes.ModifierEvent;
 import effect_classes.Effect_Modifier;
 import event_classes.CharacterInventoryEvent;
 import event_classes.InventoryEvent;
@@ -21,13 +21,13 @@ import items.Headgear;
 import items.Shield;
 import items.Weapon;
 import listener_interfaces.TraitListener;
-import listener_interfaces.EffectListener;
+import listener_interfaces.ModifierListener;
 import listener_interfaces.CharacterInventoryListener;
 import listener_interfaces.InventoryListener;
 import listener_interfaces.InventorySituationListener;
 import listener_interfaces.SkillPreferenceListener;
 import notifier_interfaces.TraitNotifier;
-import notifier_interfaces.EffectNotifier;
+import notifier_interfaces.ModifierNotifier;
 import notifier_interfaces.InventoryNotifier;
 import notifier_interfaces.InventorySituationNotifier;
 import notifier_interfaces.MultiNotifier;
@@ -37,7 +37,7 @@ import notifier_interfaces.MultiNotifier;
  * items of a character
  */
 public class InventoryManager implements CharacterInventoryListener, SkillPreferenceListener, MultiNotifier,
-		InventoryNotifier, EffectNotifier, TraitNotifier, InventorySituationNotifier {
+		InventoryNotifier, ModifierNotifier, TraitNotifier, InventorySituationNotifier {
 	protected Armor body;
 	protected Headgear head;
 	protected EquipItem right;
@@ -46,7 +46,7 @@ public class InventoryManager implements CharacterInventoryListener, SkillPrefer
 	protected ArrayList<EquipItem> bag;
 
 	protected ArrayList<TraitListener> traitListeners;
-	protected ArrayList<EffectListener> effectListeners;
+	protected ArrayList<ModifierListener> effectListeners;
 	protected ArrayList<InventoryListener> inventoryListeners;
 	protected ArrayList<InventorySituationListener> inventorySituationListeners;
 
@@ -64,7 +64,7 @@ public class InventoryManager implements CharacterInventoryListener, SkillPrefer
 	@Override
 	public void setUpListeners() {
 		this.traitListeners = new ArrayList<TraitListener>();
-		this.effectListeners = new ArrayList<EffectListener>();
+		this.effectListeners = new ArrayList<ModifierListener>();
 		this.inventoryListeners = new ArrayList<InventoryListener>();
 		this.inventorySituationListeners = new ArrayList<InventorySituationListener>();
 
@@ -232,16 +232,16 @@ public class InventoryManager implements CharacterInventoryListener, SkillPrefer
 		try {
 			fatiguePen = new Effect_Modifier("Fatigue_Final", old.getFatigueRed().getAlteredValue());
 			initiativePen = new Effect_Modifier("Initiative_Final", old.getFatigueRed().getAlteredValue());
-			this.notifyEffectListeners(new EffectEvent(EffectEvent.Task.REMOVE, fatiguePen, this));
-			this.notifyEffectListeners(new EffectEvent(EffectEvent.Task.REMOVE, initiativePen, this));
+			this.notifyModifierListeners(new ModifierEvent(ModifierEvent.Task.REMOVE, fatiguePen.getMod(), this));
+			this.notifyModifierListeners(new ModifierEvent(ModifierEvent.Task.REMOVE, initiativePen.getMod(), this));
 		} catch (NullPointerException nu) {
 
 		}
 		try {
 			fatiguePen = new Effect_Modifier("Fatigue_Final", next.getFatigueRed().getAlteredValue());
 			initiativePen = new Effect_Modifier("Initiative_Final", next.getFatigueRed().getAlteredValue());
-			this.notifyEffectListeners(new EffectEvent(EffectEvent.Task.ADD, fatiguePen, this));
-			this.notifyEffectListeners(new EffectEvent(EffectEvent.Task.ADD, initiativePen, this));
+			this.notifyModifierListeners(new ModifierEvent(ModifierEvent.Task.ADD, fatiguePen.getMod(), this));
+			this.notifyModifierListeners(new ModifierEvent(ModifierEvent.Task.ADD, initiativePen.getMod(), this));
 		} catch (NullPointerException nu) {
 
 		}
@@ -251,13 +251,13 @@ public class InventoryManager implements CharacterInventoryListener, SkillPrefer
 		Effect_Modifier visionPen;
 		try {
 			visionPen = new Effect_Modifier("Vision_Final", old.getVisRed());
-			this.notifyEffectListeners(new EffectEvent(EffectEvent.Task.REMOVE, visionPen, this));
+			this.notifyModifierListeners(new ModifierEvent(ModifierEvent.Task.REMOVE, visionPen.getMod(), this));
 		} catch (NullPointerException nu) {
 
 		}
 		try {
 			visionPen = new Effect_Modifier("Vision_Final", next.getVisRed());
-			this.notifyEffectListeners(new EffectEvent(EffectEvent.Task.ADD, visionPen, this));
+			this.notifyModifierListeners(new ModifierEvent(ModifierEvent.Task.ADD, visionPen.getMod(), this));
 		} catch (NullPointerException nu) {
 
 		}
@@ -270,8 +270,8 @@ public class InventoryManager implements CharacterInventoryListener, SkillPrefer
 			Effect_Modifier rangedDefense = new Effect_Modifier("RangedDefense_Final",
 					old.getRangedDef().getAlteredValue());
 
-			this.notifyEffectListeners(new EffectEvent(EffectEvent.Task.REMOVE, meleeDefense, this));
-			this.notifyEffectListeners(new EffectEvent(EffectEvent.Task.REMOVE, rangedDefense, this));
+			this.notifyModifierListeners(new ModifierEvent(ModifierEvent.Task.REMOVE, meleeDefense.getMod(), this));
+			this.notifyModifierListeners(new ModifierEvent(ModifierEvent.Task.REMOVE, rangedDefense.getMod(), this));
 		} catch (NullPointerException nu) {
 
 		}
@@ -284,8 +284,8 @@ public class InventoryManager implements CharacterInventoryListener, SkillPrefer
 			Effect_Modifier rangedDefense = new Effect_Modifier("RangedDefense_Final",
 					next.getRangedDef().getAlteredValue());
 
-			this.notifyEffectListeners(new EffectEvent(EffectEvent.Task.ADD, meleeDefense, this));
-			this.notifyEffectListeners(new EffectEvent(EffectEvent.Task.ADD, rangedDefense, this));
+			this.notifyModifierListeners(new ModifierEvent(ModifierEvent.Task.ADD, meleeDefense.getMod(), this));
+			this.notifyModifierListeners(new ModifierEvent(ModifierEvent.Task.ADD, rangedDefense.getMod(), this));
 		} catch (NullPointerException nu) {
 
 		}
@@ -420,23 +420,23 @@ public class InventoryManager implements CharacterInventoryListener, SkillPrefer
 	}
 
 	@Override
-	public void addEffectListener(EffectListener a) {
+	public void addModifierListener(ModifierListener a) {
 		this.effectListeners.add(a);
 	}
 
 	@Override
-	public void removeEffectListener(EffectListener a) {
+	public void removeModifierListener(ModifierListener a) {
 		this.effectListeners.remove(a);
 	}
 
 	@Override
-	public void notifyEffectListeners(EffectEvent a) {
-		this.effectListeners.forEach(l -> l.onEffectEvent(a));
+	public void notifyModifierListeners(ModifierEvent a) {
+		this.effectListeners.forEach(l -> l.onModifierEvent(a));
 	}
 
 	@Override
-	public void notifyEffectListener(EffectListener a, EffectEvent e) {
-		this.effectListeners.get(a).onEffectEvent(e);
+	public void notifyModifierListener(ModifierListener a, ModifierEvent e) {
+		this.effectListeners.get(a).onModifierEvent(e);
 	}
 
 	@Override

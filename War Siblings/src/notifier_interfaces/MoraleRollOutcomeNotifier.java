@@ -8,11 +8,11 @@ import event_classes.MoraleRollOutcomeEvent;
 import listener_interfaces.MoraleRollOutcomeListener;
 
 public interface MoraleRollOutcomeNotifier {
-	void addMoraleListener(MoraleRollOutcomeListener m);
+	void addMoraleRollOutcomeListener(MoraleRollOutcomeListener m);
 
-	void removeMoraleListener(MoraleRollOutcomeListener m);
+	void removeMoraleRollOutcomeListener(MoraleRollOutcomeListener m);
 
-	void notifyMoraleListeners(MoraleRollOutcomeEvent m);
+	void notifyMoraleRollOutcomeListeners(MoraleRollOutcomeEvent m);
 
-	void notifyMoraleListener(MoraleRollOutcomeListener m, MoraleRollOutcomeEvent e);
+	void notifyMoraleRollOutcomeListener(MoraleRollOutcomeListener m, MoraleRollOutcomeEvent e);
 }

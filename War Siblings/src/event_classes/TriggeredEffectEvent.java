@@ -9,7 +9,7 @@ import notifier_interfaces.TriggeredEffectNotifier;
 public class TriggeredEffectEvent extends InfoEvent {
 
 	public enum Task {
-		DAMAGE, IMPEDE, APPLY, REMOVE, ADD_ABILITY, REMOVE_ABILITY
+		DAMAGE, IMPEDE, APPLY, REMOVE, ADD_ABILITY, REMOVE_ABILITY, MORALE_REPLACE
 	};
 
 	protected Task task;
