@@ -42,19 +42,19 @@
         },
         {
             "Effect Name": "Morale_AllyDeath",
-            "Effect Type": "Battle"
+            "Effect Type": "Effect_AllyDeathIgnore"
         },
         {
             "Effect Name": "Morale_Deathwish",
-            "Effect Type": "Battle"
+            "Effect Type": "Effect_Deathwish"
         },
         {
             "Effect Name": "Morale_Determined",
-            "Effect Type": "Morale"
+            "Effect Type": "Effect_Determined"
         },
         {
             "Effect Name": "Morale_Insecure",
-            "Effect Type": "Morale"
+            "Effect Type": "Effect_Insecure"
         },
         {
             "Effect Name": "Morale_Irrational",

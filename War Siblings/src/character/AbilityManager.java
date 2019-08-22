@@ -4,6 +4,13 @@
  */
 package character;
 
+import effect_classes.Effect;
+import effect_classes.Effect_Battle_Triggered;
+import effect_classes.Effect_Modifier;
+import effect_classes.Effect_Morale_Triggered;
+import effect_classes.Effect_Round_Triggered;
+import effect_classes.Effect_Triggered;
+import effect_classes.Effect_Turn_Triggered;
 import event_classes.AbilityEvent;
 import event_classes.BattleControlEvent;
 import event_classes.ModifierEvent;
@@ -129,6 +136,7 @@ public class AbilityManager implements AbilityListener, TraitListener, Permanent
 
 	public void sufferTemporaryInjury(TemporaryInjury injury) {
 		injury.addTemporaryInjuryListener(this);
+		this.addEffectsToListeners(injury);
 		this.tempInjuries.add(injury);
 		this.notifyOtherManagers(ModifierEvent.Task.ADD, injury);
 	}
@@ -139,11 +147,13 @@ public class AbilityManager implements AbilityListener, TraitListener, Permanent
 
 	public void sufferPermanentInjury(PermanentInjury injury) {
 		injury.addPermanentInjuryListener(this);
+		this.addEffectsToListeners(injury);
 		this.permaInjuries.add(injury);
 		this.notifyOtherManagers(ModifierEvent.Task.ADD, injury);
 	}
 
 	public void healPermanentInjury(PermanentInjury injury) {
+		this.removeEffectsFromListeners(injury);
 		injury.removePermanentInjuryListener(this);
 		this.permaInjuries.remove(injury);
 		this.notifyOtherManagers(ModifierEvent.Task.ADD, injury);
@@ -155,26 +165,76 @@ public class AbilityManager implements AbilityListener, TraitListener, Permanent
 
 	public void addAbility(Ability ability) {
 		this.characterAbilities.add(ability);
+		this.addEffectsToListeners(ability);
 		this.notifyOtherManagers(ModifierEvent.Task.ADD, ability);
 	}
 
 	public void addTrait(Trait trait) {
 		this.characterTraits.add(trait);
+		this.addEffectsToListeners(trait);
 		this.notifyOtherManagers(ModifierEvent.Task.ADD, trait);
 	}
 
 	public void removeAbility(Ability ability) {
-		if (this.characterAbilities.remove(ability))
+		if (this.characterAbilities.remove(ability)) {
+			this.removeEffectsFromListeners(ability);
 			this.notifyOtherManagers(ModifierEvent.Task.REMOVE, ability);
+		}
 	}
 
 	public void removeTrait(Trait trait) {
-		if (this.characterTraits.remove(trait))
+		if (this.characterTraits.remove(trait)) {
+			this.removeEffectsFromListeners(trait);
 			this.notifyOtherManagers(ModifierEvent.Task.REMOVE, trait);
+		}
+	}
+
+	protected void addEffectsToListeners(Ability a) {
+		for (Effect e : a.getEffects()) {
+			if (e instanceof Effect_Battle_Triggered) {
+				this.addBattleControlListener((BattleControlListener) e);
+			}
+			if (e instanceof Effect_Round_Triggered) {
+				this.addRoundControlListener((RoundControlListener) e);
+			}
+			if (e instanceof Effect_Turn_Triggered) {
+				this.addTurnControlListener((TurnControlListener) e);
+			}
+			if (e instanceof Effect_Morale_Triggered) {
+				this.addMoraleChangeListener((MoraleChangeListener) e);
+			}
+			if (e instanceof Effect_Triggered) {
+				((Effect_Triggered) e).addTriggeredEffectListener(this);
+			}
+		}
+	}
+
+	protected void removeEffectsFromListeners(Ability a) {
+		for (Effect e : a.getEffects()) {
+			if (e instanceof Effect_Battle_Triggered) {
+				this.removeBattleControlListener((BattleControlListener) e);
+			}
+			if (e instanceof Effect_Round_Triggered) {
+				this.removeRoundControlListener((RoundControlListener) e);
+			}
+			if (e instanceof Effect_Turn_Triggered) {
+				this.removeTurnControlListener((TurnControlListener) e);
+			}
+			if (e instanceof Effect_Morale_Triggered) {
+				this.removeMoraleChangeListener((MoraleChangeListener) e);
+			}
+			if (e instanceof Effect_Triggered) {
+				((Effect_Triggered) e).removeTriggeredEffectListener(this);
+			}
+		}
 	}
 
 	protected void notifyOtherManagers(ModifierEvent.Task task, Ability ability) {
-		// TODO
+		for (Effect e : ability.getEffects()) {
+			if (e instanceof Effect_Modifier) {
+				this.notifyModifierListeners(new ModifierEvent(task, ((Effect_Modifier) e).getMod(), this));
+			}
+		}
 	}
 
 	public void display() {
@@ -270,11 +330,14 @@ public class AbilityManager implements AbilityListener, TraitListener, Permanent
 			break;
 		case MORALE_REPLACE:
 			break;
+		case IGNORE_MORALE:
+			break;
 		}
 	}
 
 	@Override
 	public void onRoundControlEvent(RoundControlEvent r) {
+		this.notifyRoundControlListeners(r);
 		switch (r.getTask()) {
 		case END_ROUND:
 			break;
@@ -285,6 +348,7 @@ public class AbilityManager implements AbilityListener, TraitListener, Permanent
 
 	@Override
 	public void onTurnControlEvent(TurnControlEvent t) {
+		this.notifyTurnControlListeners(t);
 		switch (t.getTask()) {
 		case END_TURN:
 			break;
@@ -295,6 +359,7 @@ public class AbilityManager implements AbilityListener, TraitListener, Permanent
 
 	@Override
 	public void onBattleControlEvent(BattleControlEvent b) {
+		this.notifyBattleControlListeners(b);
 		switch (b.getTask()) {
 		case END_BATTLE:
 			break;
@@ -306,6 +371,18 @@ public class AbilityManager implements AbilityListener, TraitListener, Permanent
 	@Override
 	public void onMoraleChangeEvent(MoraleChangeEvent m) {
 		this.notifyMoraleChangeListeners(m);
+		switch (m.getTask()) {
+		case CHANGE:
+			break;
+		case INITIAL:
+			break;
+		case OVERRIDE:
+			break;
+		case RESET:
+			break;
+		case SET:
+			break;
+		}
 	}
 
 	@Override

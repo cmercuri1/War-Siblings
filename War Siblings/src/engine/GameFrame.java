@@ -281,7 +281,7 @@ public class GameFrame extends JFrame implements ActionListener, ItemListener, C
 		this.hp.setText(tba.getAm().getAttributes()[0].toString());
 		this.ap.setText(tba.getAm().getAttributes()[1].toString());
 		this.fat.setText(tba.getAm().getAttributes()[2].toString());
-		this.mor.setText(tba.getMm().getCurrentState().toString());
+		this.mor.setText(tba.getAm().getCurrentState().toString());
 		this.res.setText(tba.getAm().getAttributes()[3].toString());
 		this.init.setText(tba.getAm().getAttributes()[4].toString());
 		this.mSk.setText(tba.getAm().getAttributes()[5].toString());

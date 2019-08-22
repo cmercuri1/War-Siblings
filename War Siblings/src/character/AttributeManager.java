@@ -36,6 +36,7 @@ import listener_interfaces.StarAttributeListener;
 import notifier_interfaces.PostDataNotifier;
 import notifier_interfaces.SkillPreferenceNotifier;
 import notifier_interfaces.MoraleChangeNotifier;
+import notifier_interfaces.MoraleRollNotifier;
 import notifier_interfaces.MoraleRollOutcomeNotifier;
 import notifier_interfaces.MultiNotifier;
 import storage_classes.ArrayList;
@@ -57,7 +58,8 @@ import storage_classes.WageAttribute;
  */
 public class AttributeManager implements MultiNotifier, AttributeListener, ModifierListener, LevelUpAttributeListener,
 		MultiValueAttributeListener, RetrievalListener, TurnControlListener, StarAttributeListener, MoraleRollListener,
-		PostDataNotifier, SkillPreferenceNotifier, MoraleRollOutcomeNotifier, MoraleChangeNotifier {
+		MoraleChangeListener, PostDataNotifier, SkillPreferenceNotifier, MoraleRollOutcomeNotifier,
+		MoraleChangeNotifier, MoraleRollNotifier {
 	// Visible Character Attributes
 	protected HitpointAttribute hitpoints;
 	protected FatigueAttribute fatigue;
@@ -94,6 +96,7 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Modif
 	protected ArrayList<SkillPreferenceListener> charInventoryListeners;
 	protected ArrayList<MoraleRollOutcomeListener> moraleRollOutcomeListeners;
 	protected ArrayList<MoraleChangeListener> moraleChangeListeners;
+	protected ArrayList<MoraleRollListener> moraleRollListeners;
 
 	public AttributeManager() {
 		this.levelUps = new ArrayList<ArrayList<LevelUp>>();
@@ -106,6 +109,7 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Modif
 		this.charInventoryListeners = new ArrayList<SkillPreferenceListener>();
 		this.moraleRollOutcomeListeners = new ArrayList<MoraleRollOutcomeListener>();
 		this.moraleChangeListeners = new ArrayList<MoraleChangeListener>();
+		this.moraleRollListeners = new ArrayList<MoraleRollListener>();
 	}
 
 	public void setUpAttributes(BackgroundGenerator bg) {
@@ -184,6 +188,10 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Modif
 
 	/** Needs to be called after abilities are set up */
 	protected void setMorale() {
+		this.notifyMoraleChangeListeners(new MoraleChangeEvent(this.mood.getCurrentMood().getBestMoraleState(), this));
+	}
+
+	protected void setMoraleWithoutOverride() {
 		double temp;
 		double chanceRoll;
 
@@ -195,16 +203,13 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Modif
 			temp = this.mood.getCurrentMood().getBestMoraleState();
 		}
 
-		this.changeState(MoraleState.valueOfMoraleValue((int) temp));
+		this.currentMorale = MoraleState.valueOfMoraleValue((int) temp);
+		this.notifyMoraleChangeListeners(new MoraleChangeEvent(MoraleChangeEvent.Task.SET, this.currentMorale, this));
 	}
 
 	protected void resetMorale() {
-		this.changeState(MoraleState.STEADY);
-	}
-
-	protected void changeState(MoraleState state) {
-		this.currentMorale = state;
-		this.notifyMoraleChangeListeners(new MoraleChangeEvent(this.currentMorale, this));
+		this.currentMorale = MoraleState.STEADY;
+		this.notifyMoraleChangeListeners(new MoraleChangeEvent(MoraleChangeEvent.Task.RESET, this.currentMorale, this));
 	}
 
 	protected void addModifier(Modifier t) {
@@ -236,6 +241,10 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Modif
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	public MoraleState getCurrentState() {
+		return this.currentMorale;
 	}
 
 	public ArrayList<ArrayList<LevelUp>> getLevelUps() {
@@ -270,6 +279,53 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Modif
 	protected void applyLevelUp(LevelUp levelUp) {
 		this.getAttribute(levelUp.getName())
 				.addModifier(new Modifier("Level Up", levelUp.getValue(), false, false, false));
+	}
+
+	protected void rollPositive(double modifier) {
+		double outcome = this.roll(modifier);
+		if (outcome >= 0) {
+			this.notifyMoraleRollOutcomeListeners(
+					new MoraleRollOutcomeEvent(MoraleRollOutcomeEvent.Task.POSITIVE_ROLL_SUCCESS, outcome, this));
+			if (this.currentMorale.getValue() < MoraleState.CONFIDENT.getValue()) {
+				this.currentMorale = MoraleState.valueOfMoraleValue(this.currentMorale.getValue() + 1);
+			}
+		} else
+			this.notifyMoraleRollOutcomeListeners(
+					new MoraleRollOutcomeEvent(MoraleRollOutcomeEvent.Task.POSITIVE_ROLL_FAIL, outcome, this));
+	}
+
+	protected void rollNegative(double modifier) {
+		double outcome = this.roll(modifier);
+		if (outcome >= 0)
+			this.notifyMoraleRollOutcomeListeners(
+					new MoraleRollOutcomeEvent(MoraleRollOutcomeEvent.Task.NEGATIVE_ROLL_SUCCESS, outcome, this));
+		else {
+			this.notifyMoraleRollOutcomeListeners(
+					new MoraleRollOutcomeEvent(MoraleRollOutcomeEvent.Task.NEGATIVE_ROLL_FAIL, outcome, this));
+			if (this.currentMorale.getValue() > MoraleState.FLEEING.getValue()) {
+				this.currentMorale = MoraleState.valueOfMoraleValue(this.currentMorale.getValue() - 1);
+			}
+		}
+	}
+
+	protected void rollSpecial(double modifier) {
+		double outcome = this.roll(modifier);
+		if (outcome >= 0) {
+			this.notifyMoraleRollOutcomeListeners(
+					new MoraleRollOutcomeEvent(MoraleRollOutcomeEvent.Task.SPECIAL_ROLL_SUCCESS, outcome, this));
+			this.notifyMoraleRollOutcomeListeners(
+					new MoraleRollOutcomeEvent(MoraleRollOutcomeEvent.Task.NEGATIVE_ROLL_SUCCESS, outcome, this));
+		} else {
+			this.notifyMoraleRollOutcomeListeners(
+					new MoraleRollOutcomeEvent(MoraleRollOutcomeEvent.Task.SPECIAL_ROLL_FAIL, outcome, this));
+			this.notifyMoraleRollOutcomeListeners(
+					new MoraleRollOutcomeEvent(MoraleRollOutcomeEvent.Task.NEGATIVE_ROLL_FAIL, outcome, this));
+		}
+
+	}
+
+	protected Double roll(double modifier) {
+		return this.resolve.getAlteredValue() + modifier - GlobalManager.d100Roll();
 	}
 
 	/** Displays stuff, mainly for testing */
@@ -372,13 +428,34 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Modif
 	public void onMoraleRollEvent(MoraleRollEvent m) {
 		switch (m.getTask()) {
 		case ROLL_NEGATIVE:
-			//TODO
+			this.notifyMoraleRollListeners(m);
+			this.rollNegative(m.getInformation());
 			break;
 		case ROLL_POSITIVE:
-			//TODO
+			this.notifyMoraleRollListeners(m);
+			this.rollPositive(m.getInformation());
 			break;
 		case ROLL_SPECIAL:
-			//TODO
+			this.notifyMoraleRollListeners(m);
+			this.notifyMoraleRollListeners(
+					new MoraleRollEvent(MoraleRollEvent.Task.ROLL_NEGATIVE, m.getInformation(), this));
+			this.rollSpecial(m.getInformation());
+			break;
+		}
+	}
+
+	@Override
+	public void onMoraleChangeEvent(MoraleChangeEvent m) {
+		switch (m.getTask()) {
+		case INITIAL:
+			break;
+		case OVERRIDE:
+			break;
+		case CHANGE:
+			break;
+		case RESET:
+			break;
+		case SET:
 			break;
 		}
 	}
@@ -461,5 +538,25 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Modif
 	@Override
 	public void notifyMoraleChangeListener(MoraleChangeListener m, MoraleChangeEvent e) {
 		this.moraleChangeListeners.get(m).onMoraleChangeEvent(e);
+	}
+
+	@Override
+	public void addMoraleRollListener(MoraleRollListener m) {
+		this.moraleRollListeners.add(m);
+	}
+
+	@Override
+	public void removeMoraleRollListener(MoraleRollListener m) {
+		this.moraleRollListeners.remove(m);
+	}
+
+	@Override
+	public void notifyMoraleRollListeners(MoraleRollEvent m) {
+		this.moraleRollListeners.forEach(l -> l.onMoraleRollEvent(m));
+	}
+
+	@Override
+	public void notifyMoraleRollListener(MoraleRollListener m, MoraleRollEvent e) {
+		this.moraleRollListeners.get(m).onMoraleRollEvent(e);
 	}
 }

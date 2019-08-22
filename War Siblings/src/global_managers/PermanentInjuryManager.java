@@ -32,6 +32,7 @@ public class PermanentInjuryManager extends BaseGlobalManager {
 				temp3.add(GlobalManager.effectFactory.getEffect((String) temp2.get("Effect Name"),
 						(Long) temp2.get("Value")));
 			} catch (NullPointerException nul) {
+				temp3.add(GlobalManager.effectFactory.getEffect((String) temp2.get("Effect Name")));
 			}
 		}
 
