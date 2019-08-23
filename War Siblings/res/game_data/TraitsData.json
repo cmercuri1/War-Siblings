@@ -16,7 +16,7 @@
 			],
 			"Effects": [
 				{
-					"Effect Name": "Fatigue_Recovery",
+					"Effect Name": "fatigueRecovery",
 					"Value": -3
 				}
 			]
@@ -60,7 +60,7 @@
 			],
 			"Effects": [
 				{
-					"Effect Name": "Resolve",
+					"Effect Name": "resolve",
 					"Value": 5
 				}
 			]
@@ -72,7 +72,7 @@
 			],
 			"Effects": [
 				{
-					"Effect Name": "XP_Rate_Percent",
+					"Effect Name": "xpRate_Percent",
 					"Value": 10
 				}
 			]
@@ -81,11 +81,11 @@
 			"Name": "Brute",
 			"Effects": [
 				{
-					"Effect Name": "Damage_Headshot_Percent",
+					"Effect Name": "damageHeadshot_Percent",
 					"Value": 15
 				},
 				{
-					"Effect Name": "Melee_Skill",
+					"Effect Name": "meleeSkill",
 					"Value": -5
 				}
 			]
@@ -109,7 +109,7 @@
 			],
 			"Effects": [
 				{
-					"Effect Name": "Melee_Skill",
+					"Effect Name": "meleeSkill",
 					"Value": -5
 				}
 			]
@@ -118,15 +118,15 @@
 			"Name": "Cocky",
 			"Effects": [
 				{
-					"Effect Name": "Resolve",
+					"Effect Name": "resolve",
 					"Value": 5
 				},
 				{
-					"Effect Name": "Melee_Defense",
+					"Effect Name": "meleeDefense",
 					"Value": -5
 				},
 				{
-					"Effect Name": "Ranged_Defense",
+					"Effect Name": "rangedDefense",
 					"Value": -5
 				}
 			]
@@ -140,7 +140,7 @@
 			],
 			"Effects": [
 				{
-					"Effect Name": "Resolve",
+					"Effect Name": "resolve",
 					"Value": -10
 				}
 			]
@@ -185,7 +185,7 @@
 			],
 			"Effects": [
 				{
-					"Effect Name": "Melee_Skill",
+					"Effect Name": "meleeSkill",
 					"Value": 5
 				}
 			]
@@ -205,19 +205,19 @@
 			"Name": "Drunkard",
 			"Effects": [
 				{
-					"Effect Name": "Damage_Melee_Percent",
+					"Effect Name": "Damage_Melee",
 					"Value": 10
 				},
 				{
-					"Effect Name": "Resolve",
+					"Effect Name": "resolve",
 					"Value": 5
 				},
 				{
-					"Effect Name": "Melee_Skill",
+					"Effect Name": "meleeSkill",
 					"Value": -5
 				},
 				{
-					"Effect Name": "Ranged_Skill",
+					"Effect Name": "rangedSkill",
 					"Value": -10
 				}
 			]
@@ -229,7 +229,7 @@
 			],
 			"Effects": [
 				{
-					"Effect Name": "XP_Rate_Percent",
+					"Effect Name": "xpRate_Percent",
 					"Value": -15
 				}
 			]
@@ -241,7 +241,7 @@
 			],
 			"Effects": [
 				{
-					"Effect Name": "Vision",
+					"Effect Name": "vision",
 					"Value": 1
 				}
 			]
@@ -255,7 +255,7 @@
 			],
 			"Effects": [
 				{
-					"Effect Name": "Resolve",
+					"Effect Name": "resolve",
 					"Value": -5
 				}
 			]
@@ -267,11 +267,11 @@
 			],
 			"Effects": [
 				{
-					"Effect Name": "Hitpoints",
+					"Effect Name": "hitpoints",
 					"Value": 10
 				},
 				{
-					"Effect Name": "Fatigue",
+					"Effect Name": "fatigue",
 					"Value": -10
 				}
 			]
@@ -321,7 +321,7 @@
 			],
 			"Effects": [
 				{
-					"Effect Name": "Resolve",
+					"Effect Name": "resolve",
 					"Value": 10
 				}
 			]
@@ -333,7 +333,7 @@
 			],
 			"Effects": [
 				{
-					"Effect Name": "Hitpoints",
+					"Effect Name": "hitpoints",
 					"Value": -10
 				}
 			]
@@ -345,7 +345,7 @@
 			],
 			"Effects": [
 				{
-					"Effect Name": "Food_Consumption",
+					"Effect Name": "foodConsumption",
 					"Value": 1
 				}
 			]
@@ -354,7 +354,7 @@
 			"Name": "Greedy",
 			"Effects": [
 				{
-					"Effect Name": "Cost_Percent",
+					"Effect Name": "wage_Percent",
 					"Value": 15
 				}
 			]
@@ -403,7 +403,7 @@
 			],
 			"Effects": [
 				{
-					"Effect Name": "Initiative",
+					"Effect Name": "initiative",
 					"Value": -10
 				}
 			]
@@ -415,15 +415,15 @@
 			],
 			"Effects": [
 				{
-					"Effect Name": "Damage_Melee_Percent",
+					"Effect Name": "Damage_Melee",
 					"Value": 10
 				},
 				{
-					"Effect Name": "Melee_Defense",
+					"Effect Name": "meleeDefense",
 					"Value": -5
 				},
 				{
-					"Effect Name": "Ranged_Defense",
+					"Effect Name": "rangedDefense",
 					"Value": -5
 				}
 			]
@@ -458,7 +458,7 @@
 			],
 			"Effects": [
 				{
-					"Effect Name": "Fatigue_Recovery",
+					"Effect Name": "fatigueRecovery",
 					"Value": 4
 				}
 			]
@@ -467,7 +467,7 @@
 			"Name": "Iron Jaw",
 			"Effects": [
 				{
-					"Effect Name": "Injury_Chance_Percent",
+					"Effect Name": "injuryThreshold",
 					"Value": -25
 				}
 			]
@@ -546,15 +546,15 @@
 			"Name": "Paranoid",
 			"Effects": [
 				{
-					"Effect Name": "Melee_Defense",
+					"Effect Name": "meleeDefense",
 					"Value": 5
 				},
 				{
-					"Effect Name": "Ranged_Defense",
+					"Effect Name": "rangedDefense",
 					"Value": 5
 				},
 				{
-					"Effect Name": "Initiative",
+					"Effect Name": "initiative",
 					"Value": -30
 				}
 			]
@@ -579,7 +579,7 @@
 			],
 			"Effects": [
 				{
-					"Effect Name": "Initiative",
+					"Effect Name": "initiative",
 					"Value": 10
 				}
 			]
@@ -591,7 +591,7 @@
 			],
 			"Effects": [
 				{
-					"Effect Name": "Vision",
+					"Effect Name": "vision",
 					"Value": -1
 				}
 			]
@@ -603,7 +603,7 @@
 			],
 			"Effects": [
 				{
-					"Effect Name": "Food_Consumption",
+					"Effect Name": "foodConsumption",
 					"Value": -1
 				}
 			]
@@ -612,7 +612,7 @@
 			"Name": "Strong",
 			"Effects": [
 				{
-					"Effect Name": "Fatigue",
+					"Effect Name": "fatigue",
 					"Value": 10
 				}
 			]
@@ -633,7 +633,7 @@
 			],
 			"Effects": [
 				{
-					"Effect Name": "Melee_Defense",
+					"Effect Name": "meleeDefense",
 					"Value": 5
 				}
 			]
@@ -651,7 +651,7 @@
 			"Name": "Swift",
 			"Effects": [
 				{
-					"Effect Name": "Ranged_Defense",
+					"Effect Name": "rangedDefense",
 					"Value": 5
 				}
 			]
@@ -672,15 +672,15 @@
 			],
 			"Effects": [
 				{
-					"Effect Name": "Melee_Defense",
+					"Effect Name": "meleeDefense",
 					"Value": 5
 				},
 				{
-					"Effect Name": "Ranged_Defense",
+					"Effect Name": "rangedDefense",
 					"Value": 5
 				},
 				{
-					"Effect Name": "Damage_Melee_Percent",
+					"Effect Name": "Damage_Melee",
 					"Value": -15
 				}
 			]
@@ -692,7 +692,7 @@
 			],
 			"Effects": [
 				{
-					"Effect Name": "Hitpoints",
+					"Effect Name": "hitpoints",
 					"Value": 10
 				}
 			]

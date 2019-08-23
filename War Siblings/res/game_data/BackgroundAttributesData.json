@@ -193,7 +193,7 @@
 			"Base Wage": 8,
 			"Background Ability": [
 				{
-					"Effect Name": "XP_Rate_Percent",
+					"Effect Name": "xpRate_Percent",
 					"Value": 10
 				}
 			]
@@ -1001,7 +1001,7 @@
 			"Base Wage": 13,
 			"Background Ability": [
 				{
-					"Effect Name": "Damage_Unarmed_Percent",
+					"Effect Name": "Damage_Unarmed",
 					"Value": 100
 				}
 			]
@@ -2696,7 +2696,7 @@
 			"Base Wage": 8,
 			"Background Ability": [
 				{
-					"Effect Name": "XP_Rate_Percent",
+					"Effect Name": "xpRate_Percent",
 					"Value": 15
 				}
 			]
@@ -3010,7 +3010,7 @@
 			"Base Wage": 7,
 			"Background Ability": [
 				{
-					"Effect Name": "Headshot_Chance",
+					"Effect Name": "headshotChance",
 					"Value": 5
 				}
 			]
@@ -3109,7 +3109,7 @@
 			"Base Wage": 6,
 			"Background Ability": [
 				{
-					"Effect Name": "Headshot_Chance",
+					"Effect Name": "headshotChance",
 					"Value": 10
 				}
 			]
@@ -3300,7 +3300,7 @@
 			"Base Wage": 0,
 			"Background Ability": [
 				{
-					"Effect Name": "XP_Rate_Percent",
+					"Effect Name": "xpRate_Percent",
 					"Value": 5
 				}
 			]
@@ -5717,7 +5717,7 @@
 			"Base Wage": 12,
 			"Background Ability": [
 				{
-					"Effect Name": "XP_Rate_Percent",
+					"Effect Name": "xpRate_Percent",
 					"Value": -15
 				}
 			]

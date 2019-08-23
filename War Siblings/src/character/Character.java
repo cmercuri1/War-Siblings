@@ -66,13 +66,19 @@ public class Character
 
 	protected void assignListeners() {
 		this.im.addTraitListener(this.abm);
+		this.im.addInventorySituationListener(this.abm);
+		this.im.addModifierListener(this.am);
 
+		this.em.addBattleControlListener(this.abm);
 		this.em.addBattleControlListener(this.abm);
 		this.em.addCombatListener(null);
 		this.em.addRoundControlListener(this.abm);
+		this.em.addRoundControlListener(this.am);
 		this.em.addTurnControlListener(this.am);
 		this.em.addTurnControlListener(this.abm);
 
+		this.abm.addModifierListener(this.am);
+		
 		this.addAbilityListener(abm);
 		this.addCharacterInventoryListener(im);
 		this.addTraitListener(abm);
@@ -124,7 +130,7 @@ public class Character
 		return this.abm;
 	}
 
-	public EventManager getBm() {
+	public EventManager getEm() {
 		return this.em;
 	}
 

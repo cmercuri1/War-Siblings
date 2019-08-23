@@ -19,6 +19,7 @@ import effect_classes.Effect_Poison;
 import effect_classes.Effect_Resolve_vsEnemy;
 import effect_classes.Effect_Stage_2;
 import effect_classes.Effect_Vision_TimeOfDay;
+import effect_classes.Effect_temp;
 import event_classes.InventorySituationEvent.Task;
 import storage_classes.BattleConditions.Foes;
 import storage_classes.BattleConditions.TimeOfDay;
@@ -69,6 +70,21 @@ public class EffectFactory {
 			if (effectName.contains("_Night"))
 				return new Effect_Vision_TimeOfDay(TimeOfDay.NIGHT, effectValue);
 
+		if (temp.getEffectType().equalsIgnoreCase("Battle"))
+			return new Effect_temp();
+		
+		if (temp.getEffectType().equalsIgnoreCase("Morale"))
+			return new Effect_temp();
+		
+		if (temp.getEffectType().equalsIgnoreCase("Effect_Triggered"))
+			return new Effect_temp();
+		
+		if (temp.getEffectType().equalsIgnoreCase("Special"))
+			return new Effect_temp();
+		
+		if (temp.getEffectType().equalsIgnoreCase("Effect_DoT"))
+			return new Effect_temp();
+		
 		return null;
 	}
 	

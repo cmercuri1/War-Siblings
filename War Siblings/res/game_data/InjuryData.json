@@ -9,15 +9,15 @@
 				"Damage Threshold": 50,
 				"Effects": [
 					{
-						"Effect Name": "Melee_Skill_Percent",
+						"Effect Name": "meleeSkill_Percent",
 						"Value": -50
 					},
 					{
-						"Effect Name": "Ranged_Skill_Percent",
+						"Effect Name": "rangedSkill_Percent",
 						"Value": -50
 					},
 					{
-						"Effect Name": "Damage_Percent",
+						"Effect Name": "damage_Percent",
 						"Value": -50
 					}
 				],
@@ -32,11 +32,11 @@
 				"Damage Threshold": 50,
 				"Effects": [
 					{
-						"Effect Name": "Initiative_Percent",
+						"Effect Name": "initiative_Percent",
 						"Value": -40
 					},
 					{
-						"Effect Name": "Action_points_OnMovement",
+						"Effect Name": "actionPoints_OnMovement",
 						"Value": 2
 					}
 				],
@@ -51,7 +51,7 @@
 				"Damage Threshold": 50,
 				"Effects": [
 					{
-						"Effect Name": "Fatigue_Percent",
+						"Effect Name": "fatigue_Percent",
 						"Value": -40
 					}
 				],
@@ -66,11 +66,11 @@
 				"Damage Threshold": 25,
 				"Effects": [
 					{
-						"Effect Name": "Initiative_Percent",
+						"Effect Name": "initiative_Percent",
 						"Value": -20
 					},
 					{
-						"Effect Name": "Action_points_On_Movement",
+						"Effect Name": "actionPoints_On_Movement",
 						"Value": 1
 					}
 				],
@@ -85,11 +85,11 @@
 				"Damage Threshold": 25,
 				"Effects": [
 					{
-						"Effect Name": "Melee_Skill_Percent",
+						"Effect Name": "meleeSkill_Percent",
 						"Value": -5
 					},
 					{
-						"Effect Name": "Ranged_Skill_Percent",
+						"Effect Name": "rangedSkill_Percent",
 						"Value": -5
 					}
 				],
@@ -104,7 +104,7 @@
 				"Damage Threshold": 50,
 				"Effects": [
 					{
-						"Effect Name": "Action_points",
+						"Effect Name": "actionPoints",
 						"Value": -3
 					}
 				],
@@ -119,7 +119,7 @@
 				"Damage Threshold": 25,
 				"Effects": [
 					{
-						"Effect Name": "Melee_Defense_Percent",
+						"Effect Name": "meleeDefense_Percent",
 						"Value": -25
 					}
 				],
@@ -134,11 +134,11 @@
 				"Damage Threshold": 25,
 				"Effects": [
 					{
-						"Effect Name": "Melee_Skill_Percent",
+						"Effect Name": "meleeSkill_Percent",
 						"Value": -20
 					},
 					{
-						"Effect Name": "Ranged_Skill_Percent",
+						"Effect Name": "rangedSkill_Percent",
 						"Value": -20
 					}
 				],
@@ -153,7 +153,7 @@
 				"Damage Threshold": 30,
 				"Effects": [
 					{
-						"Effect Name": "Fatigue_Percent",
+						"Effect Name": "fatigue_Percent",
 						"Value": -30
 					}
 				],
@@ -168,11 +168,11 @@
 				"Damage Threshold": 50,
 				"Effects": [
 					{
-						"Effect Name": "Melee_Skill_Percent",
+						"Effect Name": "meleeSkill_Percent",
 						"Value": -40
 					},
 					{
-						"Effect Name": "Ranged_Skill_Percent",
+						"Effect Name": "rangedSkill_Percent",
 						"Value": -40
 					}
 				],
@@ -187,11 +187,11 @@
 				"Damage Threshold": 25,
 				"Effects": [
 					{
-						"Effect Name": "Initiative_Percent",
+						"Effect Name": "initiative_Percent",
 						"Value": -20
 					},
 					{
-						"Effect Name": "Action_points_On_Movement",
+						"Effect Name": "actionPoints_On_Movement",
 						"Value": 1
 					}
 				],
@@ -206,7 +206,7 @@
 				"Damage Threshold": 25,
 				"Effects": [
 					{
-						"Effect Name": "Fatigue_Recovery",
+						"Effect Name": "fatigueRecovery",
 						"Value": -5
 					}
 				],
@@ -221,11 +221,11 @@
 				"Damage Threshold": 50,
 				"Effects": [
 					{
-						"Effect Name": "Fatigue_Recovery",
+						"Effect Name": "fatigueRecovery",
 						"Value": -5
 					},
 					{
-						"Effect Name": "Fatigue_Percent",
+						"Effect Name": "fatigue_Percent",
 						"Value": -50
 					}
 				],
@@ -240,27 +240,27 @@
 				"Damage Threshold": 60,
 				"Effects": [
 					{
-						"Effect Name": "Melee_Skill_Percent",
+						"Effect Name": "meleeSkill_Percent",
 						"Value": -50
 					},
 					{
-						"Effect Name": "Ranged_Skill_Percent",
+						"Effect Name": "rangedSkill_Percent",
 						"Value": -50
 					},
 					{
-						"Effect Name": "Melee_Defense_Percent",
+						"Effect Name": "meleeDefense_Percent",
 						"Value": -50
 					},
 					{
-						"Effect Name": "Ranged_Defense_Percent",
+						"Effect Name": "rangedDefense_Percent",
 						"Value": -50
 					},
 					{
-						"Effect Name": "Initiative_Percent",
+						"Effect Name": "initiative_Percent",
 						"Value": -50
 					},
 					{
-						"Effect Name": "Vision",
+						"Effect Name": "vision",
 						"Value": -2
 					}
 				],
@@ -275,27 +275,27 @@
 				"Damage Threshold": 50,
 				"Effects": [
 					{
-						"Effect Name": "Melee_Skill_Percent",
+						"Effect Name": "meleeSkill_Percent",
 						"Value": -50
 					},
 					{
-						"Effect Name": "Ranged_Skill_Percent",
+						"Effect Name": "rangedSkill_Percent",
 						"Value": -50
 					},
 					{
-						"Effect Name": "Melee_Defense_Percent",
+						"Effect Name": "meleeDefense_Percent",
 						"Value": -50
 					},
 					{
-						"Effect Name": "Ranged_Defense_Percent",
+						"Effect Name": "rangedDefense_Percent",
 						"Value": -50
 					},
 					{
-						"Effect Name": "Initiative_Percent",
+						"Effect Name": "initiative_Percent",
 						"Value": -50
 					},
 					{
-						"Effect Name": "Vision",
+						"Effect Name": "vision",
 						"Value": -2
 					}
 				],
@@ -310,11 +310,11 @@
 				"Damage Threshold": 50,
 				"Effects": [
 					{
-						"Effect Name": "Initiative_Percent",
+						"Effect Name": "initiative_Percent",
 						"Value": -30
 					},
 					{
-						"Effect Name": "Action_points_On_Movement",
+						"Effect Name": "actionPoints_On_Movement",
 						"Value": 2
 					}
 				],
@@ -329,11 +329,11 @@
 				"Damage Threshold": 25,
 				"Effects": [
 					{
-						"Effect Name": "Melee_Skill_Percent",
+						"Effect Name": "meleeSkill_Percent",
 						"Value": -15
 					},
 					{
-						"Effect Name": "Ranged_Skill_Percent",
+						"Effect Name": "rangedSkill_Percent",
 						"Value": -15
 					}
 				],
@@ -348,7 +348,7 @@
 				"Damage Threshold": 25,
 				"Effects": [
 					{
-						"Effect Name": "Damage_Percent",
+						"Effect Name": "damage_Percent",
 						"Value": -40
 					}
 				],
@@ -363,7 +363,7 @@
 				"Damage Threshold": 999,
 				"Effects": [
 					{
-						"Effect Name": "Hitpoints_Percent",
+						"Effect Name": "hitpoints_Percent",
 						"Value": -35
 					}
 				],
@@ -378,7 +378,7 @@
 				"Damage Threshold": 25,
 				"Effects": [
 					{
-						"Effect Name": "Hitpoints_Over_Time",
+						"Effect Name": "Bleed",
 						"Value": -3
 					},
 					{
@@ -396,11 +396,11 @@
 				"Damage Threshold": 25,
 				"Effects": [
 					{
-						"Effect Name": "Melee_Defense_Percent",
+						"Effect Name": "meleeDefense_Percent",
 						"Value": -40
 					},
 					{
-						"Effect Name": "Initiative_Percent",
+						"Effect Name": "initiative_Percent",
 						"Value": -40
 					}
 				],
@@ -415,11 +415,11 @@
 				"Damage Threshold": 25,
 				"Effects": [
 					{
-						"Effect Name": "Hitpoints_Percent",
+						"Effect Name": "hitpoints_Percent",
 						"Value": -25
 					},
 					{
-						"Effect Name": "Fatigue_Percent",
+						"Effect Name": "fatigue_Percent",
 						"Value": -25
 					}
 				],
@@ -434,11 +434,11 @@
 				"Damage Threshold": 50,
 				"Effects": [
 					{
-						"Effect Name": "Hitpoints_Percent",
+						"Effect Name": "hitpoints_Percent",
 						"Value": -30
 					},
 					{
-						"Effect Name": "Fatigue_Percent",
+						"Effect Name": "fatigue_Percent",
 						"Value": -30
 					}
 				],
@@ -453,7 +453,7 @@
 				"Damage Threshold": 35,
 				"Effects": [
 					{
-						"Effect Name": "Hitpoints_Percent",
+						"Effect Name": "hitpoints_Percent",
 						"Value": -35
 					}
 				],
@@ -468,11 +468,11 @@
 				"Damage Threshold": 50,
 				"Effects": [
 					{
-						"Effect Name": "Melee_Skill_Percent",
+						"Effect Name": "meleeSkill_Percent",
 						"Value": -50
 					},
 					{
-						"Effect Name": "Ranged_Skill_Percent",
+						"Effect Name": "rangedSkill_Percent",
 						"Value": -50
 					}
 				],
@@ -487,7 +487,7 @@
 				"Damage Threshold": 50,
 				"Effects": [
 					{
-						"Effect Name": "Damage_Percent",
+						"Effect Name": "damage_Percent",
 						"Value": -50
 					}
 				],
@@ -502,7 +502,7 @@
 				"Damage Threshold": 999,
 				"Effects": [
 					{
-						"Effect Name": "Hitpoints_Percent",
+						"Effect Name": "hitpoints_Percent",
 						"Value": -52
 					}
 				],
@@ -517,7 +517,7 @@
 				"Damage Threshold": 50,
 				"Effects": [
 					{
-						"Effect Name": "Hitpoints_Over_Time",
+						"Effect Name": "Bleed",
 						"Value": -6
 					},
 					{
@@ -535,27 +535,27 @@
 				"Damage Threshold": 50,
 				"Effects": [
 					{
-						"Effect Name": "Melee_Skill_Percent",
+						"Effect Name": "meleeSkill_Percent",
 						"Value": -25
 					},
 					{
-						"Effect Name": "Ranged_Skill_Percent",
+						"Effect Name": "rangedSkill_Percent",
 						"Value": -25
 					},
 					{
-						"Effect Name": "Melee_Defense_Percent",
+						"Effect Name": "meleeDefense_Percent",
 						"Value": -25
 					},
 					{
-						"Effect Name": "Ranged_Defense_Percent",
+						"Effect Name": "rangedDefense_Percent",
 						"Value": -25
 					},
 					{
-						"Effect Name": "Initiative_Percent",
+						"Effect Name": "initiative_Percent",
 						"Value": -25
 					},
 					{
-						"Effect Name": "Vision",
+						"Effect Name": "vision",
 						"Value": -2
 					}
 				],
@@ -570,7 +570,7 @@
 				"Damage Threshold": 999,
 				"Effects": [
 					{
-						"Effect Name": "Hitpoints_Percent",
+						"Effect Name": "hitpoints_Percent",
 						"Value": -15
 					}
 				],
@@ -585,7 +585,7 @@
 				"Damage Threshold": 25,
 				"Effects": [
 					{
-						"Effect Name": "Hitpoints_Over_Time",
+						"Effect Name": "Bleed",
 						"Value": -1
 					},
 					{
@@ -603,7 +603,7 @@
 				"Damage Threshold": 25,
 				"Effects": [
 					{
-						"Effect Name": "Fatigue_Recovery",
+						"Effect Name": "fatigueRecovery",
 						"Value": -3
 					}
 				],
@@ -618,7 +618,7 @@
 				"Damage Threshold": 25,
 				"Effects": [
 					{
-						"Effect Name": "Initiative_Percent",
+						"Effect Name": "initiative_Percent",
 						"Value": -15
 					}
 				],
@@ -633,7 +633,7 @@
 				"Damage Threshold": 25,
 				"Effects": [
 					{
-						"Effect Name": "Fatigue_Recovery",
+						"Effect Name": "fatigueRecovery",
 						"Value": -5
 					}
 				],
@@ -648,7 +648,7 @@
 				"Damage Threshold": 50,
 				"Effects": [
 					{
-						"Effect Name": "Hitpoints_Percent",
+						"Effect Name": "hitpoints_Percent",
 						"Value": -50
 					}
 				],
@@ -663,11 +663,11 @@
 				"Damage Threshold": 50,
 				"Effects": [
 					{
-						"Effect Name": "Initiative_Percent",
+						"Effect Name": "initiative_Percent",
 						"Value": -40
 					},
 					{
-						"Effect Name": "Action_points_On_Movement",
+						"Effect Name": "actionPoints_On_Movement",
 						"Value": 2
 					}
 				],
@@ -682,7 +682,7 @@
 				"Damage Threshold": 25,
 				"Effects": [
 					{
-						"Effect Name": "Damage_Percent",
+						"Effect Name": "damage_Percent",
 						"Value": -25
 					}
 				],
@@ -697,11 +697,11 @@
 				"Damage Threshold": 25,
 				"Effects": [
 					{
-						"Effect Name": "Melee_Skill_Percent",
+						"Effect Name": "meleeSkill_Percent",
 						"Value": -25
 					},
 					{
-						"Effect Name": "Ranged_Skill_Percent",
+						"Effect Name": "rangedSkill_Percent",
 						"Value": -25
 					}
 				],
@@ -716,7 +716,7 @@
 				"Damage Threshold": 25,
 				"Effects": [
 					{
-						"Effect Name": "Fatigue_Percent",
+						"Effect Name": "fatigue_Percent",
 						"Value": -20
 					}
 				],
@@ -731,11 +731,11 @@
 				"Damage Threshold": 25,
 				"Effects": [
 					{
-						"Effect Name": "Melee_Skill_Percent",
+						"Effect Name": "meleeSkill_Percent",
 						"Value": -20
 					},
 					{
-						"Effect Name": "Ranged_Skill_Percent",
+						"Effect Name": "rangedSkill_Percent",
 						"Value": -20
 					}
 				],
@@ -750,11 +750,11 @@
 				"Damage Threshold": 25,
 				"Effects": [
 					{
-						"Effect Name": "Initiative_Percent",
+						"Effect Name": "initiative_Percent",
 						"Value": -30
 					},
 					{
-						"Effect Name": "Melee_Defense_Percent",
+						"Effect Name": "meleeDefense_Percent",
 						"Value": -30
 					}
 				],
@@ -769,7 +769,7 @@
 				"Damage Threshold": 50,
 				"Effects": [
 					{
-						"Effect Name": "Fatigue_Percent",
+						"Effect Name": "fatigue_Percent",
 						"Value": -60
 					}
 				],
@@ -784,7 +784,7 @@
 				"Damage Threshold": 25,
 				"Effects": [
 					{
-						"Effect Name": "Fatigue_Percent",
+						"Effect Name": "fatigue_Percent",
 						"Value": -20
 					}
 				],
@@ -799,7 +799,7 @@
 				"Damage Threshold": 50,
 				"Effects": [
 					{
-						"Effect Name": "Hitpoints_Percent",
+						"Effect Name": "hitpoints_Percent",
 						"Value": -40
 					}
 				],
@@ -814,11 +814,11 @@
 				"Damage Threshold": 50,
 				"Effects": [
 					{
-						"Effect Name": "Fatigue_Recovery",
+						"Effect Name": "fatigueRecovery",
 						"Value": -5
 					},
 					{
-						"Effect Name": "Fatigue_Percent",
+						"Effect Name": "fatigue_Percent",
 						"Value": -50
 					}
 				],
@@ -833,11 +833,11 @@
 				"Damage Threshold": 50,
 				"Effects": [
 					{
-						"Effect Name": "Ranged_Skill_Percent",
+						"Effect Name": "rangedSkill_Percent",
 						"Value": -50
 					},
 					{
-						"Effect Name": "Vision",
+						"Effect Name": "vision",
 						"Value": -2
 					}
 				],
@@ -852,7 +852,7 @@
 				"Damage Threshold": 999,
 				"Effects": [
 					{
-						"Effect Name": "Hitpoints_Percent",
+						"Effect Name": "hitpoints_Percent",
 						"Value": -15
 					}
 				],
@@ -867,7 +867,7 @@
 				"Damage Threshold": 25,
 				"Effects": [
 					{
-						"Effect Name": "Hitpoints_Over_Time",
+						"Effect Name": "Bleed",
 						"Value": -1
 					},
 					{
@@ -885,7 +885,7 @@
 				"Damage Threshold": 25,
 				"Effects": [
 					{
-						"Effect Name": "Fatigue_Recovery",
+						"Effect Name": "fatigueRecovery",
 						"Value": -3
 					}
 				],
@@ -900,7 +900,7 @@
 				"Damage Threshold": 25,
 				"Effects": [
 					{
-						"Effect Name": "Initiative_Percent",
+						"Effect Name": "initiative_Percent",
 						"Value": -15
 					}
 				],
@@ -915,15 +915,15 @@
 				"Content In Reserve": false,
 				"Effects": [
 					{
-						"Effect Name": "Resolve_Percent",
+						"Effect Name": "resolve_Percent",
 						"Value": 15
 					},
 					{
-						"Effect Name": "Initiative_Percent",
+						"Effect Name": "initiative_Percent",
 						"Value": -25
 					},
 					{
-						"Effect Name": "XP_Rate_Percent",
+						"Effect Name": "xpRate_Percent",
 						"Value": -25
 					}
 				]
@@ -934,15 +934,15 @@
 				"Content In Reserve": true,
 				"Effects": [
 					{
-						"Effect Name": "Melee_Skill_Percent",
+						"Effect Name": "meleeSkill_Percent",
 						"Value": -20
 					},
 					{
-						"Effect Name": "Ranged_Skill_Percent",
+						"Effect Name": "rangedSkill_Percent",
 						"Value": -20
 					},
 					{
-						"Effect Name": "Melee_Defense_Percent",
+						"Effect Name": "meleeDefense_Percent",
 						"Value": -30
 					}
 				]
@@ -953,15 +953,15 @@
 				"Content In Reserve": true,
 				"Effects": [
 					{
-						"Effect Name": "Melee_Defense_Percent",
+						"Effect Name": "meleeDefense_Percent",
 						"Value": -40
 					},
 					{
-						"Effect Name": "Ranged_Defense_Percent",
+						"Effect Name": "rangedDefense_Percent",
 						"Value": -40
 					},
 					{
-						"Effect Name": "Initiative_Percent",
+						"Effect Name": "initiative_Percent",
 						"Value": -40
 					}
 				]
@@ -972,7 +972,7 @@
 				"Content In Reserve": true,
 				"Effects": [
 					{
-						"Effect Name": "Fatigue_Percent",
+						"Effect Name": "fatigue_Percent",
 						"Value": -40
 					}
 				]
@@ -983,11 +983,11 @@
 				"Content In Reserve": true,
 				"Effects": [
 					{
-						"Effect Name": "Action_points_On_Movement",
+						"Effect Name": "actionPoints_On_Movement",
 						"Value": 1
 					},
 					{
-						"Effect Name": "Initiative_Percent",
+						"Effect Name": "initiative_Percent",
 						"Value": -20
 					}
 				]
@@ -998,7 +998,7 @@
 				"Content In Reserve": false,
 				"Effects": [
 					{
-						"Effect Name": "Initiative_Percent",
+						"Effect Name": "initiative_Percent",
 						"Value": -10
 					}
 				]
@@ -1009,11 +1009,11 @@
 				"Content In Reserve": false,
 				"Effects": [
 					{
-						"Effect Name": "Ranged_Skill_Percent",
+						"Effect Name": "rangedSkill_Percent",
 						"Value": -50
 					},
 					{
-						"Effect Name": "Vision",
+						"Effect Name": "vision",
 						"Value": -2
 					}
 				]
@@ -1024,11 +1024,11 @@
 				"Content In Reserve": false,
 				"Effects": [
 					{
-						"Effect Name": "Melee_Skill_Percent",
+						"Effect Name": "meleeSkill_Percent",
 						"Value": -5
 					},
 					{
-						"Effect Name": "Ranged_Skill_Percent",
+						"Effect Name": "rangedSkill_Percent",
 						"Value": -5
 					}
 				]
@@ -1039,7 +1039,7 @@
 				"Content In Reserve": false,
 				"Effects": [
 					{
-						"Effect Name": "Fatigue_Percent",
+						"Effect Name": "fatigue_Percent",
 						"Value": -10
 					}
 				]
@@ -1050,11 +1050,11 @@
 				"Content In Reserve": true,
 				"Effects": [
 					{
-						"Effect Name": "Resolve_Percent",
+						"Effect Name": "resolve_Percent",
 						"Value": -50
 					},
 					{
-						"Effect Name": "Initiative_Percent",
+						"Effect Name": "initiative_Percent",
 						"Value": -30
 					}
 				]
@@ -1065,7 +1065,7 @@
 				"Content In Reserve": true,
 				"Effects": [
 					{
-						"Effect Name": "Hitpoints_Percent",
+						"Effect Name": "hitpoints_Percent",
 						"Value": -30
 					}
 				]

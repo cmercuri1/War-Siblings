@@ -5,11 +5,11 @@
 			"Specific Backgrounds": "CultistSpec",
 			"Effects": [
 				{
-					"Effect Name": "Resolve",
+					"Effect Name": "resolve",
 					"Value": 10
 				},
 				{
-					"Effect Name": "Fatigue_Recovery",
+					"Effect Name": "fatigueRecovery",
 					"Value": 2
 				},
 				{
@@ -25,7 +25,7 @@
 			"Specific Backgrounds": "Special",
 			"Effects": [
 				{
-					"Effect Name": "Resolve_Percent",
+					"Effect Name": "resolve_Percent",
 					"Value": -10
 				},
 				{
@@ -37,11 +37,11 @@
 					"Value": -10
 				},
 				{
-					"Effect Name": "Melee_Defense_Percent",
+					"Effect Name": "meleeDefense_Percent",
 					"Value": -10
 				},
 				{
-					"Effect Name": "Ranged_Defense_Percent",
+					"Effect Name": "rangedDefense_Percent",
 					"Value": -10
 				}
 			]
@@ -51,23 +51,23 @@
 			"Specific Backgrounds": "CultistSpec",
 			"Effects": [
 				{
-					"Effect Name": "Hitpoints",
+					"Effect Name": "hitpoints",
 					"Value": 20
 				},
 				{
-					"Effect Name": "Resolve",
+					"Effect Name": "resolve",
 					"Value": 10
 				},
 				{
-					"Effect Name": "Melee_Defense",
+					"Effect Name": "meleeDefense",
 					"Value": 5
 				},
 				{
-					"Effect Name": "Ranged_Defense",
+					"Effect Name": "rangedDefense",
 					"Value": 5
 				},
 				{
-					"Effect Name": "Fatigue_Recovery",
+					"Effect Name": "fatigueRecovery",
 					"Value": 2
 				},
 				{
@@ -86,15 +86,15 @@
 			"Specific Backgrounds": "CultistSpec",
 			"Effects": [
 				{
-					"Effect Name": "Hitpoints",
+					"Effect Name": "hitpoints",
 					"Value": 20
 				},
 				{
-					"Effect Name": "Resolve",
+					"Effect Name": "resolve",
 					"Value": 10
 				},
 				{
-					"Effect Name": "Fatigue_Recovery",
+					"Effect Name": "fatigueRecovery",
 					"Value": 2
 				},
 				{
@@ -120,7 +120,7 @@
 			"Specific Backgrounds": "CultistSpec",
 			"Effects": [
 				{
-					"Effect Name": "Resolve",
+					"Effect Name": "resolve",
 					"Value": 5
 				},
 				{
@@ -133,23 +133,23 @@
 			"Specific Backgrounds": "SwordmasterSpec",
 			"Effects": [
 				{
-					"Effect Name": "Resolve",
+					"Effect Name": "resolve",
 					"Value": 10
 				},
 				{
-					"Effect Name": "Hitpoints",
+					"Effect Name": "hitpoints",
 					"Value": -10
 				},
 				{
-					"Effect Name": "Fatigue",
+					"Effect Name": "fatigue",
 					"Value": -10
 				},
 				{
-					"Effect Name": "Initiative",
+					"Effect Name": "initiative",
 					"Value": -10
 				},
 				{
-					"Effect Name": "Vision",
+					"Effect Name": "vision",
 					"Value": -1
 				}
 			]
@@ -159,7 +159,7 @@
 			"Specific Backgrounds": "LoneWolfSpec",
 			"Effects": [
 				{
-					"Effect Name": "Resolve",
+					"Effect Name": "resolve",
 					"Value": 10
 				}
 			]
@@ -169,23 +169,23 @@
 			"Specific Backgrounds": "CultistSpec",
 			"Effects": [
 				{
-					"Effect Name": "Hitpoints",
+					"Effect Name": "hitpoints",
 					"Value": 20
 				},
 				{
-					"Effect Name": "Resolve",
+					"Effect Name": "resolve",
 					"Value": 10
 				},
 				{
-					"Effect Name": "Melee_Defense",
+					"Effect Name": "meleeDefense",
 					"Value": 5
 				},
 				{
-					"Effect Name": "Ranged_Defense",
+					"Effect Name": "rangedDefense",
 					"Value": 5
 				},
 				{
-					"Effect Name": "Fatigue_Recovery",
+					"Effect Name": "fatigueRecovery",
 					"Value": 2
 				},
 				{
@@ -204,7 +204,7 @@
 			"Specific Backgrounds": "CultistSpec",
 			"Effects": [
 				{
-					"Effect Name": "Resolve",
+					"Effect Name": "resolve",
 					"Value": 10
 				}
 			]

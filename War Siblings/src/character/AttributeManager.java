@@ -17,6 +17,7 @@ import event_classes.MoraleRollEvent;
 import event_classes.MultiValueAttributeEvent;
 import event_classes.PostDataEvent;
 import event_classes.RetrieveEvent;
+import event_classes.RoundControlEvent;
 import event_classes.StarAttributeEvent;
 import event_classes.TurnControlEvent;
 import global_generators.BackgroundGenerator;
@@ -31,6 +32,7 @@ import listener_interfaces.MoraleRollListener;
 import listener_interfaces.MultiValueAttributeListener;
 import listener_interfaces.PostDataListener;
 import listener_interfaces.RetrievalListener;
+import listener_interfaces.RoundControlListener;
 import listener_interfaces.TurnControlListener;
 import listener_interfaces.StarAttributeListener;
 import notifier_interfaces.PostDataNotifier;
@@ -58,8 +60,8 @@ import storage_classes.WageAttribute;
  */
 public class AttributeManager implements MultiNotifier, AttributeListener, ModifierListener, LevelUpAttributeListener,
 		MultiValueAttributeListener, RetrievalListener, TurnControlListener, StarAttributeListener, MoraleRollListener,
-		MoraleChangeListener, PostDataNotifier, SkillPreferenceNotifier, MoraleRollOutcomeNotifier,
-		MoraleChangeNotifier, MoraleRollNotifier {
+		MoraleChangeListener, RoundControlListener, PostDataNotifier, SkillPreferenceNotifier,
+		MoraleRollOutcomeNotifier, MoraleChangeNotifier, MoraleRollNotifier {
 	// Visible Character Attributes
 	protected HitpointAttribute hitpoints;
 	protected FatigueAttribute fatigue;
@@ -426,17 +428,15 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Modif
 
 	@Override
 	public void onMoraleRollEvent(MoraleRollEvent m) {
+		this.notifyMoraleRollListeners(m);
 		switch (m.getTask()) {
 		case ROLL_NEGATIVE:
-			this.notifyMoraleRollListeners(m);
 			this.rollNegative(m.getInformation());
 			break;
 		case ROLL_POSITIVE:
-			this.notifyMoraleRollListeners(m);
 			this.rollPositive(m.getInformation());
 			break;
 		case ROLL_SPECIAL:
-			this.notifyMoraleRollListeners(m);
 			this.notifyMoraleRollListeners(
 					new MoraleRollEvent(MoraleRollEvent.Task.ROLL_NEGATIVE, m.getInformation(), this));
 			this.rollSpecial(m.getInformation());
@@ -456,6 +456,16 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Modif
 		case RESET:
 			break;
 		case SET:
+			break;
+		}
+	}
+
+	@Override
+	public void onRoundControlEvent(RoundControlEvent r) {
+		switch (r.getTask()) {
+		case END_ROUND:
+			break;
+		case START_ROUND:
 			break;
 		}
 	}

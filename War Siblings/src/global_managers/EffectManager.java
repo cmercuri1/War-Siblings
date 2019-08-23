@@ -33,7 +33,7 @@ public class EffectManager extends TwoListGlobalManager {
 
 	@Override
 	protected void addItem2(JSONObject o) {
-		this.effectList.add(new Effect_Storage((String) o.get("Effect Name"),(String) o.get("Effect Type")));
+		this.effectList.add(new Effect_Storage((String) o.get("Effect Name"), (String) o.get("Effect Type")));
 	}
 
 	@Override

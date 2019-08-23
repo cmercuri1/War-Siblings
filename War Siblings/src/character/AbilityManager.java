@@ -6,13 +6,16 @@ package character;
 
 import effect_classes.Effect;
 import effect_classes.Effect_Battle_Triggered;
+import effect_classes.Effect_Inventory_Situation;
 import effect_classes.Effect_Modifier;
 import effect_classes.Effect_Morale_Triggered;
 import effect_classes.Effect_Round_Triggered;
 import effect_classes.Effect_Triggered;
 import effect_classes.Effect_Turn_Triggered;
+import effect_classes.Modifier;
 import event_classes.AbilityEvent;
 import event_classes.BattleControlEvent;
+import event_classes.InventorySituationEvent;
 import event_classes.ModifierEvent;
 import event_classes.MoraleChangeEvent;
 import event_classes.PermanentInjuryEvent;
@@ -26,6 +29,7 @@ import global_generators.BackgroundGenerator;
 import global_managers.GlobalManager;
 import listener_interfaces.AbilityListener;
 import listener_interfaces.BattleControlListener;
+import listener_interfaces.InventorySituationListener;
 import listener_interfaces.ModifierListener;
 import listener_interfaces.MoraleChangeListener;
 import listener_interfaces.PermanentInjuryListener;
@@ -35,6 +39,7 @@ import listener_interfaces.TraitListener;
 import listener_interfaces.TriggeredEffectListener;
 import listener_interfaces.TurnControlListener;
 import notifier_interfaces.BattleControlNotifier;
+import notifier_interfaces.InventorySituationNotifier;
 import notifier_interfaces.ModifierNotifier;
 import notifier_interfaces.MoraleChangeNotifier;
 import notifier_interfaces.MultiNotifier;
@@ -42,6 +47,7 @@ import notifier_interfaces.RoundControlNotifier;
 import notifier_interfaces.TurnControlNotifier;
 import storage_classes.Ability;
 import storage_classes.ArrayList;
+import storage_classes.MoraleState;
 import storage_classes.PermanentInjury;
 import storage_classes.TemporaryInjury;
 import storage_classes.Trait;
@@ -52,8 +58,8 @@ import storage_classes.Trait;
  */
 public class AbilityManager implements AbilityListener, TraitListener, PermanentInjuryListener, TemporaryInjuryListener,
 		TriggeredEffectListener, BattleControlListener, TurnControlListener, RoundControlListener, MoraleChangeListener,
-		MultiNotifier, ModifierNotifier, BattleControlNotifier, TurnControlNotifier, RoundControlNotifier,
-		MoraleChangeNotifier {
+		InventorySituationListener, MultiNotifier, ModifierNotifier, BattleControlNotifier, TurnControlNotifier,
+		RoundControlNotifier, MoraleChangeNotifier, InventorySituationNotifier {
 
 	protected ArrayList<Ability> characterAbilities;
 	protected ArrayList<Trait> characterTraits;
@@ -66,6 +72,7 @@ public class AbilityManager implements AbilityListener, TraitListener, Permanent
 	protected ArrayList<RoundControlListener> roundControlListeners;
 	protected ArrayList<TurnControlListener> turnControlListeners;
 	protected ArrayList<MoraleChangeListener> moraleChangeListeners;
+	protected ArrayList<InventorySituationListener> inventorySituationListeners;
 
 	public AbilityManager() {
 		this.characterAbilities = new ArrayList<Ability>();
@@ -83,6 +90,7 @@ public class AbilityManager implements AbilityListener, TraitListener, Permanent
 		this.roundControlListeners = new ArrayList<RoundControlListener>();
 		this.turnControlListeners = new ArrayList<TurnControlListener>();
 		this.moraleChangeListeners = new ArrayList<MoraleChangeListener>();
+		this.inventorySituationListeners = new ArrayList<InventorySituationListener>();
 	}
 
 	public void setUpAbilities(BackgroundGenerator background) {
@@ -203,6 +211,9 @@ public class AbilityManager implements AbilityListener, TraitListener, Permanent
 			if (e instanceof Effect_Morale_Triggered) {
 				this.addMoraleChangeListener((MoraleChangeListener) e);
 			}
+			if (e instanceof Effect_Inventory_Situation) {
+				this.addInventorySituationListener((InventorySituationListener) e);
+			}
 			if (e instanceof Effect_Triggered) {
 				((Effect_Triggered) e).addTriggeredEffectListener(this);
 			}
@@ -222,6 +233,9 @@ public class AbilityManager implements AbilityListener, TraitListener, Permanent
 			}
 			if (e instanceof Effect_Morale_Triggered) {
 				this.removeMoraleChangeListener((MoraleChangeListener) e);
+			}
+			if (e instanceof Effect_Inventory_Situation) {
+				this.removeInventorySituationListener((InventorySituationListener) e);
 			}
 			if (e instanceof Effect_Triggered) {
 				((Effect_Triggered) e).removeTriggeredEffectListener(this);
@@ -317,20 +331,30 @@ public class AbilityManager implements AbilityListener, TraitListener, Permanent
 	public void onTriggeredEffectEvent(TriggeredEffectEvent t) {
 		switch (t.getTask()) {
 		case APPLY:
+			this.notifyModifierListeners(
+					new ModifierEvent(ModifierEvent.Task.ADD, (Modifier) t.getInformation(), this));
 			break;
 		case DAMAGE:
+			// DAMAGE LISTENERs
 			break;
 		case IMPEDE:
 			break;
 		case REMOVE:
+			this.notifyModifierListeners(
+					new ModifierEvent(ModifierEvent.Task.REMOVE, (Modifier) t.getInformation(), this));
 			break;
 		case ADD_ABILITY:
+			this.addAbility((Ability) t.getInformation());
 			break;
 		case REMOVE_ABILITY:
+			this.removeAbility((Ability) t.getInformation());
 			break;
 		case MORALE_REPLACE:
+			this.notifyMoraleChangeListeners(
+					new MoraleChangeEvent(MoraleChangeEvent.Task.OVERRIDE, (MoraleState) t.getInformation(), this));
 			break;
 		case IGNORE_MORALE:
+			//
 			break;
 		}
 	}
@@ -338,51 +362,26 @@ public class AbilityManager implements AbilityListener, TraitListener, Permanent
 	@Override
 	public void onRoundControlEvent(RoundControlEvent r) {
 		this.notifyRoundControlListeners(r);
-		switch (r.getTask()) {
-		case END_ROUND:
-			break;
-		case START_ROUND:
-			break;
-		}
 	}
 
 	@Override
 	public void onTurnControlEvent(TurnControlEvent t) {
 		this.notifyTurnControlListeners(t);
-		switch (t.getTask()) {
-		case END_TURN:
-			break;
-		case START_TURN:
-			break;
-		}
 	}
 
 	@Override
 	public void onBattleControlEvent(BattleControlEvent b) {
 		this.notifyBattleControlListeners(b);
-		switch (b.getTask()) {
-		case END_BATTLE:
-			break;
-		case START_BATTLE:
-			break;
-		}
 	}
 
 	@Override
 	public void onMoraleChangeEvent(MoraleChangeEvent m) {
 		this.notifyMoraleChangeListeners(m);
-		switch (m.getTask()) {
-		case CHANGE:
-			break;
-		case INITIAL:
-			break;
-		case OVERRIDE:
-			break;
-		case RESET:
-			break;
-		case SET:
-			break;
-		}
+	}
+
+	@Override
+	public void onInventorySituationEvent(InventorySituationEvent i) {
+		this.notifyInventorySituationListeners(i);
 	}
 
 	@Override
@@ -483,5 +482,25 @@ public class AbilityManager implements AbilityListener, TraitListener, Permanent
 	@Override
 	public void notifyTurnControlListener(TurnControlListener t, TurnControlEvent e) {
 		this.turnControlListeners.get(t).onTurnControlEvent(e);
+	}
+
+	@Override
+	public void addInventorySituationListener(InventorySituationListener i) {
+		this.inventorySituationListeners.add(i);
+	}
+
+	@Override
+	public void removeInventorySituationListener(InventorySituationListener i) {
+		this.inventorySituationListeners.remove(i);
+	}
+
+	@Override
+	public void notifyInventorySituationListeners(InventorySituationEvent i) {
+		this.inventorySituationListeners.forEach(l -> l.onInventorySituationEvent(i));
+	}
+
+	@Override
+	public void notifyInventorySituationListener(InventorySituationListener i, InventorySituationEvent e) {
+		this.inventorySituationListeners.get(i).onInventorySituationEvent(e);
 	}
 }
