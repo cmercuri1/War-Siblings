@@ -53,7 +53,7 @@ public class EffectManager extends TwoListGlobalManager {
 	/** search: finds and returns the effect by its name */
 	public Effect_Storage search(String toBeFound) {
 		for (Effect_Storage e : this.effectList) {
-			if (e.getEffectType().equals(toBeFound)) {
+			if (e.getEffectName().equals(toBeFound)) {
 				return e;
 			}
 		}

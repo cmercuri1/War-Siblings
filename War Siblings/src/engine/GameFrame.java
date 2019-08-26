@@ -119,14 +119,17 @@ public class GameFrame extends JFrame implements ActionListener, ItemListener, C
 		gl.setAutoCreateContainerGaps(true);
 		gl.setAutoCreateGaps(true);
 
-		gl.setHorizontalGroup(gl.createSequentialGroup().addGroup(gl.createParallelGroup()
-				.addGroup(gl.createSequentialGroup().addComponent(bgIcon).addComponent(trait1).addComponent(trait2)
-						.addComponent(trait3))
-				.addGroup(gl.createSequentialGroup()
-						.addGroup(gl.createParallelGroup().addComponent(helm).addComponent(body).addComponent(ap)
-								.addComponent(fat).addComponent(mor).addComponent(res).addComponent(init))
-						.addGroup(gl.createParallelGroup().addComponent(mSk).addComponent(rSk).addComponent(mDef)
-								.addComponent(rDef).addComponent(dam).addComponent(hs).addComponent(vis))))
+		gl.setHorizontalGroup(gl.createSequentialGroup()
+				.addGroup(gl.createParallelGroup()
+						.addGroup(gl.createSequentialGroup().addComponent(bgIcon).addComponent(trait1)
+								.addComponent(trait2).addComponent(trait3))
+						.addGroup(gl.createSequentialGroup()
+								.addGroup(gl.createParallelGroup().addComponent(helm).addComponent(body)
+										.addComponent(hp).addComponent(ap).addComponent(fat).addComponent(mor)
+										.addComponent(res).addComponent(init))
+								.addGroup(gl.createParallelGroup().addComponent(mSk).addComponent(rSk)
+										.addComponent(mDef).addComponent(rDef).addComponent(dam).addComponent(armDam)
+										.addComponent(hs).addComponent(vis))))
 				.addGroup(gl.createParallelGroup()
 						.addGroup(gl.createSequentialGroup().addComponent(rightItem)
 								.addGroup(gl.createParallelGroup().addComponent(headArmor).addComponent(bodyArmor))
@@ -142,9 +145,10 @@ public class GameFrame extends JFrame implements ActionListener, ItemListener, C
 										.addComponent(trait2).addComponent(trait3))
 								.addGroup(gl.createParallelGroup(BASELINE).addComponent(helm).addComponent(mSk))
 								.addGroup(gl.createParallelGroup(BASELINE).addComponent(body).addComponent(rSk))
-								.addGroup(gl.createParallelGroup(BASELINE).addComponent(ap).addComponent(mDef))
-								.addGroup(gl.createParallelGroup(BASELINE).addComponent(fat).addComponent(rDef))
-								.addGroup(gl.createParallelGroup(BASELINE).addComponent(mor).addComponent(dam))
+								.addGroup(gl.createParallelGroup(BASELINE).addComponent(hp).addComponent(mDef))
+								.addGroup(gl.createParallelGroup(BASELINE).addComponent(ap).addComponent(rDef))
+								.addGroup(gl.createParallelGroup(BASELINE).addComponent(fat).addComponent(dam))
+								.addGroup(gl.createParallelGroup(BASELINE).addComponent(mor).addComponent(armDam))
 								.addGroup(gl.createParallelGroup(BASELINE).addComponent(res).addComponent(hs))
 								.addGroup(gl.createParallelGroup(BASELINE).addComponent(init).addComponent(vis)))
 						.addGroup(gl.createSequentialGroup().addComponent(headArmor)
@@ -288,10 +292,10 @@ public class GameFrame extends JFrame implements ActionListener, ItemListener, C
 		this.rSk.setText(tba.getAm().getAttributes()[6].toString());
 		this.mDef.setText(tba.getAm().getAttributes()[7].toString());
 		this.rDef.setText(tba.getAm().getAttributes()[8].toString());
-		this.dam.setText(tba.getIm().getRight().getDamage());
-		this.armDam.setText(tba.getIm().getRight().getArmorDamage());
-		this.hs.setText(tba.getAm().getAttributes()[9].toString() + "%");
-		this.vis.setText(tba.getAm().getAttributes()[10].toString());
+		this.dam.setText(tba.getAm().getAttributes()[9].toString());
+		this.armDam.setText(tba.getAm().getAttributes()[10].toString() + "%");
+		this.hs.setText(tba.getAm().getAttributes()[11].toString() + "%");
+		this.vis.setText(tba.getAm().getAttributes()[12].toString());
 
 		this.bgIcon.setIcon(tba.getBgIcon());
 
@@ -326,7 +330,7 @@ public class GameFrame extends JFrame implements ActionListener, ItemListener, C
 		this.leftItem.setIcon(tba.getIm().getLeft().getImage());
 		this.leftItem.setToolTipText(tba.getIm().getLeft().toString());
 
-		//tba.display();
+		// tba.display();
 	}
 
 	@Override

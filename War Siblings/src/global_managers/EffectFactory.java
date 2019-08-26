@@ -31,6 +31,9 @@ public class EffectFactory {
 		if (effectName == null)
 			return null;
 		Effect_Storage temp = GlobalManager.effects.search(effectName);
+		if (temp == null) {
+			System.out.println(effectName);
+		}
 
 		if (temp.getEffectType().equalsIgnoreCase("Effect_Modifier"))
 			return new Effect_Modifier(effectName, effectValue);
@@ -72,44 +75,48 @@ public class EffectFactory {
 
 		if (temp.getEffectType().equalsIgnoreCase("Battle"))
 			return new Effect_temp();
-		
+
 		if (temp.getEffectType().equalsIgnoreCase("Morale"))
 			return new Effect_temp();
-		
+
 		if (temp.getEffectType().equalsIgnoreCase("Effect_Triggered"))
 			return new Effect_temp();
-		
+
 		if (temp.getEffectType().equalsIgnoreCase("Special"))
 			return new Effect_temp();
-		
+
 		if (temp.getEffectType().equalsIgnoreCase("Effect_DoT"))
 			return new Effect_temp();
-		
+
 		return null;
 	}
-	
+
 	public Effect getEffect(String effectName) {
 		if (effectName == null)
 			return null;
-		
+
 		Effect_Storage temp = GlobalManager.effects.search(effectName);
+		if (temp == null) {
+			System.out.println(effectName);
+		}
 
 		if (temp.getEffectType().equalsIgnoreCase("Effect_AllyDeathIgnore"))
 			return new Effect_AllyDeathIgnore();
 
 		if (temp.getEffectType().equalsIgnoreCase("Effect_Deathwish"))
 			return new Effect_Deathwish();
-		
+
 		if (temp.getEffectType().equalsIgnoreCase("Effect_Determined"))
 			return new Effect_Determined();
-		
+
 		if (temp.getEffectType().equalsIgnoreCase("Effect_Insecure"))
 			return new Effect_Insecure();
-		
+
 		return null;
 	}
 
 	public Effect_DoT getEffect(String effectName, double duration, double damage) {
+		System.out.println(effectName);
 		if (effectName == null)
 			return null;
 		Effect_Storage temp = GlobalManager.effects.search(effectName);

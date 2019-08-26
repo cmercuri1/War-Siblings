@@ -230,16 +230,16 @@ public class InventoryManager implements CharacterInventoryListener, SkillPrefer
 		Modifier fatiguePen;
 		Modifier initiativePen;
 		try {
-			fatiguePen = new Modifier("Fatigue_Final", old.getFatigueRed().getAlteredValue());
-			initiativePen = new Modifier("Initiative_Final", old.getFatigueRed().getAlteredValue());
+			fatiguePen = new Modifier("fatigue_Final", old.getFatigueRed().getAlteredValue());
+			initiativePen = new Modifier("initiative_Final", old.getFatigueRed().getAlteredValue());
 			this.notifyModifierListeners(new ModifierEvent(ModifierEvent.Task.REMOVE, fatiguePen, this));
 			this.notifyModifierListeners(new ModifierEvent(ModifierEvent.Task.REMOVE, initiativePen, this));
 		} catch (NullPointerException nu) {
 
 		}
 		try {
-			fatiguePen = new Modifier("Fatigue_Final", next.getFatigueRed().getAlteredValue());
-			initiativePen = new Modifier("Initiative_Final", next.getFatigueRed().getAlteredValue());
+			fatiguePen = new Modifier("fatigue_Final", next.getFatigueRed().getAlteredValue());
+			initiativePen = new Modifier("initiative_Final", next.getFatigueRed().getAlteredValue());
 			this.notifyModifierListeners(new ModifierEvent(ModifierEvent.Task.ADD, fatiguePen, this));
 			this.notifyModifierListeners(new ModifierEvent(ModifierEvent.Task.ADD, initiativePen, this));
 		} catch (NullPointerException nu) {
@@ -250,13 +250,13 @@ public class InventoryManager implements CharacterInventoryListener, SkillPrefer
 	protected void impedeVision(Headgear old, Headgear next) {
 		Modifier visionPen;
 		try {
-			visionPen = new Modifier("Vision_Final", old.getVisRed());
+			visionPen = new Modifier("vision_Final", old.getVisRed());
 			this.notifyModifierListeners(new ModifierEvent(ModifierEvent.Task.REMOVE, visionPen, this));
 		} catch (NullPointerException nu) {
 
 		}
 		try {
-			visionPen = new Modifier("Vision_Final", next.getVisRed());
+			visionPen = new Modifier("vision_Final", next.getVisRed());
 			this.notifyModifierListeners(new ModifierEvent(ModifierEvent.Task.ADD, visionPen, this));
 		} catch (NullPointerException nu) {
 
@@ -265,9 +265,9 @@ public class InventoryManager implements CharacterInventoryListener, SkillPrefer
 
 	protected void removeShieldDefense(Shield old) {
 		try {
-			Modifier meleeDefense = new Modifier("MeleeDefense_Final",
+			Modifier meleeDefense = new Modifier("meleeDefense_Final",
 					old.getMeleeDef().getAlteredValue());
-			Modifier rangedDefense = new Modifier("RangedDefense_Final",
+			Modifier rangedDefense = new Modifier("rangedDefense_Final",
 					old.getRangedDef().getAlteredValue());
 
 			this.notifyModifierListeners(new ModifierEvent(ModifierEvent.Task.REMOVE, meleeDefense, this));
@@ -279,9 +279,9 @@ public class InventoryManager implements CharacterInventoryListener, SkillPrefer
 
 	protected void grantShieldDefense(Shield next) {
 		try {
-			Modifier meleeDefense = new Modifier("MeleeDefense_Final",
+			Modifier meleeDefense = new Modifier("meleeDefense_Final",
 					next.getMeleeDef().getAlteredValue());
-			Modifier rangedDefense = new Modifier("RangedDefense_Final",
+			Modifier rangedDefense = new Modifier("rangedDefense_Final",
 					next.getRangedDef().getAlteredValue());
 
 			this.notifyModifierListeners(new ModifierEvent(ModifierEvent.Task.ADD, meleeDefense, this));

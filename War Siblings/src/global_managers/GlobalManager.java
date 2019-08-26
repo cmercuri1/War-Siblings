@@ -30,6 +30,7 @@ public class GlobalManager {
 
 	static {
 		effects = new EffectManager();
+		effectFactory = new EffectFactory();
 		xp = new ExperienceManager();
 		traits = new TraitManager();
 		equipment = new EquipmentManager();
@@ -38,8 +39,6 @@ public class GlobalManager {
 		permInjury = new PermanentInjuryManager();
 		moods = new MoodManager();
 		backgrounds = new BackgroundManager();
-		
-		effectFactory = new EffectFactory();
 
 		rng = new Random();
 	}

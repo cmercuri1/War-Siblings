@@ -11,33 +11,39 @@ import notifier_interfaces.ItemNotifier;
 /** Special Attribute handling item durability */
 public class DurAttribute extends BarAttribute implements ItemNotifier {
 	protected ArrayList<ItemListener> itemListeners;
-	
+
 	public DurAttribute(double value) {
 		super(value);
+		this.alteredCurrentValue = this.alteredMaxValue;
 	}
 	
+	public DurAttribute(double value, double current) {
+		super(value);
+		this.alteredCurrentValue = current;
+	}
+
 	protected void setUpNotificationSystem() {
 		super.setUpNotificationSystem();
 		this.itemListeners = new ArrayList<ItemListener>();
 	}
-	
+
 	public void alterCurrent(double value) {
 		super.alterCurrent(value);
-		this.notifyItemListeners(new ItemEvent(ItemEvent.Task.MODIFY_VALUE, this.getPercentage(),this));
+		this.notifyItemListeners(new ItemEvent(ItemEvent.Task.MODIFY_VALUE, this.getPercentage(), this));
 	}
-	
+
 	protected void currentChecker() {
 		if (this.alteredCurrentValue < MINIMUM) {
 			this.alteredCurrentValue = MINIMUM;
-			this.notifyItemListeners(new ItemEvent(ItemEvent.Task.BROKEN, this.getPercentage(),this));
+			this.notifyItemListeners(new ItemEvent(ItemEvent.Task.BROKEN, this.getPercentage(), this));
 		} else if (this.alteredCurrentValue > this.alteredMaxValue) {
 			this.alteredCurrentValue = this.alteredMaxValue;
-			this.notifyItemListeners(new ItemEvent(ItemEvent.Task.REPAIRED, this.getPercentage(),this));
+			this.notifyItemListeners(new ItemEvent(ItemEvent.Task.REPAIRED, this.getPercentage(), this));
 		}
 	}
-	
+
 	protected double getPercentage() {
-		return this.alteredCurrentValue/this.alteredMaxValue;
+		return this.alteredCurrentValue / this.alteredMaxValue;
 	}
 
 	@Override
@@ -57,6 +63,6 @@ public class DurAttribute extends BarAttribute implements ItemNotifier {
 
 	@Override
 	public void notifyItemListener(ItemListener i, ItemEvent e) {
-		this.itemListeners.get(i).onItemEvent(e);		
+		this.itemListeners.get(i).onItemEvent(e);
 	}
 }
