@@ -114,7 +114,7 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Modif
 		this.moraleRollListeners = new ArrayList<MoraleRollListener>();
 	}
 
-	public void setUpAttributes(BackgroundGenerator bg) {
+	protected void setUpAttributes(BackgroundGenerator bg) {
 		this.assignAttributes(bg);
 		this.assignStars(bg.getExcludedTalents());
 		this.resetMorale();
@@ -230,16 +230,11 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Modif
 
 	/** Designed to get the relevant attribute */
 	protected Attribute getAttribute(String attributeName) {
-		Field temp = null;
 		try {
-			temp = this.getClass().getDeclaredField(attributeName);
-		} catch (NoSuchFieldException | SecurityException e) {
-			e.printStackTrace();
-		}
-
-		try {
-			return (Attribute) temp.get(this);
-		} catch (IllegalArgumentException | IllegalAccessException e) {
+			Field temp = this.getClass().getDeclaredField(attributeName);
+			Attribute t = (Attribute) temp.get(this);
+			return t;
+		} catch (IllegalArgumentException | IllegalAccessException | NoSuchFieldException | SecurityException e) {
 			e.printStackTrace();
 		}
 		return null;
@@ -338,6 +333,7 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Modif
 
 		System.out.println("Hitpoints: " + this.hitpoints.toStringFull());
 		System.out.println("Fatigue: " + this.fatigue.toStringFull());
+		System.out.println("Morale State: " + this.currentMorale.toString());
 		System.out.println("Resolve: " + this.resolve.toStringFull());
 		System.out.println("Initiative: " + this.initiative.toStringFull());
 		System.out.println("Melee Skill: " + this.meleeSkill.toStringFull());
@@ -352,6 +348,10 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Modif
 		System.out.println("Points of Fatigue Regained each Turn: " + this.fatigueRecovery.toStringFull());
 		System.out.println("Tiles of Vision: " + this.vision.toStringFull());
 		System.out.println("Experience Rate is " + this.xpRate.toStringFull());
+		System.out.println("Mood: " + this.mood.toStringFull());
+		System.out.println("Damage: " + this.damage.toStringFull());
+		System.out.println("Armor Damage: " + this.armorDamage.toStringFull());
+		System.out.println("Ignore Armor: " + this.ignoreArmor.toStringFull());
 
 		System.out.println();
 	}

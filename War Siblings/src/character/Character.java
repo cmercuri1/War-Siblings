@@ -44,6 +44,8 @@ public class Character
 	protected ArrayList<AbilityListener> abilityListeners;
 	protected ArrayList<TraitListener> traitListeners;
 
+	protected boolean made;
+
 	/** New Character with random background */
 	public Character() {
 		this.generalSetUp();
@@ -61,7 +63,6 @@ public class Character
 		this.em = new EventManager();
 
 		this.assignListeners();
-
 	}
 
 	protected void assignListeners() {
@@ -70,7 +71,6 @@ public class Character
 		this.im.addModifierListener(this.am);
 
 		this.em.addBattleControlListener(this.abm);
-		this.em.addBattleControlListener(this.abm);
 		this.em.addCombatListener(null);
 		this.em.addRoundControlListener(this.abm);
 		this.em.addRoundControlListener(this.am);
@@ -78,7 +78,11 @@ public class Character
 		this.em.addTurnControlListener(this.abm);
 
 		this.abm.addModifierListener(this.am);
-		
+
+		this.am.addMoraleChangeListener(this.abm);
+		this.am.addMoraleRollOutcomeListener(this.em);
+		this.am.addSkillPreferenceListener(this.im);
+
 		this.addAbilityListener(abm);
 		this.addCharacterInventoryListener(im);
 		this.addTraitListener(abm);
@@ -93,9 +97,10 @@ public class Character
 		this.im.setUpInventory(bg);
 
 		this.notifyCharacterListeners(new CharacterEvent(CharacterEvent.Task.FINISHED_CHARACTER, this, this));
+		this.made = true;
 	}
 
-	protected void resetCharacter() {
+	protected void resetCharacterStats() {
 		this.notifyAbilityListeners(new AbilityEvent(AbilityEvent.Task.REMOVE_ALL, null, this));
 		this.notifyCharacterInventoryListeners(
 				new CharacterInventoryEvent(CharacterInventoryEvent.Task.REMOVE_ALL, null, this));
@@ -148,7 +153,9 @@ public class Character
 	public void onCharacterEvent(CharacterEvent c) {
 		switch (c.getTask()) {
 		case CHANGED_CHARACTER:
-			this.resetCharacter();
+			if (made) {
+				this.resetCharacterStats();
+			}
 			if (c.getInformation().equals("Random")) {
 				this.makeCharacter(GlobalManager.backgrounds.getRandomBackground());
 			} else {

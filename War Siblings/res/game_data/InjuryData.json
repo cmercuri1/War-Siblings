@@ -36,7 +36,7 @@
 						"Value": -40
 					},
 					{
-						"Effect Name": "actionPoints_OnMovement",
+						"Effect Name": "ActionPoints_OnMovement",
 						"Value": 2
 					}
 				],
@@ -70,7 +70,7 @@
 						"Value": -20
 					},
 					{
-						"Effect Name": "actionPoints_On_Movement",
+						"Effect Name": "ActionPoints_OnMovement",
 						"Value": 1
 					}
 				],
@@ -191,7 +191,7 @@
 						"Value": -20
 					},
 					{
-						"Effect Name": "actionPoints_On_Movement",
+						"Effect Name": "ActionPoints_OnMovement",
 						"Value": 1
 					}
 				],
@@ -314,7 +314,7 @@
 						"Value": -30
 					},
 					{
-						"Effect Name": "actionPoints_On_Movement",
+						"Effect Name": "ActionPoints_OnMovement",
 						"Value": 2
 					}
 				],
@@ -667,7 +667,7 @@
 						"Value": -40
 					},
 					{
-						"Effect Name": "actionPoints_On_Movement",
+						"Effect Name": "ActionPoints_OnMovement",
 						"Value": 2
 					}
 				],
@@ -983,7 +983,7 @@
 				"Content In Reserve": true,
 				"Effects": [
 					{
-						"Effect Name": "actionPoints_On_Movement",
+						"Effect Name": "ActionPoints_OnMovement",
 						"Value": 1
 					},
 					{

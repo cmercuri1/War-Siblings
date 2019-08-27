@@ -28,7 +28,7 @@
 			],
 			"Effects": [
 				{
-					"Effect Name": "Fatigue_On_Movement",
+					"Effect Name": "Fatigue_OnMovement",
 					"Value": -2
 				}
 			]
@@ -97,7 +97,7 @@
 			],
 			"Effects": [
 				{
-					"Effect Name": "Fatigue_On_Movement",
+					"Effect Name": "Fatigue_OnMovement",
 					"Value": 2
 				}
 			]
@@ -642,8 +642,8 @@
 			"Name": "Survivor",
 			"Effects": [
 				{
-					"Effect Name": "SurvivalChance",
-					"Value": 90
+					"Effect Name": "survivalChance",
+					"Value": 57
 				}
 			]
 		},

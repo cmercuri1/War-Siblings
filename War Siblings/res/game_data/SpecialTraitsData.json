@@ -29,11 +29,11 @@
 					"Value": -10
 				},
 				{
-					"Effect Name": "Melee_Skill_Percent",
+					"Effect Name": "meleeSkill_Percent",
 					"Value": -10
 				},
 				{
-					"Effect Name": "Ranged_Skill_Percent",
+					"Effect Name": "rangedSkill_Percent",
 					"Value": -10
 				},
 				{
@@ -110,7 +110,7 @@
 			"Specific Backgrounds": "Special",
 			"Effects": [
 				{
-					"Effect Name": "Damage_Percent",
+					"Effect Name": "damage_Percent",
 					"Value": 25
 				}
 			]

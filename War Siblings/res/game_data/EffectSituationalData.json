@@ -1,7 +1,7 @@
 {
 	"Effects": [
 		{
-			"Effect Name": "actionPoints_OnMovement",
+			"Effect Name": "ActionPoints_OnMovement",
 			"Effect Type": "Special"
 		},
 		{
@@ -25,11 +25,15 @@
 			"Effect Type": "Special"
 		},
 		{
-			"Effect Name": "fatigue_OnMovement",
+			"Effect Name": "Fatality_Chance_Percent",
 			"Effect Type": "Special"
 		},
 		{
-			"Effect Name": "FriendlyFireChance",
+			"Effect Name": "Fatigue_OnMovement",
+			"Effect Type": "Special"
+		},
+		{
+			"Effect Name": "FriendlyFireChance_Percent",
 			"Effect Type": "Battle"
 		},
 		{

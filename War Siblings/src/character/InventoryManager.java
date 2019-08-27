@@ -196,10 +196,14 @@ public class InventoryManager implements CharacterInventoryListener, SkillPrefer
 		this.weighedDown(temp, next);
 		if (temp instanceof Shield) {
 			this.removeShieldDefense((Shield) temp);
+		} else if (temp instanceof Weapon) {
+			this.removeWeaponStats((Weapon) temp);
 		}
 
 		if (next instanceof Shield) {
 			this.grantShieldDefense((Shield) next);
+		} else if (next instanceof Weapon) {
+			this.grantWeaponStats((Weapon) next);
 		}
 
 		this.isDualGripping();
@@ -265,10 +269,8 @@ public class InventoryManager implements CharacterInventoryListener, SkillPrefer
 
 	protected void removeShieldDefense(Shield old) {
 		try {
-			Modifier meleeDefense = new Modifier("meleeDefense_Final",
-					old.getMeleeDef().getAlteredValue());
-			Modifier rangedDefense = new Modifier("rangedDefense_Final",
-					old.getRangedDef().getAlteredValue());
+			Modifier meleeDefense = new Modifier("meleeDefense", old.getMeleeDef().getAlteredValue());
+			Modifier rangedDefense = new Modifier("rangedDefense", old.getRangedDef().getAlteredValue());
 
 			this.notifyModifierListeners(new ModifierEvent(ModifierEvent.Task.REMOVE, meleeDefense, this));
 			this.notifyModifierListeners(new ModifierEvent(ModifierEvent.Task.REMOVE, rangedDefense, this));
@@ -279,13 +281,43 @@ public class InventoryManager implements CharacterInventoryListener, SkillPrefer
 
 	protected void grantShieldDefense(Shield next) {
 		try {
-			Modifier meleeDefense = new Modifier("meleeDefense_Final",
-					next.getMeleeDef().getAlteredValue());
-			Modifier rangedDefense = new Modifier("rangedDefense_Final",
-					next.getRangedDef().getAlteredValue());
+			Modifier meleeDefense = new Modifier("meleeDefense", next.getMeleeDef().getAlteredValue());
+			Modifier rangedDefense = new Modifier("rangedDefense", next.getRangedDef().getAlteredValue());
 
 			this.notifyModifierListeners(new ModifierEvent(ModifierEvent.Task.ADD, meleeDefense, this));
 			this.notifyModifierListeners(new ModifierEvent(ModifierEvent.Task.ADD, rangedDefense, this));
+		} catch (NullPointerException nu) {
+
+		}
+	}
+
+	protected void removeWeaponStats(Weapon old) {
+		try {
+			Modifier minDam = new Modifier("damage", old.getMinDam().getAlteredValue());
+			Modifier ignArm = new Modifier("ignoreArmor", old.getIgnArm().getAlteredValue());
+			Modifier armDam = new Modifier("armorDamage", old.getArmDam().getAlteredValue());
+			Modifier headShot = new Modifier("headshotChance", old.getHeadShot().getAlteredValue());
+
+			this.notifyModifierListeners(new ModifierEvent(ModifierEvent.Task.REMOVE, minDam, this));
+			this.notifyModifierListeners(new ModifierEvent(ModifierEvent.Task.REMOVE, ignArm, this));
+			this.notifyModifierListeners(new ModifierEvent(ModifierEvent.Task.REMOVE, armDam, this));
+			this.notifyModifierListeners(new ModifierEvent(ModifierEvent.Task.REMOVE, headShot, this));
+		} catch (NullPointerException nu) {
+
+		}
+	}
+
+	protected void grantWeaponStats(Weapon next) {
+		try {
+			Modifier minDam = new Modifier("damage", next.getMinDam().getAlteredValue());
+			Modifier ignArm = new Modifier("ignoreArmor", next.getIgnArm().getAlteredValue());
+			Modifier armDam = new Modifier("armorDamage", next.getArmDam().getAlteredValue());
+			Modifier headShot = new Modifier("headshotChance", next.getHeadShot().getAlteredValue());
+
+			this.notifyModifierListeners(new ModifierEvent(ModifierEvent.Task.ADD, minDam, this));
+			this.notifyModifierListeners(new ModifierEvent(ModifierEvent.Task.ADD, ignArm, this));
+			this.notifyModifierListeners(new ModifierEvent(ModifierEvent.Task.ADD, armDam, this));
+			this.notifyModifierListeners(new ModifierEvent(ModifierEvent.Task.ADD, headShot, this));
 		} catch (NullPointerException nu) {
 
 		}
@@ -376,13 +408,13 @@ public class InventoryManager implements CharacterInventoryListener, SkillPrefer
 			this.swapItem(ARM.LEFT, GlobalManager.equipment.DEFAULTLEFT);
 			break;
 		case REMOVE_RIGHT:
-			this.swapItem(ARM.RIGHT, GlobalManager.equipment.DEFAULTLEFT);
+			this.swapItem(ARM.RIGHT, GlobalManager.equipment.DEFAULTRIGHT);
 			break;
 		case REMOVE_ALL:
 			this.swapBody(GlobalManager.equipment.DEFAULTBODY);
 			this.swapHead(GlobalManager.equipment.DEFAULTHEAD);
 			this.swapItem(ARM.LEFT, GlobalManager.equipment.DEFAULTLEFT);
-			this.swapItem(ARM.RIGHT, GlobalManager.equipment.DEFAULTLEFT);
+			this.swapItem(ARM.RIGHT, GlobalManager.equipment.DEFAULTRIGHT);
 			break;
 		}
 	}
