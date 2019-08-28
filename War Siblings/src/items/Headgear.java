@@ -19,7 +19,7 @@ public class Headgear extends Armor {
 		super(name, value, desc, dura, fatRed, type);
 		this.visRed = visRed;
 	}
-	
+
 	@Override
 	protected void setIcon() {
 		this.image = new ImageIcon("res/images/Items/Headgear/" + this.name + ".png");
@@ -44,10 +44,15 @@ public class Headgear extends Armor {
 	}
 
 	public String toString() {
-		String temp = super.toString();
-		if (this.visRed > 0) {
-			temp += ("<html><br>Reduces vision by " + ((Double) this.visRed).intValue() + " tiles</html>");
+		String temp = "<html>" + this.name + "<br>" + this.desc + "<br>Worth " + this.value.toString() + " crowns"
+				+ "<br>" + this.durability.toString();
+
+		if (this.fatigueRed.getAlteredValue() < 0) {
+			temp += "<br>Reduces Maximum Fatigue by " + this.fatigueRed.toString();
 		}
-		return temp;
+		if (this.visRed < 0) {
+			temp += ("<br>Reduces vision by " + ((Double) this.visRed).intValue() + " tiles");
+		}
+		return temp + "</html>";
 	}
 }

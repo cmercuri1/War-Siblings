@@ -29,12 +29,12 @@ public class EquipItem extends Item implements MultiValueAttributeListener, Item
 		this.fatigueRed = new Attribute(fatRed);
 		this.setUpEquipItemListeners();
 	}
-	
+
 	protected void setUpEquipItemListeners() {
 		this.durability.addAttributeListener(this);
 		this.durability.addItemListener(this);
 		this.durability.addMultiValueAttributeListener(this);
-		
+
 		this.fatigueRed.addAttributeListener(this);
 	}
 
@@ -65,9 +65,10 @@ public class EquipItem extends Item implements MultiValueAttributeListener, Item
 	}
 
 	public String toString() {
-		String temp = super.toString() + "<html><br>" + this.durability.toString();
+		String temp = "<html>" + this.name + "<br>" + this.desc + "<br>Worth " + this.value.toString() + " crowns"
+				+ "<br>" + this.durability.toString();
 
-		if (this.fatigueRed.getAlteredValue() > 0) {
+		if (this.fatigueRed.getAlteredValue() < 0) {
 			temp += "<br>Reduces Maximum Fatigue by " + this.fatigueRed.toString();
 		}
 
@@ -78,8 +79,7 @@ public class EquipItem extends Item implements MultiValueAttributeListener, Item
 	public void onMultiValueAttributeEvent(MultiValueAttributeEvent m) {
 		switch (m.getTask()) {
 		case UPDATE_CURRENT:
-			this.value.addModifier(
-					new Modifier("Durability Modifier", m.getInformation(), true, false, true));
+			this.value.addModifier(new Modifier("Durability Modifier", m.getInformation(), true, false, true));
 			break;
 		}
 	}

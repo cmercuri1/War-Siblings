@@ -23,37 +23,37 @@ public class Modifier {
 	public Modifier(String name, double value) {
 		this.name = name;
 		this.value = value;
-		this.setBooleans(name);
+		this.setBooleans();
 	}
 
-	protected void setBooleans(String eName) {
-		if (!this.setIsMulti(eName))
-			this.setFinalAdd(eName);
-		this.setIsUnique(eName);
+	protected void setBooleans() {
+		if (!this.setIsMulti())
+			this.setFinalAdd();
+		this.setIsUnique();
 	}
 
-	protected boolean setIsMulti(String eName) {
-		if (eName.contains("_Percent")) {
+	protected boolean setIsMulti() {
+		if (this.name.contains("_Percent")) {
 			this.isMulti = true;
-			this.name = eName.replace("_Percent", "");
+			this.name = this.name.replace("_Percent", "");
 			return true;
 		}
 		this.isMulti = false;
 		return false;
 	}
 
-	protected void setFinalAdd(String eName) {
-		if (eName.contains("_Final")) {
+	protected void setFinalAdd() {
+		if (this.name.contains("_Final")) {
 			this.finalAdd = true;
-			this.name = eName.replace("_Final", "");
+			this.name = this.name.replace("_Final", "");
 		}
 		this.finalAdd = false;
 	}
 
-	protected void setIsUnique(String eName) {
-		if (eName.contains("_Unique")) {
+	protected void setIsUnique() {
+		if (this.name.contains("_Unique")) {
 			this.isUnique = true;
-			this.name = eName.replace("_Unique", "");
+			this.name = this.name.replace("_Unique", "");
 		}
 		this.isUnique = false;
 	}

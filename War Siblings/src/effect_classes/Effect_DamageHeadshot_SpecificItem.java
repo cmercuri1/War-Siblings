@@ -9,7 +9,7 @@ import event_classes.InventorySituationEvent.Task;
 public class Effect_DamageHeadshot_SpecificItem extends Effect_Modifier_Inventory_Situation {
 
 	public Effect_DamageHeadshot_SpecificItem(Task match, double modValue) {
-		super(match, "damageHeadshot_Unique", modValue);
+		super(match, "damageHeadshot_Percent_Unique", modValue);
 	}
 
 }

@@ -191,6 +191,18 @@ public class InventoryManager implements CharacterInventoryListener, SkillPrefer
 		case RIGHT:
 			temp = this.right;
 			this.right = next;
+
+			if (next == GlobalManager.equipment.DEFAULTRIGHT) {
+				this.notifyInventorySituationListeners(
+						new InventorySituationEvent(InventorySituationEvent.Task.UNARMED, null, this));
+			} else if (((Weapon) next).getRange().getAlteredValue() < 2.0) {
+				this.notifyInventorySituationListeners(
+						new InventorySituationEvent(InventorySituationEvent.Task.MELEE, null, this));
+			} else {
+				this.notifyInventorySituationListeners(
+						new InventorySituationEvent(InventorySituationEvent.Task.RANGED, null, this));
+			}
+
 			break;
 		}
 		this.weighedDown(temp, next);

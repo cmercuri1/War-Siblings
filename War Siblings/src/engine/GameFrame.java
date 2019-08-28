@@ -297,6 +297,8 @@ public class GameFrame extends JFrame implements ActionListener, ItemListener, C
 		this.hs.setText(tba.getAm().getAttributes()[11].toString() + "%");
 		this.vis.setText(tba.getAm().getAttributes()[12].toString());
 
+		System.out.println(tba.getAm().getAttributes()[9].toStringFull() + tba.getAm().getAttributes()[10].toStringFull());
+		
 		this.bgIcon.setIcon(tba.getBgIcon());
 
 		try {
