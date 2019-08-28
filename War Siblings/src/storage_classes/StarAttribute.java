@@ -4,37 +4,37 @@
  */
 package storage_classes;
 
-import event_classes.EventObject;
-import event_classes.Type;
-import event_classes.Observer;
-import event_classes.Target;
+import event_classes.StarAttributeEvent;
 import global_managers.GlobalManager;
+import listener_interfaces.StarAttributeListener;
+import notifier_interfaces.StarAttributeNotifier;
 
 /**
  * A class that adds the potential for and tracks the number of stars a
  * particular Attribute may have as well as the resulting minimum and maximum
  * rolls for it used in determining level up potential rolls
  */
-public class StarAttribute extends Attribute {
+public class StarAttribute extends Attribute implements StarAttributeNotifier {
 	protected int numStars;
 
-	private DualValue levelUp; // Minimum and Maximum Rolls on level up,
+	protected DualValue levelUp; // Minimum and Maximum Rolls on level up,
 								// affected by Stars
 
-	private final int THRESHOLD1 = 35; // Minimum roll to get 1 stars
-	private final int THRESHOLD2 = 65; // Minimum roll to get 2 stars
-	private final int THRESHOLD3 = 85; // Minimum roll to get 3 stars
+	protected final int THRESHOLD1 = 35; // Minimum roll to get 1 stars
+	protected final int THRESHOLD2 = 65; // Minimum roll to get 2 stars
+	protected final int THRESHOLD3 = 85; // Minimum roll to get 3 stars
 
-	public StarAttribute(double value, int lMin, Observer o) {
-		super(value, o);
-		this.levelUp = new DualValue(lMin, lMin + 2);
-		this.numStars = 0;
-	}
+	protected ArrayList<StarAttributeListener> starAttributeListeners;
 	
 	public StarAttribute(double value, int lMin) {
 		super(value);
 		this.levelUp = new DualValue(lMin, lMin + 2);
 		this.numStars = 0;
+	}
+	
+	protected void setUpNotificationSystem() {
+		super.setUpNotificationSystem();
+		this.starAttributeListeners = new ArrayList<StarAttributeListener>();
 	}
 
 	/**
@@ -47,19 +47,19 @@ public class StarAttribute extends Attribute {
 		if (roll > THRESHOLD3) {
 			this.numStars = 3;
 			this.levelUp.update(2, 1);
+			this.notifyStarAttributeListeners(new StarAttributeEvent(StarAttributeEvent.Task.STAR_ASSIGNED, this.numStars, this));
 		} else if (roll > THRESHOLD2) {
 			this.numStars = 2;
 			this.levelUp.update(2, 0);
+			this.notifyStarAttributeListeners(new StarAttributeEvent(StarAttributeEvent.Task.STAR_ASSIGNED, this.numStars, this));
 		} else if (roll > THRESHOLD1) {
 			this.numStars = 1;
 			this.levelUp.update(1, 0);
+			this.notifyStarAttributeListeners(new StarAttributeEvent(StarAttributeEvent.Task.STAR_ASSIGNED, this.numStars, this));
 		} else {
 			this.numStars = 0;
 		}
-		
-		Object[] temp = {this, this.numStars};
-		
-		this.notifyObservers(new EventObject(Target.ATTRIBUTE, Type.STAR_ASSIGNED, temp, null));
+
 	}
 
 	/**
@@ -79,6 +79,26 @@ public class StarAttribute extends Attribute {
 		if (this.numStars > 0) {
 			temp += " and has " + this.numStars + " stars";
 		}
-		return temp+this.stringModifiers();
+		return temp + this.stringModifiers();
+	}
+
+	@Override
+	public void addStarAttributeListener(StarAttributeListener s) {
+		this.starAttributeListeners.add(s);
+	}
+
+	@Override
+	public void removeStarAttributeListener(StarAttributeListener s) {
+		this.starAttributeListeners.remove(s);
+	}
+
+	@Override
+	public void notifyStarAttributeListeners(StarAttributeEvent s) {
+		this.starAttributeListeners.forEach(l -> l.onStarAttributeEvent(s));
+	}
+
+	@Override
+	public void notifyStarAttributeListener(StarAttributeListener s, StarAttributeEvent e) {
+		this.starAttributeListeners.get(s).onStarAttributeEvent(e);		
 	}
 }

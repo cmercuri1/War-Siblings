@@ -9,7 +9,7 @@ import storage_classes.ArrayList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import storage_classes.Effect;
+import effect_classes.Effect;
 import storage_classes.Trait;
 
 /** A class for Globally Storing and Managing all the Temporary Injuries */
@@ -42,9 +42,9 @@ public class TraitManager extends TwoListGlobalManager {
 		for (Object ob : temp) {
 			JSONObject temp2 = (JSONObject) ob;
 			try {
-				temp3.add(new Effect((String) temp2.get("Effect Name"), (Long) temp2.get("Value")));
+				temp3.add(GlobalManager.effectFactory.getEffect((String) temp2.get("Effect Name"),
+						(Long) temp2.get("Value")));
 			} catch (NullPointerException nul) {
-				temp3.add(new Effect((String) temp2.get("Effect Name")));
 			}
 		}
 		try {
@@ -68,9 +68,9 @@ public class TraitManager extends TwoListGlobalManager {
 		for (Object ob : temp) {
 			JSONObject temp2 = (JSONObject) ob;
 			try {
-				temp3.add(new Effect((String) temp2.get("Effect Name"), (Long) temp2.get("Value")));
+				temp3.add(GlobalManager.effectFactory.getEffect((String) temp2.get("Effect Name"),
+						(Long) temp2.get("Value")));
 			} catch (NullPointerException nul) {
-				temp3.add(new Effect((String) temp2.get("Effect Name")));
 			}
 		}
 

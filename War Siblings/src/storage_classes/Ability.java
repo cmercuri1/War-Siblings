@@ -6,6 +6,7 @@ package storage_classes;
 
 import javax.swing.ImageIcon;
 
+import effect_classes.Effect;
 import storage_classes.ArrayList;
 
 /**
@@ -38,7 +39,7 @@ public class Ability {
 		try {
 			this.image = new ImageIcon(Ability.class.getResource("/images/Abilities/" + this.name + ".png"));
 		} catch (NullPointerException n) {
-			//System.out.println(this.name);
+			
 		}
 	}
 

@@ -9,8 +9,8 @@ import storage_classes.ArrayList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import effect_classes.Effect;
 import storage_classes.Ability;
-import storage_classes.Effect;
 import storage_classes.MoraleState;
 
 /**
@@ -33,9 +33,9 @@ public class MoraleAbilityManager extends BaseGlobalManager {
 		for (Object ob : temp) {
 			JSONObject temp2 = (JSONObject) ob;
 			try {
-				temp3.add(new Effect((String) temp2.get("Effect Name"), (Long) temp2.get("Value")));
+				temp3.add(GlobalManager.effectFactory.getEffect((String) temp2.get("Effect Name"),
+						(Long) temp2.get("Value")));
 			} catch (NullPointerException nul) {
-				temp3.add(new Effect((String) temp2.get("Effect Name")));
 			}
 		}
 

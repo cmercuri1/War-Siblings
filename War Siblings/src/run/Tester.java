@@ -20,11 +20,7 @@ public class Tester {
 	/** run(): Starts everything running when called, is altered during each test */
 	public void run() {
 		Scanner in = new Scanner(System.in);
-		Character char1;
 		
-		char1 = new Character(null);
-
-		char1.display();
 
 		in.close();
 	}

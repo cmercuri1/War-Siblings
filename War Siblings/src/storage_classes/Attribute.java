@@ -4,12 +4,11 @@
  */
 package storage_classes;
 
+import effect_classes.Modifier;
+import event_classes.AttributeEvent;
+import listener_interfaces.AttributeListener;
+import notifier_interfaces.AttributeNotifier;
 import storage_classes.ArrayList;
-import event_classes.EventObject;
-import event_classes.Type;
-import event_classes.GenericObservee;
-import event_classes.Observer;
-import event_classes.Target;
 
 /**
  * A class that manages a particular attribute, ensuring the original value can
@@ -18,29 +17,26 @@ import event_classes.Target;
  * 
  * Uses Doubles for better handling of fractions
  */
-public class Attribute extends GenericObservee {
+public class Attribute implements AttributeNotifier {
 	protected double originalMaxValue; // the base unaltered value of attribute
 	protected double alteredMaxValue; // base value post alterations, most
 										// commonly used in game
 
 	protected ArrayList<Modifier> modifiers; // all the modifiers that will have
 												// an effect on this Attribute
+	protected ArrayList<AttributeListener> attributeListeners;
 	
-	public Attribute(double value, Observer o) {
-		this.modifiers = new ArrayList<Modifier>();
-		this.setUpObservers();
-
-		this.originalMaxValue = value;
-		this.observerObjects.add(o);
-		this.alteredMaxValue = this.originalMaxValue;
-	}
-
 	public Attribute(double value) {
 		this.modifiers = new ArrayList<Modifier>();
-		this.setUpObservers();
 
 		this.originalMaxValue = value;
 		this.alteredMaxValue = this.originalMaxValue;
+		
+		this.setUpNotificationSystem();
+	}
+	
+	protected void setUpNotificationSystem() {
+		this.attributeListeners = new ArrayList<AttributeListener>();
 	}
 	
 	public void addModifier(Modifier m) {
@@ -125,7 +121,7 @@ public class Attribute extends GenericObservee {
 			}
 		}
 		this.alteredMaxValue = multi * (this.originalMaxValue + add) + finalAdd;
-		this.notifyObservers(new EventObject(Target.UNDEFINED, Type.UPDATE, this.alteredMaxValue, null));
+		this.notifyAttributeListeners(new AttributeEvent(AttributeEvent.Task.UPDATE, this.alteredMaxValue, this));
 	}
 
 	public double getAlteredValue() {
@@ -147,5 +143,25 @@ public class Attribute extends GenericObservee {
 		}
 		temp += ")";
 		return temp;
+	}
+
+	@Override
+	public void addAttributeListener(AttributeListener a) {
+		this.attributeListeners.add(a);
+	}
+
+	@Override
+	public void removeAttributeListener(AttributeListener a) {
+		this.attributeListeners.remove(a);
+	}
+
+	@Override
+	public void notifyAttributeListeners(AttributeEvent a) {
+		this.attributeListeners.forEach(l->l.onAttributeEvent(a));
+	}
+
+	@Override
+	public void notifyAttributeListener(AttributeListener a, AttributeEvent e) {
+		this.attributeListeners.get(a).onAttributeEvent(e);
 	}
 }

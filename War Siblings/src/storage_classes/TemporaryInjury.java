@@ -5,22 +5,27 @@
 package storage_classes;
 
 import storage_classes.ArrayList;
-
-import event_classes.EventObject;
-import event_classes.Type;
-import event_classes.Observer;
+import effect_classes.Effect;
+import effect_classes.Modifier;
+import event_classes.AttributeEvent;
+import event_classes.TemporaryInjuryEvent;
 import global_managers.GlobalManager;
+import listener_interfaces.AttributeListener;
+import listener_interfaces.TemporaryInjuryListener;
+import notifier_interfaces.TemporaryInjuryNotifier;
 
 /**
  * A class used for storing and assisting in resolving use of Temporary Injuries
  * that can affect characters/creatures
  */
-public class TemporaryInjury extends ObservableAbility implements Observer {
+public class TemporaryInjury extends Ability implements TemporaryInjuryNotifier, AttributeListener {
 	protected boolean isHead;
 	protected String damageType;
 	protected double damageThreshold;
 	protected Attribute minDays;
 	protected Attribute maxDays;
+
+	protected ArrayList<TemporaryInjuryListener> tempInuryListeners;
 
 	public TemporaryInjury(String name, String desc, boolean isHead, String dType, double dThres,
 			ArrayList<Effect> effects, double minDays, double maxDays) {
@@ -28,8 +33,16 @@ public class TemporaryInjury extends ObservableAbility implements Observer {
 		this.isHead = isHead;
 		this.damageType = dType;
 		this.damageThreshold = dThres;
-		this.minDays = new Attribute(minDays, this);
-		this.maxDays = new Attribute(maxDays, this);
+		this.minDays = new Attribute(minDays);
+		this.maxDays = new Attribute(maxDays);
+
+		this.setUpNotificationSystem();
+	}
+
+	protected void setUpNotificationSystem() {
+		this.tempInuryListeners = new ArrayList<TemporaryInjuryListener>();
+		this.minDays.addAttributeListener(this);
+		this.maxDays.addAttributeListener(this);
 	}
 
 	/**
@@ -48,13 +61,14 @@ public class TemporaryInjury extends ObservableAbility implements Observer {
 	 */
 	protected void checkForHealed() {
 		if (this.maxDays.getAlteredValue() == 0.0) {
-			this.notifyObservers(new EventObject(null, Type.HEALED, null, this));
+			this.notifyTemporaryInjuryListeners(new TemporaryInjuryEvent(TemporaryInjuryEvent.Task.HEALED, null, this));
 			return;
 		}
 
 		if (this.minDays.getAlteredValue() == 0.0) {
 			if (GlobalManager.d100Roll() <= 100 / (this.maxDays.getAlteredValue())) {
-				this.notifyObservers(new EventObject(null, Type.HEALED, null, this));
+				this.notifyTemporaryInjuryListeners(
+						new TemporaryInjuryEvent(TemporaryInjuryEvent.Task.HEALED, null, this));
 				return;
 			} else {
 				this.minDays.addModifier(new Modifier("Still Injured", 1.0, false, true, false));
@@ -84,20 +98,37 @@ public class TemporaryInjury extends ObservableAbility implements Observer {
 		return this.maxDays;
 	}
 
-	@Override
-	public void onEventHappening(EventObject event) {
-		switch (event.getTask()) {
-		case UPDATE:
-			this.checkForHealed();
-			break;
-		default:
-			break;
-		
-		}
-	}
-
 	public void display() {
 		super.display();
 		System.out.println("Days remaining: " + this.minDays.toString() + " - " + this.maxDays.toString());
+	}
+
+	@Override
+	public void onAttributeEvent(AttributeEvent a) {
+		switch (a.getTask()) {
+		case UPDATE:
+			this.checkForHealed();
+			break;
+		}
+	}
+
+	@Override
+	public void addTemporaryInjuryListener(TemporaryInjuryListener t) {
+		this.tempInuryListeners.add(t);
+	}
+
+	@Override
+	public void removeTemporaryInjuryListener(TemporaryInjuryListener t) {
+		this.tempInuryListeners.remove(t);
+	}
+
+	@Override
+	public void notifyTemporaryInjuryListeners(TemporaryInjuryEvent t) {
+		this.tempInuryListeners.forEach(l -> l.onTemporaryInjuryEvent(t));
+	}
+
+	@Override
+	public void notifyTemporaryInjuryListener(TemporaryInjuryListener t, TemporaryInjuryEvent e) {
+		this.tempInuryListeners.get(t).onTemporaryInjuryEvent(e);
 	}
 }

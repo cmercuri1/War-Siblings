@@ -5,46 +5,55 @@
 package global_managers;
 
 import storage_classes.ArrayList;
+import storage_classes.Effect_Storage;
 
 import org.json.simple.JSONObject;
-
-import storage_classes.Effect;
 
 /**
  * A class for Globally Storing and Managing all the Effect types and important
  * data about effects
  */
-public class EffectManager extends BaseGlobalManager {
-	private ArrayList<Effect> effectList;
+public class EffectManager extends TwoListGlobalManager {
+	private ArrayList<Effect_Storage> effectList;
 
 	public EffectManager() {
-		super("res/game_data/EffectData.json", null, "Effects");
+		super("res/game_data/EffectModifierData.json", null, "Effect Names", "res/game_data/EffectSituationalData.json",
+				null, "Effects");
 	}
 
 	@Override
 	protected void addItem(JSONObject o) {
-		this.effectList.add(new Effect((String) o.get("Effect Name"), (String) o.get("Relevant Manager"),
-				(String) o.get("Sub Manager")));
+		this.effectList.add(new Effect_Storage((String) o.get("Effect Name"), "Effect_Modifier"));
+		this.effectList.add(new Effect_Storage((String) o.get("Effect Name") + "_Percent", "Effect_Modifier"));
+		this.effectList.add(new Effect_Storage((String) o.get("Effect Name") + "_Percent_Unique", "Effect_Modifier"));
+		this.effectList.add(new Effect_Storage((String) o.get("Effect Name") + "_Final", "Effect_Modifier"));
+		this.effectList.add(new Effect_Storage((String) o.get("Effect Name") + "_Final_Unique", "Effect_Modifier"));
+		this.effectList.add(new Effect_Storage((String) o.get("Effect Name") + "_Unique", "Effect_Modifier"));
+	}
+
+	@Override
+	protected void addItem2(JSONObject o) {
+		this.effectList.add(new Effect_Storage((String) o.get("Effect Name"), (String) o.get("Effect Type")));
 	}
 
 	@Override
 	protected void instantiate() {
 		if (this.effectList == null) {
-			this.effectList = new ArrayList<Effect>();
+			this.effectList = new ArrayList<Effect_Storage>();
 		}
 	}
 
 	/* Getters */
 
-	public ArrayList<Effect> getEffectList() {
-		ArrayList<Effect> temp = new ArrayList<>(this.effectList);
+	public ArrayList<Effect_Storage> getEffectList() {
+		ArrayList<Effect_Storage> temp = new ArrayList<>(this.effectList);
 		return temp;
 	}
 
 	/** search: finds and returns the effect by its name */
-	public Effect search(String toBeFound) {
-		for (Effect e : this.effectList) {
-			if (e.getName().equals(toBeFound)) {
+	public Effect_Storage search(String toBeFound) {
+		for (Effect_Storage e : this.effectList) {
+			if (e.getEffectName().equals(toBeFound)) {
 				return e;
 			}
 		}

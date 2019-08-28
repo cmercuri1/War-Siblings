@@ -4,35 +4,40 @@
  */
 package storage_classes;
 
-import event_classes.EventObject;
-import event_classes.Type;
-import event_classes.Observer;
-import event_classes.Target;
+import event_classes.MultiValueAttributeEvent;
+import listener_interfaces.MultiValueAttributeListener;
+import notifier_interfaces.MultiValueAttributeNotifier;
 
 /**
  * A class that adds to Attributes that have a current and a max value, such as
  * hit points and fatigue
  */
-public class BarStarAttribute extends StarAttribute {
+public class BarStarAttribute extends StarAttribute implements MultiValueAttributeNotifier {
 	protected final double MINIMUM = 0.0;
 
-	protected double originalCurrentValue;
 	protected double alteredCurrentValue;
 
-	public BarStarAttribute(double value, int lMin, Observer o) {
-		super(value, lMin, o);
+	protected ArrayList<MultiValueAttributeListener> mvAttributeListeners;
+
+	public BarStarAttribute(double value, int lMin) {
+		super(value, lMin);
+	}
+
+	protected void setUpNotificationSystem() {
+		super.setUpNotificationSystem();
+		this.mvAttributeListeners = new ArrayList<MultiValueAttributeListener>();
 	}
 
 	public void updateAltered() {
 		super.updateAltered();
 		this.currentChecker();
 	}
-	
+
 	public void alterCurrent(double value) {
 		this.alteredCurrentValue += value;
 		this.currentChecker();
-		Object[] temp = { this, this.alteredCurrentValue };
-		this.notifyObservers(new EventObject(Target.ATTRIBUTE, Type.UPDATE, temp, null));
+		this.notifyMultiValueAttributeListeners(new MultiValueAttributeEvent(
+				MultiValueAttributeEvent.Task.UPDATE_CURRENT, this.alteredCurrentValue, this));
 	}
 
 	/**
@@ -63,4 +68,23 @@ public class BarStarAttribute extends StarAttribute {
 		return temp + this.stringModifiers();
 	}
 
+	@Override
+	public void addMultiValueAttributeListener(MultiValueAttributeListener a) {
+		this.mvAttributeListeners.add(a);
+	}
+
+	@Override
+	public void removeMultiValueAttributeListener(MultiValueAttributeListener a) {
+		this.mvAttributeListeners.remove(a);
+	}
+
+	@Override
+	public void notifyMultiValueAttributeListeners(MultiValueAttributeEvent a) {
+		this.mvAttributeListeners.forEach(m -> m.onMultiValueAttributeEvent(a));
+	}
+
+	@Override
+	public void notifyMultiValueAttributeListener(MultiValueAttributeListener m, MultiValueAttributeEvent a) {
+		this.mvAttributeListeners.get(m).onMultiValueAttributeEvent(a);
+	}
 }

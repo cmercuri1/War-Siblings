@@ -12,8 +12,9 @@ import javax.swing.ImageIcon;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import effect_classes.Effect;
+import global_managers.GlobalManager;
 import storage_classes.Ability;
-import storage_classes.Effect;
 
 /**
  * A class that takes the Base Stats and attributes and changes them based on a
@@ -82,7 +83,7 @@ public class BackgroundGenerator extends BaseWarriorGenerator {
 			temp = (JSONArray) o.get("Background Ability");
 			for (Object ob : temp) {
 				JSONObject ob2 = (JSONObject) ob;
-				Effect newMod = new Effect((String) ob2.get("Effect Name"), (Long) ob2.get("Value"));
+				Effect newMod = GlobalManager.effectFactory.getEffect((String) ob2.get("Effect Name"), (Long) ob2.get("Value"));
 				mod.add(newMod);
 			}
 			this.bgAbility = new Ability("Background Ability", mod);

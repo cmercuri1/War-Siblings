@@ -6,12 +6,13 @@ package character;
 
 import storage_classes.ArrayList;
 import storage_classes.BackgroundItem;
-import storage_classes.Effect;
-import event_classes.EventObject;
-import event_classes.Type;
-import event_classes.GenericObservee;
-import event_classes.Observer;
-import event_classes.Target;
+import event_classes.TraitEvent;
+import event_classes.ModifierEvent;
+import effect_classes.Modifier;
+import event_classes.CharacterInventoryEvent;
+import event_classes.InventoryEvent;
+import event_classes.InventorySituationEvent;
+import event_classes.SkillPreferenceEvent;
 import global_generators.BackgroundGenerator;
 import global_managers.GlobalManager;
 import items.Armor;
@@ -19,27 +20,57 @@ import items.EquipItem;
 import items.Headgear;
 import items.Shield;
 import items.Weapon;
+import listener_interfaces.TraitListener;
+import listener_interfaces.ModifierListener;
+import listener_interfaces.CharacterInventoryListener;
+import listener_interfaces.InventoryListener;
+import listener_interfaces.InventorySituationListener;
+import listener_interfaces.SkillPreferenceListener;
+import notifier_interfaces.TraitNotifier;
+import notifier_interfaces.ModifierNotifier;
+import notifier_interfaces.InventoryNotifier;
+import notifier_interfaces.InventorySituationNotifier;
+import notifier_interfaces.MultiNotifier;
 
 /**
  * Manager specifically for keeping track of and managing the inventory/equiped
  * items of a character
  */
-public class InventoryManager extends GenericObservee implements Observer {
-	private Armor body;
-	private Headgear head;
-	private EquipItem right;
-	private EquipItem left;
-	private ArrayList<EquipItem> bag;
+public class InventoryManager implements CharacterInventoryListener, SkillPreferenceListener, MultiNotifier,
+		InventoryNotifier, ModifierNotifier, TraitNotifier, InventorySituationNotifier {
+	protected Armor body;
+	protected Headgear head;
+	protected EquipItem right;
+	protected EquipItem left;
 
-	private boolean rangedPref = false;
+	protected ArrayList<EquipItem> bag;
 
-	private enum ARM {
+	protected ArrayList<TraitListener> traitListeners;
+	protected ArrayList<ModifierListener> effectListeners;
+	protected ArrayList<InventoryListener> inventoryListeners;
+	protected ArrayList<InventorySituationListener> inventorySituationListeners;
+
+	protected double rangedPref;
+
+	protected enum ARM {
 		LEFT, RIGHT
 	};
 
-	public InventoryManager(Observer o) {
-		this.setUpObservers();
-		this.registerObserver(o);
+	public InventoryManager() {
+		this.defaultInventory();
+		this.setUpListeners();
+	}
+
+	@Override
+	public void setUpListeners() {
+		this.traitListeners = new ArrayList<TraitListener>();
+		this.effectListeners = new ArrayList<ModifierListener>();
+		this.inventoryListeners = new ArrayList<InventoryListener>();
+		this.inventorySituationListeners = new ArrayList<InventorySituationListener>();
+
+	}
+
+	protected void defaultInventory() {
 		this.body = GlobalManager.equipment.DEFAULTBODY;
 		this.head = GlobalManager.equipment.DEFAULTHEAD;
 		this.right = GlobalManager.equipment.DEFAULTRIGHT;
@@ -76,14 +107,16 @@ public class InventoryManager extends GenericObservee implements Observer {
 		// Uses System for determining whether starting equipment is a ranged weapon on
 		// Deserter/Sellsword Backgrounds
 		roll = GlobalManager.d100Roll();
-		if (rangedPref)
+		if ((rangedPref > 0) && (bg.getBackground().equals("Deserter") || bg.getBackground().equals("Sellsword")))
 			roll += 100;
 		for (BackgroundItem i : bg.getRightOptions()) {
 			if (roll <= i.getChanceToGet()) {
 				if (i.getItem() != null) {
 					this.swapItem(ARM.RIGHT, (EquipItem) i.getItem());
-					if (i.getItem().getName().contains("Bow") || i.getItem().getName().contains("Crossbow")) {
+					if (i.getItem().getName().contains("Bow")) {
 						// TODO GIVE QUIVER
+					} else if (i.getItem().getName().contains("Crossbow")) {
+						// TODO GIVE CROSSBOW QUIVER
 					}
 				}
 				break;
@@ -123,7 +156,7 @@ public class InventoryManager extends GenericObservee implements Observer {
 		this.head = next;
 		this.weighedDown(temp, next);
 		this.impedeVision(temp, next);
-		this.notifyObservers(new EventObject(Target.CHARACTER, Type.RETURN_INVENTORY, temp, null));
+		this.notifyInventoryListeners(new InventoryEvent(InventoryEvent.Task.RETURN_INVENTORY, temp, this));
 	}
 
 	/** Replaces current Body Armor with new one, returns old Body Armor */
@@ -131,7 +164,7 @@ public class InventoryManager extends GenericObservee implements Observer {
 		Armor temp = this.body;
 		this.body = next;
 		this.weighedDown(temp, next);
-		this.notifyObservers(new EventObject(Target.CHARACTER, Type.RETURN_INVENTORY, temp, null));
+		this.notifyInventoryListeners(new InventoryEvent(InventoryEvent.Task.RETURN_INVENTORY, temp, this));
 	}
 
 	public void swapItem(ARM target, EquipItem next) {
@@ -158,19 +191,35 @@ public class InventoryManager extends GenericObservee implements Observer {
 		case RIGHT:
 			temp = this.right;
 			this.right = next;
+
+			if (next == GlobalManager.equipment.DEFAULTRIGHT) {
+				this.notifyInventorySituationListeners(
+						new InventorySituationEvent(InventorySituationEvent.Task.UNARMED, null, this));
+			} else if (((Weapon) next).getRange().getAlteredValue() < 2.0) {
+				this.notifyInventorySituationListeners(
+						new InventorySituationEvent(InventorySituationEvent.Task.MELEE, null, this));
+			} else {
+				this.notifyInventorySituationListeners(
+						new InventorySituationEvent(InventorySituationEvent.Task.RANGED, null, this));
+			}
+
 			break;
 		}
 		this.weighedDown(temp, next);
 		if (temp instanceof Shield) {
 			this.removeShieldDefense((Shield) temp);
+		} else if (temp instanceof Weapon) {
+			this.removeWeaponStats((Weapon) temp);
 		}
 
 		if (next instanceof Shield) {
 			this.grantShieldDefense((Shield) next);
+		} else if (next instanceof Weapon) {
+			this.grantWeaponStats((Weapon) next);
 		}
 
 		this.isDualGripping();
-		this.notifyObservers(new EventObject(Target.CHARACTER, Type.RETURN_INVENTORY, temp, null));
+		this.notifyInventoryListeners(new InventoryEvent(InventoryEvent.Task.RETURN_INVENTORY, temp, this));
 	}
 
 	/**
@@ -190,41 +239,41 @@ public class InventoryManager extends GenericObservee implements Observer {
 		this.bag.add(index, next);
 
 		this.weighedDown(temp, next);
-		this.notifyObservers(new EventObject(Target.CHARACTER, Type.RETURN_INVENTORY, temp, null));
+		this.notifyInventoryListeners(new InventoryEvent(InventoryEvent.Task.RETURN_INVENTORY, temp, this));
 	}
 
 	protected void weighedDown(EquipItem old, EquipItem next) {
-		Effect fatiguePen;
-		Effect initiativePen;
+		Modifier fatiguePen;
+		Modifier initiativePen;
 		try {
-			fatiguePen = new Effect("Fatigue_Final", old.getFatigueRed().getAlteredValue());
-			initiativePen = new Effect("Initiative_Final", old.getFatigueRed().getAlteredValue());
-			this.notifyObservers(new EventObject(Target.ATTRIBUTE, Type.REMOVE, fatiguePen, null));
-			this.notifyObservers(new EventObject(Target.ATTRIBUTE, Type.REMOVE, initiativePen, null));
+			fatiguePen = new Modifier("fatigue_Final", old.getFatigueRed().getAlteredValue());
+			initiativePen = new Modifier("initiative_Final", old.getFatigueRed().getAlteredValue());
+			this.notifyModifierListeners(new ModifierEvent(ModifierEvent.Task.REMOVE, fatiguePen, this));
+			this.notifyModifierListeners(new ModifierEvent(ModifierEvent.Task.REMOVE, initiativePen, this));
 		} catch (NullPointerException nu) {
 
 		}
 		try {
-			fatiguePen = new Effect("Fatigue_Final", next.getFatigueRed().getAlteredValue());
-			initiativePen = new Effect("Initiative_Final", next.getFatigueRed().getAlteredValue());
-			this.notifyObservers(new EventObject(Target.ATTRIBUTE, Type.ADD, fatiguePen, null));
-			this.notifyObservers(new EventObject(Target.ATTRIBUTE, Type.ADD, initiativePen, null));
+			fatiguePen = new Modifier("fatigue_Final", next.getFatigueRed().getAlteredValue());
+			initiativePen = new Modifier("initiative_Final", next.getFatigueRed().getAlteredValue());
+			this.notifyModifierListeners(new ModifierEvent(ModifierEvent.Task.ADD, fatiguePen, this));
+			this.notifyModifierListeners(new ModifierEvent(ModifierEvent.Task.ADD, initiativePen, this));
 		} catch (NullPointerException nu) {
 
 		}
 	}
 
 	protected void impedeVision(Headgear old, Headgear next) {
-		Effect visionPen;
+		Modifier visionPen;
 		try {
-			visionPen = new Effect("Vision_Final", old.getVisRed());
-			this.notifyObservers(new EventObject(Target.ATTRIBUTE, Type.REMOVE, visionPen, null));
+			visionPen = new Modifier("vision_Final", old.getVisRed());
+			this.notifyModifierListeners(new ModifierEvent(ModifierEvent.Task.REMOVE, visionPen, this));
 		} catch (NullPointerException nu) {
 
 		}
 		try {
-			visionPen = new Effect("Vision_Final", next.getVisRed());
-			this.notifyObservers(new EventObject(Target.ATTRIBUTE, Type.ADD, visionPen, null));
+			visionPen = new Modifier("vision_Final", next.getVisRed());
+			this.notifyModifierListeners(new ModifierEvent(ModifierEvent.Task.ADD, visionPen, this));
 		} catch (NullPointerException nu) {
 
 		}
@@ -232,10 +281,11 @@ public class InventoryManager extends GenericObservee implements Observer {
 
 	protected void removeShieldDefense(Shield old) {
 		try {
-			Effect meleeDefense = new Effect("MeleeDefense_Final", old.getMeleeDef().getAlteredValue());
-			Effect rangedDefense = new Effect("RangedDefense_Final", old.getRangedDef().getAlteredValue());
-			this.notifyObservers(new EventObject(Target.ATTRIBUTE, Type.REMOVE, meleeDefense, null));
-			this.notifyObservers(new EventObject(Target.ATTRIBUTE, Type.REMOVE, rangedDefense, null));
+			Modifier meleeDefense = new Modifier("meleeDefense", old.getMeleeDef().getAlteredValue());
+			Modifier rangedDefense = new Modifier("rangedDefense", old.getRangedDef().getAlteredValue());
+
+			this.notifyModifierListeners(new ModifierEvent(ModifierEvent.Task.REMOVE, meleeDefense, this));
+			this.notifyModifierListeners(new ModifierEvent(ModifierEvent.Task.REMOVE, rangedDefense, this));
 		} catch (NullPointerException nu) {
 
 		}
@@ -243,10 +293,43 @@ public class InventoryManager extends GenericObservee implements Observer {
 
 	protected void grantShieldDefense(Shield next) {
 		try {
-			Effect meleeDefense = new Effect("MeleeDefense_Final", next.getMeleeDef().getAlteredValue());
-			Effect rangedDefense = new Effect("RangedDefense_Final", next.getRangedDef().getAlteredValue());
-			this.notifyObservers(new EventObject(Target.ATTRIBUTE, Type.ADD, meleeDefense, null));
-			this.notifyObservers(new EventObject(Target.ATTRIBUTE, Type.ADD, rangedDefense, null));
+			Modifier meleeDefense = new Modifier("meleeDefense", next.getMeleeDef().getAlteredValue());
+			Modifier rangedDefense = new Modifier("rangedDefense", next.getRangedDef().getAlteredValue());
+
+			this.notifyModifierListeners(new ModifierEvent(ModifierEvent.Task.ADD, meleeDefense, this));
+			this.notifyModifierListeners(new ModifierEvent(ModifierEvent.Task.ADD, rangedDefense, this));
+		} catch (NullPointerException nu) {
+
+		}
+	}
+
+	protected void removeWeaponStats(Weapon old) {
+		try {
+			Modifier minDam = new Modifier("damage", old.getMinDam().getAlteredValue());
+			Modifier ignArm = new Modifier("ignoreArmor", old.getIgnArm().getAlteredValue());
+			Modifier armDam = new Modifier("armorDamage", old.getArmDam().getAlteredValue());
+			Modifier headShot = new Modifier("headshotChance", old.getHeadShot().getAlteredValue());
+
+			this.notifyModifierListeners(new ModifierEvent(ModifierEvent.Task.REMOVE, minDam, this));
+			this.notifyModifierListeners(new ModifierEvent(ModifierEvent.Task.REMOVE, ignArm, this));
+			this.notifyModifierListeners(new ModifierEvent(ModifierEvent.Task.REMOVE, armDam, this));
+			this.notifyModifierListeners(new ModifierEvent(ModifierEvent.Task.REMOVE, headShot, this));
+		} catch (NullPointerException nu) {
+
+		}
+	}
+
+	protected void grantWeaponStats(Weapon next) {
+		try {
+			Modifier minDam = new Modifier("damage", next.getMinDam().getAlteredValue());
+			Modifier ignArm = new Modifier("ignoreArmor", next.getIgnArm().getAlteredValue());
+			Modifier armDam = new Modifier("armorDamage", next.getArmDam().getAlteredValue());
+			Modifier headShot = new Modifier("headshotChance", next.getHeadShot().getAlteredValue());
+
+			this.notifyModifierListeners(new ModifierEvent(ModifierEvent.Task.ADD, minDam, this));
+			this.notifyModifierListeners(new ModifierEvent(ModifierEvent.Task.ADD, ignArm, this));
+			this.notifyModifierListeners(new ModifierEvent(ModifierEvent.Task.ADD, armDam, this));
+			this.notifyModifierListeners(new ModifierEvent(ModifierEvent.Task.ADD, headShot, this));
 		} catch (NullPointerException nu) {
 
 		}
@@ -261,11 +344,11 @@ public class InventoryManager extends GenericObservee implements Observer {
 				&& (this.left == GlobalManager.equipment.DEFAULTLEFT))
 				|| ((this.left instanceof Weapon) && !(((Weapon) this.left).isTwoHanded())
 						&& (this.right == GlobalManager.equipment.DEFAULTRIGHT))) {
-			this.notifyObservers(new EventObject(Target.ABILITY, Type.ADD,
-					GlobalManager.traits.getSpecialTrait("Double Grip"), null));
+			this.notifyTraitListeners(
+					new TraitEvent(TraitEvent.Task.ADD, GlobalManager.traits.getSpecialTrait("Double Grip"), this));
 		} else {
-			this.notifyObservers(new EventObject(Target.ABILITY, Type.REMOVE,
-					GlobalManager.traits.getSpecialTrait("Double Grip"), null));
+			this.notifyTraitListeners(
+					new TraitEvent(TraitEvent.Task.REMOVE, GlobalManager.traits.getSpecialTrait("Double Grip"), this));
 		}
 	}
 
@@ -313,44 +396,131 @@ public class InventoryManager extends GenericObservee implements Observer {
 	}
 
 	@Override
-	public void onEventHappening(EventObject event) {
-		switch (event.getTarget()) {
-		case INVENTORY:
-			switch (event.getTask()) {
-			case CHANGE_BODY:
-				this.swapBody((Armor) event.getInformation());
-				break;
-			case REMOVE_BODY:
-				this.swapBody(GlobalManager.equipment.DEFAULTBODY);
-				break;
-			case CHANGE_HEAD:
-				this.swapHead((Headgear) event.getInformation());
-				break;
-			case REMOVE_HEAD:
-				this.swapHead(GlobalManager.equipment.DEFAULTHEAD);
-				break;
-			case CHANGE_LEFT:
-				this.swapItem(ARM.LEFT, (EquipItem) event.getInformation());
-				break;
-			case REMOVE_LEFT:
-				this.swapItem(ARM.LEFT, GlobalManager.equipment.DEFAULTLEFT);
-				break;
-			case CHANGE_RIGHT:
-				this.swapItem(ARM.RIGHT, (EquipItem) event.getInformation());
-				break;
-			case REMOVE_RIGHT:
-				this.swapItem(ARM.RIGHT, GlobalManager.equipment.DEFAULTRIGHT);
-				break;
-			case RANGED_PREF:
-				this.rangedPref = true;
-				break;
-			default:
-				break;
-			}
+	public void onCharacterInventoryEvent(CharacterInventoryEvent c) {
+		switch (c.getTask()) {
+		case CHANGE_BODY:
+			this.swapBody((Armor) c.getInformation());
 			break;
-		default:
+		case CHANGE_HEAD:
+			this.swapHead((Headgear) c.getInformation());
+			break;
+		case CHANGE_LEFT:
+			this.swapItem(ARM.LEFT, c.getInformation());
+			break;
+		case CHANGE_RIGHT:
+			this.swapItem(ARM.RIGHT, c.getInformation());
+			break;
+		case REMOVE_BODY:
+			this.swapBody(GlobalManager.equipment.DEFAULTBODY);
+			break;
+		case REMOVE_HEAD:
+			this.swapHead(GlobalManager.equipment.DEFAULTHEAD);
+			break;
+		case REMOVE_LEFT:
+			this.swapItem(ARM.LEFT, GlobalManager.equipment.DEFAULTLEFT);
+			break;
+		case REMOVE_RIGHT:
+			this.swapItem(ARM.RIGHT, GlobalManager.equipment.DEFAULTRIGHT);
+			break;
+		case REMOVE_ALL:
+			this.swapBody(GlobalManager.equipment.DEFAULTBODY);
+			this.swapHead(GlobalManager.equipment.DEFAULTHEAD);
+			this.swapItem(ARM.LEFT, GlobalManager.equipment.DEFAULTLEFT);
+			this.swapItem(ARM.RIGHT, GlobalManager.equipment.DEFAULTRIGHT);
 			break;
 		}
+	}
+
+	@Override
+	public void onSkillPreferenceEvent(SkillPreferenceEvent s) {
+		switch (s.getTask()) {
+		case MELEE_PREF:
+			this.rangedPref -= s.getInformation();
+			break;
+		case RANGED_PREF:
+			this.rangedPref += s.getInformation();
+			break;
+		}
+	}
+
+	@Override
+	public void addTraitListener(TraitListener a) {
+		this.traitListeners.add(a);
+	}
+
+	@Override
+	public void removeTraitListener(TraitListener a) {
+		this.traitListeners.remove(a);
+	}
+
+	@Override
+	public void notifyTraitListeners(TraitEvent a) {
+		this.traitListeners.forEach(l -> l.onTraitEvent(a));
+	}
+
+	@Override
+	public void notifyTraitListener(TraitListener a, TraitEvent e) {
+		this.traitListeners.get(a).onTraitEvent(e);
+	}
+
+	@Override
+	public void addModifierListener(ModifierListener a) {
+		this.effectListeners.add(a);
+	}
+
+	@Override
+	public void removeModifierListener(ModifierListener a) {
+		this.effectListeners.remove(a);
+	}
+
+	@Override
+	public void notifyModifierListeners(ModifierEvent a) {
+		this.effectListeners.forEach(l -> l.onModifierEvent(a));
+	}
+
+	@Override
+	public void notifyModifierListener(ModifierListener a, ModifierEvent e) {
+		this.effectListeners.get(a).onModifierEvent(e);
+	}
+
+	@Override
+	public void addInventoryListener(InventoryListener i) {
+		this.inventoryListeners.add(i);
+	}
+
+	@Override
+	public void removeInventoryListener(InventoryListener i) {
+		this.inventoryListeners.remove(i);
+	}
+
+	@Override
+	public void notifyInventoryListeners(InventoryEvent i) {
+		this.inventoryListeners.forEach(l -> l.onInventoryEvent(i));
+	}
+
+	@Override
+	public void notifyInventoryListener(InventoryListener i, InventoryEvent e) {
+		this.inventoryListeners.get(i).onInventoryEvent(e);
+	}
+
+	@Override
+	public void addInventorySituationListener(InventorySituationListener i) {
+		this.inventorySituationListeners.add(i);
+	}
+
+	@Override
+	public void removeInventorySituationListener(InventorySituationListener i) {
+		this.inventorySituationListeners.remove(i);
+	}
+
+	@Override
+	public void notifyInventorySituationListeners(InventorySituationEvent i) {
+		this.inventorySituationListeners.forEach(l -> l.onInventorySituationEvent(i));
+	}
+
+	@Override
+	public void notifyInventorySituationListener(InventorySituationListener i, InventorySituationEvent e) {
+		this.inventorySituationListeners.get(i).onInventorySituationEvent(e);
 	}
 
 }

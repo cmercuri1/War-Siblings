@@ -4,18 +4,51 @@
  */
 package character;
 
-import event_classes.EventObject;
-import event_classes.Type;
-import event_classes.GenericObservee;
-import event_classes.Observer;
-import event_classes.Target;
+import effect_classes.Effect;
+import effect_classes.Effect_Battle_Triggered;
+import effect_classes.Effect_Inventory_Situation;
+import effect_classes.Effect_Modifier;
+import effect_classes.Effect_Morale_Triggered;
+import effect_classes.Effect_Round_Triggered;
+import effect_classes.Effect_Triggered;
+import effect_classes.Effect_Turn_Triggered;
+import effect_classes.Modifier;
+import event_classes.AbilityEvent;
+import event_classes.BattleControlEvent;
+import event_classes.InventorySituationEvent;
+import event_classes.ModifierEvent;
+import event_classes.MoraleChangeEvent;
+import event_classes.PermanentInjuryEvent;
+import event_classes.RoundControlEvent;
+import event_classes.TemporaryInjuryEvent;
+import event_classes.TraitEvent;
+import event_classes.TriggeredEffectEvent;
+import event_classes.TurnControlEvent;
 import global_generators.BackgroundGenerator;
 
 import global_managers.GlobalManager;
+import listener_interfaces.AbilityListener;
+import listener_interfaces.BattleControlListener;
+import listener_interfaces.InventorySituationListener;
+import listener_interfaces.ModifierListener;
+import listener_interfaces.MoraleChangeListener;
+import listener_interfaces.PermanentInjuryListener;
+import listener_interfaces.RoundControlListener;
+import listener_interfaces.TemporaryInjuryListener;
+import listener_interfaces.TraitListener;
+import listener_interfaces.TriggeredEffectListener;
+import listener_interfaces.TurnControlListener;
+import notifier_interfaces.BattleControlNotifier;
+import notifier_interfaces.InventorySituationNotifier;
+import notifier_interfaces.ModifierNotifier;
+import notifier_interfaces.MoraleChangeNotifier;
+import notifier_interfaces.MultiNotifier;
+import notifier_interfaces.RoundControlNotifier;
+import notifier_interfaces.TurnControlNotifier;
 import storage_classes.Ability;
 import storage_classes.ArrayList;
-import storage_classes.Effect;
-import storage_classes.PerminentInjury;
+import storage_classes.MoraleState;
+import storage_classes.PermanentInjury;
 import storage_classes.TemporaryInjury;
 import storage_classes.Trait;
 
@@ -23,21 +56,41 @@ import storage_classes.Trait;
  * A manager class that handles all the abilities a character may have, either
  * from items, traits or from level abilities
  */
-public class AbilityManager extends GenericObservee implements Observer {
-	private ArrayList<Trait> characterTraits;
-	private ArrayList<Ability> characterAbilities;
+public class AbilityManager implements AbilityListener, TraitListener, PermanentInjuryListener, TemporaryInjuryListener,
+		TriggeredEffectListener, BattleControlListener, TurnControlListener, RoundControlListener, MoraleChangeListener,
+		InventorySituationListener, MultiNotifier, ModifierNotifier, BattleControlNotifier, TurnControlNotifier,
+		RoundControlNotifier, MoraleChangeNotifier, InventorySituationNotifier {
 
-	private ArrayList<PerminentInjury> permaInjuries;
-	private ArrayList<TemporaryInjury> tempInjuries;
+	protected ArrayList<Ability> characterAbilities;
+	protected ArrayList<Trait> characterTraits;
+	protected ArrayList<PermanentInjury> permaInjuries;
+	protected ArrayList<TemporaryInjury> tempInjuries;
 
-	public AbilityManager(Observer o) {
+	protected ArrayList<ModifierListener> modifierListeners;
+
+	protected ArrayList<BattleControlListener> battleControlListeners;
+	protected ArrayList<RoundControlListener> roundControlListeners;
+	protected ArrayList<TurnControlListener> turnControlListeners;
+	protected ArrayList<MoraleChangeListener> moraleChangeListeners;
+	protected ArrayList<InventorySituationListener> inventorySituationListeners;
+
+	public AbilityManager() {
 		this.characterAbilities = new ArrayList<Ability>();
 		this.characterTraits = new ArrayList<Trait>();
-		this.permaInjuries = new ArrayList<PerminentInjury>();
+		this.permaInjuries = new ArrayList<PermanentInjury>();
 		this.tempInjuries = new ArrayList<TemporaryInjury>();
 
-		this.setUpObservers();
-		this.registerObserver(o);
+		this.setUpListeners();
+	}
+
+	@Override
+	public void setUpListeners() {
+		this.modifierListeners = new ArrayList<ModifierListener>();
+		this.battleControlListeners = new ArrayList<BattleControlListener>();
+		this.roundControlListeners = new ArrayList<RoundControlListener>();
+		this.turnControlListeners = new ArrayList<TurnControlListener>();
+		this.moraleChangeListeners = new ArrayList<MoraleChangeListener>();
+		this.inventorySituationListeners = new ArrayList<InventorySituationListener>();
 	}
 
 	public void setUpAbilities(BackgroundGenerator background) {
@@ -52,7 +105,7 @@ public class AbilityManager extends GenericObservee implements Observer {
 	 * Gets Traits and picks up to two for the character, then ensures effects from
 	 * traits are applied
 	 */
-	private void traitDetermining(ArrayList<String> excludedTraits) {
+	protected void traitDetermining(ArrayList<String> excludedTraits) {
 		ArrayList<Trait> temp = GlobalManager.traits.getSpecificTraitList(excludedTraits);
 
 		// Roll for up to two different traits, with 50% chance each time? If a trait is
@@ -90,63 +143,110 @@ public class AbilityManager extends GenericObservee implements Observer {
 	}
 
 	public void sufferTemporaryInjury(TemporaryInjury injury) {
+		injury.addTemporaryInjuryListener(this);
+		this.addEffectsToListeners(injury);
 		this.tempInjuries.add(injury);
-		this.tempInjuries.get(injury).registerObserver(this);
-		this.notifyOtherManagers(Type.ADD, injury);
+		this.notifyOtherManagers(ModifierEvent.Task.ADD, injury);
 	}
 
 	public void healTemporaryInjuries() {
 		this.tempInjuries.forEach(t -> t.healInjury());
 	}
 
-	public void sufferPerminentInjury(PerminentInjury injury) {
+	public void sufferPermanentInjury(PermanentInjury injury) {
+		injury.addPermanentInjuryListener(this);
+		this.addEffectsToListeners(injury);
 		this.permaInjuries.add(injury);
-
-		this.notifyOtherManagers(Type.ADD, injury);
+		this.notifyOtherManagers(ModifierEvent.Task.ADD, injury);
 	}
 
-	public void healPerminentInjuries() {
-		this.permaInjuries.forEach(i -> this.notifyOtherManagers(Type.REMOVE, i));
-		this.permaInjuries.clear();
+	public void healPermanentInjury(PermanentInjury injury) {
+		this.removeEffectsFromListeners(injury);
+		injury.removePermanentInjuryListener(this);
+		this.permaInjuries.remove(injury);
+		this.notifyOtherManagers(ModifierEvent.Task.ADD, injury);
+	}
+
+	public void healPermanentInjuries() {
+		this.permaInjuries.forEach(i -> this.healPermanentInjury(i));
 	}
 
 	public void addAbility(Ability ability) {
 		this.characterAbilities.add(ability);
-		this.notifyOtherManagers(Type.ADD, ability);
+		this.addEffectsToListeners(ability);
+		this.notifyOtherManagers(ModifierEvent.Task.ADD, ability);
 	}
 
 	public void addTrait(Trait trait) {
 		this.characterTraits.add(trait);
-		this.notifyOtherManagers(Type.ADD, trait);
+		this.addEffectsToListeners(trait);
+		this.notifyOtherManagers(ModifierEvent.Task.ADD, trait);
 	}
 
 	public void removeAbility(Ability ability) {
-		if (this.characterAbilities.remove(ability))
-			this.notifyOtherManagers(Type.REMOVE, ability);
+		if (this.characterAbilities.remove(ability)) {
+			this.removeEffectsFromListeners(ability);
+			this.notifyOtherManagers(ModifierEvent.Task.REMOVE, ability);
+		}
 	}
 
 	public void removeTrait(Trait trait) {
-		if (this.characterTraits.remove(trait))
-			this.notifyOtherManagers(Type.REMOVE, trait);
+		if (this.characterTraits.remove(trait)) {
+			this.removeEffectsFromListeners(trait);
+			this.notifyOtherManagers(ModifierEvent.Task.REMOVE, trait);
+		}
 	}
 
-	public void removeAbility(String abilityName) {
-		for (Ability a : this.characterAbilities) {
-			if (a.getName().equals(abilityName)) {
-				this.removeAbility(a);
-				return;
+	protected void addEffectsToListeners(Ability a) {
+		for (Effect e : a.getEffects()) {
+			if (e instanceof Effect_Battle_Triggered) {
+				this.addBattleControlListener((BattleControlListener) e);
+			}
+			if (e instanceof Effect_Round_Triggered) {
+				this.addRoundControlListener((RoundControlListener) e);
+			}
+			if (e instanceof Effect_Turn_Triggered) {
+				this.addTurnControlListener((TurnControlListener) e);
+			}
+			if (e instanceof Effect_Morale_Triggered) {
+				this.addMoraleChangeListener((MoraleChangeListener) e);
+			}
+			if (e instanceof Effect_Inventory_Situation) {
+				this.addInventorySituationListener((InventorySituationListener) e);
+			}
+			if (e instanceof Effect_Triggered) {
+				((Effect_Triggered) e).addTriggeredEffectListener(this);
 			}
 		}
 	}
 
-	private void notifyOtherManagers(Type type, Ability ability) {
-		for (Effect t : ability.getEffects()) {
-			if (t.getAffectedManager().equals("Attribute")) {
-				this.notifyObservers(new EventObject(Target.ATTRIBUTE, type, t, null));
-			} else if (t.getAffectedManager().equals("Morale")) {
-				this.notifyObservers(new EventObject(Target.MORALE, type, t, null));
-			} else if (t.getAffectedManager().equals("Battle")) {
-				this.notifyObservers(new EventObject(Target.BATTLE, type, t, null));
+	protected void removeEffectsFromListeners(Ability a) {
+		for (Effect e : a.getEffects()) {
+			if (e instanceof Effect_Battle_Triggered) {
+				this.removeBattleControlListener((BattleControlListener) e);
+			}
+			if (e instanceof Effect_Round_Triggered) {
+				this.removeRoundControlListener((RoundControlListener) e);
+			}
+			if (e instanceof Effect_Turn_Triggered) {
+				this.removeTurnControlListener((TurnControlListener) e);
+			}
+			if (e instanceof Effect_Morale_Triggered) {
+				this.removeMoraleChangeListener((MoraleChangeListener) e);
+			}
+			if (e instanceof Effect_Inventory_Situation) {
+				this.removeInventorySituationListener((InventorySituationListener) e);
+			}
+			if (e instanceof Effect_Triggered) {
+				((Effect_Triggered) e).removeTriggeredEffectListener(this);
+			}
+		}
+	}
+
+	protected void notifyOtherManagers(ModifierEvent.Task task, Ability ability) {
+		for (Effect e : ability.getEffects()) {
+			if (e instanceof Effect_Modifier) {
+				this.notifyModifierListeners(new ModifierEvent(task, ((Effect_Modifier) e).getMod(), this));
 			}
 		}
 	}
@@ -163,37 +263,244 @@ public class AbilityManager extends GenericObservee implements Observer {
 	}
 
 	@Override
-	public void onEventHappening(EventObject event) {
-		switch (event.getTarget()) {
-		case ABILITY:
-			switch (event.getTask()) {
-			case ADD:
-				if (event.getInformation() instanceof TemporaryInjury) {
-					this.sufferTemporaryInjury((TemporaryInjury) event.getInformation());
-				} else if (event.getInformation() instanceof PerminentInjury) {
-					this.sufferPerminentInjury((PerminentInjury) event.getInformation());
-				} else if (event.getInformation() instanceof Trait) {
-					this.addTrait((Trait) event.getInformation());
-				} else {
-					this.addAbility((Ability) event.getInformation());
-				}
-				break;
-			case REMOVE:
-				if (event.getInformation() instanceof Trait) {
-					this.removeTrait((Trait) event.getInformation());
-				} else {
-					this.removeAbility((Ability) event.getInformation());
-				}
-				break;
-			case HEALED:
-				this.tempInjuries.remove(event.getRequester());
-				break;
-			default:
-				break;
-			}
+	public void onTemporaryInjuryEvent(TemporaryInjuryEvent t) {
+		switch (t.getTask()) {
+		case ADD:
+			this.sufferTemporaryInjury(t.getInformation());
 			break;
-		default:
+		case HEALED:
+			t.getInformation().removeTemporaryInjuryListener(this);
+			this.tempInjuries.remove(t.getInformation());
+			break;
+		case HEAL_ALL:
+			this.healTemporaryInjuries();
 			break;
 		}
+	}
+
+	@Override
+	public void onPermanentInjuryEvent(PermanentInjuryEvent p) {
+		switch (p.getTask()) {
+		case ADD:
+			this.sufferPermanentInjury(p.getInformation());
+			break;
+		case HEALED:
+			this.healPermanentInjury(p.getInformation());
+			break;
+		case HEAL_ALL:
+			this.healPermanentInjuries();
+			break;
+		}
+	}
+
+	@Override
+	public void onAbilityEvent(AbilityEvent a) {
+		switch (a.getTask()) {
+		case ADD:
+			this.addAbility(a.getInformation());
+			break;
+		case REMOVE:
+			this.removeAbility(a.getInformation());
+			break;
+		case REMOVE_ALL:
+			while (!this.characterAbilities.isEmpty()) {
+				this.removeAbility(this.characterAbilities.get(this.characterAbilities.size() - 1));
+			}
+			break;
+		}
+	}
+
+	@Override
+	public void onTraitEvent(TraitEvent t) {
+		switch (t.getTask()) {
+		case ADD:
+			this.addTrait(t.getInformation());
+			break;
+		case REMOVE:
+			this.removeTrait(t.getInformation());
+			break;
+		case REMOVE_ALL:
+			while (!this.characterTraits.isEmpty()) {
+				this.removeTrait(this.characterTraits.get(this.characterTraits.size() - 1));
+			}
+			break;
+		}
+	}
+
+	@Override
+	public void onTriggeredEffectEvent(TriggeredEffectEvent t) {
+		switch (t.getTask()) {
+		case APPLY:
+			this.notifyModifierListeners(
+					new ModifierEvent(ModifierEvent.Task.ADD, (Modifier) t.getInformation(), this));
+			break;
+		case DAMAGE:
+			// DAMAGE LISTENERs
+			break;
+		case IMPEDE:
+			break;
+		case REMOVE:
+			this.notifyModifierListeners(
+					new ModifierEvent(ModifierEvent.Task.REMOVE, (Modifier) t.getInformation(), this));
+			break;
+		case ADD_ABILITY:
+			this.addAbility((Ability) t.getInformation());
+			break;
+		case REMOVE_ABILITY:
+			this.removeAbility((Ability) t.getInformation());
+			break;
+		case MORALE_REPLACE:
+			this.notifyMoraleChangeListeners(
+					new MoraleChangeEvent(MoraleChangeEvent.Task.OVERRIDE, (MoraleState) t.getInformation(), this));
+			break;
+		case IGNORE_MORALE:
+			//
+			break;
+		}
+	}
+
+	@Override
+	public void onRoundControlEvent(RoundControlEvent r) {
+		this.notifyRoundControlListeners(r);
+	}
+
+	@Override
+	public void onTurnControlEvent(TurnControlEvent t) {
+		this.notifyTurnControlListeners(t);
+	}
+
+	@Override
+	public void onBattleControlEvent(BattleControlEvent b) {
+		this.notifyBattleControlListeners(b);
+	}
+
+	@Override
+	public void onMoraleChangeEvent(MoraleChangeEvent m) {
+		this.notifyMoraleChangeListeners(m);
+	}
+
+	@Override
+	public void onInventorySituationEvent(InventorySituationEvent i) {
+		this.notifyInventorySituationListeners(i);
+	}
+
+	@Override
+	public void addModifierListener(ModifierListener e) {
+		this.modifierListeners.add(e);
+	}
+
+	@Override
+	public void removeModifierListener(ModifierListener e) {
+		this.modifierListeners.remove(e);
+	}
+
+	@Override
+	public void notifyModifierListeners(ModifierEvent e) {
+		this.modifierListeners.forEach(l -> l.onModifierEvent(e));
+	}
+
+	@Override
+	public void notifyModifierListener(ModifierListener l, ModifierEvent e) {
+		this.modifierListeners.get(l).onModifierEvent(e);
+	}
+
+	@Override
+	public void addMoraleChangeListener(MoraleChangeListener m) {
+		this.moraleChangeListeners.add(m);
+	}
+
+	@Override
+	public void removeMoraleChangeListener(MoraleChangeListener m) {
+		this.moraleChangeListeners.remove(m);
+	}
+
+	@Override
+	public void notifyMoraleChangeListeners(MoraleChangeEvent m) {
+		this.moraleChangeListeners.forEach(l -> l.onMoraleChangeEvent(m));
+	}
+
+	@Override
+	public void notifyMoraleChangeListener(MoraleChangeListener m, MoraleChangeEvent e) {
+		this.moraleChangeListeners.get(m).onMoraleChangeEvent(e);
+	}
+
+	@Override
+	public void addBattleControlListener(BattleControlListener b) {
+		this.battleControlListeners.add(b);
+	}
+
+	@Override
+	public void removeBattleControlListener(BattleControlListener b) {
+		this.battleControlListeners.remove(b);
+	}
+
+	@Override
+	public void notifyBattleControlListeners(BattleControlEvent b) {
+		this.battleControlListeners.forEach(l -> l.onBattleControlEvent(b));
+	}
+
+	@Override
+	public void notifyBattleControlListener(BattleControlListener b, BattleControlEvent e) {
+		this.battleControlListeners.get(b).onBattleControlEvent(e);
+	}
+
+	@Override
+	public void addRoundControlListener(RoundControlListener r) {
+		this.roundControlListeners.add(r);
+	}
+
+	@Override
+	public void removeRoundControlListener(RoundControlListener r) {
+		this.roundControlListeners.remove(r);
+	}
+
+	@Override
+	public void notifyRoundControlListeners(RoundControlEvent r) {
+		this.roundControlListeners.forEach(l -> l.onRoundControlEvent(r));
+	}
+
+	@Override
+	public void notifyRoundControlListener(RoundControlListener r, RoundControlEvent e) {
+		this.roundControlListeners.get(r).onRoundControlEvent(e);
+	}
+
+	@Override
+	public void addTurnControlListener(TurnControlListener t) {
+		this.turnControlListeners.add(t);
+	}
+
+	@Override
+	public void removeTurnControlListener(TurnControlListener t) {
+		this.turnControlListeners.remove(t);
+	}
+
+	@Override
+	public void notifyTurnControlListeners(TurnControlEvent t) {
+		this.turnControlListeners.forEach(l -> l.onTurnControlEvent(t));
+	}
+
+	@Override
+	public void notifyTurnControlListener(TurnControlListener t, TurnControlEvent e) {
+		this.turnControlListeners.get(t).onTurnControlEvent(e);
+	}
+
+	@Override
+	public void addInventorySituationListener(InventorySituationListener i) {
+		this.inventorySituationListeners.add(i);
+	}
+
+	@Override
+	public void removeInventorySituationListener(InventorySituationListener i) {
+		this.inventorySituationListeners.remove(i);
+	}
+
+	@Override
+	public void notifyInventorySituationListeners(InventorySituationEvent i) {
+		this.inventorySituationListeners.forEach(l -> l.onInventorySituationEvent(i));
+	}
+
+	@Override
+	public void notifyInventorySituationListener(InventorySituationListener i, InventorySituationEvent e) {
+		this.inventorySituationListeners.get(i).onInventorySituationEvent(e);
 	}
 }

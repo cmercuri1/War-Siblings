@@ -24,19 +24,22 @@ import javax.swing.SwingConstants;
 import static javax.swing.GroupLayout.Alignment.*;
 
 import character.Character;
-import event_classes.EventObject;
-import event_classes.Observer;
+import event_classes.CharacterEvent;
 import global_managers.GlobalManager;
+import listener_interfaces.CharacterListener;
+import notifier_interfaces.CharacterNotifier;
+import storage_classes.ArrayList;
 
-public class GameFrame extends JFrame implements ActionListener, ItemListener, Observer {
+public class GameFrame extends JFrame implements ActionListener, ItemListener, CharacterListener, CharacterNotifier {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -2418441605648905558L;
-	private String message;
-	private Character character;
+	protected static final long serialVersionUID = -2418441605648905558L;
+	protected String message;
+	protected Character character;
+	protected ArrayList<CharacterListener> characterListeners;
 
-	private JComboBox<String> box;
+	protected JComboBox<String> box;
 
 	JLabel helm;
 	JLabel body;
@@ -83,7 +86,7 @@ public class GameFrame extends JFrame implements ActionListener, ItemListener, O
 
 	public void initUI() {
 		JLabel charSpec = new JLabel("Specify a Background:");
-		this.message = "Character";
+		this.message = "Random";
 
 		box = new JComboBox<>(GlobalManager.backgrounds.getBgNames());
 		box.addItemListener(this);
@@ -91,6 +94,11 @@ public class GameFrame extends JFrame implements ActionListener, ItemListener, O
 		JButton newCharButton = new JButton("New Character");
 		newCharButton.addActionListener(this);
 		newCharButton.setMnemonic(KeyEvent.VK_C);
+
+		this.character = new Character();
+		this.characterListeners = new ArrayList<CharacterListener>();
+		this.characterListeners.add(character);
+		this.character.addCharacterListener(this);
 
 		this.setUpData();
 
@@ -103,7 +111,7 @@ public class GameFrame extends JFrame implements ActionListener, ItemListener, O
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
-	private void createLayout(JComponent... arg) {
+	protected void createLayout(JComponent... arg) {
 		Container pane = getContentPane();
 		GroupLayout gl = new GroupLayout(pane);
 		pane.setLayout(gl);
@@ -111,19 +119,20 @@ public class GameFrame extends JFrame implements ActionListener, ItemListener, O
 		gl.setAutoCreateContainerGaps(true);
 		gl.setAutoCreateGaps(true);
 
-		gl.setHorizontalGroup(gl.createSequentialGroup().addGroup(gl.createParallelGroup()
-				.addGroup(gl.createSequentialGroup().addComponent(bgIcon).addComponent(trait1).addComponent(trait2)
-						.addComponent(trait3))
-				.addGroup(gl.createSequentialGroup()
-						.addGroup(gl.createParallelGroup().addComponent(helm).addComponent(body).addComponent(ap)
-								.addComponent(fat).addComponent(mor).addComponent(res).addComponent(init))
-						.addGroup(gl.createParallelGroup().addComponent(mSk).addComponent(rSk).addComponent(mDef)
-								.addComponent(rDef).addComponent(dam).addComponent(hs).addComponent(vis))))
+		gl.setHorizontalGroup(gl.createSequentialGroup()
+				.addGroup(gl.createParallelGroup()
+						.addGroup(gl.createSequentialGroup().addComponent(bgIcon).addComponent(trait1)
+								.addComponent(trait2).addComponent(trait3))
+						.addGroup(gl.createSequentialGroup()
+								.addGroup(gl.createParallelGroup().addComponent(helm).addComponent(body)
+										.addComponent(hp).addComponent(ap).addComponent(fat).addComponent(mor)
+										.addComponent(res).addComponent(init))
+								.addGroup(gl.createParallelGroup().addComponent(mSk).addComponent(rSk)
+										.addComponent(mDef).addComponent(rDef).addComponent(dam).addComponent(armDam)
+										.addComponent(hs).addComponent(vis))))
 				.addGroup(gl.createParallelGroup()
 						.addGroup(gl.createSequentialGroup().addComponent(rightItem)
-								.addGroup(gl.createParallelGroup()
-										.addComponent(headArmor)
-										.addComponent(bodyArmor))
+								.addGroup(gl.createParallelGroup().addComponent(headArmor).addComponent(bodyArmor))
 								.addComponent(leftItem))
 						.addGroup(gl.createParallelGroup().addComponent(arg[0]).addComponent(arg[1],
 								GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
@@ -136,16 +145,15 @@ public class GameFrame extends JFrame implements ActionListener, ItemListener, O
 										.addComponent(trait2).addComponent(trait3))
 								.addGroup(gl.createParallelGroup(BASELINE).addComponent(helm).addComponent(mSk))
 								.addGroup(gl.createParallelGroup(BASELINE).addComponent(body).addComponent(rSk))
-								.addGroup(gl.createParallelGroup(BASELINE).addComponent(ap).addComponent(mDef))
-								.addGroup(gl.createParallelGroup(BASELINE).addComponent(fat).addComponent(rDef))
-								.addGroup(gl.createParallelGroup(BASELINE).addComponent(mor).addComponent(dam))
+								.addGroup(gl.createParallelGroup(BASELINE).addComponent(hp).addComponent(mDef))
+								.addGroup(gl.createParallelGroup(BASELINE).addComponent(ap).addComponent(rDef))
+								.addGroup(gl.createParallelGroup(BASELINE).addComponent(fat).addComponent(dam))
+								.addGroup(gl.createParallelGroup(BASELINE).addComponent(mor).addComponent(armDam))
 								.addGroup(gl.createParallelGroup(BASELINE).addComponent(res).addComponent(hs))
 								.addGroup(gl.createParallelGroup(BASELINE).addComponent(init).addComponent(vis)))
 						.addGroup(gl.createSequentialGroup().addComponent(headArmor)
-								.addGroup(gl.createParallelGroup(BASELINE)
-										.addComponent(rightItem)
-										.addComponent(bodyArmor)
-										.addComponent(leftItem))))
+								.addGroup(gl.createParallelGroup(BASELINE).addComponent(rightItem)
+										.addComponent(bodyArmor).addComponent(leftItem))))
 				.addGroup(
 						gl.createSequentialGroup().addComponent(arg[0]).addComponent(arg[1], GroupLayout.PREFERRED_SIZE,
 								GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE).addComponent(arg[2])));
@@ -153,7 +161,7 @@ public class GameFrame extends JFrame implements ActionListener, ItemListener, O
 		pack();
 	}
 
-	private void setUpData() {
+	protected void setUpData() {
 		this.helm = new JLabel("0/0", new ImageIcon("res/images/Attributes/Helmet_stat_icon.png"),
 				SwingConstants.TRAILING);
 		this.helm.setToolTipText("<html>When the head of a character is hit, the armor points of the worn helmet<br>"
@@ -271,24 +279,26 @@ public class GameFrame extends JFrame implements ActionListener, ItemListener, O
 		this.leftItem = new JLabel();
 	}
 
-	private void applyCharacter(Character tba) {
+	protected void applyCharacter(Character tba) {
 		this.helm.setText(tba.getIm().getHead().getDurability().toString());
 		this.body.setText(tba.getIm().getBody().getDurability().toString());
 		this.hp.setText(tba.getAm().getAttributes()[0].toString());
 		this.ap.setText(tba.getAm().getAttributes()[1].toString());
 		this.fat.setText(tba.getAm().getAttributes()[2].toString());
-		this.mor.setText(tba.getMm().getCurrentState().toString());
+		this.mor.setText(tba.getAm().getCurrentState().toString());
 		this.res.setText(tba.getAm().getAttributes()[3].toString());
 		this.init.setText(tba.getAm().getAttributes()[4].toString());
 		this.mSk.setText(tba.getAm().getAttributes()[5].toString());
 		this.rSk.setText(tba.getAm().getAttributes()[6].toString());
 		this.mDef.setText(tba.getAm().getAttributes()[7].toString());
 		this.rDef.setText(tba.getAm().getAttributes()[8].toString());
-		this.dam.setText(tba.getIm().getRight().getDamage());
-		this.armDam.setText(tba.getIm().getRight().getArmorDamage());
-		this.hs.setText(tba.getAm().getAttributes()[9].toString() + "%");
-		this.vis.setText(tba.getAm().getAttributes()[10].toString());
+		this.dam.setText(tba.getAm().getAttributes()[9].toString());
+		this.armDam.setText(tba.getAm().getAttributes()[10].toString() + "%");
+		this.hs.setText(tba.getAm().getAttributes()[11].toString() + "%");
+		this.vis.setText(tba.getAm().getAttributes()[12].toString());
 
+		System.out.println(tba.getAm().getAttributes()[9].toStringFull() + tba.getAm().getAttributes()[10].toStringFull());
+		
 		this.bgIcon.setIcon(tba.getBgIcon());
 
 		try {
@@ -327,52 +337,44 @@ public class GameFrame extends JFrame implements ActionListener, ItemListener, O
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (message.equals("Character")) {
-			this.setCharacter(null);
-			this.setCharacter(new Character(this));
-		} else {
-			this.setCharacter(null);
-			this.setCharacter(new Character(message, this));
-		}
+		this.notifyCharacterListeners(new CharacterEvent(CharacterEvent.Task.CHANGED_CHARACTER, message, this));
 	}
 
 	@Override
 	public void itemStateChanged(ItemEvent e) {
 		if (e.getStateChange() == ItemEvent.SELECTED) {
-			if (e.getItem().toString().equals("Random")) {
-				this.message = "Character";
-			} else {
-				this.message = e.getItem().toString();
-			}
+			this.message = e.getItem().toString();
 		}
 	}
 
 	@Override
-	public void onEventHappening(EventObject event) {
-		switch (event.getTarget()) {
-		case UI:
-			switch (event.getTask()) {
-			case FINISHED_GENERATING:
-				this.applyCharacter((Character) event.getInformation());
-				break;
-			default:
-				break;
-			}
-			break;
-		case UNDEFINED:
-			break;
-		default:
-			break;
+	public void addCharacterListener(CharacterListener c) {
+		this.characterListeners.add(c);
+	}
 
+	@Override
+	public void removeCharacterListener(CharacterListener c) {
+		this.characterListeners.remove(c);
+	}
+
+	@Override
+	public void notifyCharacterListeners(CharacterEvent c) {
+		this.characterListeners.forEach(l -> l.onCharacterEvent(c));
+	}
+
+	@Override
+	public void notifyCharacterListener(CharacterListener c, CharacterEvent e) {
+		this.characterListeners.get(c).onCharacterEvent(e);
+	}
+
+	@Override
+	public void onCharacterEvent(CharacterEvent c) {
+		switch (c.getTask()) {
+		case CHANGED_CHARACTER:
+			break;
+		case FINISHED_CHARACTER:
+			this.applyCharacter((Character) c.getInformation());
+			break;
 		}
-
-	}
-
-	public Character getCharacter() {
-		return character;
-	}
-
-	public void setCharacter(Character character) {
-		this.character = character;
 	}
 }
