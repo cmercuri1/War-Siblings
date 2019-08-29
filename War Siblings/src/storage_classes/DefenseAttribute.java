@@ -40,7 +40,11 @@ public class DefenseAttribute extends StarAttribute {
 				}
 			}
 		}
-		temp = multi * (this.originalMaxValue + add) + finalAdd;
+
+		if ((this.originalMaxValue + add) >= 0)
+			temp = (this.originalMaxValue + add) * multi + finalAdd;
+		else
+			temp = (this.originalMaxValue + add) / multi + finalAdd;
 
 		if (temp > SOFT_CAP) {
 			this.alteredMaxValue = SOFT_CAP + (temp - SOFT_CAP) / 2;

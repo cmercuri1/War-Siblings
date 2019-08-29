@@ -3884,5 +3884,33 @@
 				]
 			}
 		]
+	},
+	"Accessory": {
+		"Resolve Necklaces": [
+			{
+				"Name": "Alp Trophy Necklacep",
+				"Value": 300,
+				"Description": "",
+				"Resolve Boost": 5
+			},
+			{
+				"Name": "Hexen Trophy Necklace",
+				"Value": 350,
+				"Description": "",
+				"Resolve Boost": 6
+			},
+			{
+				"Name": "Nachzehrer Trophy Necklace",
+				"Value": 250,
+				"Description": "",
+				"Resolve Boost": 4
+			},
+			{
+				"Name": "Sergeant's Sash",
+				"Value": 250,
+				"Description": "A sash worn by the company's sergeant, your second-in-command on the battlefield.",
+				"Resolve Boost": 10
+			}
+		]
 	}
 }

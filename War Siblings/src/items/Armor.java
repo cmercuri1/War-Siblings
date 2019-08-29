@@ -10,7 +10,7 @@ import javax.swing.ImageIcon;
  * A class for storing and assisting in running items that can be used as
  * protective Armor
  */
-public class Armor extends EquipItem {
+public class Armor extends ComboItem {
 	String type; // Type of armor (cloth, chain, plate)
 
 	/** Constructor */

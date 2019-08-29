@@ -32,7 +32,7 @@ public class Item implements AttributeListener {
 	}
 
 	protected void setIcon() {
-		//TODO
+		this.image = new ImageIcon("res/Images/Items/" + this.name + ".png");
 	}
 
 	/* Getters */

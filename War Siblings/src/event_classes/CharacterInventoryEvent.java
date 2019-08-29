@@ -4,7 +4,7 @@
  */
 package event_classes;
 
-import items.EquipItem;
+import items.ComboItem;
 import notifier_interfaces.CharacterInventoryNotifier;
 
 public class CharacterInventoryEvent extends InfoEvent {
@@ -14,10 +14,10 @@ public class CharacterInventoryEvent extends InfoEvent {
 	};
 
 	protected Task task;
-	protected EquipItem information;
+	protected ComboItem information;
 	protected CharacterInventoryNotifier source;
 
-	public CharacterInventoryEvent(Task t, EquipItem info, CharacterInventoryNotifier src) {
+	public CharacterInventoryEvent(Task t, ComboItem info, CharacterInventoryNotifier src) {
 		super(info, src);
 		this.information = info;
 		this.task = t;
@@ -27,7 +27,7 @@ public class CharacterInventoryEvent extends InfoEvent {
 		return this.task;
 	}
 
-	public EquipItem getInformation() {
+	public ComboItem getInformation() {
 		return this.information;
 	}
 

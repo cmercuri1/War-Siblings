@@ -4,13 +4,10 @@
  */
 package items;
 
-import javax.swing.ImageIcon;
-
 import effect_classes.Modifier;
 import event_classes.ItemEvent;
 import event_classes.MultiValueAttributeEvent;
-import listener_interfaces.ItemListener;
-import listener_interfaces.MultiValueAttributeListener;
+import storage_classes.ArrayList;
 import storage_classes.Attribute;
 import storage_classes.DurAttribute;
 
@@ -18,12 +15,12 @@ import storage_classes.DurAttribute;
  * Equip Item class that allows for an item to be equipped and thus may reduce
  * max fatigue as well as has durability that can be reduced or else damaged
  */
-public class EquipItem extends Item implements MultiValueAttributeListener, ItemListener {
+public class ComboItem extends Item implements Equipable, Durable, Weighty {
 	protected DurAttribute durability; // Durability of the item, if 0 item can break
 	protected Attribute fatigueRed; // Reduction to fatigue while using the item
 
 	/** Constructor */
-	public EquipItem(String name, double value, String desc, double dura, double fatRed) {
+	public ComboItem(String name, double value, String desc, double dura, double fatRed) {
 		super(name, value, desc);
 		this.durability = new DurAttribute(dura);
 		this.fatigueRed = new Attribute(fatRed);
@@ -38,19 +35,16 @@ public class EquipItem extends Item implements MultiValueAttributeListener, Item
 		this.fatigueRed.addAttributeListener(this);
 	}
 
-	protected void setIcon() {
-		this.image = new ImageIcon("res/Images/Items/" + this.name + ".png");
+	public ArrayList<Modifier> onEquipSituation() {
+		ArrayList<Modifier> temp = new ArrayList<Modifier>();
+
+		temp.add(new Modifier("fatigue", this.fatigueRed.getAlteredValue()));
+		temp.add(new Modifier("initiative_Final", this.fatigueRed.getAlteredValue()));
+
+		return temp;
 	}
 
 	/* Getters */
-	public String getDamage() {
-		return "0 - 0";
-	}
-
-	public String getArmorDamage() {
-		return "0%";
-	}
-
 	public DurAttribute getDurability() {
 		return this.durability;
 	}

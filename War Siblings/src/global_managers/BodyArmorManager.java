@@ -12,7 +12,7 @@ import items.Armor;
 
 /** A class for Globally Storing and Managing all the Body Armors */
 public class BodyArmorManager extends BaseGlobalManager {
-	private ArrayList<Armor> armorList;
+	protected ArrayList<Armor> armorList;
 
 	public BodyArmorManager() {
 		super("res/game_data/RegularGearData.json", "Armor", "Body Armor");

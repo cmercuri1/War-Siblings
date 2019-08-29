@@ -25,20 +25,20 @@ public class Attribute implements AttributeNotifier {
 	protected ArrayList<Modifier> modifiers; // all the modifiers that will have
 												// an effect on this Attribute
 	protected ArrayList<AttributeListener> attributeListeners;
-	
+
 	public Attribute(double value) {
 		this.modifiers = new ArrayList<Modifier>();
 
 		this.originalMaxValue = value;
 		this.alteredMaxValue = this.originalMaxValue;
-		
+
 		this.setUpNotificationSystem();
 	}
-	
+
 	protected void setUpNotificationSystem() {
 		this.attributeListeners = new ArrayList<AttributeListener>();
 	}
-	
+
 	public void addModifier(Modifier m) {
 		if (!m.getIsUnique()) {
 			this.modifiers.add(m);
@@ -65,7 +65,7 @@ public class Attribute implements AttributeNotifier {
 	}
 
 	public void removeModifier(Modifier mod) {
-		for (Modifier m: this.modifiers) {
+		for (Modifier m : this.modifiers) {
 			if (m.equals(mod)) {
 				this.modifiers.remove(m);
 				this.updateAltered();
@@ -120,14 +120,18 @@ public class Attribute implements AttributeNotifier {
 				}
 			}
 		}
-		this.alteredMaxValue = multi * (this.originalMaxValue + add) + finalAdd;
+
+		if ((this.originalMaxValue + add) >= 0)
+			this.alteredMaxValue = (this.originalMaxValue + add) * multi + finalAdd;
+		else
+			this.alteredMaxValue = (this.originalMaxValue + add) / multi + finalAdd;
 		this.notifyAttributeListeners(new AttributeEvent(AttributeEvent.Task.UPDATE, this.alteredMaxValue, this));
 	}
 
 	public double getAlteredValue() {
 		return this.alteredMaxValue;
 	}
-	
+
 	public String toString() {
 		return ((Integer) ((Double) this.alteredMaxValue).intValue()).toString();
 	}
@@ -157,7 +161,7 @@ public class Attribute implements AttributeNotifier {
 
 	@Override
 	public void notifyAttributeListeners(AttributeEvent a) {
-		this.attributeListeners.forEach(l->l.onAttributeEvent(a));
+		this.attributeListeners.forEach(l -> l.onAttributeEvent(a));
 	}
 
 	@Override

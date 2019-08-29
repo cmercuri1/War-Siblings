@@ -9,6 +9,7 @@ import storage_classes.ArrayList;
 
 import javax.swing.ImageIcon;
 
+import effect_classes.Modifier;
 import storage_classes.Ability;
 import storage_classes.Attribute;
 
@@ -40,6 +41,17 @@ public class Shield extends AbilityItem {
 		if (this.image == null) {
 			System.out.println("Error Finding: " + this.name);
 		}
+	}
+
+	public ArrayList<Modifier> onEquipSituation() {
+		ArrayList<Modifier> temp = new ArrayList<Modifier>();
+
+		temp.add(new Modifier("fatigue", this.fatigueRed.getAlteredValue()));
+		temp.add(new Modifier("initiative_Final", this.fatigueRed.getAlteredValue()));
+		temp.add(new Modifier("meleeDefense", this.meleeDef.getAlteredValue()));
+		temp.add(new Modifier("rangedDefense", this.rangedDef.getAlteredValue()));
+
+		return temp;
 	}
 
 	/* Getters */

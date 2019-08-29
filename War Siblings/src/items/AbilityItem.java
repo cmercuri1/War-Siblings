@@ -12,14 +12,13 @@ import storage_classes.Ability;
  * Ability Item class that allows for an item to have attached abilities that it
  * grants to the wielder
  */
-public class AbilityItem extends EquipItem {
+public abstract class AbilityItem extends ComboItem implements Abilities {
 	protected ArrayList<Ability> abilityList;
 
 	/** Constructor */
 	public AbilityItem(String name, double value, String desc, double dura, double fatRed,
 			ArrayList<Ability> abilityList) {
 		super(name, value, desc, dura, fatRed);
-		this.abilityList = new ArrayList<Ability>();
 		this.abilityList = abilityList;
 	}
 

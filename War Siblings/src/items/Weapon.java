@@ -9,6 +9,7 @@ import storage_classes.ArrayList;
 
 import javax.swing.ImageIcon;
 
+import effect_classes.Modifier;
 import storage_classes.Ability;
 import storage_classes.Attribute;
 
@@ -64,6 +65,19 @@ public class Weapon extends AbilityItem {
 		if (this.image == null) {
 			System.out.println("Error Finding: " + this.name);
 		}
+	}
+
+	public ArrayList<Modifier> onEquipSituation() {
+		ArrayList<Modifier> temp = new ArrayList<Modifier>();
+
+		temp.add(new Modifier("fatigue_Final", this.fatigueRed.getAlteredValue()));
+		temp.add(new Modifier("initiative_Final", this.fatigueRed.getAlteredValue()));
+		temp.add(new Modifier("damage", this.minDam.getAlteredValue()));
+		temp.add(new Modifier("ignoreArmor", this.ignArm.getAlteredValue()));
+		temp.add(new Modifier("armorDamage", this.armDam.getAlteredValue()));
+		temp.add(new Modifier("headshotChance", this.headShot.getAlteredValue()));
+
+		return temp;
 	}
 
 	/* Relevant Getters for each element */
