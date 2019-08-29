@@ -13,7 +13,8 @@ public class AccessoryManager extends TwoListGlobalManager {
 	protected ArrayList<ResolveNecklace> resolveNecklaces;
 
 	public AccessoryManager() {
-		super("res/game_data/RegularGearData.json", "Accessory", "Resolve Necklaces", null, null, null);
+		super("res/game_data/RegularGearData.json", "Accessory", "Resolve Necklaces",
+				"res/game_data/RegularGearData.json", "Accessory", "Resolve Necklaces");
 	}
 
 	@Override
