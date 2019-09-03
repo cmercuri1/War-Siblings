@@ -4,10 +4,10 @@
  */
 package effect_classes;
 
+import attributes.Attribute;
 import event_classes.AttributeEvent;
 import event_classes.TriggeredEffectEvent;
 import listener_interfaces.AttributeListener;
-import storage_classes.Attribute;
 
 public class Effect_TimedDuration_Turn extends Effect_Turn_Triggered implements AttributeListener {
 

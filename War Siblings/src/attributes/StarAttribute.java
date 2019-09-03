@@ -2,12 +2,14 @@
  * StarAttribute class
  * Author: Christopher Mercuri cmercuri1@student.unimelb.edu.au
  */
-package storage_classes;
+package attributes;
 
 import event_classes.StarAttributeEvent;
 import global_managers.GlobalManager;
 import listener_interfaces.StarAttributeListener;
 import notifier_interfaces.StarAttributeNotifier;
+import storage_classes.ArrayList;
+import storage_classes.DualValue;
 
 /**
  * A class that adds the potential for and tracks the number of stars a

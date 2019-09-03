@@ -2,11 +2,12 @@
  * MoodAttribute class
  * Author: Christopher Mercuri cmercuri1@student.unimelb.edu.au
  */
-package storage_classes;
+package attributes;
 
 import effect_classes.Modifier;
 import event_classes.AttributeEvent;
 import global_managers.GlobalManager;
+import storage_classes.Mood;
 
 /** Special Attribute used in helping manage a character's mood */
 public class MoodAttribute extends Attribute {

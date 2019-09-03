@@ -9,9 +9,9 @@ import storage_classes.ArrayList;
 
 import javax.swing.ImageIcon;
 
+import attributes.Attribute;
 import effect_classes.Modifier;
 import storage_classes.Ability;
-import storage_classes.Attribute;
 
 /** Class designed for storing items that function as usable weapons */
 public class Weapon extends AbilityItem {
@@ -72,7 +72,8 @@ public class Weapon extends AbilityItem {
 
 		temp.add(new Modifier("fatigue_Final", this.fatigueRed.getAlteredValue()));
 		temp.add(new Modifier("initiative_Final", this.fatigueRed.getAlteredValue()));
-		temp.add(new Modifier("damage", this.minDam.getAlteredValue()));
+		temp.add(new Modifier("damage_Min", this.minDam.getAlteredValue()));
+		temp.add(new Modifier("damage_Max", this.maxDam.getAlteredValue()));
 		temp.add(new Modifier("ignoreArmor", this.ignArm.getAlteredValue()));
 		temp.add(new Modifier("armorDamage", this.armDam.getAlteredValue()));
 		temp.add(new Modifier("headshotChance", this.headShot.getAlteredValue()));

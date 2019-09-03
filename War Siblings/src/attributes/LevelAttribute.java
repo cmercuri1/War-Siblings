@@ -2,13 +2,15 @@
  * LevelAttribute class
  * Author: Christopher Mercuri cmercuri1@student.unimelb.edu.au
  */
-package storage_classes;
+package attributes;
 
 import effect_classes.Modifier;
 import event_classes.LevelUpAttributeEvent;
 import global_managers.GlobalManager;
 import listener_interfaces.LevelUpAttributeListener;
 import notifier_interfaces.LevelUpAttributeNotifier;
+import storage_classes.ArrayList;
+import storage_classes.XPLevel;
 
 /** Special Attribute used in helping manager a character's level */
 public class LevelAttribute extends Attribute implements LevelUpAttributeNotifier {

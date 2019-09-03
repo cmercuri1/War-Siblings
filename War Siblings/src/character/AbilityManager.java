@@ -178,9 +178,11 @@ public class AbilityManager implements AbilityListener, TraitListener, Permanent
 	}
 
 	public void addTrait(Trait trait) {
-		this.characterTraits.add(trait);
-		this.addEffectsToListeners(trait);
-		this.notifyOtherManagers(ModifierEvent.Task.ADD, trait);
+		if (!this.characterTraits.contains(trait)) {
+			this.characterTraits.add(trait);
+			this.addEffectsToListeners(trait);
+			this.notifyOtherManagers(ModifierEvent.Task.ADD, trait);
+		}
 	}
 
 	public void removeAbility(Ability ability) {

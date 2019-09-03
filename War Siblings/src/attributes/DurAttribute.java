@@ -2,11 +2,12 @@
  * DurAttribute Class
  * Author: Christopher Mercuri cmercuri1@student.unimelb.edu.au
  */
-package storage_classes;
+package attributes;
 
 import event_classes.ItemEvent;
 import listener_interfaces.ItemListener;
 import notifier_interfaces.ItemNotifier;
+import storage_classes.ArrayList;
 
 /** Special Attribute handling item durability */
 public class DurAttribute extends BarAttribute implements ItemNotifier {

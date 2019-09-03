@@ -4,12 +4,12 @@
  */
 package items;
 
+import attributes.Attribute;
+import attributes.DurAttribute;
 import effect_classes.Modifier;
 import event_classes.ItemEvent;
 import event_classes.MultiValueAttributeEvent;
 import storage_classes.ArrayList;
-import storage_classes.Attribute;
-import storage_classes.DurAttribute;
 
 /**
  * Equip Item class that allows for an item to be equipped and thus may reduce

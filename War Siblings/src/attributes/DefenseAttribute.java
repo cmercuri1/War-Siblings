@@ -2,7 +2,7 @@
  * DefenseAttribute class
  * Author: Christopher Mercuri cmercuri1@student.unimelb.edu.au
  */
-package storage_classes;
+package attributes;
 
 import effect_classes.Modifier;
 import event_classes.AttributeEvent;

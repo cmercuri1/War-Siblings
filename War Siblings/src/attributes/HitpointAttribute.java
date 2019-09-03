@@ -2,11 +2,12 @@
  * HitpointAttribute class
  * Author: Christopher Mercuri cmercuri1@student.unimelb.edu.au
  */
-package storage_classes;
+package attributes;
 
 import event_classes.HitpointAttributeEvent;
 import listener_interfaces.HitpointAttributeListener;
 import notifier_interfaces.HitpointAttributeNotifier;
+import storage_classes.ArrayList;
 
 /** Special Attribute used for Hitpoints */
 public class HitpointAttribute extends BarStarAttribute implements HitpointAttributeNotifier {

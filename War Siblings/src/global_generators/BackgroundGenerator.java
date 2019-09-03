@@ -83,7 +83,8 @@ public class BackgroundGenerator extends BaseWarriorGenerator {
 			temp = (JSONArray) o.get("Background Ability");
 			for (Object ob : temp) {
 				JSONObject ob2 = (JSONObject) ob;
-				Effect newMod = GlobalManager.effectFactory.getEffect((String) ob2.get("Effect Name"), (Long) ob2.get("Value"));
+				Effect newMod = GlobalManager.effectFactory.getEffect((String) ob2.get("Effect Name"),
+						(Long) ob2.get("Value"));
 				mod.add(newMod);
 			}
 			this.bgAbility = new Ability("Background Ability", mod);
@@ -113,8 +114,8 @@ public class BackgroundGenerator extends BaseWarriorGenerator {
 			temp = (JSONArray) o.get("Starting Headgear");
 			for (Object ob : temp) {
 				JSONObject ob2 = (JSONObject) ob;
-				this.headOptions
-						.add(new BackgroundItem((String) ob2.get("Item Name"), (Long) ob2.get("Chance to Start")));
+				this.headOptions.add(new BackgroundItem(BackgroundItem.Location.HEAD, (String) ob2.get("Item Name"),
+						(Long) ob2.get("Chance to Start")));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -124,8 +125,8 @@ public class BackgroundGenerator extends BaseWarriorGenerator {
 			temp = (JSONArray) o.get("Starting Body");
 			for (Object ob : temp) {
 				JSONObject ob2 = (JSONObject) ob;
-				this.bodyOptions
-						.add(new BackgroundItem((String) ob2.get("Item Name"), (Long) ob2.get("Chance to Start")));
+				this.bodyOptions.add(new BackgroundItem(BackgroundItem.Location.BODY, (String) ob2.get("Item Name"),
+						(Long) ob2.get("Chance to Start")));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -135,9 +136,9 @@ public class BackgroundGenerator extends BaseWarriorGenerator {
 			temp = (JSONArray) o.get("Starting Right");
 			for (Object ob : temp) {
 				JSONObject ob2 = (JSONObject) ob;
-				this.rightOptions
-						.add(new BackgroundItem((String) ob2.get("Item Name"), (Long) ob2.get("Chance to Start")));
-				
+				this.rightOptions.add(new BackgroundItem(BackgroundItem.Location.RIGHT, (String) ob2.get("Item Name"),
+						(Long) ob2.get("Chance to Start")));
+
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -147,8 +148,8 @@ public class BackgroundGenerator extends BaseWarriorGenerator {
 			temp = (JSONArray) o.get("Starting Left");
 			for (Object ob : temp) {
 				JSONObject ob2 = (JSONObject) ob;
-				this.leftOptions
-						.add(new BackgroundItem((String) ob2.get("Item Name"), (Long) ob2.get("Chance to Start")));
+				this.leftOptions.add(new BackgroundItem(BackgroundItem.Location.LEFT, (String) ob2.get("Item Name"),
+						(Long) ob2.get("Chance to Start")));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -158,8 +159,8 @@ public class BackgroundGenerator extends BaseWarriorGenerator {
 			temp = (JSONArray) o.get("Starting Bag");
 			for (Object ob : temp) {
 				JSONObject ob2 = (JSONObject) ob;
-				this.backPackOptions
-						.add(new BackgroundItem((String) ob2.get("Item Name"), (Long) ob2.get("Chance to Start")));
+				this.backPackOptions.add(new BackgroundItem(BackgroundItem.Location.BAG, (String) ob2.get("Item Name"),
+						(Long) ob2.get("Chance to Start")));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

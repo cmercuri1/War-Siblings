@@ -6,6 +6,17 @@ package character;
 
 import java.lang.reflect.Field;
 
+import attributes.Attribute;
+import attributes.BarAttribute;
+import attributes.DamageAttribute;
+import attributes.DefenseAttribute;
+import attributes.FatigueAttribute;
+import attributes.HitpointAttribute;
+import attributes.LevelAttribute;
+import attributes.MoodAttribute;
+import attributes.StarAttribute;
+import attributes.VisionAttribute;
+import attributes.WageAttribute;
 import effect_classes.Modifier;
 import event_classes.AttributeEvent;
 import event_classes.SkillPreferenceEvent;
@@ -42,18 +53,8 @@ import notifier_interfaces.MoraleRollNotifier;
 import notifier_interfaces.MoraleRollOutcomeNotifier;
 import notifier_interfaces.MultiNotifier;
 import storage_classes.ArrayList;
-import storage_classes.Attribute;
-import storage_classes.BarAttribute;
-import storage_classes.DefenseAttribute;
-import storage_classes.FatigueAttribute;
-import storage_classes.HitpointAttribute;
-import storage_classes.LevelAttribute;
 import storage_classes.LevelUp;
-import storage_classes.MoodAttribute;
 import storage_classes.MoraleState;
-import storage_classes.StarAttribute;
-import storage_classes.VisionAttribute;
-import storage_classes.WageAttribute;
 
 /**
  * A class that manages all the attributes and makes sure they operate correctly
@@ -84,7 +85,7 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Modif
 	protected Attribute xpRate;
 	protected LevelAttribute level;
 	protected Attribute fatigueRecovery;
-	protected Attribute damage;
+	protected DamageAttribute damage;
 	protected Attribute armorDamage;
 	protected Attribute ignoreArmor;
 	protected Attribute damageHeadshot;
@@ -144,7 +145,7 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Modif
 		this.xpRate = new Attribute((double) bg.getXpRate());
 		this.level = new LevelAttribute((double) bg.getLev().getRand());
 		this.fatigueRecovery = new Attribute((double) bg.getFatRegain());
-		this.damage = new Attribute(0);
+		this.damage = new DamageAttribute(0, 0);
 		this.armorDamage = new Attribute(0);
 		this.ignoreArmor = new Attribute(0);
 		this.damageHeadshot = new Attribute(150);
@@ -234,8 +235,13 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Modif
 			Field temp = this.getClass().getDeclaredField(attributeName);
 			Attribute t = (Attribute) temp.get(this);
 			return t;
-		} catch (IllegalArgumentException | IllegalAccessException | NoSuchFieldException | SecurityException e) {
+		} catch (IllegalArgumentException | IllegalAccessException | SecurityException e) {
 			e.printStackTrace();
+		} catch (NoSuchFieldException n) {
+			if (attributeName.contains("damage_")) {
+				return this.damage;
+			} else 
+				n.printStackTrace();
 		}
 		return null;
 	}

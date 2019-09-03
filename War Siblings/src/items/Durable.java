@@ -4,9 +4,9 @@
  */
 package items;
 
+import attributes.DurAttribute;
 import listener_interfaces.ItemListener;
 import listener_interfaces.MultiValueAttributeListener;
-import storage_classes.DurAttribute;
 
 public interface Durable extends ItemListener, MultiValueAttributeListener {
 	DurAttribute getDurability();

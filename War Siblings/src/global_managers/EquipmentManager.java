@@ -5,6 +5,7 @@
 package global_managers;
 
 import items.Accessory;
+import items.Ammunition;
 import items.Armor;
 import items.ComboItem;
 import items.Headgear;
@@ -24,11 +25,11 @@ public class EquipmentManager {
 
 	public final Headgear DEFAULTHEAD = new Headgear("EmptyHead", 0, null, 0, 0, null, 0);
 	public final Armor DEFAULTBODY = new Armor("EmptyBody", 0, null, 0, 0, null);
-	public final Weapon DEFAULTRIGHT = new Weapon("EmptyRight", 0, null, 0, 0, 5, 10, 0, 50, 0, 0, 0, 0, 0, 0, null,
+	public final Weapon DEFAULTRIGHT = new Weapon("EmptyRight", 0, null, 0, 0, 5, 10, 10, 50, 0, 0, 0, 0, 0, 0, null,
 			null);
 	public final Shield DEFAULTLEFT = new Shield("EmptyLeft", 0, null, 0, 0, 0, 0, null);
 
-	public final ComboItem DEFAULTAMMO = new ComboItem("EmptyAmmo", 0, null, 0, 0);
+	public final Ammunition DEFAULTAMMO = new Ammunition("EmptyAmmo", 0, null, 0);
 	public final Accessory DEFAULTACCESSORY = new Accessory("EmptyAccessory", 0, null);
 	public final ComboItem DEFAULTBAG = new ComboItem("EmptyBag", 0, null, 0, 0);
 

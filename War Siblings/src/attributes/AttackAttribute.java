@@ -1,16 +1,18 @@
 /** War Siblings
- * VisionAttribute
- * Author: Chris Mercuri cmercuri1@student.unimelb.edu.au
+ * AttackAttribute class
+ * Author: Christopher Mercuri cmercuri1@student.unimelb.edu.au
  */
-package storage_classes;
+package attributes;
 
 import effect_classes.Modifier;
 import event_classes.AttributeEvent;
 
-public class VisionAttribute extends Attribute {
-	protected final double MINIMUM = 0.0;
+/** Special Attribute used in generating chances to hit for attacks */
+public class AttackAttribute extends Attribute {
+	private final static int MAXCAP = 95;
+	private final static int MINCAP = 5;
 
-	public VisionAttribute(double value) {
+	public AttackAttribute(double value) {
 		super(value);
 	}
 
@@ -32,9 +34,11 @@ public class VisionAttribute extends Attribute {
 		}
 		this.alteredMaxValue = multi * (this.originalMaxValue + add) + finalAdd;
 
-		if (this.alteredMaxValue < MINIMUM)
-			this.alteredMaxValue = MINIMUM;
+		if (this.alteredMaxValue > MAXCAP) {
+			this.alteredMaxValue = MAXCAP;
+		} else if (this.alteredMaxValue < MINCAP) {
+			this.alteredMaxValue = MINCAP;
+		}
 		this.notifyAttributeListeners(new AttributeEvent(AttributeEvent.Task.UPDATE, this.alteredMaxValue, this));
 	}
-
 }

@@ -7,9 +7,9 @@ package items;
 
 import javax.swing.ImageIcon;
 
+import attributes.Attribute;
 import event_classes.AttributeEvent;
 import listener_interfaces.AttributeListener;
-import storage_classes.Attribute;
 
 /** A baseline class for item objects */
 public class Item implements AttributeListener {

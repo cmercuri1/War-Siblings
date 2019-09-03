@@ -2,11 +2,12 @@
  * FatigueAttribute class
  * Author: Christopher Mercuri cmercuri1@student.unimelb.edu.au
  */
-package storage_classes;
+package attributes;
 
 import event_classes.FatigueAttributeEvent;
 import listener_interfaces.FatigueAttributeListener;
 import notifier_interfaces.FatigueAttributeNotifier;
+import storage_classes.ArrayList;
 
 /** Special Attribute used for Fatigue */
 public class FatigueAttribute extends BarStarAttribute implements FatigueAttributeNotifier {

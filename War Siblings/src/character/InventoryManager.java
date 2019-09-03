@@ -17,9 +17,12 @@ import global_generators.BackgroundGenerator;
 import global_managers.GlobalManager;
 import items.AbilityItem;
 import items.Accessory;
+import items.Ammunition;
 import items.Armor;
 import items.ComboItem;
+import items.Equipable;
 import items.Headgear;
+import items.Item;
 import items.Weapon;
 import listener_interfaces.TraitListener;
 import listener_interfaces.ModifierListener;
@@ -45,6 +48,7 @@ public class InventoryManager implements CharacterInventoryListener, SkillPrefer
 	protected AbilityItem left;
 
 	protected Accessory accessory;
+	protected Ammunition ammunition;
 
 	protected ArrayList<ComboItem> bag;
 
@@ -70,7 +74,6 @@ public class InventoryManager implements CharacterInventoryListener, SkillPrefer
 		this.effectListeners = new ArrayList<ModifierListener>();
 		this.inventoryListeners = new ArrayList<InventoryListener>();
 		this.inventorySituationListeners = new ArrayList<InventorySituationListener>();
-
 	}
 
 	protected void defaultInventory() {
@@ -80,6 +83,7 @@ public class InventoryManager implements CharacterInventoryListener, SkillPrefer
 		this.left = GlobalManager.equipment.DEFAULTLEFT;
 
 		this.accessory = GlobalManager.equipment.DEFAULTACCESSORY;
+		this.ammunition = GlobalManager.equipment.DEFAULTAMMO;
 
 		this.bag = new ArrayList<ComboItem>();
 		this.bag.add(GlobalManager.equipment.DEFAULTBAG);
@@ -119,9 +123,9 @@ public class InventoryManager implements CharacterInventoryListener, SkillPrefer
 				if (i.getItem() != null) {
 					this.swapItem(Target.RIGHT, (ComboItem) i.getItem());
 					if (i.getItem().getName().contains("Bow")) {
-						// TODO GIVE QUIVER
+						this.swapItem(Target.AMMO, new Ammunition("Quiver of Arrows", 50, "", 10));
 					} else if (i.getItem().getName().contains("Crossbow")) {
-						// TODO GIVE CROSSBOW QUIVER
+						this.swapItem(Target.AMMO, new Ammunition("Quiver of Bolts", 50, "", 10));
 					}
 				}
 				break;
@@ -155,8 +159,8 @@ public class InventoryManager implements CharacterInventoryListener, SkillPrefer
 		}
 	}
 
-	public void swapItem(Target target, ComboItem next) {
-		ComboItem temp = null;
+	public void swapItem(Target target, Equipable next) {
+		Equipable temp = null;
 		switch (target) {
 		case BODY:
 			temp = this.body;
@@ -179,15 +183,17 @@ public class InventoryManager implements CharacterInventoryListener, SkillPrefer
 				temp = this.swap1Hander(target, (AbilityItem) next);
 			break;
 		case ACCESSORY:
-			//TODO
+			temp = this.accessory;
+			this.accessory = (Accessory) next;
 			break;
 		case AMMO:
-			//TODO
+			temp = this.ammunition;
+			this.ammunition = (Ammunition) next;
 			break;
 		}
 		this.removeModifiers(temp.onEquipSituation());
 		this.addModifiers(next.onEquipSituation());
-		this.notifyInventoryListeners(new InventoryEvent(InventoryEvent.Task.RETURN_INVENTORY, temp, this));
+		this.notifyInventoryListeners(new InventoryEvent(InventoryEvent.Task.RETURN_INVENTORY, (Item) temp, this));
 	}
 
 	/**
@@ -294,9 +300,10 @@ public class InventoryManager implements CharacterInventoryListener, SkillPrefer
 	 * weapon and informs the
 	 */
 	public void isDualGripping() {
-		if (((this.right instanceof Weapon) && !(((Weapon) this.right).isTwoHanded())
-				&& (this.left == GlobalManager.equipment.DEFAULTLEFT))
-				|| ((this.left instanceof Weapon) && !(((Weapon) this.left).isTwoHanded())
+		if (((this.right instanceof Weapon) && (this.right != GlobalManager.equipment.DEFAULTRIGHT)
+				&& !(((Weapon) this.right).isTwoHanded()) && (this.left == GlobalManager.equipment.DEFAULTLEFT))
+				|| ((this.left instanceof Weapon) && (this.left != GlobalManager.equipment.DEFAULTLEFT)
+						&& !(((Weapon) this.left).isTwoHanded())
 						&& (this.right == GlobalManager.equipment.DEFAULTRIGHT))) {
 			this.notifyTraitListeners(
 					new TraitEvent(TraitEvent.Task.ADD, GlobalManager.traits.getSpecialTrait("Double Grip"), this));

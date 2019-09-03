@@ -1,8 +1,9 @@
-package storage_classes;
+package attributes;
 
 import event_classes.MultiValueAttributeEvent;
 import listener_interfaces.MultiValueAttributeListener;
 import notifier_interfaces.MultiValueAttributeNotifier;
+import storage_classes.ArrayList;
 
 public class BarAttribute extends Attribute implements MultiValueAttributeNotifier {
 	protected final static double MINIMUM = 0.0;

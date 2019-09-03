@@ -2,7 +2,7 @@
  * WageAttribute class
  * Author: Christopher Mercuri cmercuri1@student.unimelb.edu.au
  */
-package storage_classes;
+package attributes;
 
 import effect_classes.Modifier;
 import global_managers.GlobalManager;

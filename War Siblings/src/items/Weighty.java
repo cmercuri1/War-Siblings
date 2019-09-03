@@ -4,7 +4,7 @@
  */
 package items;
 
-import storage_classes.Attribute;
+import attributes.Attribute;
 
 public interface Weighty {
 	public Attribute getFatigueRed();

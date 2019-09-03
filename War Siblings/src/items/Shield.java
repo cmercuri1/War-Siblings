@@ -9,9 +9,9 @@ import storage_classes.ArrayList;
 
 import javax.swing.ImageIcon;
 
+import attributes.Attribute;
 import effect_classes.Modifier;
 import storage_classes.Ability;
-import storage_classes.Attribute;
 
 /**
  * A class used for storing and assisting in operating items usable as Shields

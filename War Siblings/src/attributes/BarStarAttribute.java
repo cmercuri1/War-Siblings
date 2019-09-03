@@ -2,11 +2,12 @@
  * BarAttribute class
  * Author: Christopher Mercuri cmercuri1@student.unimelb.edu.au
  */
-package storage_classes;
+package attributes;
 
 import event_classes.MultiValueAttributeEvent;
 import listener_interfaces.MultiValueAttributeListener;
 import notifier_interfaces.MultiValueAttributeNotifier;
+import storage_classes.ArrayList;
 
 /**
  * A class that adds to Attributes that have a current and a max value, such as

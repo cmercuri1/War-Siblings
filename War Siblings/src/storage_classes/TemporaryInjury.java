@@ -5,6 +5,7 @@
 package storage_classes;
 
 import storage_classes.ArrayList;
+import attributes.Attribute;
 import effect_classes.Effect;
 import effect_classes.Modifier;
 import event_classes.AttributeEvent;
