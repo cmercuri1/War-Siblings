@@ -8,7 +8,7 @@ import notifier_interfaces.CharacterNotifier;
 
 public class CharacterEvent extends InfoEvent {
 	public enum Task {
-		CHANGED_CHARACTER, FINISHED_CHARACTER
+		CHANGED_CHARACTER, FINISHED_CHARACTER, UPDATED_CHARACTER
 	};
 
 	protected Task task;

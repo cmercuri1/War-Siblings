@@ -82,6 +82,7 @@ public class Character
 		this.am.addMoraleChangeListener(this.abm);
 		this.am.addMoraleRollOutcomeListener(this.em);
 		this.am.addSkillPreferenceListener(this.im);
+		this.am.addCharacterListener(this);
 
 		this.addAbilityListener(abm);
 		this.addCharacterInventoryListener(im);
@@ -163,6 +164,9 @@ public class Character
 			}
 			break;
 		case FINISHED_CHARACTER:
+			break;
+		case UPDATED_CHARACTER:
+			this.notifyCharacterListeners(new CharacterEvent(CharacterEvent.Task.UPDATED_CHARACTER, this, this));
 			break;
 		}
 	}

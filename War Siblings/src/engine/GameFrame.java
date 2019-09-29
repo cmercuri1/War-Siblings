@@ -11,6 +11,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.KeyEvent;
+import java.util.Arrays;
 
 import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
@@ -29,44 +30,57 @@ import global_managers.GlobalManager;
 import listener_interfaces.CharacterListener;
 import notifier_interfaces.CharacterNotifier;
 import storage_classes.ArrayList;
+import storage_classes.BattleConditions;
 
 public class GameFrame extends JFrame implements ActionListener, ItemListener, CharacterListener, CharacterNotifier {
 	/**
 	 * 
 	 */
 	protected static final long serialVersionUID = -2418441605648905558L;
-	protected String message;
+	protected String selectedBg;
+	protected String selectedToD;
+	protected String selectedBf;
+	protected String selectedFoe;
+
 	protected Character character;
 	protected ArrayList<CharacterListener> characterListeners;
+	protected BattleConditions battle;
 
-	protected JComboBox<String> box;
+	protected JComboBox<String> bgBox;
+	protected JComboBox<String> todBox;
+	protected JComboBox<String> bfBox;
+	protected JComboBox<String> foeBox;
 
-	JLabel helm;
-	JLabel body;
-	JLabel hp;
-	JLabel ap;
-	JLabel fat;
-	JLabel mor;
-	JLabel res;
-	JLabel init;
-	JLabel mSk;
-	JLabel rSk;
-	JLabel mDef;
-	JLabel rDef;
-	JLabel dam;
-	JLabel armDam;
-	JLabel hs;
-	JLabel vis;
+	protected JButton newCharButton;
+	protected JButton startBattleButton;
+	protected JButton endBattleButton;
 
-	JLabel bgIcon;
-	JLabel trait1;
-	JLabel trait2;
-	JLabel trait3;
+	protected JLabel helm;
+	protected JLabel body;
+	protected JLabel hp;
+	protected JLabel ap;
+	protected JLabel fat;
+	protected JLabel mor;
+	protected JLabel res;
+	protected JLabel init;
+	protected JLabel mSk;
+	protected JLabel rSk;
+	protected JLabel mDef;
+	protected JLabel rDef;
+	protected JLabel dam;
+	protected JLabel armDam;
+	protected JLabel hs;
+	protected JLabel vis;
 
-	JLabel headArmor;
-	JLabel bodyArmor;
-	JLabel rightItem;
-	JLabel leftItem;
+	protected JLabel bgIcon;
+	protected JLabel trait1;
+	protected JLabel trait2;
+	protected JLabel trait3;
+
+	protected JLabel headArmor;
+	protected JLabel bodyArmor;
+	protected JLabel rightItem;
+	protected JLabel leftItem;
 
 	public static void main(String[] args) {
 
@@ -86,14 +100,35 @@ public class GameFrame extends JFrame implements ActionListener, ItemListener, C
 
 	public void initUI() {
 		JLabel charSpec = new JLabel("Specify a Background:");
-		this.message = "Random";
+		this.selectedBg = "Random";
+		this.selectedToD = "DAY";
+		this.selectedBf = "SWAMP";
+		this.selectedFoe = "HUMAN";
 
-		box = new JComboBox<>(GlobalManager.backgrounds.getBgNames());
-		box.addItemListener(this);
+		bgBox = new JComboBox<>(GlobalManager.backgrounds.getBgNames());
+		bgBox.addItemListener(this);
 
-		JButton newCharButton = new JButton("New Character");
+		todBox = new JComboBox<>(
+				Arrays.stream(BattleConditions.TimeOfDay.values()).map(Enum::name).toArray(String[]::new));
+		todBox.addItemListener(this);
+
+		bfBox = new JComboBox<>(
+				Arrays.stream(BattleConditions.Battlefield.values()).map(Enum::name).toArray(String[]::new));
+		bfBox.addItemListener(this);
+
+		foeBox = new JComboBox<>(Arrays.stream(BattleConditions.Foes.values()).map(Enum::name).toArray(String[]::new));
+		foeBox.addItemListener(this);
+
+		newCharButton = new JButton("New Character");
 		newCharButton.addActionListener(this);
 		newCharButton.setMnemonic(KeyEvent.VK_C);
+
+		startBattleButton = new JButton("Start Battle");
+		startBattleButton.addActionListener(this);
+
+		endBattleButton = new JButton("End Battle");
+		endBattleButton.addActionListener(this);
+		endBattleButton.setVisible(false);
 
 		this.character = new Character();
 		this.characterListeners = new ArrayList<CharacterListener>();
@@ -102,7 +137,7 @@ public class GameFrame extends JFrame implements ActionListener, ItemListener, C
 
 		this.setUpData();
 
-		createLayout(charSpec, box, newCharButton);
+		createLayout(charSpec, bgBox, newCharButton, todBox, bfBox, foeBox, startBattleButton, endBattleButton);
 
 		setTitle("War Siblings");
 		setSize(800, 600);
@@ -134,13 +169,23 @@ public class GameFrame extends JFrame implements ActionListener, ItemListener, C
 						.addGroup(gl.createSequentialGroup().addComponent(rightItem)
 								.addGroup(gl.createParallelGroup().addComponent(headArmor).addComponent(bodyArmor))
 								.addComponent(leftItem))
-						.addGroup(gl.createParallelGroup().addComponent(arg[0]).addComponent(arg[1],
-								GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(arg[2]))));
-
-		gl.setVerticalGroup(gl.createSequentialGroup()
-				.addGroup(gl.createParallelGroup()
 						.addGroup(gl.createSequentialGroup()
+								.addGroup(gl.createParallelGroup().addComponent(arg[0])
+										.addComponent(arg[1], GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+												GroupLayout.PREFERRED_SIZE)
+										.addComponent(arg[2]))
+								.addGroup(gl.createParallelGroup()
+										.addComponent(arg[3], GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+												GroupLayout.PREFERRED_SIZE)
+										.addComponent(arg[4], GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+												GroupLayout.PREFERRED_SIZE)
+										.addComponent(arg[5], GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+												GroupLayout.PREFERRED_SIZE))))
+				.addGroup(gl.createParallelGroup().addComponent(arg[6]).addComponent(arg[7])));
+
+		gl.setVerticalGroup(
+				gl.createSequentialGroup()
+						.addGroup(gl.createParallelGroup().addGroup(gl.createSequentialGroup()
 								.addGroup(gl.createParallelGroup().addComponent(bgIcon).addComponent(trait1)
 										.addComponent(trait2).addComponent(trait3))
 								.addGroup(gl.createParallelGroup(BASELINE).addComponent(helm).addComponent(mSk))
@@ -151,12 +196,23 @@ public class GameFrame extends JFrame implements ActionListener, ItemListener, C
 								.addGroup(gl.createParallelGroup(BASELINE).addComponent(mor).addComponent(armDam))
 								.addGroup(gl.createParallelGroup(BASELINE).addComponent(res).addComponent(hs))
 								.addGroup(gl.createParallelGroup(BASELINE).addComponent(init).addComponent(vis)))
-						.addGroup(gl.createSequentialGroup().addComponent(headArmor)
-								.addGroup(gl.createParallelGroup(BASELINE).addComponent(rightItem)
-										.addComponent(bodyArmor).addComponent(leftItem))))
-				.addGroup(
-						gl.createSequentialGroup().addComponent(arg[0]).addComponent(arg[1], GroupLayout.PREFERRED_SIZE,
-								GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE).addComponent(arg[2])));
+								.addGroup(
+										gl.createSequentialGroup().addComponent(headArmor)
+												.addGroup(gl.createParallelGroup(BASELINE).addComponent(rightItem)
+														.addComponent(bodyArmor).addComponent(leftItem))))
+						.addGroup(gl.createParallelGroup()
+								.addGroup(gl.createSequentialGroup().addComponent(arg[0])
+										.addComponent(arg[1], GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+												GroupLayout.PREFERRED_SIZE)
+										.addComponent(arg[2]))
+								.addGroup(gl.createSequentialGroup()
+										.addComponent(arg[3], GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+												GroupLayout.PREFERRED_SIZE)
+										.addComponent(arg[4], GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+												GroupLayout.PREFERRED_SIZE)
+										.addComponent(arg[5], GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+												GroupLayout.PREFERRED_SIZE))
+								.addGroup(gl.createSequentialGroup().addComponent(arg[6]).addComponent(arg[7]))));
 
 		pack();
 	}
@@ -296,7 +352,7 @@ public class GameFrame extends JFrame implements ActionListener, ItemListener, C
 		this.armDam.setText(tba.getAm().getAttributes()[10].toString() + "%");
 		this.hs.setText(tba.getAm().getAttributes()[11].toString() + "%");
 		this.vis.setText(tba.getAm().getAttributes()[12].toString());
-		
+
 		this.bgIcon.setIcon(tba.getBgIcon());
 
 		try {
@@ -335,13 +391,38 @@ public class GameFrame extends JFrame implements ActionListener, ItemListener, C
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		this.notifyCharacterListeners(new CharacterEvent(CharacterEvent.Task.CHANGED_CHARACTER, message, this));
+		if (e.getSource() == newCharButton)
+			this.notifyCharacterListeners(new CharacterEvent(CharacterEvent.Task.CHANGED_CHARACTER, selectedBg, this));
+		else if (e.getSource() == startBattleButton) {
+			this.battle = new BattleConditions(BattleConditions.TimeOfDay.valueOf(selectedToD),
+					BattleConditions.Battlefield.valueOf(selectedBf), BattleConditions.Foes.valueOf(selectedFoe));
+			this.startBattleButton.setVisible(false);
+			this.todBox.setVisible(false);
+			this.bfBox.setVisible(false);
+			this.foeBox.setVisible(false);
+			this.endBattleButton.setVisible(true);
+			this.character.getEm().startBattle(battle);
+		} else if (e.getSource() == endBattleButton) {
+			this.startBattleButton.setVisible(true);
+			this.todBox.setVisible(true);
+			this.bfBox.setVisible(true);
+			this.foeBox.setVisible(true);
+			this.endBattleButton.setVisible(false);
+			this.character.getEm().endBattle(battle);
+		}
 	}
 
 	@Override
 	public void itemStateChanged(ItemEvent e) {
 		if (e.getStateChange() == ItemEvent.SELECTED) {
-			this.message = e.getItem().toString();
+			if (e.getSource() == this.todBox)
+				this.selectedToD = e.getItem().toString();
+			else if (e.getSource() == this.bfBox)
+				this.selectedBf = e.getItem().toString();
+			else if (e.getSource() == this.foeBox)
+				this.selectedFoe = e.getItem().toString();
+			else if (e.getSource() == this.bgBox)
+				this.selectedBg = e.getItem().toString();
 		}
 	}
 
@@ -372,6 +453,11 @@ public class GameFrame extends JFrame implements ActionListener, ItemListener, C
 			break;
 		case FINISHED_CHARACTER:
 			this.applyCharacter((Character) c.getInformation());
+			break;
+		case UPDATED_CHARACTER:
+			this.applyCharacter((Character) c.getInformation());
+			break;
+		default:
 			break;
 		}
 	}
