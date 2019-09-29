@@ -5,13 +5,8 @@
 package character;
 
 import effect_classes.Effect;
-import effect_classes.Effect_Battle_Triggered;
-import effect_classes.Effect_Inventory_Situation;
 import effect_classes.Effect_Modifier;
-import effect_classes.Effect_Morale_Triggered;
-import effect_classes.Effect_Round_Triggered;
 import effect_classes.Effect_Triggered;
-import effect_classes.Effect_Turn_Triggered;
 import effect_classes.Modifier;
 import event_classes.AbilityEvent;
 import event_classes.BattleControlEvent;
@@ -201,19 +196,19 @@ public class AbilityManager implements AbilityListener, TraitListener, Permanent
 
 	protected void addEffectsToListeners(Ability a) {
 		for (Effect e : a.getEffects()) {
-			if (e instanceof Effect_Battle_Triggered) {
+			if (e instanceof BattleControlListener) {
 				this.addBattleControlListener((BattleControlListener) e);
 			}
-			if (e instanceof Effect_Round_Triggered) {
+			if (e instanceof RoundControlListener) {
 				this.addRoundControlListener((RoundControlListener) e);
 			}
-			if (e instanceof Effect_Turn_Triggered) {
+			if (e instanceof TurnControlListener) {
 				this.addTurnControlListener((TurnControlListener) e);
 			}
-			if (e instanceof Effect_Morale_Triggered) {
+			if (e instanceof MoraleChangeListener) {
 				this.addMoraleChangeListener((MoraleChangeListener) e);
 			}
-			if (e instanceof Effect_Inventory_Situation) {
+			if (e instanceof InventorySituationListener) {
 				this.addInventorySituationListener((InventorySituationListener) e);
 			}
 			if (e instanceof Effect_Triggered) {
@@ -224,19 +219,19 @@ public class AbilityManager implements AbilityListener, TraitListener, Permanent
 
 	protected void removeEffectsFromListeners(Ability a) {
 		for (Effect e : a.getEffects()) {
-			if (e instanceof Effect_Battle_Triggered) {
+			if (e instanceof BattleControlListener) {
 				this.removeBattleControlListener((BattleControlListener) e);
 			}
-			if (e instanceof Effect_Round_Triggered) {
+			if (e instanceof RoundControlListener) {
 				this.removeRoundControlListener((RoundControlListener) e);
 			}
-			if (e instanceof Effect_Turn_Triggered) {
+			if (e instanceof TurnControlListener) {
 				this.removeTurnControlListener((TurnControlListener) e);
 			}
-			if (e instanceof Effect_Morale_Triggered) {
+			if (e instanceof MoraleChangeListener) {
 				this.removeMoraleChangeListener((MoraleChangeListener) e);
 			}
-			if (e instanceof Effect_Inventory_Situation) {
+			if (e instanceof InventorySituationListener) {
 				this.removeInventorySituationListener((InventorySituationListener) e);
 			}
 			if (e instanceof Effect_Triggered) {

@@ -1,0 +1,5838 @@
+{
+	"Background Changes": [
+		{
+			"Name": "Adventurous Noble",
+			"Hitpoints": [
+				0,
+				0
+			],
+			"Fatigue": [
+				0,
+				5
+			],
+			"Resolve": [
+				15,
+				20
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				10,
+				10
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				5,
+				8
+			],
+			"Ranged Defense": [
+				-10,
+				-5
+			],
+			"Starting Level": [
+				0,
+				2
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Asthmatic",
+				"Clubfooted",
+				"Craven",
+				"Dastard",
+				"Drunkard",
+				"Fainthearted",
+				"Fear of Beasts",
+				"Fragile",
+				"Hesitant",
+				"Insecure",
+				"Irrational",
+				"Spartan",
+				"Weasel"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "Nasal Helmet",
+					"Chance to Start": 75
+				},
+				{
+					"Item Name": "Padded Nasal Helmet",
+					"Chance to Start": 25
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Mail Shirt",
+					"Chance to Start": 75
+				},
+				{
+					"Item Name": "Mail Hauberk",
+					"Chance to Start": 25
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "Arming Sword",
+					"Chance to Start": 75
+				},
+				{
+					"Item Name": "Winged Mace",
+					"Chance to Start": 25
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "Kite Shield",
+					"Chance to Start": 60
+				},
+				{
+					"Item Name": "Heater Shield",
+					"Chance to Start": 40
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Base Wage": 25,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Apprentice",
+			"Hitpoints": [
+				0,
+				0
+			],
+			"Fatigue": [
+				0,
+				0
+			],
+			"Resolve": [
+				0,
+				0
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				0,
+				0
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Asthmatic",
+				"Athletic",
+				"Bloodthirsty",
+				"Brute",
+				"Clumsy",
+				"Dumb",
+				"Fear of Undead",
+				"Hate for Undead"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Linen Tunic",
+					"Chance to Start": 30
+				},
+				{
+					"Item Name": "Apron",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Leather Tunic",
+					"Chance to Start": 30
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Base Wage": 8,
+			"Background Ability": [
+				{
+					"Effect Name": "xpRate_Percent",
+					"Value": 10
+				}
+			]
+		},
+		{
+			"Name": "Assassin",
+			"Hitpoints": [
+				-5,
+				-5
+			],
+			"Fatigue": [
+				-5,
+				-5
+			],
+			"Resolve": [
+				10,
+				10
+			],
+			"Initiative": [
+				20,
+				15
+			],
+			"Melee Skill": [
+				12,
+				10
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				5,
+				8
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				3,
+				3
+			],
+			"Excluded Talents": [
+				"fatigue",
+				"hitpoints",
+				"rangedDefense",
+				"resolve"
+			],
+			"Excluded Traits": [
+				"Bloodthirsty",
+				"Brute",
+				"Brute",
+				"Clubfooted",
+				"Clubfooted",
+				"Clumsy",
+				"Dumb",
+				"Fat",
+				"Hesitant",
+				"Huge",
+				"Insecure",
+				"Loyal",
+				"Night Blind",
+				"Short Sighted",
+				"Strong",
+				"Strong",
+				"Team Player",
+				"Weasel"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "Hood",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Leather Tunic",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "Dagger",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Base Wage": 20,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Barbarian",
+			"Hitpoints": [
+				10,
+				5
+			],
+			"Fatigue": [
+				10,
+				5
+			],
+			"Resolve": [
+				10,
+				5
+			],
+			"Initiative": [
+				5,
+				10
+			],
+			"Melee Skill": [
+				10,
+				5
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				1,
+				3
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Ailing",
+				"Asthmatic",
+				"Bleeder",
+				"Clubfooted",
+				"Craven",
+				"Dastard",
+				"Fragile",
+				"Hate for Undead",
+				"Hesitant",
+				"Insecure",
+				"Loyal",
+				"Night Blind",
+				"Tiny",
+				"Weasel"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Leather Headband",
+					"Chance to Start": 35
+				},
+				{
+					"Item Name": "Bear Headpiece",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Leather Helmet",
+					"Chance to Start": 15
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Thick Furs",
+					"Chance to Start": 35
+				},
+				{
+					"Item Name": "Animal Hide Armor",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Reinforced Animal Hide Armor",
+					"Chance to Start": 15
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "Antler Cleaver",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Hatchet",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Tree Limb",
+					"Chance to Start": 10
+				},
+				{
+					"Item Name": "Crude Axe",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Axehammer",
+					"Chance to Start": 10
+				},
+				{
+					"Item Name": "Blunt Cleaver",
+					"Chance to Start": 10
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Old Wooden Shield",
+					"Chance to Start": 60
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Base Wage": 20,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Bastard",
+			"Hitpoints": [
+				0,
+				0
+			],
+			"Fatigue": [
+				0,
+				0
+			],
+			"Resolve": [
+				-5,
+				-5
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				5,
+				10
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				-5,
+				5
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				2
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Ailing",
+				"Asthmatic",
+				"Bleeder",
+				"Clumsy",
+				"Dastard",
+				"Fat",
+				"Hesitant",
+				"Team Player",
+				"Tiny"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "Hood",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Nasal Helmet",
+					"Chance to Start": 60
+				},
+				{
+					"Item Name": "Padded Nasal Helmet",
+					"Chance to Start": 15
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Rugged Surcoat",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Padded Leather",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Basic Mail Shirt",
+					"Chance to Start": 40
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "Shortsword",
+					"Chance to Start": 30
+				},
+				{
+					"Item Name": "Falchion",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Handaxe",
+					"Chance to Start": 30
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 50
+				},
+				{
+					"Item Name": "Wooden Shield",
+					"Chance to Start": 50
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Base Wage": 14,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Beast Slayer",
+			"Hitpoints": [
+				0,
+				3
+			],
+			"Fatigue": [
+				5,
+				7
+			],
+			"Resolve": [
+				13,
+				10
+			],
+			"Initiative": [
+				7,
+				5
+			],
+			"Melee Skill": [
+				5,
+				5
+			],
+			"Ranged Skill": [
+				11,
+				7
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				2
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Ailing",
+				"Asthmatic",
+				"Bleeder",
+				"Brute",
+				"Clubfooted",
+				"Clumsy",
+				"Craven",
+				"Dastard",
+				"Dumb",
+				"Fat",
+				"Fear of Beasts",
+				"Fragile",
+				"Gluttonous",
+				"Night Blind",
+				"Short Sighted",
+				"Weasel"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Hood",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Hunter's Hat'",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Full Leather Cap",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Bear Headpiece",
+					"Chance to Start": 5
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Thick Tunic",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Rugged Surcoat",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Blotched Gambeson",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Padded Leather",
+					"Chance to Start": 25
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "Hatchet",
+					"Chance to Start": 30
+				},
+				{
+					"Item Name": "Boar Spear",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Handaxe",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Scramasax",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Short Bow",
+					"Chance to Start": 35
+				},
+				{
+					"Item Name": "Light Crossbow",
+					"Chance to Start": 35
+				},
+				{
+					"Item Name": "Hunting Bow",
+					"Chance to Start": 15
+				},
+				{
+					"Item Name": "Crossbow",
+					"Chance to Start": 15
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Net",
+					"Chance to Start": 50
+				},
+				{
+					"Item Name": "Wooden Shield",
+					"Chance to Start": 25
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Base Wage": 15,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Beggar",
+			"Hitpoints": [
+				-10,
+				-10
+			],
+			"Fatigue": [
+				-10,
+				-10
+			],
+			"Resolve": [
+				-10,
+				-5
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				0,
+				0
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Excluded Talents": [
+				"hitpoints",
+				"resolve"
+			],
+			"Excluded Traits": [
+				"Athletic",
+				"Brave",
+				"Bright",
+				"Cocky",
+				"Deathwish",
+				"Determined",
+				"Fat",
+				"Fearless",
+				"Greedy",
+				"Iron Jaw",
+				"Strong",
+				"Tough"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 50
+				},
+				{
+					"Item Name": "Hood",
+					"Chance to Start": 50
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Tattered Sackcloth",
+					"Chance to Start": 50
+				},
+				{
+					"Item Name": "Leather Wraps",
+					"Chance to Start": 50
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Knife",
+					"Chance to Start": 30
+				},
+				{
+					"Item Name": "Wooden Stick",
+					"Chance to Start": 30
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Base Wage": 3,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Bowyer",
+			"Hitpoints": [
+				0,
+				0
+			],
+			"Fatigue": [
+				-5,
+				0
+			],
+			"Resolve": [
+				-5,
+				0
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				0,
+				0
+			],
+			"Ranged Skill": [
+				10,
+				10
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Excluded Talents": [
+				"meleeSkill"
+			],
+			"Excluded Traits": [
+				"Athletic",
+				"Bloodthirsty",
+				"Brave",
+				"Brute",
+				"Clumsy",
+				"Cocky",
+				"Dumb",
+				"Fear of Undead",
+				"Fearless",
+				"Hate for Undead",
+				"Iron Jaw",
+				"Iron Lungs",
+				"Short Sighted",
+				"Strong",
+				"Tough"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 30
+				},
+				{
+					"Item Name": "Feathered Hat",
+					"Chance to Start": 70
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Apron",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "Wonky Bow",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Short Bow",
+					"Chance to Start": 60
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Base Wage": 8,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Brawler",
+			"Hitpoints": [
+				5,
+				10
+			],
+			"Fatigue": [
+				10,
+				5
+			],
+			"Resolve": [
+				7,
+				5
+			],
+			"Initiative": [
+				5,
+				0
+			],
+			"Melee Skill": [
+				5,
+				0
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Excluded Talents": [
+				"rangedSkill"
+			],
+			"Excluded Traits": [
+				"Ailing",
+				"Asthmatic",
+				"Bleeder",
+				"Bright",
+				"Clubfooted",
+				"Clumsy",
+				"Craven",
+				"Dastard",
+				"Fainthearted",
+				"Fat",
+				"Fear of Undead",
+				"Fragile",
+				"Hate for Undead",
+				"Insecure",
+				"Irrational",
+				"Tiny",
+				"Weasel"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Tattered Sackcloth",
+					"Chance to Start": 34
+				},
+				{
+					"Item Name": "Sackcloth",
+					"Chance to Start": 33
+				},
+				{
+					"Item Name": "Leather Wraps",
+					"Chance to Start": 33
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Base Wage": 13,
+			"Background Ability": [
+				{
+					"Effect Name": "Damage_Unarmed",
+					"Value": 100
+				}
+			]
+		},
+		{
+			"Name": "Butcher",
+			"Hitpoints": [
+				0,
+				4
+			],
+			"Fatigue": [
+				0,
+				4
+			],
+			"Resolve": [
+				7,
+				5
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				3,
+				2
+			],
+			"Ranged Skill": [
+				-3,
+				0
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Excluded Talents": [
+				"rangedSkill"
+			],
+			"Excluded Traits": [
+				"Bleeder",
+				"Bright",
+				"Clumsy",
+				"Fainthearted",
+				"Fear of Undead",
+				"Hate for Undead",
+				"Iron Lungs",
+				"Optimist",
+				"Spartan",
+				"Swift",
+				"Tiny",
+				"Weasel"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Butcher's Apron",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "Butcher's Cleaver",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Base Wage": 7,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Caravan Hand",
+			"Hitpoints": [
+				3,
+				5
+			],
+			"Fatigue": [
+				5,
+				7
+			],
+			"Resolve": [
+				3,
+				3
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				4,
+				0
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Asthmatic",
+				"Bright",
+				"Clubfooted",
+				"Fat",
+				"Gluttonous",
+				"Tiny"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Headscarf",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Open Leather Cap",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Aketon Cap",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Full Leather Cap",
+					"Chance to Start": 20
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Leather Tunic",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Thick Tunic",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Padded Surcoat",
+					"Chance to Start": 15
+				},
+				{
+					"Item Name": "Rugged Surcoat",
+					"Chance to Start": 15
+				},
+				{
+					"Item Name": "Gambeson",
+					"Chance to Start": 10
+				},
+				{
+					"Item Name": "Blotched Gambeson",
+					"Chance to Start": 10
+				},
+				{
+					"Item Name": "Padded Leather",
+					"Chance to Start": 10
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "Wooden Stick",
+					"Chance to Start": 10
+				},
+				{
+					"Item Name": "Shortsword",
+					"Chance to Start": 15
+				},
+				{
+					"Item Name": "Militia Spear",
+					"Chance to Start": 15
+				},
+				{
+					"Item Name": "Hatchet",
+					"Chance to Start": 10
+				},
+				{
+					"Item Name": "Scramasax",
+					"Chance to Start": 10
+				},
+				{
+					"Item Name": "Falchion",
+					"Chance to Start": 10
+				},
+				{
+					"Item Name": "Bludgeon",
+					"Chance to Start": 15
+				},
+				{
+					"Item Name": "Boar Spear",
+					"Chance to Start": 10
+				},
+				{
+					"Item Name": "Handaxe",
+					"Chance to Start": 5
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				},
+				{
+					"Item Name": "Buckler",
+					"Chance to Start": 100
+				},
+				{
+					"Item Name": "Wooden Shield",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Base Wage": 8,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Cripple",
+			"Hitpoints": [
+				-20,
+				-10
+			],
+			"Fatigue": [
+				-10,
+				0
+			],
+			"Resolve": [
+				0,
+				0
+			],
+			"Initiative": [
+				-25,
+				-10
+			],
+			"Melee Skill": [
+				-5,
+				-5
+			],
+			"Ranged Skill": [
+				-5,
+				0
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Excluded Talents": [
+				"hitpoints",
+				"initiative"
+			],
+			"Excluded Traits": [
+				"Athletic",
+				"Cocky",
+				"Dexterous",
+				"Fat",
+				"Greedy",
+				"Huge",
+				"Impatient",
+				"Iron Jaw",
+				"Lucky",
+				"Quick",
+				"Strong",
+				"Swift",
+				"Tough",
+				"Weasel"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Tattered Sackcloth",
+					"Chance to Start": 60
+				},
+				{
+					"Item Name": "Leather Wraps",
+					"Chance to Start": 40
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 50
+				},
+				{
+					"Item Name": "Wooden Stick",
+					"Chance to Start": 50
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Base Wage": 3,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Cultist",
+			"Hitpoints": [
+				-5,
+				5
+			],
+			"Fatigue": [
+				3,
+				3
+			],
+			"Resolve": [
+				15,
+				10
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				0,
+				0
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Athletic",
+				"Bright",
+				"Bright",
+				"Craven",
+				"Dastard",
+				"Disloyal",
+				"Drunkard",
+				"Fainthearted",
+				"Fat",
+				"Fear of Undead",
+				"Gluttonous",
+				"Greedy",
+				"Hate for Beasts",
+				"Hate for Greenskins",
+				"Hate for Undead",
+				"Hesitant",
+				"Insecure",
+				"Lucky",
+				"Night Blind",
+				"Team Player"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 35
+				},
+				{
+					"Item Name": "Cultist Hood",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Cultist Leather Hood",
+					"Chance to Start": 25
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Tattered Sackcloth",
+					"Chance to Start": 50
+				},
+				{
+					"Item Name": "Leather Wraps",
+					"Chance to Start": 50
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 30
+				},
+				{
+					"Item Name": "Knife",
+					"Chance to Start": 35
+				},
+				{
+					"Item Name": "Dagger",
+					"Chance to Start": 35
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Base Wage": 6,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Daytaler",
+			"Hitpoints": [
+				0,
+				0
+			],
+			"Fatigue": [
+				0,
+				3
+			],
+			"Resolve": [
+				0,
+				0
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				0,
+				0
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Fear of Undead",
+				"Hate for Beasts",
+				"Hate for Greenskins",
+				"Hate for Undead"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Headscarf",
+					"Chance to Start": 60
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Sackcloth",
+					"Chance to Start": 50
+				},
+				{
+					"Item Name": "Linen Tunic",
+					"Chance to Start": 50
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 30
+				},
+				{
+					"Item Name": "Knife",
+					"Chance to Start": 30
+				},
+				{
+					"Item Name": "Wooden Stick",
+					"Chance to Start": 40
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Base Wage": 3,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Deserter",
+			"Hitpoints": [
+				0,
+				0
+			],
+			"Fatigue": [
+				0,
+				0
+			],
+			"Resolve": [
+				-15,
+				-10
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				5,
+				5
+			],
+			"Ranged Skill": [
+				5,
+				0
+			],
+			"Melee Defense": [
+				3,
+				5
+			],
+			"Ranged Defense": [
+				3,
+				5
+			],
+			"Starting Level": [
+				0,
+				1
+			],
+			"Excluded Talents": [
+				"resolve"
+			],
+			"Excluded Traits": [
+				"Bloodthirsty",
+				"Brave",
+				"Clubfooted",
+				"Cocky",
+				"Deathwish",
+				"Determined",
+				"Fearless",
+				"Fragile",
+				"Impatient",
+				"Loyal",
+				"Optimist",
+				"Sure Footing",
+				"Team Player"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "Hood",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Aketon Cap",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Full Aketon Cap",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Open Leather Cap",
+					"Chance to Start": 25
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Leather Tunic",
+					"Chance to Start": 35
+				},
+				{
+					"Item Name": "Padded Surcoat",
+					"Chance to Start": 35
+				},
+				{
+					"Item Name": "Gambeson",
+					"Chance to Start": 30
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "Bludgeon",
+					"Chance to Start": 30
+				},
+				{
+					"Item Name": "Hatchet",
+					"Chance to Start": 30
+				},
+				{
+					"Item Name": "Militia Spear",
+					"Chance to Start": 35
+				},
+				{
+					"Item Name": "Short Bow",
+					"Chance to Start": 65
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 50
+				},
+				{
+					"Item Name": "Wooden Shield",
+					"Chance to Start": 50
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Base Wage": 11,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Disowned Noble",
+			"Hitpoints": [
+				0,
+				0
+			],
+			"Fatigue": [
+				-10,
+				-5
+			],
+			"Resolve": [
+				-5,
+				-2
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				8,
+				10
+			],
+			"Ranged Skill": [
+				3,
+				6
+			],
+			"Melee Defense": [
+				0,
+				3
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				2
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Clubfooted",
+				"Clumsy",
+				"Fragile",
+				"Spartan",
+				"Team Player"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "Aketon Cap",
+					"Chance to Start": 50
+				},
+				{
+					"Item Name": "Feathered Hat",
+					"Chance to Start": 50
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Basic Mail Shirt",
+					"Chance to Start": 35
+				},
+				{
+					"Item Name": "Mail Shirt",
+					"Chance to Start": 35
+				},
+				{
+					"Item Name": "Mail Hauberk",
+					"Chance to Start": 30
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "Shortsword",
+					"Chance to Start": 35
+				},
+				{
+					"Item Name": "Hatchet",
+					"Chance to Start": 30
+				},
+				{
+					"Item Name": "Militia Spear",
+					"Chance to Start": 35
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "Buckler",
+					"Chance to Start": 50
+				},
+				{
+					"Item Name": "Wooden Shield",
+					"Chance to Start": 50
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Base Wage": 18,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Eunuch",
+			"Hitpoints": [
+				0,
+				0
+			],
+			"Fatigue": [
+				0,
+				0
+			],
+			"Resolve": [
+				-5,
+				-5
+			],
+			"Initiative": [
+				-5,
+				-5
+			],
+			"Melee Skill": [
+				0,
+				0
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Athletic",
+				"Bloodthirsty",
+				"Brute",
+				"Cocky",
+				"Deathwish",
+				"Impatient",
+				"Lucky",
+				"Weasel"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Linen Tunic",
+					"Chance to Start": 60
+				},
+				{
+					"Item Name": "Leather Tunic",
+					"Chance to Start": 40
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Base Wage": 6,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Farmhand",
+			"Hitpoints": [
+				12,
+				10
+			],
+			"Fatigue": [
+				10,
+				20
+			],
+			"Resolve": [
+				-2,
+				-3
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				0,
+				0
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Asthmatic",
+				"Clubfooted",
+				"Fear of Undead",
+				"Hate for Undead",
+				"Weasel"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 50
+				},
+				{
+					"Item Name": "Straw Hat",
+					"Chance to Start": 50
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Sackcloth",
+					"Chance to Start": 60
+				},
+				{
+					"Item Name": "Leather Tunic",
+					"Chance to Start": 40
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Wooden Flail",
+					"Chance to Start": 30
+				},
+				{
+					"Item Name": "Knife",
+					"Chance to Start": 30
+				},
+				{
+					"Item Name": "Pitchfork",
+					"Chance to Start": 15
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Base Wage": 10,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Fisherman",
+			"Hitpoints": [
+				5,
+				0
+			],
+			"Fatigue": [
+				5,
+				5
+			],
+			"Resolve": [
+				5,
+				0
+			],
+			"Initiative": [
+				0,
+				5
+			],
+			"Melee Skill": [
+				0,
+				0
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Fat",
+				"Fear of Undead",
+				"Hate for Undead",
+				"Night Blind",
+				"Paranoid",
+				"Tiny",
+				"Weasel"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 50
+				},
+				{
+					"Item Name": "Straw Hat",
+					"Chance to Start": 50
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Sackcloth",
+					"Chance to Start": 60
+				},
+				{
+					"Item Name": "Leather Tunic",
+					"Chance to Start": 40
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 45
+				},
+				{
+					"Item Name": "Knife",
+					"Chance to Start": 55
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 50
+				},
+				{
+					"Item Name": "Net",
+					"Chance to Start": 50
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Base Wage": 7,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Flagellant",
+			"Hitpoints": [
+				-10,
+				-5
+			],
+			"Fatigue": [
+				5,
+				10
+			],
+			"Resolve": [
+				12,
+				12
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				0,
+				0
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Bright",
+				"Clubfooted",
+				"Cocky",
+				"Craven",
+				"Disloyal",
+				"Fainthearted",
+				"Fat",
+				"Gluttonous",
+				"Greedy",
+				"Insecure",
+				"Strong",
+				"Tough",
+				"Weasel"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Sackcloth",
+					"Chance to Start": 55
+				},
+				{
+					"Item Name": "Monk's Robe",
+					"Chance to Start": 45
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "Wooden Flail",
+					"Chance to Start": 60
+				},
+				{
+					"Item Name": "Reinforced Wooden Flail",
+					"Chance to Start": 40
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Base Wage": 6,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Gambler",
+			"Hitpoints": [
+				-2,
+				-2
+			],
+			"Fatigue": [
+				-6,
+				-5
+			],
+			"Resolve": [
+				12,
+				12
+			],
+			"Initiative": [
+				12,
+				10
+			],
+			"Melee Skill": [
+				0,
+				0
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				0,
+				2
+			],
+			"Ranged Defense": [
+				2,
+				8
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Athletic",
+				"Bloodthirsty",
+				"Brute",
+				"Clumsy",
+				"Craven",
+				"Dastard",
+				"Deathwish",
+				"Dumb",
+				"Fear of Undead",
+				"Hate for Beasts",
+				"Hate for Undead",
+				"Hesitant",
+				"Huge",
+				"Insecure",
+				"Loyal",
+				"Paranoid",
+				"Short Sighted",
+				"Spartan",
+				"Strong",
+				"Tough"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 55
+				},
+				{
+					"Item Name": "Feathered Hat",
+					"Chance to Start": 45
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Linen Tunic",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Base Wage": 6,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Gravedigger",
+			"Hitpoints": [
+				0,
+				4
+			],
+			"Fatigue": [
+				5,
+				7
+			],
+			"Resolve": [
+				7,
+				5
+			],
+			"Initiative": [
+				-5,
+				0
+			],
+			"Melee Skill": [
+				0,
+				0
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Cocky",
+				"Craven",
+				"Dexterous",
+				"Fainthearted",
+				"Fear of Undead",
+				"Iron Lungs",
+				"Night Blind",
+				"Optimist",
+				"Quick",
+				"Swift",
+				"Team Player",
+				"Weasel"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 35
+				},
+				{
+					"Item Name": "Hood",
+					"Chance to Start": 65
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Tattered Sackcloth",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Sackcloth",
+					"Chance to Start": 60
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Knife",
+					"Chance to Start": 60
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Base Wage": 5,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Graverobber",
+			"Hitpoints": [
+				0,
+				0
+			],
+			"Fatigue": [
+				5,
+				5
+			],
+			"Resolve": [
+				0,
+				0
+			],
+			"Initiative": [
+				0,
+				4
+			],
+			"Melee Skill": [
+				3,
+				0
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				0,
+				1
+			],
+			"Ranged Defense": [
+				0,
+				1
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Cocky",
+				"Craven",
+				"Deathwish",
+				"Determined",
+				"Fainthearted",
+				"Fear of Beasts",
+				"Fear of Undead",
+				"Loyal",
+				"Night Blind",
+				"Optimist",
+				"Superstitious",
+				"Weasel"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 33
+				},
+				{
+					"Item Name": "Headscarf",
+					"Chance to Start": 34
+				},
+				{
+					"Item Name": "Open Leather Cap",
+					"Chance to Start": 33
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Leather Wraps",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Rugged Surcoat",
+					"Chance to Start": 37
+				},
+				{
+					"Item Name": "Leather Tunic",
+					"Chance to Start": 38
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 10
+				},
+				{
+					"Item Name": "Knife",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Wooden Stick",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Dagger",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Broken Ancient Sword",
+					"Chance to Start": 15
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Base Wage": 6,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Hedge Knight",
+			"Hitpoints": [
+				12,
+				13
+			],
+			"Fatigue": [
+				15,
+				10
+			],
+			"Resolve": [
+				9,
+				4
+			],
+			"Initiative": [
+				-14,
+				-7
+			],
+			"Melee Skill": [
+				11,
+				10
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				6,
+				5
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				2,
+				4
+			],
+			"Excluded Talents": [
+				"initiative",
+				"rangedSkill"
+			],
+			"Excluded Traits": [
+				"Ailing",
+				"Asthmatic",
+				"Bleeder",
+				"Clubfooted",
+				"Clumsy",
+				"Craven",
+				"Dastard",
+				"Fainthearted",
+				"Fear of Beasts",
+				"Fear of Greenskins",
+				"Fear of Undead",
+				"Fragile",
+				"Hesitant",
+				"Insecure",
+				"Irrational",
+				"Loyal",
+				"Swift",
+				"Team Player",
+				"Tiny",
+				"Weasel"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "Closed Flat Top Helmet",
+					"Chance to Start": 50
+				},
+				{
+					"Item Name": "Bascinet with Mail",
+					"Chance to Start": 50
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Worn Mail Shirt",
+					"Chance to Start": 30
+				},
+				{
+					"Item Name": "Mail Hauberk",
+					"Chance to Start": 30
+				},
+				{
+					"Item Name": "Reinforced Mail Hauberk",
+					"Chance to Start": 30
+				},
+				{
+					"Item Name": "Sellsword's Armor",
+					"Chance to Start": 10
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "Longsword",
+					"Chance to Start": 30
+				},
+				{
+					"Item Name": "Greatsword",
+					"Chance to Start": 35
+				},
+				{
+					"Item Name": "Greataxe",
+					"Chance to Start": 35
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Base Wage": 35,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Historian",
+			"Hitpoints": [
+				-2,
+				-5
+			],
+			"Fatigue": [
+				-5,
+				-5
+			],
+			"Resolve": [
+				0,
+				0
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				-5,
+				-5
+			],
+			"Ranged Skill": [
+				-3,
+				-2
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Excluded Talents": [
+				"endurance",
+				"hitpoints"
+			],
+			"Excluded Traits": [
+				"Athletic",
+				"Bloodthirsty",
+				"Brute",
+				"Cocky",
+				"Dexterous",
+				"Dumb",
+				"Hate for Beasts",
+				"Huge",
+				"Impatient",
+				"Iron Jaw",
+				"Iron Lungs",
+				"Irrational",
+				"Paranoid",
+				"Spartan",
+				"Strong",
+				"Superstitious",
+				"Sure Footing",
+				"Tough"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Linen Tunic",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Base Wage": 8,
+			"Background Ability": [
+				{
+					"Effect Name": "xpRate_Percent",
+					"Value": 15
+				}
+			]
+		},
+		{
+			"Name": "Houndmaster",
+			"Hitpoints": [
+				5,
+				0
+			],
+			"Fatigue": [
+				5,
+				0
+			],
+			"Resolve": [
+				5,
+				5
+			],
+			"Initiative": [
+				5,
+				0
+			],
+			"Melee Skill": [
+				3,
+				5
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Asthmatic",
+				"Bleeder",
+				"Bright",
+				"Fainthearted",
+				"Fear of Beasts",
+				"Hate for Beasts",
+				"Hate for Undead",
+				"Tiny",
+				"Weasel"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 50
+				},
+				{
+					"Item Name": "Open Leather Cap",
+					"Chance to Start": 50
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Padded Surcoat",
+					"Chance to Start": 50
+				},
+				{
+					"Item Name": "Rugged Surcoat",
+					"Chance to Start": 50
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 60
+				},
+				{
+					"Item Name": "Net",
+					"Chance to Start": 40
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Base Wage": 7,
+			"Background Ability": [
+				{
+					"Effect Name": "Wardog_Starting_Morale",
+					"Value": 5
+				}
+			]
+		},
+		{
+			"Name": "Hunter",
+			"Hitpoints": [
+				0,
+				0
+			],
+			"Fatigue": [
+				7,
+				5
+			],
+			"Resolve": [
+				0,
+				5
+			],
+			"Initiative": [
+				0,
+				5
+			],
+			"Melee Skill": [
+				0,
+				0
+			],
+			"Ranged Skill": [
+				20,
+				17
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				3
+			],
+			"Starting Level": [
+				0,
+				1
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Asthmatic",
+				"Brute",
+				"Clubfooted",
+				"Clumsy",
+				"Craven",
+				"Dastard",
+				"Drunkard",
+				"Fat",
+				"Fear of Beasts",
+				"Fear of Undead",
+				"Gluttonous",
+				"Hate for Beasts",
+				"Night Blind",
+				"Short Sighted",
+				"Weasel"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Hood",
+					"Chance to Start": 35
+				},
+				{
+					"Item Name": "Hunter's Hat",
+					"Chance to Start": 25
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Leather Tunic",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Thick Tunic",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Padded Surcoat",
+					"Chance to Start": 35
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "Short Bow",
+					"Chance to Start": 15
+				},
+				{
+					"Item Name": "Hunting Bow",
+					"Chance to Start": 85
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "Knife",
+					"Chance to Start": 60
+				},
+				{
+					"Item Name": "Dagger",
+					"Chance to Start": 40
+				}
+			],
+			"Base Wage": 20,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Juggler",
+			"Hitpoints": [
+				-5,
+				-5
+			],
+			"Fatigue": [
+				0,
+				0
+			],
+			"Resolve": [
+				0,
+				0
+			],
+			"Initiative": [
+				12,
+				10
+			],
+			"Melee Skill": [
+				0,
+				0
+			],
+			"Ranged Skill": [
+				3,
+				2
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Asthmatic",
+				"Bloodthirsty",
+				"Brute",
+				"Clubfooted",
+				"Clumsy",
+				"Deathwish",
+				"Dumb",
+				"Fear of Undead",
+				"Hate for Undead",
+				"Hesitant",
+				"Insecure",
+				"Short Sighted",
+				"Strong",
+				"Tough"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 50
+				},
+				{
+					"Item Name": "Jester's Hat",
+					"Chance to Start": 50
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Linen Tunic",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 65
+				},
+				{
+					"Item Name": "Dagger",
+					"Chance to Start": 35
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Base Wage": 7,
+			"Background Ability": [
+				{
+					"Effect Name": "headshotChance",
+					"Value": 5
+				}
+			]
+		},
+		{
+			"Name": "Killer On The Run",
+			"Hitpoints": [
+				0,
+				0
+			],
+			"Fatigue": [
+				0,
+				0
+			],
+			"Resolve": [
+				-5,
+				-5
+			],
+			"Initiative": [
+				0,
+				5
+			],
+			"Melee Skill": [
+				4,
+				0
+			],
+			"Ranged Skill": [
+				2,
+				3
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Brave",
+				"Bright",
+				"Clubfooted",
+				"Clumsy",
+				"Cocky",
+				"Craven",
+				"Deathwish",
+				"Determined",
+				"Fainthearted",
+				"Fearless",
+				"Hate for Undead",
+				"Hesitant",
+				"Loyal",
+				"Lucky",
+				"Optimist",
+				"Team Player"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "Hood",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Leather Tunic",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "Knife",
+					"Chance to Start": 65
+				},
+				{
+					"Item Name": "Dagger",
+					"Chance to Start": 35
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Base Wage": 6,
+			"Background Ability": [
+				{
+					"Effect Name": "headshotChance",
+					"Value": 10
+				}
+			]
+		},
+		{
+			"Name": "Lumberjack",
+			"Hitpoints": [
+				10,
+				10
+			],
+			"Fatigue": [
+				10,
+				15
+			],
+			"Resolve": [
+				0,
+				5
+			],
+			"Initiative": [
+				-5,
+				0
+			],
+			"Melee Skill": [
+				5,
+				0
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Ailing",
+				"Asthmatic",
+				"Bleeder",
+				"Bright",
+				"Clubfooted",
+				"Clumsy",
+				"Craven",
+				"Fainthearted",
+				"Fat",
+				"Fragile",
+				"Hate for Undead",
+				"Night Blind",
+				"Tiny",
+				"Weasel"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Linen Tunic",
+					"Chance to Start": 30
+				},
+				{
+					"Item Name": "Leather Tunic",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Padded Surcoat",
+					"Chance to Start": 30
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "Hatchet",
+					"Chance to Start": 35
+				},
+				{
+					"Item Name": "Handaxe",
+					"Chance to Start": 35
+				},
+				{
+					"Item Name": "Woodcutter's Axe",
+					"Chance to Start": 30
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Base Wage": 13,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Mason",
+			"Hitpoints": [
+				0,
+				0
+			],
+			"Fatigue": [
+				5,
+				5
+			],
+			"Resolve": [
+				0,
+				0
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				0,
+				0
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Asthmatic",
+				"Athletic",
+				"Bloodthirsty",
+				"Clumsy",
+				"Dumb",
+				"Fear of Undead",
+				"Hate for Undead",
+				"Weasel"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Linen Tunic",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Base Wage": 0,
+			"Background Ability": [
+				{
+					"Effect Name": "xpRate_Percent",
+					"Value": 5
+				}
+			]
+		},
+		{
+			"Name": "Messenger",
+			"Hitpoints": [
+				0,
+				0
+			],
+			"Fatigue": [
+				15,
+				10
+			],
+			"Resolve": [
+				5,
+				0
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				0,
+				0
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				0,
+				2
+			],
+			"Ranged Defense": [
+				3,
+				3
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Asthmatic",
+				"Brute",
+				"Clubfooted",
+				"Cocky",
+				"Craven",
+				"Deathwish",
+				"Dumb",
+				"Fat",
+				"Gluttonous",
+				"Hate for Undead",
+				"Huge",
+				"Paranoid"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Hood",
+					"Chance to Start": 30
+				},
+				{
+					"Item Name": "Straw Hat",
+					"Chance to Start": 30
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Leather Tunic",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Base Wage": 6,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Militia",
+			"Hitpoints": [
+				0,
+				0
+			],
+			"Fatigue": [
+				3,
+				5
+			],
+			"Resolve": [
+				3,
+				5
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				5,
+				5
+			],
+			"Ranged Skill": [
+				6,
+				5
+			],
+			"Melee Defense": [
+				2,
+				2
+			],
+			"Ranged Defense": [
+				2,
+				2
+			],
+			"Starting Level": [
+				0,
+				1
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Asthmatic",
+				"Clubfooted",
+				"Craven",
+				"Dastard",
+				"Fat",
+				"Hate for Undead",
+				"Insecure"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 15
+				},
+				{
+					"Item Name": "Straw Hat",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Aketon Cap",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Full Aketon Cap",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Open Leather Cap",
+					"Chance to Start": 15
+				},
+				{
+					"Item Name": "Full Leather Cap",
+					"Chance to Start": 10
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Leather Tunic",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Padded Surcoat",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Leather Lamellar Armor",
+					"Chance to Start": 20
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "Militia Spear",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Shortsword",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Bludgeon",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Handaxe",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Pike",
+					"Chance to Start": 10
+				},
+				{
+					"Item Name": "Billhook",
+					"Chance to Start": 5
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Buckler",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Wooden Shield",
+					"Chance to Start": 20
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Base Wage": 9,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Miller",
+			"Hitpoints": [
+				3,
+				0
+			],
+			"Fatigue": [
+				8,
+				5
+			],
+			"Resolve": [
+				0,
+				0
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				0,
+				0
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Bloodthirsty",
+				"Bright",
+				"Cocky",
+				"Deathwish",
+				"Dexterous",
+				"Fear of Undead",
+				"Fragile",
+				"Greedy",
+				"Hate for Undead",
+				"Quick",
+				"Sure Footing"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Linen Tunic",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Knife",
+					"Chance to Start": 30
+				},
+				{
+					"Item Name": "Wooden Stick",
+					"Chance to Start": 30
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Base Wage": 7,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Miner",
+			"Hitpoints": [
+				10,
+				10
+			],
+			"Fatigue": [
+				-10,
+				-10
+			],
+			"Resolve": [
+				5,
+				8
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				5,
+				0
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Bright",
+				"Clumsy",
+				"Craven",
+				"Dastard",
+				"Fat",
+				"Fragile",
+				"Hate for Undead",
+				"Huge",
+				"Iron Lungs",
+				"Night Blind",
+				"Strong",
+				"Swift"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 35
+				},
+				{
+					"Item Name": "Mouthpiece",
+					"Chance to Start": 65
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Sackcloth",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Pickaxe",
+					"Chance to Start": 80
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Base Wage": 6,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Minstrel",
+			"Hitpoints": [
+				-5,
+				-3
+			],
+			"Fatigue": [
+				-10,
+				-10
+			],
+			"Resolve": [
+				5,
+				10
+			],
+			"Initiative": [
+				0,
+				5
+			],
+			"Melee Skill": [
+				0,
+				0
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Athletic",
+				"Bloodthirsty",
+				"Brute",
+				"Clubfooted",
+				"Craven",
+				"Dastard",
+				"Dumb",
+				"Dumb",
+				"Huge",
+				"Insecure",
+				"Iron Jaw",
+				"Strong",
+				"Tough"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Feathered Hat",
+					"Chance to Start": 60
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Linen Tunic",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 45
+				},
+				{
+					"Item Name": "Lute",
+					"Chance to Start": 55
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Base Wage": 6,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Monk",
+			"Hitpoints": [
+				0,
+				0
+			],
+			"Fatigue": [
+				-10,
+				0
+			],
+			"Resolve": [
+				11,
+				11
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				-5,
+				-5
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Bloodthirsty",
+				"Brute",
+				"Clubfooted",
+				"Cocky",
+				"Craven",
+				"Disloyal",
+				"Dumb",
+				"Gluttonous",
+				"Greedy",
+				"Hate for Beasts",
+				"Impatient",
+				"Iron Lungs",
+				"Quick",
+				"Superstitious",
+				"Swift",
+				"Weasel"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Monk's Robe",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Base Wage": 5,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Peddler",
+			"Hitpoints": [
+				0,
+				0
+			],
+			"Fatigue": [
+				0,
+				0
+			],
+			"Resolve": [
+				0,
+				0
+			],
+			"Initiative": [
+				0,
+				7
+			],
+			"Melee Skill": [
+				-10,
+				9
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				2,
+				7
+			],
+			"Ranged Defense": [
+				2,
+				7
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Athletic",
+				"Bloodthirsty",
+				"Brute",
+				"Clubfooted",
+				"Cocky",
+				"Deathwish",
+				"Dexterous",
+				"Dumb",
+				"Fear of Undead",
+				"Hate for Beasts",
+				"Hate for Undead",
+				"Huge",
+				"Iron Jaw",
+				"Iron Lungs",
+				"Strong",
+				"Tough"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 50
+				},
+				{
+					"Item Name": "Feathered Hat",
+					"Chance to Start": 50
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Linen Tunic",
+					"Chance to Start": 75
+				},
+				{
+					"Item Name": "Noble Tunic",
+					"Chance to Start": 25
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Knife",
+					"Chance to Start": 37
+				},
+				{
+					"Item Name": "Dagger",
+					"Chance to Start": 38
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Base Wage": 6,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Pimp",
+			"Hitpoints": [
+				0,
+				0
+			],
+			"Fatigue": [
+				0,
+				0
+			],
+			"Resolve": [
+				5,
+				5
+			],
+			"Initiative": [
+				0,
+				7
+			],
+			"Melee Skill": [
+				-5,
+				-5
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				2,
+				7
+			],
+			"Ranged Defense": [
+				2,
+				7
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Feathered Hat",
+					"Chance to Start": 60
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Linen Tunic",
+					"Chance to Start": 35
+				},
+				{
+					"Item Name": "Noble Tunic",
+					"Chance to Start": 65
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 60
+				},
+				{
+					"Item Name": "Knife",
+					"Chance to Start": 40
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Base Wage": 7,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Poacher",
+			"Hitpoints": [
+				0,
+				0
+			],
+			"Fatigue": [
+				3,
+				0
+			],
+			"Resolve": [
+				-5,
+				5
+			],
+			"Initiative": [
+				0,
+				4
+			],
+			"Melee Skill": [
+				2,
+				0
+			],
+			"Ranged Skill": [
+				15,
+				7
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Brave",
+				"Bright",
+				"Clubfooted",
+				"Fat",
+				"Fearless",
+				"Hate for Undead",
+				"Loyal",
+				"Night Blind",
+				"Short Sighted"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 50
+				},
+				{
+					"Item Name": "Hood",
+					"Chance to Start": 50
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Sackcloth",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Leather Wraps",
+					"Chance to Start": 30
+				},
+				{
+					"Item Name": "Leather Tunic",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Rugged Surcoat",
+					"Chance to Start": 25
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "Wonky Bow",
+					"Chance to Start": 15
+				},
+				{
+					"Item Name": "Staff Sling",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Short Bow",
+					"Chance to Start": 45
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Knife",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Militia Spear",
+					"Chance to Start": 20
+				}
+			],
+			"Base Wage": 8,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Raider",
+			"Hitpoints": [
+				0,
+				0
+			],
+			"Fatigue": [
+				2,
+				0
+			],
+			"Resolve": [
+				0,
+				-3
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				12,
+				10
+			],
+			"Ranged Skill": [
+				5,
+				0
+			],
+			"Melee Defense": [
+				6,
+				5
+			],
+			"Ranged Defense": [
+				6,
+				5
+			],
+			"Starting Level": [
+				1,
+				4
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Ailing",
+				"Asthmatic",
+				"Bleeder",
+				"Clubfooted",
+				"Clumsy",
+				"Craven",
+				"Dastard",
+				"Fainthearted",
+				"Fragile",
+				"Hate for Undead",
+				"Hesitant",
+				"Insecure",
+				"Loyal",
+				"Night Blind",
+				"Tiny",
+				"Weasel"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 10
+				},
+				{
+					"Item Name": "Nasal Helmet with Rusty Mail",
+					"Chance to Start": 55
+				},
+				{
+					"Item Name": "Padded Dented Nasal Helmet",
+					"Chance to Start": 35
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Padded Leather",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Patched Mail Shirt",
+					"Chance to Start": 38
+				},
+				{
+					"Item Name": "Leather Lamellar Armor",
+					"Chance to Start": 37
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "Morning Star",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Handaxe",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Falchion",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Flail",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Longsword",
+					"Chance to Start": 10
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Wooden Shield",
+					"Chance to Start": 60
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Base Wage": 28,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Ratcatcher",
+			"Hitpoints": [
+				-5,
+				-5
+			],
+			"Fatigue": [
+				0,
+				0
+			],
+			"Resolve": [
+				0,
+				0
+			],
+			"Initiative": [
+				18,
+				15
+			],
+			"Melee Skill": [
+				0,
+				0
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Brave",
+				"Bright",
+				"Brute",
+				"Clubfooted",
+				"Clumsy",
+				"Cocky",
+				"Deathwish",
+				"Determined",
+				"Fat",
+				"Fearless",
+				"Greedy",
+				"Hate for Beasts",
+				"Hate for Undead",
+				"Hesitant",
+				"Huge",
+				"Short Sighted",
+				"Strong",
+				"Sure Footing",
+				"Tough"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Tattered Sackcloth",
+					"Chance to Start": 35
+				},
+				{
+					"Item Name": "Sackcloth",
+					"Chance to Start": 65
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 45
+				},
+				{
+					"Item Name": "Net",
+					"Chance to Start": 55
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Base Wage": 4,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Refugee",
+			"Hitpoints": [
+				-8,
+				-5
+			],
+			"Fatigue": [
+				7,
+				5
+			],
+			"Resolve": [
+				-5,
+				-5
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				0,
+				0
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				1,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Athletic",
+				"Bloodthirsty",
+				"Brave",
+				"Bright",
+				"Cocky",
+				"Deathwish",
+				"Determined",
+				"Fat",
+				"Fearless",
+				"Greedy",
+				"Impatient",
+				"Iron Jaw",
+				"Loyal",
+				"Strong",
+				"Tough"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Tattered Sackcloth",
+					"Chance to Start": 50
+				},
+				{
+					"Item Name": "Sackcloth",
+					"Chance to Start": 50
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 35
+				},
+				{
+					"Item Name": "Knife",
+					"Chance to Start": 65
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Base Wage": 4,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Retired Soldier",
+			"Hitpoints": [
+				-10,
+				-15
+			],
+			"Fatigue": [
+				0,
+				0
+			],
+			"Resolve": [
+				13,
+				10
+			],
+			"Initiative": [
+				-5,
+				-10
+			],
+			"Melee Skill": [
+				13,
+				10
+			],
+			"Ranged Skill": [
+				5,
+				0
+			],
+			"Melee Defense": [
+				5,
+				8
+			],
+			"Ranged Defense": [
+				5,
+				8
+			],
+			"Starting Level": [
+				1,
+				2
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Bleeder",
+				"Bloodthirsty",
+				"Clubfooted",
+				"Clumsy",
+				"Craven",
+				"Dastard",
+				"Disloyal",
+				"Fainthearted",
+				"Fragile",
+				"Gluttonous",
+				"Hesitant",
+				"Insecure",
+				"Iron Lungs",
+				"Irrational",
+				"Strong",
+				"Swift",
+				"Tiny",
+				"Tough",
+				"Weasel"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Rusty Mail Coif",
+					"Chance to Start": 27
+				},
+				{
+					"Item Name": "Mail Coif",
+					"Chance to Start": 27
+				},
+				{
+					"Item Name": "Nasal Helmet",
+					"Chance to Start": 26
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Patched Mail Shirt",
+					"Chance to Start": 33
+				},
+				{
+					"Item Name": "Padded Leather",
+					"Chance to Start": 34
+				},
+				{
+					"Item Name": "Basic Mail Shirt",
+					"Chance to Start": 33
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "Shortsword",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Falchion",
+					"Chance to Start": 27
+				},
+				{
+					"Item Name": "Boar Spear",
+					"Chance to Start": 27
+				},
+				{
+					"Item Name": "Handaxe",
+					"Chance to Start": 26
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Wooden Shield",
+					"Chance to Start": 75
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Base Wage": 15,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Sellsword",
+			"Hitpoints": [
+				0,
+				0
+			],
+			"Fatigue": [
+				0,
+				0
+			],
+			"Resolve": [
+				5,
+				5
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				13,
+				10
+			],
+			"Ranged Skill": [
+				12,
+				10
+			],
+			"Melee Defense": [
+				5,
+				8
+			],
+			"Ranged Defense": [
+				5,
+				8
+			],
+			"Starting Level": [
+				1,
+				3
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Ailing",
+				"Asthmatic",
+				"Bleeder",
+				"Clubfooted",
+				"Clumsy",
+				"Craven",
+				"Dastard",
+				"Fainthearted",
+				"Fragile",
+				"Hesitant",
+				"Insecure",
+				"Irrational",
+				"Loyal",
+				"Night Blind",
+				"Tiny",
+				"Weasel"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "Full Aketon Cap",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Mail Coif",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Padded Nasal Helmet",
+					"Chance to Start": 35
+				},
+				{
+					"Item Name": "Padded Kettle Hat",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Nasal Helmet with Mail",
+					"Chance to Start": 5
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Patched Mail Shirt",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Worn Mail Shirt",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Basic Mail Shirt",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Mail Shirt",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Leather Scale Armor",
+					"Chance to Start": 10
+				},
+				{
+					"Item Name": "Mail Hauberk",
+					"Chance to Start": 5
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "Scimitar",
+					"Chance to Start": 10
+				},
+				{
+					"Item Name": "Falchion",
+					"Chance to Start": 10
+				},
+				{
+					"Item Name": "Bludgeon",
+					"Chance to Start": 10
+				},
+				{
+					"Item Name": "Boar Spear",
+					"Chance to Start": 10
+				},
+				{
+					"Item Name": "Scramasax",
+					"Chance to Start": 10
+				},
+				{
+					"Item Name": "Flail",
+					"Chance to Start": 10
+				},
+				{
+					"Item Name": "Morning Star",
+					"Chance to Start": 10
+				},
+				{
+					"Item Name": "Military Pick",
+					"Chance to Start": 5
+				},
+				{
+					"Item Name": "Handaxe",
+					"Chance to Start": 5
+				},
+				{
+					"Item Name": "Arming Sword",
+					"Chance to Start": 5
+				},
+				{
+					"Item Name": "Longsword",
+					"Chance to Start": 5
+				},
+				{
+					"Item Name": "Longaxe",
+					"Chance to Start": 5
+				},
+				{
+					"Item Name": "Billhook",
+					"Chance to Start": 5
+				},
+				{
+					"Item Name": "Hunting Bow",
+					"Chance to Start": 50
+				},
+				{
+					"Item Name": "Crossbow",
+					"Chance to Start": 50
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 15
+				},
+				{
+					"Item Name": "Wooden Shield",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Kite Shield",
+					"Chance to Start": 30
+				},
+				{
+					"Item Name": "Heater Shield",
+					"Chance to Start": 30
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Base Wage": 35,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Servant",
+			"Hitpoints": [
+				-5,
+				-5
+			],
+			"Fatigue": [
+				-5,
+				-5
+			],
+			"Resolve": [
+				-5,
+				-5
+			],
+			"Initiative": [
+				5,
+				0
+			],
+			"Melee Skill": [
+				0,
+				0
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				2,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Athletic",
+				"Bloodthirsty",
+				"Brave",
+				"Bright",
+				"Brute",
+				"Cocky",
+				"Determined",
+				"Disloyal",
+				"Fat",
+				"Fearless",
+				"Greedy",
+				"Hate for Beasts",
+				"Hate for Greenskins",
+				"Hate for Undead",
+				"Huge",
+				"Impatient",
+				"Iron Jaw",
+				"Optimistic",
+				"Strong",
+				"Sure Footing"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Sackcloth",
+					"Chance to Start": 30
+				},
+				{
+					"Item Name": "Linen Tunic",
+					"Chance to Start": 70
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Base Wage": 4,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Shepherd",
+			"Hitpoints": [
+				0,
+				0
+			],
+			"Fatigue": [
+				0,
+				5
+			],
+			"Resolve": [
+				5,
+				0
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				0,
+				0
+			],
+			"Ranged Skill": [
+				5,
+				5
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Athletic",
+				"Bloodthirsty",
+				"Brave",
+				"Brute",
+				"Cocky",
+				"Deathwish",
+				"Disloyal",
+				"Drunkard",
+				"Fearless",
+				"Greedy",
+				"Hate for Undead",
+				"Impatient",
+				"Iron Jaw",
+				"Iron Lungs",
+				"Strong",
+				"Sure Footing",
+				"Tough"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 35
+				},
+				{
+					"Item Name": "Straw Hat",
+					"Chance to Start": 65
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Linen Tunic",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Base Wage": 6,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Squire",
+			"Hitpoints": [
+				0,
+				0
+			],
+			"Fatigue": [
+				7,
+				5
+			],
+			"Resolve": [
+				12,
+				12
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				7,
+				5
+			],
+			"Ranged Skill": [
+				7,
+				8
+			],
+			"Melee Defense": [
+				1,
+				3
+			],
+			"Ranged Defense": [
+				1,
+				3
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Asthmatic",
+				"Bleeder",
+				"Clubfooted",
+				"Clumsy",
+				"Craven",
+				"Dastard",
+				"Disloyal",
+				"Fainthearted",
+				"Fat",
+				"Fear of Beasts",
+				"Fear of Greenskins",
+				"Fear of Undead",
+				"Fragile",
+				"Greedy",
+				"Insecure",
+				"Irrational",
+				"Pessimist",
+				"Weasel"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 20
+				},
+				{
+					"Item Name": "Open Leather Cap",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Aketon Cap",
+					"Chance to Start": 40
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Gambeson",
+					"Chance to Start": 34
+				},
+				{
+					"Item Name": "Leather Tunic",
+					"Chance to Start": 33
+				},
+				{
+					"Item Name": "Padded Surcoat",
+					"Chance to Start": 33
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "Hatchet",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Boar Spear",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Winged Mace",
+					"Chance to Start": 20
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Base Wage": 20,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Swordmaster",
+			"Hitpoints": [
+				-12,
+				-12
+			],
+			"Fatigue": [
+				-15,
+				-10
+			],
+			"Resolve": [
+				12,
+				10
+			],
+			"Initiative": [
+				-10,
+				-10
+			],
+			"Melee Skill": [
+				25,
+				20
+			],
+			"Ranged Skill": [
+				-5,
+				-5
+			],
+			"Melee Defense": [
+				10,
+				15
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				2,
+				5
+			],
+			"Excluded Talents": [
+				"rangedSkill"
+			],
+			"Excluded Traits": [
+				"Athletic",
+				"Bleeder",
+				"Bloodthirsty",
+				"Bright",
+				"Clubfooted",
+				"Clumsy",
+				"Craven",
+				"Dastard",
+				"Dumb",
+				"Fainthearted",
+				"Fear of Beasts",
+				"Fear of Greenskins",
+				"Fear of Undead",
+				"Fragile",
+				"Gluttonous",
+				"Hesitant",
+				"Huge",
+				"Impatient",
+				"Insecure",
+				"Iron Lungs",
+				"Irrational",
+				"Paranoid",
+				"Strong",
+				"Tiny",
+				"Tough",
+				"Weasel"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 45
+				},
+				{
+					"Item Name": "Feathered Hat",
+					"Chance to Start": 55
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Linen Tunic",
+					"Chance to Start": 55
+				},
+				{
+					"Item Name": "Leather Tunic",
+					"Chance to Start": 45
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "Arming Sword",
+					"Chance to Start": 30
+				},
+				{
+					"Item Name": "Noble Sword",
+					"Chance to Start": 35
+				},
+				{
+					"Item Name": "Fencing Sword",
+					"Chance to Start": 35
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Base Wage": 35,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Tailor",
+			"Hitpoints": [
+				-3,
+				0
+			],
+			"Fatigue": [
+				-5,
+				-5
+			],
+			"Resolve": [
+				0,
+				0
+			],
+			"Initiative": [
+				0,
+				5
+			],
+			"Melee Skill": [
+				0,
+				0
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Athletic",
+				"Bloodthirsty",
+				"Brave",
+				"Brute",
+				"Clumsy",
+				"Cocky",
+				"Deathwish",
+				"Dumb",
+				"Fearless",
+				"Hate for Undead",
+				"Huge",
+				"Iron Lungs",
+				"Spartan",
+				"Strong",
+				"Tough"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 50
+				},
+				{
+					"Item Name": "Feathered Hat",
+					"Chance to Start": 50
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Linen Tunic",
+					"Chance to Start": 80
+				},
+				{
+					"Item Name": "Noble Tunic",
+					"Chance to Start": 20
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Base Wage": 5,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Thief",
+			"Hitpoints": [
+				0,
+				0
+			],
+			"Fatigue": [
+				0,
+				0
+			],
+			"Resolve": [
+				5,
+				0
+			],
+			"Initiative": [
+				12,
+				10
+			],
+			"Melee Skill": [
+				5,
+				8
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				5,
+				8
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Bloodthirsty",
+				"Brute",
+				"Brute",
+				"Clubfooted",
+				"Clumsy",
+				"Dumb",
+				"Fat",
+				"Hate for Beasts",
+				"Hate for Greenskins",
+				"Hate for Undead",
+				"Hesitant",
+				"Huge",
+				"Insecure",
+				"Loyal",
+				"Night Blind",
+				"Paranoid",
+				"Short Sighted",
+				"Strong",
+				"Strong",
+				"Team Player"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 30
+				},
+				{
+					"Item Name": "Hood",
+					"Chance to Start": 70
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Sackcloth",
+					"Chance to Start": 38
+				},
+				{
+					"Item Name": "Linen Tunic",
+					"Chance to Start": 37
+				},
+				{
+					"Item Name": "Leather Tunic",
+					"Chance to Start": 25
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "Knife",
+					"Chance to Start": 65
+				},
+				{
+					"Item Name": "Dagger",
+					"Chance to Start": 35
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Base Wage": 10,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Vagabond",
+			"Hitpoints": [
+				-3,
+				0
+			],
+			"Fatigue": [
+				10,
+				15
+			],
+			"Resolve": [
+				-5,
+				-7
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				0,
+				0
+			],
+			"Ranged Skill": [
+				0,
+				0
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				0
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Asthmatic",
+				"Clubfooted",
+				"Fat",
+				"Gluttonous",
+				"Hate for Beasts",
+				"Hate for Undead",
+				"Loyal"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 34
+				},
+				{
+					"Item Name": "Hood",
+					"Chance to Start": 33
+				},
+				{
+					"Item Name": "Straw Hat",
+					"Chance to Start": 33
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Tattered Sackcloth",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Leather Wraps",
+					"Chance to Start": 40
+				},
+				{
+					"Item Name": "Leather Tunic",
+					"Chance to Start": 20
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 34
+				},
+				{
+					"Item Name": "Knife",
+					"Chance to Start": 33
+				},
+				{
+					"Item Name": "Wooden Stick",
+					"Chance to Start": 33
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Base Wage": 6,
+			"Background Ability": ""
+		},
+		{
+			"Name": "Wildman",
+			"Hitpoints": [
+				12,
+				10
+			],
+			"Fatigue": [
+				18,
+				23
+			],
+			"Resolve": [
+				12,
+				10
+			],
+			"Initiative": [
+				-5,
+				-5
+			],
+			"Melee Skill": [
+				6,
+				0
+			],
+			"Ranged Skill": [
+				-5,
+				0
+			],
+			"Melee Defense": [
+				-5,
+				0
+			],
+			"Ranged Defense": [
+				-5,
+				-5
+			],
+			"Starting Level": [
+				0,
+				1
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Ailing",
+				"Asthmatic",
+				"Bleeder",
+				"Bright",
+				"Clubfooted",
+				"Cocky",
+				"Craven",
+				"Dastard",
+				"Dexterous",
+				"Drunkard",
+				"Fainthearted",
+				"Fat",
+				"Fear of Beasts",
+				"Fragile",
+				"Gluttonous",
+				"Greedy",
+				"Hate for Undead",
+				"Hesitant",
+				"Insecure",
+				"Night Blind",
+				"Optimist",
+				"Paranoid",
+				"Pessimist",
+				"Short Sighted",
+				"Team Player",
+				"Tiny",
+				"Weasel"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 50
+				},
+				{
+					"Item Name": "Leather Wraps",
+					"Chance to Start": 50
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "Hatchet",
+					"Chance to Start": 30
+				},
+				{
+					"Item Name": "Boar Spear",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Cudgel",
+					"Chance to Start": 25
+				},
+				{
+					"Item Name": "Woodcutter's Axe",
+					"Chance to Start": 20
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Base Wage": 12,
+			"Background Ability": [
+				{
+					"Effect Name": "xpRate_Percent",
+					"Value": -15
+				}
+			]
+		},
+		{
+			"Name": "Witchhunter",
+			"Hitpoints": [
+				0,
+				0
+			],
+			"Fatigue": [
+				0,
+				0
+			],
+			"Resolve": [
+				12,
+				10
+			],
+			"Initiative": [
+				0,
+				0
+			],
+			"Melee Skill": [
+				0,
+				0
+			],
+			"Ranged Skill": [
+				5,
+				8
+			],
+			"Melee Defense": [
+				0,
+				0
+			],
+			"Ranged Defense": [
+				0,
+				0
+			],
+			"Starting Level": [
+				0,
+				2
+			],
+			"Excluded Talents": [],
+			"Excluded Traits": [
+				"Clubfooted",
+				"Craven",
+				"Drunkard",
+				"Dumb",
+				"Fainthearted",
+				"Fear of Beasts",
+				"Fear of Beasts",
+				"Fear of Greenskins",
+				"Fear of Undead",
+				"Fear of Undead",
+				"Hate for Beasts",
+				"Hesitant",
+				"Insecure",
+				"Short Sighted",
+				"Superstitious",
+				"Team Player",
+				"Weasel"
+			],
+			"Starting Headgear": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 5
+				},
+				{
+					"Item Name": "Witchhunter's Hat",
+					"Chance to Start": 95
+				}
+			],
+			"Starting Body": [
+				{
+					"Item Name": "Padded Surcoat",
+					"Chance to Start": 50
+				},
+				{
+					"Item Name": "Rugged Surcoat",
+					"Chance to Start": 50
+				}
+			],
+			"Starting Right": [
+				{
+					"Item Name": "Light Crossbow",
+					"Chance to Start": 70
+				},
+				{
+					"Item Name": "Crossbow",
+					"Chance to Start": 30
+				}
+			],
+			"Starting Left": [
+				{
+					"Item Name": "null",
+					"Chance to Start": 100
+				}
+			],
+			"Starting Bag": [
+				{
+					"Item Name": "Knife",
+					"Chance to Start": 65
+				},
+				{
+					"Item Name": "Dagger",
+					"Chance to Start": 35
+				}
+			],
+			"Base Wage": 13,
+			"Background Ability": [
+				{
+					"Effect Name": "Morale_Special",
+					"Value": 20
+				}
+			]
+		}
+	]
+}

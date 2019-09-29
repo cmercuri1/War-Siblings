@@ -1,0 +1,710 @@
+{
+	"Traits": [
+		{
+			"Name": "Ailing",
+			"Effects": [
+				{
+					"Effect Name": "Poison_Time",
+					"Value": 1
+				}
+			]
+		},
+		{
+			"Name": "Asthmatic",
+			"Mutually Exclusive": [
+				"Iron Lungs"
+			],
+			"Effects": [
+				{
+					"Effect Name": "fatigueRecovery",
+					"Value": -3
+				}
+			]
+		},
+		{
+			"Name": "Athletic",
+			"Mutually Exclusive": [
+				"Club Footed"
+			],
+			"Effects": [
+				{
+					"Effect Name": "Fatigue_OnMovement",
+					"Value": -2
+				}
+			]
+		},
+		{
+			"Name": "Bleeder",
+			"Effects": [
+				{
+					"Effect Name": "Bleed_Time",
+					"Value": 1
+				}
+			]
+		},
+		{
+			"Name": "Bloodthirsty",
+			"Effects": [
+				{
+					"Effect Name": "Fatality_Chance_Percent",
+					"Value": 100
+				}
+			]
+		},
+		{
+			"Name": "Brave",
+			"Mutually Exclusive": [
+				"Craven",
+				"Fainthearted",
+				"Fearless"
+			],
+			"Effects": [
+				{
+					"Effect Name": "resolve",
+					"Value": 5
+				}
+			]
+		},
+		{
+			"Name": "Bright",
+			"Mutually Exclusive": [
+				"Dumb"
+			],
+			"Effects": [
+				{
+					"Effect Name": "xpRate_Percent",
+					"Value": 10
+				}
+			]
+		},
+		{
+			"Name": "Brute",
+			"Effects": [
+				{
+					"Effect Name": "damageHeadshot_Percent",
+					"Value": 15
+				},
+				{
+					"Effect Name": "meleeSkill",
+					"Value": -5
+				}
+			]
+		},
+		{
+			"Name": "Clubfooted",
+			"Mutually Exclusive": [
+				"Athletic"
+			],
+			"Effects": [
+				{
+					"Effect Name": "Fatigue_OnMovement",
+					"Value": 2
+				}
+			]
+		},
+		{
+			"Name": "Clumsy",
+			"Mutually Exclusive": [
+				"Dexterous"
+			],
+			"Effects": [
+				{
+					"Effect Name": "meleeSkill",
+					"Value": -5
+				}
+			]
+		},
+		{
+			"Name": "Cocky",
+			"Effects": [
+				{
+					"Effect Name": "resolve",
+					"Value": 5
+				},
+				{
+					"Effect Name": "meleeDefense",
+					"Value": -5
+				},
+				{
+					"Effect Name": "rangedDefense",
+					"Value": -5
+				}
+			]
+		},
+		{
+			"Name": "Craven",
+			"Mutually Exclusive": [
+				"Brave",
+				"Fainthearted",
+				"Fearless"
+			],
+			"Effects": [
+				{
+					"Effect Name": "resolve",
+					"Value": -10
+				}
+			]
+		},
+		{
+			"Name": "Dastard",
+			"Mutually Exclusive": [
+				"Determined"
+			],
+			"Effects": [
+				{
+					"Effect Name": "Morale_Starting",
+					"Value": 2
+				}
+			]
+		},
+		{
+			"Name": "Deathwish",
+			"Effects": [
+				{
+					"Effect Name": "Morale_Deathwish"
+				}
+			]
+		},
+		{
+			"Name": "Determined",
+			"Mutually Exclusive": [
+				"Dastard",
+				"Insecure"
+			],
+			"Effects": [
+				{
+					"Effect Name": "Morale_Determined",
+					"Value": 5
+				}
+			]
+		},
+		{
+			"Name": "Dextrous",
+			"Mutually Exclusive": [
+				"Clumsy"
+			],
+			"Effects": [
+				{
+					"Effect Name": "meleeSkill",
+					"Value": 5
+				}
+			]
+		},
+		{
+			"Name": "Disloyal",
+			"Mutually Exclusive": [
+				"Loyal"
+			],
+			"Effects": [
+				{
+					"Effect Name": "Disloyalty"
+				}
+			]
+		},
+		{
+			"Name": "Drunkard",
+			"Effects": [
+				{
+					"Effect Name": "Damage_Melee",
+					"Value": 10
+				},
+				{
+					"Effect Name": "resolve",
+					"Value": 5
+				},
+				{
+					"Effect Name": "meleeSkill",
+					"Value": -5
+				},
+				{
+					"Effect Name": "rangedSkill",
+					"Value": -10
+				}
+			]
+		},
+		{
+			"Name": "Dumb",
+			"Mutually Exclusive": [
+				"Bright"
+			],
+			"Effects": [
+				{
+					"Effect Name": "xpRate_Percent",
+					"Value": -15
+				}
+			]
+		},
+		{
+			"Name": "Eagle Eyes",
+			"Mutually Exclusive": [
+				"Short Sighted"
+			],
+			"Effects": [
+				{
+					"Effect Name": "vision",
+					"Value": 1
+				}
+			]
+		},
+		{
+			"Name": "Fainthearted",
+			"Mutually Exclusive": [
+				"Brave",
+				"Craven",
+				"Fearless"
+			],
+			"Effects": [
+				{
+					"Effect Name": "resolve",
+					"Value": -5
+				}
+			]
+		},
+		{
+			"Name": "Fat",
+			"Mutually Exclusive": [
+				"Athletic"
+			],
+			"Effects": [
+				{
+					"Effect Name": "hitpoints",
+					"Value": 10
+				},
+				{
+					"Effect Name": "fatigue",
+					"Value": -10
+				}
+			]
+		},
+		{
+			"Name": "Fear of Beasts",
+			"Mutually Exclusive": [
+				"Hate for Beasts"
+			],
+			"Effects": [
+				{
+					"Effect Name": "Resolve_Beasts",
+					"Value": -10
+				}
+			]
+		},
+		{
+			"Name": "Fear of Greenskins",
+			"Mutually Exclusive": [
+				"Hate for Greenskins"
+			],
+			"Effects": [
+				{
+					"Effect Name": "Resolve_Greenskins",
+					"Value": -10
+				}
+			]
+		},
+		{
+			"Name": "Fear of Undead",
+			"Mutually Exclusive": [
+				"Hate for Undead"
+			],
+			"Effects": [
+				{
+					"Effect Name": "Resolve_Undead",
+					"Value": -10
+				}
+			]
+		},
+		{
+			"Name": "Fearless",
+			"Mutually Exclusive": [
+				"Brave",
+				"Craven",
+				"Fainthearted"
+			],
+			"Effects": [
+				{
+					"Effect Name": "resolve",
+					"Value": 10
+				}
+			]
+		},
+		{
+			"Name": "Fragile",
+			"Mutually Exclusive": [
+				"Tough"
+			],
+			"Effects": [
+				{
+					"Effect Name": "hitpoints",
+					"Value": -10
+				}
+			]
+		},
+		{
+			"Name": "Gluttonous",
+			"Mutually Exclusive": [
+				"Spartan"
+			],
+			"Effects": [
+				{
+					"Effect Name": "foodConsumption",
+					"Value": 1
+				}
+			]
+		},
+		{
+			"Name": "Greedy",
+			"Effects": [
+				{
+					"Effect Name": "wage_Percent",
+					"Value": 15
+				}
+			]
+		},
+		{
+			"Name": "Hate for Beasts",
+			"Mutually Exclusive": [
+				"Fear of Beasts"
+			],
+			"Effects": [
+				{
+					"Effect Name": "Resolve_Beasts",
+					"Value": 10
+				}
+			]
+		},
+		{
+			"Name": "Hate for Greenskins",
+			"Mutually Exclusive": [
+				"Fear of Greenskins"
+			],
+			"Effects": [
+				{
+					"Effect Name": "Resolve_Greenskins",
+					"Value": 10
+				}
+			]
+		},
+		{
+			"Name": "Hate for Undead",
+			"Mutually Exclusive": [
+				"Fear of Undead"
+			],
+			"Effects": [
+				{
+					"Effect Name": "Resolve_Undead",
+					"Value": 10
+				}
+			]
+		},
+		{
+			"Name": "Hesistant",
+			"Mutually Exclusive": [
+				"Quick",
+				"Impatient"
+			],
+			"Effects": [
+				{
+					"Effect Name": "initiative",
+					"Value": -10
+				}
+			]
+		},
+		{
+			"Name": "Huge",
+			"Mutually Exclusive": [
+				"Tiny"
+			],
+			"Effects": [
+				{
+					"Effect Name": "Damage_Melee",
+					"Value": 10
+				},
+				{
+					"Effect Name": "meleeDefense",
+					"Value": -5
+				},
+				{
+					"Effect Name": "rangedDefense",
+					"Value": -5
+				}
+			]
+		},
+		{
+			"Name": "Impatient",
+			"Mutually Exclusive": [
+				"Hesistant"
+			],
+			"Effects": [
+				{
+					"Effect Name": "Initiative_Impatient",
+					"Value": 1000
+				}
+			]
+		},
+		{
+			"Name": "Insecure",
+			"Mutually Exclusive": [
+				"Determined"
+			],
+			"Effects": [
+				{
+					"Effect Name": "Morale_Insecure"
+				}
+			]
+		},
+		{
+			"Name": "Iron Lungs",
+			"Mutually Exclusive": [
+				"Asthmatic"
+			],
+			"Effects": [
+				{
+					"Effect Name": "fatigueRecovery",
+					"Value": 4
+				}
+			]
+		},
+		{
+			"Name": "Iron Jaw",
+			"Effects": [
+				{
+					"Effect Name": "injuryThreshold",
+					"Value": -25
+				}
+			]
+		},
+		{
+			"Name": "Irrational",
+			"Mutually Exclusive": [
+				"Optimist",
+				"Pessimist"
+			],
+			"Effects": [
+				{
+					"Effect Name": "Morale_Irrational",
+					"Value": 10
+				}
+			]
+		},
+		{
+			"Name": "Loyal",
+			"Mutually Exclusive": [
+				"Disloyal"
+			],
+			"Effects": [
+				{
+					"Effect Name": "Loyal"
+				}
+			]
+		},
+		{
+			"Name": "Lucky",
+			"Effects": [
+				{
+					"Effect Name": "RerollChance",
+					"Value": 10
+				}
+			]
+		},
+		{
+			"Name": "Night Blind",
+			"Mutually Exclusive": [
+				"Night Owl"
+			],
+			"Effects": [
+				{
+					"Effect Name": "Vision_Night",
+					"Value": -1
+				}
+			]
+		},
+		{
+			"Name": "Night Owl",
+			"Mutually Exclusive": [
+				"Night Blind"
+			],
+			"Effects": [
+				{
+					"Effect Name": "Vision_Night",
+					"Value": 1
+				}
+			]
+		},
+		{
+			"Name": "Optimist",
+			"Mutually Exclusive": [
+				"Pessimist",
+				"Irrational"
+			],
+			"Effects": [
+				{
+					"Effect Name": "Morale_Optimist",
+					"Value": 5
+				}
+			]
+		},
+		{
+			"Name": "Paranoid",
+			"Effects": [
+				{
+					"Effect Name": "meleeDefense",
+					"Value": 5
+				},
+				{
+					"Effect Name": "rangedDefense",
+					"Value": 5
+				},
+				{
+					"Effect Name": "initiative",
+					"Value": -30
+				}
+			]
+		},
+		{
+			"Name": "Pessimist",
+			"Mutually Exclusive": [
+				"Optimist",
+				"Irrational"
+			],
+			"Effects": [
+				{
+					"Effect Name": "Morale_Pessimist",
+					"Value": -5
+				}
+			]
+		},
+		{
+			"Name": "Quick",
+			"Mutually Exclusive": [
+				"Hesistant"
+			],
+			"Effects": [
+				{
+					"Effect Name": "initiative",
+					"Value": 10
+				}
+			]
+		},
+		{
+			"Name": "Short Sighted",
+			"Mutually Exclusive": [
+				"Eagle Eyes"
+			],
+			"Effects": [
+				{
+					"Effect Name": "vision",
+					"Value": -1
+				}
+			]
+		},
+		{
+			"Name": "Spartan",
+			"Mutually Exclusive": [
+				"Gluttonous"
+			],
+			"Effects": [
+				{
+					"Effect Name": "foodConsumption",
+					"Value": -1
+				}
+			]
+		},
+		{
+			"Name": "Strong",
+			"Effects": [
+				{
+					"Effect Name": "fatigue",
+					"Value": 10
+				}
+			]
+		},
+		{
+			"Name": "Superstitious",
+			"Effects": [
+				{
+					"Effect Name": "Morale_Special",
+					"Value": -10
+				}
+			]
+		},
+		{
+			"Name": "Sure Footing",
+			"Mutually Exclusive": [
+				""
+			],
+			"Effects": [
+				{
+					"Effect Name": "meleeDefense",
+					"Value": 5
+				}
+			]
+		},
+		{
+			"Name": "Survivor",
+			"Effects": [
+				{
+					"Effect Name": "survivalChance",
+					"Value": 57
+				}
+			]
+		},
+		{
+			"Name": "Swift",
+			"Effects": [
+				{
+					"Effect Name": "rangedDefense",
+					"Value": 5
+				}
+			]
+		},
+		{
+			"Name": "Team Player",
+			"Effects": [
+				{
+					"Effect Name": "FriendlyFireChance_Percent",
+					"Value": -50
+				}
+			]
+		},
+		{
+			"Name": "Tiny",
+			"Mutually Exclusive": [
+				"Huge"
+			],
+			"Effects": [
+				{
+					"Effect Name": "meleeDefense",
+					"Value": 5
+				},
+				{
+					"Effect Name": "rangedDefense",
+					"Value": 5
+				},
+				{
+					"Effect Name": "Damage_Melee",
+					"Value": -15
+				}
+			]
+		},
+		{
+			"Name": "Tough",
+			"Mutually Exclusive": [
+				"Fragile"
+			],
+			"Effects": [
+				{
+					"Effect Name": "hitpoints",
+					"Value": 10
+				}
+			]
+		},
+		{
+			"Name": "Weasel",
+			"Effects": [
+				{
+					"Effect Name": "MeleeDefense_Retreat",
+					"Value": 25
+				}
+			]
+		}
+	]
+}

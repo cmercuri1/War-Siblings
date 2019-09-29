@@ -8,6 +8,7 @@ import effect_classes.Effect;
 import effect_classes.Effect_AllyDeathIgnore;
 import effect_classes.Effect_Bleed;
 import effect_classes.Effect_Damage_SpecificItem;
+import effect_classes.Effect_Damage_SpecificItem_Melee;
 import effect_classes.Effect_Deathwish;
 import effect_classes.Effect_Determined;
 import effect_classes.Effect_DoT;
@@ -40,7 +41,7 @@ public class EffectFactory {
 
 		if (temp.getEffectType().equalsIgnoreCase("Effect_Damage_SpecificItem")) {
 			if (effectName.contains("_Melee"))
-				return new Effect_Damage_SpecificItem(Task.MELEE, effectValue);
+				return new Effect_Damage_SpecificItem_Melee(effectValue);
 			if (effectName.contains("_Unarmed"))
 				return new Effect_Damage_SpecificItem(Task.UNARMED, effectValue);
 		}

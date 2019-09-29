@@ -1,0 +1,70 @@
+{
+	"Effect Names": [
+		{
+			"Effect Name": "actionPoints"
+		},
+		{
+			"Effect Name": "armorDamage"
+		},
+		{
+			"Effect Name": "damage"
+		},
+		{
+			"Effect Name": "damageHeadshot"
+		},
+		{
+			"Effect Name": "fatigue"
+		},
+		{
+			"Effect Name": "fatigueRecovery"
+		},
+		{
+			"Effect Name": "foodConsumption"
+		},
+		{
+			"Effect Name": "headshotChance"
+		},
+		{
+			"Effect Name": "hitpoints"
+		},
+		{
+			"Effect Name": "ignoreArmor"
+		},
+		{
+			"Effect Name": "inflictInjury"
+		},
+		{
+			"Effect Name": "initiative"
+		},
+		{
+			"Effect Name": "injuryThreshold"
+		},
+		{
+			"Effect Name": "meleeDefense"
+		},
+		{
+			"Effect Name": "meleeSkill"
+		},
+		{
+			"Effect Name": "rangedDefense"
+		},
+		{
+			"Effect Name": "rangedSkill"
+		},
+		{
+			"Effect Name": "resolve"
+		},
+		{
+			"Effect Name": "survivalChance"
+		},
+		{
+			"Effect Name": "vision"
+		},
+		{
+			"Effect Name": "wage"
+		},
+		{
+			"Effect Name": "xpRate"
+		}
+	]
+}

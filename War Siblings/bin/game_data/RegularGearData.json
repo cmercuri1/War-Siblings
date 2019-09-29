@@ -1,0 +1,3916 @@
+{
+	"Armor": {
+		"Headgear": [
+			{
+				"Name": "Mouthpiece",
+				"Value": 15,
+				"Durability": 10,
+				"Maximum Fatigue": 0,
+				"Vision": 0,
+				"Description": "A piece of cloth covering the lower face to protect from breathing in dust or prevent identification.",
+				"Armor Type": "Cloth"
+			},
+			{
+				"Name": "Cultist Hood",
+				"Value": 20,
+				"Durability": 30,
+				"Maximum Fatigue": 0,
+				"Vision": -1,
+				"Description": "A rough spun cloth bag with two holes in it.",
+				"Armor Type": "Cloth"
+			},
+			{
+				"Name": "Headscarf",
+				"Value": 30,
+				"Durability": 20,
+				"Maximum Fatigue": 0,
+				"Vision": 0,
+				"Description": "A thick piece of cloth wrapped around the head.",
+				"Armor Type": "Cloth"
+			},
+			{
+				"Name": "Leather Headband",
+				"Value": 30,
+				"Durability": 30,
+				"Maximum Fatigue": 0,
+				"Vision": 0,
+				"Description": "A dried and folded leather headband designed to protect the forehead.",
+				"Armor Type": "Cloth"
+			},
+			{
+				"Name": "Hood",
+				"Value": 40,
+				"Durability": 30,
+				"Maximum Fatigue": 0,
+				"Vision": 0,
+				"Description": "A simple hood to protect against weather and scratches.",
+				"Armor Type": "Cloth"
+			},
+			{
+				"Name": "Straw Hat",
+				"Value": 60,
+				"Durability": 30,
+				"Maximum Fatigue": 0,
+				"Vision": 0,
+				"Description": "A crude hat to protect against the sun.",
+				"Armor Type": "Cloth"
+			},
+			{
+				"Name": "Open Leather Cap",
+				"Value": 60,
+				"Durability": 40,
+				"Maximum Fatigue": -2,
+				"Vision": 0,
+				"Description": "A sturdy leather cap that is not covering the ears and neck.",
+				"Armor Type": "Cloth"
+			},
+			{
+				"Name": "Jester's Hat",
+				"Value": 70,
+				"Durability": 30,
+				"Maximum Fatigue": 0,
+				"Vision": 0,
+				"Description": "Sometimes worn by Jugglers",
+				"Armor Type": "Cloth"
+			},
+			{
+				"Name": "Hunter's Hat",
+				"Value": 70,
+				"Durability": 30,
+				"Maximum Fatigue": 0,
+				"Vision": 0,
+				"Description": "Sometimes found at Marketplace",
+				"Armor Type": "Cloth"
+			},
+			{
+				"Name": "Aketon Cap",
+				"Value": 70,
+				"Durability": 40,
+				"Maximum Fatigue": -1,
+				"Vision": 0,
+				"Description": "A padded cloth cap.",
+				"Armor Type": "Cloth"
+			},
+			{
+				"Name": "Feathered Hat",
+				"Value": 80,
+				"Durability": 30,
+				"Maximum Fatigue": 0,
+				"Vision": 0,
+				"Description": "A fancy feathered hat usually worn by minstrels or nobles.",
+				"Armor Type": "Cloth"
+			},
+			{
+				"Name": "Full Leather Cap",
+				"Value": 80,
+				"Durability": 45,
+				"Maximum Fatigue": -3,
+				"Vision": 0,
+				"Description": "A closed leather cap that protects the head and neck. Padded for extra protection.",
+				"Armor Type": "Cloth"
+			},
+			{
+				"Name": "Witchhunter's Hat",
+				"Value": 100,
+				"Durability": 40,
+				"Maximum Fatigue": 0,
+				"Vision": 0,
+				"Description": "A tough leather hat providing decent protection against scratches.",
+				"Armor Type": "Cloth"
+			},
+			{
+				"Name": "Dark Cowl",
+				"Value": 100,
+				"Durability": 40,
+				"Maximum Fatigue": 0,
+				"Vision": 0,
+				"Description": "A sturdy hat and cowl made out of leather and cloth.",
+				"Armor Type": "Cloth"
+			},
+			{
+				"Name": "Bear Headpiece",
+				"Value": 100,
+				"Durability": 50,
+				"Maximum Fatigue": -3,
+				"Vision": 0,
+				"Description": "The dried and prepped head of a large bear. Offers some protection, but is mostly donned for the looks.",
+				"Armor Type": "Cloth"
+			},
+			{
+				"Name": "Full Aketon Cap",
+				"Value": 100,
+				"Durability": 50,
+				"Maximum Fatigue": -2,
+				"Vision": 0,
+				"Description": "A large padded cloth cap also covering the neck.",
+				"Armor Type": "Cloth"
+			},
+			{
+				"Name": "Cultist Leather Hood",
+				"Value": 140,
+				"Durability": 60,
+				"Maximum Fatigue": -3,
+				"Vision": -1,
+				"Description": "A thick leather hood that covers the head and neck but limits vision.",
+				"Armor Type": "Cloth"
+			},
+			{
+				"Name": "Rusty Mail Coif",
+				"Value": 150,
+				"Durability": 70,
+				"Maximum Fatigue": -4,
+				"Vision": 0,
+				"Description": "A rusty mail coif that still offers good protection - it leaves horrible stains though.",
+				"Armor Type": "Chain"
+			},
+			{
+				"Name": "Duelist's Hat",
+				"Value": 200,
+				"Durability": 70,
+				"Maximum Fatigue": -3,
+				"Vision": 0,
+				"Description": "A thick leather hat with ornaments and feathers.",
+				"Armor Type": "Cloth"
+			},
+			{
+				"Name": "Mail Coif",
+				"Value": 200,
+				"Durability": 80,
+				"Maximum Fatigue": -4,
+				"Vision": 0,
+				"Description": "A mail coif that also protects the neck.",
+				"Armor Type": "Chain"
+			},
+			{
+				"Name": "Closed Mail Coif",
+				"Value": 250,
+				"Durability": 90,
+				"Maximum Fatigue": -4,
+				"Vision": 0,
+				"Description": "A mail coif with added protection for the face.",
+				"Armor Type": "Chain"
+			},
+			{
+				"Name": "Ancient Household Helmet",
+				"Value": 250,
+				"Durability": 95,
+				"Maximum Fatigue": -8,
+				"Vision": -1,
+				"Description": "An ancient light helmet that time has taken a toll on over many years",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Reinforced Mail Coif",
+				"Value": 300,
+				"Durability": 100,
+				"Maximum Fatigue": -5,
+				"Vision": -1,
+				"Description": "A mail coif with additional metal noseguard.",
+				"Armor Type": "Chain"
+			},
+			{
+				"Name": "Leather Helmet",
+				"Value": 320,
+				"Durability": 105,
+				"Maximum Fatigue": -6,
+				"Vision": -1,
+				"Description": "A thick leather helmet fashioned from cured hides. The animals these once belonged to were certainly dangerous game.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Nasal Helmet",
+				"Value": 350,
+				"Durability": 105,
+				"Maximum Fatigue": -5,
+				"Vision": -1,
+				"Description": "A metal helmet with added noseguard.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Padded Dented Nasal Helmet",
+				"Value": 350,
+				"Durability": 110,
+				"Maximum Fatigue": -7,
+				"Vision": -1,
+				"Description": "A dented metal nasal helmet that has seen some fighting.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Beastmaster's Headpiece",
+				"Value": 350,
+				"Durability": 130,
+				"Maximum Fatigue": -8,
+				"Vision": -1,
+				"Description": "A headpiece with long horns, fashioned in tradition of barbarian beastmasters for generations.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Kettle Hat",
+				"Value": 450,
+				"Durability": 115,
+				"Maximum Fatigue": -6,
+				"Vision": -1,
+				"Description": "A full-metal helmet with a broad rim.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Flat Top Helmet",
+				"Value": 500,
+				"Durability": 125,
+				"Maximum Fatigue": -7,
+				"Vision": -1,
+				"Description": "A flat full-metall helmet with noseguard",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Nordic Helmet",
+				"Value": 500,
+				"Durability": 125,
+				"Maximum Fatigue": -7,
+				"Vision": -1,
+				"Description": "A nordic helmet guarding face and neck with additional metal plates.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Padded Nasal Helmet",
+				"Value": 550,
+				"Durability": 130,
+				"Maximum Fatigue": -7,
+				"Vision": -1,
+				"Description": "A metal helmet with added noseguard and a padded coif underneath.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Crude Metal Helmet",
+				"Value": 550,
+				"Durability": 145,
+				"Maximum Fatigue": -11,
+				"Vision": -1,
+				"Description": "Although crudely made and rusty, this metal helmet is a durable and sturdy piece of armor.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Nasal Helmet with Rusty Mail",
+				"Value": 600,
+				"Durability": 140,
+				"Maximum Fatigue": -9,
+				"Vision": -2,
+				"Description": "A worn and used helmet with a rusty mail coif.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Ancient Legionary Helmet",
+				"Value": 600,
+				"Durability": 130,
+				"Maximum Fatigue": -10,
+				"Vision": -2,
+				"Description": "A well-crafted but partly decayed helmet of ancient design.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Padded Kettle Hat",
+				"Value": 650,
+				"Durability": 140,
+				"Maximum Fatigue": -8,
+				"Vision": -1,
+				"Description": "A full-metal helmet with a broad rim and a padded coif underneath",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Crude Faceguard Helmet",
+				"Value": 650,
+				"Durability": 160,
+				"Maximum Fatigue": -15,
+				"Vision": -2,
+				"Description": "A crude and rusty barbarian helmet. What it lacks in finesse it makes up for in thickness.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Padded Flat Top Helmet",
+				"Value": 800,
+				"Durability": 150,
+				"Maximum Fatigue": -9,
+				"Vision": -1,
+				"Description": "A flat full-metal helmet with noseguard and a padded coif underneath.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Closed Scrap Metal Helmet",
+				"Value": 800,
+				"Durability": 190,
+				"Maximum Fatigue": -18,
+				"Vision": -2,
+				"Description": "This heavy metal helmet also protects the wearer's face, albeit at the cost of visibility.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Zweihander's Helmet",
+				"Value": 850,
+				"Durability": 160,
+				"Maximum Fatigue": -7,
+				"Vision": -1,
+				"Description": "A sturdy metal helmet with added padding, covered with a large feathered hat.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Ancient Honor Guard Helmet",
+				"Value": 1000,
+				"Durability": 180,
+				"Maximum Fatigue": -13,
+				"Vision": -3,
+				"Description": "An ancient heavy helmet with intricate decoration.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Closed Flat Top Helmet",
+				"Value": 1000,
+				"Durability": 170,
+				"Maximum Fatigue": -10,
+				"Vision": -3,
+				"Description": "A closed helmet with complete faceguard. Hard to breathe in and limiting the field of view.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Sallet Helmet",
+				"Value": 1200,
+				"Durability": 120,
+				"Maximum Fatigue": -5,
+				"Vision": 0,
+				"Description": "A metal sallet helmet with an extended neckguard, a design uncommon in these lands. It is well crafted to offer maximum protection with minimum weight and without impairing vision.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Closed and Padded Flat Top",
+				"Value": 1250,
+				"Durability": 180,
+				"Maximum Fatigue": -11,
+				"Vision": -3,
+				"Description": "A closed helmet with a complete faceguard and a padded coif underneath. Hard to breathe in and limiting the field of view.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Nasal Helmet with Mail",
+				"Value": 1250,
+				"Durability": 200,
+				"Maximum Fatigue": -12,
+				"Vision": -2,
+				"Description": "A metal helmet with added noseguard and a mail coif underneath.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Steppe Helmet with Mail",
+				"Value": 1250,
+				"Durability": 200,
+				"Maximum Fatigue": -12,
+				"Vision": -2,
+				"Description": "A nasal helmet with an attached mail neck guard fashioned in the way of the steppe folks.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Covered Decayed Closed Flat Top With Mail",
+				"Value": 1250,
+				"Durability": 230,
+				"Maximum Fatigue": -19,
+				"Vision": -3,
+				"Description": "A worn and torn closed helmet with complete faceguard and a mail coif covering the neck, underneath a rotten cloth sack. It has obviously been lying outdoors for a while.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Decayed Closed Flat Top With Mail",
+				"Value": 1250,
+				"Durability": 230,
+				"Maximum Fatigue": -19,
+				"Vision": -3,
+				"Description": "A worn and torn closed helmet with comlete faceguard and a mail coif covering the neck. It has obviously been lying outdoors for a while.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Heavy Horned Plate Helmet",
+				"Value": 1300,
+				"Durability": 250,
+				"Maximum Fatigue": -23,
+				"Vision": -3,
+				"Description": "This heavy helmet has ornamental horns attached. This is a sign of high standing and reputation within barbarian warbands.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Bascinet with Mail",
+				"Value": 1400,
+				"Durability": 210,
+				"Maximum Fatigue": -13,
+				"Vision": -2,
+				"Description": "A metal bascinet worn atop a thick mail coif.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Kettle Hat with Mail",
+				"Value": 1500,
+				"Durability": 215,
+				"Maximum Fatigue": -14,
+				"Vision": -2,
+				"Description": "A full-metall helmet with a broad rim and a mail coif underneath.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Decayed Full Helm",
+				"Value": 1500,
+				"Durability": 240,
+				"Maximum Fatigue": -20,
+				"Vision": -3,
+				"Description": "This full helm suffers from rusty metal parts and brittle leather inlays but still offers good protection if you ignore its stench.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Flat Top with Mail",
+				"Value": 1800,
+				"Durability": 230,
+				"Maximum Fatigue": -15,
+				"Vision": -2,
+				"Description": "A flat full-metall helmet with noseguard and a mail coif underneath.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Nasal Helmet with Closed Mail",
+				"Value": 2000,
+				"Durability": 240,
+				"Maximum Fatigue": -16,
+				"Vision": -2,
+				"Description": "A metal helmet with a noseguard and a closed mail coif underneath.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Decayed Great Helm",
+				"Value": 2000,
+				"Durability": 255,
+				"Maximum Fatigue": -22,
+				"Vision": -3,
+				"Description": "A great helmet with torn off and rotten decorations. It must have once belonged to a renowned knight.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Kettle Hat with Closed Mail",
+				"Value": 2200,
+				"Durability": 250,
+				"Maximum Fatigue": -17,
+				"Vision": -2,
+				"Description": "A full-metal helmet with a broad rim and a mail coif covering the neck and face.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Barbute Helmet",
+				"Value": 2600,
+				"Durability": 190,
+				"Maximum Fatigue": -9,
+				"Vision": -2,
+				"Description": "A sturdy yet light barbute helmet, a design uncommon in these lands, made from especially light and durable steel.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Flat Top with Closed Mail",
+				"Value": 2600,
+				"Durability": 265,
+				"Maximum Fatigue": -18,
+				"Vision": -2,
+				"Description": "A flat full-metal helmet with a mail coif covering the neck and face.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Nordic Helmet with Closed Mail",
+				"Value": 2600,
+				"Durability": 265,
+				"Maximum Fatigue": -18,
+				"Vision": -2,
+				"Description": "A metal nordic helmet with an attached closed mail neck guard.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Conic Helmet with Closed Mail",
+				"Value": 2600,
+				"Durability": 265,
+				"Maximum Fatigue": -18,
+				"Vision": -2,
+				"Description": "A heavy conic helmet with a full closed mail skirt for additional protection.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Closed Flat Top with Mail",
+				"Value": 3000,
+				"Durability": 280,
+				"Maximum Fatigue": -19,
+				"Vision": -3,
+				"Description": "A closed helmet with complete faceguard and mail coif covering the neck. Great in the way of protection but hard to breathe in and limiting the field of view.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Conic Helmet with Faceguard",
+				"Value": 3000,
+				"Durability": 280,
+				"Maximum Fatigue": -19,
+				"Vision": -3,
+				"Description": "This conic helmet with mail has an attached metal faceguard. It is heavy and hard to see through, but offers excellent protection.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Full Helm",
+				"Value": 3500,
+				"Durability": 300,
+				"Maximum Fatigue": -20,
+				"Vision": -3,
+				"Description": "A closed metal helm with breathing holes. Great in the way of protection but hard to breathe in and limiting the field of view.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Decorated Full Helm",
+				"Value": 4000,
+				"Durability": 300,
+				"Maximum Fatigue": -20,
+				"Vision": -3,
+				"Description": "A closed metal helm with breathing holes and intricate decoration on top. Great in the way of protection, a piece of art to behold, but hard to breathe in and (limits) the field of view.",
+				"Armor Type": "Metal"
+			}
+		],
+		"Body Armor": [
+			{
+				"Name": "Tattered Sackcloth",
+				"Value": 0,
+				"Durability": 5,
+				"Maximum Fatigue": 0,
+				"Description": "Barely better than running naked.",
+				"Armor Type": "Cloth"
+			},
+			{
+				"Name": "Sackcloth",
+				"Value": 20,
+				"Durability": 10,
+				"Maximum Fatigue": 0,
+				"Description": "Better than running naked.",
+				"Armor Type": "Cloth"
+			},
+			{
+				"Name": "Leather Wraps",
+				"Value": 40,
+				"Durability": 20,
+				"Maximum Fatigue": 0,
+				"Description": "Various patches of rough leather sewn together.",
+				"Armor Type": "Cloth"
+			},
+			{
+				"Name": "Linen Tunic",
+				"Value": 45,
+				"Durability": 20,
+				"Maximum Fatigue": 0,
+				"Description": "A simple cloth tunic. Fashionable but offering little in protection.",
+				"Armor Type": "Cloth"
+			},
+			{
+				"Name": "Monk's Robe",
+				"Value": 45,
+				"Durability": 20,
+				"Maximum Fatigue": 0,
+				"Description": "A rugged, large robe made of simple cloth usually worn by monks and similar individuals who don`t care fashion.",
+				"Armor Type": "Cloth"
+			},
+			{
+				"Name": "Wizard's Robe",
+				"Value": 60,
+				"Durability": 20,
+				"Maximum Fatigue": 0,
+				"Description": "A cloth robe covered in all kinds of mystical ornaments and symbols.",
+				"Armor Type": "Cloth"
+			},
+			{
+				"Name": "Noble Tunic",
+				"Value": 100,
+				"Durability": 20,
+				"Maximum Fatigue": 0,
+				"Description": "A fine linen tunic of exquisite material, embroided with pleasing patterns. Fashionable but offering little in protection.",
+				"Armor Type": "Cloth"
+			},
+			{
+				"Name": "Butcher's Apron",
+				"Value": 55,
+				"Durability": 25,
+				"Maximum Fatigue": 0,
+				"Description": "A rugged apron worn by butchers to protect against accidental cuts.",
+				"Armor Type": "Cloth"
+			},
+			{
+				"Name": "Apron",
+				"Value": 55,
+				"Durability": 25,
+				"Maximum Fatigue": 0,
+				"Description": "A leather apron usually worn by apprentices and craftsmen.",
+				"Armor Type": "Cloth"
+			},
+			{
+				"Name": "Thick Furs",
+				"Value": 40,
+				"Durability": 30,
+				"Maximum Fatigue": -1,
+				"Description": "Thick furs that are crudely dried and tied together to protect from both the cold and any incoming blows.",
+				"Armor Type": "Cloth"
+			},
+			{
+				"Name": "Leather Tunic",
+				"Value": 65,
+				"Durability": 30,
+				"Maximum Fatigue": 0,
+				"Description": "A leather vest on top of a cloth tunic for improved protection.",
+				"Armor Type": "Cloth"
+			},
+			{
+				"Name": "Thick Tunic",
+				"Value": 75,
+				"Durability": 35,
+				"Maximum Fatigue": -2,
+				"Description": "A thick cloth tunic consisting of multiple layers to protect against weather and scratches.",
+				"Armor Type": "Cloth"
+			},
+			{
+				"Name": "Animal Hide Armor",
+				"Value": 80,
+				"Durability": 45,
+				"Maximum Fatigue": -3,
+				"Description": "Heavy hides patched together to create a decent makeshift armor.",
+				"Armor Type": "Cloth"
+			},
+			{
+				"Name": "Padded Surcoat",
+				"Value": 90,
+				"Durability": 50,
+				"Maximum Fatigue": -4,
+				"Description": "A cloth mantle padded with woolen filling.",
+				"Armor Type": "Cloth"
+			},
+			{
+				"Name": "Rugged Surcoat",
+				"Value": 100,
+				"Durability": 55,
+				"Maximum Fatigue": -6,
+				"Description": "A padded leather mantle stuffed for added protection. Usually worn under armor.",
+				"Armor Type": "Cloth"
+			},
+			{
+				"Name": "Dark Rugged Surcoat",
+				"Value": 100,
+				"Durability": 60,
+				"Maximum Fatigue": -4,
+				"Description": "A dark padded leather mantle, stuffed for added protection, with a pelt coat.",
+				"Armor Type": "Cloth"
+			},
+			{
+				"Name": "Reinforced Animal Hide Armor",
+				"Value": 120,
+				"Durability": 65,
+				"Maximum Fatigue": -7,
+				"Description": "A reinforced animal hide armor fashioned from thick leather pieces with added mail and metal scales.",
+				"Armor Type": "Cloth"
+			},
+			{
+				"Name": "Gambeson",
+				"Value": 150,
+				"Durability": 65,
+				"Maximum Fatigue": -6,
+				"Description": "A sturdy and heavy padded tunic that offers decent protection.",
+				"Armor Type": "Cloth"
+			},
+			{
+				"Name": "Blotched Gambeson",
+				"Value": 160,
+				"Durability": 70,
+				"Maximum Fatigue": -7,
+				"Description": "A padded gambeson that has been repaired and patched a lot of times.",
+				"Armor Type": "Cloth"
+			},
+			{
+				"Name": "Scrap Metal Armor",
+				"Value": 130,
+				"Durability": 75,
+				"Maximum Fatigue": -8,
+				"Description": "This armor is pieced together from scavenged metal parts that are fixed to a crude leather tunic.",
+				"Armor Type": "Chain"
+			},
+			{
+				"Name": "Padded Leather",
+				"Value": 200,
+				"Durability": 80,
+				"Maximum Fatigue": -8,
+				"Description": "A padded tunic reinforced with leather fittings for added protection.",
+				"Armor Type": "Cloth"
+			},
+			{
+				"Name": "Cultist Leather Robe",
+				"Value": 240,
+				"Durability": 88,
+				"Maximum Fatigue": -9,
+				"Description": "A thick leather armor covered with additional leather patches and occult insignia.",
+				"Armor Type": "Cloth"
+			},
+			{
+				"Name": "Patched Mail Shirt",
+				"Value": 250,
+				"Durability": 90,
+				"Maximum Fatigue": -10,
+				"Description": "This light mail shirt has seen better times but still grants decent protection.",
+				"Armor Type": "Chain"
+			},
+			{
+				"Name": "Hide and Bone Armor",
+				"Value": 220,
+				"Durability": 95,
+				"Maximum Fatigue": -10,
+				"Description": "Hide and bone are common materials in the northern regions. This armor is using both for decent protection.",
+				"Armor Type": "Chain"
+			},
+			{
+				"Name": "Leather Lamellar Armor",
+				"Value": 300,
+				"Durability": 95,
+				"Maximum Fatigue": -10,
+				"Description": "Numerous overlapping leather plates provide decent protection for most of the upper body.",
+				"Armor Type": "Chain"
+			},
+			{
+				"Name": "Ancient Mail",
+				"Value": 350,
+				"Durability": 100,
+				"Maximum Fatigue": -14,
+				"Description": "An old and crusted heavy mail of ancient design. Some parts are missing, but it still offers decent protection.",
+				"Armor Type": "Chain"
+			},
+			{
+				"Name": "Worn Mail Shirt",
+				"Value": 400,
+				"Durability": 110,
+				"Maximum Fatigue": -12,
+				"Description": "A reinforced mail shirt that lost some parts over the years. On the plus side, this makes it lighter to wear.",
+				"Armor Type": "Chain"
+			},
+			{
+				"Name": "Basic Mail Shirt",
+				"Value": 450,
+				"Durability": 115,
+				"Maximum Fatigue": -12,
+				"Description": "A basic and simple mail shirt. Offers decent and affordable protection against slashing and piercing attacks.",
+				"Armor Type": "Chain"
+			},
+			{
+				"Name": "Ancient Double Layer Mail",
+				"Value": 450,
+				"Durability": 120,
+				"Maximum Fatigue": -16,
+				"Description": "A heavy and rotten double-layered mail of ancient design. Not comfortable to wear but still usable.",
+				"Armor Type": "Chain"
+			},
+			{
+				"Name": "Ancient Scale Harness",
+				"Value": 750,
+				"Durability": 125,
+				"Maximum Fatigue": -20,
+				"Description": "A sturdy, but heavy and partly decayed ancient scale harness.",
+				"Armor Type": "Chain"
+			},
+			{
+				"Name": "Mail Shirt",
+				"Value": 650,
+				"Durability": 130,
+				"Maximum Fatigue": -14,
+				"Description": "A mail shirt with shoulder guards providing excellent protection against most weapons",
+				"Armor Type": "Chain"
+			},
+			{
+				"Name": "Ancient Breastplate",
+				"Value": 900,
+				"Durability": 135,
+				"Maximum Fatigue": -22,
+				"Description": "A tarnished thick breastplate of ancient origin.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Rugged Scale Armor",
+				"Value": 550,
+				"Durability": 140,
+				"Maximum Fatigue": -18,
+				"Description": "A heavy body armor made from thick iron scales.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Leather Scale Armor",
+				"Value": 800,
+				"Durability": 140,
+				"Maximum Fatigue": -16,
+				"Description": "A mail shirt worn under a thick leather scale armor for added protection.",
+				"Armor Type": "Chain"
+			},
+			{
+				"Name": "Mail Hauberk",
+				"Value": 1000,
+				"Durability": 150,
+				"Maximum Fatigue": -18,
+				"Description": "A long and heavy chainmail that offers maximum protection but is very fatiguing to wear.",
+				"Armor Type": "Chain"
+			},
+			{
+				"Name": "Noble Mail",
+				"Value": 2500,
+				"Durability": 160,
+				"Maximum Fatigue": -15,
+				"Description": "A truly masterfully crafted set of mail armor. Very light and flexible to reduce encumberance while still offering good protection.",
+				"Armor Type": "Chain"
+			},
+			{
+				"Name": "Heavy Iron Armor",
+				"Value": 700,
+				"Durability": 170,
+				"Maximum Fatigue": -24,
+				"Description": "This armor is made from heavy metal plates, scales and pieces of chainmal. The true armor of a northern warrior.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Light Scale Armor",
+				"Value": 1300,
+				"Durability": 170,
+				"Maximum Fatigue": -21,
+				"Description": "A sturdy yet flexible armor composed of small, overlapping metal scales.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Decayed Reinforced Mail Hauberk",
+				"Value": 1000,
+				"Durability": 170,
+				"Maximum Fatigue": -26,
+				"Description": "A long mail shirt in bad condition. Some rings are missing and it is covered in dirt and has an odd smell about it.",
+				"Armor Type": "Chain"
+			},
+			{
+				"Name": "Ancient Plated Mail Hauberk",
+				"Value": 2000,
+				"Durability": 180,
+				"Maximum Fatigue": -22,
+				"Description": "An ancient mail armor with plated arm guards. Very heavy and severely limiting the mobility of the wearer.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Footman's Armor",
+				"Value": 1600,
+				"Durability": 190,
+				"Maximum Fatigue": -22,
+				"Description": "A transitional armor consisting of a long mail shirt and a rivetted leather gambeson.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Ancient Scale Coat",
+				"Value": 2400,
+				"Durability": 190,
+				"Maximum Fatigue": -25,
+				"Description": "A heavy and tarnished scale coat of ancient design that belongs in a collection, not on the battlefield.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Ancient Plate Harness",
+				"Value": 2800,
+				"Durability": 200,
+				"Maximum Fatigue": -28,
+				"Description": "Made of thick metal plates and mail, this heavy ancient armor still offers great protection after countless years. It's crusted and rotten in parts, however, severely limiting the mobility of the wearer.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Reinforced Mail Hauberk",
+				"Value": 2000,
+				"Durability": 210,
+				"Maximum Fatigue": -26,
+				"Description": "A mail hauberk reinforced with shoulder pauldrons and a rivetted leather armor for added protection.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Ancient Plated Scale Hauberk",
+				"Value": 3200,
+				"Durability": 210,
+				"Maximum Fatigue": -30,
+				"Description": "A heavy coat of scales, partly reinforced with a layer of plated metal on top. It's a massive armor of ancient origin that didn't age well.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Thick Plated Barbarian Armor",
+				"Value": 1200,
+				"Durability": 230,
+				"Maximum Fatigue": -35,
+				"Description": "A heavy armor that is made from mostly metal. Only one chosen by the ancestors will own a set like this.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Lamellar Harness",
+				"Value": 3000,
+				"Durability": 230,
+				"Maximum Fatigue": -30,
+				"Description": "A body armor made of thick overlapping metal plates that cover most of the upper body.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Decayed Coat of Scales",
+				"Value": 3000,
+				"Durability": 240,
+				"Maximum Fatigue": -38,
+				"Description": "This coat of scales is worn and parts have come loose or are missing. It still offers very good protection if you don't mind the smell.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Scale Armor",
+				"Value": 4000,
+				"Durability": 240,
+				"Maximum Fatigue": -28,
+				"Description": "A body vest with overlapping scales worn over a small mail shirt.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Heraldic Hauberk",
+				"Value": 4000,
+				"Durability": 250,
+				"Maximum Fatigue": -26,
+				"Description": "A mail hauberk reinforced with shoulder pauldrons, additional metal plating and a riveted leather armor, covered with a tabbard in a noble houses' colors.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Decayed Coat of Plates",
+				"Value": 4000,
+				"Durability": 260,
+				"Maximum Fatigue": -42,
+				"Description": "A somewhat decayed coat of plates with rusted metal and brittle leather parts. Has probably been laying in the open for a while.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Sellsword's Armor",
+				"Value": 4500,
+				"Durability": 260,
+				"Maximum Fatigue": -32,
+				"Description": "A long and leather coat reinforced with metal plates over a sturdy mail hauberk.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Heavy Lamellar Armor",
+				"Value": 5000,
+				"Durability": 285,
+				"Maximum Fatigue": -40,
+				"Description": "A heavy lamellar armor that covers most parts of the body with thick, overlapping metal plates for maximum protection.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Coat of Scales",
+				"Value": 6000,
+				"Durability": 300,
+				"Maximum Fatigue": -38,
+				"Description": "A heavy armor made of thick, overlapping metal scales covering most of the body.",
+				"Armor Type": "Metal"
+			},
+			{
+				"Name": "Coat of Plates",
+				"Value": 7000,
+				"Durability": 320,
+				"Maximum Fatigue": -42,
+				"Description": "One layer of padding, one layer of strong mail, and heavy metal plates riveted ontop. A very heavy armor that offers great protection.",
+				"Armor Type": "Metal"
+			}
+		]
+	},
+	"Shield": {
+		"Shields List": [
+			{
+				"Name": "Buckler",
+				"Value": 45,
+				"Durability": 16,
+				"Maximum Fatigue": -4,
+				"Melee Defense": 10,
+				"Ranged Defense": 5,
+				"Description": "A small but sturdy shield gripped in the fist. Offers poor protection against ranged attacks but can be useful in deflecting blows in melee.",
+				"Ability List": [
+					"Knock Back"
+				]
+			},
+			{
+				"Name": "Wooden Skirmisher Shield",
+				"Value": 45,
+				"Durability": 12,
+				"Maximum Fatigue": -4,
+				"Melee Defense": 10,
+				"Ranged Defense": 10,
+				"Description": "A wooden shield made by goblins. Light but also small, offering little protection against attacks for a human using it.",
+				"Ability List": [
+					"Knock Back",
+					"Shieldwall"
+				]
+			},
+			{
+				"Name": "Feral Shield",
+				"Value": 50,
+				"Durability": 16,
+				"Maximum Fatigue": -12,
+				"Melee Defense": 15,
+				"Ranged Defense": 20,
+				"Description": "A light wooden shield covered in leather. Offers good protection against ranged attacks due to its size, but is quite fragile.",
+				"Ability List": [
+					"Knock Back",
+					"Shieldwall"
+				]
+			},
+			{
+				"Name": "Old Wooden Shield",
+				"Value": 60,
+				"Durability": 16,
+				"Maximum Fatigue": -10,
+				"Melee Defense": 15,
+				"Ranged Defense": 15,
+				"Description": "An old round wooden shield.",
+				"Ability List": [
+					"Knock Back",
+					"Shieldwall"
+				]
+			},
+			{
+				"Name": "Reinforced Skirmisher Shield",
+				"Value": 65,
+				"Durability": 16,
+				"Maximum Fatigue": -8,
+				"Melee Defense": 10,
+				"Ranged Defense": 10,
+				"Description": "A reinforced wooden shield made by goblins. Light but also small, offering little protection against attacks for a human using it.",
+				"Ability List": [
+					"Knock Back",
+					"Shieldwall"
+				]
+			},
+			{
+				"Name": "Ancient Auxiliary Shield",
+				"Value": 80,
+				"Durability": 16,
+				"Maximum Fatigue": -10,
+				"Melee Defense": 15,
+				"Ranged Defense": 15,
+				"Description": "A wooden light shield in oval shape. The wood seems brittle and old, making it less durable.",
+				"Ability List": [
+					"Knock Back",
+					"Shieldwall"
+				]
+			},
+			{
+				"Name": "Wooden Shield",
+				"Value": 90,
+				"Durability": 24,
+				"Maximum Fatigue": -10,
+				"Melee Defense": 15,
+				"Ranged Defense": 15,
+				"Description": "A round wooden shield.",
+				"Ability List": [
+					"Knock Back",
+					"Shieldwall"
+				]
+			},
+			{
+				"Name": "Ancient Coffin Shield",
+				"Value": 100,
+				"Durability": 20,
+				"Maximum Fatigue": -12,
+				"Melee Defense": 15,
+				"Ranged Defense": 20,
+				"Description": "An octagonal shield made of wood and reinforced with bronze. Time has taken its toll and the wood has become brittle.",
+				"Ability List": [
+					"Knock Back",
+					"Shieldwall"
+				]
+			},
+			{
+				"Name": "Decayed Heater Shield",
+				"Value": 150,
+				"Durability": 24,
+				"Maximum Fatigue": -14,
+				"Melee Defense": 20,
+				"Ranged Defense": 15,
+				"Description": "A rotten triangular wooden shield covered with leather, canvas and moss.",
+				"Ability List": [
+					"Knock Back",
+					"Shieldwall"
+				]
+			},
+			{
+				"Name": "Worn Kite Shield",
+				"Value": 150,
+				"Durability": 40,
+				"Maximum Fatigue": -16,
+				"Melee Defense": 15,
+				"Ranged Defense": 25,
+				"Description": "An elongated wooden shield that offers good protection also to the lower body. Somewhat bulky to handle in close combat engagements.",
+				"Ability List": [
+					"Knock Back",
+					"Shieldwall"
+				]
+			},
+			{
+				"Name": "Kite Shield",
+				"Value": 200,
+				"Durability": 48,
+				"Maximum Fatigue": -16,
+				"Melee Defense": 15,
+				"Ranged Defense": 25,
+				"Description": "An elongated wooden shield covered in leather that offers good protection also to the lower body. Somewhat bulky to handle in close combat engagements.",
+				"Ability List": [
+					"Knock Back",
+					"Shieldwall"
+				]
+			},
+			{
+				"Name": "Ancient Tower Shield",
+				"Value": 200,
+				"Durability": 24,
+				"Maximum Fatigue": -20,
+				"Melee Defense": 20,
+				"Ranged Defense": 20,
+				"Description": "A tall and heavy tower shield that offers good protection, but is very bulky to handle. It appears to be old and worn down.",
+				"Ability List": [
+					"Knock Back",
+					"Shieldwall"
+				]
+			},
+			{
+				"Name": "Heater Shield",
+				"Value": 250,
+				"Durability": 32,
+				"Maximum Fatigue": -14,
+				"Melee Defense": 20,
+				"Ranged Defense": 15,
+				"Description": "A triangular wooden shield covered with leather and canvas.",
+				"Ability List": [
+					"Knock Back",
+					"Shieldwall"
+				]
+			},
+			{
+				"Name": "Heavy Metal Shield",
+				"Value": 250,
+				"Durability": 72,
+				"Maximum Fatigue": -22,
+				"Melee Defense": 15,
+				"Ranged Defense": 15,
+				"Description": "A massive metal shield that is almost impossible to destroy but very heavy and fatiguing to wear for any human.",
+				"Ability List": [
+					"Knock Back",
+					"Shieldwall"
+				]
+			}
+		]
+	},
+	"Weapon": {
+		"Weapons List": [
+			{
+				"Name": "Knife",
+				"Value": 30,
+				"Durability": 32,
+				"Damage Minimum": 15,
+				"Damage Maximum": 25,
+				"Ignore Armor": 20,
+				"Armor Damage": 50,
+				"Maximum Fatigue": 0,
+				"Description": "A short knife, not made for combat.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Dagger"
+				],
+				"Ability List": [
+					"Stab",
+					"Puncture"
+				]
+			},
+			{
+				"Name": "Dagger",
+				"Value": 180,
+				"Durability": 40,
+				"Damage Minimum": 15,
+				"Damage Maximum": 35,
+				"Ignore Armor": 20,
+				"Armor Damage": 60,
+				"Maximum Fatigue": 0,
+				"Description": "A pointy dagger made for close quarter combat.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Dagger"
+				],
+				"Ability List": [
+					"Stab",
+					"Puncture"
+				]
+			},
+			{
+				"Name": "Notched Blade",
+				"Value": 350,
+				"Durability": 44,
+				"Damage Minimum": 20,
+				"Damage Maximum": 30,
+				"Ignore Armor": 20,
+				"Armor Damage": 60,
+				"Maximum Fatigue": -3,
+				"Description": "A long curved knife with a one sided blade used for slashing, hacking and stabbing at weak spots.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Dagger",
+					"Sword"
+				],
+				"Ability List": [
+					"Slash",
+					"Puncture"
+				]
+			},
+			{
+				"Name": "Rondel Dagger",
+				"Value": 400,
+				"Durability": 50,
+				"Damage Minimum": 20,
+				"Damage Maximum": 40,
+				"Ignore Armor": 20,
+				"Armor Damage": 70,
+				"Maximum Fatigue": 0,
+				"Description": "A long, quadrangular spike designed to pierce through weakpoints in armor.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Dagger"
+				],
+				"Ability List": [
+					"Stab",
+					"Puncture"
+				]
+			},
+			{
+				"Name": "Shortsword",
+				"Value": 350,
+				"Durability": 48,
+				"Damage Minimum": 30,
+				"Damage Maximum": 40,
+				"Ignore Armor": 20,
+				"Armor Damage": 75,
+				"Maximum Fatigue": -4,
+				"Description": "A short raw iron sword with some dents and notches, easy to wield in one hand.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Sword"
+				],
+				"Ability List": [
+					"Slash",
+					"Riposte"
+				]
+			},
+			{
+				"Name": "Scimitar",
+				"Value": 700,
+				"Durability": 48,
+				"Damage Minimum": 35,
+				"Damage Maximum": 45,
+				"Ignore Armor": 20,
+				"Armor Damage": 65,
+				"Maximum Fatigue": -6,
+				"Description": "An exotic curved sword from the south that is excellent for slashing, but not well suited for thrusting and penetrating armor.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Sword"
+				],
+				"Ability List": [
+					"Slash",
+					"Gash"
+				]
+			},
+			{
+				"Name": "Falchion",
+				"Value": 500,
+				"Durability": 48,
+				"Damage Minimum": 35,
+				"Damage Maximum": 45,
+				"Ignore Armor": 20,
+				"Armor Damage": 65,
+				"Maximum Fatigue": -6,
+				"Description": "A curved sword best suited for slashing and cutting unarmored opponents.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Sword"
+				],
+				"Ability List": [
+					"Slash",
+					"Riposte"
+				]
+			},
+			{
+				"Name": "Arming Sword",
+				"Value": 1250,
+				"Durability": 56,
+				"Damage Minimum": 40,
+				"Damage Maximum": 45,
+				"Ignore Armor": 20,
+				"Armor Damage": 80,
+				"Maximum Fatigue": -6,
+				"Description": "A lightweight, straight sword suitable for slashing, thrusting and swinging.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Sword"
+				],
+				"Ability List": [
+					"Slash",
+					"Riposte"
+				]
+			},
+			{
+				"Name": "Shamshir",
+				"Value": 2900,
+				"Durability": 72,
+				"Damage Minimum": 45,
+				"Damage Maximum": 50,
+				"Ignore Armor": 20,
+				"Armor Damage": 75,
+				"Maximum Fatigue": -8,
+				"Description": "This well-crafted exotic blade from the south has a curved edge that allows it to cut deep wounds with ease, but makes it less suited for thrusting and penetrating armor. A rare find in these lands.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Sword"
+				],
+				"Ability List": [
+					"Slash",
+					"Gash"
+				]
+			},
+			{
+				"Name": "Noble Sword",
+				"Value": 3200,
+				"Durability": 72,
+				"Damage Minimum": 45,
+				"Damage Maximum": 50,
+				"Ignore Armor": 20,
+				"Armor Damage": 85,
+				"Maximum Fatigue": -8,
+				"Description": "A well-balanced long sword with a double-edged blade.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Sword"
+				],
+				"Ability List": [
+					"Slash",
+					"Riposte"
+				]
+			},
+			{
+				"Name": "Fencing Sword",
+				"Value": 1550,
+				"Durability": 48,
+				"Damage Minimum": 35,
+				"Damage Maximum": 50,
+				"Ignore Armor": 20,
+				"Armor Damage": 75,
+				"Maximum Fatigue": -4,
+				"Description": "A well-balanced long sword with a double-edged blade.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Sword"
+				],
+				"Ability List": [
+					"Slash",
+					"Lunge"
+				]
+			},
+			{
+				"Name": "Cruel Falchion",
+				"Value": 900,
+				"Durability": 52,
+				"Damage Minimum": 35,
+				"Damage Maximum": 45,
+				"Ignore Armor": 20,
+				"Armor Damage": 70,
+				"Maximum Fatigue": -4,
+				"Description": "A light weighted goblin falchion made for cutting.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Sword"
+				],
+				"Ability List": [
+					"Slash",
+					"Riposte"
+				]
+			},
+			{
+				"Name": "Broken Ancient Sword",
+				"Value": 200,
+				"Durability": 24,
+				"Damage Minimum": 30,
+				"Damage Maximum": 35,
+				"Ignore Armor": 20,
+				"Armor Damage": 75,
+				"Maximum Fatigue": -3,
+				"Description": "An ancient sword with a broken blade, severely limiting its reach.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Sword"
+				],
+				"Ability List": [
+					"Slash",
+					"Riposte"
+				]
+			},
+			{
+				"Name": "Ancient Sword",
+				"Value": 850,
+				"Durability": 42,
+				"Damage Minimum": 38,
+				"Damage Maximum": 43,
+				"Ignore Armor": 20,
+				"Armor Damage": 80,
+				"Maximum Fatigue": -6,
+				"Description": "A straight sword of ancient origin. The grip is covered with strange ornamentations, which may make it valuable to historians and other scholarly-minded individuals.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Sword"
+				],
+				"Ability List": [
+					"Slash",
+					"Riposte"
+				]
+			},
+			{
+				"Name": "Lute",
+				"Value": 120,
+				"Durability": 2,
+				"Damage Minimum": 5,
+				"Damage Maximum": 10,
+				"Ignore Armor": 40,
+				"Armor Damage": 10,
+				"Maximum Fatigue": -4,
+				"Description": "A music instrument that, if in the right hands, is capable of producing pleasant sounds with its vibrating strings.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Mace"
+				],
+				"Ability List": [
+					"Knock Out"
+				]
+			},
+			{
+				"Name": "Wooden Stick",
+				"Value": 35,
+				"Durability": 16,
+				"Damage Minimum": 15,
+				"Damage Maximum": 25,
+				"Ignore Armor": 40,
+				"Armor Damage": 50,
+				"Maximum Fatigue": -6,
+				"Description": "A simple wooden stick, usually an improvised weapon.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Mace"
+				],
+				"Ability List": [
+					"Bash",
+					"Knock Out"
+				]
+			},
+			{
+				"Name": "Gnarled Staff",
+				"Value": 1000,
+				"Durability": 25,
+				"Damage Minimum": 25,
+				"Damage Maximum": 35,
+				"Ignore Armor": 40,
+				"Armor Damage": 70,
+				"Maximum Fatigue": -4,
+				"Description": "A gnarly staff carved from old and hard wood, adorned with bones and feathers. May be of interest to collectors.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Mace"
+				],
+				"Ability List": [
+					"Bash",
+					"Knock Out"
+				]
+			},
+			{
+				"Name": "Tree Limb",
+				"Value": 200,
+				"Durability": 44,
+				"Damage Minimum": 25,
+				"Damage Maximum": 40,
+				"Ignore Armor": 40,
+				"Armor Damage": 75,
+				"Maximum Fatigue": -20,
+				"Description": "A big and heavy branch torn from a tree. Not well suited for human hands.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 5,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Mace"
+				],
+				"Ability List": [
+					"Bash",
+					"Knock Out"
+				]
+			},
+			{
+				"Name": "Cudgel",
+				"Value": 350,
+				"Durability": 68,
+				"Damage Minimum": 30,
+				"Damage Maximum": 50,
+				"Ignore Armor": 40,
+				"Armor Damage": 90,
+				"Maximum Fatigue": -20,
+				"Description": "A massive wooden club studded with metal plates. Not made for human hands.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 5,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Mace"
+				],
+				"Ability List": [
+					"Bash",
+					"Knock Out"
+				]
+			},
+			{
+				"Name": "Bludgeon",
+				"Value": 90,
+				"Durability": 64,
+				"Damage Minimum": 20,
+				"Damage Maximum": 35,
+				"Ignore Armor": 40,
+				"Armor Damage": 75,
+				"Maximum Fatigue": -8,
+				"Description": "A spiked metal head on a wooden shaft, crude but effective in bashing in heads.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Mace"
+				],
+				"Ability List": [
+					"Bash",
+					"Knock Out"
+				]
+			},
+			{
+				"Name": "Morning Star",
+				"Value": 600,
+				"Durability": 72,
+				"Damage Minimum": 30,
+				"Damage Maximum": 45,
+				"Ignore Armor": 40,
+				"Armor Damage": 100,
+				"Maximum Fatigue": -10,
+				"Description": "A wooden shaft with a spiked metal head used to deliver a combination of blunt-force and puncturing blows.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Mace"
+				],
+				"Ability List": [
+					"Bash",
+					"Knock Out"
+				]
+			},
+			{
+				"Name": "Winged Mace",
+				"Value": 2100,
+				"Durability": 80,
+				"Damage Minimum": 35,
+				"Damage Maximum": 55,
+				"Ignore Armor": 40,
+				"Armor Damage": 110,
+				"Maximum Fatigue": -10,
+				"Description": "A full-metal mace with a short shaft and attached blades.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Mace"
+				],
+				"Ability List": [
+					"Bash",
+					"Knock Out"
+				]
+			},
+			{
+				"Name": "Claw Club",
+				"Value": 100,
+				"Durability": 76,
+				"Damage Minimum": 20,
+				"Damage Maximum": 30,
+				"Ignore Armor": 50,
+				"Armor Damage": 100,
+				"Maximum Fatigue": -10,
+				"Description": "The massive claws of some wild animal are fixed to this large club.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Mace"
+				],
+				"Ability List": [
+					"Bash",
+					"Knock Out"
+				]
+			},
+			{
+				"Name": "Militia Spear",
+				"Value": 180,
+				"Durability": 48,
+				"Damage Minimum": 25,
+				"Damage Maximum": 35,
+				"Ignore Armor": 20,
+				"Armor Damage": 90,
+				"Maximum Fatigue": -6,
+				"Description": "A simple wooden spear with a metal tip.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Spear"
+				],
+				"Ability List": [
+					"Thrust",
+					"Spearwall"
+				]
+			},
+			{
+				"Name": "Boar Spear",
+				"Value": 750,
+				"Durability": 64,
+				"Damage Minimum": 30,
+				"Damage Maximum": 35,
+				"Ignore Armor": 25,
+				"Armor Damage": 95,
+				"Maximum Fatigue": -8,
+				"Description": "A short and heavy spear with two wings behind the bladed tip.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Spear"
+				],
+				"Ability List": [
+					"Thrust",
+					"Spearwall"
+				]
+			},
+			{
+				"Name": "Fighting Spear",
+				"Value": 2500,
+				"Durability": 72,
+				"Damage Minimum": 35,
+				"Damage Maximum": 40,
+				"Ignore Armor": 25,
+				"Armor Damage": 100,
+				"Maximum Fatigue": -10,
+				"Description": "A long and sturdy spear built for battle.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Spear"
+				],
+				"Ability List": [
+					"Thrust",
+					"Spearwall"
+				]
+			},
+			{
+				"Name": "Goblin Skewer",
+				"Value": 300,
+				"Durability": 36,
+				"Damage Minimum": 25,
+				"Damage Maximum": 35,
+				"Ignore Armor": 20,
+				"Armor Damage": 70,
+				"Maximum Fatigue": -3,
+				"Description": "A long shaft with a sharp metal tip at the top.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Spear"
+				],
+				"Ability List": [
+					"Thrust",
+					"Spearwall"
+				]
+			},
+			{
+				"Name": "Ancient Spear",
+				"Value": 140,
+				"Durability": 36,
+				"Damage Minimum": 20,
+				"Damage Maximum": 35,
+				"Ignore Armor": 25,
+				"Armor Damage": 100,
+				"Maximum Fatigue": -6,
+				"Description": "An ancient wooden spear of simple design.Time has taken its toll on this weapon.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Spear"
+				],
+				"Ability List": [
+					"Thrust",
+					"Spearwall"
+				]
+			},
+			{
+				"Name": "Hatchet",
+				"Value": 210,
+				"Durability": 52,
+				"Damage Minimum": 25,
+				"Damage Maximum": 40,
+				"Ignore Armor": 30,
+				"Armor Damage": 110,
+				"Maximum Fatigue": -6,
+				"Description": "A crude axe with a short shaft and an iron head.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 8,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Axe"
+				],
+				"Ability List": [
+					"Chop",
+					"Split Shield"
+				]
+			},
+			{
+				"Name": "Handaxe",
+				"Value": 900,
+				"Durability": 68,
+				"Damage Minimum": 30,
+				"Damage Maximum": 45,
+				"Ignore Armor": 30,
+				"Armor Damage": 120,
+				"Maximum Fatigue": -10,
+				"Description": "A one handed axe with a medium long shaft and a refined head.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 12,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Axe"
+				],
+				"Ability List": [
+					"Chop",
+					"Split Shield"
+				]
+			},
+			{
+				"Name": "Fighting Axe",
+				"Value": 3000,
+				"Durability": 80,
+				"Damage Minimum": 35,
+				"Damage Maximum": 55,
+				"Ignore Armor": 30,
+				"Armor Damage": 130,
+				"Maximum Fatigue": -12,
+				"Description": "An axe explicitly designed for fighting armored opponents. Quite sturdy.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 16,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Axe"
+				],
+				"Ability List": [
+					"Chop",
+					"Split Shield"
+				]
+			},
+			{
+				"Name": "Head Splitter",
+				"Value": 1200,
+				"Durability": 64,
+				"Damage Minimum": 35,
+				"Damage Maximum": 65,
+				"Ignore Armor": 30,
+				"Armor Damage": 130,
+				"Maximum Fatigue": -22,
+				"Description": "A heavy piece of metal with a sharp head. Not made for human hands.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 5,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 16,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Axe"
+				],
+				"Ability List": [
+					"Chop",
+					"Split Shield"
+				]
+			},
+			{
+				"Name": "Crude Axe",
+				"Value": 800,
+				"Durability": 82,
+				"Damage Minimum": 30,
+				"Damage Maximum": 40,
+				"Ignore Armor": 40,
+				"Armor Damage": 120,
+				"Maximum Fatigue": -12,
+				"Description": "This axe is crudely made, but heavy and jagged.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 12,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Axe"
+				],
+				"Ability List": [
+					"Chop",
+					"Split Shield"
+				]
+			},
+			{
+				"Name": "Axehammer",
+				"Value": 800,
+				"Durability": 96,
+				"Damage Minimum": 20,
+				"Damage Maximum": 30,
+				"Ignore Armor": 60,
+				"Armor Damage": 200,
+				"Maximum Fatigue": -10,
+				"Description": "A massive, rusty hybrid of hammer and axe. Due to its blunt edge more of the former than the latter.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 14,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Axe"
+				],
+				"Ability List": [
+					"Batter",
+					"Split Shield"
+				]
+			},
+			{
+				"Name": "Wooden Flail",
+				"Value": 40,
+				"Durability": 32,
+				"Damage Minimum": 10,
+				"Damage Maximum": 25,
+				"Ignore Armor": 30,
+				"Armor Damage": 50,
+				"Maximum Fatigue": -6,
+				"Description": "Two large sticks attached with a short chain, the Wooden Flail is an agricultural tool used to strike piles of grain to loosen the husks. As an improvised weapon it's rather unpredictable but useful to strike over or around shield cover.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 10,
+				"Shield Damage": 0,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Flail"
+				],
+				"Ability List": [
+					"Flail",
+					"Lash"
+				]
+			},
+			{
+				"Name": "Reinforced Wooden Flail",
+				"Value": 300,
+				"Durability": 40,
+				"Damage Minimum": 20,
+				"Damage Maximum": 45,
+				"Ignore Armor": 30,
+				"Armor Damage": 80,
+				"Maximum Fatigue": -7,
+				"Description": "Two large sticks attached with a short chain and reinforced with metal, the Reinforced Wooden Flail is an agricultural tool turned weapon. A rather unpredictable one at that, but deadly enough to fell most men with a good hit to the head, and useful to strike over or around shield cover.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 10,
+				"Shield Damage": 0,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Flail"
+				],
+				"Ability List": [
+					"Flail",
+					"Lash"
+				]
+			},
+			{
+				"Name": "Flail",
+				"Value": 1400,
+				"Durability": 72,
+				"Damage Minimum": 25,
+				"Damage Maximum": 55,
+				"Ignore Armor": 30,
+				"Armor Damage": 100,
+				"Maximum Fatigue": -8,
+				"Description": "A seperate striking head attached to a handle by a chain. A rather unpredictable weapon, but useful to strike over or around shield cover.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 10,
+				"Shield Damage": 0,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Flail"
+				],
+				"Ability List": [
+					"Flail",
+					"Lash"
+				]
+			},
+			{
+				"Name": "Three-Headed Flail",
+				"Value": 1600,
+				"Durability": 60,
+				"Damage Minimum": 21,
+				"Damage Maximum": 66,
+				"Ignore Armor": 30,
+				"Armor Damage": 100,
+				"Maximum Fatigue": -10,
+				"Description": "Three separate striking heads attached to a handle by chains. Each head can hit or miss a target separately and strike over or around shield cover.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 10,
+				"Shield Damage": 0,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Flail"
+				],
+				"Ability List": [
+					"Cascade",
+					"Hail"
+				]
+			},
+			{
+				"Name": "Butcher's Cleaver",
+				"Value": 110,
+				"Durability": 40,
+				"Damage Minimum": 20,
+				"Damage Maximum": 30,
+				"Ignore Armor": 25,
+				"Armor Damage": 75,
+				"Maximum Fatigue": -6,
+				"Description": "A tool with a thick rectangular blade used for hacking through meat and bone.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Cleaver"
+				],
+				"Ability List": [
+					"Cleave",
+					"Decapitate"
+				]
+			},
+			{
+				"Name": "Scramasax",
+				"Value": 700,
+				"Durability": 56,
+				"Damage Minimum": 30,
+				"Damage Maximum": 45,
+				"Ignore Armor": 25,
+				"Armor Damage": 80,
+				"Maximum Fatigue": -8,
+				"Description": "A long knife with a one sided blade used for slashing and hacking.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Cleaver"
+				],
+				"Ability List": [
+					"Cleave",
+					"Decapitate"
+				]
+			},
+			{
+				"Name": "Military Cleaver",
+				"Value": 1900,
+				"Durability": 80,
+				"Damage Minimum": 40,
+				"Damage Maximum": 60,
+				"Ignore Armor": 25,
+				"Armor Damage": 90,
+				"Maximum Fatigue": -12,
+				"Description": "A large, sharpened metal blade designed to deal devastating blows.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Cleaver"
+				],
+				"Ability List": [
+					"Cleave",
+					"Decapitate"
+				]
+			},
+			{
+				"Name": "Head Chopper",
+				"Value": 1200,
+				"Durability": 52,
+				"Damage Minimum": 40,
+				"Damage Maximum": 70,
+				"Ignore Armor": 25,
+				"Armor Damage": 110,
+				"Maximum Fatigue": -18,
+				"Description": "A sharp and crude shard of metal with a wrapped grip resembling a sword but a lot heavier. Not made for human hands.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 5,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Cleaver"
+				],
+				"Ability List": [
+					"Cleave",
+					"Decapitate"
+				]
+			},
+			{
+				"Name": "Falx",
+				"Value": 245,
+				"Durability": 30,
+				"Damage Minimum": 25,
+				"Damage Maximum": 35,
+				"Ignore Armor": 25,
+				"Armor Damage": 80,
+				"Maximum Fatigue": -6,
+				"Description": "A short and heavy blade with a curved edge designed for hacking and ripping bleeding wounds. Dulled over the years.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Cleaver"
+				],
+				"Ability List": [
+					"Cleave",
+					"Decapitate"
+				]
+			},
+			{
+				"Name": "Khopesh",
+				"Value": 1300,
+				"Durability": 42,
+				"Damage Minimum": 35,
+				"Damage Maximum": 55,
+				"Ignore Armor": 25,
+				"Armor Damage": 120,
+				"Maximum Fatigue": -10,
+				"Description": "An ancient curved sword on a long handle with strange ornamentations. Its shape makes it particularly effective against armor.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Cleaver"
+				],
+				"Ability List": [
+					"Cleave",
+					"Decapitate"
+				]
+			},
+			{
+				"Name": "Antler Cleaver",
+				"Value": 120,
+				"Durability": 48,
+				"Damage Minimum": 20,
+				"Damage Maximum": 30,
+				"Ignore Armor": 35,
+				"Armor Damage": 75,
+				"Maximum Fatigue": -8,
+				"Description": "A very crude cleaver crafted from a sharpened antler. Heavy and blunt, but still dangerous.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Cleaver"
+				],
+				"Ability List": [
+					"Cleave",
+					"Decapitate"
+				]
+			},
+			{
+				"Name": "Blunt Cleaver",
+				"Value": 600,
+				"Durability": 66,
+				"Damage Minimum": 30,
+				"Damage Maximum": 40,
+				"Ignore Armor": 35,
+				"Armor Damage": 80,
+				"Maximum Fatigue": -10,
+				"Description": "This blunt cleaver is heavy and blunt, but can still cause terrible wounds.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Cleaver"
+				],
+				"Ability List": [
+					"Cleave",
+					"Decapitate"
+				]
+			},
+			{
+				"Name": "Battle Whip",
+				"Value": 450,
+				"Durability": 40,
+				"Damage Minimum": 15,
+				"Damage Maximum": 30,
+				"Ignore Armor": 10,
+				"Armor Damage": 25,
+				"Maximum Fatigue": -6,
+				"Description": " ",
+				"Range": 3,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Cleaver"
+				],
+				"Ability List": [
+					"Whip",
+					"Disarm"
+				]
+			},
+			{
+				"Name": "Thorned Whip",
+				"Value": 400,
+				"Durability": 40,
+				"Damage Minimum": 15,
+				"Damage Maximum": 25,
+				"Ignore Armor": 20,
+				"Armor Damage": 30,
+				"Maximum Fatigue": -6,
+				"Description": " ",
+				"Range": 3,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Cleaver"
+				],
+				"Ability List": [
+					"Whip",
+					"Disarm"
+				]
+			},
+			{
+				"Name": "Pickaxe",
+				"Value": 120,
+				"Durability": 56,
+				"Damage Minimum": 15,
+				"Damage Maximum": 30,
+				"Ignore Armor": 50,
+				"Armor Damage": 150,
+				"Maximum Fatigue": -10,
+				"Description": "A hard head made from metal attached to a wooden handle, the Pickaxe is a miner's tool used to break up rocks. As an improvised weapon it's unwieldy but can deliver fatal injuries even through armor.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Hammer"
+				],
+				"Ability List": [
+					"Batter",
+					"Destroy Armor"
+				]
+			},
+			{
+				"Name": "Military Pick",
+				"Value": 900,
+				"Durability": 80,
+				"Damage Minimum": 20,
+				"Damage Maximum": 35,
+				"Ignore Armor": 50,
+				"Armor Damage": 200,
+				"Maximum Fatigue": -8,
+				"Description": "A wooden shaft with a long and pointy metal head designed to puncture the sturdiest of armors.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Hammer"
+				],
+				"Ability List": [
+					"Batter",
+					"Destroy Armor"
+				]
+			},
+			{
+				"Name": "Warhammer",
+				"Value": 2500,
+				"Durability": 100,
+				"Damage Minimum": 30,
+				"Damage Maximum": 40,
+				"Ignore Armor": 50,
+				"Armor Damage": 225,
+				"Maximum Fatigue": -8,
+				"Description": "A short iron warhammer that easily batters through armor plates.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Hammer"
+				],
+				"Ability List": [
+					"Batter",
+					"Destroy Armor"
+				]
+			},
+			{
+				"Name": "Warbrand",
+				"Value": 1800,
+				"Durability": 64,
+				"Damage Minimum": 50,
+				"Damage Maximum": 75,
+				"Ignore Armor": 20,
+				"Armor Damage": 95,
+				"Maximum Fatigue": -10,
+				"Description": "A two-handed variant of the sword with a long and thin blade, sharpened only on one side, and no crossguard. Can be used both for quick slashes and sweeping strikes.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 5,
+				"Shield Damage": 0,
+				"Number of Hands required": 2,
+				"Weapon Type": [
+					"Sword"
+				],
+				"Ability List": [
+					"Slash",
+					"Split",
+					"Swing"
+				]
+			},
+			{
+				"Name": "Longsword",
+				"Value": 1600,
+				"Durability": 60,
+				"Damage Minimum": 65,
+				"Damage Maximum": 85,
+				"Ignore Armor": 35,
+				"Armor Damage": 100,
+				"Maximum Fatigue": -10,
+				"Description": "A long two-handed blade that makes for a versatile weapon.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 5,
+				"Shield Damage": 12,
+				"Number of Hands required": 2,
+				"Weapon Type": [
+					"Sword"
+				],
+				"Ability List": [
+					"Overhead Strike",
+					"Split",
+					"Swing",
+					"Split Shield 2H"
+				]
+			},
+			{
+				"Name": "Greatsword",
+				"Value": 2200,
+				"Durability": 72,
+				"Damage Minimum": 85,
+				"Damage Maximum": 105,
+				"Ignore Armor": 35,
+				"Armor Damage": 100,
+				"Maximum Fatigue": -12,
+				"Description": "A long two-handed blade as good for crushing as for cutting.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 5,
+				"Shield Damage": 16,
+				"Number of Hands required": 2,
+				"Weapon Type": [
+					"Sword"
+				],
+				"Ability List": [
+					"Overhead Strike",
+					"Split",
+					"Swing",
+					"Split Shield 2H"
+				]
+			},
+			{
+				"Name": "Rhomphaia",
+				"Value": 1300,
+				"Durability": 42,
+				"Damage Minimum": 45,
+				"Damage Maximum": 65,
+				"Ignore Armor": 20,
+				"Armor Damage": 104,
+				"Maximum Fatigue": -10,
+				"Description": "A long and curved blade, sharpened only on one side, on a large handle. Can be used both for quick slashes and sweeping strikes.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 5,
+				"Shield Damage": 0,
+				"Number of Hands required": 2,
+				"Weapon Type": [
+					"Sword"
+				],
+				"Ability List": [
+					"Slash",
+					"Split",
+					"Swing"
+				]
+			},
+			{
+				"Name": "Goedendag",
+				"Value": 600,
+				"Durability": 64,
+				"Damage Minimum": 45,
+				"Damage Maximum": 75,
+				"Ignore Armor": 25,
+				"Armor Damage": 110,
+				"Maximum Fatigue": -14,
+				"Description": "A metal-reinforced club with a spike at the top. Can be used to thrust at the enemy, or pummel them into submission.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 2,
+				"Weapon Type": [
+					"Spear",
+					"Mace"
+				],
+				"Ability List": [
+					"Thrust",
+					"Knock Out"
+				]
+			},
+			{
+				"Name": "Two-Handed Mace",
+				"Value": 1000,
+				"Durability": 80,
+				"Damage Minimum": 50,
+				"Damage Maximum": 75,
+				"Ignore Armor": 50,
+				"Armor Damage": 115,
+				"Maximum Fatigue": -14,
+				"Description": "A massive wooden club with a spiked head. Receiving a blow from this weapon will leave anyone dazed and gasping for air, no matter their armor.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 20,
+				"Number of Hands required": 2,
+				"Weapon Type": [
+					"Mace"
+				],
+				"Ability List": [
+					"Cudgel",
+					"Strike Down",
+					"Split Shield 2H"
+				]
+			},
+			{
+				"Name": "Two-Handed Flanged Mace",
+				"Value": 1600,
+				"Durability": 120,
+				"Damage Minimum": 75,
+				"Damage Maximum": 95,
+				"Ignore Armor": 50,
+				"Armor Damage": 125,
+				"Maximum Fatigue": -16,
+				"Description": "A large and heavy winged mace held with both hands. Receiving a blow from this weapon will leave anyone dazed and gasping for air, no matter their armor.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 20,
+				"Number of Hands required": 2,
+				"Weapon Type": [
+					"Mace"
+				],
+				"Ability List": [
+					"Cudgel",
+					"Strike Down",
+					"Split Shield 2H"
+				]
+			},
+			{
+				"Name": "Two-Handed Spiked Mace",
+				"Value": 900,
+				"Durability": 72,
+				"Damage Minimum": 50,
+				"Damage Maximum": 70,
+				"Ignore Armor": 60,
+				"Armor Damage": 115,
+				"Maximum Fatigue": -14,
+				"Description": "A huge club fitted with a skull for good measure. Receiving a blow from this weapon will leave anyone dazed and gasping for air, no matter their armor.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 20,
+				"Number of Hands required": 2,
+				"Weapon Type": [
+					"Mace"
+				],
+				"Ability List": [
+					"Cudgel",
+					"Strike Down",
+					"Split Shield 2H"
+				]
+			},
+			{
+				"Name": "Warfork",
+				"Value": 400,
+				"Durability": 50,
+				"Damage Minimum": 40,
+				"Damage Maximum": 60,
+				"Ignore Armor": 25,
+				"Armor Damage": 100,
+				"Maximum Fatigue": -10,
+				"Description": "A pitchfork re-forged into a battlefield weapon that is a cross between a spear and a pike. Used for thrusting over some distance and keeping the enemy at bay.",
+				"Range": 2,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 5,
+				"Shield Damage": 0,
+				"Number of Hands required": 2,
+				"Weapon Type": [
+					"Spear"
+				],
+				"Ability List": [
+					"Prong",
+					"Spearwall 2H"
+				]
+			},
+			{
+				"Name": "Spetum",
+				"Value": 750,
+				"Durability": 60,
+				"Damage Minimum": 50,
+				"Damage Maximum": 70,
+				"Ignore Armor": 25,
+				"Armor Damage": 100,
+				"Maximum Fatigue": -14,
+				"Description": "A cross between a spear and a pike, making for a good defensive weapon. Used for thrusting over some distance and keeping the enemy at bay.",
+				"Range": 2,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 5,
+				"Shield Damage": 0,
+				"Number of Hands required": 2,
+				"Weapon Type": [
+					"Spear"
+				],
+				"Ability List": [
+					"Thrust",
+					"Spearwall"
+				]
+			},
+			{
+				"Name": "Woodcutter's Axe",
+				"Value": 400,
+				"Durability": 48,
+				"Damage Minimum": 35,
+				"Damage Maximum": 70,
+				"Ignore Armor": 40,
+				"Armor Damage": 125,
+				"Maximum Fatigue": -14,
+				"Description": "A long, two-handed axe that bears down heavy with every swing. Held with both hands it is used to cut down large trees, but will cut down men just as well.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 30,
+				"Number of Hands required": 2,
+				"Weapon Type": [
+					"Axe"
+				],
+				"Ability List": [
+					"Split Man",
+					"Round Swing",
+					"Split Shield 2H"
+				]
+			},
+			{
+				"Name": "Heavy Rusty Axe",
+				"Value": 2000,
+				"Durability": 96,
+				"Damage Minimum": 75,
+				"Damage Maximum": 90,
+				"Ignore Armor": 50,
+				"Armor Damage": 150,
+				"Maximum Fatigue": -16,
+				"Description": "This heavy rusty axe works more by its weight than its sharpness, but it gets the job done nevertheless.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 36,
+				"Number of Hands required": 2,
+				"Weapon Type": [
+					"Axe"
+				],
+				"Ability List": [
+					"Split Man",
+					"Round Swing",
+					"Split Shield 2H"
+				]
+			},
+			{
+				"Name": "Bardiche",
+				"Value": 2200,
+				"Durability": 64,
+				"Damage Minimum": 75,
+				"Damage Maximum": 95,
+				"Ignore Armor": 40,
+				"Armor Damage": 130,
+				"Maximum Fatigue": -16,
+				"Description": "A large axe with a long head that can be brought down on the enemy with devastating effect.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 24,
+				"Number of Hands required": 2,
+				"Weapon Type": [
+					"Axe"
+				],
+				"Ability List": [
+					"Split Man",
+					"Split in Two",
+					"Split Shield 2H"
+				]
+			},
+			{
+				"Name": "Greataxe",
+				"Value": 2400,
+				"Durability": 80,
+				"Damage Minimum": 80,
+				"Damage Maximum": 100,
+				"Ignore Armor": 40,
+				"Armor Damage": 150,
+				"Maximum Fatigue": -16,
+				"Description": "A heavy and long two-handed axe designed for battle that bears down heavy with every swing and can easily cut a man in two.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 36,
+				"Number of Hands required": 2,
+				"Weapon Type": [
+					"Axe"
+				],
+				"Ability List": [
+					"Split Man",
+					"Round Swing",
+					"Split Shield 2H"
+				]
+			},
+			{
+				"Name": "Longaxe",
+				"Value": 1200,
+				"Durability": 72,
+				"Damage Minimum": 70,
+				"Damage Maximum": 95,
+				"Ignore Armor": 30,
+				"Armor Damage": 110,
+				"Maximum Fatigue": -14,
+				"Description": "A relatively thin blade on a very long shaft used for decastating cutting attacks over some distance and to render shields unusable from behind the frontline.",
+				"Range": 2,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 5,
+				"Shield Damage": 0,
+				"Number of Hands required": 2,
+				"Weapon Type": [
+					"Axe"
+				],
+				"Ability List": [
+					"Strike LAxe",
+					"Split Shield 2H"
+				]
+			},
+			{
+				"Name": "Man Splitter",
+				"Value": 1600,
+				"Durability": 64,
+				"Damage Minimum": 90,
+				"Damage Maximum": 120,
+				"Ignore Armor": 40,
+				"Armor Damage": 160,
+				"Maximum Fatigue": -34,
+				"Description": "A huge and crudely built double headed battleaxe too heavy to be used effectively by the average human.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 5,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 42,
+				"Number of Hands required": 2,
+				"Weapon Type": [
+					"Axe"
+				],
+				"Ability List": [
+					"Split Man",
+					"Round Swing",
+					"Split Shield 2H"
+				]
+			},
+			{
+				"Name": "Two-Handed Wooden Flail",
+				"Value": 500,
+				"Durability": 56,
+				"Damage Minimum": 25,
+				"Damage Maximum": 60,
+				"Ignore Armor": 30,
+				"Armor Damage": 80,
+				"Maximum Fatigue": -14,
+				"Description": "A heavy two-handed wooden flail that can strike over or around shield cover.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 15,
+				"Shield Damage": 0,
+				"Number of Hands required": 2,
+				"Weapon Type": [
+					"Flail"
+				],
+				"Ability List": [
+					"Pound",
+					"Thresh"
+				]
+			},
+			{
+				"Name": "Two-Handed Flail",
+				"Value": 1200,
+				"Durability": 80,
+				"Damage Minimum": 40,
+				"Damage Maximum": 80,
+				"Ignore Armor": 30,
+				"Armor Damage": 110,
+				"Maximum Fatigue": -16,
+				"Description": "A heavy two-handed flail that can strike over or around shield cover.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 15,
+				"Shield Damage": 0,
+				"Number of Hands required": 2,
+				"Weapon Type": [
+					"Flail"
+				],
+				"Ability List": [
+					"Pound",
+					"Thresh"
+				]
+			},
+			{
+				"Name": "Beserk Chain",
+				"Value": 1300,
+				"Durability": 64,
+				"Damage Minimum": 40,
+				"Damage Maximum": 100,
+				"Ignore Armor": 30,
+				"Armor Damage": 125,
+				"Maximum Fatigue": -30,
+				"Description": "A massive iron chain with a solid full metal head at the end. Too heavy to be used effectively by the average human.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 5,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 15,
+				"Shield Damage": 0,
+				"Number of Hands required": 2,
+				"Weapon Type": [
+					"Flail"
+				],
+				"Ability List": [
+					"Pound",
+					"Thresh"
+				]
+			},
+			{
+				"Name": "Crypt Cleaver",
+				"Value": 1600,
+				"Durability": 48,
+				"Damage Minimum": 65,
+				"Damage Maximum": 85,
+				"Ignore Armor": 30,
+				"Armor Damage": 115,
+				"Maximum Fatigue": -16,
+				"Description": "A heavy blade with an oddly curved end, combining the qualities of a sword and axe into a devastating two-handed cleaver.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 16,
+				"Number of Hands required": 2,
+				"Weapon Type": [
+					"Cleaver"
+				],
+				"Ability List": [
+					"Cleave 2H",
+					"Decapitate",
+					"Split Shield 2H"
+				]
+			},
+			{
+				"Name": "Rusty Warblade",
+				"Value": 1600,
+				"Durability": 52,
+				"Damage Minimum": 60,
+				"Damage Maximum": 80,
+				"Ignore Armor": 35,
+				"Armor Damage": 110,
+				"Maximum Fatigue": -18,
+				"Description": "A heavy blade with a curved end combining sword and axe into a devastating two-handed cleaver.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 16,
+				"Number of Hands required": 2,
+				"Weapon Type": [
+					"Cleaver"
+				],
+				"Ability List": [
+					"Cleave 2H",
+					"Decapitate",
+					"Split Shield 2H"
+				]
+			},
+			{
+				"Name": "Two-Handed Mallet",
+				"Value": 500,
+				"Durability": 50,
+				"Damage Minimum": 40,
+				"Damage Maximum": 70,
+				"Ignore Armor": 50,
+				"Armor Damage": 150,
+				"Maximum Fatigue": -14,
+				"Description": " ",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 20,
+				"Number of Hands required": 2,
+				"Weapon Type": [
+					"Hammer"
+				],
+				"Ability List": [
+					"Smite",
+					"Shatter",
+					"Split Shield 2H"
+				]
+			},
+			{
+				"Name": "Two-Handed Hammer",
+				"Value": 2000,
+				"Durability": 120,
+				"Damage Minimum": 60,
+				"Damage Maximum": 90,
+				"Ignore Armor": 50,
+				"Armor Damage": 200,
+				"Maximum Fatigue": -18,
+				"Description": "A large and heavy hammer held with both hands. What it lacks in grace, it makes up for in raw force as it isused to shatter even heavily-armored enemy lines by knocking people away or to the ground.",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 26,
+				"Number of Hands required": 2,
+				"Weapon Type": [
+					"Hammer"
+				],
+				"Ability List": [
+					"Smite",
+					"Shatter",
+					"Split Shield 2H"
+				]
+			},
+			{
+				"Name": "Polehammer",
+				"Value": 1500,
+				"Durability": 100,
+				"Damage Minimum": 50,
+				"Damage Maximum": 75,
+				"Ignore Armor": 50,
+				"Armor Damage": 175,
+				"Maximum Fatigue": -14,
+				"Description": "A warhammer mounted on a long pole, used against armored targets over some distance and from behind the front line.",
+				"Range": 2,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 5,
+				"Shield Damage": 0,
+				"Number of Hands required": 2,
+				"Weapon Type": [
+					"Hammer"
+				],
+				"Ability List": [
+					"Batter 2H",
+					"Destroy Armor 2H"
+				]
+			},
+			{
+				"Name": "Two-Handed Skull Hammer",
+				"Value": 1300,
+				"Durability": 120,
+				"Damage Minimum": 45,
+				"Damage Maximum": 65,
+				"Ignore Armor": 60,
+				"Armor Damage": 180,
+				"Maximum Fatigue": -16,
+				"Description": " ",
+				"Range": 1,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 26,
+				"Number of Hands required": 2,
+				"Weapon Type": [
+					"Hammer"
+				],
+				"Ability List": [
+					"Smite",
+					"Shatter",
+					"Split Shield 2H"
+				]
+			},
+			{
+				"Name": "Pitchfork",
+				"Value": 150,
+				"Durability": 40,
+				"Damage Minimum": 30,
+				"Damage Maximum": 50,
+				"Ignore Armor": 30,
+				"Armor Damage": 75,
+				"Maximum Fatigue": -14,
+				"Description": "An agricultural tool with a long handle and thick pointed tines used to lift and pitch straw. As an improvised weapon it can be used to keep an opponent at bay, but it won't inflict the deadliest of injuries and will perform poorly against armor.",
+				"Range": 2,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 5,
+				"Shield Damage": 0,
+				"Number of Hands required": 2,
+				"Weapon Type": [
+					"Polearm"
+				],
+				"Ability List": [
+					"Impale",
+					"Repel"
+				]
+			},
+			{
+				"Name": "Pike",
+				"Value": 900,
+				"Durability": 64,
+				"Damage Minimum": 60,
+				"Damage Maximum": 80,
+				"Ignore Armor": 30,
+				"Armor Damage": 100,
+				"Maximum Fatigue": -14,
+				"Description": "A long pike used for thrusting over some distance and keeping the enemy at bay.",
+				"Range": 2,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 5,
+				"Shield Damage": 0,
+				"Number of Hands required": 2,
+				"Weapon Type": [
+					"Polearm"
+				],
+				"Ability List": [
+					"Impale",
+					"Repel"
+				]
+			},
+			{
+				"Name": "Hooked Blade",
+				"Value": 700,
+				"Durability": 55,
+				"Damage Minimum": 40,
+				"Damage Maximum": 70,
+				"Ignore Armor": 30,
+				"Armor Damage": 110,
+				"Maximum Fatigue": -12,
+				"Description": "An agricultural tool adapted for use in battle, this polearm has a hooked blade for striking over some distance and pulling in targets.",
+				"Range": 2,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 5,
+				"Shield Damage": 0,
+				"Number of Hands required": 2,
+				"Weapon Type": [
+					"Polearm"
+				],
+				"Ability List": [
+					"Strike",
+					"Hook"
+				]
+			},
+			{
+				"Name": "Billhook",
+				"Value": 1400,
+				"Durability": 72,
+				"Damage Minimum": 60,
+				"Damage Maximum": 90,
+				"Ignore Armor": 30,
+				"Armor Damage": 150,
+				"Maximum Fatigue": -14,
+				"Description": "A pike-like weapon with a blade for striking over some distance and a hook attached for pulling in targets.",
+				"Range": 2,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 5,
+				"Shield Damage": 0,
+				"Number of Hands required": 2,
+				"Weapon Type": [
+					"Polearm"
+				],
+				"Ability List": [
+					"Strike",
+					"Hook"
+				]
+			},
+			{
+				"Name": "Battle Standard",
+				"Value": 1500,
+				"Durability": 64,
+				"Damage Minimum": 50,
+				"Damage Maximum": 70,
+				"Ignore Armor": 30,
+				"Armor Damage": 100,
+				"Maximum Fatigue": -15,
+				"Description": "A company standard to take into battle. Held high, allies will rally around it with renewed resolve, and enemies will know well who is about to crush them.",
+				"Range": 2,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 2,
+				"Weapon Type": [
+					"Polearm"
+				],
+				"Ability List": [
+					"Impale",
+					"For The Company!"
+				]
+			},
+			{
+				"Name": "Jagged Pike",
+				"Value": 800,
+				"Durability": 40,
+				"Damage Minimum": 50,
+				"Damage Maximum": 70,
+				"Ignore Armor": 25,
+				"Armor Damage": 90,
+				"Maximum Fatigue": -8,
+				"Description": "A long jagged pike that can tear bleeding wounds and keep enemies at bay with it's long reach.",
+				"Range": 2,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 5,
+				"Shield Damage": 0,
+				"Number of Hands required": 2,
+				"Weapon Type": [
+					"Polearm"
+				],
+				"Ability List": [
+					"Rupture",
+					"Repel"
+				]
+			},
+			{
+				"Name": "Broken Pike",
+				"Value": 350,
+				"Durability": 26,
+				"Damage Minimum": 35,
+				"Damage Maximum": 55,
+				"Ignore Armor": 30,
+				"Armor Damage": 80,
+				"Maximum Fatigue": -12,
+				"Description": "A bladed pike with a broken tip. Not all weapons stand the test of time. Once used to attack over some distance and keeping (keep) the enemy at bay.",
+				"Range": 2,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 5,
+				"Shield Damage": 0,
+				"Number of Hands required": 2,
+				"Weapon Type": [
+					"Polearm"
+				],
+				"Ability List": [
+					"Impale",
+					"Repel"
+				]
+			},
+			{
+				"Name": "Bladed Pike",
+				"Value": 600,
+				"Durability": 30,
+				"Damage Minimum": 55,
+				"Damage Maximum": 80,
+				"Ignore Armor": 30,
+				"Armor Damage": 125,
+				"Maximum Fatigue": -14,
+				"Description": "A long, ancient pike used to attack over some distance and keep the enemy at bay.",
+				"Range": 2,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 5,
+				"Shield Damage": 0,
+				"Number of Hands required": 2,
+				"Weapon Type": [
+					"Polearm"
+				],
+				"Ability List": [
+					"Impale",
+					"Repel"
+				]
+			},
+			{
+				"Name": "Warscythe",
+				"Value": 700,
+				"Durability": 36,
+				"Damage Minimum": 55,
+				"Damage Maximum": 80,
+				"Ignore Armor": 35,
+				"Armor Damage": 104,
+				"Maximum Fatigue": -16,
+				"Description": "A long pole attached to a sharp curved blade, used to deliver deep sweeping strikes over some distance.",
+				"Range": 2,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 2,
+				"Weapon Type": [
+					"Polearm"
+				],
+				"Ability List": [
+					"Strike",
+					"Reap"
+				]
+			},
+			{
+				"Name": "Bundle of Javelins",
+				"Value": 200,
+				"Durability": 999,
+				"Damage Minimum": 30,
+				"Damage Maximum": 45,
+				"Ignore Armor": 45,
+				"Armor Damage": 75,
+				"Maximum Fatigue": -6,
+				"Description": "A couple of light throwing spears usually carried by skirmishers. Have limited range and are exhausting to throw, but may inflict devastating injuries. Can also inflict minor damage to shields if those are hit instead.",
+				"Range": 4,
+				"Ammunition": 5,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 1,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Throwing"
+				],
+				"Ability List": [
+					"Throw Javelin"
+				]
+			},
+			{
+				"Name": "Bundle of Heavy Javelins",
+				"Value": 300,
+				"Durability": 999,
+				"Damage Minimum": 40,
+				"Damage Maximum": 55,
+				"Ignore Armor": 45,
+				"Armor Damage": 80,
+				"Maximum Fatigue": -8,
+				"Description": " ",
+				"Range": 4,
+				"Ammunition": 5,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": -5,
+				"Bonus Headshot": 0,
+				"Shield Damage": 1,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Throwing"
+				],
+				"Ability List": [
+					"Throw Javelin"
+				]
+			},
+			{
+				"Name": "Bundle of Throwing Axes",
+				"Value": 200,
+				"Durability": 999,
+				"Damage Minimum": 25,
+				"Damage Maximum": 40,
+				"Ignore Armor": 25,
+				"Armor Damage": 110,
+				"Maximum Fatigue": -4,
+				"Description": "Small axes to be thrown in an overhand motion towards a target. Heavy enough to inflict serious damage to armor and shields from range.",
+				"Range": 4,
+				"Ammunition": 5,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 2,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Throwing"
+				],
+				"Ability List": [
+					"Throw Axe"
+				]
+			},
+			{
+				"Name": "Bundle of Heavy Throwing Axes",
+				"Value": 300,
+				"Durability": 999,
+				"Damage Minimum": 35,
+				"Damage Maximum": 55,
+				"Ignore Armor": 25,
+				"Armor Damage": 115,
+				"Maximum Fatigue": -6,
+				"Description": " ",
+				"Range": 4,
+				"Ammunition": 5,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": -5,
+				"Bonus Headshot": 0,
+				"Shield Damage": 2,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Throwing"
+				],
+				"Ability List": [
+					"Throw Axe"
+				]
+			},
+			{
+				"Name": "Bundle of Crude Javelins",
+				"Value": 150,
+				"Durability": 999,
+				"Damage Minimum": 30,
+				"Damage Maximum": 40,
+				"Ignore Armor": 45,
+				"Armor Damage": 70,
+				"Maximum Fatigue": -8,
+				"Description": "A bunch of crudely made javelins intended for throwing at targets. Have limited range and are exhausting to throw, but may inflict devastating injuries. Can also inflict minor damage to shields if those are hit instead.",
+				"Range": 4,
+				"Ammunition": 5,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 1,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Throwing"
+				],
+				"Ability List": [
+					"Throw Javelin"
+				]
+			},
+			{
+				"Name": "Bolas",
+				"Value": 200,
+				"Durability": 999,
+				"Damage Minimum": 20,
+				"Damage Maximum": 35,
+				"Ignore Armor": 35,
+				"Armor Damage": 70,
+				"Maximum Fatigue": -3,
+				"Description": "Small and heavy iron balls with metal spikes to be hurled at a target.",
+				"Range": 4,
+				"Ammunition": 6,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 1,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Throwing"
+				],
+				"Ability List": [
+					"Throw Bola"
+				]
+			},
+			{
+				"Name": "Throwing Spear",
+				"Value": 80,
+				"Durability": 1,
+				"Damage Minimum": 45,
+				"Damage Maximum": 70,
+				"Ignore Armor": 45,
+				"Armor Damage": 110,
+				"Maximum Fatigue": -6,
+				"Description": "Lighter than a common spear, but heavier than a javelin, this weapon is intended to be thrown over short distances. The tip will bend on impact, potentially rendering shields unusable. Can be used against unshielded opponents as well for great effect.",
+				"Range": 4,
+				"Ammunition": 1,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 26,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Polearm"
+				],
+				"Ability List": [
+					"Throw Spear"
+				]
+			},
+			{
+				"Name": "Staff Sling",
+				"Value": 150,
+				"Durability": 36,
+				"Damage Minimum": 25,
+				"Damage Maximum": 40,
+				"Ignore Armor": 35,
+				"Armor Damage": 50,
+				"Maximum Fatigue": -4,
+				"Description": " ",
+				"Range": 6,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 1,
+				"Number of Hands required": 2,
+				"Weapon Type": [
+					"Throwing"
+				],
+				"Ability List": [
+					"Sling Stone"
+				]
+			},
+			{
+				"Name": "Wonky Bow",
+				"Value": 100,
+				"Durability": 48,
+				"Damage Minimum": 30,
+				"Damage Maximum": 50,
+				"Ignore Armor": 35,
+				"Armor Damage": 50,
+				"Maximum Fatigue": -6,
+				"Description": "An ill-conceived bow if you ever saw one. The wood cricks and cracks when bent, the string frizzes and goes wiry every time you draw it back.",
+				"Range": 7,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": -10,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 2,
+				"Weapon Type": [
+					"Bow"
+				],
+				"Ability List": [
+					"Quick Shot",
+					"Aimed Shot"
+				]
+			},
+			{
+				"Name": "Short Bow",
+				"Value": 200,
+				"Durability": 60,
+				"Damage Minimum": 30,
+				"Damage Maximum": 50,
+				"Ignore Armor": 35,
+				"Armor Damage": 50,
+				"Maximum Fatigue": -4,
+				"Description": "A simple wooden short bow with medium range. Requires some expertise to use effectively.",
+				"Range": 7,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 2,
+				"Weapon Type": [
+					"Bow"
+				],
+				"Ability List": [
+					"Quick Shot",
+					"Aimed Shot"
+				]
+			},
+			{
+				"Name": "Hunting Bow",
+				"Value": 600,
+				"Durability": 80,
+				"Damage Minimum": 40,
+				"Damage Maximum": 60,
+				"Ignore Armor": 35,
+				"Armor Damage": 55,
+				"Maximum Fatigue": -6,
+				"Description": "A simple wooden short bow with medium range. Requires some expertise to use effectively.",
+				"Range": 7,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 2,
+				"Weapon Type": [
+					"Bow"
+				],
+				"Ability List": [
+					"Quick Shot",
+					"Aimed Shot"
+				]
+			},
+			{
+				"Name": "War Bow",
+				"Value": 2900,
+				"Durability": 100,
+				"Damage Minimum": 50,
+				"Damage Maximum": 70,
+				"Ignore Armor": 35,
+				"Armor Damage": 60,
+				"Maximum Fatigue": -6,
+				"Description": "A long bow with massive pulling power. Distinctively designed for battle.",
+				"Range": 7,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 2,
+				"Weapon Type": [
+					"Bow"
+				],
+				"Ability List": [
+					"Quick Shot",
+					"Aimed Shot"
+				]
+			},
+			{
+				"Name": "Masterwork Bow",
+				"Value": 3500,
+				"Durability": 110,
+				"Damage Minimum": 35,
+				"Damage Maximum": 65,
+				"Ignore Armor": 35,
+				"Armor Damage": 65,
+				"Maximum Fatigue": -6,
+				"Description": "A finely crafted bow, light in grip and perfectly balanced for accuracy. Constructed from different woods it has colors of this tree and that spiral through the curve of the weapon, looking arboreally damascened. Truly the work of a master bowyer.",
+				"Range": 7,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 5,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 2,
+				"Weapon Type": [
+					"Bow"
+				],
+				"Ability List": [
+					"Quick Shot",
+					"Aimed Shot"
+				]
+			},
+			{
+				"Name": "Boondock Bow",
+				"Value": 250,
+				"Durability": 52,
+				"Damage Minimum": 25,
+				"Damage Maximum": 40,
+				"Ignore Armor": 35,
+				"Armor Damage": 55,
+				"Maximum Fatigue": -3,
+				"Description": "A very light short bow used by Goblins.",
+				"Range": 6,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 2,
+				"Weapon Type": [
+					"Bow"
+				],
+				"Ability List": [
+					"Quick Shot",
+					"Aimed Shot"
+				]
+			},
+			{
+				"Name": "Reinforced Boondock Bow",
+				"Value": 500,
+				"Durability": 62,
+				"Damage Minimum": 25,
+				"Damage Maximum": 40,
+				"Ignore Armor": 35,
+				"Armor Damage": 60,
+				"Maximum Fatigue": -4,
+				"Description": "A light, yet powerful bow made of various woods",
+				"Range": 7,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 2,
+				"Weapon Type": [
+					"Bow"
+				],
+				"Ability List": [
+					"Quick Shot",
+					"Aimed Shot"
+				]
+			},
+			{
+				"Name": "Light Crossbow",
+				"Value": 300,
+				"Durability": 40,
+				"Damage Minimum": 30,
+				"Damage Maximum": 50,
+				"Ignore Armor": 50,
+				"Armor Damage": 60,
+				"Maximum Fatigue": -6,
+				"Description": " ",
+				"Range": 6,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 2,
+				"Weapon Type": [
+					"Crossbow"
+				],
+				"Ability List": [
+					"Shoot Bolt",
+					"Reload"
+				]
+			},
+			{
+				"Name": "Crossbow",
+				"Value": 750,
+				"Durability": 48,
+				"Damage Minimum": 40,
+				"Damage Maximum": 60,
+				"Ignore Armor": 50,
+				"Armor Damage": 70,
+				"Maximum Fatigue": -8,
+				"Description": " ",
+				"Range": 6,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 2,
+				"Weapon Type": [
+					"Crossbow"
+				],
+				"Ability List": [
+					"Shoot Bolt",
+					"Reload"
+				]
+			},
+			{
+				"Name": "Heavy Crossbow",
+				"Value": 3200,
+				"Durability": 64,
+				"Damage Minimum": 50,
+				"Damage Maximum": 70,
+				"Ignore Armor": 50,
+				"Armor Damage": 75,
+				"Maximum Fatigue": -12,
+				"Description": " ",
+				"Range": 6,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 2,
+				"Weapon Type": [
+					"Crossbow"
+				],
+				"Ability List": [
+					"Shoot Bolt",
+					"Reload"
+				]
+			},
+			{
+				"Name": "Spiked Impaler",
+				"Value": 2000,
+				"Durability": 72,
+				"Damage Minimum": 50,
+				"Damage Maximum": 70,
+				"Ignore Armor": 50,
+				"Armor Damage": 75,
+				"Maximum Fatigue": -10,
+				"Description": "A large and heavy crossbow with menacing spikes in front. More like a miniature ballista, it shoots stakes with enough force to knock back a target hit.",
+				"Range": 6,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 2,
+				"Weapon Type": [
+					"Crossbow"
+				],
+				"Ability List": [
+					"Shoot Heavy Bolt",
+					"Reload"
+				]
+			},
+			{
+				"Name": "Acid Flask",
+				"Value": 100,
+				"Durability": 1,
+				"Damage Minimum": 0,
+				"Damage Maximum": 0,
+				"Ignore Armor": 0,
+				"Armor Damage": 0,
+				"Maximum Fatigue": 0,
+				"Description": "A flask filled with the concentrate of a Lindwrm's acidic blood. It is highly corrosive to many materials and burns through armor quickly. Can be thrown at short ranges.",
+				"Range": 3,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Special"
+				],
+				"Ability List": [
+					"Throw Acid Flask"
+				]
+			},
+			{
+				"Name": "Reinforced Throwing Net",
+				"Value": 150,
+				"Durability": 1,
+				"Damage Minimum": 0,
+				"Damage Maximum": 0,
+				"Ignore Armor": 0,
+				"Armor Damage": 0,
+				"Maximum Fatigue": -2,
+				"Description": "A net used to throw over a target in order to hamper their ability to move and defend themself effectively. Reinforced with gossamer taken from a webknecht, it is even harder to break free from.",
+				"Range": 3,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Special"
+				],
+				"Ability List": [
+					"Throw Reinforced Net"
+				]
+			},
+			{
+				"Name": "Net",
+				"Value": 50,
+				"Durability": 1,
+				"Damage Minimum": 0,
+				"Damage Maximum": 0,
+				"Ignore Armor": 0,
+				"Armor Damage": 0,
+				"Maximum Fatigue": -2,
+				"Description": "A net is used to throw over a target in order to hamper their ability to move and defend themself effectively.",
+				"Range": 3,
+				"Ammunition": 0,
+				"Bonus Skill Fatigue": 0,
+				"Bonus Hit Chance": 0,
+				"Bonus Headshot": 0,
+				"Shield Damage": 0,
+				"Number of Hands required": 1,
+				"Weapon Type": [
+					"Special"
+				],
+				"Ability List": [
+					"Throw Net"
+				]
+			}
+		]
+	},
+	"Accessory": {
+		"Resolve Necklaces": [
+			{
+				"Name": "Alp Trophy Necklacep",
+				"Value": 300,
+				"Description": "",
+				"Resolve Boost": 5
+			},
+			{
+				"Name": "Hexen Trophy Necklace",
+				"Value": 350,
+				"Description": "",
+				"Resolve Boost": 6
+			},
+			{
+				"Name": "Nachzehrer Trophy Necklace",
+				"Value": 250,
+				"Description": "",
+				"Resolve Boost": 4
+			},
+			{
+				"Name": "Sergeant's Sash",
+				"Value": 250,
+				"Description": "A sash worn by the company's sergeant, your second-in-command on the battlefield.",
+				"Resolve Boost": 10
+			}
+		]
+	}
+}
