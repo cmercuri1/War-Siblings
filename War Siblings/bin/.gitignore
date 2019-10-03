@@ -1,5 +1,14 @@
-/effect_classes/
+/attributes/
+/battle/
 /character/
+/effect_classes/
 /engine/
-/storage_classes/
 /event_classes/
+/global_generators/
+/global_managers/
+/images/
+/items/
+/listener_interfaces/
+/notifier_interfaces/
+/run/
+/storage_classes/

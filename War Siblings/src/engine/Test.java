@@ -5,6 +5,7 @@
 package engine;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -13,14 +14,18 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.ImageIcon;
 import java.awt.Toolkit;
 import java.awt.GridLayout;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import com.jgoodies.forms.layout.FormLayout;
+import com.jgoodies.forms.layout.ColumnSpec;
+import com.jgoodies.forms.layout.RowSpec;
+import com.jgoodies.forms.layout.FormSpecs;
+import net.miginfocom.swing.MigLayout;
 
 public class Test extends JFrame {
 
 	private JPanel contentPane;
-	/**
-	 * @wbp.nonvisual location=68,114
-	 */
-	private final ImageIcon imageIcon = new ImageIcon();
 
 	/**
 	 * Launch the application.
@@ -42,17 +47,24 @@ public class Test extends JFrame {
 	 * Create the frame.
 	 */
 	public Test() {
-		imageIcon.setImage(Toolkit.getDefaultToolkit().getImage(Test.class.getResource("/images/Attributes/Armor_damage.png")));
+		setBackground(new Color(153, 0, 0));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(0, 0, 1300, 800);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(153, 0, 0));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		contentPane.setLayout(new MigLayout("", "[350]", "[400][75][350]"));
 		
-		PanelAttempt panelAttempt = new PanelAttempt();
-		contentPane.add(panelAttempt, BorderLayout.CENTER);
-		panelAttempt.setLayout(new GridLayout(1, 0, 0, 0));
+		EquipmentPanel equipmentPanel = new EquipmentPanel();
+		contentPane.add(equipmentPanel, "cell 0 0,grow");
+		
+		AbilityPanel abilityPanel = new AbilityPanel();
+		abilityPanel.setBackground(new Color(128, 0, 0));
+		contentPane.add(abilityPanel, "cell 0 1,grow");
+		
+		AttributePanel attributePanel = new AttributePanel();
+		attributePanel.setBackground(new Color(128, 0, 0));
+		contentPane.add(attributePanel, "cell 0 2,grow");
 	}
-
 }
