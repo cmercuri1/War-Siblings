@@ -47,24 +47,30 @@ public class Test extends JFrame {
 	 * Create the frame.
 	 */
 	public Test() {
+		setTitle("War Siblings");
 		setBackground(new Color(153, 0, 0));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(0, 0, 1300, 800);
+		setSize(1300, 800);
+		setLocationRelativeTo(null);
+		setResizable(false);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(153, 0, 0));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(new MigLayout("", "[350]", "[400][75][350]"));
-		
+		contentPane.setLayout(new MigLayout("", "[350][690][260]", "[400][75][350]"));
+
 		EquipmentPanel equipmentPanel = new EquipmentPanel();
 		contentPane.add(equipmentPanel, "cell 0 0,grow");
-		
+
 		AbilityPanel abilityPanel = new AbilityPanel();
 		abilityPanel.setBackground(new Color(128, 0, 0));
 		contentPane.add(abilityPanel, "cell 0 1,grow");
-		
+
 		AttributePanel attributePanel = new AttributePanel();
-		attributePanel.setBackground(new Color(128, 0, 0));
+		attributePanel.setBackground(new Color(153, 0, 0));
 		contentPane.add(attributePanel, "cell 0 2,grow");
+
+		TestPanel testPanel = new TestPanel();
+		contentPane.add(testPanel, "cell 2 2,grow");
 	}
 }

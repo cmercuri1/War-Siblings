@@ -61,7 +61,7 @@ public class EquipmentPanel extends JPanel {
 		JLabel label_6 = new JLabel("");
 		label_6.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		label_6.setIcon(new StretchIcon(EquipmentPanel.class.getResource("/images/Items/EmptyBag.png"), true));
-		add(label_6, "cell 7 21 6 6, grow");
+		add(label_6, "cell 6 21 6 6, grow");
 
 		JLabel label_7 = new JLabel("");
 		label_7.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));

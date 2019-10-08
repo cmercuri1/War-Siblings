@@ -32,7 +32,7 @@ public class IconPanel extends JPanel {
 		setBackground(new Color(153, 0, 0));
 		setMaximumSize(new Dimension(32767, 20));
 		setMinimumSize(new Dimension(10, 20));
-		setPreferredSize(new Dimension(465, 58));
+		setPreferredSize(new Dimension(427, 58));
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new StretchIcon(filename, true));
 
@@ -47,10 +47,10 @@ public class IconPanel extends JPanel {
 		progressBar.setValue(50);
 		progressBar.setStringPainted(true);
 		setLayout(new MigLayout("",
-				"[10][10][10][10][10][10][10][10][10][10][10][10][10][10][10][10][10][10][10][10][10][10][10][10][10][10][10][10][10][10][10][10][10][10][10][10]",
-				"[10][10][10][10][10][10][10]"));
-		add(lblNewLabel, "cell 0 0 7 7,grow");
-		add(progressBar, "cell 7 1 30 5,grow");
+				"[50][10][10][50][50][50][50][50][50]",
+				"[10][50][10]"));
+		add(lblNewLabel, "cell 0 0 3 3,grow");
+		add(progressBar, "cell 3 1 6 1,grow");
 
 	}
 
