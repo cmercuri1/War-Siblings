@@ -7,15 +7,12 @@ package engine;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JProgressBar;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.Color;
-import java.awt.Dimension;
 import javax.swing.border.BevelBorder;
 import net.miginfocom.swing.MigLayout;
+import storage_classes.BarDisplay;
 
-public class IconPanel extends JPanel {
+public class IconPanel extends JPanel {JProgressBar progressBar;
 	/**
 	 * 
 	 */
@@ -33,12 +30,13 @@ public class IconPanel extends JPanel {
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new StretchIcon(filename, true));
 
-		JProgressBar progressBar = new JProgressBar();
+		progressBar = new JProgressBar();
+		progressBar.setString("");
 		progressBar.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		progressBar.setOpaque(true);
 		progressBar.setBackground(new Color(47, 79, 79));
 		progressBar.setForeground(color);
-		progressBar.setValue(50);
+		progressBar.setValue(0);
 		progressBar.setStringPainted(true);
 		setLayout(new MigLayout("",
 				"[50,grow][10,grow][10,grow][50,grow][50,grow][50,grow][50,grow][50,grow][50,grow]",
@@ -47,8 +45,9 @@ public class IconPanel extends JPanel {
 		add(progressBar, "cell 3 1 6 1,grow");
 	}
 	
-	public void setValue(String val) {
-		
+	public void setValue(BarDisplay bd) {
+		progressBar.setString(bd.getOutputString());
+		progressBar.setValue(bd.getOutputVal());
 	}
 
 }

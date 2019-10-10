@@ -4,6 +4,7 @@ import event_classes.MultiValueAttributeEvent;
 import listener_interfaces.MultiValueAttributeListener;
 import notifier_interfaces.MultiValueAttributeNotifier;
 import storage_classes.ArrayList;
+import storage_classes.BarDisplay;
 
 public class BarAttribute extends Attribute implements MultiValueAttributeNotifier {
 	protected final static double MINIMUM = 0.0;
@@ -56,6 +57,10 @@ public class BarAttribute extends Attribute implements MultiValueAttributeNotifi
 	public String toStringFull() {
 		return ((Double) this.alteredCurrentValue).intValue() + "/" + ((Double) this.alteredMaxValue).intValue()
 				+ this.stringModifiers();
+	}
+
+	public BarDisplay getBarDisplay() {
+		return new BarDisplay(this.alteredCurrentValue, this.alteredMaxValue);
 	}
 
 	@Override

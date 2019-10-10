@@ -7,7 +7,7 @@ package engine;
 import javax.swing.JPanel;
 
 import character.Character;
-
+import event_classes.CharacterEvent;
 import net.miginfocom.swing.MigLayout;
 import java.awt.Color;
 
@@ -34,12 +34,16 @@ public class CharacterPanel extends JPanel {
 		attributePanel = new AttributePanel();
 		attributePanel.setBackground(new Color(102, 0, 0));
 		add(attributePanel, "cell 0 3,grow");
+		
+		currChar = new Character();
+		
+		currChar.onCharacterEvent(new CharacterEvent(CharacterEvent.Task.CHANGED_CHARACTER, "Random", null));
 	}
 	
-	public void applyCharacter(Character c) {
-		equipmentPanel.update(c.getIm());
-		abilityPanel.update(c.getAbm());
-		attributePanel.update(c.getIm(), c.getAm());
+	public void applyCharacter() {
+		equipmentPanel.update(currChar.getIm());
+		abilityPanel.update(currChar.getAbm());
+		attributePanel.update(currChar.getIm(), currChar.getAm());
 	}
 
 }

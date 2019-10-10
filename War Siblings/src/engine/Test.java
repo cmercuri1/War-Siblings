@@ -64,5 +64,7 @@ public class Test extends JFrame {
 		
 		TestPanel testPanel = new TestPanel();
 		contentPane.add(testPanel, "cell 2 1,grow");
+		
+		charPanel.applyCharacter();
 	}
 }

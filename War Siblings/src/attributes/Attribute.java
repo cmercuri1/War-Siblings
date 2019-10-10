@@ -31,7 +31,7 @@ public class Attribute implements AttributeNotifier {
 
 		this.originalMaxValue = value;
 		this.alteredMaxValue = this.originalMaxValue;
-
+		
 		this.setUpNotificationSystem();
 	}
 
