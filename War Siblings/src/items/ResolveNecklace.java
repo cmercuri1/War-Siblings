@@ -5,6 +5,7 @@
 package items;
 
 import effect_classes.Modifier;
+import storage_classes.ArrayList;
 
 public class ResolveNecklace extends Accessory {
 
@@ -13,8 +14,14 @@ public class ResolveNecklace extends Accessory {
 	public ResolveNecklace(String name, double value, String desc, double resolveBoost) {
 		super(name, value, desc);
 		this.resolveBoost = new Modifier("resolve_Unique", resolveBoost);
-
-		this.temp.add(this.resolveBoost);
 	}
 
+	@Override
+	public ArrayList<Modifier> onEquipSituation() {
+		ArrayList<Modifier> temp = new ArrayList<Modifier>();
+
+		temp.add(this.resolveBoost);
+		
+		return temp;
+	}
 }

@@ -65,7 +65,7 @@ public class EquipmentPanel extends JPanel {
 
 		ammo = new JLabel("");
 		ammo.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
-		ammo.setIcon(new StretchIcon(EquipmentPanel.class.getResource("/images/Items/EmptyAmmo.png"), true));
+		ammo.setIcon(new StretchIcon(EquipmentPanel.class.getResource("/images/Items/Ammunition/EmptyAmmo.png"), true));
 		add(ammo, "cell 6 1 2 2,grow");
 
 		bag1 = new JLabel("");

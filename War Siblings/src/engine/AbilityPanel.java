@@ -14,6 +14,7 @@ import character.AbilityManager;
 
 import javax.swing.JLabel;
 import java.awt.Color;
+import javax.swing.ScrollPaneConstants;
 
 public class AbilityPanel extends JPanel {
 	/**
@@ -30,6 +31,7 @@ public class AbilityPanel extends JPanel {
 		setLayout(new MigLayout("", "[grow]", "[grow]"));
 
 		scrollPane = new JScrollPane();
+		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 		scrollPane.setForeground(new Color(165, 42, 42));
 		scrollPane.setBackground(new Color(165, 42, 42));
 		add(scrollPane, "cell 0 0,grow");
@@ -43,7 +45,7 @@ public class AbilityPanel extends JPanel {
 		for (Trait t:abm.getTraits()) {
 			//System.out.println(t.toString());
 			JLabel temp = new JLabel("");
-			temp.setIcon(new StretchIcon(t.getImage().getImage(),true));
+			temp.setIcon(t.getImage());
 			temp.setToolTipText(t.toString());
 			scrollPane.add(temp);
 		}

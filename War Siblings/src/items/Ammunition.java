@@ -4,6 +4,8 @@
  */
 package items;
 
+import javax.swing.ImageIcon;
+
 import attributes.BarAttribute;
 import effect_classes.Modifier;
 import event_classes.MultiValueAttributeEvent;
@@ -13,16 +15,17 @@ import storage_classes.ArrayList;
 public class Ammunition extends Item implements MultiValueAttributeListener, Equipable {
 	protected BarAttribute capacity;
 
-	protected ArrayList<Modifier> modifiers;
-
 	public Ammunition(String name, double value, String desc, double capacity) {
 		super(name, value, desc);
 		this.capacity = new BarAttribute(capacity);
 		this.capacity.addAttributeListener(this);
 		this.capacity.addMultiValueAttributeListener(this);
-		this.modifiers = new ArrayList<Modifier>();
 	}
 
+	protected void setIcon() {
+		this.image = new ImageIcon("res/Images/Items/Ammunition/" + this.name + ".png");
+	}
+	
 	@Override
 	public void onMultiValueAttributeEvent(MultiValueAttributeEvent m) {
 		switch (m.getTask()) {
@@ -43,13 +46,16 @@ public class Ammunition extends Item implements MultiValueAttributeListener, Equ
 
 	@Override
 	public ArrayList<Modifier> onEquipSituation() {
-		return this.modifiers;
+		ArrayList<Modifier> modifiers = new ArrayList<Modifier>();
+
+		return modifiers;
 	}
 
 	@Override
 	public ArrayList<Modifier> onBagSituation() {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<Modifier> modifiers = new ArrayList<Modifier>();
+
+		return modifiers;
 	}
 
 }

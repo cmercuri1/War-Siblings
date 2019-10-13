@@ -10,11 +10,9 @@ import effect_classes.Modifier;
 import storage_classes.ArrayList;
 
 public class Accessory extends Item implements Equipable {
-	protected ArrayList<Modifier> temp;
 
 	public Accessory(String name, double value, String desc) {
 		super(name, value, desc);
-		this.temp = new ArrayList<Modifier>();
 	}
 
 	protected void setIcon() {
@@ -23,13 +21,16 @@ public class Accessory extends Item implements Equipable {
 
 	@Override
 	public ArrayList<Modifier> onEquipSituation() {
+		ArrayList<Modifier> temp = new ArrayList<Modifier>();
+
 		return temp;
 	}
 
 	@Override
 	public ArrayList<Modifier> onBagSituation() {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<Modifier> temp = new ArrayList<Modifier>();
+
+		return temp;
 	}
 
 }

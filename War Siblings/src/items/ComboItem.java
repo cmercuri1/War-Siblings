@@ -44,6 +44,15 @@ public class ComboItem extends Item implements Equipable, Durable, Weighty {
 		return temp;
 	}
 
+	@Override
+	public ArrayList<Modifier> onBagSituation() {
+		ArrayList<Modifier> temp = new ArrayList<Modifier>();
+
+		temp.add(new Modifier("fatigue", this.fatigueRed.getAlteredValue()/2));
+
+		return temp;
+	}
+
 	/* Getters */
 	public DurAttribute getDurability() {
 		return this.durability;
@@ -88,11 +97,5 @@ public class ComboItem extends Item implements Equipable, Durable, Weighty {
 		case REPAIRED:
 			break;
 		}
-	}
-
-	@Override
-	public ArrayList<Modifier> onBagSituation() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 }

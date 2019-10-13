@@ -272,8 +272,8 @@ public class InventoryManager implements CharacterInventoryListener, SkillPrefer
 		ComboItem temp = this.bag.remove(index);
 		this.bag.add(index, next);
 
-		this.removeModifiers(temp.onEquipSituation());
-		this.addModifiers(next.onEquipSituation());
+		this.removeModifiers(temp.onBagSituation());
+		this.addModifiers(next.onBagSituation());
 		this.notifyInventoryListeners(new InventoryEvent(InventoryEvent.Task.RETURN_INVENTORY, temp, this));
 	}
 
