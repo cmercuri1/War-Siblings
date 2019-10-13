@@ -89,4 +89,10 @@ public class ComboItem extends Item implements Equipable, Durable, Weighty {
 			break;
 		}
 	}
+
+	@Override
+	public ArrayList<Modifier> onBagSituation() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

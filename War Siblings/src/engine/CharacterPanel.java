@@ -12,6 +12,10 @@ import net.miginfocom.swing.MigLayout;
 import java.awt.Color;
 
 public class CharacterPanel extends JPanel {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	Character currChar;
 	EquipmentPanel equipmentPanel;
 	AbilityPanel abilityPanel;

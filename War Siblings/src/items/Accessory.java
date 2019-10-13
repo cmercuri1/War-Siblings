@@ -26,4 +26,10 @@ public class Accessory extends Item implements Equipable {
 		return temp;
 	}
 
+	@Override
+	public ArrayList<Modifier> onBagSituation() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

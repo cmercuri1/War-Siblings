@@ -333,6 +333,14 @@ public class InventoryManager implements CharacterInventoryListener, SkillPrefer
 		return this.bag;
 	}
 
+	public Accessory getAccessory() {
+		return this.accessory;
+	}
+
+	public Ammunition getAmmunition() {
+		return this.ammunition;
+	}
+
 	public void display() {
 		System.out.println("Inventory:");
 

@@ -12,17 +12,17 @@ public class BarDisplay {
 	public BarDisplay(double cVal, String percent) {
 		double maxValue = Math.max(cVal + 1, 100);
 		this.outputValue = calcOutputVal(cVal, maxValue);
-		this.outputString = cVal + percent;
+		this.outputString = ((Double) cVal).intValue() + percent;
 	}
 
 	public BarDisplay(double cVal, double mVal) {
 		this.outputValue = calcOutputVal(cVal, mVal);
-		this.outputString = cVal + "/" + mVal;
+		this.outputString = ((Double) cVal).intValue() + "/" + ((Double) mVal).intValue();
 	}
 	
 	public BarDisplay(double cVal, String damage, double mVal) {
-		this.outputValue = calcOutputVal(mVal, 150);
-		this.outputString = cVal + " - " + mVal;
+		this.outputValue = calcOutputVal(mVal, 135);
+		this.outputString = damage;
 	}
 
 	public BarDisplay(double cVal, double mVal, String over) {

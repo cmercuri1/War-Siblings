@@ -9,4 +9,5 @@ import storage_classes.ArrayList;
 
 public interface Equipable {
 	ArrayList<Modifier> onEquipSituation();
+	ArrayList<Modifier> onBagSituation();
 }

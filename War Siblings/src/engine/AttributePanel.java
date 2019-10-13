@@ -6,6 +6,9 @@ package engine;
 
 import javax.swing.JPanel;
 
+import attributes.BarAttribute;
+import attributes.BarStarAttribute;
+import attributes.DamageAttribute;
 import character.AttributeManager;
 import character.InventoryManager;
 import net.miginfocom.swing.MigLayout;
@@ -16,6 +19,10 @@ import java.awt.Color;
 
 public class AttributePanel extends JPanel {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	protected IconPanel helm;
 	protected IconPanel body;
 	protected IconPanel hp;
@@ -132,9 +139,12 @@ public class AttributePanel extends JPanel {
 				im.getHead().getDurability().getAlteredValue()));
 		body.setValue(new BarDisplay(im.getBody().getDurability().getAlteredCurrentValue(),
 				im.getBody().getDurability().getAlteredValue()));
-		hp.setValue(new BarDisplay(am.getAttributes()[0].getAlteredValue(), am.getAttributes()[0].getAlteredValue()));
-		ap.setValue(new BarDisplay(am.getAttributes()[1].getAlteredValue(), am.getAttributes()[1].getAlteredValue()));
-		fat.setValue(new BarDisplay(am.getAttributes()[2].getAlteredValue(), am.getAttributes()[2].getAlteredValue()));
+		hp.setValue(new BarDisplay(((BarStarAttribute) am.getAttributes()[0]).getAlteredCurrentValue(),
+				am.getAttributes()[0].getAlteredValue()));
+		ap.setValue(new BarDisplay(((BarAttribute) am.getAttributes()[1]).getAlteredCurrentValue(),
+				am.getAttributes()[1].getAlteredValue()));
+		fat.setValue(new BarDisplay(((BarStarAttribute) am.getAttributes()[2]).getAlteredCurrentValue(),
+				am.getAttributes()[2].getAlteredValue()));
 		mor.setValue(new BarDisplay(am.getCurrentState().getValue(), MoraleState.UNBREAKABLE.getValue(),
 				am.getCurrentState().toString()));
 		res.setValue(new BarDisplay(am.getAttributes()[3].getAlteredValue(), ""));
@@ -143,11 +153,12 @@ public class AttributePanel extends JPanel {
 		rSk.setValue(new BarDisplay(am.getAttributes()[6].getAlteredValue(), ""));
 		mDef.setValue(new BarDisplay(am.getAttributes()[7].getAlteredValue(), ""));
 		rDef.setValue(new BarDisplay(am.getAttributes()[8].getAlteredValue(), ""));
-		dam.setValue(
-				new BarDisplay(am.getAttributes()[9].getAlteredValue(), "", am.getAttributes()[9].getAlteredValue()));
-		armDam.setValue(new BarDisplay(am.getAttributes()[10].getAlteredValue(), "%"));
+		dam.setValue(new BarDisplay(((DamageAttribute) am.getAttributes()[9]).getAlteredMinValue(),
+				((DamageAttribute) am.getAttributes()[9]).toString(), am.getAttributes()[9].getAlteredValue()));
+		armDam.setValue(
+				new BarDisplay(am.getAttributes()[10].getAlteredValue(), 225, am.getAttributes()[10].toString() + "%"));
 		hs.setValue(new BarDisplay(am.getAttributes()[11].getAlteredValue(), "%"));
-		vis.setValue(new BarDisplay(am.getAttributes()[3].getAlteredValue(), 9.0));
+		vis.setValue(new BarDisplay(am.getAttributes()[12].getAlteredValue(), 9.0, am.getAttributes()[12].toString()));
 	}
 
 }

@@ -16,6 +16,10 @@ import javax.swing.JLabel;
 import java.awt.Color;
 
 public class AbilityPanel extends JPanel {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	JScrollPane scrollPane;
 	
 	/**
@@ -37,6 +41,7 @@ public class AbilityPanel extends JPanel {
 	public void update(AbilityManager abm) {
 		scrollPane.removeAll();
 		for (Trait t:abm.getTraits()) {
+			//System.out.println(t.toString());
 			JLabel temp = new JLabel("");
 			temp.setIcon(new StretchIcon(t.getImage().getImage(),true));
 			temp.setToolTipText(t.toString());

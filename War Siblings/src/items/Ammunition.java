@@ -46,4 +46,10 @@ public class Ammunition extends Item implements MultiValueAttributeListener, Equ
 		return this.modifiers;
 	}
 
+	@Override
+	public ArrayList<Modifier> onBagSituation() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

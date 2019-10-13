@@ -2532,7 +2532,7 @@
 				"Value": 2200,
 				"Durability": 72,
 				"Damage Minimum": 85,
-				"Damage Maximum": 105,
+				"Damage Maximum": 100,
 				"Ignore Armor": 35,
 				"Armor Damage": 100,
 				"Maximum Fatigue": -12,
