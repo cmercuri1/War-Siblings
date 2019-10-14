@@ -36,10 +36,10 @@ public class AbilityDisplayPanel extends JPanel {
 		for (Ability a : curr.getAbm().getAbilities()) {
 			try {
 				temp = new JLabel(new StretchIcon(a.getImage().getImage(), true));
-			temp.setToolTipText(a.toString());
-			abilities.add(temp);
+				temp.setToolTipText(a.toString());
+				abilities.add(temp);
 			} catch (NullPointerException n) {
-				
+
 			}
 		}
 

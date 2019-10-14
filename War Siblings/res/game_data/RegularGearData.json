@@ -1023,7 +1023,7 @@
 				"Ranged Defense": 5,
 				"Description": "A small but sturdy shield gripped in the fist. Offers poor protection against ranged attacks but can be useful in deflecting blows in melee.",
 				"Ability List": [
-					"Knock Back"
+					"KnockBack"
 				]
 			},
 			{
@@ -1035,7 +1035,7 @@
 				"Ranged Defense": 10,
 				"Description": "A wooden shield made by goblins. Light but also small, offering little protection against attacks for a human using it.",
 				"Ability List": [
-					"Knock Back",
+					"KnockBack",
 					"Shieldwall"
 				]
 			},
@@ -1048,7 +1048,7 @@
 				"Ranged Defense": 20,
 				"Description": "A light wooden shield covered in leather. Offers good protection against ranged attacks due to its size, but is quite fragile.",
 				"Ability List": [
-					"Knock Back",
+					"KnockBack",
 					"Shieldwall"
 				]
 			},
@@ -1061,7 +1061,7 @@
 				"Ranged Defense": 15,
 				"Description": "An old round wooden shield.",
 				"Ability List": [
-					"Knock Back",
+					"KnockBack",
 					"Shieldwall"
 				]
 			},
@@ -1074,7 +1074,7 @@
 				"Ranged Defense": 10,
 				"Description": "A reinforced wooden shield made by goblins. Light but also small, offering little protection against attacks for a human using it.",
 				"Ability List": [
-					"Knock Back",
+					"KnockBack",
 					"Shieldwall"
 				]
 			},
@@ -1087,7 +1087,7 @@
 				"Ranged Defense": 15,
 				"Description": "A wooden light shield in oval shape. The wood seems brittle and old, making it less durable.",
 				"Ability List": [
-					"Knock Back",
+					"KnockBack",
 					"Shieldwall"
 				]
 			},
@@ -1100,7 +1100,7 @@
 				"Ranged Defense": 15,
 				"Description": "A round wooden shield.",
 				"Ability List": [
-					"Knock Back",
+					"KnockBack",
 					"Shieldwall"
 				]
 			},
@@ -1113,7 +1113,7 @@
 				"Ranged Defense": 20,
 				"Description": "An octagonal shield made of wood and reinforced with bronze. Time has taken its toll and the wood has become brittle.",
 				"Ability List": [
-					"Knock Back",
+					"KnockBack",
 					"Shieldwall"
 				]
 			},
@@ -1126,7 +1126,7 @@
 				"Ranged Defense": 15,
 				"Description": "A rotten triangular wooden shield covered with leather, canvas and moss.",
 				"Ability List": [
-					"Knock Back",
+					"KnockBack",
 					"Shieldwall"
 				]
 			},
@@ -1139,7 +1139,7 @@
 				"Ranged Defense": 25,
 				"Description": "An elongated wooden shield that offers good protection also to the lower body. Somewhat bulky to handle in close combat engagements.",
 				"Ability List": [
-					"Knock Back",
+					"KnockBack",
 					"Shieldwall"
 				]
 			},
@@ -1152,7 +1152,7 @@
 				"Ranged Defense": 25,
 				"Description": "An elongated wooden shield covered in leather that offers good protection also to the lower body. Somewhat bulky to handle in close combat engagements.",
 				"Ability List": [
-					"Knock Back",
+					"KnockBack",
 					"Shieldwall"
 				]
 			},
@@ -1165,7 +1165,7 @@
 				"Ranged Defense": 20,
 				"Description": "A tall and heavy tower shield that offers good protection, but is very bulky to handle. It appears to be old and worn down.",
 				"Ability List": [
-					"Knock Back",
+					"KnockBack",
 					"Shieldwall"
 				]
 			},
@@ -1178,7 +1178,7 @@
 				"Ranged Defense": 15,
 				"Description": "A triangular wooden shield covered with leather and canvas.",
 				"Ability List": [
-					"Knock Back",
+					"KnockBack",
 					"Shieldwall"
 				]
 			},
@@ -1191,7 +1191,7 @@
 				"Ranged Defense": 15,
 				"Description": "A massive metal shield that is almost impossible to destroy but very heavy and fatiguing to wear for any human.",
 				"Ability List": [
-					"Knock Back",
+					"KnockBack",
 					"Shieldwall"
 				]
 			}
@@ -1271,7 +1271,7 @@
 					"Sword"
 				],
 				"Ability List": [
-					"Slash",
+					"Slash Goblin",
 					"Puncture"
 				]
 			},
@@ -1346,7 +1346,7 @@
 					"Sword"
 				],
 				"Ability List": [
-					"Slash",
+					"Slash Scimitar",
 					"Gash"
 				]
 			},
@@ -1421,7 +1421,7 @@
 					"Sword"
 				],
 				"Ability List": [
-					"Slash",
+					"Slash Scimitar",
 					"Gash"
 				]
 			},
@@ -1496,7 +1496,7 @@
 					"Sword"
 				],
 				"Ability List": [
-					"Slash",
+					"Slash Goblin",
 					"Riposte"
 				]
 			},
@@ -1571,7 +1571,7 @@
 					"Mace"
 				],
 				"Ability List": [
-					"Knock Out"
+					"KnockOutLute"
 				]
 			},
 			{
@@ -1596,7 +1596,7 @@
 				],
 				"Ability List": [
 					"Bash",
-					"Knock Out"
+					"KnockOut"
 				]
 			},
 			{
@@ -1621,7 +1621,7 @@
 				],
 				"Ability List": [
 					"Bash",
-					"Knock Out"
+					"KnockOut"
 				]
 			},
 			{
@@ -1646,7 +1646,7 @@
 				],
 				"Ability List": [
 					"Bash",
-					"Knock Out"
+					"KnockOut"
 				]
 			},
 			{
@@ -1671,7 +1671,7 @@
 				],
 				"Ability List": [
 					"Bash",
-					"Knock Out"
+					"KnockOut"
 				]
 			},
 			{
@@ -1696,7 +1696,7 @@
 				],
 				"Ability List": [
 					"Bash",
-					"Knock Out"
+					"KnockOut"
 				]
 			},
 			{
@@ -1720,8 +1720,8 @@
 					"Mace"
 				],
 				"Ability List": [
-					"Bash",
-					"Knock Out"
+					"BashMorningStar",
+					"KnockOut"
 				]
 			},
 			{
@@ -1746,7 +1746,7 @@
 				],
 				"Ability List": [
 					"Bash",
-					"Knock Out"
+					"KnockOut"
 				]
 			},
 			{
@@ -1770,8 +1770,8 @@
 					"Mace"
 				],
 				"Ability List": [
-					"Bash",
-					"Knock Out"
+					"BashBarbarian",
+					"KnockOutBarbarian"
 				]
 			},
 			{
@@ -1921,7 +1921,7 @@
 				],
 				"Ability List": [
 					"Chop",
-					"Split Shield"
+					"SplitShield"
 				]
 			},
 			{
@@ -1946,7 +1946,7 @@
 				],
 				"Ability List": [
 					"Chop",
-					"Split Shield"
+					"SplitShield"
 				]
 			},
 			{
@@ -1971,7 +1971,7 @@
 				],
 				"Ability List": [
 					"Chop",
-					"Split Shield"
+					"SplitShield"
 				]
 			},
 			{
@@ -1996,7 +1996,7 @@
 				],
 				"Ability List": [
 					"Chop",
-					"Split Shield"
+					"SplitShield"
 				]
 			},
 			{
@@ -2020,8 +2020,8 @@
 					"Axe"
 				],
 				"Ability List": [
-					"Chop",
-					"Split Shield"
+					"ChopBarbarian",
+					"SplitShield"
 				]
 			},
 			{
@@ -2045,8 +2045,8 @@
 					"Axe"
 				],
 				"Ability List": [
-					"Batter",
-					"Split Shield"
+					"BatterBarbarian",
+					"SplitShield"
 				]
 			},
 			{
@@ -2095,8 +2095,8 @@
 					"Flail"
 				],
 				"Ability List": [
-					"Flail",
-					"Lash"
+					"Flail2",
+					"Lash2"
 				]
 			},
 			{
@@ -2120,8 +2120,8 @@
 					"Flail"
 				],
 				"Ability List": [
-					"Flail",
-					"Lash"
+					"Flail3",
+					"Lash3"
 				]
 			},
 			{
@@ -2320,7 +2320,7 @@
 					"Cleaver"
 				],
 				"Ability List": [
-					"Cleave",
+					"CleaveBarbarian",
 					"Decapitate"
 				]
 			},
@@ -2345,7 +2345,7 @@
 					"Cleaver"
 				],
 				"Ability List": [
-					"Cleave",
+					"CleaveBarbarianBlade",
 					"Decapitate"
 				]
 			},
@@ -2395,7 +2395,7 @@
 					"Cleaver"
 				],
 				"Ability List": [
-					"Whip",
+					"WhipThorn",
 					"Disarm"
 				]
 			},
@@ -2421,7 +2421,7 @@
 				],
 				"Ability List": [
 					"Batter",
-					"Destroy Armor"
+					"DestroyArmor"
 				]
 			},
 			{
@@ -2446,7 +2446,7 @@
 				],
 				"Ability List": [
 					"Batter",
-					"Destroy Armor"
+					"DestroyArmor"
 				]
 			},
 			{
@@ -2471,7 +2471,7 @@
 				],
 				"Ability List": [
 					"Batter",
-					"Destroy Armor"
+					"DestroyArmor"
 				]
 			},
 			{
@@ -2495,7 +2495,7 @@
 					"Sword"
 				],
 				"Ability List": [
-					"Slash",
+					"Slash2H",
 					"Split",
 					"Swing"
 				]
@@ -2521,10 +2521,10 @@
 					"Sword"
 				],
 				"Ability List": [
-					"Overhead Strike",
+					"OverheadStrike",
 					"Split",
 					"Swing",
-					"Split Shield 2H"
+					"SplitShield2HSword"
 				]
 			},
 			{
@@ -2548,10 +2548,10 @@
 					"Sword"
 				],
 				"Ability List": [
-					"Overhead Strike",
+					"OverheadStrike",
 					"Split",
 					"Swing",
-					"Split Shield 2H"
+					"SplitShield2HSword"
 				]
 			},
 			{
@@ -2575,7 +2575,7 @@
 					"Sword"
 				],
 				"Ability List": [
-					"Slash",
+					"Slash2H",
 					"Split",
 					"Swing"
 				]
@@ -2602,8 +2602,8 @@
 					"Mace"
 				],
 				"Ability List": [
-					"Thrust",
-					"Knock Out"
+					"Thrust2H",
+					"KnockOut2H"
 				]
 			},
 			{
@@ -2628,8 +2628,8 @@
 				],
 				"Ability List": [
 					"Cudgel",
-					"Strike Down",
-					"Split Shield 2H"
+					"StrikeDown",
+					"SplitShield2H"
 				]
 			},
 			{
@@ -2653,9 +2653,9 @@
 					"Mace"
 				],
 				"Ability List": [
-					"Cudgel",
-					"Strike Down",
-					"Split Shield 2H"
+					"Cudgel2",
+					"StrikeDown2",
+					"SplitShield2H"
 				]
 			},
 			{
@@ -2679,9 +2679,9 @@
 					"Mace"
 				],
 				"Ability List": [
-					"Cudgel",
-					"Strike Down",
-					"Split Shield 2H"
+					"CudgelBarbarian",
+					"StrikeDownBarbarian",
+					"SplitShield2H"
 				]
 			},
 			{
@@ -2705,8 +2705,8 @@
 					"Spear"
 				],
 				"Ability List": [
-					"Prong",
-					"Spearwall 2H"
+					"Prong2",
+					"Spearwall_2H_2"
 				]
 			},
 			{
@@ -2730,8 +2730,8 @@
 					"Spear"
 				],
 				"Ability List": [
-					"Thrust",
-					"Spearwall"
+					"Prong",
+					"Spearwall_2H"
 				]
 			},
 			{
@@ -2755,9 +2755,9 @@
 					"Axe"
 				],
 				"Ability List": [
-					"Split Man",
+					"SplitMan",
 					"Round Swing",
-					"Split Shield 2H"
+					"SplitShield2H"
 				]
 			},
 			{
@@ -2781,9 +2781,9 @@
 					"Axe"
 				],
 				"Ability List": [
-					"Split Man",
-					"Round Swing",
-					"Split Shield 2H"
+					"SplitManBarbarian",
+					"RoundSwingBarbarian",
+					"SplitShield2H"
 				]
 			},
 			{
@@ -2807,9 +2807,9 @@
 					"Axe"
 				],
 				"Ability List": [
-					"Split Man",
-					"Split in Two",
-					"Split Shield 2H"
+					"SplitManBardiche",
+					"SplitinTwo",
+					"SplitShield2H"
 				]
 			},
 			{
@@ -2833,9 +2833,9 @@
 					"Axe"
 				],
 				"Ability List": [
-					"Split Man",
+					"SplitMan",
 					"Round Swing",
-					"Split Shield 2H"
+					"SplitShield2H"
 				]
 			},
 			{
@@ -2859,8 +2859,8 @@
 					"Axe"
 				],
 				"Ability List": [
-					"Strike LAxe",
-					"Split Shield 2H"
+					"Strike Axe",
+					"SplitShield2HLAxe"
 				]
 			},
 			{
@@ -2884,9 +2884,9 @@
 					"Axe"
 				],
 				"Ability List": [
-					"Split Man",
+					"SplitMan",
 					"Round Swing",
-					"Split Shield 2H"
+					"SplitShield2H"
 				]
 			},
 			{
@@ -2960,8 +2960,8 @@
 					"Flail"
 				],
 				"Ability List": [
-					"Pound",
-					"Thresh"
+					"PoundOrc",
+					"ThreshOrc"
 				]
 			},
 			{
@@ -2985,9 +2985,9 @@
 					"Cleaver"
 				],
 				"Ability List": [
-					"Cleave 2H",
+					"Cleave2H",
 					"Decapitate",
-					"Split Shield 2H"
+					"SplitShield2H"
 				]
 			},
 			{
@@ -3011,9 +3011,9 @@
 					"Cleaver"
 				],
 				"Ability List": [
-					"Cleave 2H",
+					"Cleave2HBarbarianBlade",
 					"Decapitate",
-					"Split Shield 2H"
+					"SplitShield2H"
 				]
 			},
 			{
@@ -3039,7 +3039,7 @@
 				"Ability List": [
 					"Smite",
 					"Shatter",
-					"Split Shield 2H"
+					"SplitShield2H"
 				]
 			},
 			{
@@ -3065,7 +3065,7 @@
 				"Ability List": [
 					"Smite",
 					"Shatter",
-					"Split Shield 2H"
+					"SplitShield2H"
 				]
 			},
 			{
@@ -3089,8 +3089,8 @@
 					"Hammer"
 				],
 				"Ability List": [
-					"Batter 2H",
-					"Destroy Armor 2H"
+					"BatterPolehammer",
+					"DestroyArmor_2H"
 				]
 			},
 			{
@@ -3114,9 +3114,9 @@
 					"Hammer"
 				],
 				"Ability List": [
-					"Smite",
-					"Shatter",
-					"Split Shield 2H"
+					"SmiteBarbarian",
+					"ShatterBarbarian",
+					"SplitShield2H"
 				]
 			},
 			{
@@ -3165,7 +3165,7 @@
 					"Polearm"
 				],
 				"Ability List": [
-					"Impale",
+					"Impale2",
 					"Repel"
 				]
 			},
@@ -3240,7 +3240,7 @@
 					"Polearm"
 				],
 				"Ability List": [
-					"Impale",
+					"Impale2",
 					"For The Company!"
 				]
 			},
@@ -3290,7 +3290,7 @@
 					"Polearm"
 				],
 				"Ability List": [
-					"Impale",
+					"Impale2",
 					"Repel"
 				]
 			},
@@ -3315,7 +3315,7 @@
 					"Polearm"
 				],
 				"Ability List": [
-					"Impale",
+					"Impale2",
 					"Repel"
 				]
 			},
@@ -3365,7 +3365,7 @@
 					"Throwing"
 				],
 				"Ability List": [
-					"Throw Javelin"
+					"ThrowJavelin"
 				]
 			},
 			{
@@ -3389,7 +3389,7 @@
 					"Throwing"
 				],
 				"Ability List": [
-					"Throw Javelin"
+					"ThrowJavelin"
 				]
 			},
 			{
@@ -3413,7 +3413,7 @@
 					"Throwing"
 				],
 				"Ability List": [
-					"Throw Axe"
+					"ThrowAxe"
 				]
 			},
 			{
@@ -3437,7 +3437,7 @@
 					"Throwing"
 				],
 				"Ability List": [
-					"Throw Axe"
+					"ThrowAxe"
 				]
 			},
 			{
@@ -3461,7 +3461,7 @@
 					"Throwing"
 				],
 				"Ability List": [
-					"Throw Javelin"
+					"ThrowJavelin"
 				]
 			},
 			{
@@ -3485,7 +3485,7 @@
 					"Throwing"
 				],
 				"Ability List": [
-					"Throw Bola"
+					"ThrowBola"
 				]
 			},
 			{
@@ -3509,7 +3509,7 @@
 					"Polearm"
 				],
 				"Ability List": [
-					"Throw Spear"
+					"ThrowSpear"
 				]
 			},
 			{
@@ -3533,7 +3533,7 @@
 					"Throwing"
 				],
 				"Ability List": [
-					"Sling Stone"
+					"SlingStone"
 				]
 			},
 			{
@@ -3557,8 +3557,8 @@
 					"Bow"
 				],
 				"Ability List": [
-					"Quick Shot",
-					"Aimed Shot"
+					"QuickShot",
+					"AimedShot"
 				]
 			},
 			{
@@ -3582,8 +3582,8 @@
 					"Bow"
 				],
 				"Ability List": [
-					"Quick Shot",
-					"Aimed Shot"
+					"QuickShot",
+					"AimedShot"
 				]
 			},
 			{
@@ -3607,8 +3607,8 @@
 					"Bow"
 				],
 				"Ability List": [
-					"Quick Shot",
-					"Aimed Shot"
+					"QuickShot",
+					"AimedShot"
 				]
 			},
 			{
@@ -3632,8 +3632,8 @@
 					"Bow"
 				],
 				"Ability List": [
-					"Quick Shot",
-					"Aimed Shot"
+					"QuickShot",
+					"AimedShot"
 				]
 			},
 			{
@@ -3657,8 +3657,8 @@
 					"Bow"
 				],
 				"Ability List": [
-					"Quick Shot",
-					"Aimed Shot"
+					"QuickShot",
+					"AimedShot"
 				]
 			},
 			{
@@ -3682,8 +3682,8 @@
 					"Bow"
 				],
 				"Ability List": [
-					"Quick Shot",
-					"Aimed Shot"
+					"QuickShot",
+					"AimedShot"
 				]
 			},
 			{
@@ -3707,8 +3707,8 @@
 					"Bow"
 				],
 				"Ability List": [
-					"Quick Shot",
-					"Aimed Shot"
+					"QuickShot",
+					"AimedShot"
 				]
 			},
 			{
@@ -3732,7 +3732,7 @@
 					"Crossbow"
 				],
 				"Ability List": [
-					"Shoot Bolt",
+					"ShootBolt",
 					"Reload"
 				]
 			},
@@ -3757,7 +3757,7 @@
 					"Crossbow"
 				],
 				"Ability List": [
-					"Shoot Bolt",
+					"ShootBolt",
 					"Reload"
 				]
 			},
@@ -3782,7 +3782,7 @@
 					"Crossbow"
 				],
 				"Ability List": [
-					"Shoot Bolt",
+					"ShootBolt",
 					"Reload"
 				]
 			},
@@ -3807,7 +3807,7 @@
 					"Crossbow"
 				],
 				"Ability List": [
-					"Shoot Heavy Bolt",
+					"ShootHeavyBolt",
 					"Reload"
 				]
 			},
@@ -3832,7 +3832,7 @@
 					"Special"
 				],
 				"Ability List": [
-					"Throw Acid Flask"
+					"ThrowAcidFlask"
 				]
 			},
 			{
@@ -3856,7 +3856,7 @@
 					"Special"
 				],
 				"Ability List": [
-					"Throw Reinforced Net"
+					"ThrowReinforcedNet"
 				]
 			},
 			{
@@ -3880,7 +3880,7 @@
 					"Special"
 				],
 				"Ability List": [
-					"Throw Net"
+					"ThrowNet"
 				]
 			}
 		]
