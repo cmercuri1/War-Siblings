@@ -679,7 +679,7 @@
 					"Chance to Start": 25
 				},
 				{
-					"Item Name": "Net",
+					"Item Name": "Throwing Net",
 					"Chance to Start": 50
 				},
 				{
@@ -2058,7 +2058,7 @@
 					"Chance to Start": 50
 				},
 				{
-					"Item Name": "Net",
+					"Item Name": "Throwing Net",
 					"Chance to Start": 50
 				}
 			],
@@ -2783,7 +2783,7 @@
 					"Chance to Start": 60
 				},
 				{
-					"Item Name": "Net",
+					"Item Name": "Throwing Net",
 					"Chance to Start": 40
 				}
 			],
@@ -4428,7 +4428,7 @@
 					"Chance to Start": 45
 				},
 				{
-					"Item Name": "Net",
+					"Item Name": "Throwing Net",
 					"Chance to Start": 55
 				}
 			],
