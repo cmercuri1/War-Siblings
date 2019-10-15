@@ -2,12 +2,9 @@
  * Attribute class
  * Author: Christopher Mercuri cmercuri1@student.unimelb.edu.au
  */
-package storage_classes;
+package abilities;
 
 import javax.swing.ImageIcon;
-
-import effect_classes.Effect;
-import storage_classes.ArrayList;
 
 /**
  * Base level Ability class used for helping handle any effects that can change
@@ -16,22 +13,19 @@ import storage_classes.ArrayList;
 public class Ability {
 	protected String name;
 	protected String desc;
-	protected ArrayList<Effect> effects;
 
 	protected ImageIcon image;
 
 	/** Constructor for when you have all the effects and description */
-	public Ability(String name, String desc, ArrayList<Effect> effects) {
+	public Ability(String name, String desc) {
 		this.name = name;
 		this.desc = desc;
-		this.effects = effects;
 		this.setImage();
 	}
 
 	/** Constructor for when you have all the effects */
-	public Ability(String name, ArrayList<Effect> effects) {
+	public Ability(String name) {
 		this.name = name;
-		this.effects = effects;
 		this.setImage();
 	}
 
@@ -55,10 +49,6 @@ public class Ability {
 		return this.desc;
 	}
 
-	public ArrayList<Effect> getEffects() {
-		return this.effects;
-	}
-
 	public ImageIcon getImage() {
 		return this.image;
 	}
@@ -69,11 +59,6 @@ public class Ability {
 
 	public void display() {
 		System.out.print("	" + this.name + ": " + this.desc + "\n");
-		try {
-			this.effects.forEach(e -> e.display());
-		} catch (NullPointerException n) {
-
-		}
 	}
 
 }

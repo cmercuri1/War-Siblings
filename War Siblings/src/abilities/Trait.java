@@ -2,18 +2,19 @@
  * Trait class
  * Author: Christopher Mercuri cmercuri1@student.unimelb.edu.au
  */
-package storage_classes;
+package abilities;
 
 import javax.swing.ImageIcon;
 
 import effect_classes.Effect;
 import storage_classes.ArrayList;
+import storage_classes.PassiveAbility;
 
 /**
  * A class used for storing information about Trait style abilities which can be
  * given at character creation
  */
-public class Trait extends Ability {
+public class Trait extends PassiveAbility {
 	protected ArrayList<String> mutalExcl; // A list of which traits this one is incompatible with
 	protected String specificBackground;
 

@@ -9,8 +9,8 @@ import storage_classes.ArrayList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import abilities.TemporaryInjury;
 import effect_classes.Effect;
-import storage_classes.TemporaryInjury;
 
 /** A class for Globally Storing and Managing all the Temporary Injuries */
 public class TemporyInjuryManager extends BaseGlobalManager {

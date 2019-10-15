@@ -4,9 +4,9 @@
  */
 package items;
 
-import storage_classes.Ability;
+import abilities.ActivatedAbility;
 import storage_classes.ArrayList;
 
 public interface Abilities {
-	ArrayList<Ability> getAbilityList();
+	ArrayList<ActivatedAbility> getAbilityList();
 }

@@ -40,7 +40,7 @@ public class IconPanel extends JPanel {JProgressBar progressBar;
 		progressBar.setStringPainted(true);
 		setLayout(new MigLayout("",
 				"[50,grow][10,grow][10,grow][50,grow][50,grow][50,grow][50,grow][50,grow][50,grow]",
-				"[10,grow][50,grow][10,grow]"));
+				"[25,grow][20,grow][25,grow]"));
 		add(lblNewLabel, "cell 0 0 3 3,grow");
 		add(progressBar, "cell 3 1 6 1,grow");
 	}

@@ -2,9 +2,10 @@
  * TemporaryInjury class
  * Author: Christopher Mercuri cmercuri1@student.unimelb.edu.au
  */
-package storage_classes;
+package abilities;
 
 import storage_classes.ArrayList;
+import storage_classes.PassiveAbility;
 import attributes.Attribute;
 import effect_classes.Effect;
 import effect_classes.Modifier;
@@ -19,7 +20,7 @@ import notifier_interfaces.TemporaryInjuryNotifier;
  * A class used for storing and assisting in resolving use of Temporary Injuries
  * that can affect characters/creatures
  */
-public class TemporaryInjury extends Ability implements TemporaryInjuryNotifier, AttributeListener {
+public class TemporaryInjury extends PassiveAbility implements TemporaryInjuryNotifier, AttributeListener {
 	protected boolean isHead;
 	protected String damageType;
 	protected double damageThreshold;

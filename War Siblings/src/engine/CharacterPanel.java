@@ -27,7 +27,7 @@ public class CharacterPanel extends JPanel {
 	public CharacterPanel() {
 		setBackground(new Color(153, 0, 0));
 		
-		setLayout(new MigLayout("", "[350,grow]", "[80,grow][360,grow][120,grow][320,grow]"));
+		setLayout(new MigLayout("", "[360,grow]", "[50,grow][275,grow][60,grow][150,grow]"));
 		
 		equipmentPanel = new EquipmentPanel();
 		add(equipmentPanel, "cell 0 1,grow");

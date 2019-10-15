@@ -4,6 +4,10 @@
  */
 package character;
 
+import abilities.Ability;
+import abilities.PermanentInjury;
+import abilities.TemporaryInjury;
+import abilities.Trait;
 import effect_classes.Effect;
 import effect_classes.Effect_Modifier;
 import effect_classes.Effect_Triggered;
@@ -40,18 +44,15 @@ import notifier_interfaces.MoraleChangeNotifier;
 import notifier_interfaces.MultiNotifier;
 import notifier_interfaces.RoundControlNotifier;
 import notifier_interfaces.TurnControlNotifier;
-import storage_classes.Ability;
 import storage_classes.ArrayList;
 import storage_classes.MoraleState;
-import storage_classes.PermanentInjury;
-import storage_classes.TemporaryInjury;
-import storage_classes.Trait;
+import storage_classes.PassiveAbility;
 
 /**
  * A manager class that handles all the abilities a character may have, either
  * from items, traits or from level abilities
  */
-public class AbilityManager implements AbilityListener, TraitListener, PermanentInjuryListener, TemporaryInjuryListener,
+public class AbilitiesManager implements AbilityListener, TraitListener, PermanentInjuryListener, TemporaryInjuryListener,
 		TriggeredEffectListener, BattleControlListener, TurnControlListener, RoundControlListener, MoraleChangeListener,
 		InventorySituationListener, MultiNotifier, ModifierNotifier, BattleControlNotifier, TurnControlNotifier,
 		RoundControlNotifier, MoraleChangeNotifier, InventorySituationNotifier {
@@ -69,7 +70,7 @@ public class AbilityManager implements AbilityListener, TraitListener, Permanent
 	protected ArrayList<MoraleChangeListener> moraleChangeListeners;
 	protected ArrayList<InventorySituationListener> inventorySituationListeners;
 
-	public AbilityManager() {
+	public AbilitiesManager() {
 		this.characterAbilities = new ArrayList<Ability>();
 		this.characterTraits = new ArrayList<Trait>();
 		this.permaInjuries = new ArrayList<PermanentInjury>();
@@ -90,7 +91,7 @@ public class AbilityManager implements AbilityListener, TraitListener, Permanent
 
 	public void setUpAbilities(BackgroundGenerator background) {
 		if (background.getBgAbility() != null) {
-			this.addAbility(background.getBgAbility());
+			this.addPassiveAbility(background.getBgAbility());
 
 		}
 		this.traitDetermining(background.getExcludedTraits());
@@ -168,6 +169,12 @@ public class AbilityManager implements AbilityListener, TraitListener, Permanent
 
 	public void addAbility(Ability ability) {
 		this.characterAbilities.add(ability);
+		if (ability instanceof PassiveAbility) {
+			this.addPassiveAbility((PassiveAbility) ability);
+		}
+	}
+
+	public void addPassiveAbility(PassiveAbility ability) {
 		this.addEffectsToListeners(ability);
 		this.notifyOtherManagers(ModifierEvent.Task.ADD, ability);
 	}
@@ -182,9 +189,15 @@ public class AbilityManager implements AbilityListener, TraitListener, Permanent
 
 	public void removeAbility(Ability ability) {
 		if (this.characterAbilities.remove(ability)) {
-			this.removeEffectsFromListeners(ability);
-			this.notifyOtherManagers(ModifierEvent.Task.REMOVE, ability);
+			if (ability instanceof PassiveAbility) {
+				this.removePassiveAbility((PassiveAbility) ability);
+			}
 		}
+	}
+
+	public void removePassiveAbility(PassiveAbility ability) {
+		this.removeEffectsFromListeners(ability);
+		this.notifyOtherManagers(ModifierEvent.Task.REMOVE, ability);
 	}
 
 	public void removeTrait(Trait trait) {
@@ -194,7 +207,7 @@ public class AbilityManager implements AbilityListener, TraitListener, Permanent
 		}
 	}
 
-	protected void addEffectsToListeners(Ability a) {
+	protected void addEffectsToListeners(PassiveAbility a) {
 		for (Effect e : a.getEffects()) {
 			if (e instanceof BattleControlListener) {
 				this.addBattleControlListener((BattleControlListener) e);
@@ -217,7 +230,7 @@ public class AbilityManager implements AbilityListener, TraitListener, Permanent
 		}
 	}
 
-	protected void removeEffectsFromListeners(Ability a) {
+	protected void removeEffectsFromListeners(PassiveAbility a) {
 		for (Effect e : a.getEffects()) {
 			if (e instanceof BattleControlListener) {
 				this.removeBattleControlListener((BattleControlListener) e);
@@ -240,7 +253,7 @@ public class AbilityManager implements AbilityListener, TraitListener, Permanent
 		}
 	}
 
-	protected void notifyOtherManagers(ModifierEvent.Task task, Ability ability) {
+	protected void notifyOtherManagers(ModifierEvent.Task task, PassiveAbility ability) {
 		for (Effect e : ability.getEffects()) {
 			if (e instanceof Effect_Modifier) {
 				this.notifyModifierListeners(new ModifierEvent(task, ((Effect_Modifier) e).getMod(), this));
@@ -294,10 +307,10 @@ public class AbilityManager implements AbilityListener, TraitListener, Permanent
 	public void onAbilityEvent(AbilityEvent a) {
 		switch (a.getTask()) {
 		case ADD:
-			this.addAbility(a.getInformation());
+			this.addAbility((Ability) a.getInformation());
 			break;
 		case REMOVE:
-			this.removeAbility(a.getInformation());
+			this.removeAbility((Ability) a.getInformation());
 			break;
 		case REMOVE_ALL:
 			while (!this.characterAbilities.isEmpty()) {

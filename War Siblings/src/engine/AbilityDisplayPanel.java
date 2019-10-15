@@ -9,10 +9,10 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import abilities.Ability;
+import abilities.Trait;
 import net.miginfocom.swing.MigLayout;
-import storage_classes.Ability;
 import storage_classes.ArrayList;
-import storage_classes.Trait;
 import character.Character;
 
 public class AbilityDisplayPanel extends JPanel {
@@ -22,7 +22,8 @@ public class AbilityDisplayPanel extends JPanel {
 	 */
 	public AbilityDisplayPanel() {
 		setBackground(new Color(102, 0, 0));
-		setLayout(new MigLayout("", "[40][40][40][40][40][40][40][40]", "[40][40]"));
+		setLayout(new MigLayout("", "[30,grow][30,grow][30,grow][30,grow][30,grow][30,grow][30,grow][30,grow]",
+				"[30,grow][30,grow]"));
 
 	}
 
@@ -60,19 +61,19 @@ public class AbilityDisplayPanel extends JPanel {
 		int temp = abilityList.size();
 		int abilityRows = 0;
 
-		String rows = "[40]";
+		String rows = "[30,grow]";
 		while (temp > 8) {
 			temp -= 8;
-			rows += "[40]";
+			rows += "[30,grow]";
 			abilityRows++;
 		}
 
 		temp = otherList.size();
 		while (temp > 8) {
 			temp -= 8;
-			rows += "[40]";
+			rows += "[30,grow]";
 		}
-		setLayout(new MigLayout("", "[40][40][40][40][40][40][40][40]", rows));
+		setLayout(new MigLayout("", "[30,grow][30,grow][30,grow][30,grow][30,grow][30,grow][30,grow][30,grow]", rows));
 
 		int i = 0, j = 0;
 		int pos = 0;

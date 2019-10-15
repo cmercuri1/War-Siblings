@@ -4,8 +4,8 @@
  */
 package event_classes;
 
-import notifier_interfaces.TemporaryInjuryNotifier;
-import storage_classes.TemporaryInjury;;
+import abilities.TemporaryInjury;
+import notifier_interfaces.TemporaryInjuryNotifier;;
 
 public class TemporaryInjuryEvent extends InfoEvent {
 	public enum Task {

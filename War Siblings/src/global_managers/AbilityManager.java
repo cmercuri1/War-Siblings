@@ -4,7 +4,7 @@
  */
 package global_managers;
 
-public class AbilityFactory {
+public class AbilityManager {
 
 	
 

@@ -6,6 +6,7 @@ package global_generators;
 
 import storage_classes.ArrayList;
 import storage_classes.BackgroundItem;
+import storage_classes.PassiveAbility;
 
 import javax.swing.ImageIcon;
 
@@ -14,7 +15,6 @@ import org.json.simple.JSONObject;
 
 import effect_classes.Effect;
 import global_managers.GlobalManager;
-import storage_classes.Ability;
 
 /**
  * A class that takes the Base Stats and attributes and changes them based on a
@@ -22,7 +22,7 @@ import storage_classes.Ability;
  */
 public class BackgroundGenerator extends BaseWarriorGenerator {
 	protected String background;
-	protected Ability bgAbility;
+	protected PassiveAbility bgAbility;
 
 	protected ArrayList<String> excludedTalents;
 	protected ArrayList<String> excludedTraits;
@@ -87,7 +87,7 @@ public class BackgroundGenerator extends BaseWarriorGenerator {
 						(Long) ob2.get("Value"));
 				mod.add(newMod);
 			}
-			this.bgAbility = new Ability("Background Ability", mod);
+			this.bgAbility = new PassiveAbility("Background Ability", mod);
 		} catch (ClassCastException ce) {
 			this.bgAbility = null;
 		}
@@ -173,7 +173,7 @@ public class BackgroundGenerator extends BaseWarriorGenerator {
 		return this.background;
 	}
 
-	public Ability getBgAbility() {
+	public PassiveAbility getBgAbility() {
 		return this.bgAbility;
 	}
 

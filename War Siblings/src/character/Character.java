@@ -36,7 +36,7 @@ public class Character
 	// Single Attribute manager handles attributes
 	protected AttributeManager am;
 	protected InventoryManager im;
-	protected AbilityManager abm;
+	protected AbilitiesManager abm;
 	protected EventManager em;
 
 	protected ArrayList<CharacterListener> characterListeners;
@@ -59,7 +59,7 @@ public class Character
 
 		this.im = new InventoryManager();
 		this.am = new AttributeManager();
-		this.abm = new AbilityManager();
+		this.abm = new AbilitiesManager();
 		this.em = new EventManager();
 
 		this.assignListeners();
@@ -132,7 +132,7 @@ public class Character
 		return this.im;
 	}
 
-	public AbilityManager getAbm() {
+	public AbilitiesManager getAbm() {
 		return this.abm;
 	}
 

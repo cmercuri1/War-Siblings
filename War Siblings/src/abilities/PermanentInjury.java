@@ -2,19 +2,20 @@
  * PerminentInjury class
  * Author: Christopher Mercuri cmercuri1@student.unimelb.edu.au
  */
-package storage_classes;
+package abilities;
 
 import effect_classes.Effect;
 import event_classes.PermanentInjuryEvent;
 import listener_interfaces.PermanentInjuryListener;
 import notifier_interfaces.PermanentInjuryNotifier;
 import storage_classes.ArrayList;
+import storage_classes.PassiveAbility;
 
 /**
  * A class used for storing and assisting in resolving use of Permanent Injuries
  * that can affect characters/creatures
  */
-public class PermanentInjury extends Ability implements PermanentInjuryNotifier {
+public class PermanentInjury extends PassiveAbility implements PermanentInjuryNotifier {
 	protected boolean contentInReserve;
 
 	protected ArrayList<PermanentInjuryListener> permaInjuryListeners;

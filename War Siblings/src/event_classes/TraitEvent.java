@@ -4,8 +4,8 @@
  */
 package event_classes;
 
+import abilities.Trait;
 import notifier_interfaces.TraitNotifier;
-import storage_classes.Trait;
 
 public class TraitEvent extends InfoEvent {
 	public enum Task {

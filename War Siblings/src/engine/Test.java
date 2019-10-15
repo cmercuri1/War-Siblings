@@ -43,14 +43,14 @@ public class Test extends JFrame {
 		setTitle("War Siblings");
 		setBackground(new Color(153, 0, 0));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(1300, 1000);
+		setSize(1920, 1080);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(153, 0, 0));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(new MigLayout("", "[400, grow][640, grow][260, grow]", "[600, grow][200, grow]"));
+		contentPane.setLayout(new MigLayout("", "[360, grow][1300, grow][260, grow]", "[880, grow][200, grow]"));
 
 		CharacterPanel charPanel = new CharacterPanel();
 		contentPane.add(charPanel,"cell 0 0 1 2, grow");
