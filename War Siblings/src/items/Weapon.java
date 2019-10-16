@@ -9,7 +9,7 @@ import storage_classes.ArrayList;
 
 import javax.swing.ImageIcon;
 
-import abilities.ActivatedAbility;
+import abilities.Ability;
 import attributes.Attribute;
 import effect_classes.Modifier;
 
@@ -31,7 +31,7 @@ public class Weapon extends AbilityItem {
 	/** Constructor: single style to encompass all weapon types */
 	public Weapon(String name, double value, String desc, double dura, double fatRed, double minDam, double maxDam,
 			double ignArm, double armDam, double range, double skillFat, double hitChance, double headShot,
-			double shieldDam, int numHands, String weapType, ArrayList<ActivatedAbility> abilityList) {
+			double shieldDam, int numHands, String weapType, ArrayList<Ability> abilityList) {
 		super(name, value, desc, dura, fatRed, abilityList);
 		this.minDam = new Attribute(minDam);
 		this.maxDam = new Attribute(maxDam);
@@ -156,7 +156,7 @@ public class Weapon extends AbilityItem {
 
 		if (this.abilityList != null) {
 			System.out.println("Grants use of: ");
-			for (ActivatedAbility a : this.abilityList) {
+			for (Ability a : this.abilityList) {
 				System.out.print(" -");
 				a.display();
 			}

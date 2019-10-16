@@ -14,18 +14,29 @@ public class Ability {
 	protected String name;
 	protected String desc;
 
+	protected String displayName;
+	
 	protected ImageIcon image;
 
 	/** Constructor for when you have all the effects and description */
 	public Ability(String name, String desc) {
 		this.name = name;
 		this.desc = desc;
+		this.displayName = name;
 		this.setImage();
 	}
 
 	/** Constructor for when you have all the effects */
 	public Ability(String name) {
 		this.name = name;
+		this.displayName = name;
+		this.setImage();
+	}
+	
+	public Ability(String name, String desc, String displayName) {
+		this.name = name;
+		this.desc = desc;
+		this.displayName = displayName;;
 		this.setImage();
 	}
 
@@ -33,7 +44,7 @@ public class Ability {
 		try {
 			this.image = new ImageIcon(Ability.class.getResource("/images/Abilities/" + this.name + ".png"));
 		} catch (NullPointerException n) {
-			
+			System.out.println("Cannot find image for: " + this.name);
 		}
 	}
 
@@ -52,13 +63,13 @@ public class Ability {
 	public ImageIcon getImage() {
 		return this.image;
 	}
-	
+
 	public String toString() {
-		return "<html>" + this.name + ": "+ this.desc;
+		return "<html>" + this.displayName + ": " + this.desc + "</html>";
 	}
 
 	public void display() {
-		System.out.print("	" + this.name + ": " + this.desc + "\n");
+		System.out.print("	" + this.displayName + ": " + this.desc + "\n");
 	}
 
 }

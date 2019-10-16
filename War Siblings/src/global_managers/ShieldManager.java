@@ -9,12 +9,12 @@ import storage_classes.ArrayList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import abilities.ActivatedAbility;
+import abilities.Ability;
 import items.Shield;
 
 /** A class for Globally Storing and Managing all the Shields */
 public class ShieldManager extends BaseGlobalManager {
-	private ArrayList<Shield> shieldList;
+	protected ArrayList<Shield> shieldList;
 
 	public ShieldManager() {
 		super("res/game_data/RegularGearData.json", "Shield", "Shields List");
@@ -22,9 +22,9 @@ public class ShieldManager extends BaseGlobalManager {
 
 	protected void addItem(JSONObject o) {
 		JSONArray temp = (JSONArray) o.get("Ability List");
-		ArrayList<ActivatedAbility> temp2 = new ArrayList<ActivatedAbility>();
+		ArrayList<Ability> temp2 = new ArrayList<Ability>();
 		for (Object ob : temp) {
-			temp2.add(GlobalManager.abilities.get(ob));
+			temp2.add(GlobalManager.abilities.getAbility((String) ob));
 		}
 		this.shieldList.add(new Shield((String) o.get("Name"), (Long) o.get("Value"), (String) o.get("Description"),
 				(Long) o.get("Durability"), (Long) o.get("Maximum Fatigue"), (Long) o.get("Melee Defense"),

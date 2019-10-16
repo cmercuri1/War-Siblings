@@ -12,7 +12,7 @@ import items.Headgear;
 
 /** A class for Globally Storing and Managing all the Headgears */
 public class HeadgearManager extends BaseGlobalManager {
-	private ArrayList<Headgear> helmList;
+	protected ArrayList<Headgear> helmList;
 
 	public HeadgearManager() {
 		super("res/game_data/RegularGearData.json", "Armor", "Headgear");

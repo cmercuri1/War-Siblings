@@ -8,13 +8,16 @@ import storage_classes.ArrayList;
 import storage_classes.BackgroundItem;
 import event_classes.TraitEvent;
 import event_classes.ModifierEvent;
+import abilities.Ability;
 import effect_classes.Modifier;
+import event_classes.AbilityEvent;
 import event_classes.CharacterInventoryEvent;
 import event_classes.InventoryEvent;
 import event_classes.InventorySituationEvent;
 import event_classes.SkillPreferenceEvent;
 import global_generators.BackgroundGenerator;
 import global_managers.GlobalManager;
+import items.Abilities;
 import items.AbilityItem;
 import items.Accessory;
 import items.Ammunition;
@@ -26,12 +29,14 @@ import items.Item;
 import items.Weapon;
 import listener_interfaces.TraitListener;
 import listener_interfaces.ModifierListener;
+import listener_interfaces.AbilityListener;
 import listener_interfaces.CharacterInventoryListener;
 import listener_interfaces.InventoryListener;
 import listener_interfaces.InventorySituationListener;
 import listener_interfaces.SkillPreferenceListener;
 import notifier_interfaces.TraitNotifier;
 import notifier_interfaces.ModifierNotifier;
+import notifier_interfaces.AbilityNotifier;
 import notifier_interfaces.InventoryNotifier;
 import notifier_interfaces.InventorySituationNotifier;
 import notifier_interfaces.MultiNotifier;
@@ -41,7 +46,7 @@ import notifier_interfaces.MultiNotifier;
  * items of a character
  */
 public class InventoryManager implements CharacterInventoryListener, SkillPreferenceListener, MultiNotifier,
-		InventoryNotifier, ModifierNotifier, TraitNotifier, InventorySituationNotifier {
+		InventoryNotifier, ModifierNotifier, AbilityNotifier, TraitNotifier, InventorySituationNotifier {
 	protected Armor body;
 	protected Headgear head;
 	protected AbilityItem right;
@@ -56,6 +61,7 @@ public class InventoryManager implements CharacterInventoryListener, SkillPrefer
 	protected ArrayList<ModifierListener> effectListeners;
 	protected ArrayList<InventoryListener> inventoryListeners;
 	protected ArrayList<InventorySituationListener> inventorySituationListeners;
+	protected ArrayList<AbilityListener> abilityListeners;
 
 	protected double rangedPref;
 
@@ -74,6 +80,7 @@ public class InventoryManager implements CharacterInventoryListener, SkillPrefer
 		this.effectListeners = new ArrayList<ModifierListener>();
 		this.inventoryListeners = new ArrayList<InventoryListener>();
 		this.inventorySituationListeners = new ArrayList<InventorySituationListener>();
+		this.abilityListeners = new ArrayList<AbilityListener>();
 	}
 
 	protected void defaultInventory() {
@@ -193,6 +200,13 @@ public class InventoryManager implements CharacterInventoryListener, SkillPrefer
 		}
 		this.removeModifiers(temp.onEquipSituation());
 		this.addModifiers(next.onEquipSituation());
+		
+		if (next instanceof Abilities) {
+			for (Ability a: ((Abilities) next).getAbilityList()) {
+				this.notifyAbilityListeners(new AbilityEvent(AbilityEvent.Task.ADD, a, this));
+			}
+		}
+		
 		this.notifyInventoryListeners(new InventoryEvent(InventoryEvent.Task.RETURN_INVENTORY, (Item) temp, this));
 	}
 
@@ -490,6 +504,26 @@ public class InventoryManager implements CharacterInventoryListener, SkillPrefer
 	@Override
 	public void notifyInventorySituationListener(InventorySituationListener i, InventorySituationEvent e) {
 		this.inventorySituationListeners.get(i).onInventorySituationEvent(e);
+	}
+
+	@Override
+	public void addAbilityListener(AbilityListener a) {
+		this.abilityListeners.add(a);
+	}
+
+	@Override
+	public void removeAbilityListener(AbilityListener a) {
+		this.abilityListeners.remove(a);
+	}
+
+	@Override
+	public void notifyAbilityListeners(AbilityEvent a) {
+		this.abilityListeners.forEach(l -> l.onAbilityEvent(a));
+	}
+
+	@Override
+	public void notifyAbilityListener(AbilityListener a, AbilityEvent e) {
+		this.abilityListeners.get(a).onAbilityEvent(e);
 	}
 
 }

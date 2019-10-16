@@ -14,7 +14,7 @@ import org.json.simple.JSONObject;
  * data about effects
  */
 public class EffectManager extends TwoListGlobalManager {
-	private ArrayList<Effect_Storage> effectList;
+	protected ArrayList<Effect_Storage> effectList;
 
 	public EffectManager() {
 		super("res/game_data/EffectModifierData.json", null, "Effect Names", "res/game_data/EffectSituationalData.json",

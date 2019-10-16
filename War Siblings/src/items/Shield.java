@@ -9,7 +9,7 @@ import storage_classes.ArrayList;
 
 import javax.swing.ImageIcon;
 
-import abilities.ActivatedAbility;
+import abilities.Ability;
 import attributes.Attribute;
 import effect_classes.Modifier;
 
@@ -22,7 +22,7 @@ public class Shield extends AbilityItem {
 
 	/** Constructor */
 	public Shield(String name, double value, String desc, double dura, double fatRed, double mDef, double rDef,
-			ArrayList<ActivatedAbility> abilityList) {
+			ArrayList<Ability> abilityList) {
 		super(name, value, desc, dura, fatRed, abilityList);
 		this.meleeDef = new Attribute(mDef);
 		this.rangedDef = new Attribute(rDef);
@@ -74,7 +74,7 @@ public class Shield extends AbilityItem {
 
 		if (this.abilityList != null) {
 			System.out.println("Grants use of: ");
-			for (ActivatedAbility a : this.abilityList) {
+			for (Ability a : this.abilityList) {
 				System.out.print(" -");
 				a.display();
 			}

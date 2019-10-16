@@ -12,7 +12,7 @@ import global_generators.BackgroundGenerator;
 
 /** A class for Globally Storing and Managing all the Backgrounds */
 public class BackgroundManager extends BaseGlobalManager {
-	private ArrayList<BackgroundGenerator> bgList;
+	protected ArrayList<BackgroundGenerator> bgList;
 
 	public BackgroundManager() {
 		super("res/game_data/BackgroundAttributesData.json", null, "Background Changes");

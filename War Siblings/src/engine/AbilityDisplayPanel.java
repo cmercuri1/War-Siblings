@@ -17,13 +17,20 @@ import character.Character;
 
 public class AbilityDisplayPanel extends JPanel {
 
+	private static final int MAXCOLUMNS = 7;
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	/**
 	 * Create the panel.
 	 */
 	public AbilityDisplayPanel() {
 		setBackground(new Color(102, 0, 0));
-		setLayout(new MigLayout("", "[30,grow][30,grow][30,grow][30,grow][30,grow][30,grow][30,grow][30,grow]",
-				"[30,grow][30,grow]"));
+		setLayout(new MigLayout("", "[40,grow][40,grow][40,grow][40,grow][40,grow][40,grow][40,grow][40,grow]",
+				"[40,grow]"));
 
 	}
 
@@ -61,19 +68,19 @@ public class AbilityDisplayPanel extends JPanel {
 		int temp = abilityList.size();
 		int abilityRows = 0;
 
-		String rows = "[30,grow]";
-		while (temp > 8) {
-			temp -= 8;
-			rows += "[30,grow]";
+		String rows = "[40,grow]";
+		while (temp > MAXCOLUMNS) {
+			temp -= MAXCOLUMNS;
+			rows += "[40,grow]";
 			abilityRows++;
 		}
 
 		temp = otherList.size();
-		while (temp > 8) {
-			temp -= 8;
-			rows += "[30,grow]";
+		while (temp > MAXCOLUMNS) {
+			temp -= MAXCOLUMNS;
+			rows += "[40,grow]";
 		}
-		setLayout(new MigLayout("", "[30,grow][30,grow][30,grow][30,grow][30,grow][30,grow][30,grow][30,grow]", rows));
+		setLayout(new MigLayout("", "[40,grow][40,grow][40,grow][40,grow][40,grow][40,grow][40,grow][40,grow]", rows));
 
 		int i = 0, j = 0;
 		int pos = 0;
@@ -82,7 +89,7 @@ public class AbilityDisplayPanel extends JPanel {
 			add(abilityList.get(pos), "cell " + i + " " + j + ", grow");
 			pos++;
 			i++;
-			if (i > 7) {
+			if (i >= MAXCOLUMNS) {
 				i = 0;
 				j++;
 			}
@@ -96,7 +103,7 @@ public class AbilityDisplayPanel extends JPanel {
 			add(otherList.get(pos), "cell " + i + " " + j + ", grow");
 			pos++;
 			i++;
-			if (i > 7) {
+			if (i >= MAXCOLUMNS) {
 				i = 0;
 				j++;
 			}

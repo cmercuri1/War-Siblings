@@ -3,7 +3,7 @@
  * Author: Christopher Mercuri cmercuri1@student.unimelb.edu.au
  */
 
-package run;
+package oldTest;
 
 import java.util.Scanner;
 import character.Character;

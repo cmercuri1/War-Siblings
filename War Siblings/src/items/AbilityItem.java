@@ -4,7 +4,7 @@
  */
 package items;
 
-import abilities.ActivatedAbility;
+import abilities.Ability;
 import storage_classes.ArrayList;
 
 /**
@@ -12,17 +12,17 @@ import storage_classes.ArrayList;
  * grants to the wielder
  */
 public abstract class AbilityItem extends ComboItem implements Abilities {
-	protected ArrayList<ActivatedAbility> abilityList;
+	protected ArrayList<Ability> abilityList;
 
 	/** Constructor */
 	public AbilityItem(String name, double value, String desc, double dura, double fatRed,
-			ArrayList<ActivatedAbility> abilityList) {
+			ArrayList<Ability> abilityList) {
 		super(name, value, desc, dura, fatRed);
 		this.abilityList = abilityList;
 	}
 
 	/* Getters */
-	public ArrayList<ActivatedAbility> getAbilityList() {
+	public ArrayList<Ability> getAbilityList() {
 		return this.abilityList;
 	}
 

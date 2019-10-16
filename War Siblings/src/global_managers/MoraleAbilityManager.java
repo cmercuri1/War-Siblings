@@ -18,7 +18,7 @@ import storage_classes.PassiveAbility;
  * Morale States
  */
 public class MoraleAbilityManager extends BaseGlobalManager {
-	private ArrayList<PassiveAbility> moraleAbilityList;
+	protected ArrayList<PassiveAbility> moraleAbilityList;
 
 	public MoraleAbilityManager() {
 		super("res/game_data/MoraleAbilityData.json", null, "Morale States");

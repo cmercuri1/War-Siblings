@@ -14,7 +14,7 @@ import effect_classes.Effect;
 
 /** A class for Globally Storing and Managing all the Perminent Injuries */
 public class PermanentInjuryManager extends BaseGlobalManager {
-	private ArrayList<PermanentInjury> injuryList;
+	protected ArrayList<PermanentInjury> injuryList;
 
 	public PermanentInjuryManager() {
 		super("res/game_data/InjuryData.json", "Injuries", "Perminent Injuries");

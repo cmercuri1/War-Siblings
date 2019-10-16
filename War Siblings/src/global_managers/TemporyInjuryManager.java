@@ -14,7 +14,7 @@ import effect_classes.Effect;
 
 /** A class for Globally Storing and Managing all the Temporary Injuries */
 public class TemporyInjuryManager extends BaseGlobalManager {
-	private ArrayList<TemporaryInjury> injuryList;
+	protected ArrayList<TemporaryInjury> injuryList;
 
 	public TemporyInjuryManager() {
 		super("res/game_data/InjuryData.json", "Injuries", "Temporary Injuries");
