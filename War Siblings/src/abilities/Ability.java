@@ -36,7 +36,7 @@ public class Ability {
 	public Ability(String name, String desc, String displayName) {
 		this.name = name;
 		this.desc = desc;
-		this.displayName = displayName;;
+		this.displayName = displayName;
 		this.setImage();
 	}
 
@@ -44,7 +44,7 @@ public class Ability {
 		try {
 			this.image = new ImageIcon(Ability.class.getResource("/images/Abilities/" + this.name + ".png"));
 		} catch (NullPointerException n) {
-			System.out.println("Cannot find image for: " + this.name);
+			System.out.println("Cannot find image for: " + this.name + "->" + this.displayName);
 		}
 	}
 

@@ -9,9 +9,9 @@ import storage_classes.ArrayList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import abilities.PassiveAbility;
 import effect_classes.Effect;
 import storage_classes.MoraleState;
-import storage_classes.PassiveAbility;
 
 /**
  * A class for Globally Storing and Managing all the Abilties associated with

@@ -9,7 +9,6 @@ import event_classes.PermanentInjuryEvent;
 import listener_interfaces.PermanentInjuryListener;
 import notifier_interfaces.PermanentInjuryNotifier;
 import storage_classes.ArrayList;
-import storage_classes.PassiveAbility;
 
 /**
  * A class used for storing and assisting in resolving use of Permanent Injuries

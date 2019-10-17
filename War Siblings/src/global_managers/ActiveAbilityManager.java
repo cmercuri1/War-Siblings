@@ -41,7 +41,7 @@ public class ActiveAbilityManager extends BaseGlobalManager {
 	 */
 	public ActivatedAbility getAbility(String abilityName) {
 		for (ActivatedAbility a : this.abilityList) {
-			if (a.getName().toLowerCase().equals(abilityName)) {
+			if (a.getName().equals(abilityName)) {
 				return a;
 			}
 		}

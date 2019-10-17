@@ -5,6 +5,7 @@
 package character;
 
 import abilities.Ability;
+import abilities.PassiveAbility;
 import abilities.PermanentInjury;
 import abilities.TemporaryInjury;
 import abilities.Trait;
@@ -46,7 +47,6 @@ import notifier_interfaces.RoundControlNotifier;
 import notifier_interfaces.TurnControlNotifier;
 import storage_classes.ArrayList;
 import storage_classes.MoraleState;
-import storage_classes.PassiveAbility;
 
 /**
  * A manager class that handles all the abilities a character may have, either

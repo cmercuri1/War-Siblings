@@ -200,13 +200,19 @@ public class InventoryManager implements CharacterInventoryListener, SkillPrefer
 		}
 		this.removeModifiers(temp.onEquipSituation());
 		this.addModifiers(next.onEquipSituation());
-		
+
+		if (temp instanceof Abilities) {
+			for (Ability a : ((Abilities) temp).getAbilityList()) {
+				this.notifyAbilityListeners(new AbilityEvent(AbilityEvent.Task.REMOVE, a, this));
+			}
+		}
+
 		if (next instanceof Abilities) {
-			for (Ability a: ((Abilities) next).getAbilityList()) {
+			for (Ability a : ((Abilities) next).getAbilityList()) {
 				this.notifyAbilityListeners(new AbilityEvent(AbilityEvent.Task.ADD, a, this));
 			}
 		}
-		
+
 		this.notifyInventoryListeners(new InventoryEvent(InventoryEvent.Task.RETURN_INVENTORY, (Item) temp, this));
 	}
 
@@ -230,7 +236,7 @@ public class InventoryManager implements CharacterInventoryListener, SkillPrefer
 			if (next == GlobalManager.equipment.DEFAULTRIGHT) {
 				this.notifyInventorySituationListeners(
 						new InventorySituationEvent(InventorySituationEvent.Task.UNARMED, null, this));
-			} else if (((Weapon) next).getRange().getAlteredValue() < 2.0) {
+			} else if (((Weapon) next).getRange().getAlteredValue() <= 2.0) {
 				this.notifyInventorySituationListeners(
 						new InventorySituationEvent(InventorySituationEvent.Task.MELEE, null, this));
 			} else {

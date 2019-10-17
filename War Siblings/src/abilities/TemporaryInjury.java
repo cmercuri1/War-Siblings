@@ -5,7 +5,6 @@
 package abilities;
 
 import storage_classes.ArrayList;
-import storage_classes.PassiveAbility;
 import attributes.Attribute;
 import effect_classes.Effect;
 import effect_classes.Modifier;
@@ -32,6 +31,18 @@ public class TemporaryInjury extends PassiveAbility implements TemporaryInjuryNo
 	public TemporaryInjury(String name, String desc, boolean isHead, String dType, double dThres,
 			ArrayList<Effect> effects, double minDays, double maxDays) {
 		super(name, desc, effects);
+		this.isHead = isHead;
+		this.damageType = dType;
+		this.damageThreshold = dThres;
+		this.minDays = new Attribute(minDays);
+		this.maxDays = new Attribute(maxDays);
+
+		this.setUpNotificationSystem();
+	}
+
+	public TemporaryInjury(String name, String desc, String dName, boolean isHead, String dType, double dThres,
+			ArrayList<Effect> effects, double minDays, double maxDays) {
+		super(name, desc, dName, effects);
 		this.isHead = isHead;
 		this.damageType = dType;
 		this.damageThreshold = dThres;

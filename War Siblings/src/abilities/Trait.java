@@ -8,7 +8,6 @@ import javax.swing.ImageIcon;
 
 import effect_classes.Effect;
 import storage_classes.ArrayList;
-import storage_classes.PassiveAbility;
 
 /**
  * A class used for storing information about Trait style abilities which can be

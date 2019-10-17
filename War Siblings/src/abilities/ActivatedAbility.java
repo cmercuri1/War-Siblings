@@ -52,7 +52,7 @@ public class ActivatedAbility extends Ability {
 	}
 
 	public String toString() {
-		return "<html>" + this.displayName + ": " + this.desc + "<br>Builds up " + this.fatigueCost + "fatigue.<br>Costs "
+		return "<html>" + this.displayName + ": " + this.desc + "<br>Builds up " + this.fatigueCost + " fatigue.<br>Costs "
 				+ this.apCost + " Action Points to use" + "</html>";
 	}
 }

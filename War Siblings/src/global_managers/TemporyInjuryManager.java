@@ -36,9 +36,15 @@ public class TemporyInjuryManager extends BaseGlobalManager {
 			}
 		}
 
-		this.injuryList.add(new TemporaryInjury((String) o.get("Name"), (String) o.get("Description"),
-				(Boolean) o.get("isHead"), (String) o.get("Damage Type"), (Long) o.get("Damage Threshold"), temp3,
-				(Long) o.get("Min Days"), (Long) o.get("Max Days")));
+		if (!((String) o.get("Display Name")).equals("")) {
+			this.injuryList.add(new TemporaryInjury((String) o.get("Name"), (String) o.get("Description"),
+					(String) o.get("Display Name"), (Boolean) o.get("isHead"), (String) o.get("Damage Type"),
+					(Long) o.get("Damage Threshold"), temp3, (Long) o.get("Min Days"), (Long) o.get("Max Days")));
+		} else {
+			this.injuryList.add(new TemporaryInjury((String) o.get("Name"), (String) o.get("Description"),
+					(Boolean) o.get("isHead"), (String) o.get("Damage Type"), (Long) o.get("Damage Threshold"), temp3,
+					(Long) o.get("Min Days"), (Long) o.get("Max Days")));
+		}
 	}
 
 	@Override

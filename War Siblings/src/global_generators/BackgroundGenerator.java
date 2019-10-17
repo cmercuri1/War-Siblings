@@ -6,13 +6,13 @@ package global_generators;
 
 import storage_classes.ArrayList;
 import storage_classes.BackgroundItem;
-import storage_classes.PassiveAbility;
 
 import javax.swing.ImageIcon;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import abilities.PassiveAbility;
 import effect_classes.Effect;
 import global_managers.GlobalManager;
 

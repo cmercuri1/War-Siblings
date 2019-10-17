@@ -87,7 +87,7 @@
 		{
 			"Ability Name": "Cleave2HBarbarianBlade",
 			"Display Name": "Cleave",
-			"Image Name": "",
+			"Image Name": "Cleave_Barbarian",
 			"AP Cost": 4,
 			"Fatigue": 15
 		},
@@ -549,7 +549,7 @@
 		{
 			"Ability Name": "Stab",
 			"Display Name": "Stab",
-			"Image Name": "",
+			"Image Name": "Stab",
 			"AP Cost": 4,
 			"Fatigue": 7
 		},
@@ -612,7 +612,7 @@
 		{
 			"Ability Name": "ThrowAcidFlask",
 			"Display Name": "Throw Acid Flask",
-			"Image Name": "",
+			"Image Name": "ThrowAcidFlask",
 			"AP Cost": 5,
 			"Fatigue": 20
 		},

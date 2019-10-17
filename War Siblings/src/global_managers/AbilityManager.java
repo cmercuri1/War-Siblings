@@ -12,7 +12,7 @@ import storage_classes.ArrayList;
 public class AbilityManager extends BaseGlobalManager {
 
 	protected ArrayList<Ability> abilityList;
-	
+
 	/**
 	 */
 	public AbilityManager() {
@@ -21,7 +21,11 @@ public class AbilityManager extends BaseGlobalManager {
 
 	@Override
 	protected void addItem(JSONObject o) {
-		this.abilityList.add(new Ability((String) o.get("Ability Name"), null));
+		if ((String) o.get("Display Name") != null) {
+			this.abilityList.add(new Ability((String) o.get("Ability Name"), null, (String) o.get("Display Name")));
+		} else {
+			this.abilityList.add(new Ability((String) o.get("Ability Name"), null));
+		}
 	}
 
 	@Override
@@ -30,7 +34,7 @@ public class AbilityManager extends BaseGlobalManager {
 			this.abilityList = new ArrayList<Ability>();
 		}
 	}
-	
+
 	/* Getters */
 
 	public ArrayList<Ability> getAbilityList() {
@@ -43,7 +47,7 @@ public class AbilityManager extends BaseGlobalManager {
 	 */
 	public Ability getAbility(String abilityName) {
 		for (Ability a : this.abilityList) {
-			if (a.getName().toLowerCase().equals(abilityName)) {
+			if (a.getName().equals(abilityName)) {
 				return a;
 			}
 		}

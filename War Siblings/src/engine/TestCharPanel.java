@@ -13,6 +13,8 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 
 public class TestCharPanel extends JPanel {
+	
+	protected String selectedBg;
 
 	/**
 	 * 
@@ -23,17 +25,19 @@ public class TestCharPanel extends JPanel {
 	 * Create the panel.
 	 */
 	public TestCharPanel() {
-		setLayout(new MigLayout("", "[][grow]", "[][]"));
+		this.selectedBg = "Random";
 		
 		JLabel lblSelectedBackground = new JLabel("Selected Background");
-		add(lblSelectedBackground, "cell 1 0");
-		
 		JButton btnNewCharacter = new JButton("New Character");
-		add(btnNewCharacter, "cell 0 1");
+		JComboBox<String> bgBox = new JComboBox<String>(GlobalManager.backgrounds.getBgNames());
 		
-		JComboBox<String> comboBox = new JComboBox<String>(GlobalManager.backgrounds.getBgNames());
-		add(comboBox, "cell 1 1,growx");
+		setLayout(new MigLayout("", "[][grow]", "[][]"));
+		
+		add(lblSelectedBackground, "cell 1 0");
+		add(btnNewCharacter, "cell 0 1");
+		add(bgBox, "cell 1 1,growx");
 
+		bgBox.addItemListener((event)->this.selectedBg = (String) event.getItem());
 	}
 
 }

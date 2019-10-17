@@ -15,6 +15,11 @@ import javax.swing.JLabel;
 import javax.swing.JComboBox;
 
 public class BattlePanel extends JPanel {
+	protected String selectedToD;
+	protected String selectedBf;
+	protected String selectedFoe;
+
+	protected BattleConditions battle;
 
 	/**
 	 * 
@@ -25,38 +30,60 @@ public class BattlePanel extends JPanel {
 	 * Create the panel.
 	 */
 	public BattlePanel() {
-		setLayout(new MigLayout("", "[][][][grow]", "[][][][]"));
-
+		this.selectedToD = "DAY";
+		this.selectedBf = "SWAMP";
+		this.selectedFoe = "HUMAN";
+		
 		JButton btnStartBattle = new JButton("Start Battle");
-		add(btnStartBattle, "cell 0 0,growx");
-
 		JLabel lblBattleConditions = new JLabel("Battle Conditions:");
-		add(lblBattleConditions, "cell 3 0");
-
 		JButton btnEndBattle = new JButton("End battle");
-		add(btnEndBattle, "cell 0 1,growx");
-
 		JLabel lblTimeOfDay = new JLabel("Time of Day");
-		add(lblTimeOfDay, "cell 2 1");
-
-		JComboBox<String> comboBox = new JComboBox<String>(
+		JComboBox<String> todBox = new JComboBox<String>(
 				Arrays.stream(BattleConditions.TimeOfDay.values()).map(Enum::name).toArray(String[]::new));
-		add(comboBox, "cell 3 1,growx");
-
 		JLabel lblBattlefield = new JLabel("Battlefield");
-		add(lblBattlefield, "cell 2 2,grow");
-
-		JComboBox<String> comboBox_1 = new JComboBox<String>(
+		JComboBox<String> bfBox = new JComboBox<String>(
 				Arrays.stream(BattleConditions.Battlefield.values()).map(Enum::name).toArray(String[]::new));
-		add(comboBox_1, "cell 3 2,growx");
-
 		JLabel lblEnemy = new JLabel("Enemy");
-		add(lblEnemy, "cell 2 3");
-
-		JComboBox<String> comboBox_2 = new JComboBox<String>(
+		JComboBox<String> foeBox = new JComboBox<String>(
 				Arrays.stream(BattleConditions.Foes.values()).map(Enum::name).toArray(String[]::new));
-		add(comboBox_2, "cell 3 3,growx");
 
+		btnEndBattle.setVisible(false);
+		
+		setLayout(new MigLayout("", "[][][][grow]", "[][][][]"));
+		add(btnStartBattle, "cell 0 0,growx");
+		add(lblBattleConditions, "cell 3 0");
+		add(btnEndBattle, "cell 0 1,growx");
+		add(lblTimeOfDay, "cell 2 1");
+		add(todBox, "cell 3 1,growx");
+		add(lblBattlefield, "cell 2 2,grow");
+		add(bfBox, "cell 3 2,growx");
+		add(lblEnemy, "cell 2 3");
+		add(foeBox, "cell 3 3,growx");
+
+		btnStartBattle.addActionListener((event) -> {
+			this.battle = new BattleConditions(BattleConditions.TimeOfDay.valueOf(selectedToD),
+					BattleConditions.Battlefield.valueOf(selectedBf), BattleConditions.Foes.valueOf(selectedFoe));
+			btnStartBattle.setVisible(false);
+			todBox.setEnabled(false);
+			bfBox.setEnabled(false);
+			foeBox.setEnabled(false);
+			btnEndBattle.setVisible(true);
+			System.out.println(battle.toString());
+		});
+
+		btnEndBattle.addActionListener((event) -> {
+			btnStartBattle.setVisible(true);
+			todBox.setEnabled(true);
+			bfBox.setEnabled(true);
+			foeBox.setEnabled(true);
+			btnEndBattle.setVisible(false);
+		});
+
+		todBox.addItemListener((event) -> this.selectedToD = (String) event.getItem());
+
+		bfBox.addItemListener((event) -> this.selectedBf = (String) event.getItem());
+
+		foeBox.addItemListener((event) -> this.selectedFoe = (String) event.getItem());
 	}
 
 }

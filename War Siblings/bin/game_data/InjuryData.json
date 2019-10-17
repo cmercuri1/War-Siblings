@@ -3,6 +3,7 @@
 		"Temporary Injuries": [
 			{
 				"Name": "Broken Arm",
+				"Display Name": "",
 				"Description": "A broken arm makes it almost impossible to use any weapon effectively.",
 				"isHead": false,
 				"Damage Type": "Blunt",
@@ -26,6 +27,7 @@
 			},
 			{
 				"Name": "Broken Leg",
+				"Display Name": "",
 				"Description": "A broken leg severely limits mobility and can take a long time to heal.",
 				"isHead": false,
 				"Damage Type": "Blunt",
@@ -45,6 +47,7 @@
 			},
 			{
 				"Name": "Broken Ribs",
+				"Display Name": "",
 				"Description": "Several ribs have been broken by blunt force, making every single breath a painful process.",
 				"isHead": false,
 				"Damage Type": "Blunt",
@@ -60,6 +63,7 @@
 			},
 			{
 				"Name": "Bruised Leg",
+				"Display Name": "",
 				"Description": "A heavily bruised leg severely limits mobility, but won't take long to recover from.",
 				"isHead": false,
 				"Damage Type": "Blunt",
@@ -79,6 +83,7 @@
 			},
 			{
 				"Name": "Crushed Finger",
+				"Display Name": "",
 				"Description": "An unlucky hit crushed a finger, making it painful to maintain a firm grip.",
 				"isHead": false,
 				"Damage Type": "Blunt",
@@ -98,6 +103,7 @@
 			},
 			{
 				"Name": "Dislocated Shoulder",
+				"Display Name": "",
 				"Description": "A hard hit has knocked the shoulder out of its joint, making it hard to move the arm at all.",
 				"isHead": false,
 				"Damage Type": "Blunt",
@@ -113,6 +119,7 @@
 			},
 			{
 				"Name": "Fractured Elbow",
+				"Display Name": "",
 				"Description": "A fractured elbow makes it hard to block or parry any attacks effectively.",
 				"isHead": false,
 				"Damage Type": "Blunt",
@@ -128,6 +135,7 @@
 			},
 			{
 				"Name": "Fractured Hand",
+				"Display Name": "",
 				"Description": "Minor bone fractures at the hand make it difficult to hold firmly any weapon.",
 				"isHead": false,
 				"Damage Type": "Blunt",
@@ -147,6 +155,7 @@
 			},
 			{
 				"Name": "Fractured Ribs",
+				"Display Name": "",
 				"Description": "Fractured ribs send a wave of pain through the body with every breath.",
 				"isHead": false,
 				"Damage Type": "Blunt",
@@ -162,6 +171,7 @@
 			},
 			{
 				"Name": "Smashed Hand",
+				"Display Name": "",
 				"Description": "A hand smashed by blunt force makes it almost impossible to hold on to any kind of weapon.",
 				"isHead": false,
 				"Damage Type": "Blunt",
@@ -181,6 +191,7 @@
 			},
 			{
 				"Name": "Spained Ankle",
+				"Display Name": "",
 				"Description": "A sprained ankle makes even the quickest man hobble across the battlefield.",
 				"isHead": false,
 				"Damage Type": "Blunt",
@@ -200,6 +211,7 @@
 			},
 			{
 				"Name": "Broken Nose",
+				"Display Name": "",
 				"Description": "Blunt force broke this character's nose, making it hard for them to catch breath properly.",
 				"isHead": true,
 				"Damage Type": "Blunt",
@@ -215,6 +227,7 @@
 			},
 			{
 				"Name": "Crushed Windpipe",
+				"Display Name": "",
 				"Description": "A blow to the neck injured the windpipe, making it very hard and painful to draw breath, let alone to keep fighting.",
 				"isHead": true,
 				"Damage Type": "Blunt",
@@ -234,6 +247,7 @@
 			},
 			{
 				"Name": "Fractured Skull",
+				"Display Name": "",
 				"Description": "This character's skull has sustained multiple fractures, and the brain has sustained blunt trauma leading to swelling and a build-up of pressure inside the skull.",
 				"isHead": true,
 				"Damage Type": "Blunt",
@@ -269,6 +283,7 @@
 			},
 			{
 				"Name": "Severe Concussion",
+				"Display Name": "",
 				"Description": "A severe concussion makes it hard to focus, see or even walk straight. Not to mention the nausea and in some cases also amnesia.",
 				"isHead": true,
 				"Damage Type": "Blunt",
@@ -304,6 +319,7 @@
 			},
 			{
 				"Name": "Cut Achilles Tendon",
+				"Display Name": "",
 				"Description": "An injury like this makes even the quickest man hobble across the battlefield.",
 				"isHead": false,
 				"Damage Type": "Slash",
@@ -323,6 +339,7 @@
 			},
 			{
 				"Name": "Cut Arm",
+				"Display Name": "",
 				"Description": "A deep cut at the arm makes it difficult to use.",
 				"isHead": false,
 				"Damage Type": "Slash",
@@ -342,6 +359,7 @@
 			},
 			{
 				"Name": "Cut Arm Sinew",
+				"Display Name": "",
 				"Description": "A partially cut arm sinew makes it difficult to put force into any strike.",
 				"isHead": false,
 				"Damage Type": "Slash",
@@ -357,6 +375,7 @@
 			},
 			{
 				"Name": "Cut Artery_Stage_2",
+				"Display Name": "Cut Artery",
 				"Description": "An artery has been cut, leading to massive hemorrhaging and ultimately death if not treated out of combat. If survived, it is followed by severely lowered constitution due to loss of blood.",
 				"isHead": false,
 				"Damage Type": "Slash",
@@ -372,6 +391,7 @@
 			},
 			{
 				"Name": "Cut Artery",
+				"Display Name": "",
 				"Description": "An artery has been cut, leading to massive hemorrhaging and ultimately death if not treated out of combat. If survived, it is followed by severely lowered constitution due to loss of blood.",
 				"isHead": false,
 				"Damage Type": "Slash",
@@ -390,6 +410,7 @@
 			},
 			{
 				"Name": "Cut Leg Muscle",
+				"Display Name": "",
 				"Description": "A cut into the muscles of the leg makes any quick and sudden movements impossible.",
 				"isHead": false,
 				"Damage Type": "Slash",
@@ -409,6 +430,7 @@
 			},
 			{
 				"Name": "Deep Abdominal Cut",
+				"Display Name": "",
 				"Description": "A deep cut at the abdomen has injured the muscle and makes it painful to move or even stand upright, reducing the constitution of this character.",
 				"isHead": false,
 				"Damage Type": "Slash",
@@ -428,6 +450,7 @@
 			},
 			{
 				"Name": "Deep Chest Cut",
+				"Display Name": "",
 				"Description": "A deep, bleeding cut into the chest and pectoral muscle makes it hard to keep standing.",
 				"isHead": false,
 				"Damage Type": "Slash",
@@ -447,6 +470,7 @@
 			},
 			{
 				"Name": "Exposed Ribs",
+				"Display Name": "",
 				"Description": "A deep cut to the side peeled the skin right off of this character's rib cage.",
 				"isHead": false,
 				"Damage Type": "Slash",
@@ -462,6 +486,7 @@
 			},
 			{
 				"Name": "Split Hand",
+				"Display Name": "",
 				"Description": "A sharp cut split the hand right down the middle. Until healed, it can barely be used anymore.",
 				"isHead": false,
 				"Damage Type": "Slash",
@@ -481,6 +506,7 @@
 			},
 			{
 				"Name": "Split Shoulder",
+				"Display Name": "",
 				"Description": "A deep cut has split this character's shoulder open, injuring the muscle tissue and severely limiting mobility of the arms.",
 				"isHead": false,
 				"Damage Type": "Slash",
@@ -496,6 +522,7 @@
 			},
 			{
 				"Name": "Cut Neck Vein_Stage_2",
+				"Display Name": "Cut Neck Vein",
 				"Description": "A vein on the throat has been cut, leading to massive hemorrhaging and ultimately death if not treated out of combat. If survived, it is followed by a period of severely lowered constitution due to loss of blood, and will leave a menacing scar.",
 				"isHead": false,
 				"Damage Type": "Slash",
@@ -511,6 +538,7 @@
 			},
 			{
 				"Name": "Cut Neck Vein",
+				"Display Name": "",
 				"Description": "A vein on the throat has been cut, leading to massive hemorrhaging and ultimately death if not treated out of combat. If survived, it is followed by a period of severely lowered constitution due to loss of blood, and will leave a menacing scar.",
 				"isHead": true,
 				"Damage Type": "Slash",
@@ -529,6 +557,7 @@
 			},
 			{
 				"Name": "Deep Face Cut",
+				"Display Name": "",
 				"Description": "A jagged cut across the face is bleeding profusely over eyes, nose and mouth.",
 				"isHead": true,
 				"Damage Type": "Slash",
@@ -564,6 +593,7 @@
 			},
 			{
 				"Name": "Grazed Neck_Stage_2",
+				"Display Name": "Grazed Neck",
 				"Description": "A grazing wound on the neck bleeds profusely. If survived, it is followed by lowered constitution due to loss of blood.",
 				"isHead": false,
 				"Damage Type": "Slash",
@@ -579,6 +609,7 @@
 			},
 			{
 				"Name": "Grazed Neck",
+				"Display Name": "",
 				"Description": "A grazing wound on the neck bleeds profusely. If survived, it is followed by lowered constitution due to loss of blood.",
 				"isHead": true,
 				"Damage Type": "Slash",
@@ -597,6 +628,7 @@
 			},
 			{
 				"Name": "Pierced Cheek",
+				"Display Name": "",
 				"Description": "Contrary to what one might think, having an additional hole in the cheek does not help with breathing.",
 				"isHead": true,
 				"Damage Type": "Slash",
@@ -612,6 +644,7 @@
 			},
 			{
 				"Name": "Ripped Ear",
+				"Display Name": "",
 				"Description": "This character's ear almost got torn off, sending blood down their head and neck, and making them less aware of their surroundings.",
 				"isHead": true,
 				"Damage Type": "Slash",
@@ -627,6 +660,7 @@
 			},
 			{
 				"Name": "Split Nose",
+				"Display Name": "",
 				"Description": "A close swing split this character's nose in two and made any attempt to breathe an exercise in swallowing copious amounts of blood.",
 				"isHead": true,
 				"Damage Type": "Slash",
@@ -642,6 +676,7 @@
 			},
 			{
 				"Name": "Grazed Kidney",
+				"Display Name": "",
 				"Description": "Abdominal pain, blood in the urine and always the danger of infection. A grazed kidney is a severe risk to the life of any character, draining their constitution.",
 				"isHead": false,
 				"Damage Type": "Pierce",
@@ -657,6 +692,7 @@
 			},
 			{
 				"Name": "Injured Knee Cap",
+				"Display Name": "",
 				"Description": "The sensitive knee cap has been injured, resulting in pain with every movement and severely limiting the mobility of this character.",
 				"isHead": false,
 				"Damage Type": "Pierce",
@@ -676,6 +712,7 @@
 			},
 			{
 				"Name": "Injured Shoulder",
+				"Display Name": "",
 				"Description": "Injured muscles in the shoulder make it hard to put any force into a strike.",
 				"isHead": false,
 				"Damage Type": "Pierce",
@@ -691,6 +728,7 @@
 			},
 			{
 				"Name": "Pierced Arm Muscles",
+				"Display Name": "",
 				"Description": "A piercing attack has punctured the arm and injured muscle tissue, limiting it's mobility.",
 				"isHead": true,
 				"Damage Type": "Pierce",
@@ -710,6 +748,7 @@
 			},
 			{
 				"Name": "Pierced Chest",
+				"Display Name": "",
 				"Description": "A piercing attack has punctured the chest, injured muscle tissue and grazed the ribs. Although no vital organs have been hit, it's still painful to just breathe.",
 				"isHead": true,
 				"Damage Type": "Pierce",
@@ -725,6 +764,7 @@
 			},
 			{
 				"Name": "Pierced Hand",
+				"Display Name": "",
 				"Description": "Having a hole in the hand may not stop a determined fighter, but it does make handling a weapon more difficult.",
 				"isHead": true,
 				"Damage Type": "Pierce",
@@ -744,6 +784,7 @@
 			},
 			{
 				"Name": "Pierced Leg Muscles",
+				"Display Name": "",
 				"Description": "Punctured leg muscles make any attempts to do quick and sudden movements a painful experience, if not outright impossible.",
 				"isHead": true,
 				"Damage Type": "Pierce",
@@ -763,6 +804,7 @@
 			},
 			{
 				"Name": "Pierced Lung",
+				"Display Name": "",
 				"Description": "A second opening for air proves of little use, except for sounding like a bagpipe.",
 				"isHead": true,
 				"Damage Type": "Pierce",
@@ -778,6 +820,7 @@
 			},
 			{
 				"Name": "Pierced Side",
+				"Display Name": "",
 				"Description": "A piercing attack has punctured the side, injured muscle tissue and grazed the ribs. Although no vital organs have been hit, it's still painful to just breathe.",
 				"isHead": true,
 				"Damage Type": "Pierce",
@@ -793,6 +836,7 @@
 			},
 			{
 				"Name": "Stabbed Guts",
+				"Display Name": "",
 				"Description": "A wound at the intestines drains constitution, and the high chance of infection and the prospect of a slow and painful death doesn't help either.",
 				"isHead": true,
 				"Damage Type": "Pierce",
@@ -808,6 +852,7 @@
 			},
 			{
 				"Name": "Crushed Windpipe",
+				"Display Name": "",
 				"Description": "A blow to the neck injured the windpipe, making it very hard and painful to draw breath, let alone to keep fighting.",
 				"isHead": true,
 				"Damage Type": "Pierce",
@@ -827,6 +872,7 @@
 			},
 			{
 				"Name": "Grazed Eye Socket",
+				"Display Name": "",
 				"Description": "A blow grazed and ripped the tissue close to the eye, causing it to fill with blood and swell shut.",
 				"isHead": true,
 				"Damage Type": "Pierce",
@@ -846,6 +892,7 @@
 			},
 			{
 				"Name": "Grazed Neck_Stage_2",
+				"Display Name": "Grazed Neck",
 				"Description": "A grazing wound on the neck bleeds profusely. If survived, it is followed by lowered constitution due to loss of blood.",
 				"isHead": false,
 				"Damage Type": "Pierce",
@@ -861,6 +908,7 @@
 			},
 			{
 				"Name": "Grazed Neck",
+				"Display Name": "",
 				"Description": "A grazing wound on the neck bleeds profusely. If survived, it is followed by lowered constitution due to loss of blood.",
 				"isHead": true,
 				"Damage Type": "Pierce",
@@ -879,6 +927,7 @@
 			},
 			{
 				"Name": "Pierced Cheek",
+				"Display Name": "",
 				"Description": "Contrary to what one might think, having an additional hole in the cheek does not help with breathing.",
 				"isHead": true,
 				"Damage Type": "Pierce",
@@ -894,6 +943,7 @@
 			},
 			{
 				"Name": "Ripped Ear",
+				"Display Name": "",
 				"Description": "This character's ear almost got torn off, sending blood down their head and neck, and making them less aware of their surroundings.",
 				"isHead": true,
 				"Damage Type": "Pierce",
@@ -911,6 +961,7 @@
 		"Perminent Injuries": [
 			{
 				"Name": "Brain Damage",
+				"Display Name": "",
 				"Description": "A hard hit to the head shook some things up and didn't exactly benefit this character's cognitive skills. On the bright side, he may now be just too stupid to realize when it's time to run.",
 				"Content In Reserve": false,
 				"Effects": [
@@ -930,6 +981,7 @@
 			},
 			{
 				"Name": "Broken Elbow Joint",
+				"Display Name": "",
 				"Description": "A broken elbow that never fully healed hinders all movement of the arm and severely reduces combat effectiveness.",
 				"Content In Reserve": true,
 				"Effects": [
@@ -949,6 +1001,7 @@
 			},
 			{
 				"Name": "Broken Knee",
+				"Display Name": "",
 				"Description": "This character took something to the knee, and it never fully healed. Lunging forward or dodging can be painful, and it lacks any grace.",
 				"Content In Reserve": true,
 				"Effects": [
@@ -968,6 +1021,7 @@
 			},
 			{
 				"Name": "Partially Collapsed Lung",
+				"Display Name": "",
 				"Description": "A part of the lung has died, making it very hard for this character to catch breath",
 				"Content In Reserve": true,
 				"Effects": [
@@ -979,6 +1033,7 @@
 			},
 			{
 				"Name": "Maimed Foot",
+				"Display Name": "",
 				"Description": "An injury to the foot has never fully healed, making it hard to win any dancing competitions or otherwise move around quickly.",
 				"Content In Reserve": true,
 				"Effects": [
@@ -994,6 +1049,7 @@
 			},
 			{
 				"Name": "Missing Ear",
+				"Display Name": "",
 				"Description": "Luckily, a missing ear isn't that much of a hindrance for this character. But it does look gross.",
 				"Content In Reserve": false,
 				"Effects": [
@@ -1005,6 +1061,7 @@
 			},
 			{
 				"Name": "Missing Eye",
+				"Display Name": "",
 				"Description": "A missing eye makes it difficult to judge distance properly, and limits the field of view.",
 				"Content In Reserve": false,
 				"Effects": [
@@ -1020,6 +1077,7 @@
 			},
 			{
 				"Name": "Missing Finger",
+				"Display Name": "",
 				"Description": "A missing finger makes it harder to firmly grab a weapon or shield, but it also makes for a good story.",
 				"Content In Reserve": false,
 				"Effects": [
@@ -1035,6 +1093,7 @@
 			},
 			{
 				"Name": "Missing Nose",
+				"Display Name": "",
 				"Description": "A gaping hole is all that is left of the nose, making this character hard to look at.",
 				"Content In Reserve": false,
 				"Effects": [
@@ -1046,6 +1105,7 @@
 			},
 			{
 				"Name": "Traumatised",
+				"Display Name": "",
 				"Description": "This character has been to the other side. Faced with his own mortality, the experience of dying and coming back has left him a broken man.",
 				"Content In Reserve": true,
 				"Effects": [
@@ -1061,6 +1121,7 @@
 			},
 			{
 				"Name": "Weakened Heart",
+				"Display Name": "",
 				"Description": "Past injuries left this character with a weakened heart, severely lowering his constitution.",
 				"Content In Reserve": true,
 				"Effects": [

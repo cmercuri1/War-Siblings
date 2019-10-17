@@ -68,6 +68,7 @@ public class Character
 	protected void assignListeners() {
 		this.im.addTraitListener(this.abm);
 		this.im.addInventorySituationListener(this.abm);
+		this.im.addAbilityListener(this.abm);
 		this.im.addModifierListener(this.am);
 
 		this.em.addBattleControlListener(this.abm);

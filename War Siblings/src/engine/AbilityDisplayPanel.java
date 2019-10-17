@@ -29,8 +29,8 @@ public class AbilityDisplayPanel extends JPanel {
 	 */
 	public AbilityDisplayPanel() {
 		setBackground(new Color(102, 0, 0));
-		setLayout(new MigLayout("", "[40,grow][40,grow][40,grow][40,grow][40,grow][40,grow][40,grow][40,grow]",
-				"[40,grow]"));
+		setLayout(new MigLayout("", "[37,grow][37,grow][37,grow][37,grow][37,grow][37,grow][37,grow][37,grow]",
+				"[37,grow]"));
 
 	}
 
@@ -47,7 +47,7 @@ public class AbilityDisplayPanel extends JPanel {
 				temp.setToolTipText(a.toString());
 				abilities.add(temp);
 			} catch (NullPointerException n) {
-
+				System.out.println("Something wrong with: " + a.toString());
 			}
 		}
 
@@ -66,21 +66,21 @@ public class AbilityDisplayPanel extends JPanel {
 
 	protected void configureLayout(ArrayList<JLabel> abilityList, ArrayList<JLabel> otherList) {
 		int temp = abilityList.size();
-		int abilityRows = 0;
+		int abilityRows = 1;
 
-		String rows = "[40,grow]";
+		String rows = "[37,grow]";
 		while (temp > MAXCOLUMNS) {
 			temp -= MAXCOLUMNS;
-			rows += "[40,grow]";
+			rows += "[37,grow]";
 			abilityRows++;
 		}
 
 		temp = otherList.size();
 		while (temp > MAXCOLUMNS) {
 			temp -= MAXCOLUMNS;
-			rows += "[40,grow]";
+			rows += "[37,grow]";
 		}
-		setLayout(new MigLayout("", "[40,grow][40,grow][40,grow][40,grow][40,grow][40,grow][40,grow][40,grow]", rows));
+		setLayout(new MigLayout("", "[37,grow][37,grow][37,grow][37,grow][37,grow][37,grow][37,grow][37,grow]", rows));
 
 		int i = 0, j = 0;
 		int pos = 0;

@@ -2,10 +2,10 @@
  * PassiveAbility
  * Author: Chris Mercuri cmercuri1@student.unimelb.edu.au
  */
-package storage_classes;
+package abilities;
 
-import abilities.Ability;
 import effect_classes.Effect;
+import storage_classes.ArrayList;
 
 public class PassiveAbility extends Ability {
 
@@ -27,6 +27,11 @@ public class PassiveAbility extends Ability {
 	 */
 	public PassiveAbility(String name, ArrayList<Effect> effects) {
 		super(name);
+		this.effects = effects;
+	}
+
+	public PassiveAbility(String name, String desc, String dName, ArrayList<Effect> effects) {
+		super(name, desc, dName);
 		this.effects = effects;
 	}
 
