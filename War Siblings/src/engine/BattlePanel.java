@@ -69,6 +69,7 @@ public class BattlePanel extends JPanel {
 			foeBox.setEnabled(false);
 			btnEndBattle.setVisible(true);
 			System.out.println(battle.toString());
+			this.firePropertyChange("Start Battle", null, battle);
 		});
 
 		btnEndBattle.addActionListener((event) -> {
@@ -77,6 +78,7 @@ public class BattlePanel extends JPanel {
 			bfBox.setEnabled(true);
 			foeBox.setEnabled(true);
 			btnEndBattle.setVisible(false);
+			this.firePropertyChange("End Battle", null, battle);
 		});
 
 		todBox.addItemListener((event) -> this.selectedToD = (String) event.getItem());

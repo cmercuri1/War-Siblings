@@ -45,6 +45,8 @@ public class AbilityPanel extends JPanel {
 	 */
 	public void update(Character curr) {
 		a.update(curr);
+		this.revalidate();
+		this.repaint();
 	}
 
 }

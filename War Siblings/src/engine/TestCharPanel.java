@@ -38,6 +38,7 @@ public class TestCharPanel extends JPanel {
 		add(bgBox, "cell 1 1,growx");
 
 		bgBox.addItemListener((event)->this.selectedBg = (String) event.getItem());
+		btnNewCharacter.addActionListener((event)->this.firePropertyChange("Background Selected", null, this.selectedBg));
 	}
 
 }

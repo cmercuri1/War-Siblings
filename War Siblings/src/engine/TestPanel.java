@@ -20,16 +20,21 @@ public class TestPanel extends JPanel {
 	 */
 	public TestPanel() {
 		setLayout(new MigLayout("", "[260px]", "[90px]"));
-		
-		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP); 
+
+		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		add(tabbedPane, "cell 0 0,alignx left,aligny top");
-		
+
 		TestCharPanel testCharPanel = new TestCharPanel();
 		tabbedPane.addTab("Character Tab", null, testCharPanel, null);
-		
+
 		BattlePanel battlePanel = new BattlePanel();
 		tabbedPane.addTab("Battle Tab", null, battlePanel, null);
 
+		testCharPanel.addPropertyChangeListener((event) -> {
+			this.firePropertyChange(event.getPropertyName(), event.getOldValue(), event.getNewValue());
+		});
+		battlePanel.addPropertyChangeListener((event) -> {
+			this.firePropertyChange(event.getPropertyName(), event.getOldValue(), event.getNewValue());
+		});
 	}
-
 }

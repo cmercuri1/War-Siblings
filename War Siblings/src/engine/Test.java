@@ -6,11 +6,14 @@ package engine;
 
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import net.miginfocom.swing.MigLayout;
+import storage_classes.BattleConditions;
 
 public class Test extends JFrame {
 
@@ -53,11 +56,19 @@ public class Test extends JFrame {
 		contentPane.setLayout(new MigLayout("", "[360, grow][1300, grow][260, grow]", "[880, grow][200, grow]"));
 
 		CharacterPanel charPanel = new CharacterPanel();
-		contentPane.add(charPanel,"cell 0 0 1 2, grow");
-		
+		contentPane.add(charPanel, "cell 0 0 1 2, grow");
+
 		TestPanel testPanel = new TestPanel();
 		contentPane.add(testPanel, "cell 2 1,grow");
-		
-		charPanel.applyCharacter();
+
+		testPanel.addPropertyChangeListener((event) -> {
+			if (event.getPropertyName().equals("Background Selected")) {
+				charPanel.changeCharacter((String) event.getNewValue());
+			} else if (event.getPropertyName().equals("Start Battle")) {
+				charPanel.startBattle((BattleConditions) event.getNewValue());
+			} else if (event.getPropertyName().equals("End Battle")) {
+				charPanel.endBattle((BattleConditions) event.getNewValue());
+			}
+		});
 	}
 }
