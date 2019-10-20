@@ -6,8 +6,6 @@ package engine;
 
 import java.awt.Color;
 import java.awt.EventQueue;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -70,5 +68,8 @@ public class Test extends JFrame {
 				charPanel.endBattle((BattleConditions) event.getNewValue());
 			}
 		});
+
+		MiddlePanel middlePanel = new MiddlePanel();
+		contentPane.add(middlePanel, "cell 1 0 2 1, grow");
 	}
 }

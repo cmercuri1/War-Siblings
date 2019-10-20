@@ -47,7 +47,7 @@ public class AbilityDisplayPanel extends JPanel {
 				temp.setToolTipText(a.toString());
 				abilities.add(temp);
 			} catch (NullPointerException n) {
-				System.out.println("Something wrong with: " + a.toString());
+				System.out.println("Something went wrong: " + curr.getAbm().getAbilities().size());
 			}
 		}
 

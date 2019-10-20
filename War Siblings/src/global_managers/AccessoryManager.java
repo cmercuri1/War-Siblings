@@ -36,4 +36,9 @@ public class AccessoryManager extends TwoListGlobalManager {
 
 	}
 
+	public ArrayList<ResolveNecklace> getAccessoryList() {
+		ArrayList<ResolveNecklace> temp = new ArrayList<ResolveNecklace>(resolveNecklaces);
+		return temp;
+	}
+
 }

@@ -399,6 +399,12 @@ public class InventoryManager implements CharacterInventoryListener, SkillPrefer
 		case CHANGE_RIGHT:
 			this.swapItem(Target.RIGHT, c.getInformation());
 			break;
+		case CHANGE_AMMO:
+			this.swapItem(Target.AMMO, c.getInformation());
+			break;
+		case CHANGE_ACCESSORY:
+			this.swapItem(Target.ACCESSORY, c.getInformation());
+			break;
 		case REMOVE_BODY:
 			this.swapItem(Target.BODY, GlobalManager.equipment.DEFAULTBODY);
 			break;
@@ -411,11 +417,21 @@ public class InventoryManager implements CharacterInventoryListener, SkillPrefer
 		case REMOVE_RIGHT:
 			this.swapItem(Target.RIGHT, GlobalManager.equipment.DEFAULTRIGHT);
 			break;
+		case REMOVE_AMMO:
+			this.swapItem(Target.AMMO, GlobalManager.equipment.DEFAULTAMMO);
+			break;
+		case REMOVE_ACCESSORY:
+			this.swapItem(Target.ACCESSORY, GlobalManager.equipment.DEFAULTACCESSORY);
+			break;
 		case REMOVE_ALL:
 			this.swapItem(Target.BODY, GlobalManager.equipment.DEFAULTBODY);
 			this.swapItem(Target.HEAD, GlobalManager.equipment.DEFAULTHEAD);
 			this.swapItem(Target.LEFT, GlobalManager.equipment.DEFAULTLEFT);
 			this.swapItem(Target.RIGHT, GlobalManager.equipment.DEFAULTRIGHT);
+			this.swapItem(Target.AMMO, GlobalManager.equipment.DEFAULTAMMO);
+			this.swapItem(Target.ACCESSORY, GlobalManager.equipment.DEFAULTACCESSORY);
+			for (int i = 0; i < this.bag.size(); i++)
+				this.swapBagItem(GlobalManager.equipment.DEFAULTBAG, i);
 			break;
 		}
 	}

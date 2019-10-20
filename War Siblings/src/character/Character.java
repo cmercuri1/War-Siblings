@@ -97,6 +97,8 @@ public class Character
 		this.am.setUpAttributes(bg);
 		this.abm.setUpAbilities(bg);
 		this.im.setUpInventory(bg);
+		
+		this.am.hitpoints.alterCurrent(100); // buff to HP in case of Tough increase
 
 		this.notifyCharacterListeners(new CharacterEvent(CharacterEvent.Task.FINISHED_CHARACTER, this, this));
 		this.made = true;

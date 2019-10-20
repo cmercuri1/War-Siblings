@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import attributes.BarAttribute;
 import attributes.BarStarAttribute;
 import attributes.DamageAttribute;
+import attributes.StarAttribute;
 import character.AttributeManager;
 import character.InventoryManager;
 import net.miginfocom.swing.MigLayout;
@@ -140,19 +141,25 @@ public class AttributePanel extends JPanel {
 		body.setValue(new BarDisplay(im.getBody().getDurability().getAlteredCurrentValue(),
 				im.getBody().getDurability().getAlteredValue()));
 		hp.setValue(new BarDisplay(((BarStarAttribute) am.getAttributes()[0]).getAlteredCurrentValue(),
-				am.getAttributes()[0].getAlteredValue()));
+				am.getAttributes()[0].getAlteredValue(), ((StarAttribute) am.getAttributes()[0]).getNumStars()));
 		ap.setValue(new BarDisplay(((BarAttribute) am.getAttributes()[1]).getAlteredCurrentValue(),
 				am.getAttributes()[1].getAlteredValue()));
 		fat.setValue(new BarDisplay(((BarStarAttribute) am.getAttributes()[2]).getAlteredCurrentValue(),
-				am.getAttributes()[2].getAlteredValue()));
+				am.getAttributes()[2].getAlteredValue(), ((StarAttribute) am.getAttributes()[2]).getNumStars()));
 		mor.setValue(new BarDisplay(am.getCurrentState().getValue(), MoraleState.UNBREAKABLE.getValue(),
 				am.getCurrentState().toString()));
-		res.setValue(new BarDisplay(am.getAttributes()[3].getAlteredValue(), ""));
-		init.setValue(new BarDisplay(am.getAttributes()[4].getAlteredValue(), ""));
-		mSk.setValue(new BarDisplay(am.getAttributes()[5].getAlteredValue(), ""));
-		rSk.setValue(new BarDisplay(am.getAttributes()[6].getAlteredValue(), ""));
-		mDef.setValue(new BarDisplay(am.getAttributes()[7].getAlteredValue(), ""));
-		rDef.setValue(new BarDisplay(am.getAttributes()[8].getAlteredValue(), ""));
+		res.setValue(new BarDisplay(am.getAttributes()[3].getAlteredValue(), "",
+				((StarAttribute) am.getAttributes()[3]).getNumStars()));
+		init.setValue(new BarDisplay(am.getAttributes()[4].getAlteredValue(), "",
+				((StarAttribute) am.getAttributes()[4]).getNumStars()));
+		mSk.setValue(new BarDisplay(am.getAttributes()[5].getAlteredValue(), "",
+				((StarAttribute) am.getAttributes()[5]).getNumStars()));
+		rSk.setValue(new BarDisplay(am.getAttributes()[6].getAlteredValue(), "",
+				((StarAttribute) am.getAttributes()[6]).getNumStars()));
+		mDef.setValue(new BarDisplay(am.getAttributes()[7].getAlteredValue(), "",
+				((StarAttribute) am.getAttributes()[7]).getNumStars()));
+		rDef.setValue(new BarDisplay(am.getAttributes()[8].getAlteredValue(), "",
+				((StarAttribute) am.getAttributes()[8]).getNumStars()));
 		dam.setValue(new BarDisplay(((DamageAttribute) am.getAttributes()[9]).getAlteredMinValue(),
 				((DamageAttribute) am.getAttributes()[9]).toString(), am.getAttributes()[9].getAlteredValue()));
 		armDam.setValue(

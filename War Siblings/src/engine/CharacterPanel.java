@@ -8,12 +8,13 @@ import javax.swing.JPanel;
 
 import character.Character;
 import event_classes.CharacterEvent;
+import listener_interfaces.CharacterListener;
 import net.miginfocom.swing.MigLayout;
 import storage_classes.BattleConditions;
 
 import java.awt.Color;
 
-public class CharacterPanel extends JPanel {
+public class CharacterPanel extends JPanel implements CharacterListener{
 	/**
 	 * 
 	 */
@@ -42,6 +43,7 @@ public class CharacterPanel extends JPanel {
 		add(attributePanel, "cell 0 3,grow");
 
 		currChar = new Character();
+		currChar.addCharacterListener(this);
 	}
 
 	public void applyCharacter() {
@@ -61,6 +63,19 @@ public class CharacterPanel extends JPanel {
 
 	public void endBattle(BattleConditions conditions) {
 		currChar.getEm().endBattle(conditions);
+	}
+
+	@Override
+	public void onCharacterEvent(CharacterEvent c) {
+		switch (c.getTask()) {
+		case CHANGED_CHARACTER:
+			break;
+		case FINISHED_CHARACTER:
+			break;
+		case UPDATED_CHARACTER:
+			applyCharacter();
+			break;
+		}
 	}
 
 }

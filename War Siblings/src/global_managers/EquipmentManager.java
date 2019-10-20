@@ -10,6 +10,7 @@ import items.Ammunition;
 import items.Armor;
 import items.ComboItem;
 import items.Headgear;
+import items.Item;
 import items.Shield;
 import items.Weapon;
 import storage_classes.ArrayList;
@@ -61,5 +62,27 @@ public class EquipmentManager {
 
 	public AccessoryManager getAccessory() {
 		return this.accessory;
+	}
+
+	public ArrayList<Item> getItemList() {
+		ArrayList<Item> temp = new ArrayList<Item>();
+
+		for (Armor a : body.getArmorList()) {
+			temp.add(a);
+		}
+		for (Headgear a : head.getHelmList()) {
+			temp.add(a);
+		}
+		for (Shield a : shield.getShieldList()) {
+			temp.add(a);
+		}
+		for (Weapon a : weapon.getWeaponList()) {
+			temp.add(a);
+		}
+		for (Accessory a : accessory.getAccessoryList()) {
+			temp.add(a);
+		}
+
+		return temp;
 	}
 }
