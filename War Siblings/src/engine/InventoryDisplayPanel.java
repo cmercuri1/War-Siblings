@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 import global_managers.GlobalManager;
 import items.Item;
 import net.miginfocom.swing.MigLayout;
+import java.awt.Color;
 
 public class InventoryDisplayPanel extends JPanel {
 
@@ -21,6 +22,7 @@ public class InventoryDisplayPanel extends JPanel {
 	 * Create the panel.
 	 */
 	public InventoryDisplayPanel() {
+		setBackground(new Color(102, 0, 0));
 		this.rows = 21;
 		this.columns = 15;
 
