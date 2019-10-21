@@ -29,6 +29,10 @@ public class Headgear extends Armor {
 		if (this.image == null) {
 			System.out.println("Error Finding: " + this.name);
 		}
+		this.invImage = new ImageIcon("res/images/Items/Headgear/" + this.name + ".png");
+		if (this.invImage == null) {
+			System.out.println("Error Finding: " + this.name);
+		}
 	}
 
 	public ArrayList<Modifier> onEquipSituation() {

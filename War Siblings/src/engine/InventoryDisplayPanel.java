@@ -22,9 +22,9 @@ public class InventoryDisplayPanel extends JPanel {
 	 */
 	public InventoryDisplayPanel() {
 		this.rows = 21;
-		this.columns = 9;
+		this.columns = 15;
 
-		this.boxSize = "[120]";
+		this.boxSize = "[70]";
 
 		setLayout(new MigLayout("", new String(new char[columns]).replace("\0", boxSize),
 				new String(new char[rows]).replace("\0", boxSize)));
@@ -34,7 +34,7 @@ public class InventoryDisplayPanel extends JPanel {
 		
 		JLabel temp;
 		for (Item item:GlobalManager.equipment.getItemList()) {
-			temp = new JLabel(new StretchIcon(item.getImage().getImage(), true));
+			temp = new JLabel(new StretchIcon(item.getInvImage().getImage(), true));
 			temp.setToolTipText(item.toString());
 			add(temp, "cell " + i + " " + j + ", grow");
 			i++;

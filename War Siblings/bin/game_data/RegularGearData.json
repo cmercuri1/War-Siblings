@@ -1600,7 +1600,7 @@
 				]
 			},
 			{
-				"Name": "Gnarled Staff",
+				"Name": "Gnarly Staff",
 				"Value": 1000,
 				"Durability": 25,
 				"Damage Minimum": 25,
@@ -2940,7 +2940,7 @@
 				]
 			},
 			{
-				"Name": "Beserk Chain",
+				"Name": "Berserk Chain",
 				"Value": 1300,
 				"Durability": 64,
 				"Damage Minimum": 40,
@@ -3270,7 +3270,7 @@
 				]
 			},
 			{
-				"Name": "Broken Pike",
+				"Name": "Broken Ancient Bladed Pike",
 				"Value": 350,
 				"Durability": 26,
 				"Damage Minimum": 35,
@@ -3295,7 +3295,7 @@
 				]
 			},
 			{
-				"Name": "Bladed Pike",
+				"Name": "Ancient Bladed Pike",
 				"Value": 600,
 				"Durability": 30,
 				"Damage Minimum": 55,
@@ -3888,7 +3888,7 @@
 	"Accessory": {
 		"Resolve Necklaces": [
 			{
-				"Name": "Alp Trophy Necklacep",
+				"Name": "Alp Trophy Necklace",
 				"Value": 300,
 				"Description": "",
 				"Resolve Boost": 5

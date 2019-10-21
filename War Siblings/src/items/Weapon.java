@@ -65,6 +65,10 @@ public class Weapon extends AbilityItem {
 		if (this.image == null) {
 			System.out.println("Error Finding: " + this.name);
 		}
+		this.invImage = new ImageIcon("res/images/Items/Weapons/" + this.name + "-inv.png");
+		if (this.invImage == null) {
+			System.out.println("Error Finding: " + this.name);
+		}
 	}
 
 	public ArrayList<Modifier> onEquipSituation() {

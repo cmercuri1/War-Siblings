@@ -96,10 +96,10 @@ public class EquipmentPanel extends JPanel {
 		leftItem.setIcon(new StretchIcon(im.getLeft().getImage().getImage(),true));
 		leftItem.setToolTipText(im.getLeft().toString());
 		
-		bag1.setIcon(new StretchIcon(im.getBag().get(0).getImage().getImage(),true));
+		bag1.setIcon(new StretchIcon(im.getBag().get(0).getInvImage().getImage(),true));
 		bag1.setToolTipText(im.getBag().get(0).toString());
 
-		bag2.setIcon(new StretchIcon(im.getBag().get(1).getImage().getImage(),true));
+		bag2.setIcon(new StretchIcon(im.getBag().get(1).getInvImage().getImage(),true));
 		bag2.setToolTipText(im.getBag().get(1).toString());
 
 		accessory.setIcon(new StretchIcon(im.getAccessory().getImage().getImage(),true));

@@ -17,6 +17,7 @@ public class Accessory extends Item implements Equipable {
 
 	protected void setIcon() {
 		this.image = new ImageIcon("res/Images/Items/Accessories/" + this.name + ".png");
+		this.invImage = new ImageIcon("res/Images/Items/Accessories/" + this.name + ".png");
 	}
 
 	@Override
