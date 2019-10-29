@@ -1,0 +1,690 @@
+{
+	"Active Abilities": [
+		{
+			"Ability Name": "AimedShot",
+			"Display Name": "Aimed Shot",
+			"Image Name": "AimedShot",
+			"AP Cost": 8,
+			"Fatigue": 25
+		},
+		{
+			"Ability Name": "BashBarbarian",
+			"Display Name": "Bash",
+			"Image Name": "Bash_Barbarian",
+			"AP Cost": 4,
+			"Fatigue": 13
+		},
+		{
+			"Ability Name": "BashMorningStar",
+			"Display Name": "Bash",
+			"Image Name": "Bash_MorningStar",
+			"AP Cost": 4,
+			"Fatigue": 13
+		},
+		{
+			"Ability Name": "Bash",
+			"Display Name": "Bash",
+			"Image Name": "Bash",
+			"AP Cost": 4,
+			"Fatigue": 13
+		},
+		{
+			"Ability Name": "BatterBarbarian",
+			"Display Name": "Batter",
+			"Image Name": "Batter_Barbarian",
+			"AP Cost": 4,
+			"Fatigue": 14
+		},
+		{
+			"Ability Name": "BatterPolehammer",
+			"Display Name": "Batter",
+			"Image Name": "Batter_Polehammer",
+			"AP Cost": 6,
+			"Fatigue": 12
+		},
+		{
+			"Ability Name": "Batter",
+			"Display Name": "Batter",
+			"Image Name": "Batter",
+			"AP Cost": 4,
+			"Fatigue": 14
+		},
+		{
+			"Ability Name": "Cascade",
+			"Display Name": "Cascade",
+			"Image Name": "Cascade",
+			"AP Cost": 4,
+			"Fatigue": 15
+		},
+		{
+			"Ability Name": "ChopBarbarian",
+			"Display Name": "Chop",
+			"Image Name": "Chop_Barbarian",
+			"AP Cost": 4,
+			"Fatigue": 13
+		},
+		{
+			"Ability Name": "Chop",
+			"Display Name": "Chop",
+			"Image Name": "Chop",
+			"AP Cost": 4,
+			"Fatigue": 13
+		},
+		{
+			"Ability Name": "Cleave",
+			"Display Name": "Cleave",
+			"Image Name": "Cleave",
+			"AP Cost": 4,
+			"Fatigue": 12
+		},
+		{
+			"Ability Name": "Cleave2H",
+			"Display Name": "Cleave",
+			"Image Name": "Cleave",
+			"AP Cost": 4,
+			"Fatigue": 15
+		},
+		{
+			"Ability Name": "Cleave2HBarbarianBlade",
+			"Display Name": "Cleave",
+			"Image Name": "Cleave_Barbarian",
+			"AP Cost": 4,
+			"Fatigue": 15
+		},
+		{
+			"Ability Name": "CleaveBarbarian",
+			"Display Name": "Cleave",
+			"Image Name": "Cleave_Barbarian",
+			"AP Cost": 4,
+			"Fatigue": 12
+		},
+		{
+			"Ability Name": "CleaveBarbarianBlade",
+			"Display Name": "Cleave",
+			"Image Name": "Cleave_BarbarianBlade",
+			"AP Cost": 4,
+			"Fatigue": 12
+		},
+		{
+			"Ability Name": "CudgelBarbarian",
+			"Display Name": "Cudgel",
+			"Image Name": "Cudgel_Barbarian",
+			"AP Cost": 6,
+			"Fatigue": 15
+		},
+		{
+			"Ability Name": "Cudgel",
+			"Display Name": "Cudgel",
+			"Image Name": "Cudgel",
+			"AP Cost": 6,
+			"Fatigue": 15
+		},
+		{
+			"Ability Name": "Cudgel2",
+			"Display Name": "Cudgel",
+			"Image Name": "Cudgel2",
+			"AP Cost": 6,
+			"Fatigue": 15
+		},
+		{
+			"Ability Name": "Decapitate",
+			"Display Name": "Decapitate",
+			"Image Name": "Decapitate",
+			"AP Cost": 4,
+			"Fatigue": 20
+		},
+		{
+			"Ability Name": "DestroyArmor",
+			"Display Name": "Destroy Armor",
+			"Image Name": "DestroyArmor",
+			"AP Cost": 4,
+			"Fatigue": 25
+		},
+		{
+			"Ability Name": "DestroyArmor_2H",
+			"Display Name": "Destroy Armor",
+			"Image Name": "DestroyArmor_2H",
+			"AP Cost": 6,
+			"Fatigue": 27
+		},
+		{
+			"Ability Name": "Disarm",
+			"Display Name": "Disarm",
+			"Image Name": "Disarm",
+			"AP Cost": 5,
+			"Fatigue": 25
+		},
+		{
+			"Ability Name": "Flail",
+			"Display Name": "Flail",
+			"Image Name": "Flail",
+			"AP Cost": 4,
+			"Fatigue": 13
+		},
+		{
+			"Ability Name": "Flail2",
+			"Display Name": "Flail",
+			"Image Name": "Flail2",
+			"AP Cost": 4,
+			"Fatigue": 13
+		},
+		{
+			"Ability Name": "Flail3",
+			"Display Name": "Flail",
+			"Image Name": "Flail3",
+			"AP Cost": 4,
+			"Fatigue": 13
+		},
+		{
+			"Ability Name": "Gash",
+			"Display Name": "Gash",
+			"Image Name": "Gash",
+			"AP Cost": 4,
+			"Fatigue": 20
+		},
+		{
+			"Ability Name": "Hail",
+			"Display Name": "Hail",
+			"Image Name": "Hail",
+			"AP Cost": 4,
+			"Fatigue": 25
+		},
+		{
+			"Ability Name": "HandToHand",
+			"Display Name": "Hand-to-Hand Attack",
+			"Image Name": "Hand-to-Hand_Attack",
+			"AP Cost": 4,
+			"Fatigue": 5
+		},
+		{
+			"Ability Name": "Hook",
+			"Display Name": "Hook",
+			"Image Name": "Hook",
+			"AP Cost": 6,
+			"Fatigue": 30
+		},
+		{
+			"Ability Name": "Impale",
+			"Display Name": "Impale",
+			"Image Name": "Impale",
+			"AP Cost": 6,
+			"Fatigue": 15
+		},
+		{
+			"Ability Name": "Impale2",
+			"Display Name": "Impale",
+			"Image Name": "Impale2",
+			"AP Cost": 6,
+			"Fatigue": 15
+		},
+		{
+			"Ability Name": "KnockBack",
+			"Display Name": "KnockBack",
+			"Image Name": "Knock_Back",
+			"AP Cost": 4,
+			"Fatigue": 25
+		},
+		{
+			"Ability Name": "KnockOut2H",
+			"Display Name": "Knock Out",
+			"Image Name": "Knock_Out_2H",
+			"AP Cost": 6,
+			"Fatigue": 30
+		},
+		{
+			"Ability Name": "KnockOutBarbarian",
+			"Display Name": "Knock Out",
+			"Image Name": "Knock_Out_Barbarian",
+			"AP Cost": 4,
+			"Fatigue": 25
+		},
+		{
+			"Ability Name": "KnockOutLute",
+			"Display Name": "Knock Out",
+			"Image Name": "Knock_Out_Lute",
+			"AP Cost": 4,
+			"Fatigue": 25
+		},
+		{
+			"Ability Name": "KnockOut",
+			"Display Name": "Knock Out",
+			"Image Name": "Knock_Out",
+			"AP Cost": 4,
+			"Fatigue": 25
+		},
+		{
+			"Ability Name": "Lash",
+			"Display Name": "Lash",
+			"Image Name": "Lash",
+			"AP Cost": 4,
+			"Fatigue": 25
+		},
+		{
+			"Ability Name": "Lash2",
+			"Display Name": "Lash",
+			"Image Name": "Lash2",
+			"AP Cost": 4,
+			"Fatigue": 25
+		},
+		{
+			"Ability Name": "Lash3",
+			"Display Name": "Lash",
+			"Image Name": "Lash3",
+			"AP Cost": 4,
+			"Fatigue": 25
+		},
+		{
+			"Ability Name": "Lunge",
+			"Display Name": "Lunge",
+			"Image Name": "Lunge",
+			"AP Cost": 4,
+			"Fatigue": 25
+		},
+		{
+			"Ability Name": "OverheadStrike",
+			"Display Name": "Overhead Strike",
+			"Image Name": "Overhead_Strike",
+			"AP Cost": 6,
+			"Fatigue": 15
+		},
+		{
+			"Ability Name": "PoundOrc",
+			"Display Name": "Pound",
+			"Image Name": "Pound_Orc",
+			"AP Cost": 6,
+			"Fatigue": 15
+		},
+		{
+			"Ability Name": "Pound",
+			"Display Name": "Pound",
+			"Image Name": "Pound",
+			"AP Cost": 6,
+			"Fatigue": 15
+		},
+		{
+			"Ability Name": "Prong",
+			"Display Name": "Prong",
+			"Image Name": "Prong",
+			"AP Cost": 6,
+			"Fatigue": 15
+		},
+		{
+			"Ability Name": "Prong2",
+			"Display Name": "Prong2",
+			"Image Name": "Prong2",
+			"AP Cost": 6,
+			"Fatigue": 15
+		},
+		{
+			"Ability Name": "Puncture",
+			"Display Name": "Puncture",
+			"Image Name": "Puncture",
+			"AP Cost": 4,
+			"Fatigue": 20
+		},
+		{
+			"Ability Name": "QuickShot",
+			"Display Name": "Quick Shot",
+			"Image Name": "Quick_Shot",
+			"AP Cost": 4,
+			"Fatigue": 15
+		},
+		{
+			"Ability Name": "Reap",
+			"Display Name": "Reap",
+			"Image Name": "Reap",
+			"AP Cost": 6,
+			"Fatigue": 30
+		},
+		{
+			"Ability Name": "Reload",
+			"Display Name": "Reload",
+			"Image Name": "Reload",
+			"AP Cost": 4,
+			"Fatigue": 20
+		},
+		{
+			"Ability Name": "Repel",
+			"Display Name": "Repel",
+			"Image Name": "Repel",
+			"AP Cost": 6,
+			"Fatigue": 30
+		},
+		{
+			"Ability Name": "Riposte",
+			"Display Name": "Riposte",
+			"Image Name": "Riposte",
+			"AP Cost": 4,
+			"Fatigue": 25
+		},
+		{
+			"Ability Name": "RoundSwingBarbarian",
+			"Display Name": "Round Swing",
+			"Image Name": "Round_Swing_Barbarian",
+			"AP Cost": 6,
+			"Fatigue": 35
+		},
+		{
+			"Ability Name": "RoundSwing",
+			"Display Name": "Round Swing",
+			"Image Name": "Round_Swing",
+			"AP Cost": 6,
+			"Fatigue": 35
+		},
+		{
+			"Ability Name": "Rupture",
+			"Display Name": "Rupture",
+			"Image Name": "Rupture",
+			"AP Cost": 5,
+			"Fatigue": 12
+		},
+		{
+			"Ability Name": "ShatterBarbarian",
+			"Display Name": "Shatter",
+			"Image Name": "Shatter_Barbarian",
+			"AP Cost": 6,
+			"Fatigue": 30
+		},
+		{
+			"Ability Name": "Shatter",
+			"Display Name": "Shatter",
+			"Image Name": "Shatter",
+			"AP Cost": 6,
+			"Fatigue": 30
+		},
+		{
+			"Ability Name": "Shieldwall",
+			"Display Name": "Shieldwall",
+			"Image Name": "Shieldwall",
+			"AP Cost": 4,
+			"Fatigue": 20
+		},
+		{
+			"Ability Name": "ShootBolt",
+			"Display Name": "Shoot Bolt",
+			"Image Name": "Shoot_Bolt",
+			"AP Cost": 3,
+			"Fatigue": 5
+		},
+		{
+			"Ability Name": "ShootHeavyBolt",
+			"Display Name": "Shoot Heavy Bolt",
+			"Image Name": "Shoot_Heavy_Bolt",
+			"AP Cost": 3,
+			"Fatigue": 5
+		},
+		{
+			"Ability Name": "Slash Goblin",
+			"Display Name": "Slash",
+			"Image Name": "Slash_Goblin",
+			"AP Cost": 4,
+			"Fatigue": 10
+		},
+		{
+			"Ability Name": "Slash Scimitar",
+			"Display Name": "Slash",
+			"Image Name": "Slash_Scimitar",
+			"AP Cost": 4,
+			"Fatigue": 10
+		},
+		{
+			"Ability Name": "Slash",
+			"Display Name": "Slash",
+			"Image Name": "Slash",
+			"AP Cost": 4,
+			"Fatigue": 10
+		},
+		{
+			"Ability Name": "Slash2H",
+			"Display Name": "Slash",
+			"Image Name": "Slash",
+			"AP Cost": 4,
+			"Fatigue": 13
+		},
+		{
+			"Ability Name": "SlingStone",
+			"Display Name": "Sling Stone",
+			"Image Name": "Sling_Stone",
+			"AP Cost": 4,
+			"Fatigue": 15
+		},
+		{
+			"Ability Name": "SmiteBarbarian",
+			"Display Name": "Smite",
+			"Image Name": "Smite_Barbarian",
+			"AP Cost": 6,
+			"Fatigue": 15
+		},
+		{
+			"Ability Name": "Smite",
+			"Display Name": "Smite",
+			"Image Name": "Smite",
+			"AP Cost": 6,
+			"Fatigue": 15
+		},
+		{
+			"Ability Name": "Spearwall_2H_2",
+			"Display Name": "Spearwall",
+			"Image Name": "Spearwall_2H_2",
+			"AP Cost": 6,
+			"Fatigue": 35
+		},
+		{
+			"Ability Name": "Spearwall_2H",
+			"Display Name": "Spearwall",
+			"Image Name": "Spearwall_2H",
+			"AP Cost": 6,
+			"Fatigue": 35
+		},
+		{
+			"Ability Name": "Spearwall",
+			"Display Name": "Spearwall",
+			"Image Name": "Spearwall",
+			"AP Cost": 4,
+			"Fatigue": 30
+		},
+		{
+			"Ability Name": "SplitManBarbarian",
+			"Display Name": "Split Man",
+			"Image Name": "Split_Man_Barbarian",
+			"AP Cost": 6,
+			"Fatigue": 15
+		},
+		{
+			"Ability Name": "SplitManBardiche",
+			"Display Name": "Split Man",
+			"Image Name": "Split_Man_Bardiche",
+			"AP Cost": 6,
+			"Fatigue": 15
+		},
+		{
+			"Ability Name": "SplitMan",
+			"Display Name": "Split Man",
+			"Image Name": "Split_Man",
+			"AP Cost": 6,
+			"Fatigue": 15
+		},
+		{
+			"Ability Name": "SplitShield2H",
+			"Display Name": "Split Shield",
+			"Image Name": "Split_Shield",
+			"AP Cost": 6,
+			"Fatigue": 25
+		},
+		{
+			"Ability Name": "SplitShield2HLAxe",
+			"Display Name": "Split Shield",
+			"Image Name": "Split_Shield",
+			"AP Cost": 6,
+			"Fatigue": 30
+		},
+		{
+			"Ability Name": "SplitShield2HSword",
+			"Display Name": "Split Shield",
+			"Image Name": "Split_Shield",
+			"AP Cost": 6,
+			"Fatigue": 20
+		},
+		{
+			"Ability Name": "SplitShield",
+			"Display Name": "Split Shield",
+			"Image Name": "Split_Shield",
+			"AP Cost": 4,
+			"Fatigue": 15
+		},
+		{
+			"Ability Name": "SplitinTwo",
+			"Display Name": "Split in Two",
+			"Image Name": "Split_in_Two",
+			"AP Cost": 6,
+			"Fatigue": 30
+		},
+		{
+			"Ability Name": "Split",
+			"Display Name": "Split",
+			"Image Name": "Split",
+			"AP Cost": 6,
+			"Fatigue": 30
+		},
+		{
+			"Ability Name": "Stab",
+			"Display Name": "Stab",
+			"Image Name": "Stab",
+			"AP Cost": 4,
+			"Fatigue": 7
+		},
+		{
+			"Ability Name": "StrikeAxe",
+			"Display Name": "Strike",
+			"Image Name": "Strike_Axe",
+			"AP Cost": 6,
+			"Fatigue": 15
+		},
+		{
+			"Ability Name": "StrikeDownBarbarian",
+			"Display Name": "Strike Down",
+			"Image Name": "Strike_Down_Barbarian",
+			"AP Cost": 6,
+			"Fatigue": 30
+		},
+		{
+			"Ability Name": "StrikeDown",
+			"Display Name": "Strike Down",
+			"Image Name": "Strike_Down",
+			"AP Cost": 6,
+			"Fatigue": 30
+		},
+		{
+			"Ability Name": "StrikeDown2",
+			"Display Name": "Strike Down",
+			"Image Name": "Strike_Down2",
+			"AP Cost": 6,
+			"Fatigue": 30
+		},
+		{
+			"Ability Name": "Strike",
+			"Display Name": "Strike",
+			"Image Name": "Strike",
+			"AP Cost": 6,
+			"Fatigue": 15
+		},
+		{
+			"Ability Name": "Swing",
+			"Display Name": "Swing",
+			"Image Name": "Swing",
+			"AP Cost": 6,
+			"Fatigue": 30
+		},
+		{
+			"Ability Name": "ThreshOrc",
+			"Display Name": "Thresh",
+			"Image Name": "Thresh_Orc",
+			"AP Cost": 6,
+			"Fatigue": 30
+		},
+		{
+			"Ability Name": "Thresh",
+			"Display Name": "Thresh",
+			"Image Name": "Thresh",
+			"AP Cost": 6,
+			"Fatigue": 30
+		},
+		{
+			"Ability Name": "ThrowAcidFlask",
+			"Display Name": "Throw Acid Flask",
+			"Image Name": "ThrowAcidFlask",
+			"AP Cost": 5,
+			"Fatigue": 20
+		},
+		{
+			"Ability Name": "ThrowAxe",
+			"Display Name": "Throw Axe",
+			"Image Name": "Throw_Axe",
+			"AP Cost": 4,
+			"Fatigue": 15
+		},
+		{
+			"Ability Name": "ThrowBola",
+			"Display Name": "Throw Bola",
+			"Image Name": "Throw_Bola",
+			"AP Cost": 4,
+			"Fatigue": 15
+		},
+		{
+			"Ability Name": "ThrowJavelin",
+			"Display Name": "Throw Javelin",
+			"Image Name": "Throw_Javelin",
+			"AP Cost": 4,
+			"Fatigue": 15
+		},
+		{
+			"Ability Name": "ThrowNet",
+			"Display Name": "Throw Net",
+			"Image Name": "Throw_Net",
+			"AP Cost": 5,
+			"Fatigue": 25
+		},
+		{
+			"Ability Name": "ThrowReinforcedNet",
+			"Display Name": "Throw Reinforced Net",
+			"Image Name": "Throw_Net",
+			"AP Cost": 5,
+			"Fatigue": 25
+		},
+		{
+			"Ability Name": "ThrowSpear",
+			"Display Name": "Throw Spear",
+			"Image Name": "Throw_Spear",
+			"AP Cost": 4,
+			"Fatigue": 15
+		},
+		{
+			"Ability Name": "Thrust2H",
+			"Display Name": "Thrust",
+			"Image Name": "Thrust_2H",
+			"AP Cost": 6,
+			"Fatigue": 15
+		},
+		{
+			"Ability Name": "Thrust",
+			"Display Name": "Thrust",
+			"Image Name": "Thrust",
+			"AP Cost": 4,
+			"Fatigue": 10
+		},
+		{
+			"Ability Name": "WhipThorn",
+			"Display Name": "Whip",
+			"Image Name": "Whip_Thorn",
+			"AP Cost": 4,
+			"Fatigue": 15
+		},
+		{
+			"Ability Name": "Whip",
+			"Display Name": "Whip",
+			"Image Name": "Whip",
+			"AP Cost": 4,
+			"Fatigue": 15
+		}
+	]
+}

@@ -1,5 +1,5 @@
-/game_data/
 /images/
+/abilities/
 /attributes/
 /battle/
 /character/
@@ -11,7 +11,5 @@
 /items/
 /listener_interfaces/
 /notifier_interfaces/
-/run/
-/storage_classes/
-/abilities/
 /oldTest/
+/storage_classes/
