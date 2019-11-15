@@ -34,29 +34,39 @@ public class EquipmentPanel extends JPanel {
 		setBackground(Color.DARK_GRAY);
 		setLayout(new MigLayout("", "[30,grow][30,grow][30,grow][30,grow][30,grow][30,grow][30,grow][30,grow]",
 				"[10,grow][50,grow][10,grow][110,grow][10,grow][5,grow][30,grow][30,grow]"));
+		
+		ItemHandler handler = new ItemHandler();
 
 		accessory = new ItemLabel(GlobalManager.equipment.DEFAULTACCESSORY, false);
+		accessory.setTransferHandler(handler);
 		add(accessory, "cell 0 1 2 2,grow");
 
 		headArmor = new ItemLabel(GlobalManager.equipment.DEFAULTHEAD, false);
+		accessory.setTransferHandler(handler);
 		add(headArmor, "cell 3 0 2 2,grow");
 
 		rightItem = new ItemLabel(GlobalManager.equipment.DEFAULTRIGHT, false);
+		rightItem.setTransferHandler(handler);
 		add(rightItem, "cell 0 3 2 2,grow");
 
 		leftItem = new ItemLabel(GlobalManager.equipment.DEFAULTLEFT, false);
+		leftItem.setTransferHandler(handler);
 		add(leftItem, "cell 6 3 2 2,grow");
 
 		bodyArmor = new ItemLabel(GlobalManager.equipment.DEFAULTBODY, false);
+		bodyArmor.setTransferHandler(handler);
 		add(bodyArmor, "cell 3 2 2 2,grow");
 
 		ammo = new ItemLabel(GlobalManager.equipment.DEFAULTAMMO, false);
+		ammo.setTransferHandler(handler);
 		add(ammo, "cell 6 1 2 2,grow");
 
 		bag1 = new ItemLabel(GlobalManager.equipment.DEFAULTBAG, true);
+		bag1.setTransferHandler(handler);
 		add(bag1, "cell 2 6 2 2, grow");
 
 		bag2 = new ItemLabel(GlobalManager.equipment.DEFAULTBAG, true);
+		bag2.setTransferHandler(handler);
 		add(bag2, "cell 4 6 2 2, grow");
 
 	}

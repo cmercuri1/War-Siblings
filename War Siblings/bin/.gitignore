@@ -1,4 +1,3 @@
-/images/
 /abilities/
 /attributes/
 /battle/
@@ -6,8 +5,10 @@
 /effect_classes/
 /engine/
 /event_classes/
+/game_data/
 /global_generators/
 /global_managers/
+/images/
 /items/
 /listener_interfaces/
 /notifier_interfaces/

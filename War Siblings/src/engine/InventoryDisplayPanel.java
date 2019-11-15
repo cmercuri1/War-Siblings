@@ -31,7 +31,6 @@ public class InventoryDisplayPanel extends JPanel {
 	 * Create the panel.
 	 */
 	public InventoryDisplayPanel() {
-		DragMouseAdapter listener = new DragMouseAdapter();
 		setBackground(new Color(102, 0, 0));
 		this.rows = 17;
 		this.columns = 15;
@@ -49,16 +48,6 @@ public class InventoryDisplayPanel extends JPanel {
 			}
 		}
 
-	}
-
-	private class DragMouseAdapter extends MouseAdapter {
-
-		public void mousePressed(MouseEvent e) {
-
-			JComponent c = (JComponent) e.getSource();
-			TransferHandler handler = c.getTransferHandler();
-			handler.exportAsDrag(c, e, TransferHandler.COPY);
-		}
 	}
 
 	protected ItemLabel[] makeStash(int size) {
