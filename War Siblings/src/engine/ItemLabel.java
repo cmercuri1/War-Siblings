@@ -69,6 +69,9 @@ public class ItemLabel extends JLabel implements MouseMotionListener {
 		this.setToolTipText(item.toString());
 	}
 
+	public void recieveItem(Item item) {
+	}
+
 	public void setStash(boolean isStash) {
 		this.isStash = isStash;
 	}

@@ -14,7 +14,7 @@ import storage_classes.BattleConditions;
 
 import java.awt.Color;
 
-public class CharacterPanel extends JPanel implements CharacterListener{
+public class CharacterPanel extends JPanel implements CharacterListener {
 	/**
 	 * 
 	 */
@@ -27,12 +27,12 @@ public class CharacterPanel extends JPanel implements CharacterListener{
 	/**
 	 * Create the panel.
 	 */
-	public CharacterPanel() {
+	public CharacterPanel(ItemHandler handler) {
 		setBackground(new Color(153, 0, 0));
 
 		setLayout(new MigLayout("", "[360,grow]", "[50,grow][275,grow][60,grow][150,grow]"));
 
-		equipmentPanel = new EquipmentPanel();
+		equipmentPanel = new EquipmentPanel(handler);
 		add(equipmentPanel, "cell 0 1,grow");
 
 		abilityPanel = new AbilityPanel();
@@ -44,6 +44,7 @@ public class CharacterPanel extends JPanel implements CharacterListener{
 
 		currChar = new Character();
 		currChar.addCharacterListener(this);
+		equipmentPanel.group(currChar.getIm());
 	}
 
 	public void applyCharacter() {

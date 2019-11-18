@@ -4,18 +4,12 @@
  */
 package engine;
 
-import javax.swing.JComponent;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.TransferHandler;
-import javax.swing.border.MatteBorder;
 
 import global_managers.GlobalManager;
 import items.Item;
 import net.miginfocom.swing.MigLayout;
 import java.awt.Color;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 public class InventoryDisplayPanel extends JPanel {
 
@@ -30,7 +24,7 @@ public class InventoryDisplayPanel extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public InventoryDisplayPanel() {
+	public InventoryDisplayPanel(ItemHandler handler) {
 		setBackground(new Color(102, 0, 0));
 		this.rows = 17;
 		this.columns = 15;
@@ -40,7 +34,7 @@ public class InventoryDisplayPanel extends JPanel {
 		setLayout(new MigLayout("", new String(new char[columns]).replace("\0", boxSize),
 				new String(new char[rows]).replace("\0", boxSize)));
 
-		ItemLabel[] items = this.makeStash(rows * columns);
+		ItemLabel[] items = this.makeStash(rows * columns, handler);
 
 		for (int i = 0; i < rows; i++) {
 			for (int j = 0; j < columns; j++) {
@@ -50,12 +44,14 @@ public class InventoryDisplayPanel extends JPanel {
 
 	}
 
-	protected ItemLabel[] makeStash(int size) {
+	protected ItemLabel[] makeStash(int size, ItemHandler handler) {
 		ItemLabel[] temp = new ItemLabel[size];
 
 		int i = 0;
 		for (Item item : GlobalManager.equipment.getItemList()) {
-			temp[i] = new ItemLabel(item, true);
+			ItemLabel lab = new ItemLabel(item, true);
+			lab.setTransferHandler(handler);
+			temp[i] = lab;
 			i++;
 		}
 

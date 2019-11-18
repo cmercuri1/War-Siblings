@@ -20,16 +20,11 @@ public class ItemHandler extends TransferHandler {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private static DataFlavor localItemFlavour, serialItemFlavour;
+	private static DataFlavor serialItemFlavour;
 
 	ItemLabel source = null;
 
 	public ItemHandler() {
-		try {
-			localItemFlavour = new DataFlavor(DataFlavor.javaJVMLocalObjectMimeType + ";class=Item");
-		} catch (ClassNotFoundException e) {
-			System.out.println("ItemTransferHandler: unable to create data flavor");
-		}
 		serialItemFlavour = new DataFlavor(Item.class, "Item");
 	}
 
@@ -41,9 +36,7 @@ public class ItemHandler extends TransferHandler {
 		}
 		try {
 			target = (ItemLabel) c;
-			if (hasLocalItemFlavor(t.getTransferDataFlavors())) {
-				item = (Item) t.getTransferData(localItemFlavour);
-			} else if (hasSerialItemFlavor(t.getTransferDataFlavors())) {
+			if (hasSerialItemFlavor(t.getTransferDataFlavors())) {
 				item = (Item) t.getTransferData(serialItemFlavour);
 			} else {
 				return false;
@@ -68,25 +61,12 @@ public class ItemHandler extends TransferHandler {
 		if (source.equals(target)) {
 			return true;
 		}
-		
-		target.setItem(item);
+
+		target.recieveItem(item);
 		return true;
 	}
 
 	protected void exportDone(JComponent c, Transferable data, int action) {
-	}
-
-	private boolean hasLocalItemFlavor(DataFlavor[] flavors) {
-		if (localItemFlavour == null) {
-			return false;
-		}
-
-		for (int i = 0; i < flavors.length; i++) {
-			if (flavors[i].equals(localItemFlavour)) {
-				return true;
-			}
-		}
-		return false;
 	}
 
 	private boolean hasSerialItemFlavor(DataFlavor[] flavors) {
@@ -103,9 +83,6 @@ public class ItemHandler extends TransferHandler {
 	}
 
 	public boolean canImport(JComponent c, DataFlavor[] flavors) {
-		if (hasLocalItemFlavor(flavors)) {
-			return true;
-		}
 		if (hasSerialItemFlavor(flavors)) {
 			return true;
 		}
@@ -143,13 +120,10 @@ public class ItemHandler extends TransferHandler {
 		}
 
 		public DataFlavor[] getTransferDataFlavors() {
-			return new DataFlavor[] { localItemFlavour, serialItemFlavour };
+			return new DataFlavor[] { serialItemFlavour };
 		}
 
 		public boolean isDataFlavorSupported(DataFlavor flavor) {
-			if (localItemFlavour.equals(flavor)) {
-				return true;
-			}
 			if (serialItemFlavour.equals(flavor)) {
 				return true;
 			}

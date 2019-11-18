@@ -53,7 +53,9 @@ public class Test extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(new MigLayout("", "[360, grow][1300, grow][260, grow]", "[880, grow][200, grow]"));
 
-		CharacterPanel charPanel = new CharacterPanel();
+		ItemHandler handler = new ItemHandler();
+		
+		CharacterPanel charPanel = new CharacterPanel(handler);
 		contentPane.add(charPanel, "cell 0 0 1 2, grow");
 
 		TestPanel testPanel = new TestPanel();
@@ -69,7 +71,7 @@ public class Test extends JFrame {
 			}
 		});
 
-		MiddlePanel middlePanel = new MiddlePanel();
+		MiddlePanel middlePanel = new MiddlePanel(handler);
 		contentPane.add(middlePanel, "cell 1 0 2 1, grow");
 	}
 }

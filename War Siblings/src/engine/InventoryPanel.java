@@ -14,11 +14,11 @@ public class InventoryPanel extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public InventoryPanel() {
+	public InventoryPanel(ItemHandler handler) {
 		setBackground(new Color(153, 0, 0));
 		setLayout(new MigLayout("", "[grow]", "[grow]"));
 		
-		JScrollPane scrollPane = new JScrollPane(new InventoryDisplayPanel());
+		JScrollPane scrollPane = new JScrollPane(new InventoryDisplayPanel(handler));
 		add(scrollPane, "cell 0 0, grow");
 	}
 
