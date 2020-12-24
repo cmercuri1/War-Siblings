@@ -1,0 +1,67 @@
+{
+	"Mood States": [
+		{
+			"Name": "Angry",
+			"Description": "Recent events have left this character angry and vengeful towards around him. If things don't improve very quickly, this character may decide to desert the company.",
+			"Minimum Mood": 0,
+			"Maximum Mood": 15,
+			"Best Morale State": 1,
+			"Chance of Best State": 99,
+			"Desertion Chance": 40
+		},
+		{
+			"Name": "Disgruntled",
+			"Description": "Recent events have left his character disgruntled and disappointed how things are going. It may fade, or it may get a lot worse if other events tip him over the edge.",
+			"Minimum Mood": 16,
+			"Maximum Mood": 30,
+			"Best Morale State": 2,
+			"Chance of Best State": 75,
+			"Desertion Chance": 20
+		},
+		{
+			"Name": "Dissatisfied",
+			"Description": "Not uncommon for someone living the hardships of mercenary life, this character isn't quite satisfied and is hoping for things to improve",
+			"Minimum Mood": 31,
+			"Maximum Mood": 42,
+			"Best Morale State": 3,
+			"Chance of Best State": 75,
+			"Desertion Chance": 0
+		},
+		{
+			"Name": "Content",
+			"Description": "The character is content with how things are going. Could be better, could be worse.",
+			"Minimum Mood": 43,
+			"Maximum Mood": 57,
+			"Best Morale State": 3,
+			"Chance of Best State": 100,
+			"Desertion Chance": 0
+		},
+		{
+			"Name": "In Good Spirits",
+			"Description": "Recent events have left this character in good spirit. It will probably pass as reality takes a grip again, but for now, things are looking well",
+			"Minimum Mood": 58,
+			"Maximum Mood": 72,
+			"Best Morale State": 4,
+			"Chance of Best State": 25,
+			"Desertion Chance": 0
+		},
+		{
+			"Name": "Eager",
+			"Description": "Recent events have left this character eager to fight with the company, pleased with how things are going and motivating to those around him.",
+			"Minimum Mood": 73,
+			"Maximum Mood": 85,
+			"Best Morale State": 4,
+			"Chance of Best State": 50,
+			"Desertion Chance": 0
+		},
+		{
+			"Name": "Euphoric",
+			"Description": "Recent events have left this character in a state of euphoria, happy to spend his time in the service of the company and sure of victory against any foe. Its bordering on the annoying really.",
+			"Minimum Mood": 86,
+			"Maximum Mood": 100,
+			"Best Morale State": 4,
+			"Chance of Best State": 75,
+			"Desertion Chance": 0
+		}
+	]
+}

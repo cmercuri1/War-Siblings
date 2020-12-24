@@ -6,8 +6,20 @@ package character;
 
 import java.lang.reflect.Field;
 
+import attributes.Attribute;
+import attributes.BarAttribute;
+import attributes.DamageAttribute;
+import attributes.DefenseAttribute;
+import attributes.FatigueAttribute;
+import attributes.HitpointAttribute;
+import attributes.LevelAttribute;
+import attributes.MoodAttribute;
+import attributes.StarAttribute;
+import attributes.VisionAttribute;
+import attributes.WageAttribute;
 import effect_classes.Modifier;
 import event_classes.AttributeEvent;
+import event_classes.CharacterEvent;
 import event_classes.SkillPreferenceEvent;
 import event_classes.LevelUpAttributeEvent;
 import event_classes.ModifierEvent;
@@ -23,6 +35,7 @@ import event_classes.TurnControlEvent;
 import global_generators.BackgroundGenerator;
 import global_managers.GlobalManager;
 import listener_interfaces.AttributeListener;
+import listener_interfaces.CharacterListener;
 import listener_interfaces.SkillPreferenceListener;
 import listener_interfaces.LevelUpAttributeListener;
 import listener_interfaces.ModifierListener;
@@ -37,23 +50,14 @@ import listener_interfaces.TurnControlListener;
 import listener_interfaces.StarAttributeListener;
 import notifier_interfaces.PostDataNotifier;
 import notifier_interfaces.SkillPreferenceNotifier;
+import notifier_interfaces.CharacterNotifier;
 import notifier_interfaces.MoraleChangeNotifier;
 import notifier_interfaces.MoraleRollNotifier;
 import notifier_interfaces.MoraleRollOutcomeNotifier;
 import notifier_interfaces.MultiNotifier;
 import storage_classes.ArrayList;
-import storage_classes.Attribute;
-import storage_classes.BarAttribute;
-import storage_classes.DefenseAttribute;
-import storage_classes.FatigueAttribute;
-import storage_classes.HitpointAttribute;
-import storage_classes.LevelAttribute;
 import storage_classes.LevelUp;
-import storage_classes.MoodAttribute;
 import storage_classes.MoraleState;
-import storage_classes.StarAttribute;
-import storage_classes.VisionAttribute;
-import storage_classes.WageAttribute;
 
 /**
  * A class that manages all the attributes and makes sure they operate correctly
@@ -61,7 +65,7 @@ import storage_classes.WageAttribute;
 public class AttributeManager implements MultiNotifier, AttributeListener, ModifierListener, LevelUpAttributeListener,
 		MultiValueAttributeListener, RetrievalListener, TurnControlListener, StarAttributeListener, MoraleRollListener,
 		MoraleChangeListener, RoundControlListener, PostDataNotifier, SkillPreferenceNotifier,
-		MoraleRollOutcomeNotifier, MoraleChangeNotifier, MoraleRollNotifier {
+		MoraleRollOutcomeNotifier, MoraleChangeNotifier, MoraleRollNotifier, CharacterNotifier {
 	// Visible Character Attributes
 	protected HitpointAttribute hitpoints;
 	protected FatigueAttribute fatigue;
@@ -84,7 +88,7 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Modif
 	protected Attribute xpRate;
 	protected LevelAttribute level;
 	protected Attribute fatigueRecovery;
-	protected Attribute damage;
+	protected DamageAttribute damage;
 	protected Attribute armorDamage;
 	protected Attribute ignoreArmor;
 	protected Attribute damageHeadshot;
@@ -99,6 +103,7 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Modif
 	protected ArrayList<MoraleRollOutcomeListener> moraleRollOutcomeListeners;
 	protected ArrayList<MoraleChangeListener> moraleChangeListeners;
 	protected ArrayList<MoraleRollListener> moraleRollListeners;
+	protected ArrayList<CharacterListener> characterListeners;
 
 	public AttributeManager() {
 		this.levelUps = new ArrayList<ArrayList<LevelUp>>();
@@ -112,11 +117,13 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Modif
 		this.moraleRollOutcomeListeners = new ArrayList<MoraleRollOutcomeListener>();
 		this.moraleChangeListeners = new ArrayList<MoraleChangeListener>();
 		this.moraleRollListeners = new ArrayList<MoraleRollListener>();
+		this.characterListeners = new ArrayList<CharacterListener>();
 	}
 
 	protected void setUpAttributes(BackgroundGenerator bg) {
 		this.assignAttributes(bg);
 		this.assignStars(bg.getExcludedTalents());
+		this.setUpAttributeListeners();
 		this.resetMorale();
 	}
 
@@ -144,7 +151,7 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Modif
 		this.xpRate = new Attribute((double) bg.getXpRate());
 		this.level = new LevelAttribute((double) bg.getLev().getRand());
 		this.fatigueRecovery = new Attribute((double) bg.getFatRegain());
-		this.damage = new Attribute(0);
+		this.damage = new DamageAttribute(0, 0);
 		this.armorDamage = new Attribute(0);
 		this.ignoreArmor = new Attribute(0);
 		this.damageHeadshot = new Attribute(150);
@@ -186,6 +193,35 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Modif
 			managers.get(j).setNumStars();
 			managers.remove(j);
 		}
+	}
+	
+	protected void setUpAttributeListeners() {
+		this.hitpoints.addAttributeListener(this);
+		this.fatigue.addAttributeListener(this);
+		this.resolve.addAttributeListener(this);
+		this.initiative.addAttributeListener(this);
+		this.meleeSkill.addAttributeListener(this);
+		this.rangedSkill.addAttributeListener(this);
+		this.meleeDefense.addAttributeListener(this);
+		this.rangedDefense.addAttributeListener(this);
+
+		this.mood.addAttributeListener(this);
+		this.actionPoints.addAttributeListener(this);
+		this.headshotChance.addAttributeListener(this);
+		this.vision.addAttributeListener(this);
+
+		this.wage.addAttributeListener(this);
+		this.foodConsumption.addAttributeListener(this);
+		this.xpRate.addAttributeListener(this);
+		this.level.addAttributeListener(this);
+		this.fatigueRecovery.addAttributeListener(this);
+		this.damage.addAttributeListener(this);
+		this.armorDamage.addAttributeListener(this);
+		this.ignoreArmor.addAttributeListener(this);
+		this.damageHeadshot.addAttributeListener(this);
+		this.survivalChance.addAttributeListener(this);
+		this.inflictInjury.addAttributeListener(this);
+		this.injuryThreshold.addAttributeListener(this);
 	}
 
 	/** Needs to be called after abilities are set up */
@@ -234,8 +270,13 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Modif
 			Field temp = this.getClass().getDeclaredField(attributeName);
 			Attribute t = (Attribute) temp.get(this);
 			return t;
-		} catch (IllegalArgumentException | IllegalAccessException | NoSuchFieldException | SecurityException e) {
+		} catch (IllegalArgumentException | IllegalAccessException | SecurityException e) {
 			e.printStackTrace();
+		} catch (NoSuchFieldException n) {
+			if (attributeName.contains("damage_")) {
+				return this.damage;
+			} else 
+				n.printStackTrace();
 		}
 		return null;
 	}
@@ -369,6 +410,7 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Modif
 	public void onAttributeEvent(AttributeEvent a) {
 		switch (a.getTask()) {
 		case UPDATE:
+			this.notifyCharacterListeners(new CharacterEvent(CharacterEvent.Task.UPDATED_CHARACTER, null, this));
 			break;
 		}
 	}
@@ -411,6 +453,7 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Modif
 		case UPDATE_CURRENT:
 			if (m.getSource() == this.fatigue)
 				this.initiative.addModifier(new Modifier("Fatigue_Penalty", -m.getInformation(), false, true, true));
+			this.notifyCharacterListeners(new CharacterEvent(CharacterEvent.Task.UPDATED_CHARACTER, null, this));
 			break;
 		}
 	}
@@ -568,5 +611,25 @@ public class AttributeManager implements MultiNotifier, AttributeListener, Modif
 	@Override
 	public void notifyMoraleRollListener(MoraleRollListener m, MoraleRollEvent e) {
 		this.moraleRollListeners.get(m).onMoraleRollEvent(e);
+	}
+
+	@Override
+	public void addCharacterListener(CharacterListener c) {
+		this.characterListeners.add(c);
+	}
+
+	@Override
+	public void removeCharacterListener(CharacterListener c) {
+		this.characterListeners.remove(c);
+	}
+
+	@Override
+	public void notifyCharacterListeners(CharacterEvent c) {
+		this.characterListeners.forEach(l -> l.onCharacterEvent(c));
+	}
+
+	@Override
+	public void notifyCharacterListener(CharacterListener c, CharacterEvent e) {
+		this.characterListeners.get(c).onCharacterEvent(e);
 	}
 }

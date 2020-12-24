@@ -1,0 +1,129 @@
+{
+	"Morale States": [
+		{
+			"Name": "Confident",
+			"Effects": [
+				{
+					"Effect Name": "resolve_Percent",
+					"Value": 0
+				},
+				{
+					"Effect Name": "meleeSkill_Percent",
+					"Value": 10
+				},
+				{
+					"Effect Name": "rangedSkill_Percent",
+					"Value": 10
+				},
+				{
+					"Effect Name": "meleeDefense_Percent",
+					"Value": 10
+				},
+				{
+					"Effect Name": "rangedDefense_Percent",
+					"Value": 10
+				}
+			]
+		},
+		{
+			"Name": "Steady",
+			"Effects": [
+				{
+					"Effect Name": "resolve_Percent",
+					"Value": 0
+				},
+				{
+					"Effect Name": "meleeSkill_Percent",
+					"Value": 0
+				},
+				{
+					"Effect Name": "rangedSkill_Percent",
+					"Value": 0
+				},
+				{
+					"Effect Name": "meleeDefense_Percent",
+					"Value": 0
+				},
+				{
+					"Effect Name": "rangedDefense_Percent",
+					"Value": 0
+				}
+			]
+		},
+		{
+			"Name": "Wavering",
+			"Effects": [
+				{
+					"Effect Name": "resolve_Percent",
+					"Value": -10
+				},
+				{
+					"Effect Name": "meleeSkill_Percent",
+					"Value": -10
+				},
+				{
+					"Effect Name": "rangedSkill_Percent",
+					"Value": -10
+				},
+				{
+					"Effect Name": "meleeDefense_Percent",
+					"Value": -10
+				},
+				{
+					"Effect Name": "rangedDefense_Percent",
+					"Value": -10
+				}
+			]
+		},
+		{
+			"Name": "Breaking",
+			"Effects": [
+				{
+					"Effect Name": "resolve_Percent",
+					"Value": -20
+				},
+				{
+					"Effect Name": "meleeSkill_Percent",
+					"Value": -20
+				},
+				{
+					"Effect Name": "rangedSkill_Percent",
+					"Value": -20
+				},
+				{
+					"Effect Name": "meleeDefense_Percent",
+					"Value": -20
+				},
+				{
+					"Effect Name": "rangedDefense_Percent",
+					"Value": -20
+				}
+			]
+		},
+		{
+			"Name": "Fleeing",
+			"Effects": [
+				{
+					"Effect Name": "resolve_Percent",
+					"Value": -30
+				},
+				{
+					"Effect Name": "meleeSkill_Percent",
+					"Value": -30
+				},
+				{
+					"Effect Name": "rangedSkill_Percent",
+					"Value": -30
+				},
+				{
+					"Effect Name": "meleeDefense_Percent",
+					"Value": -30
+				},
+				{
+					"Effect Name": "rangedDefense_Percent",
+					"Value": -30
+				}
+			]
+		}
+	]
+}

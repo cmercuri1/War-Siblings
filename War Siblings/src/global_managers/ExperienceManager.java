@@ -15,7 +15,7 @@ import storage_classes.XPLevel;
  * calculating Experience requirements
  */
 public class ExperienceManager extends BaseGlobalManager {
-	private ArrayList<XPLevel> xpList;
+	protected ArrayList<XPLevel> xpList;
 
 	public ExperienceManager() {
 		super("res/game_data/XPData.json", null, "XP Req");

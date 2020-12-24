@@ -14,7 +14,7 @@ import storage_classes.Mood;
  * A class for Globally Storing and Managing all the Moods
  */
 public class MoodManager extends BaseGlobalManager {
-	private ArrayList<Mood> moodList;
+	protected ArrayList<Mood> moodList;
 
 	public MoodManager() {
 		super("res/game_data/MoodData.json", null, "Mood States");

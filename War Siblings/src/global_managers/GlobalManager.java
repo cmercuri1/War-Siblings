@@ -21,6 +21,7 @@ public class GlobalManager {
 	public static TemporyInjuryManager tempInjury;
 	public static PermanentInjuryManager permInjury;
 	public static MoodManager moods;
+	public static AllAbilitiesManager abilities;
 	
 	public static EffectFactory effectFactory;
 
@@ -31,6 +32,7 @@ public class GlobalManager {
 	static {
 		effects = new EffectManager();
 		effectFactory = new EffectFactory();
+		abilities = new AllAbilitiesManager();
 		xp = new ExperienceManager();
 		traits = new TraitManager();
 		equipment = new EquipmentManager();

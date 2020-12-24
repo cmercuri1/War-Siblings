@@ -12,32 +12,52 @@ import items.Item;
  * during generation
  */
 public class BackgroundItem {
+	public enum Location {
+		HEAD, BODY, RIGHT, LEFT, BAG
+	};
+
 	protected Item item;
 	protected double chanceToGet;
 
-	public BackgroundItem(String itemName, double chance) {
+	public BackgroundItem(Location loc, String itemName, double chance) {
 		this.chanceToGet = chance;
-		this.item = this.setUpItem(itemName);
+		this.item = this.setUpItem(loc, itemName);
 	}
 
-	private Item setUpItem(String itemName) {
+	protected Item setUpItem(Location loc, String itemName) {
 		Item temp;
 
-		temp = GlobalManager.equipment.getBody().getBodyArmor(itemName);
-		if (temp != null) {
-			return temp;
-		}
-		temp = GlobalManager.equipment.getHead().getHeadArmor(itemName);
-		if (temp != null) {
-			return temp;
-		}
-		temp = GlobalManager.equipment.getShield().getShield(itemName);
-		if (temp != null) {
-			return temp;
-		}
-		temp = GlobalManager.equipment.getWeapon().getWeapon(itemName);
-		if (temp != null) {
-			return temp;
+		switch (loc) {
+		case BODY:
+			temp = GlobalManager.equipment.getBody().getBodyArmor(itemName);
+			if (temp != null) {
+				return temp;
+			}
+			return GlobalManager.equipment.DEFAULTBODY;
+		case HEAD:
+			temp = GlobalManager.equipment.getHead().getHeadArmor(itemName);
+			if (temp != null) {
+				return temp;
+			}
+			return GlobalManager.equipment.DEFAULTHEAD;
+		case LEFT:
+			temp = GlobalManager.equipment.getShield().getShield(itemName);
+			if (temp != null) {
+				return temp;
+			}
+			return GlobalManager.equipment.DEFAULTLEFT;
+		case RIGHT:
+			temp = GlobalManager.equipment.getWeapon().getWeapon(itemName);
+			if (temp != null) {
+				return temp;
+			}
+			return GlobalManager.equipment.DEFAULTRIGHT;
+		case BAG:
+			temp = GlobalManager.equipment.getWeapon().getWeapon(itemName);
+			if (temp != null) {
+				return temp;
+			}
+			break;
 		}
 
 		return null;

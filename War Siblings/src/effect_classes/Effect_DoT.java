@@ -4,8 +4,8 @@
  */
 package effect_classes;
 
+import attributes.Attribute;
 import event_classes.TriggeredEffectEvent;
-import storage_classes.Attribute;
 
 public class Effect_DoT extends Effect_TimedDuration_Turn {
 

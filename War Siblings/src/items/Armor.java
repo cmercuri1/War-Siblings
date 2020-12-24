@@ -10,8 +10,8 @@ import javax.swing.ImageIcon;
  * A class for storing and assisting in running items that can be used as
  * protective Armor
  */
-public class Armor extends EquipItem {
-	String type; // Type of armor (cloth, chain, plate)
+public class Armor extends ComboItem {
+	protected String type; // Type of armor (cloth, chain, plate)
 
 	/** Constructor */
 	public Armor(String name, double value, String desc, double dura, double fatRed, String type) {
@@ -23,6 +23,10 @@ public class Armor extends EquipItem {
 	protected void setIcon() {
 		this.image = new ImageIcon("res/images/Items/Armor/" + this.name + ".png");
 		if (this.image == null) {
+			System.out.println("Error Finding: " + this.name);
+		}
+		this.invImage = new ImageIcon("res/images/Items/Armor/" + this.name + "-inv.png");
+		if (this.invImage == null) {
 			System.out.println("Error Finding: " + this.name);
 		}
 	}

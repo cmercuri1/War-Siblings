@@ -9,8 +9,8 @@ import storage_classes.ArrayList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import abilities.PassiveAbility;
 import effect_classes.Effect;
-import storage_classes.Ability;
 import storage_classes.MoraleState;
 
 /**
@@ -18,7 +18,7 @@ import storage_classes.MoraleState;
  * Morale States
  */
 public class MoraleAbilityManager extends BaseGlobalManager {
-	private ArrayList<Ability> moraleAbilityList;
+	protected ArrayList<PassiveAbility> moraleAbilityList;
 
 	public MoraleAbilityManager() {
 		super("res/game_data/MoraleAbilityData.json", null, "Morale States");
@@ -39,28 +39,28 @@ public class MoraleAbilityManager extends BaseGlobalManager {
 			}
 		}
 
-		this.moraleAbilityList.add(new Ability((String) o.get("Name"), temp3));
+		this.moraleAbilityList.add(new PassiveAbility((String) o.get("Name"), temp3));
 	}
 
 	@Override
 	protected void instantiate() {
 		if (this.moraleAbilityList == null) {
-			this.moraleAbilityList = new ArrayList<Ability>();
+			this.moraleAbilityList = new ArrayList<PassiveAbility>();
 		}
 	}
 
 	/* Getters */
 
-	public ArrayList<Ability> getMoraleAbilityList() {
-		ArrayList<Ability> temp = new ArrayList<>(this.moraleAbilityList);
+	public ArrayList<PassiveAbility> getMoraleAbilityList() {
+		ArrayList<PassiveAbility> temp = new ArrayList<>(this.moraleAbilityList);
 		return temp;
 	}
 
 	/**
 	 * getMoraleAbility: gets the abilities associated with a particular MoraleState
 	 */
-	public Ability getMoraleAbility(MoraleState toFind) {
-		for (Ability a : this.moraleAbilityList) {
+	public PassiveAbility getMoraleAbility(MoraleState toFind) {
+		for (PassiveAbility a : this.moraleAbilityList) {
 			if (a.getName().toLowerCase().equals(toFind.toString().toLowerCase())) {
 				return a;
 			}

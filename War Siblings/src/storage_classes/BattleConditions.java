@@ -9,11 +9,11 @@ public class BattleConditions {
 	public enum TimeOfDay {
 		DAY, DUSK, NIGHT, DAWN
 	};
-	
+
 	public enum Battlefield {
 		SWAMP, FOREST, SNOW, GRASSLAND
 	};
-	
+
 	public enum Foes {
 		HUMAN, BEASTS, GREENSKINS, UNDEAD
 	}
@@ -22,9 +22,10 @@ public class BattleConditions {
 	protected Battlefield terrain;
 	protected TimeOfDay time;
 
-	public BattleConditions(TimeOfDay tod, Battlefield terrain, Foes...enemy) {
+	public BattleConditions(TimeOfDay tod, Battlefield terrain, Foes... enemy) {
 		this.time = tod;
 		this.terrain = terrain;
+		this.enemies = new ArrayList<Foes>();
 		for (int i = 0; i < enemy.length; i++) {
 			this.enemies.add(enemy[i]);
 		}
@@ -40,6 +41,10 @@ public class BattleConditions {
 
 	public TimeOfDay getTime() {
 		return this.time;
+	}
+
+	public String toString() {
+		return "ToD: " + this.time.toString() + "\nBattlefield: " + this.terrain + "\nFoes: " + this.enemies.toString();
 	}
 
 }

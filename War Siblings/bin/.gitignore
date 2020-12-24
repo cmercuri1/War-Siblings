@@ -1,3 +1,6 @@
+/images/
+/abilities/
+/attributes/
 /battle/
 /character/
 /effect_classes/
@@ -5,11 +8,8 @@
 /event_classes/
 /global_generators/
 /global_managers/
-/images/
 /items/
 /listener_interfaces/
 /notifier_interfaces/
-/run/
+/oldTest/
 /storage_classes/
-/game_data/
-/effect_classes_specific/

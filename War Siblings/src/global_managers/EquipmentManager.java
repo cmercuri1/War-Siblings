@@ -4,11 +4,16 @@
  */
 package global_managers;
 
+import abilities.Ability;
+import items.Accessory;
+import items.Ammunition;
 import items.Armor;
-import items.EquipItem;
+import items.ComboItem;
 import items.Headgear;
+import items.Item;
 import items.Shield;
 import items.Weapon;
+import storage_classes.ArrayList;
 
 /**
  * EquipmentManager class that has control over the other managers that make up
@@ -19,21 +24,24 @@ public class EquipmentManager {
 	protected HeadgearManager head;
 	protected ShieldManager shield;
 	protected WeaponManager weapon;
+	protected AccessoryManager accessory;
 
 	public final Headgear DEFAULTHEAD = new Headgear("EmptyHead", 0, null, 0, 0, null, 0);
 	public final Armor DEFAULTBODY = new Armor("EmptyBody", 0, null, 0, 0, null);
-	public final Weapon DEFAULTRIGHT = new Weapon("EmptyRight", 0, null, 0, 0, 5, 10, 0, 50, 0, 0, 0, 0, 0, 0, null, null);
-	public final Shield DEFAULTLEFT = new Shield("EmptyLeft", 0, null, 0, 0, 0, 0, null);
+	public final Weapon DEFAULTRIGHT = new Weapon("EmptyRight", 0, null, 0, 0, 5, 10, 10, 50, 0, 0, 0, 0, 0, 0, null,
+			GlobalManager.abilities.getAbilities("HandToHand"));
+	public final Shield DEFAULTLEFT = new Shield("EmptyLeft", 0, null, 0, 0, 0, 0, new ArrayList<Ability>());
 
-	public final EquipItem DEFAULTAMMO = new EquipItem("EmptyAmmo", 0, null, 0, 0);
-	public final EquipItem DEFAULTACCESSORY = new EquipItem("EmptyAccessory", 0, null, 0, 0);
-	public final EquipItem DEFAULTBAG = new EquipItem("EmptyBag", 0, null, 0, 0);
+	public final Ammunition DEFAULTAMMO = new Ammunition("EmptyAmmo", 0, null, 0);
+	public final Accessory DEFAULTACCESSORY = new Accessory("EmptyAccessory", 0, null);
+	public final ComboItem DEFAULTBAG = new ComboItem("EmptyBag", 0, null, 0, 0);
 
 	public EquipmentManager() {
 		this.body = new BodyArmorManager();
 		this.head = new HeadgearManager();
 		this.shield = new ShieldManager();
 		this.weapon = new WeaponManager();
+		this.accessory = new AccessoryManager();
 	}
 
 	public BodyArmorManager getBody() {
@@ -50,5 +58,31 @@ public class EquipmentManager {
 
 	public WeaponManager getWeapon() {
 		return this.weapon;
+	}
+
+	public AccessoryManager getAccessory() {
+		return this.accessory;
+	}
+
+	public ArrayList<Item> getItemList() {
+		ArrayList<Item> temp = new ArrayList<Item>();
+
+		for (Armor a : body.getArmorList()) {
+			temp.add(a);
+		}
+		for (Headgear a : head.getHelmList()) {
+			temp.add(a);
+		}
+		for (Shield a : shield.getShieldList()) {
+			temp.add(a);
+		}
+		for (Weapon a : weapon.getWeaponList()) {
+			temp.add(a);
+		}
+		for (Accessory a : accessory.getAccessoryList()) {
+			temp.add(a);
+		}
+
+		return temp;
 	}
 }

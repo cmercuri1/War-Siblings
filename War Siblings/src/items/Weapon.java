@@ -9,8 +9,9 @@ import storage_classes.ArrayList;
 
 import javax.swing.ImageIcon;
 
-import storage_classes.Ability;
-import storage_classes.Attribute;
+import abilities.Ability;
+import attributes.Attribute;
+import effect_classes.Modifier;
 
 /** Class designed for storing items that function as usable weapons */
 public class Weapon extends AbilityItem {
@@ -64,6 +65,24 @@ public class Weapon extends AbilityItem {
 		if (this.image == null) {
 			System.out.println("Error Finding: " + this.name);
 		}
+		this.invImage = new ImageIcon("res/images/Items/Weapons/" + this.name + "-inv.png");
+		if (this.invImage == null) {
+			System.out.println("Error Finding: " + this.name);
+		}
+	}
+
+	public ArrayList<Modifier> onEquipSituation() {
+		ArrayList<Modifier> temp = new ArrayList<Modifier>();
+
+		temp.add(new Modifier("fatigue_Final", this.fatigueRed.getAlteredValue()));
+		temp.add(new Modifier("initiative_Final", this.fatigueRed.getAlteredValue()));
+		temp.add(new Modifier("damage_Min", this.minDam.getAlteredValue()));
+		temp.add(new Modifier("damage_Max", this.maxDam.getAlteredValue()));
+		temp.add(new Modifier("ignoreArmor", this.ignArm.getAlteredValue()));
+		temp.add(new Modifier("armorDamage", this.armDam.getAlteredValue()));
+		temp.add(new Modifier("headshotChance", this.headShot.getAlteredValue()));
+
+		return temp;
 	}
 
 	/* Relevant Getters for each element */

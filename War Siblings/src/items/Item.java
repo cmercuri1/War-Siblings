@@ -7,9 +7,9 @@ package items;
 
 import javax.swing.ImageIcon;
 
+import attributes.Attribute;
 import event_classes.AttributeEvent;
 import listener_interfaces.AttributeListener;
-import storage_classes.Attribute;
 
 /** A baseline class for item objects */
 public class Item implements AttributeListener {
@@ -17,6 +17,7 @@ public class Item implements AttributeListener {
 	protected Attribute value; // Value of item
 	protected String desc; // Description of item
 	protected ImageIcon image;
+	protected ImageIcon invImage;
 
 	/** Constructor */
 	public Item(String name, double value, String desc) {
@@ -32,7 +33,8 @@ public class Item implements AttributeListener {
 	}
 
 	protected void setIcon() {
-		//TODO
+		this.image = new ImageIcon("res/Images/Items/" + this.name + ".png");
+		this.invImage = new ImageIcon("res/Images/Items/" + this.name + "-inv.png");
 	}
 
 	/* Getters */
@@ -51,6 +53,10 @@ public class Item implements AttributeListener {
 
 	public ImageIcon getImage() {
 		return this.image;
+	}
+	
+	public ImageIcon getInvImage() {
+		return this.invImage;
 	}
 
 	/**

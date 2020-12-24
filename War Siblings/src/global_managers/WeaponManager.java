@@ -9,12 +9,12 @@ import storage_classes.ArrayList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import abilities.Ability;
 import items.Weapon;
-import storage_classes.Ability;
 
 /** A class for Globally Storing and Managing all the Weapons */
 public class WeaponManager extends BaseGlobalManager {
-	private ArrayList<Weapon> weaponList;
+	protected ArrayList<Weapon> weaponList;
 
 	/** Constructor */
 	public WeaponManager() {
@@ -33,7 +33,7 @@ public class WeaponManager extends BaseGlobalManager {
 		temp = (JSONArray) o.get("Ability List");
 		ArrayList<Ability> temp3 = new ArrayList<Ability>();
 		for (Object ob : temp) {
-			temp3.add(new Ability((String) ob, "", null));
+			temp3.add(GlobalManager.abilities.getAbility((String) ob));
 		}
 
 		this.weaponList.add(new Weapon((String) o.get("Name"), (Long) o.get("Value"), (String) o.get("Description"),

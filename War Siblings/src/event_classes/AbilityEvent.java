@@ -4,8 +4,8 @@
  */
 package event_classes;
 
+import abilities.Ability;
 import notifier_interfaces.AbilityNotifier;
-import storage_classes.Ability;
 
 public class AbilityEvent extends InfoEvent {
 	public enum Task {

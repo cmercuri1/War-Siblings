@@ -10,7 +10,7 @@ import listener_interfaces.InventorySituationListener;
 
 public abstract class Effect_Inventory_Situation extends Effect_Triggered implements InventorySituationListener {
 	protected Task specificTask;
-	
+
 	public Effect_Inventory_Situation(Task match) {
 		this.specificTask = match;
 	}

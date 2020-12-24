@@ -9,13 +9,13 @@ import storage_classes.ArrayList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import abilities.Trait;
 import effect_classes.Effect;
-import storage_classes.Trait;
 
 /** A class for Globally Storing and Managing all the Temporary Injuries */
 public class TraitManager extends TwoListGlobalManager {
-	private ArrayList<Trait> traitList;
-	private ArrayList<Trait> specialTraitList;
+	protected ArrayList<Trait> traitList;
+	protected ArrayList<Trait> specialTraitList;
 
 	public TraitManager() {
 		super("res/game_data/TraitsData.json", null, "Traits", "res/game_data/SpecialTraitsData.json", null, "Traits");

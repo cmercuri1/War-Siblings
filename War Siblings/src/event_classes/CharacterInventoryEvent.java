@@ -4,20 +4,20 @@
  */
 package event_classes;
 
-import items.EquipItem;
+import items.Equipable;
 import notifier_interfaces.CharacterInventoryNotifier;
 
 public class CharacterInventoryEvent extends InfoEvent {
 	public enum Task {
 		CHANGE_BODY, REMOVE_BODY, CHANGE_HEAD, REMOVE_HEAD, CHANGE_LEFT, REMOVE_LEFT, CHANGE_RIGHT, REMOVE_RIGHT,
-		REMOVE_ALL
+		REMOVE_ALL, REMOVE_AMMO, REMOVE_ACCESSORY, CHANGE_ACCESSORY, CHANGE_AMMO
 	};
 
 	protected Task task;
-	protected EquipItem information;
+	protected Equipable information;
 	protected CharacterInventoryNotifier source;
 
-	public CharacterInventoryEvent(Task t, EquipItem info, CharacterInventoryNotifier src) {
+	public CharacterInventoryEvent(Task t, Equipable info, CharacterInventoryNotifier src) {
 		super(info, src);
 		this.information = info;
 		this.task = t;
@@ -27,7 +27,7 @@ public class CharacterInventoryEvent extends InfoEvent {
 		return this.task;
 	}
 
-	public EquipItem getInformation() {
+	public Equipable getInformation() {
 		return this.information;
 	}
 

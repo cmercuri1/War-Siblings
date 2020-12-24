@@ -1,0 +1,128 @@
+{
+	"Effects": [
+		{
+			"Effect Name": "ActionPoints_OnMovement",
+			"Effect Type": "Special"
+		},
+		{
+			"Effect Name": "Bleed",
+			"Effect Type": "Effect_Bleed"
+		},
+		{
+			"Effect Name": "Bleed_Time",
+			"Effect Type": "Effect_Triggered"
+		},
+		{
+			"Effect Name": "Damage_Melee",
+			"Effect Type": "Effect_Damage_SpecificItem"
+		},
+		{
+			"Effect Name": "Damage_Unarmed",
+			"Effect Type": "Effect_Damage_SpecificItem"
+		},
+		{
+			"Effect Name": "Disloyalty",
+			"Effect Type": "Special"
+		},
+		{
+			"Effect Name": "Fatality_Chance_Percent",
+			"Effect Type": "Special"
+		},
+		{
+			"Effect Name": "Fatigue_OnMovement",
+			"Effect Type": "Special"
+		},
+		{
+			"Effect Name": "FriendlyFireChance_Percent",
+			"Effect Type": "Battle"
+		},
+		{
+			"Effect Name": "Hitpoints_Over_Time",
+			"Effect Type": "Effect_DoT"
+		},
+		{
+			"Effect Name": "Initiative_Impatient",
+			"Effect Type": "Battle"
+		},
+		{
+			"Effect Name": "Loyal",
+			"Effect Type": "Special"
+		},
+		{
+			"Effect Name": "MeleeDefense_Retreat",
+			"Effect Type": "Effect_Triggered"
+		},
+		{
+			"Effect Name": "Morale_AllyDeath",
+			"Effect Type": "Effect_AllyDeathIgnore"
+		},
+		{
+			"Effect Name": "Morale_Deathwish",
+			"Effect Type": "Effect_Deathwish"
+		},
+		{
+			"Effect Name": "Morale_Determined",
+			"Effect Type": "Effect_Determined"
+		},
+		{
+			"Effect Name": "Morale_Insecure",
+			"Effect Type": "Effect_Insecure"
+		},
+		{
+			"Effect Name": "Morale_Irrational",
+			"Effect Type": "Effect_Irrational"
+		},
+		{
+			"Effect Name": "Morale_Optimist",
+			"Effect Type": "Effect_Morale_Roll"
+		},
+		{
+			"Effect Name": "Morale_Pessimist",
+			"Effect Type": "Effect_Morale_Roll"
+		},
+		{
+			"Effect Name": "Morale_Special",
+			"Effect Type": "Effect_Morale_Roll"
+		},
+		{
+			"Effect Name": "Morale_Starting",
+			"Effect Type": "Morale"
+		},
+		{
+			"Effect Name": "Poison",
+			"Effect Type": "Effect_Poison"
+		},
+		{
+			"Effect Name": "Poison_Time",
+			"Effect Type": "Battle"
+		},
+		{
+			"Effect Name": "RerollChance",
+			"Effect Type": "Battle"
+		},
+		{
+			"Effect Name": "Resolve_Beasts",
+			"Effect Type": "Effect_Resolve_vsEnemy"
+		},
+		{
+			"Effect Name": "Resolve_Greenskins",
+			"Effect Type": "Effect_Resolve_vsEnemy"
+		},
+		{
+			"Effect Name": "Resolve_Undead",
+			"Effect Type": "Effect_Resolve_vsEnemy"
+		},
+		{
+			"Effect Name": "Stage 2",
+			"Effect Type": "Effect_Stage_2"
+		},
+		{
+			"Effect Name": "Vision_Night",
+			"Effect Type": "Effect_Vision_TimeOfDay"
+		},
+		{
+			"Effect Name": "Wardog_Starting_Morale",
+			"Effect Type": "Special"
+		}
+	]
+}

@@ -36,7 +36,7 @@ public class Character
 	// Single Attribute manager handles attributes
 	protected AttributeManager am;
 	protected InventoryManager im;
-	protected AbilityManager abm;
+	protected AbilitiesManager abm;
 	protected EventManager em;
 
 	protected ArrayList<CharacterListener> characterListeners;
@@ -59,7 +59,7 @@ public class Character
 
 		this.im = new InventoryManager();
 		this.am = new AttributeManager();
-		this.abm = new AbilityManager();
+		this.abm = new AbilitiesManager();
 		this.em = new EventManager();
 
 		this.assignListeners();
@@ -68,6 +68,7 @@ public class Character
 	protected void assignListeners() {
 		this.im.addTraitListener(this.abm);
 		this.im.addInventorySituationListener(this.abm);
+		this.im.addAbilityListener(this.abm);
 		this.im.addModifierListener(this.am);
 
 		this.em.addBattleControlListener(this.abm);
@@ -78,10 +79,12 @@ public class Character
 		this.em.addTurnControlListener(this.abm);
 
 		this.abm.addModifierListener(this.am);
+		this.abm.addCharacterListener(this);
 
 		this.am.addMoraleChangeListener(this.abm);
 		this.am.addMoraleRollOutcomeListener(this.em);
 		this.am.addSkillPreferenceListener(this.im);
+		this.am.addCharacterListener(this);
 
 		this.addAbilityListener(abm);
 		this.addCharacterInventoryListener(im);
@@ -95,6 +98,8 @@ public class Character
 		this.am.setUpAttributes(bg);
 		this.abm.setUpAbilities(bg);
 		this.im.setUpInventory(bg);
+		
+		this.am.hitpoints.alterCurrent(100); // buff to HP in case of Tough increase
 
 		this.notifyCharacterListeners(new CharacterEvent(CharacterEvent.Task.FINISHED_CHARACTER, this, this));
 		this.made = true;
@@ -131,7 +136,7 @@ public class Character
 		return this.im;
 	}
 
-	public AbilityManager getAbm() {
+	public AbilitiesManager getAbm() {
 		return this.abm;
 	}
 
@@ -163,6 +168,9 @@ public class Character
 			}
 			break;
 		case FINISHED_CHARACTER:
+			break;
+		case UPDATED_CHARACTER:
+			this.notifyCharacterListeners(new CharacterEvent(CharacterEvent.Task.UPDATED_CHARACTER, this, this));
 			break;
 		}
 	}

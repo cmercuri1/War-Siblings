@@ -4,9 +4,9 @@
  */
 package effect_classes;
 
+import abilities.TemporaryInjury;
 import event_classes.TriggeredEffectEvent;
 import global_managers.GlobalManager;
-import storage_classes.TemporaryInjury;
 
 public class Effect_Stage_2 extends Effect_Battle_Triggered {
 	protected TemporaryInjury stage2;

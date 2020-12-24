@@ -4,8 +4,8 @@
  */
 package event_classes;
 
+import abilities.PermanentInjury;
 import notifier_interfaces.PermanentInjuryNotifier;
-import storage_classes.PermanentInjury;
 
 public class PermanentInjuryEvent extends InfoEvent {
 	public enum Task {
