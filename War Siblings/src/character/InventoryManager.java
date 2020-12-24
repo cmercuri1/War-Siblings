@@ -166,7 +166,7 @@ public class InventoryManager implements CharacterInventoryListener, SkillPrefer
 		}
 	}
 
-	public void swapItem(Target target, Equipable next) {
+	public Equipable swapItem(Target target, Equipable next) {
 		Equipable temp = null;
 		switch (target) {
 		case BODY:
@@ -214,6 +214,7 @@ public class InventoryManager implements CharacterInventoryListener, SkillPrefer
 		}
 
 		this.notifyInventoryListeners(new InventoryEvent(InventoryEvent.Task.RETURN_INVENTORY, (Item) temp, this));
+		return temp;
 	}
 
 	/**
@@ -266,13 +267,13 @@ public class InventoryManager implements CharacterInventoryListener, SkillPrefer
 		switch (target) {
 		case LEFT:
 			if (this.right != GlobalManager.equipment.DEFAULTRIGHT) {
-				temp2 = this.swap1Hander(Target.RIGHT, GlobalManager.equipment.DEFAULTRIGHT);
+				temp2 = (AbilityItem) this.swapItem(Target.RIGHT, GlobalManager.equipment.DEFAULTRIGHT);
 			}
 			temp = this.swap1Hander(Target.LEFT, next);
 			break;
 		case RIGHT:
 			if (this.left != GlobalManager.equipment.DEFAULTLEFT) {
-				temp2 = this.swap1Hander(Target.LEFT, GlobalManager.equipment.DEFAULTLEFT);
+				temp2 = (AbilityItem) this.swapItem(Target.LEFT, GlobalManager.equipment.DEFAULTLEFT);
 			}
 			temp = this.swap1Hander(Target.RIGHT, next);
 			break;

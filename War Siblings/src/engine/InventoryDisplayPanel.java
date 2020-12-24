@@ -10,8 +10,9 @@ import global_managers.GlobalManager;
 import items.Item;
 import net.miginfocom.swing.MigLayout;
 import java.awt.Color;
+import java.awt.datatransfer.Transferable;
 
-public class InventoryDisplayPanel extends JPanel {
+public class InventoryDisplayPanel extends JPanel implements ItemManager {
 
 	/**
 	 * 
@@ -61,5 +62,11 @@ public class InventoryDisplayPanel extends JPanel {
 		}
 
 		return temp;
+	}
+
+	@Override
+	public void exportItem(Transferable data) {
+		// TODO Auto-generated method stub
+		
 	}
 }

@@ -11,12 +11,13 @@ import notifier_interfaces.CharacterInventoryNotifier;
 import storage_classes.ArrayList;
 
 import java.awt.Color;
+import java.awt.Component;
 
 import character.InventoryManager;
 import event_classes.CharacterInventoryEvent;
 import event_classes.CharacterInventoryEvent.Task;
 import global_managers.GlobalManager;
-import items.ComboItem;
+import items.Equipable;
 import items.Item;
 import listener_interfaces.CharacterInventoryListener;
 
@@ -76,6 +77,11 @@ public class EquipmentPanel extends JPanel {
 		add(bag2, "cell 4 6 2 2, grow");
 
 	}
+	
+	@Override
+	public void remove(Component comp) {
+		System.out.println(comp);
+	}
 
 	/**
 	 * @param im
@@ -131,7 +137,7 @@ public class EquipmentPanel extends JPanel {
 		}
 
 		public void recieveItem(Item item) {
-			this.notifyCharacterInventoryListeners(new CharacterInventoryEvent(task, (ComboItem) item, this));
+			this.notifyCharacterInventoryListeners(new CharacterInventoryEvent(task, (Equipable) item, this));
 		}
 
 		@Override

@@ -15,6 +15,7 @@ import effect_classes.Effect_Triggered;
 import effect_classes.Modifier;
 import event_classes.AbilityEvent;
 import event_classes.BattleControlEvent;
+import event_classes.CharacterEvent;
 import event_classes.InventorySituationEvent;
 import event_classes.ModifierEvent;
 import event_classes.MoraleChangeEvent;
@@ -29,6 +30,7 @@ import global_generators.BackgroundGenerator;
 import global_managers.GlobalManager;
 import listener_interfaces.AbilityListener;
 import listener_interfaces.BattleControlListener;
+import listener_interfaces.CharacterListener;
 import listener_interfaces.InventorySituationListener;
 import listener_interfaces.ModifierListener;
 import listener_interfaces.MoraleChangeListener;
@@ -39,6 +41,7 @@ import listener_interfaces.TraitListener;
 import listener_interfaces.TriggeredEffectListener;
 import listener_interfaces.TurnControlListener;
 import notifier_interfaces.BattleControlNotifier;
+import notifier_interfaces.CharacterNotifier;
 import notifier_interfaces.InventorySituationNotifier;
 import notifier_interfaces.ModifierNotifier;
 import notifier_interfaces.MoraleChangeNotifier;
@@ -55,7 +58,7 @@ import storage_classes.MoraleState;
 public class AbilitiesManager implements AbilityListener, TraitListener, PermanentInjuryListener, TemporaryInjuryListener,
 		TriggeredEffectListener, BattleControlListener, TurnControlListener, RoundControlListener, MoraleChangeListener,
 		InventorySituationListener, MultiNotifier, ModifierNotifier, BattleControlNotifier, TurnControlNotifier,
-		RoundControlNotifier, MoraleChangeNotifier, InventorySituationNotifier {
+		RoundControlNotifier, MoraleChangeNotifier, InventorySituationNotifier, CharacterNotifier {
 
 	protected ArrayList<Ability> characterAbilities;
 	protected ArrayList<Trait> characterTraits;
@@ -69,6 +72,7 @@ public class AbilitiesManager implements AbilityListener, TraitListener, Permane
 	protected ArrayList<TurnControlListener> turnControlListeners;
 	protected ArrayList<MoraleChangeListener> moraleChangeListeners;
 	protected ArrayList<InventorySituationListener> inventorySituationListeners;
+	protected ArrayList<CharacterListener> characterListeners;
 
 	public AbilitiesManager() {
 		this.characterAbilities = new ArrayList<Ability>();
@@ -87,6 +91,7 @@ public class AbilitiesManager implements AbilityListener, TraitListener, Permane
 		this.turnControlListeners = new ArrayList<TurnControlListener>();
 		this.moraleChangeListeners = new ArrayList<MoraleChangeListener>();
 		this.inventorySituationListeners = new ArrayList<InventorySituationListener>();
+		this.characterListeners = new ArrayList<CharacterListener>();
 	}
 
 	public void setUpAbilities(BackgroundGenerator background) {
@@ -286,6 +291,7 @@ public class AbilitiesManager implements AbilityListener, TraitListener, Permane
 			this.healTemporaryInjuries();
 			break;
 		}
+		this.notifyCharacterListeners(new CharacterEvent(CharacterEvent.Task.UPDATED_CHARACTER, null, this));
 	}
 
 	@Override
@@ -301,6 +307,7 @@ public class AbilitiesManager implements AbilityListener, TraitListener, Permane
 			this.healPermanentInjuries();
 			break;
 		}
+		this.notifyCharacterListeners(new CharacterEvent(CharacterEvent.Task.UPDATED_CHARACTER, null, this));
 	}
 
 	@Override
@@ -318,6 +325,7 @@ public class AbilitiesManager implements AbilityListener, TraitListener, Permane
 			}
 			break;
 		}
+		this.notifyCharacterListeners(new CharacterEvent(CharacterEvent.Task.UPDATED_CHARACTER, null, this));
 	}
 
 	@Override
@@ -335,6 +343,7 @@ public class AbilitiesManager implements AbilityListener, TraitListener, Permane
 			}
 			break;
 		}
+		this.notifyCharacterListeners(new CharacterEvent(CharacterEvent.Task.UPDATED_CHARACTER, null, this));
 	}
 
 	@Override
@@ -512,5 +521,25 @@ public class AbilitiesManager implements AbilityListener, TraitListener, Permane
 	@Override
 	public void notifyInventorySituationListener(InventorySituationListener i, InventorySituationEvent e) {
 		this.inventorySituationListeners.get(i).onInventorySituationEvent(e);
+	}
+
+	@Override
+	public void addCharacterListener(CharacterListener c) {
+		this.characterListeners.add(c);
+	}
+
+	@Override
+	public void removeCharacterListener(CharacterListener c) {
+		this.characterListeners.remove(c);
+	}
+
+	@Override
+	public void notifyCharacterListeners(CharacterEvent c) {
+		this.characterListeners.forEach(l -> l.onCharacterEvent(c));
+	}
+
+	@Override
+	public void notifyCharacterListener(CharacterListener c, CharacterEvent e) {
+		this.characterListeners.get(c).onCharacterEvent(e);
 	}
 }

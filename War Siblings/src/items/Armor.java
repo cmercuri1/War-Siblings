@@ -11,7 +11,7 @@ import javax.swing.ImageIcon;
  * protective Armor
  */
 public class Armor extends ComboItem {
-	String type; // Type of armor (cloth, chain, plate)
+	protected String type; // Type of armor (cloth, chain, plate)
 
 	/** Constructor */
 	public Armor(String name, double value, String desc, double dura, double fatRed, String type) {

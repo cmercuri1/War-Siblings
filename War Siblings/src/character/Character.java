@@ -79,6 +79,7 @@ public class Character
 		this.em.addTurnControlListener(this.abm);
 
 		this.abm.addModifierListener(this.am);
+		this.abm.addCharacterListener(this);
 
 		this.am.addMoraleChangeListener(this.abm);
 		this.am.addMoraleRollOutcomeListener(this.em);

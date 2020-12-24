@@ -4,6 +4,7 @@
  */
 package engine;
 
+import java.awt.Component;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
 import java.awt.datatransfer.UnsupportedFlavorException;
@@ -67,6 +68,20 @@ public class ItemHandler extends TransferHandler {
 	}
 
 	protected void exportDone(JComponent c, Transferable data, int action) {
+		if (action == MOVE) {
+			try {
+				/*
+				 * if (c instanceof ItemManager) { ((ItemManager) c).exportItem(data); }
+				 */
+				System.out.println(c.toString() + ":" + data.getTransferData(serialItemFlavour));
+			} catch (UnsupportedFlavorException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 	}
 
 	private boolean hasSerialItemFlavor(DataFlavor[] flavors) {
@@ -102,7 +117,7 @@ public class ItemHandler extends TransferHandler {
 	}
 
 	public int getSourceActions(JComponent c) {
-		return COPY;
+		return COPY_OR_MOVE;
 	}
 
 	public class ItemTransferable implements Transferable {
